@@ -1,0 +1,26 @@
+{
+  "name": "trakit-ts-commands",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trakitwireless/trakit-ts-commands.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "AGPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/trakitwireless/trakit-ts-commands/issues"
+  },
+  "homepage": "https://github.com/trakitwireless/trakit-ts-commands#readme",
+  "description": "",
+  "devDependencies": {
+    "rollup": "^4.35.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "rollup-plugin-typescript2": "^0.36.0"
+  }
+}
