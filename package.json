@@ -19,8 +19,8 @@
   "homepage": "https://github.com/trakitwireless/trakit-ts-commands#readme",
   "description": "",
   "devDependencies": {
-    "rollup": "^4.35.0",
     "@rollup/plugin-terser": "^0.4.4",
+    "rollup": "^4.35.0",
     "rollup-plugin-typescript2": "^0.36.0"
   }
 }
