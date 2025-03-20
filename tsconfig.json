@@ -11,6 +11,6 @@
         "strictNullChecks": true,
     },
     "references": [
-        {"path": "../objects" }
+        {"path": "../trakit-ts-objects" }
     ]
 }
