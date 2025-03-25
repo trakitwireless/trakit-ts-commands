@@ -1,8 +1,8 @@
 {
-  "name": "trakit-ts-commands",
+  "name": "@trakit/commands",
   "type": "module",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "0.0.1",
+  "main": "commands.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,8 +10,10 @@
     "type": "git",
     "url": "git+https://github.com/trakitwireless/trakit-ts-commands.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "trakit"
+  ],
+  "author": "Alex Lein",
   "license": "AGPL-3.0-only",
   "bugs": {
     "url": "https://github.com/trakitwireless/trakit-ts-commands/issues"
