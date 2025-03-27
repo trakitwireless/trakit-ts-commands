@@ -6,8 +6,18 @@ https://github.com/trakitwireless
 
 ### Prerequisites
 
-The `Trakit.Objects` package is required as most `Response` classes will contain an object from that library.
-We rely on the `Newtonsoft.Json` package for serialization between your application and the Trak-iT API services.
+The `@trakit/objects` package is required as most `Response` classes will contain an object defined in that library.  
+
+### Building
+
+In order to build this project, you need to install the RollupJS, and plugins for TypeScript and Minifying.
+```
+npm i rollup rollup-plugin-typescript2 @rollup/plugin-terser
+```
+After those have been installed, build the project normally.
+```
+rollup --config commands/rollup.config.js
+```
 
 ## Questions and Feedback
 
