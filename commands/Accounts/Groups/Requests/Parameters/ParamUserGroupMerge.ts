@@ -1,28 +1,27 @@
-﻿
+import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
-	/// <summary>
-	/// Parameters used to create or update an <see cref="UserGroup"/>.
-	/// </summary>
-	export class ParamUserGroupMerge extends ParamMergeSubscribable {
-		/// <summary>
-		/// The unique identifier of the <see cref="UserGroup"/> you want to update.
-		/// </summary>
-		public id?: ulong;
-		/// <summary>
-		/// The company to which this <see cref="UserGroup"/> belongs.
-		/// After creation, this value is read-only.
-		/// </summary>
-		public company?: ulong;
-		/// <summary>
-		/// Name for the <see cref="UserGroup"/>.
-		/// </summary>
-		public name: string;
-		/// <summary>
-		/// Notes for the <see cref="UserGroup"/>.
-		/// </summary>
-		public notes: string;
-		/// <summary>
-		/// List of permissions assigned to members of this <see cref="UserGroup"/>.
-		/// </summary>
-		public permissions: ParamPermission[];
-	}
+/**
+ * Parameters used to create or update an <see cref="UserGroup"/>.
+ **/
+export class ParamUserGroupMerge extends ParamMergeSubscribable {
+	/**
+	 * The unique identifier of the <see cref="UserGroup"/> you want to update.
+	 **/
+	id: ulong | undefined;
+	/**
+	 * The company to which this <see cref="UserGroup"/> belongs.
+	 * After creation, this value is read-only.
+	 **/
+	company: ulong | undefined;
+	/**
+	 * Name for the <see cref="UserGroup"/>.
+	 **/
+	name: string;
+	/**
+	 * Notes for the <see cref="UserGroup"/>.
+	 **/
+	notes: string;
+	/**
+	 * List of permissions assigned to members of this <see cref="UserGroup"/>.
+	 **/
+	permissions: ParamPermission[];}
