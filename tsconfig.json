@@ -10,8 +10,12 @@
         "noImplicitOverride": true,
         "noImplicitUseStrict": false,
         "strictNullChecks": true,
+        "baseUrl": ".",
+        "paths": {
+            "@objects/*": ["../trakit-ts-objects/objects/*"],
+        }
     },
     "references": [
-        {"path": "../trakit-ts-objects" }
+        { "path": "../trakit-ts-objects" }
     ]
 }
