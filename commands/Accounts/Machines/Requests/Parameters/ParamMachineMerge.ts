@@ -1,105 +1,110 @@
+import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
+/**
+ * Parameters used to create or update an <see cref="Machine"/>.
+ **/
+export class ParamMachineMerge extends ParamMergeSubscribable {
+	/**
+	 * The unique identifier of the <see cref="Machine"/> you want to update.
+	 * <override required="update" />
+	 **/
+	key: string;
+	/**
+	 * A flag to either remove, or generate a new <see cref="Machine.secret"/>.
+	 **/
+	secret: boolean | undefined;
+	/**
+	 * The company to which this <see cref="Machine"/> belongs.
+	 * After creation, this value is read-only.
+	 * <override required="create" />
+	 **/
+	company: ulong | undefined;
+	/**
+	 * Human friendly name for this <see cref="Machine"/>.
+	 * <override max-length="100" />
+	 **/
+	nickname: string;
+	/**
+	 * Notes about this <see cref="Machine"/>.
+	 * <override max-length="8000" />
+	 **/
+	notes: string;
+	/**
+	 * Indicates whether system access is disable.
+	 **/
+	enabled: boolean | undefined;
+	/**
+	 * An optional timestamp that restricts this <see cref="Machine"/> from being used before the given date.
+	 **/
+	notBefore: Date | undefined;
+	/**
+	 * An optional timestamp that restricts this <see cref="Machine"/> from being used after the given date.
+	 **/
+	notAfter: Date | undefined;
 
-	/// <summary>
-	/// Parameters used to create or update an <see cref="Machine"/>.
-	/// </summary>
-	export class ParamMachineMerge extends ParamMergeSubscribable {
-		/// <summary>
-		/// The unique identifier of the <see cref="Machine"/> you want to update.
-		/// </summary>
-		/// <override required="update" />
-		public key: string;
-		/// <summary>
-		/// A flag to either remove, or generate a new <see cref="Machine.secret"/>.
-		/// </summary>
-		public secret?: boolean;
-		/// <summary>
-		/// The company to which this <see cref="Machine"/> belongs.
-		/// After creation, this value is read-only.
-		/// </summary>
-		/// <override required="create" />
-		public company?: ulong;
-		/// <summary>
-		/// Human friendly name for this <see cref="Machine"/>.
-		/// </summary>
-		/// <override max-length="100" />
-		public nickname: string;
-		/// <summary>
-		/// Notes about this <see cref="Machine"/>.
-		/// </summary>
-		/// <override max-length="8000" />
-		public notes: string;
-		/// <summary>
-		/// Indicates whether system access is disable.
-		/// </summary>
-		public enabled?: boolean;
-		/// <summary>
-		/// An optional timestamp that restricts this <see cref="Machine"/> from being used before the given date.
-		/// </summary>
-		public notBefore?: Date;
-		/// <summary>
-		/// An optional timestamp that restricts this <see cref="Machine"/> from being used after the given date.
-		/// </summary>
-		public notAfter?: Date;
+	/**
+	 * The <see cref="Machine"/>'s local timezone.
+	 * <seealso cref="Timezone.code" />
+	 * <override type="System.String" format="codified" />
+	 **/
+	timezone: TimeZoneInfo;
+	/**
+	 * Preferred region/language for the UI and notifications.
+	 * Valid formats use &lt;ISO 639-1&gt;&lt;dash&gt;&lt;ISO 3166-2&gt; such as "fr-CA" or "en-US".
+	 * <override min-length="2" max-length="5" />
+	 **/
+	language: string;
+	/**
+	 * The format strings defining the preferred way to display ambiguous values.
+	 * <override keys="codified" max-values-length="20" />
+	 **/
+	formats: Map<string, string>;
+	/**
+	 * Preferred way of displaying ambiguous numbers in the context of measurements.
+	 * <override keys="codified" />
+	 **/
+	measurements: Map<string, SystemsOfUnits?>;
+	/**
+	 * Additional options which do not fit in with the formats or measurements preferences.
+	 * <override keys="codified" max-values-length="20" />
+	 **/
+	options: Map<string, string>;
 
-		/// <summary>
-		/// The <see cref="Machine"/>'s local timezone.
-		/// </summary>
-		/// <seealso cref="Timezone.code" />
-		/// <override type="System.String" format="codified" />
-		public timezone: TimeZoneInfo;
-		/// <summary>
-		/// Preferred region/language for the UI and notifications.
-		/// Valid formats use &lt;ISO 639-1&gt;&lt;dash&gt;&lt;ISO 3166-2&gt; such as "fr-CA" or "en-US".
-		/// </summary>
-		/// <override min-length="2" max-length="5" />
-		public language: string;
-		/// <summary>
-		/// The format strings defining the preferred way to display ambiguous values.
-		/// </summary>
-		/// <override keys="codified" max-values-length="20" />
-		public formats: Map<string, string>;
-		/// <summary>
-		/// Preferred way of displaying ambiguous numbers in the context of measurements.
-		/// </summary>
-		/// <override keys="codified" />
-		public measurements: Map<string, SystemsOfUnits?>;
-		/// <summary>
-		/// Additional options which do not fit in with the formats or measurements preferences.
-		/// </summary>
-		/// <override keys="codified" max-values-length="20" />
-		public options: Map<string, string>;
-
-		/// <summary>
-		/// A list of <see cref="MachineGroup"/> to which this <see cref="Machine"/> belongs.
-		/// </summary>
-		/// <override>
-		/// <values>
-		/// <seealso cref="MachineGroup.id" />
-		/// </values>
-		/// </override>
-		public groups: ulong[];
-		/// <summary>
-		/// Individual permission rules which override the <see cref="MachineGroup"/> rules.
-		/// </summary>
-		public permissions: ParamPermission[];
-		/// <summary>
-		/// List of Fleet Freedom service URIs that this <see cref="Machine"/> is permitted to access.
-		/// </summary>
-		/// <override>
-		/// <values type="System.String" max-length="254" format="url" />
-		/// </override>
-		public services: Uri[];
-		/// <summary>
-		/// Optional list of your managed domains from which this <see cref="Machine"/> can be used.
-		/// </summary>
-		/// <override>
-		/// <values type="System.String" max-length="254" format="url" />
-		/// </override>
-		public referrers: Uri[];
-		/// <summary>
-		/// Restrict <see cref="Machine"/> access to only the provided IPv4 ranges (		/// <summary>
-		/// Indicates whether completely insecure/unrestricted system access is allowed.
-		/// </summary>
-		public insecure?: boolean;
-	}
+	/**
+	 * A list of <see cref="MachineGroup"/> to which this <see cref="Machine"/> belongs.
+	 * <override>
+	 * <values>
+	 * <seealso cref="MachineGroup.id" />
+	 * </values>
+	 * </override>
+	 **/
+	groups: ulong[];
+	/**
+	 * Individual permission rules which override the <see cref="MachineGroup"/> rules.
+	 **/
+	permissions: ParamPermission[];
+	/**
+	 * List of Fleet Freedom service URIs that this <see cref="Machine"/> is permitted to access.
+	 * <override>
+	 * <values type="System.String" max-length="254" format="url" />
+	 * </override>
+	 **/
+	services: Uri[];
+	/**
+	 * Optional list of your managed domains from which this <see cref="Machine"/> can be used.
+	 * <override>
+	 * <values type="System.String" max-length="254" format="url" />
+	 * </override>
+	 **/
+	referrers: Uri[];
+	/**
+	 * Restrict <see cref="Machine"/> access to only the provided IPv4 ranges (using CIDR slash-notation).
+	 * <override>
+	 * <values max-length="19" format="ipv4" />
+	 * </override>
+	 **/
+	ipRanges: string[];
+	/**
+	 * Indicates whether completely insecure/unrestricted system access is allowed.
+	 **/
+	insecure: boolean | undefined;}

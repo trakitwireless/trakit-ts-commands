@@ -1,0 +1,11 @@
+import { PayUser } from "./PayUser";
+import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
+
+/**
+ * Gets details of the specified <see cref="UserGeneral"/>.
+ **/
+export class PayUserGeneralGet extends PayUser implements IPayDeletable {
+	/**
+	 * When true, the command will also return a deleted <see cref="UserGeneral"/> (if it exists).
+	 **/
+	includeDeleted: boolean;}

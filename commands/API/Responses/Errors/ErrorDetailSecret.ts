@@ -1,45 +1,51 @@
+import { ErrorDetail } from "./ErrorDetail";
 
+/**
+ * Details about why the request failed an authentication process when a <see cref="Machine.secret"/> is used.
+ * <remarks>
+ * Only available for <see cref="Machine"/> accounts using the beta services.
+ * </remarks>
+ **/
+export class ErrorDetailSecret extends ErrorDetail {
+	/**
+	 * A listing of all the request headres as given.
+	 **/
+	headers: Map<string, string[]>;
+	/**
+	 * The time of the server from when the HTTP request was accepted.
+	 **/
+	accepted: Date;
 
-	/// <summary>
-	/// Details about why the request failed an authentication process when a <see cref="Machine.secret"/> is used.
-	/// </summary>
-	/// <remarks>
-	/// Only available for <see cref="Machine"/> accounts 		/// <summary>
-		/// The time of the server from when the HTTP request was accepted.
-		/// </summary>
-		public accepted: Date;
+	/**
+	 * The unique identifier given for the <see cref="Machine"/> to access the system.
+	 **/
+	key: string;
+	/**
+	 * The signature calculated for this request based on all the inputs.
+	 **/
+	signature: string;
+	/**
+	 * The parsed Date header timestamp.
+	 **/
+	date: string;
+	/**
+	 * The parsed <see cref="HttpMethod"/> (should be upper-case).
+	 **/
+	method: string;
+	/**
+	 * Sanitized absolute URL of the request including query-string and fragment, but with any session or api-keys stripped out.
+	 **/
+	uri: string;
+	/**
+	 * The length of the content body (or the Content-Length header value).
+	 **/
+	length: long | undefined;
 
-		/// <summary>
-		/// The unique identifier given for the <see cref="Machine"/> to access the system.
-		/// </summary>
-		public key: string;
-		/// <summary>
-		/// The signature calculated for this request based on all the inputs.
-		/// </summary>
-		public signature: string;
-		/// <summary>
-		/// The parsed Date header timestamp.
-		/// </summary>
-		public date: string;
-		/// <summary>
-		/// The parsed <see cref="HttpMethod"/> (should be upper-case).
-		/// </summary>
-		public method: string;
-		/// <summary>
-		/// Sanitized absolute URL of the request including query-string and fragment, but with any session or api-keys stripped out.
-		/// </summary>
-		public uri: string;
-		/// <summary>
-		/// The length of the content body (or the Content-Length header value).
-		/// </summary>
-		public length?: long;
-
-		/// <summary>
-		/// The input for creating a signature.
-		/// </summary>
-		public input: string;
-		/// <summary>
-		/// The signature expected.
-		/// </summary>
-		public output: string;
-	}
+	/**
+	 * The input for creating a signature.
+	 **/
+	input: string;
+	/**
+	 * The signature expected.
+	 **/
+	output: string;}

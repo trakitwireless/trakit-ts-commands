@@ -1,6 +1,6 @@
-﻿
-	/// <summary>
-	/// These details contain unique identifiers that caused the failure.
-	/// </summary>
-	export class ErrorDetailBadIds extends ErrorDetailBadBase<ulong> {
-	}
+import { ErrorDetailBadBase } from "./ErrorDetailBadBase";
+
+/**
+ * These details contain unique identifiers that caused the failure.
+ **/
+export class ErrorDetailBadIds extends ErrorDetailBadBase<ulong> {}

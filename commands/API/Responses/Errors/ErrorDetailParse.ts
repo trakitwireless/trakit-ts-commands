@@ -1,18 +1,18 @@
-﻿
-	/// <summary>
-	/// These are the details of an exception while trying to parse the JSON input.
-	/// </summary>
-	export class ErrorDetailParse extends ErrorDetail {
-		/// <summary>
-		/// The line number in the input string.
-		/// </summary>
-		public line: int;
-		/// <summary>
-		/// The character on which the failure occurred.
-		/// </summary>
-		public column: int;
-		/// <summary>
-		/// The last sucessfully parsed object.
-		/// </summary>
-		public after: string;
-	}
+import { ErrorDetail } from "./ErrorDetail";
+
+/**
+ * These are the details of an exception while trying to parse the JSON input.
+ **/
+export class ErrorDetailParse extends ErrorDetail {
+	/**
+	 * The line number in the input string.
+	 **/
+	line: int;
+	/**
+	 * The character on which the failure occurred.
+	 **/
+	column: int;
+	/**
+	 * The last sucessfully parsed object.
+	 **/
+	after: string;}

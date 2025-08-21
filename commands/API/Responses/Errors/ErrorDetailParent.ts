@@ -1,14 +1,14 @@
-﻿
-	/// <summary>
-	/// Details for how a circular company tree would have been created.
-	/// </summary>
-	export class ErrorDetailParent extends ErrorDetail {
-		/// <summary>
-		/// The <see cref="Company.parent"/> specified in the parameters.
-		/// </summary>
-		public parent: ulong;
-		/// <summary>
-		/// ID of the child <see cref="Company"/> that would cause a circular reference.
-		/// </summary>
-		public descendant: ulong;
-	}
+import { ErrorDetail } from "./ErrorDetail";
+
+/**
+ * Details for how a circular company tree would have been created.
+ **/
+export class ErrorDetailParent extends ErrorDetail {
+	/**
+	 * The <see cref="Company.parent"/> specified in the parameters.
+	 **/
+	parent: ulong;
+	/**
+	 * ID of the child <see cref="Company"/> that would cause a circular reference.
+	 **/
+	descendant: ulong;}
