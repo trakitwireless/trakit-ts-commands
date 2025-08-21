@@ -1,11 +1,11 @@
 
 /**
- * Contains a <see cref="Company.id"/> and an array of <see cref="SubscriptionType"/>s for each <see cref="Company"/>.
+ * Contains a @link {Company.id} and an array of @link {SubscriptionType}s for each @link {Company}.
  **/
 export class Subscription {
 	/**
 	 * The company relevant to the subscription types you want to receive.
-	 * <seealso cref="Company.id"/>
+	 * @see {@link Company.id}
 	 **/
 	company: ulong;
 	/**

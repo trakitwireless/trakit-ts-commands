@@ -1,10 +1,10 @@
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
- * A container for the <see cref="userAdvanced"/>.
+ * A container for the @link {userAdvanced}.
  **/
 export class RepUserAdvancedGet extends Reply {
 	/**
-	 * The requested <see cref="UserAdvanced"/>.
+	 * The requested @link {UserAdvanced}.
 	 **/
 	userAdvanced: UserAdvanced;}

@@ -1,6 +1,6 @@
 import { PayDocument } from "./PayDocument";
 
 /**
- * Deletes an existing <see cref="Document"/>.
+ * Deletes an existing @link {Document}.
  **/
 export class PayDocumentDelete extends PayDocument {}

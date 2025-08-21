@@ -1,7 +1,7 @@
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
- * A container for the <see cref="reportTemplate"/>.
+ * A container for the @link {reportTemplate}.
  **/
 export class RepReportTemplateMerge extends Reply {
 	/**

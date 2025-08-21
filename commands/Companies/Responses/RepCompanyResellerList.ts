@@ -3,40 +3,40 @@ import { RepCompanyResellerList } from "./RepCompanyResellerList";
 import { RepCompanyResellerListByCompany } from "./RepCompanyResellerList";
 
 /**
- * A container for the requested <see cref="companyResellers"/>.
+ * A container for the requested @link {companyResellers}.
  **/
 export abstract class RepCompanyResellerList extends Reply {
 	/**
-	 * The list of requested <see cref="CompanyReseller"/>s.
+	 * The list of requested @link {CompanyReseller}s.
 	 **/
 	companyResellers: CompanyReseller[];
 	}
 
 /**
- * A container owner <see cref="Company"/> of the collection.
+ * A container owner @link {Company} of the collection.
  **/
 export class RepCompanyResellerListByCompany extends RepCompanyResellerList {
 	/**
-	 * Identifier of the <see cref="Company"/> to which this collection belongs.
+	 * Identifier of the @link {Company} to which this collection belongs.
 	 **/
 	company: ContentId;
 	}
 /**
- * A container owner <see cref="Company"/> of the collection.
+ * A container owner @link {Company} of the collection.
  **/
 export class RepCompanyResellerListByCompanyAndLabels extends RepCompanyResellerListByCompany {
 	/**
 	 * The labels given as input.
-	 * <seealso cref="CompanyReseller.labels"/>
+	 * @see {@link CompanyReseller.labels}
 	 **/
 	labels: string[];
 	}
 /**
- * A container owner <see cref="Company"/> of the collection.
+ * A container owner @link {Company} of the collection.
  **/
 export class RepCompanyResellerListByCompanyAndRefPairs extends RepCompanyResellerListByCompany {
 	/**
 	 * The reference string given as input.
-	 * <seealso cref="CompanyReseller.references"/>
+	 * @see {@link CompanyReseller.references}
 	 **/
 	references: Map<string, string>;}

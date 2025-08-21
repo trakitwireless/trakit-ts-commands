@@ -7,11 +7,11 @@ import { RepDispatchTaskListByCompany } from "./RepDispatchTaskList";
 import { IRepListByReferences } from "../../../API/Responses/IRepListByReferences";
 
 /**
- * A container for the requested <see cref="dispatchTasks"/>.
+ * A container for the requested @link {dispatchTasks}.
  **/
 export abstract class RepDispatchTaskList extends Reply {
 	/**
-	 * The list of requested <see cref="DispatchTask"/>s.
+	 * The list of requested @link {DispatchTask}s.
 	 **/
 	dispatchTasks: DispatchTask[];
 	}
@@ -21,7 +21,7 @@ export abstract class RepDispatchTaskList extends Reply {
  **/
 export class RepDispatchTaskListByAsset extends RepDispatchTaskList implements IRepListByAsset {
 	/**
-	 * Identifier of the <see cref="Company"/> to which this collection belongs.
+	 * Identifier of the @link {Company} to which this collection belongs.
 	 **/
 	asset: ContentId;
 	}
@@ -31,7 +31,7 @@ export class RepDispatchTaskListByAsset extends RepDispatchTaskList implements I
 export class RepDispatchTaskListByAssetAndRefPairs extends RepDispatchTaskListByAsset {
 	/**
 	 * Case-insensitive reference pairs used to match jobs.
-	 * <seealso cref="DispatchTask.references"/>
+	 * @see {@link DispatchTask.references}
 	 **/
 	references: Map<string, string>;
 	}
@@ -41,7 +41,7 @@ export class RepDispatchTaskListByAssetAndRefPairs extends RepDispatchTaskListBy
  **/
 export class RepDispatchTaskListByCompany extends RepDispatchTaskList implements IRepListByCompany {
 	/**
-	 * Identifier of the <see cref="Company"/> to which this collection belongs.
+	 * Identifier of the @link {Company} to which this collection belongs.
 	 **/
 	company: ContentId;
 	}
@@ -51,6 +51,6 @@ export class RepDispatchTaskListByCompany extends RepDispatchTaskList implements
 export class RepDispatchTaskListByCompanyAndRefPairs extends RepDispatchTaskListByCompany implements IRepListByReferences {
 	/**
 	 * Case-insensitive reference pairs used to match jobs.
-	 * <seealso cref="DispatchTask.references"/>
+	 * @see {@link DispatchTask.references}
 	 **/
 	references: Map<string, string>;}

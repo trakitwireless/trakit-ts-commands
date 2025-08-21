@@ -1,7 +1,7 @@
 import { PayPlace } from "./PayPlace";
 
 /**
- * Deletes an existing <see cref="Place"/>.
+ * Deletes an existing @link {Place}.
 
  **/
 export class PayPlaceDelete extends PayPlace {}

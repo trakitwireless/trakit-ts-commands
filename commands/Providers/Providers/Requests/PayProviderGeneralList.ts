@@ -8,46 +8,46 @@ import { IPayListByLabels } from "../../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../../API/Requests/IPayListByReferences";
 
 /**
- * Gets a list of <see cref="ProviderGeneral"/>s.
+ * Gets a list of @link {ProviderGeneral}s.
  **/
 export abstract class PayProviderGeneralList extends Payload implements IPayDeletable, IPaySuspendable {
 	/**
-	 * When true, the command will also return suspended <see cref="ProviderGeneral"/>s.
+	 * When true, the command will also return suspended @link {ProviderGeneral}s.
 	 **/
 	includeSuspended: boolean;
 	/**
-	 * When true, the command will also return a deleted <see cref="ProviderGeneral"/> (if it exists).
+	 * When true, the command will also return a deleted @link {ProviderGeneral} (if it exists).
 	 **/
 	includeDeleted: boolean;
 	}
 
 /**
- * Gets the list of <see cref="ProviderGeneral"/>s for the specified <see cref="Company"/>.
+ * Gets the list of @link {ProviderGeneral}s for the specified @link {Company}.
  **/
 export class PayProviderGeneralListByCompany extends PayProviderGeneralList implements IPayListByCompany {
 	/**
-	 * Identifier of the <see cref="Company"/> to which this collection belongs.
+	 * Identifier of the @link {Company} to which this collection belongs.
 	 **/
 	company: ParamId;
 	}
 /**
- * Gets the list of <see cref="ProviderGeneral"/>s for the specified <see cref="Company"/> only if the <see cref="ProviderGeneralGeneral.labels"/> matches all of the given <see cref="Parameters.labels"/>.
+ * Gets the list of @link {ProviderGeneral}s for the specified @link {Company} only if the @link {ProviderGeneralGeneral.labels} matches all of the given @link {Parameters.labels}.
  **/
 export class PayProviderGeneralListByCompanyAndLabels extends PayProviderGeneralListByCompany implements IPayListByLabels {
 	/**
 	 * The parsed labels given as input.
-	 * <seealso cref="ProviderGeneral.labels"/>
+	 * @see {@link ProviderGeneral.labels}
 	 **/
 	labels: string[];
 	}
 /**
- * Gets the list of <see cref="ProviderGeneral"/>s for the specified <see cref="Company"/> only if one of the specified <see cref="ProviderGeneralGeneral.references"/> fields match.
- * If no references are specified, it will match any <see cref="ProviderGeneral"/> with no references.
- * If a reference value is null, it will match any <see cref="ProviderGeneral"/> without that reference key.
+ * Gets the list of @link {ProviderGeneral}s for the specified @link {Company} only if one of the specified @link {ProviderGeneralGeneral.references} fields match.
+ * If no references are specified, it will match any @link {ProviderGeneral} with no references.
+ * If a reference value is null, it will match any @link {ProviderGeneral} without that reference key.
  **/
 export class PayProviderGeneralListByCompanyAndRefPairs extends PayProviderGeneralListByCompany implements IPayListByReferences {
 	/**
 	 * The parsed references given as input.
-	 * <seealso cref="ProviderGeneralGeneral.references"/>
+	 * @see {@link ProviderGeneralGeneral.references}
 	 **/
 	references: Map<string, string>;}

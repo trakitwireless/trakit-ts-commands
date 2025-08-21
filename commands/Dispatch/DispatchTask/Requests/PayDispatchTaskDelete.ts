@@ -1,6 +1,6 @@
 import { PayDispatchTask } from "./PayDispatchTask";
 
 /**
- * Deletes an existing <see cref="DispatchTask"/>.
+ * Deletes an existing @link {DispatchTask}.
  **/
 export class PayDispatchTaskDelete extends PayDispatchTask {}

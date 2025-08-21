@@ -1,7 +1,7 @@
 import { Reply } from "../../API/Responses/Reply";
 
 /**
- * A container for the <see cref="place"/>.
+ * A container for the @link {place}.
 
  **/
 export class RepPlaceMerge extends Reply {

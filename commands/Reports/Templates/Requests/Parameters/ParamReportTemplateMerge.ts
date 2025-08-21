@@ -1,25 +1,25 @@
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
- * Parameters used to create or update an <see cref="ReportTemplate"/>.
+ * Parameters used to create or update an @link {ReportTemplate}.
  **/
 export class ParamReportTemplateMerge extends ParamMergeSubscribable {
 	/**
-	 * The unique identifier of the <see cref="ReportTemplate"/> you want to update.
-	 * Leave this as <c>null</c> when creating a new <see cref="ReportTemplate"/>.
+	 * The unique identifier of the @link {ReportTemplate} you want to update.
+	 * Leave this as <c>null</c> when creating a new @link {ReportTemplate}.
 	 **/
 	id: ulong | undefined;
 	/**
-	 * The <see cref="Company"/> to which this <see cref="ReportTemplate"/> belongs.
+	 * The @link {Company} to which this @link {ReportTemplate} belongs.
 	 * After creation, this value is read-only.
 	 **/
 	company: ulong | undefined;
 	/**
-	 * Name for the <see cref="ReportTemplate"/>.
+	 * Name for the @link {ReportTemplate}.
 	 **/
 	name: string;
 	/**
-	 * Notes for the <see cref="ReportTemplate"/>.
+	 * Notes for the @link {ReportTemplate}.
 	 **/
 	notes: string;
 	/**
@@ -64,10 +64,10 @@ export class ParamReportTemplateMerge extends ParamMergeSubscribable {
 	 **/
 	options: Map<string, string>;
 	/**
-	 * A list of roles they play in the <see cref="Company"/>.
+	 * A list of roles they play in the @link {Company}.
 	 **/
 	roles: string[];
 	/**
-	 * <see cref="Picture"/>s of this <see cref="ReportTemplate"/>.
+	 * @link {Picture}s of this @link {ReportTemplate}.
 	 **/
 	pictures: ulong[];}

@@ -1,7 +1,7 @@
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
- * A container for the <see cref="machine"/>.
+ * A container for the @link {machine}.
  **/
 export class RepMachineMerge extends Reply {
 	/**

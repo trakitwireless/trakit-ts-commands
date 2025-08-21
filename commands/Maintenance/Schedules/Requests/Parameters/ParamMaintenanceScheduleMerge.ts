@@ -1,25 +1,25 @@
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
- * Parameters used to create or update an <see cref="MaintenanceSchedule"/>.
+ * Parameters used to create or update an @link {MaintenanceSchedule}.
  **/
 export class ParamMaintenanceScheduleMerge extends ParamMergeSubscribable {
 	/**
-	 * The unique identifier of the <see cref="MaintenanceSchedule"/> you want to update.
-	 * Leave this as <c>null</c> when creating a new <see cref="MaintenanceSchedule"/>.
+	 * The unique identifier of the @link {MaintenanceSchedule} you want to update.
+	 * Leave this as <c>null</c> when creating a new @link {MaintenanceSchedule}.
 	 **/
 	id: ulong | undefined;
 	/**
-	 * The <see cref="Company"/> to which this <see cref="MaintenanceSchedule"/> belongs.
+	 * The @link {Company} to which this @link {MaintenanceSchedule} belongs.
 	 * After creation, this value is read-only.
 	 **/
 	company: ulong | undefined;
 	/**
-	 * Name for the <see cref="MaintenanceSchedule"/>.
+	 * Name for the @link {MaintenanceSchedule}.
 	 **/
 	name: string;
 	/**
-	 * Notes for the <see cref="MaintenanceSchedule"/>.
+	 * Notes for the @link {MaintenanceSchedule}.
 	 **/
 	notes: string;
 	/**
@@ -64,10 +64,10 @@ export class ParamMaintenanceScheduleMerge extends ParamMergeSubscribable {
 	 **/
 	options: Map<string, string>;
 	/**
-	 * A list of roles they play in the <see cref="Company"/>.
+	 * A list of roles they play in the @link {Company}.
 	 **/
 	roles: string[];
 	/**
-	 * <see cref="Picture"/>s of this <see cref="MaintenanceSchedule"/>.
+	 * @link {Picture}s of this @link {MaintenanceSchedule}.
 	 **/
 	pictures: ulong[];}

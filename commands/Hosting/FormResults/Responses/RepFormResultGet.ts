@@ -1,12 +1,12 @@
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
- * A container for the <see cref="formResult"/>.
+ * A container for the @link {formResult}.
 
  **/
 export class RepFormResultGet extends Reply {
 	/**
-	 * The requested <see cref="FormResult"/>.
+	 * The requested @link {FormResult}.
 
 	 **/
 	formResult: FormResult;}

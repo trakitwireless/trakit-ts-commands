@@ -2,10 +2,10 @@ import { PayAssetMessage } from "./PayAssetMessage";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
 
 /**
- * Gets details of the specified <see cref="AssetMessage"/>.
+ * Gets details of the specified @link {AssetMessage}.
  **/
 export class PayAssetMessageGet extends PayAssetMessage implements IPayDeletable {
 	/**
-	 * When true, the command will also return a deleted <see cref="AssetMessage"/> (if it exists).
+	 * When true, the command will also return a deleted @link {AssetMessage} (if it exists).
 	 **/
 	includeDeleted: boolean;}

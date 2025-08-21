@@ -1,29 +1,29 @@
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
- * Parameters used to create or update an <see cref="FormTemplate"/>.
+ * Parameters used to create or update an @link {FormTemplate}.
 
  **/
 export class ParamFormTemplateMerge extends ParamMergeSubscribable {
 	/**
-	 * The unique identifier of the <see cref="FormTemplate"/> you want to update.
-	 * Leave this as <c>null</c> when creating a new <see cref="FormTemplate"/>.
+	 * The unique identifier of the @link {FormTemplate} you want to update.
+	 * Leave this as <c>null</c> when creating a new @link {FormTemplate}.
 
 	 **/
 	id: ulong | undefined;
 	/**
-	 * The <see cref="Company"/> to which this <see cref="FormTemplate"/> belongs.
+	 * The @link {Company} to which this @link {FormTemplate} belongs.
 	 * After creation, this value is read-only.
 
 	 **/
 	company: ulong | undefined;
 	/**
-	 * Name for the <see cref="FormTemplate"/>.
+	 * Name for the @link {FormTemplate}.
 
 	 **/
 	name: string;
 	/**
-	 * Notes for the <see cref="FormTemplate"/>.
+	 * Notes for the @link {FormTemplate}.
 
 	 **/
 	notes: string;
@@ -76,12 +76,12 @@ export class ParamFormTemplateMerge extends ParamMergeSubscribable {
 	 **/
 	options: Map<string, string>;
 	/**
-	 * A list of roles they play in the <see cref="Company"/>.
+	 * A list of roles they play in the @link {Company}.
 
 	 **/
 	roles: string[];
 	/**
-	 * <see cref="Picture"/>s of this <see cref="FormTemplate"/>.
+	 * @link {Picture}s of this @link {FormTemplate}.
 
 	 **/
 	pictures: ulong[];}

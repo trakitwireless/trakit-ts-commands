@@ -1,6 +1,6 @@
 import { PayDispatchTask } from "./PayDispatchTask";
 
 /**
- * Restores a deleted <see cref="DispatchTask"/>.
+ * Restores a deleted @link {DispatchTask}.
  **/
 export class PayDispatchTaskRestore extends PayDispatchTask {}

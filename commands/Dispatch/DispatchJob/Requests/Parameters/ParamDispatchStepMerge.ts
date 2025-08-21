@@ -1,12 +1,12 @@
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
- * Parameter values for updating the <see cref="DispatchStep"/> for a <see cref="DispatchJob"/>.
+ * Parameter values for updating the @link {DispatchStep} for a @link {DispatchJob}.
  **/
 export class ParamDispatchStepMerge extends ParamMergeSubscribable {
 	/**
 	 * The identifier of the step.
-	 * Identifiers are unique to a <see cref="DispatchJob"/>, but are not unique system-wide.
+	 * Identifiers are unique to a @link {DispatchJob}, but are not unique system-wide.
 	 **/
 	id: ulong | undefined;
 	/**
@@ -23,7 +23,7 @@ export class ParamDispatchStepMerge extends ParamMergeSubscribable {
 	duration: TimeSpan | undefined;
 	/**
 	 * An optional place which can be used as a template instead of providing lat/long coordinates and a street address.
-	 * <seealso cref="Place.id" />
+	 * @see {@link Place.id}
 	 **/
 	place: ulong | undefined;
 	/**
@@ -31,10 +31,10 @@ export class ParamDispatchStepMerge extends ParamMergeSubscribable {
 	 **/
 	address: string;
 	/**
-	 * The lat/long coordinates of where the step must be <see cref="DispatchStepStatus.completed"/>.
+	 * The lat/long coordinates of where the step must be @link {DispatchStepStatus.completed}.
 	 **/
 	latlng: LatLng;
 	/**
-	 * When true, will mean a signature is required to complete this <see cref="DispatchStep"/>.
+	 * When true, will mean a signature is required to complete this @link {DispatchStep}.
 	 **/
 	signature: boolean | undefined;}

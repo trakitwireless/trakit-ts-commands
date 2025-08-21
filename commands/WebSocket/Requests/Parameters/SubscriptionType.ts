@@ -1,233 +1,233 @@
 
 /**
- * The types of subscriptions available using <see cref="subscribe"/>/<see cref="unsubscribe"/>.
+ * The types of subscriptions available using @link {subscribe}/@link {unsubscribe}.
  * Each type has a different synchronization messages and objects.
  **/
 	public enum SubscriptionType {
 	/**
-	 * Assets' <see cref="AssetGeneral">general properties</see> such as name, icon, and labels.
-	 * <seealso cref="AssetGeneral"/>
-	 * <seealso cref="PersonGeneral"/>
-	 * <seealso cref="VehicleGeneral"/>
-	 * <seealso cref="TrailerGeneral"/>
+	 * Assets' @link {AssetGeneral|general properties} such as name, icon, and labels.
+	 * @see {@link AssetGeneral}
+	 * @see {@link PersonGeneral}
+	 * @see {@link VehicleGeneral}
+	 * @see {@link TrailerGeneral}
 	 **/
 		assetGeneral,
 	/**
-	 * Assets' <see cref="AssetAdvanced">advanced properties</see> such as position, attributes, and status tags.
-	 * <seealso cref="AssetAdvanced"/>
-	 * <seealso cref="VehicleAdvanced"/>
+	 * Assets' @link {AssetAdvanced|advanced properties} such as position, attributes, and status tags.
+	 * @see {@link AssetAdvanced}
+	 * @see {@link VehicleAdvanced}
 	 **/
 		assetAdvanced,
 	/**
-	 * <see cref="AssetMessage"/>s between <see cref="Asset"/>s and <see cref="User"/>s.
-	 * <seealso cref="AssetMessage"/>
+	 * @link {AssetMessage}s between @link {Asset}s and @link {User}s.
+	 * @see {@link AssetMessage}
 	 **/
 		assetMessage,
 	/**
-	 * Assets' <see cref="AssetDispatch">current dispatch</see> such as  <see cref="DispatchJob"/>s and route progress.
-	 * <seealso cref="AssetDispatch"/>
+	 * Assets' @link {AssetDispatch|current dispatch} such as  @link {DispatchJob}s and route progress.
+	 * @see {@link AssetDispatch}
 	 **/
 		assetDispatch,
 
 	/**
-	 * Assets' <see cref="DispatchTask"/> information.
-	 * <seealso cref="DispatchTask"/>
+	 * Assets' @link {DispatchTask} information.
+	 * @see {@link DispatchTask}
 	 **/
 		dispatchTask,
 	/**
-	 * Some work that needs to be done by performing one or more <see cref="DispatchStep"/>s.
-	 * <seealso cref="DispatchJob"/>
+	 * Some work that needs to be done by performing one or more @link {DispatchStep}s.
+	 * @see {@link DispatchJob}
 	 **/
 		dispatchJob,
 
 	/**
-	 * Customized <see cref="FormTemplate">forms</see> to be filled.
-	 * <seealso cref="FormTemplate"/>
+	 * Customized @link {FormTemplate|forms} to be filled.
+	 * @see {@link FormTemplate}
 	 **/
 		formTemplate,
 	/**
-	 * <see cref="FormResult">Forms</see> that are completed and fully filled out.
-	 * <seealso cref="FormResult"/>
+	 * @link {FormResult|Forms} that are completed and fully filled out.
+	 * @see {@link FormResult}
 	 **/
 		formResult,
 
 	/**
-	 * <see cref="Place"/> information.
-	 * <seealso cref="PlaceGeneral"/>
+	 * @link {Place} information.
+	 * @see {@link PlaceGeneral}
 	 **/
 		placeGeneral,
 
 	/**
-	 * Providers' (device) <see cref="ProviderGeneral">general properties</see> such as name, notes, and selected <see cref="Asset"/>.
-	 * <seealso cref="ProviderGeneral"/>
+	 * Providers' (device) @link {ProviderGeneral|general properties} such as name, notes, and selected @link {Asset}.
+	 * @see {@link ProviderGeneral}
 	 **/
 		providerGeneral,
 	/**
-	 * Raw provider (device) <see cref="ProviderAdvanced">data</see> like GPS coordinates and parsed ODB-II values.
-	 * <seealso cref="ProviderAdvanced"/>
+	 * Raw provider (device) @link {ProviderAdvanced|data} like GPS coordinates and parsed ODB-II values.
+	 * @see {@link ProviderAdvanced}
 	 **/
 		providerAdvanced,
 	/**
 	 * Provider (device) configurations.
-	 * <seealso cref="ProviderConfiguration"/>
+	 * @see {@link ProviderConfiguration}
 	 **/
 		[Obsolete("Use providerConfig instead")]
 		providerConfiguration,
 	/**
 	 * Provider (device) script logic.
-	 * <seealso cref="ProviderScript"/>
+	 * @see {@link ProviderScript}
 	 **/
 		providerScript,
 	/**
 	 * Provider (device) configurations.
-	 * <seealso cref="ProviderConfig"/>
+	 * @see {@link ProviderConfig}
 	 **/
 		providerConfig,
 	/**
 	 * Provider (device) comamnds.
-	 * <seealso cref="ProviderControl"/>
+	 * @see {@link ProviderControl}
 	 **/
 		providerControl,
 	/**
 	 * Pending Providers (devices) that have not yet been configured or provisioned.
-	 * <seealso cref="ProviderRegistration"/>
+	 * @see {@link ProviderRegistration}
 	 **/
 		providerRegistration,
 
 	/**
-	 * Recurring maintenance work for <see cref="Vehicle"/>s and <see cref="Trailer"/>s.
-	 * <seealso cref="MaintenanceSchedule"/>
+	 * Recurring maintenance work for @link {Vehicle}s and @link {Trailer}s.
+	 * @see {@link MaintenanceSchedule}
 	 **/
 		maintenanceSchedule,
 	/**
-	 * Historical <see cref="Vehicle"/> and <see cref="Trailer"/> maintenance work.
-	 * <seealso cref="MaintenanceJob"/>
+	 * Historical @link {Vehicle} and @link {Trailer} maintenance work.
+	 * @see {@link MaintenanceJob}
 	 **/
 		maintenanceJob,
 
 	/**
 	 * Behaviour script logic.
-	 * <seealso cref="BehaviourScript"/>
+	 * @see {@link BehaviourScript}
 	 **/
 		behaviourScript,
 	/**
 	 * Configured behaviours.
-	 * <seealso cref="Behaviour"/>
+	 * @see {@link Behaviour}
 	 **/
 		behaviour,
 	/**
-	 * Behaviour log messages to help developers debug their <see cref="BehaviourScript"/>.
-	 * <seealso cref="BehaviourLog"/>
+	 * Behaviour log messages to help developers debug their @link {BehaviourScript}.
+	 * @see {@link BehaviourLog}
 	 **/
 		behaviourLog,
 
 	/**
 	 * Renaming and changing the nodes of a company.
-	 * <seealso cref="CompanyGeneral"/>
+	 * @see {@link CompanyGeneral}
 	 **/
 		companyGeneral,
 	/**
 	 * Company's label and tag styles.
-	 * <seealso cref="CompanyStyles"/>
+	 * @see {@link CompanyStyles}
 	 **/
 		companyLabels,
 	/**
-	 * Company's <see cref="SessionPolicy"/> and <see cref="PasswordPolicy"/>.
-	 * <seealso cref="CompanyPolicies"/>
+	 * Company's @link {SessionPolicy} and @link {PasswordPolicy}.
+	 * @see {@link CompanyPolicies}
 	 **/
 		companyPolicies,
 		///// <summary>
-		///// Company's list of <see cref="Contact"/>s broken down by role.
+		///// Company's list of @link {Contact}s broken down by role.
 		//
-		///// <seealso cref="CompanyDirectory"/>
+		///// @see {@link CompanyDirectory}
 		//companyDirectory,
 	/**
-	 * A <see cref="Company"/>'s white-labelling details.
-	 * <seealso cref="CompanyReseller"/>
+	 * A @link {Company}'s white-labelling details.
+	 * @see {@link CompanyReseller}
 	 **/
 		companyReseller,
 
 	/**
-	 * Profiles used to generate <see cref="BillingReport"/> for a customer.
-	 * <seealso cref="BillingProfile"/>
+	 * Profiles used to generate @link {BillingReport} for a customer.
+	 * @see {@link BillingProfile}
 	 **/
 		billingProfile,
 	/**
-	 * Billing rules for <see cref="Asset"/>s.
-	 * <seealso cref="BillableHostingRule"/>
+	 * Billing rules for @link {Asset}s.
+	 * @see {@link BillableHostingRule}
 	 **/
 		billingHosting,
 	/**
-	 * Discount rules for <see cref="Asset"/>s.
-	 * <seealso cref="BillableHostingDiscount"/>
+	 * Discount rules for @link {Asset}s.
+	 * @see {@link BillableHostingDiscount}
 	 **/
 		billingDiscount,
 	/**
-	 * Hardware licenses for <see cref="Provider"/>s.
-	 * <seealso cref="BillableHostingLicense"/>
+	 * Hardware licenses for @link {Provider}s.
+	 * @see {@link BillableHostingLicense}
 	 **/
 		billingLicense,
 	/**
-	 * Reports generated for a billee <see cref="Company"/>.
-	 * <seealso cref="BillingReport"/>
+	 * Reports generated for a billee @link {Company}.
+	 * @see {@link BillingReport}
 	 **/
 		billingReport,
 
 	/**
-	 * Contact information used by <see cref="Asset"/>s and <see cref="User"/>s.
-	 * <seealso cref="Contact"/>
+	 * Contact information used by @link {Asset}s and @link {User}s.
+	 * @see {@link Contact}
 	 **/
 		contact,
 
 	/**
 	 * Synchronizes icon information.
-	 * <seealso cref="Icon"/>
+	 * @see {@link Icon}
 	 **/
 		icon,
 	/**
 	 * Synchronizes picture information.
-	 * <seealso cref="Picture"/>
+	 * @see {@link Picture}
 	 **/
 		picture,
 	/**
 	 * Hosted document information.
-	 * <seealso cref="Document"/>
+	 * @see {@link Document}
 	 **/
 		document,
 
 	/**
 	 * Report configurations.
-	 * <seealso cref="ReportTemplate"/>
+	 * @see {@link ReportTemplate}
 	 **/
 		reportTemplate,
 	/**
 	 * Schedules for reports that run automatically.
-	 * <seealso cref="ReportSchedule"/>
+	 * @see {@link ReportSchedule}
 	 **/
 		reportSchedule,
 	/**
 	 * Historical asset details like breadcrumb trails.
-	 * <seealso cref="ReportResult"/>
+	 * @see {@link ReportResult}
 	 **/
 		reportResult,
 
 	/**
 	 * General user information such as name, contact information, and preferences.
-	 * <seealso cref="UserGeneral"/>
+	 * @see {@link UserGeneral}
 	 **/
 		userGeneral,
 	/**
 	 * User information such as permissions and group membership.
-	 * <seealso cref="UserAdvanced"/>
+	 * @see {@link UserAdvanced}
 	 **/
 		userAdvanced,
 	/**
 	 * Group information for easy access control.
-	 * <seealso cref="UserGroup"/>
+	 * @see {@link UserGroup}
 	 **/
 		userGroup,
 	/**
 	 * API Credentials information and permissions.
-	 * <seealso cref="Machine"/>
+	 * @see {@link Machine}
 	 **/
 		machine,}

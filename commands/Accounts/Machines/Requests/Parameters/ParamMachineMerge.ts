@@ -1,31 +1,31 @@
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
- * Parameters used to create or update an <see cref="Machine"/>.
+ * Parameters used to create or update an @link {Machine}.
  **/
 export class ParamMachineMerge extends ParamMergeSubscribable {
 	/**
-	 * The unique identifier of the <see cref="Machine"/> you want to update.
+	 * The unique identifier of the @link {Machine} you want to update.
 	 * <override required="update" />
 	 **/
 	key: string;
 	/**
-	 * A flag to either remove, or generate a new <see cref="Machine.secret"/>.
+	 * A flag to either remove, or generate a new @link {Machine.secret}.
 	 **/
 	secret: boolean | undefined;
 	/**
-	 * The company to which this <see cref="Machine"/> belongs.
+	 * The company to which this @link {Machine} belongs.
 	 * After creation, this value is read-only.
 	 * <override required="create" />
 	 **/
 	company: ulong | undefined;
 	/**
-	 * Human friendly name for this <see cref="Machine"/>.
+	 * Human friendly name for this @link {Machine}.
 	 * <override max-length="100" />
 	 **/
 	nickname: string;
 	/**
-	 * Notes about this <see cref="Machine"/>.
+	 * Notes about this @link {Machine}.
 	 * <override max-length="8000" />
 	 **/
 	notes: string;
@@ -34,17 +34,17 @@ export class ParamMachineMerge extends ParamMergeSubscribable {
 	 **/
 	enabled: boolean | undefined;
 	/**
-	 * An optional timestamp that restricts this <see cref="Machine"/> from being used before the given date.
+	 * An optional timestamp that restricts this @link {Machine} from being used before the given date.
 	 **/
 	notBefore: Date | undefined;
 	/**
-	 * An optional timestamp that restricts this <see cref="Machine"/> from being used after the given date.
+	 * An optional timestamp that restricts this @link {Machine} from being used after the given date.
 	 **/
 	notAfter: Date | undefined;
 
 	/**
-	 * The <see cref="Machine"/>'s local timezone.
-	 * <seealso cref="Timezone.code" />
+	 * The @link {Machine}'s local timezone.
+	 * @see {@link Timezone.code}
 	 * <override type="System.String" format="codified" />
 	 **/
 	timezone: TimeZoneInfo;
@@ -71,34 +71,34 @@ export class ParamMachineMerge extends ParamMergeSubscribable {
 	options: Map<string, string>;
 
 	/**
-	 * A list of <see cref="MachineGroup"/> to which this <see cref="Machine"/> belongs.
+	 * A list of @link {MachineGroup} to which this @link {Machine} belongs.
 	 * <override>
 	 * <values>
-	 * <seealso cref="MachineGroup.id" />
+	 * @see {@link MachineGroup.id}
 	 * </values>
 	 * </override>
 	 **/
 	groups: ulong[];
 	/**
-	 * Individual permission rules which override the <see cref="MachineGroup"/> rules.
+	 * Individual permission rules which override the @link {MachineGroup} rules.
 	 **/
 	permissions: ParamPermission[];
 	/**
-	 * List of Fleet Freedom service URIs that this <see cref="Machine"/> is permitted to access.
+	 * List of Fleet Freedom service URIs that this @link {Machine} is permitted to access.
 	 * <override>
 	 * <values type="System.String" max-length="254" format="url" />
 	 * </override>
 	 **/
 	services: Uri[];
 	/**
-	 * Optional list of your managed domains from which this <see cref="Machine"/> can be used.
+	 * Optional list of your managed domains from which this @link {Machine} can be used.
 	 * <override>
 	 * <values type="System.String" max-length="254" format="url" />
 	 * </override>
 	 **/
 	referrers: Uri[];
 	/**
-	 * Restrict <see cref="Machine"/> access to only the provided IPv4 ranges (using CIDR slash-notation).
+	 * Restrict @link {Machine} access to only the provided IPv4 ranges (using CIDR slash-notation).
 	 * <override>
 	 * <values max-length="19" format="ipv4" />
 	 * </override>

@@ -1,9 +1,9 @@
 
 /**
- * A container for the login of the <see cref="User"/> requested/created.
+ * A container for the login of the @link {User} requested/created.
  **/
 export class ContentLogin {
 	/**
-	 * The <see cref="User"/>'s login.
+	 * The @link {User}'s login.
 	 **/
 	login: string;}

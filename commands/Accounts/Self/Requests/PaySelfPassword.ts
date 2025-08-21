@@ -1,7 +1,7 @@
 import { Payload } from "../../../API/Requests/Payload";
 
 /**
- * Allows a <see cref="User"/> to change their own password.
+ * Allows a @link {User} to change their own password.
  **/
 export class PaySelfPassword extends Payload {
 	/**
@@ -10,7 +10,7 @@ export class PaySelfPassword extends Payload {
 		[JsonIgnore]
 	current: string;
 	/**
-	 * Your new password must conform to your company's <see cref="PasswordPolicy">password policy</see>.
+	 * Your new password must conform to your company's @link {PasswordPolicy|password policy}.
 	 **/
 		[JsonIgnore]
 	password: string;}

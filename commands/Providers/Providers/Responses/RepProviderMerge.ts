@@ -1,7 +1,7 @@
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
- * A container for the <see cref="provider"/>.
+ * A container for the @link {provider}.
  **/
 export class RepProviderMerge extends Reply {
 	/**

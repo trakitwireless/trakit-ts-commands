@@ -1,10 +1,10 @@
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
- * A container for the <see cref="maintenanceJob"/>.
+ * A container for the @link {maintenanceJob}.
  **/
 export class RepMaintenanceJobBatchDelete extends Reply {
 	/**
-	 * Details about deleting/restoring the requested <see cref="MaintenanceJob"/>.
+	 * Details about deleting/restoring the requested @link {MaintenanceJob}.
 	 **/
 	maintenanceJobs: ContentIdDeleted[];}

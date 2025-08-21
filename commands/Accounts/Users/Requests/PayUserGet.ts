@@ -2,10 +2,10 @@ import { PayUser } from "./PayUser";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 
 /**
- * Gets details of the specified <see cref="User"/>.
+ * Gets details of the specified @link {User}.
  **/
 export class PayUserGet extends PayUser implements IPayDeletable {
 	/**
-	 * When true, the command will also return a deleted <see cref="User"/> (if it exists).
+	 * When true, the command will also return a deleted @link {User} (if it exists).
 	 **/
 	includeDeleted: boolean;}

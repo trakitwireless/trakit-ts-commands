@@ -3,40 +3,40 @@ import { RepCompanyStylesList } from "./RepCompanyStylesList";
 import { RepCompanyStylesListByCompany } from "./RepCompanyStylesList";
 
 /**
- * A container for the requested <see cref="companyStyless"/>.
+ * A container for the requested @link {companyStyless}.
  **/
 export abstract class RepCompanyStylesList extends Reply {
 	/**
-	 * The list of requested <see cref="CompanyStyles"/>s.
+	 * The list of requested @link {CompanyStyles}s.
 	 **/
 	companyStyless: CompanyStyles[];
 	}
 
 /**
- * A container owner <see cref="Company"/> of the collection.
+ * A container owner @link {Company} of the collection.
  **/
 export class RepCompanyStylesListByCompany extends RepCompanyStylesList {
 	/**
-	 * Identifier of the <see cref="Company"/> to which this collection belongs.
+	 * Identifier of the @link {Company} to which this collection belongs.
 	 **/
 	company: ContentId;
 	}
 /**
- * A container owner <see cref="Company"/> of the collection.
+ * A container owner @link {Company} of the collection.
  **/
 export class RepCompanyStylesListByCompanyAndLabels extends RepCompanyStylesListByCompany {
 	/**
 	 * The labels given as input.
-	 * <seealso cref="CompanyStyles.labels"/>
+	 * @see {@link CompanyStyles.labels}
 	 **/
 	labels: string[];
 	}
 /**
- * A container owner <see cref="Company"/> of the collection.
+ * A container owner @link {Company} of the collection.
  **/
 export class RepCompanyStylesListByCompanyAndRefPairs extends RepCompanyStylesListByCompany {
 	/**
 	 * The reference string given as input.
-	 * <seealso cref="CompanyStyles.references"/>
+	 * @see {@link CompanyStyles.references}
 	 **/
 	references: Map<string, string>;}

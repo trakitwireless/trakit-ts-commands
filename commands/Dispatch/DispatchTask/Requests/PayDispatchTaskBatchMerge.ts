@@ -1,10 +1,10 @@
 import { Payload } from "../../../API/Requests/Payload";
 
 /**
- * Creates multiple new, or updates multiple existing <see cref="DispatchTask"/>s.
+ * Creates multiple new, or updates multiple existing @link {DispatchTask}s.
  **/
 export class PayDispatchTaskBatchMerge extends Payload {
 	/**
-	 * List of <see cref="DispatchTask"/>s to update or create.
+	 * List of @link {DispatchTask}s to update or create.
 	 **/
 	dispatchTasks: ParamDispatchTaskMerge[];}

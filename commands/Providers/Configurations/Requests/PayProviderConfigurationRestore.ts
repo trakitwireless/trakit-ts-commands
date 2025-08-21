@@ -1,7 +1,7 @@
 import { PayProviderConfiguration } from "./PayProviderConfiguration";
 
 /**
- * Restores a deleted <see cref="ProviderConfiguration"/>.
+ * Restores a deleted @link {ProviderConfiguration}.
  **/
 	[Obsolete("Use ReqProviderConfigRestore instead")]
 export class PayProviderConfigurationRestore extends PayProviderConfiguration {}

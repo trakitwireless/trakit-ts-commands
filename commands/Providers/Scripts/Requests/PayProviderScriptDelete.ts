@@ -1,6 +1,6 @@
 import { PayProviderScript } from "./PayProviderScript";
 
 /**
- * Deletes an existing <see cref="ProviderScript"/>.
+ * Deletes an existing @link {ProviderScript}.
  **/
 export class PayProviderScriptDelete extends PayProviderScript {}

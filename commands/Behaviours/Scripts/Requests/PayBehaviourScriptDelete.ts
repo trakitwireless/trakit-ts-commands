@@ -1,6 +1,6 @@
 import { PayBehaviourScript } from "./PayBehaviourScript";
 
 /**
- * Deletes an existing <see cref="BehaviourScript"/>.
+ * Deletes an existing @link {BehaviourScript}.
  **/
 export class PayBehaviourScriptDelete extends PayBehaviourScript {}

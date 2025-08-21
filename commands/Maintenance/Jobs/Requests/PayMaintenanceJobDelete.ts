@@ -1,6 +1,6 @@
 import { PayMaintenanceJob } from "./PayMaintenanceJob";
 
 /**
- * Deletes an existing <see cref="MaintenanceJob"/>.
+ * Deletes an existing @link {MaintenanceJob}.
  **/
 export class PayMaintenanceJobDelete extends PayMaintenanceJob {}

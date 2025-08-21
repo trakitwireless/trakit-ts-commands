@@ -1,6 +1,6 @@
 
 /**
- * A container class used to house the "handle" identifying a <see cref="Session"/>.
+ * A container class used to house the "handle" identifying a @link {Session}.
  **/
 export class SessionHandle {
 	/**
@@ -8,16 +8,16 @@ export class SessionHandle {
 	 **/
 	handle: string;
 	/**
-	 * Identifier of the <see cref="Company"/> to which this object belongs
-	 * <seealso cref="Company.id"/>
+	 * Identifier of the @link {Company} to which this object belongs
+	 * @see {@link Company.id}
 	 **/
 	company: ulong;
 	/**
-	 * The <see cref="User"/> to which the <see cref="Session"/> belongs.
-	 * <seealso cref="User.login" />
+	 * The @link {User} to which the @link {Session} belongs.
+	 * @see {@link User.login}
 	 **/
 	login: string;
 	/**
-	 * A timestamp for when the <see cref="Session"/> will expire.
+	 * A timestamp for when the @link {Session} will expire.
 	 **/
 	expiry: Date;}

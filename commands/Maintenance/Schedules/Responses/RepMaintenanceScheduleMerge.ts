@@ -1,7 +1,7 @@
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
- * A container for the <see cref="maintenanceSchedule"/>.
+ * A container for the @link {maintenanceSchedule}.
  **/
 export class RepMaintenanceScheduleMerge extends Reply {
 	/**

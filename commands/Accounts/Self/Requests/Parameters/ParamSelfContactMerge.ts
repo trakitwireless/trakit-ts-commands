@@ -1,7 +1,7 @@
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
- * Parameters for a <see cref="User"/> to update their own <see cref="Contact"/>.
+ * Parameters for a @link {User} to update their own @link {Contact}.
  **/
 export class ParamSelfContactMerge extends ParamMergeSubscribable {
 	/**
@@ -54,10 +54,10 @@ export class ParamSelfContactMerge extends ParamMergeSubscribable {
 	 **/
 	options: Map<string, string>;
 	/**
-	 * A list of roles they play in the <see cref="Company"/>.
+	 * A list of roles they play in the @link {Company}.
 	 **/
 	roles: string[];
 	/**
-	 * <see cref="Picture"/>s of yourself.
+	 * @link {Picture}s of yourself.
 	 **/
 	pictures: ulong[];}

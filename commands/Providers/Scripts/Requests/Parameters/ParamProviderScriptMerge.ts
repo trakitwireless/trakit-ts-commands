@@ -1,25 +1,25 @@
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
- * Parameters used to create or update an <see cref="ProviderScript"/>.
+ * Parameters used to create or update an @link {ProviderScript}.
  **/
 export class ParamProviderScriptMerge extends ParamMergeSubscribable {
 	/**
-	 * The unique identifier of the <see cref="ProviderScript"/> you want to update.
-	 * Leave this as <c>null</c> when creating a new <see cref="ProviderScript"/>.
+	 * The unique identifier of the @link {ProviderScript} you want to update.
+	 * Leave this as <c>null</c> when creating a new @link {ProviderScript}.
 	 **/
 	id: ulong | undefined;
 	/**
-	 * The <see cref="Company"/> to which this <see cref="ProviderScript"/> belongs.
+	 * The @link {Company} to which this @link {ProviderScript} belongs.
 	 * After creation, this value is read-only.
 	 **/
 	company: ulong | undefined;
 	/**
-	 * Name for the <see cref="ProviderScript"/>.
+	 * Name for the @link {ProviderScript}.
 	 **/
 	name: string;
 	/**
-	 * Notes for the <see cref="ProviderScript"/>.
+	 * Notes for the @link {ProviderScript}.
 	 **/
 	notes: string;
 	/**
@@ -64,10 +64,10 @@ export class ParamProviderScriptMerge extends ParamMergeSubscribable {
 	 **/
 	options: Map<string, string>;
 	/**
-	 * A list of roles they play in the <see cref="Company"/>.
+	 * A list of roles they play in the @link {Company}.
 	 **/
 	roles: string[];
 	/**
-	 * <see cref="Picture"/>s of this <see cref="ProviderScript"/>.
+	 * @link {Picture}s of this @link {ProviderScript}.
 	 **/
 	pictures: ulong[];}

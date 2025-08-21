@@ -1,10 +1,10 @@
 import { Reply } from "../../API/Responses/Reply";
 
 /**
- * A container for the <see cref="companyDirectory"/>.
+ * A container for the @link {companyDirectory}.
  **/
 export class RepCompanyDirectoryGet extends Reply {
 	/**
-	 * The requested <see cref="CompanyDirectory"/>.
+	 * The requested @link {CompanyDirectory}.
 	 **/
 	companyDirectory: CompanyDirectory;}

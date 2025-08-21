@@ -1,10 +1,10 @@
 import { ContentKey } from "./ContentKey";
 
 /**
- * A container for the <see cref="Machine.key"/> and owning <see cref="Company.id"/> of the <see cref="Machine"/> requested/created.
+ * A container for the @link {Machine.key} and owning @link {Company.id} of the @link {Machine} requested/created.
  **/
 export class ContentKeyCompany extends ContentKey {
 	/**
-	 * Identifier of the <see cref="Company"/> to which the <see cref="Machine"/> belongs.
+	 * Identifier of the @link {Company} to which the @link {Machine} belongs.
 	 **/
 	company: ulong;}

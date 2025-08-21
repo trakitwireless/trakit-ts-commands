@@ -3,41 +3,41 @@ import { RepAssetList } from "./RepAssetList";
 import { RepAssetListByCompany } from "./RepAssetList";
 
 /**
- * A container for the requested <see cref="assets"/>.
+ * A container for the requested @link {assets}.
  **/
 export abstract class RepAssetList extends Reply {
 	/**
-	 * The list of requested <see cref="Asset"/>s.
+	 * The list of requested @link {Asset}s.
 	 **/
 	assets: Asset[];
 	}
 
 /**
- * Contains the <see cref="Company.id"/> of the collection.
+ * Contains the @link {Company.id} of the collection.
  **/
 export class RepAssetListByCompany extends RepAssetList {
 	/**
-	 * Identifier of the <see cref="Company"/> to which this collection belongs.
+	 * Identifier of the @link {Company} to which this collection belongs.
 	 **/
 	company: ContentId;
 	}
 /**
- * Contains the codified <see cref="Company.labels"/> keys used to filter the collection.
+ * Contains the codified @link {Company.labels} keys used to filter the collection.
  **/
 export class RepAssetListByCompanyAndLabels extends RepAssetListByCompany {
 	/**
 	 * The parsed labels given as input.
-	 * <seealso cref="AssetGeneral.labels"/>
+	 * @see {@link AssetGeneral.labels}
 	 **/
 	labels: string[];
 	}
 /**
- * Contains the <see cref="AssetGeneral.references"/> used to filter the collection.
+ * Contains the @link {AssetGeneral.references} used to filter the collection.
  **/
 export class RepAssetListByCompanyAndRefPairs extends RepAssetListByCompany {
 	/**
 	 * The parsed references given as input.
-	 * <seealso cref="AssetGeneral.references"/>
+	 * @see {@link AssetGeneral.references}
 	 **/
 	references: Map<string, string>;
 	}

@@ -2,29 +2,29 @@ import { Reply } from "../../../API/Responses/Reply";
 import { RepProviderControlList } from "./RepProviderControlList";
 
 /**
- * A container for the requested <see cref="providerControls"/>.
+ * A container for the requested @link {providerControls}.
  **/
 export abstract class RepProviderControlList extends Reply {
 	/**
-	 * The list of requested <see cref="ProviderControl"/>s.
+	 * The list of requested @link {ProviderControl}s.
 	 **/
 	providerControls: ProviderControl[];
 	}
 
 /**
- * A container owner <see cref="Company"/> of the collection.
+ * A container owner @link {Company} of the collection.
  **/
 export class RepProviderControlListByCompany extends RepProviderControlList {
 	/**
-	 * Identifier of the <see cref="Company"/> to which this collection belongs.
+	 * Identifier of the @link {Company} to which this collection belongs.
 	 **/
 	company: ContentId;
 	}
 /**
- * A container owner <see cref="Company"/> of the collection.
+ * A container owner @link {Company} of the collection.
  **/
 export class RepProviderControlListByConfig extends RepProviderControlList {
 	/**
-	 * Identifier of the <see cref="ProviderConfig"/> (or <see cref="ProviderConfiguration"/>) to which this collection belongs.
+	 * Identifier of the @link {ProviderConfig} (or @link {ProviderConfiguration}) to which this collection belongs.
 	 **/
 	config: ContentId;}

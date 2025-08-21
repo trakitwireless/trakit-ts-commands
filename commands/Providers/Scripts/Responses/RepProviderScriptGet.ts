@@ -1,10 +1,10 @@
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
- * A container for the <see cref="providerScript"/>.
+ * A container for the @link {providerScript}.
  **/
 export class RepProviderScriptGet extends Reply {
 	/**
-	 * The requested <see cref="ProviderScript"/>.
+	 * The requested @link {ProviderScript}.
 	 **/
 	providerScript: ProviderScript;}

@@ -1,6 +1,6 @@
 import { PayPicture } from "./PayPicture";
 
 /**
- * Deletes an existing <see cref="Picture"/>.
+ * Deletes an existing @link {Picture}.
  **/
 export class PayPictureDelete extends PayPicture {}

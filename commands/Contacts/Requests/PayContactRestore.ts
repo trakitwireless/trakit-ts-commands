@@ -1,6 +1,6 @@
 import { PayContact } from "./PayContact";
 
 /**
- * Restores a deleted <see cref="Contact"/>.
+ * Restores a deleted @link {Contact}.
  **/
 export class PayContactRestore extends PayContact {}

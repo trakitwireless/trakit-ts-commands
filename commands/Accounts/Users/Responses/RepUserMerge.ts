@@ -1,7 +1,7 @@
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
- * A container for the <see cref="user"/>.
+ * A container for the @link {user}.
  **/
 export class RepUserMerge extends Reply {
 	/**

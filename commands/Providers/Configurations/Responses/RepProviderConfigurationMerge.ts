@@ -1,7 +1,7 @@
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
- * A container for the <see cref="providerConfiguration"/>.
+ * A container for the @link {providerConfiguration}.
  **/
 	[Obsolete("Use RespProviderConfigMerge instead")]
 export class RepProviderConfigurationMerge extends Reply {

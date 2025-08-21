@@ -1,6 +1,6 @@
 import { PayUserGroup } from "./PayUserGroup";
 
 /**
- * Restores a deleted <see cref="UserGroup"/>.
+ * Restores a deleted @link {UserGroup}.
  **/
 export class PayUserGroupRestore extends PayUserGroup {}

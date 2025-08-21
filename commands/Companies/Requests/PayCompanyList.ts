@@ -6,38 +6,38 @@ import { PayCompanyListByCompany } from "./PayCompanyList";
 import { IPayListByReferences } from "../../API/Requests/IPayListByReferences";
 
 /**
- * Gets details of the specified <see cref="company"/>.
+ * Gets details of the specified @link {company}.
  **/
 export abstract class PayCompanyList extends Payload implements IPayDeletable {
 	/**
-	 * When set to true, the full tree of <see cref="Company">companies</see> is returned.
-	 * Otherwise, only the first-level child-<see cref="Company">companies</see> are included.
+	 * When set to true, the full tree of @link {Company|companies} is returned.
+	 * Otherwise, only the first-level child-@link {Company|companies} are included.
 	 **/
 	tree: boolean;
 	/**
-	 * When set to true, the parent <see cref="Company"/> is included in the results.
+	 * When set to true, the parent @link {Company} is included in the results.
 	 **/
 	includeParent: boolean;
 	/**
-	 * When true, the command will also return  deleted <see cref="Company"/>s.
+	 * When true, the command will also return  deleted @link {Company}s.
 	 **/
 	includeDeleted: boolean;
 	}
 /**
- * Contains the <see cref="Company.id"/> of the collection.
+ * Contains the @link {Company.id} of the collection.
  **/
 export class PayCompanyListByCompany extends PayCompanyList implements IPayListByCompany {
 	/**
-	 * Identifier of the <see cref="Company"/> to which this collection belongs.
+	 * Identifier of the @link {Company} to which this collection belongs.
 	 **/
 	company: ParamId;
 	}
 /**
- * Contains the <see cref="Company.id"/> of the collection.
+ * Contains the @link {Company.id} of the collection.
  **/
 export class PayCompanyListByCompanyAndRefPairs extends PayCompanyListByCompany implements IPayListByReferences {
 	/**
-	 * Case-insensitive reference pairs used to match <see cref="Company"/>s.
-	 * <seealso cref="CompanyGeneral.references"/>
+	 * Case-insensitive reference pairs used to match @link {Company}s.
+	 * @see {@link CompanyGeneral.references}
 	 **/
 	references: Map<string, string>;}

@@ -7,42 +7,42 @@ import { IPayListByLabels } from "../../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../../API/Requests/IPayListByReferences";
 
 /**
- * Gets a list of <see cref="UserGeneral"/>s.
+ * Gets a list of @link {UserGeneral}s.
  **/
 export abstract class PayUserGeneralList extends Payload implements IPayDeletable {
 	/**
-	 * When true, the command will also return a deleted <see cref="UserGeneral"/> (if it exists).
+	 * When true, the command will also return a deleted @link {UserGeneral} (if it exists).
 	 **/
 	includeDeleted: boolean;
 	}
 
 /**
- * Gets the list of <see cref="UserGeneral"/>s for the specified <see cref="Company"/>.
+ * Gets the list of @link {UserGeneral}s for the specified @link {Company}.
  **/
 export class PayUserGeneralListByCompany extends PayUserGeneralList implements IPayListByCompany {
 	/**
-	 * Identifier of the <see cref="Company"/> to which this collection belongs.
+	 * Identifier of the @link {Company} to which this collection belongs.
 	 **/
 	company: ParamId;
 	}
 /**
- * Gets the list of <see cref="UserGeneral"/>s for the specified <see cref="Company"/> only if the <see cref="UserGeneralGeneral.labels"/> matches all of the given <see cref="Parameters.labels"/>.
+ * Gets the list of @link {UserGeneral}s for the specified @link {Company} only if the @link {UserGeneralGeneral.labels} matches all of the given @link {Parameters.labels}.
  **/
 export class PayUserGeneralListByCompanyAndLabels extends PayUserGeneralListByCompany implements IPayListByLabels {
 	/**
 	 * The parsed labels given as input.
-	 * <seealso cref="UserGeneral.labels"/>
+	 * @see {@link UserGeneral.labels}
 	 **/
 	labels: string[];
 	}
 /**
- * Gets the list of <see cref="UserGeneral"/>s for the specified <see cref="Company"/> only if one of the specified <see cref="UserGeneralGeneral.references"/> fields match.
- * If no references are specified, it will match any <see cref="UserGeneral"/> with no references.
- * If a reference value is null, it will match any <see cref="UserGeneral"/> without that reference key.
+ * Gets the list of @link {UserGeneral}s for the specified @link {Company} only if one of the specified @link {UserGeneralGeneral.references} fields match.
+ * If no references are specified, it will match any @link {UserGeneral} with no references.
+ * If a reference value is null, it will match any @link {UserGeneral} without that reference key.
  **/
 export class PayUserGeneralListByCompanyAndRefPairs extends PayUserGeneralListByCompany implements IPayListByReferences {
 	/**
 	 * The parsed references given as input.
-	 * <seealso cref="UserGeneralGeneral.references"/>
+	 * @see {@link UserGeneralGeneral.references}
 	 **/
 	references: Map<string, string>;}

@@ -11,7 +11,7 @@ const Payload_SPLITTER = /Pay([A-Z][a-z]+)+?((?:Batch)?(?:Get|List|Merge|Delete|
  **/
 export class Payload {
 	/**
-	 * Splits this class' name into parts helpful to <see cref="TrakitCommander{TClient}.Command{TReply}(Payload)"/>.
+	 * Splits this class' name into parts helpful to @link {TrakitCommander{TClient}.Command{TReply}(Payload)}.
 	 **/
 	public getNameParts(): string[] {
 		return [...this.constructor.name.matchAll(Payload_SPLITTER)].map(m => m[1] ?? "");

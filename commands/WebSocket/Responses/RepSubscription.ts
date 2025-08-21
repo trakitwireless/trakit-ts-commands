@@ -1,14 +1,14 @@
 import { Reply } from "../../API/Responses/Reply";
 
 /**
- * The types of subscriptions available using <see cref="TrakitSocket.subscribe"/>/<see cref="TrakitSocket.unsubscribe"/>.
+ * The types of subscriptions available using @link {TrakitSocket.subscribe}/@link {TrakitSocket.unsubscribe}.
  * Each type has a different synchronization messages and objects.
  **/
 export class RepSubscription extends Reply {
 	/**
 	 * An object which contains only one key "id" when there is no error.
 	 * The "id" key is the unique identifier of the company to which the array of objects relate.
-	 * <seealso cref="Company.id"/>
+	 * @see {@link Company.id}
 	 **/
 	company: ContentId;
 	/**

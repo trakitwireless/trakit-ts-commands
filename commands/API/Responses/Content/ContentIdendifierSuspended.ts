@@ -1,7 +1,7 @@
 import { ContentIdendifierCompany } from "./ContentIdendifierCompany";
 
 /**
- * For suspend/revive commands, this contains the <see cref="Provider"/> id, version keys, owning <see cref="Company.id"/>, and suspended state.
+ * For suspend/revive commands, this contains the @link {Provider} id, version keys, owning @link {Company.id}, and suspended state.
  **/
 export class ContentIdendifierSuspended extends ContentIdendifierCompany {
 	/**

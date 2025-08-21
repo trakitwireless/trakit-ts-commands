@@ -2,24 +2,24 @@ import { Reply } from "../../../API/Responses/Reply";
 import { RepFormTemplateList } from "./RepFormTemplateList";
 
 /**
- * A container for the requested <see cref="formTemplates"/>.
+ * A container for the requested @link {formTemplates}.
 
  **/
 export abstract class RepFormTemplateList extends Reply {
 	/**
-	 * The list of requested <see cref="FormTemplate"/>s.
+	 * The list of requested @link {FormTemplate}s.
 
 	 **/
 	formTemplates: FormTemplate[];
 	}
 
 /**
- * Contains the <see cref="Company.id"/> of the collection.
+ * Contains the @link {Company.id} of the collection.
 
  **/
 export class RepFormTemplateListByCompany extends RepFormTemplateList {
 	/**
-	 * Identifier of the <see cref="Company"/> to which this collection belongs.
+	 * Identifier of the @link {Company} to which this collection belongs.
 
 	 **/
 	company: ContentId;}

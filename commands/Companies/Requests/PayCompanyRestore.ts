@@ -1,6 +1,6 @@
 import { PayCompany } from "./PayCompany";
 
 /**
- * Restores a deleted <see cref="Company"/>.
+ * Restores a deleted @link {Company}.
  **/
 export class PayCompanyRestore extends PayCompany {}

@@ -2,10 +2,10 @@ import { PayDocument } from "./PayDocument";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 
 /**
- * Gets details of the specified <see cref="Document"/>.
+ * Gets details of the specified @link {Document}.
  **/
 export class PayDocumentGet extends PayDocument implements IPayDeletable {
 	/**
-	 * When true, the command will also return a deleted <see cref="Document"/> (if it exists).
+	 * When true, the command will also return a deleted @link {Document} (if it exists).
 	 **/
 	includeDeleted: boolean;}

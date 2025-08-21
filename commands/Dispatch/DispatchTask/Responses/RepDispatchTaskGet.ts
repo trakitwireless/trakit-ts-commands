@@ -1,10 +1,10 @@
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
- * A container for the <see cref="dispatchTask"/>.
+ * A container for the @link {dispatchTask}.
  **/
 export class RepDispatchTaskGet extends Reply {
 	/**
-	 * The requested <see cref="DispatchTask"/>.
+	 * The requested @link {DispatchTask}.
 	 **/
 	dispatchTask: DispatchTask;}

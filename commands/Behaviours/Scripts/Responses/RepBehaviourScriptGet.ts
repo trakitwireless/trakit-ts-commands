@@ -1,10 +1,10 @@
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
- * A container for the <see cref="behaviourScript"/>.
+ * A container for the @link {behaviourScript}.
  **/
 export class RepBehaviourScriptGet extends Reply {
 	/**
-	 * The requested <see cref="BehaviourScript"/>.
+	 * The requested @link {BehaviourScript}.
 	 **/
 	behaviourScript: BehaviourScript;}

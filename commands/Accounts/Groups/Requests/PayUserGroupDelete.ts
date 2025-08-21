@@ -1,6 +1,6 @@
 import { PayUserGroup } from "./PayUserGroup";
 
 /**
- * Deletes an existing <see cref="UserGroup"/>.
+ * Deletes an existing @link {UserGroup}.
  **/
 export class PayUserGroupDelete extends PayUserGroup {}

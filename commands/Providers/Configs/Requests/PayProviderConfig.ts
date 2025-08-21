@@ -2,11 +2,11 @@ import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
 
 /**
- * A container for the <see cref="providerConfig"/> object.
+ * A container for the @link {providerConfig} object.
  **/
 export abstract class PayProviderConfig extends Payload implements IPaySingle {
 	/**
-	 * An object to contain the "id" of the <see cref="ProviderConfig"/>.
+	 * An object to contain the "id" of the @link {ProviderConfig}.
 	 **/
 	providerConfig: ParamId;
 

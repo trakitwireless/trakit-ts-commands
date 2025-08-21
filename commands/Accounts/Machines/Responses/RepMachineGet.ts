@@ -1,10 +1,10 @@
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
- * A container for the <see cref="machine"/>.
+ * A container for the @link {machine}.
  **/
 export class RepMachineGet extends Reply {
 	/**
-	 * The requested <see cref="Machine"/>.
+	 * The requested @link {Machine}.
 	 **/
 	machine: Machine;}

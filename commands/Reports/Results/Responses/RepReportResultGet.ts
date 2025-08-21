@@ -1,10 +1,10 @@
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
- * A container for the <see cref="reportResult"/>.
+ * A container for the @link {reportResult}.
  **/
 export class RepReportResultGet extends Reply {
 	/**
-	 * The requested <see cref="ReportResult"/>.
+	 * The requested @link {ReportResult}.
 	 **/
 	reportResult: ReportResult;}

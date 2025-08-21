@@ -1,10 +1,10 @@
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
- * A container for the <see cref="providerRegistration"/>.
+ * A container for the @link {providerRegistration}.
  **/
 export class RepProviderRegistrationGet extends Reply {
 	/**
-	 * The requested <see cref="ProviderRegistration"/>.
+	 * The requested @link {ProviderRegistration}.
 	 **/
 	providerRegistration: ProviderRegistration;}

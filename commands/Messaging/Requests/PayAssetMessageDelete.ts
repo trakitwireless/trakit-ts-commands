@@ -1,6 +1,6 @@
 import { PayAssetMessage } from "./PayAssetMessage";
 
 /**
- * Deletes an existing <see cref="AssetMessage"/>.
+ * Deletes an existing @link {AssetMessage}.
  **/
 export class PayAssetMessageDelete extends PayAssetMessage {}

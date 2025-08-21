@@ -1,7 +1,7 @@
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
- * A container for the <see cref="icon"/>.
+ * A container for the @link {icon}.
  **/
 export class RepIconMerge extends Reply {
 	/**

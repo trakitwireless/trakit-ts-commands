@@ -1,7 +1,7 @@
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
- * A container for the <see cref="document"/>.
+ * A container for the @link {document}.
  **/
 export class RepDocumentMerge extends Reply {
 	/**

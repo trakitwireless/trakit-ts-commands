@@ -1,8 +1,8 @@
 
 /**
- * Similar to the <see cref="User"/> object, but instead of the <see cref="contact"/>
- * and <see cref="groups"/> properties being identifiers of other objects,
- * the <see cref="Contact"/> and <see cref="UserGroup"/> objects are embedded within.
+ * Similar to the @link {User} object, but instead of the @link {contact}
+ * and @link {groups} properties being identifiers of other objects,
+ * the @link {Contact} and @link {UserGroup} objects are embedded within.
  **/
 export class SelfUser extends Compound implements IBelongCompany, IEnabled, IDeletable {
 	/**
@@ -16,14 +16,14 @@ export class SelfUser extends Compound implements IBelongCompany, IEnabled, IDel
 
 	/**
 	 * The unique public email address you use to access the system.
-	 * <seealso cref="Asset.id" />
+	 * @see {@link Asset.id}
 	 **/
 		public string login => this.General?.login
 						?? this.Advanced?.login
 						?? throw new NullReferenceException("general");
 	/**
 	 * The company to which you belong.
-	 * <seealso cref="Company.id" />
+	 * @see {@link Company.id}
 	 **/
 		public ulong company => this.General?.company
 						?? this.Advanced?.company
@@ -65,7 +65,7 @@ export class SelfUser extends Compound implements IBelongCompany, IEnabled, IDel
 		}
 	/**
 	 * The user's local timezone.
-	 * <seealso cref="Timezone.code" />
+	 * @see {@link Timezone.code}
 	 **/
 		public Timezone timezone {
 			get => (this.General ?? throw new NullReferenceException("general")).timezone;
@@ -127,14 +127,14 @@ export class SelfUser extends Compound implements IBelongCompany, IEnabled, IDel
 		[JsonIgnore]
 	Advanced: SelfUserAdvanced;
 	/**
-	 * Individual permission rules which override the <see cref="UserGroup"/> rules.
+	 * Individual permission rules which override the @link {UserGroup} rules.
 	 **/
 		public Permission[] permissions {
 			get => (this.Advanced ?? throw new NullReferenceException("advanced")).permissions;
 			set => (this.Advanced ?? throw new NullReferenceException("advanced")).permissions = value;
 		}
 	/**
-	 * The list of <see cref="UserGroup"/>s to which this <see cref="User"/> belongs.
+	 * The list of @link {UserGroup}s to which this @link {User} belongs.
 	 **/
 		public UserGroup[] groups {
 			get => (this.Advanced ?? throw new NullReferenceException("advanced")).groups;
@@ -143,7 +143,7 @@ export class SelfUser extends Compound implements IBelongCompany, IEnabled, IDel
 
 		// IRequestable
 	/**
-	 * The <see cref="login"/> is the key.
+	 * The @link {login} is the key.
 	 **/
 			public override string GetKey() => this.login;
 

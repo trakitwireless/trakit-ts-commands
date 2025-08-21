@@ -7,42 +7,42 @@ import { IPayListByLabels } from "../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../API/Requests/IPayListByReferences";
 
 /**
- * Gets a list of <see cref="CompanyStyles"/>s.
+ * Gets a list of @link {CompanyStyles}s.
  **/
 export abstract class PayCompanyStylesList extends Payload implements IPayDeletable {
 	/**
-	 * When true, the command will also return a deleted <see cref="CompanyStyles"/> (if it exists).
+	 * When true, the command will also return a deleted @link {CompanyStyles} (if it exists).
 	 **/
 	includeDeleted: boolean;
 	}
 
 /**
- * Gets the list of <see cref="CompanyStyles"/>s for the specified <see cref="Company"/>.
+ * Gets the list of @link {CompanyStyles}s for the specified @link {Company}.
  **/
 export class PayCompanyStylesListByCompany extends PayCompanyStylesList implements IPayListByCompany {
 	/**
-	 * Identifier of the <see cref="Company"/> to which this collection belongs.
+	 * Identifier of the @link {Company} to which this collection belongs.
 	 **/
 	company: ParamId;
 	}
 /**
- * Gets the list of <see cref="CompanyStyles"/>s for the specified <see cref="Company"/> only if the <see cref="CompanyStylesStyles.labels"/> matches all of the given <see cref="Parameters.labels"/>.
+ * Gets the list of @link {CompanyStyles}s for the specified @link {Company} only if the @link {CompanyStylesStyles.labels} matches all of the given @link {Parameters.labels}.
  **/
 export class PayCompanyStylesListByCompanyAndLabels extends PayCompanyStylesListByCompany implements IPayListByLabels {
 	/**
 	 * The parsed labels given as input.
-	 * <seealso cref="CompanyStyles.labels"/>
+	 * @see {@link CompanyStyles.labels}
 	 **/
 	labels: string[];
 	}
 /**
- * Gets the list of <see cref="CompanyStyles"/>s for the specified <see cref="Company"/> only if one of the specified <see cref="CompanyStylesStyles.references"/> fields match.
- * If no references are specified, it will match any <see cref="CompanyStyles"/> with no references.
- * If a reference value is null, it will match any <see cref="CompanyStyles"/> without that reference key.
+ * Gets the list of @link {CompanyStyles}s for the specified @link {Company} only if one of the specified @link {CompanyStylesStyles.references} fields match.
+ * If no references are specified, it will match any @link {CompanyStyles} with no references.
+ * If a reference value is null, it will match any @link {CompanyStyles} without that reference key.
  **/
 export class PayCompanyStylesListByCompanyAndRefPairs extends PayCompanyStylesListByCompany implements IPayListByReferences {
 	/**
 	 * The parsed references given as input.
-	 * <seealso cref="CompanyStylesStyles.references"/>
+	 * @see {@link CompanyStylesStyles.references}
 	 **/
 	references: Map<string, string>;}

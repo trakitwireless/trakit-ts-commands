@@ -1,6 +1,6 @@
 import { PayReportSchedule } from "./PayReportSchedule";
 
 /**
- * Deletes an existing <see cref="ReportSchedule"/>.
+ * Deletes an existing @link {ReportSchedule}.
  **/
 export class PayReportScheduleDelete extends PayReportSchedule {}

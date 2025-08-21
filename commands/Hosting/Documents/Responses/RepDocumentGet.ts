@@ -1,10 +1,10 @@
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
- * A container for the <see cref="document"/>.
+ * A container for the @link {document}.
  **/
 export class RepDocumentGet extends Reply {
 	/**
-	 * The requested <see cref="Document"/>.
+	 * The requested @link {Document}.
 	 **/
 	document: Document;}

@@ -1,10 +1,10 @@
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
- * A container for the <see cref="behaviourScript"/>.
+ * A container for the @link {behaviourScript}.
  **/
 export class RepBehaviourScriptBatchDelete extends Reply {
 	/**
-	 * Details about deleting/restoring the requested <see cref="BehaviourScript"/>.
+	 * Details about deleting/restoring the requested @link {BehaviourScript}.
 	 **/
 	behaviourScripts: ContentIdDeleted[];}

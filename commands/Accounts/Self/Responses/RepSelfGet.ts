@@ -5,7 +5,7 @@ import { SessionPolicy } from "@objects/Companies/SessionPolicy";
 import { PasswordPolicy } from "@objects/Companies/PasswordPolicy";
 
 /**
- * A container for the <see cref="User"/> or <see cref="Machine"/> of the current session.
+ * A container for the @link {User} or @link {Machine} of the current session.
  **/
 export class RepSelfGet extends Reply {
 	/**
@@ -17,21 +17,21 @@ export class RepSelfGet extends Reply {
 	 **/
 	expiry: Date | undefined;
 	/**
-	 * This session's <see cref="User"/> details (if the service is being used by a <see cref="User"/>).
+	 * This session's @link {User} details (if the service is being used by a @link {User}).
 	 * If this value is not present, then the session is not yet authenticated.
 	 **/
 	user: SelfUser | undefined;
 	/**
-	 * This <see cref="Machine"/>'s details (if the service is being used by a <see cref="Machine"/>).
+	 * This @link {Machine}'s details (if the service is being used by a @link {Machine}).
 	 * If this value is not present, then the session is not a machine account.
 	 **/
 	machine: SelfMachine | undefined;
 	/**
-	 * This <see cref="User"/>'s <see cref="CompanyPolicies.sessionPolicy"/>.
+	 * This @link {User}'s @link {CompanyPolicies.sessionPolicy}.
 	 **/
 	sessionPolicy: SessionPolicy | undefined;
 	/**
-	 * This <see cref="User"/>'s <see cref="CompanyPolicies.passwordPolicy"/>.
+	 * This @link {User}'s @link {CompanyPolicies.passwordPolicy}.
 	 **/
 	passwordPolicy: PasswordPolicy | undefined;
 	/**

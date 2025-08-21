@@ -1,7 +1,7 @@
 import { Reply } from "../../API/Responses/Reply";
 
 /**
- * A container for the <see cref="assetMessage"/>.
+ * A container for the @link {assetMessage}.
  **/
 export class RepAssetMessageMerge extends Reply {
 	/**
