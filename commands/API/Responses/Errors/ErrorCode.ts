@@ -11,755 +11,703 @@ export enum ErrorCode {
 	/**
 	 * An unknown error, or some kind or error by the client.
 	 **/
-	unknown,
+	unknown = 1,
 	/**
 	 * Service error not because of client input.
 	 **/
-	service,
+	service = 2,
 	/**
 	 * Invalid data.
 	 * Client input could not be properly parsed.
 	 **/
-	invalidData,
+	invalidData = 3,
 	/**
 	 * Not a valid {@link PermissionType}.
 	 * @deprecated
 	 **/
-	invalidPermission,
+	invalidPermission = 4,
 	/**
 	 * Permission denied.
 	 * The operation not successful because access is restricted.
 	 **/
-	permissionDenied,
+	permissionDenied = 5,
 	/**
 	 * Version keys sent with request do not match service version.
 	 * In these cases, treat the service version as most recent.
 	 **/
-	wrongVersionKey,
+	wrongVersionKey = 6,
+
 	/**
 	 * {@link User}'s session is expired or unknown.
 	 * @summary Users and Groups
 	 **/
-	sessionExpired,
+	sessionExpired = 7,
 	/**
 	 * Please login before all other operations.
 	 * @summary Users and Groups
 	 **/
-	userNotLoggedIn,
+	userNotLoggedIn = 8,
 	/**
 	 * {@link User}'s session was forcibly killed by another user, or by {@link SessionPolicy}'s rules.
 	 * @summary Users and Groups
 	 **/
-	sessionKilled,
+	sessionKilled = 9,
 	/**
 	 * The session has ended.
 	 * @summary Users and Groups
 	 **/
-	loggedOut,
+	loggedOut = 10,
 	/**
 	 * Invalid credentials.
 	 * @summary Users and Groups
 	 **/
-	invalidCredentials,
+	invalidCredentials = 11,
 	/**
 	 * The given client UserAgent is not allowed.
 	 * @summary Users and Groups
 	 **/
-	applicationNotAllowed,
+	applicationNotAllowed = 12,
 	/**
 	 * IPAddress not allowed.
 	 * IP restrictions are in place, and the client IP is not in the allowed list.
 	 * @summary Users and Groups
 	 **/
-	ipNotAllowed,
+	ipNotAllowed = 13,
 	/**
 	 * Session is active from another client, and the {@link SessionPolicy}'s rules are set to {@link MultiUserPolicy.deny}.
 	 * @summary Users and Groups
 	 **/
-	multiUserDenied,
+	multiUserDenied = 14,
 	/**
 	 * Password doesn't comply with the password policy.
 	 * See the {@link PasswordPolicy} for a reason as to why your password does not meet the criteria.
 	 * @summary Users and Groups
 	 **/
-	noncompliantPassword,
+	noncompliantPassword = 15,
 	/**
 	 * Your password has expired.  Please change your password.
 	 * An expired password does not mean your session has expired.
 	 * If you create a new session, it will ask you to update your password again.
 	 * @summary Users and Groups
 	 **/
-	passwordExpired,
+	passwordExpired = 16,
 	/**
 	 * When changing a password, it must not be the same as the previous password.
 	 * @summary Users and Groups
 	 **/
-	samePassword,
+	samePassword = 17,
 	/**
 	 * Unable to Kill the session.
 	 * @deprecated
 	 * @summary Users and Groups
 	 **/
-	killSessionFailed,
+	killSessionFailed = 18,
 	/**
 	 * Session not found.
 	 * @summary Users and Groups
 	 **/
-	sessionNotFound,
+	sessionNotFound = 19,
 	/**
 	 * {@link Asset} not found.
 	 * @summary Assets
 	 **/
-	assetNotFound,
+	assetNotFound = 20,
 	/**
 	 * {@link Asset} not deleted.
 	 * @summary Assets
 	 **/
-	assetNotDeleted,
+	assetNotDeleted = 21,
 	/**
 	 * One or more {@link Asset}s in the list not found.
 	 * @summary Assets
 	 **/
-	assetsListNotFound,
+	assetsListNotFound = 22,
 	/**
 	 * {@link BehaviourScript} not found.
 	 * @summary Behaviours
 	 **/
-	behaviourScriptNotFound,
+	behaviourScriptNotFound = 23,
 	/**
 	 * {@link BehaviourScript} not deleted.
 	 * @summary Behaviours
 	 **/
-	behaviourScriptNotDeleted,
+	behaviourScriptNotDeleted = 24,
 	/**
 	 * {@link BehaviourScript} currently implemented by one or more {@link Behaviour}s.
 	 * In order to delete a {@link BehaviourScript}, all {@link Behaviour}s implementing the script must be deleted first.
 	 * @summary Behaviours
 	 **/
-	behaviourScriptInUse,
+	behaviourScriptInUse = 25,
 	/**
 	 * {@link Behaviour} not found.
 	 * @summary Behaviours
 	 **/
-	behaviourNotFound,
+	behaviourNotFound = 26,
 	/**
 	 * {@link Behaviour} not deleted.
 	 * @summary Behaviours
 	 **/
-	behaviourNotDeleted,
+	behaviourNotDeleted = 27,
 	/**
 	 * {@link Company} not found.
 	 * @summary Companies
 	 **/
-	companyNotFound,
+	companyNotFound = 28,
 	/**
 	 * {@link Company} not deleted.
 	 * @summary Companies
 	 **/
-	companyNotDeleted,
+	companyNotDeleted = 29,
 	/**
 	 * {@link UserGroup} not found.
 	 * @summary Users and Groups
 	 **/
-	userGroupNotFound,
+	userGroupNotFound = 30,
 	/**
 	 * {@link Contact} not found.
 	 * @summary Contacts
 	 **/
-	contactNotFound,
+	contactNotFound = 31,
 	/**
 	 * {@link Contact} not deleted.
 	 * @summary Contacts
 	 **/
-	contactNotDeleted,
+	contactNotDeleted = 32,
 	/**
 	 * {@link Icon} not found.
 	 * @summary File Hosting
 	 **/
-	iconNotFound,
+	iconNotFound = 33,
 	/**
 	 * {@link Icon} not deleted.
 	 * @summary File Hosting
 	 **/
-	iconNotDeleted,
+	iconNotDeleted = 34,
 	/**
 	 * {@link MaintenanceJob} not found.
 	 * @summary Maintenance
 	 **/
-	maintenanceJobNotFound,
+	maintenanceJobNotFound = 35,
 	/**
 	 * {@link MaintenanceJob} not deleted.
 	 * @summary Maintenance
 	 **/
-	maintenanceJobNotDeleted,
+	maintenanceJobNotDeleted = 36,
 	/**
 	 * {@link MaintenanceSchedule} not found.
 	 * @summary Maintenance
 	 **/
-	maintenanceScheduleNotFound,
+	maintenanceScheduleNotFound = 37,
 	/**
 	 * {@link MaintenanceSchedule} not deleted.
 	 * @summary Maintenance
 	 **/
-	maintenanceScheduleNotDeleted,
+	maintenanceScheduleNotDeleted = 38,
 	/**
 	 * {@link MaintenanceSchedule} currently in use by one or more {@link MaintenanceJob}s.
 	 * In order to delete a {@link MaintenanceSchedule}, all {@link MaintenanceJob}s referencing this schedule must be deleted first.
 	 * @deprecated
 	 * @summary Maintenance
 	 **/
-	maintenanceScheduleInUse,
+	maintenanceScheduleInUse = 39,
 	/**
 	 * {@link Place} not found.
 	 * @summary Places
 	 **/
-	placeNotFound,
+	placeNotFound = 40,
 	/**
 	 * {@link Place} not deleted.
 	 * @summary Places
 	 **/
-	placeNotDeleted,
+	placeNotDeleted = 41,
 	/**
 	 * One or more {@link Place}s in the list not found.
 	 * @summary Places
 	 **/
-	placesListNotFound,
+	placesListNotFound = 42,
 	/**
 	 * {@link Provider} not found.
 	 * @summary Providers and Configurations
 	 **/
-	providerNotFound,
+	providerNotFound = 43,
 	/**
 	 * {@link Provider} not deleted.
 	 * @summary Providers and Configurations
 	 **/
-	providerNotDeleted,
+	providerNotDeleted = 44,
 	/**
 	 * One or more {@link Provider}s in the list not found.
 	 * @summary Providers and Configurations
 	 **/
-	providersListNotFound,
+	providersListNotFound = 45,
 	/**
 	 * Cannot access deleted {@link Provider}.
 	 * @deprecated Throws providerNotFound instead
 	 * @summary Providers and Configurations
 	 **/
-	deletedProvider,
+	deletedProvider = 46,
 	/**
 	 * {@link ProviderConfigurationType} not found.
 	 * @summary Providers and Configurations
 	 **/
-	providerConfigurationTypeNotFound,
+	providerConfigurationTypeNotFound = 47,
 	/**
 	 * {@link ProviderConfig} or {@link ProviderConfiguration} not found.
 	 * @summary Providers and Configurations
 	 **/
-	providerConfigurationNotFound,
+	providerConfigurationNotFound = 48,
 	/**
 	 * {@link ProviderConfig} or {@link ProviderConfiguration} not deleted.
 	 * @summary Providers and Configurations
 	 **/
-	providerConfigurationNotDeleted,
+	providerConfigurationNotDeleted = 49,
 	/**
 	 * {@link ProviderConfig} or {@link ProviderConfiguration} currently in use by one or more {@link Provider}s.
 	 * In order to delete a {@link ProviderConfig}/{@link ProviderConfiguration}, all {@link Provider}s using the configuration must be deleted first, or have their configuration changed.
 	 * @summary Providers and Configurations
 	 **/
-	providerConfigurationInUse,
+	providerConfigurationInUse = 50,
 	/**
 	 * Invalid {@link ProviderConfiguration} options.
 	 * @summary Providers and Configurations
 	 **/
-	invalidConfigurationOptions,
+	invalidConfigurationOptions = 51,
 	/**
 	 * {@link ReportTemplate} not found.
 	 * @summary Reports
 	 **/
-	reportTemplateNotFound,
+	reportTemplateNotFound = 52,
 	/**
 	 * {@link ReportTemplate} not deleted.
 	 * @summary Reports
 	 **/
-	reportTemplateNotDeleted,
+	reportTemplateNotDeleted = 53,
 	/**
 	 * {@link User} not found.
 	 * @summary Users and Groups
 	 **/
-	userNotFound,
+	userNotFound = 54,
 	/**
 	 * {@link User} not deleted.
 	 * @summary Users and Groups
 	 **/
-	userNotDeleted,
+	userNotDeleted = 55,
 	/**
 	 * Cannot access deleted {@link User}.
 	 * @deprecated Throws userNotFound instead
 	 * @summary Users and Groups
 	 **/
-	deletedUser,
+	deletedUser = 56,
 	/**
 	 * @summary Users and Groups
 	 * Cannot kill your own Session, or delete/disable your own {@link User}.
 	 **/
-	suicide,
+	suicide = 57,
 	/**
 	 * {@link CompanyLabels.labels} codes must be unique.
 	 * @deprecated
 	 * @summary Companies
 	 **/
-	labelsListNotUnique,
+	labelsListNotUnique = 58,
 	/**
 	 * {@link CompanyLabels.tags} codes must be unique.
 	 * @deprecated
 	 * @summary Companies
 	 **/
-	tagsListNotUnique,
+	tagsListNotUnique = 59,
 	/**
 	 * One or more {@link UserGroup}s in the list not found.
 	 * @summary Users and Groups
 	 **/
-	userGroupsListNotFound,
+	userGroupsListNotFound = 60,
 	/**
 	 * Unknown command.
 	 **/
-	unknownCommand,
+	unknownCommand = 61,
 	/**
 	 * {@link Timezone} not found.
 	 **/
-	timezoneNotFound,
+	timezoneNotFound = 62,
 	/**
 	 * {@link Message} not found.
 	 * @summary Assets
 	 **/
-	assetMessageNotFound,
+	assetMessageNotFound = 63,
 	/**
 	 * {@link DispatchTask} not found.
 	 * @summary Dispatch
 	 **/
-	dispatchTaskNotFound,
+	dispatchTaskNotFound = 64,
 	/**
 	 * {@link UserGroup} currently in use by one or more {@link User}s.
 	 * In order to delete a {@link UserGroup}, all {@link User}s must first be removed as members.
 	 * @summary Users and Groups
 	 **/
-	userGroupInUse,
+	userGroupInUse = 65,
 	/**
 	 * {@link UserGroup} not deleted.
 	 * @summary Users and Groups
 	 **/
-	userGroupNotDeleted,
+	userGroupNotDeleted = 66,
 	/**
 	 * {@link ReportResult} not found.
 	 * @summary Reports
 	 **/
-	reportResultNotFound,
+	reportResultNotFound = 67,
 	/**
 	 * {@link Picture} not found.
 	 * @summary File Hosting
 	 **/
-	pictureNotFound,
+	pictureNotFound = 68,
 	/**
 	 * One or more {@link Picture}s in the list not found.
 	 * @summary File Hosting
 	 **/
-	picturesListNotFound,
+	picturesListNotFound = 69,
 	/**
 	 * {@link Picture} not deleted.
 	 * @summary File Hosting
 	 **/
-	pictureNotDeleted,
+	pictureNotDeleted = 70,
 	/**
 	 * Unable to perform operation because resulting {@link UserPermission}s would be greater than your own.
 	 * @summary Users and Groups
 	 **/
-	permissionEscalation,
+	permissionEscalation = 71,
 	/**
 	 * A {@link User} with this login already exists.
 	 * @summary Users and Groups
 	 **/
-	userAlreadyExists,
+	userAlreadyExists = 72,
 	/**
 	 * Session or connection not allowed due to flooding.
 	 * @summary Users and Groups
 	 **/
-	sessionThrottled,
+	sessionThrottled = 73,
 	/**
 	 * One or more {@link User}s in the list not found.
 	 * @summary Users and Groups
 	 **/
-	usersListNotFound,
+	usersListNotFound = 74,
 	/**
 	 * {@link ReportResult} not deleted.
 	 * @summary Reports
 	 **/
-	reportResultNotDeleted,
-	/**
-	 * {@link HosCarrier} not found.
-	 * @summary Hours of Service
-	 **/
-	carrierNotFound,
-	/**
-	 * {@link HosCarrier} not deleted.
-	 * @summary Hours of Service
-	 **/
-	carrierNotDeleted,
-	/**
-	 * {@link HosInspection} not found.
-	 * @summary Hours of Service
-	 **/
-	inspectionNotFound,
-	/**
-	 * {@link HosInspection} not deleted.
-	 * @summary Hours of Service
-	 **/
-	inspectionNotDeleted,
-
+	reportResultNotDeleted = 75,
 	/**
 	 * There was an error retrieving the address' coordinates.
 	 * Check the `errorDetails` for more information.
 	 * @summary Dispatch
 	 **/
-	geocoderError,
+	geocoderError = 80,
 	/**
 	 * No coordinates could be found for the given address.
 	 * Ensure the address is correct, or try again without postal code.
 	 * @summary Dispatch
 	 **/
-	geocoderNotFound,
+	geocoderNotFound = 81,
 	/**
 	 * There was an error calculating the directions or too many stops were given.
 	 * Check the `errorDetails` for more information.
 	 * @summary Dispatch
 	 **/
-	directionsError,
+	directionsError = 82,
 	/**
 	 * Directions could not be calculated between two or more stops.
 	 * Ensure the each stop is correct, or try a shorter route.
 	 * @summary Dispatch
 	 **/
-	directionsNotFound,
-
-	/**
-	 * {@link HosEvent} not found.
-	 * @summary Hours of Service
-	 **/
-	elogNotFound,
+	directionsNotFound = 83,
 
 	/**
 	 * {@link User} has been disabled.
 	 * @summary Users and Groups
 	 **/
-	userDisabled,
+	userDisabled = 85,
 
 	/**
 	 * Trying to remove an expired or completed {@link ProviderRegistration}.
 	 * @summary Providers and Configurations
 	 **/
-	invalidRegistration,
-	/**
-	 * Verification hash does not match {@link Provider}'s.
-	 * @ignore
-	 * @summary Providers and Configurations
-	 **/
-	invalidHash,
-	/**
-	 * Unknown or invalid {@link ProviderRegistration.code}.
-	 * @ignore
-	 * @summary Providers and Configurations
-	 **/
-	invalidVerification,
+	invalidRegistration = 86,
 	/**
 	 * {@link ProviderRegistration} timeout has elapsed.
 	 * @ignore
 	 * @summary Providers and Configurations
 	 **/
-	verifyTimeout,
+	verifyTimeout = 89,
 
 	/**
 	 * Unsupported MIME type.
 	 * @summary File Hosting
 	 **/
-	invalidMime,
+	invalidMime = 90,
 	/**
 	 * File is too large.
 	 * @summary File Hosting
 	 **/
-	filesizeExceeded,
+	filesizeExceeded = 91,
 
 	/**
 	 * Unknown or invalid {@link ProviderType}.
 	 * @deprecated Use invalidData instead
 	 * @summary Providers and Configurations
 	 **/
-	invalidProviderType,
+	invalidProviderType = 92,
 
 	/**
 	 * {@link ReportSchedule} not found.
 	 * @summary Reports
 	 **/
-	reportScheduleNotFound,
+	reportScheduleNotFound = 93,
 	/**
 	 * {@link ReportSchedule} not deleted.
 	 * @summary Reports
 	 **/
-	reportScheduleNotDeleted,
+	reportScheduleNotDeleted = 94,
 
 	/**
 	 * {@link ReportResult} not ready to serve {@link ReportDataSummaryInstance} or {@link ReportDataBreakdownInstance} data.
 	 * @summary Reports
 	 **/
-	reportResultNotReady,
+	reportResultNotReady = 95,
 
 	/**
 	 * {@link Asset} suspended.
 	 * @summary Assets
 	 **/
-	assetSuspended,
+	assetSuspended = 96,
 	/**
 	 * {@link Asset} not suspended.
 	 * @summary Assets
 	 **/
-	assetNotSuspended,
+	assetNotSuspended = 97,
 
 	/**
 	 * {@link Provider} suspended.
 	 * @summary Providers and Configurations
 	 **/
-	providerSuspended,
+	providerSuspended = 98,
 	/**
 	 * {@link Provider} not suspended.
 	 * @summary Providers and Configurations
 	 **/
-	providerNotSuspended,
+	providerNotSuspended = 99,
 
 	/**
 	 * {@link DispatchTask} not deleted.
 	 * @summary Dispatch
 	 **/
-	dispatchTaskNotDeleted,
+	dispatchTaskNotDeleted = 100,
 	/**
 	 * {@link Message} not deleted.
 	 * @summary Assets
 	 **/
-	assetMessageNotDeleted,
+	assetMessageNotDeleted = 101,
 
 	/**
 	 * {@link ProviderScript} not found.
 	 * @summary Providers and Configurations
 	 **/
-	providerScriptNotFound,
+	providerScriptNotFound = 102,
 	/**
 	 * {@link ProviderScript} not deleted.
 	 * @summary Providers and Configurations
 	 **/
-	providerScriptNotDeleted,
+	providerScriptNotDeleted = 103,
 	/**
 	 * {@link ProviderScript} currently in use by one or more {@link ProviderConfig}s.
 	 * In order to delete a {@link ProviderScript}, all {@link ProviderConfig}s must first be deleted.
 	 * @summary Providers and Configurations
 	 **/
-	providerScriptInUse,
+	providerScriptInUse = 104,
 
 	/**
 	 * Command not processed due to flooding.
 	 **/
-	commandThrottled,
+	commandThrottled = 105,
 
 	/**
 	 * {@link CompanyReseller} not found.
 	 * @summary White-labelling
 	 **/
-	resellerNotFound,
+	resellerNotFound = 106,
 	/**
 	 * {@link CompanyReseller} not deleted.
 	 * @summary White-labelling
 	 **/
-	resellerNotDeleted,
+	resellerNotDeleted = 107,
 
 	/**
 	 * The long-running operation is queued, and will run when resources are ready.
 	 **/
-	operationPending,
+	operationPending = 108,
 	/**
 	 * The long-running operation is currently executing.
 	 **/
-	operationRunning,
+	operationRunning = 109,
 	/**
 	 * The long-running operation has failed; see `message</c> and <c>errorDetails` for more information.
 	 **/
-	operationFailed,
+	operationFailed = 110,
 
 	/**
 	 * {@link BillingProfile} not found.
 	 * @summary Billing
 	 **/
-	billingProfileNotFound,
+	billingProfileNotFound = 111,
 	/**
 	 * {@link BillingProfile} not deleted.
 	 * @summary Billing
 	 **/
-	billingProfileNotDeleted,
+	billingProfileNotDeleted = 112,
 	/**
 	 * {@link BillableHostingRule} not found.
 	 * @summary Billing
 	 **/
-	hostingRuleNotFound,
+	hostingRuleNotFound = 113,
 	/**
 	 * {@link BillableHostingRule} not deleted.
 	 * @summary Billing
 	 **/
-	hostingRuleNotDeleted,
-	/**
-	 * {@link BillableHostingDiscount} not found.
-	 * @ignore
-	 * @deprecated Never implemented.
-	 * @summary Billing
-	 **/
-	hostingDiscountNotFound,
-	/**
-	 * {@link BillableHostingDiscount} not deleted.
-	 * @ignore
-	 * @deprecated Never implemented.
-	 * @summary Billing
-	 **/
-	hostingDiscountNotDeleted,
+	hostingRuleNotDeleted = 114,
 	/**
 	 * {@link BillableHostingLicense} not found.
 	 * @summary Billing
 	 **/
-	hostingLicenseNotFound,
+	hostingLicenseNotFound = 117,
 	/**
 	 * {@link BillableHostingLicense} not deleted.
 	 * @summary Billing
 	 **/
-	hostingLicenseNotDeleted,
+	hostingLicenseNotDeleted = 118,
 	/**
 	 * {@link BillingReport} not found.
 	 * @summary Billing
 	 **/
-	billingReportNotFound,
+	billingReportNotFound = 119,
 	/**
 	 * {@link BillingReport} not deleted.
 	 * @summary Billing
 	 **/
-	billingReportNotDeleted,
+	billingReportNotDeleted = 120,
 
 	/**
 	 * {@link Contact} currently in use by one or more {@link User}s and/or {@link Asset}s.
 	 * In order to delete a {@link Contact}, all {@link User}s/{@link Asset}s must first be altered or deleted.
 	 * @summary Contacts
 	 **/
-	contactInUse,
+	contactInUse = 121,
 
 	/**
 	 * {@link Document} not found.
 	 * @summary File Hosting
 	 **/
-	documentNotFound,
+	documentNotFound = 122,
 	/**
 	 * {@link Document} not deleted.
 	 * @summary File Hosting
 	 **/
-	documentNotDeleted,
+	documentNotDeleted = 123,
 	/**
 	 * One or more {@link Document}s in the list not found.
 	 * @summary File Hosting
 	 **/
-	documentsListNotFound,
+	documentsListNotFound = 124,
 
 	/**
 	 * The object or operation has not changed since the last request.
 	 **/
-	unchanged,
+	unchanged = 125,
 	/**
 	 * The collection has no content or the operation produced no results.
 	 **/
-	nothing,
+	nothing = 126,
 
 	/**
 	 * {@link Machine} not found.
 	 * @summary Users and Groups
 	 **/
-	machineNotFound,
+	machineNotFound = 127,
 	/**
 	 * {@link Machine} not deleted.
 	 * @summary Users and Groups
 	 **/
-	machineNotDeleted,
+	machineNotDeleted = 128,
 	/**
 	 * The {@link Machine} cannot access the requested API.
 	 * @summary Users and Groups
 	 **/
-	machineNotAllowed,
+	machineNotAllowed = 129,
 
 	/**
 	 * Invalid operation.
 	 * Due to either the request or the objects' state, the operation cannot be performed.
 	 **/
-	invalidOperation,
+	invalidOperation = 130,
 
 	/**
 	 * A client using a {@link Machine} is trying to access the system from an unknown URL.
 	 * @summary Users and Groups
 	 **/
-	referrerNotAllowed,
+	referrerNotAllowed = 131,
 
 	/**
 	 * {@link FormTemplate} not found.
 	 * @summary File Hosting
 	 **/
-	formTemplateNotFound,
+	formTemplateNotFound = 132,
 	/**
 	 * {@link FormTemplate} not deleted.
 	 * @summary File Hosting
 	 **/
-	formTemplateNotDeleted,
+	formTemplateNotDeleted = 133,
 	/**
 	 * {@link FormResult} not found.
 	 * @summary File Hosting
 	 **/
-	formResultNotFound,
+	formResultNotFound = 134,
 	/**
 	 * {@link FormResult} not deleted.
 	 * @summary File Hosting
 	 **/
-	formResultNotDeleted,
+	formResultNotDeleted = 135,
 	/**
 	 * One or more {@link FormResult}s in the list not found.
 	 * @summary File Hosting
 	 **/
-	formResultsListNotFound,
+	formResultsListNotFound = 136,
 
 	/**
 	 * {@link DispatchTemplate} not found.
 	 * @summary Dispatch
 	 **/
-	dispatchTemplateNotFound,
+	dispatchTemplateNotFound = 137,
 	/**
 	 * {@link DispatchTemplate} not deleted.
 	 * @summary Dispatch
 	 **/
-	dispatchTemplateNotDeleted,
+	dispatchTemplateNotDeleted = 138,
 	/**
 	 * {@link DispatchJob} not found.
 	 * @summary Dispatch
 	 **/
-	dispatchJobNotFound,
+	dispatchJobNotFound = 139,
 	/**
 	 * {@link DispatchJob} not deleted.
 	 * @summary Dispatch
 	 **/
-	dispatchJobNotDeleted,
+	dispatchJobNotDeleted = 140,
 	/**
 	 * One or more {@link DispatchJob}s in the list not found.
 	 * @summary File Hosting
 	 **/
-	dispatchJobsListNotFound,
+	dispatchJobsListNotFound = 141,
 
 	/**
 	 * {@link FormTemplate} currently in use by one or more {@link FormResult}s.
 	 * In order to delete a {@link FormTemplate}, all {@link FormResult}s must first be expired or deleted.
- 	 * @summary File Hosting
+	 * @summary File Hosting
 	 **/
-	formTemplateInUse,
+	formTemplateInUse = 142,
 }
