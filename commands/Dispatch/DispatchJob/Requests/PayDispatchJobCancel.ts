@@ -11,7 +11,7 @@ export class PayDispatchJobCancel extends Payload implements IPaySingle {
 	dispatchJob: ParamDispatchJobCancel;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.dispatchJob.id.ToString() ?? "";

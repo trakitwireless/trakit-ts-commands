@@ -12,7 +12,7 @@ export abstract class PayProviderConfiguration extends Payload implements IPaySi
 	providerConfiguration: ParamId;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.providerConfiguration?.id.ToString() ?? "";

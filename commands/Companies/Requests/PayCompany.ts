@@ -11,7 +11,7 @@ export abstract class PayCompany extends Payload implements IPaySingle {
 	company: ParamId;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.company?.id.ToString() ?? "";

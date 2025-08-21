@@ -13,7 +13,7 @@ export class PayFormTemplateMerge extends Payload implements IPaySingle {
 	formTemplate: ParamFormTemplateMerge;
 
 	/**
-	 *
+	 * 
 
 	 **/
 		getKey(): string {

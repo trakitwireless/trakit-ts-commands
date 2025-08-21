@@ -11,7 +11,7 @@ export class PayReportTemplateMerge extends Payload implements IPaySingle {
 	reportTemplate: ParamReportTemplateMerge;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.reportTemplate?.id?.ToString() ?? "";

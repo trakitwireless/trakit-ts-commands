@@ -12,7 +12,7 @@ export class PayProviderConfigurationMerge extends Payload implements IPaySingle
 	providerConfiguration: ParamProviderConfigurationMerge;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.providerConfiguration?.id?.ToString() ?? "";

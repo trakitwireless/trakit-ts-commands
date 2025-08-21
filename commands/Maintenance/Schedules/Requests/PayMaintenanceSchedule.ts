@@ -11,7 +11,7 @@ export abstract class PayMaintenanceSchedule extends Payload implements IPaySing
 	maintenanceSchedule: ParamId;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.maintenanceSchedule?.id.ToString() ?? "";

@@ -18,7 +18,7 @@ export abstract class RepDispatchJobList extends Reply {
 	}
 
 /**
-	///
+ * 
  **/
 export class RepDispatchJobListByAsset extends RepDispatchJobList implements IRepListByAsset {
 	/**
@@ -27,7 +27,7 @@ export class RepDispatchJobListByAsset extends RepDispatchJobList implements IRe
 	asset: ContentId;
 	}
 /**
-	///
+ * 
  **/
 export class RepDispatchJobListByAssetAndRefPairs extends RepDispatchJobListByAsset {
 	/**
@@ -38,7 +38,7 @@ export class RepDispatchJobListByAssetAndRefPairs extends RepDispatchJobListByAs
 	}
 
 /**
-	///
+ * 
  **/
 export class RepDispatchJobListByCompany extends RepDispatchJobList implements IRepListByCompany {
 	/**
@@ -47,7 +47,7 @@ export class RepDispatchJobListByCompany extends RepDispatchJobList implements I
 	company: ContentId;
 	}
 /**
-	///
+ * 
  **/
 export class RepDispatchJobListByCompanyAndLabels extends RepDispatchJobListByCompany implements IRepListByLabels {
 	/**
@@ -57,7 +57,7 @@ export class RepDispatchJobListByCompanyAndLabels extends RepDispatchJobListByCo
 	labels: string[];
 	}
 /**
-	///
+ * 
  **/
 export class RepDispatchJobListByCompanyAndRefPairs extends RepDispatchJobListByCompany implements IRepListByReferences {
 	/**

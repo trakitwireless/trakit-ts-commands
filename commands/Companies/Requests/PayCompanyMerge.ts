@@ -11,7 +11,7 @@ export class PayCompanyMerge extends Payload implements IPaySingle {
 	company: ParamCompanyMerge;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.company?.id?.ToString() ?? "";

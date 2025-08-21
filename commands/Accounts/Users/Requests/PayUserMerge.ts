@@ -11,7 +11,7 @@ export class PayUserMerge extends Payload implements IPaySingle {
 	user: ParamUserMerge;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.user?.login ?? "";

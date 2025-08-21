@@ -11,7 +11,7 @@ export abstract class PayUser extends Payload implements IPaySingle {
 	user: ParamLogin;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.user?.login ?? "";

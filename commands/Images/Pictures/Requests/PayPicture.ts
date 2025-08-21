@@ -11,7 +11,7 @@ export abstract class PayPicture extends Payload implements IPaySingle {
 	picture: ParamId;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.picture?.id.ToString() ?? "";

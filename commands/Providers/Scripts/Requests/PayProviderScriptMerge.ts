@@ -11,7 +11,7 @@ export class PayProviderScriptMerge extends Payload implements IPaySingle {
 	providerScript: ParamProviderScriptMerge;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.providerScript?.id?.ToString() ?? "";

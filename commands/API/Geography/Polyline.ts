@@ -1,10 +1,10 @@
 
 /**
-	///
+ * 
  **/
 	public static class Polyline {
 	/**
-		///
+	 * 
 	 **/
 		public const byte DEFAULT_PRECISION = 6;
 

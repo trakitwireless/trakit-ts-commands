@@ -11,7 +11,7 @@ export class PayIconMerge extends Payload implements IPaySingle {
 	icon: ParamIconMerge;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.icon?.id?.ToString() ?? "";

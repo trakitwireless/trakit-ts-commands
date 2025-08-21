@@ -11,7 +11,7 @@ export abstract class PayIcon extends Payload implements IPaySingle {
 	icon: ParamId;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.icon?.id.ToString() ?? "";

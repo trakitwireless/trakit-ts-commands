@@ -11,7 +11,7 @@ export class PayDispatchTaskMerge extends Payload implements IPaySingle {
 	dispatchTask: ParamDispatchTaskMerge;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.dispatchTask?.id?.ToString() ?? "";

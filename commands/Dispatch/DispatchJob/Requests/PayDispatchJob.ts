@@ -11,7 +11,7 @@ export abstract class PayDispatchJob extends Payload implements IPaySingle {
 	dispatchJob: ParamId;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.dispatchJob?.id.ToString() ?? "";

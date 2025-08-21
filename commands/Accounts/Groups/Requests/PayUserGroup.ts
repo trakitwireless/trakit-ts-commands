@@ -12,7 +12,7 @@ export abstract class PayUserGroup extends Payload implements IPaySingle {
 	userGroup: ParamId | undefined;
 
 	/**
-		///
+	 * 
 	 **/
 	getKey(): string {
 		return this.userGroup?.id.ToString() ?? "";

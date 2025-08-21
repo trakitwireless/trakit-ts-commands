@@ -10,7 +10,7 @@ import { IPayListByReferences } from "../../../API/Requests/IPayListByReferences
 import { PayDispatchJobListByUnassigned } from "./PayDispatchJobList";
 
 /**
-	///
+ * 
  **/
 export abstract class PayDispatchJobList extends Payload implements IPayDeletable {
 	/**

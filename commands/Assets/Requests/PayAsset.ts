@@ -11,7 +11,7 @@ export abstract class PayAsset extends Payload implements IPaySingle {
 	asset: ParamId;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.asset?.id.ToString() ?? "";

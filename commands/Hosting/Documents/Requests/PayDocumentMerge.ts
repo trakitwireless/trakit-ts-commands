@@ -11,7 +11,7 @@ export class PayDocumentMerge extends Payload implements IPaySingle {
 	document: ParamDocumentMerge;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.document?.id?.ToString() ?? "";

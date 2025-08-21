@@ -11,7 +11,7 @@ export abstract class PayReportResult extends Payload implements IPaySingle {
 	reportResult: ParamId;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.reportResult?.id.ToString() ?? "";

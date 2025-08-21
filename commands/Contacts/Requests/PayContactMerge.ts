@@ -11,7 +11,7 @@ export class PayContactMerge extends Payload implements IPaySingle {
 	contact: ParamContactMerge;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.contact?.id?.ToString() ?? "";

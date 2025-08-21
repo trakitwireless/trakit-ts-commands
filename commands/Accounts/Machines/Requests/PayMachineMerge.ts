@@ -11,7 +11,7 @@ export class PayMachineMerge extends Payload implements IPaySingle {
 	machine: ParamMachineMerge;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.machine?.key ?? "";

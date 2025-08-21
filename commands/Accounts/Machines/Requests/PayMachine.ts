@@ -11,7 +11,7 @@ export abstract class PayMachine extends Payload implements IPaySingle {
 	machine: ParamKey;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.machine?.key ?? "";

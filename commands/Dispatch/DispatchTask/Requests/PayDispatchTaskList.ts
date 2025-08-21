@@ -8,7 +8,7 @@ import { PayDispatchTaskListByCompany } from "./PayDispatchTaskList";
 import { IPayListByReferences } from "../../../API/Requests/IPayListByReferences";
 
 /**
-	///
+ * 
  **/
 export abstract class PayDispatchTaskList extends Payload implements IPayDeletable {
 	/**

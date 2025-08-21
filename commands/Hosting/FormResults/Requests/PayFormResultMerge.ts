@@ -13,7 +13,7 @@ export class PayFormResultMerge extends Payload implements IPaySingle {
 	formResult: ParamFormResultMerge;
 
 	/**
-	 *
+	 * 
 
 	 **/
 		getKey(): string {

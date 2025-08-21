@@ -11,7 +11,7 @@ export abstract class PayProviderScript extends Payload implements IPaySingle {
 	providerScript: ParamId;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.providerScript?.id.ToString() ?? "";

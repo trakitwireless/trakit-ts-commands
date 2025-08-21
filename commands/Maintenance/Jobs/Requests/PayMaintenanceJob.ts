@@ -11,7 +11,7 @@ export abstract class PayMaintenanceJob extends Payload implements IPaySingle {
 	maintenanceJob: ParamId;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.maintenanceJob?.id.ToString() ?? "";

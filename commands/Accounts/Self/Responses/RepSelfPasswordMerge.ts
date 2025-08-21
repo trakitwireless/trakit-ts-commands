@@ -1,7 +1,7 @@
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
-	///
+ * 
  **/
 export class RepSelfPasswordMerge extends Reply {
 	/**

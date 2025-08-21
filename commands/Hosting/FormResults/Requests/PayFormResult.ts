@@ -13,7 +13,7 @@ export abstract class PayFormResult extends Payload implements IPaySingle {
 	formResult: ParamId;
 
 	/**
-	 *
+	 * 
 
 	 **/
 		getKey(): string {

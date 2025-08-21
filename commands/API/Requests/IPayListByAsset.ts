@@ -1,7 +1,7 @@
 import { ParamId } from "./Parameters/ParamId";
 
 /**
- *
+ * 
  **/
 export interface IPayListByAsset {
 	/**

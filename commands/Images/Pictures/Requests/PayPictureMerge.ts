@@ -11,7 +11,7 @@ export class PayPictureMerge extends Payload implements IPaySingle {
 	picture: ParamPictureMerge;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.picture?.id?.ToString() ?? "";

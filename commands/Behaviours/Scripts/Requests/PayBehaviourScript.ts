@@ -11,7 +11,7 @@ export abstract class PayBehaviourScript extends Payload implements IPaySingle {
 	behaviourScript: ParamId;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.behaviourScript?.id.ToString() ?? "";

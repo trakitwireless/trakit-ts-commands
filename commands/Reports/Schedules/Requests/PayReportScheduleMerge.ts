@@ -11,7 +11,7 @@ export class PayReportScheduleMerge extends Payload implements IPaySingle {
 	reportSchedule: ParamReportScheduleMerge;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.reportSchedule?.id?.ToString() ?? "";

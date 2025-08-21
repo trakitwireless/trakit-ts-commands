@@ -11,7 +11,7 @@ export class PayMaintenanceScheduleMerge extends Payload implements IPaySingle {
 	maintenanceSchedule: ParamMaintenanceScheduleMerge;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.maintenanceSchedule?.id?.ToString() ?? "";

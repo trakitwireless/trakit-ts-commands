@@ -11,7 +11,7 @@ export class PayUserGroupMerge extends Payload implements IPaySingle {
 	userGroup: ParamUserGroupMerge;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.userGroup?.id?.ToString() ?? "";

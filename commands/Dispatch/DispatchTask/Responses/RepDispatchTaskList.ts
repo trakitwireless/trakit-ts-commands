@@ -17,7 +17,7 @@ export abstract class RepDispatchTaskList extends Reply {
 	}
 
 /**
-	///
+ * 
  **/
 export class RepDispatchTaskListByAsset extends RepDispatchTaskList implements IRepListByAsset {
 	/**
@@ -26,7 +26,7 @@ export class RepDispatchTaskListByAsset extends RepDispatchTaskList implements I
 	asset: ContentId;
 	}
 /**
-	///
+ * 
  **/
 export class RepDispatchTaskListByAssetAndRefPairs extends RepDispatchTaskListByAsset {
 	/**
@@ -37,7 +37,7 @@ export class RepDispatchTaskListByAssetAndRefPairs extends RepDispatchTaskListBy
 	}
 
 /**
-	///
+ * 
  **/
 export class RepDispatchTaskListByCompany extends RepDispatchTaskList implements IRepListByCompany {
 	/**
@@ -46,7 +46,7 @@ export class RepDispatchTaskListByCompany extends RepDispatchTaskList implements
 	company: ContentId;
 	}
 /**
-	///
+ * 
  **/
 export class RepDispatchTaskListByCompanyAndRefPairs extends RepDispatchTaskListByCompany implements IRepListByReferences {
 	/**

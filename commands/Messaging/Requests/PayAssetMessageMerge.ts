@@ -11,7 +11,7 @@ export class PayAssetMessageMerge extends Payload implements IPaySingle {
 	assetMessage: ParamAssetMessageMerge;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.assetMessage?.id?.ToString() ?? "";

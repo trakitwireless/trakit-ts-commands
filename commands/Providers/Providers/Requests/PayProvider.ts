@@ -11,7 +11,7 @@ export abstract class PayProvider extends Payload implements IPaySingle {
 	provider: ParamIdentifier;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.provider?.id ?? "";

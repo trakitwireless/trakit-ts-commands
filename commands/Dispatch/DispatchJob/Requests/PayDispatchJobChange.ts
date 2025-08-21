@@ -12,7 +12,7 @@ export class PayDispatchJobChange extends Payload implements IPaySingle {
 	dispatchJob: ParamDispatchJobChange;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.dispatchJob?.id.ToString() ?? "";

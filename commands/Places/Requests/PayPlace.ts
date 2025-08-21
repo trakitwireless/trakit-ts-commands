@@ -13,7 +13,7 @@ export abstract class PayPlace extends Payload implements IPaySingle {
 	place: ParamId;
 
 	/**
-	 *
+	 * 
 
 	 **/
 		getKey(): string {

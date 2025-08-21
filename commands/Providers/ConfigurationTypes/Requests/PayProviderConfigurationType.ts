@@ -12,7 +12,7 @@ export abstract class PayProviderConfigurationType extends Payload implements IP
 	providerConfigurationType: ParamId;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.providerConfigurationType?.id.ToString() ?? "";

@@ -11,7 +11,7 @@ export class PayMaintenanceJobMerge extends Payload implements IPaySingle {
 	maintenanceJob: ParamMaintenanceJobMerge;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.maintenanceJob?.id?.ToString() ?? "";

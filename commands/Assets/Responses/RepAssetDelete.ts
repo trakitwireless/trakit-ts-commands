@@ -5,6 +5,6 @@ import { Reply } from "../../API/Responses/Reply";
  **/
 export class RepAssetDelete extends Reply {
 	/**
-		///
+	 * 
 	 **/
 	asset: ContentIdDeleted;}

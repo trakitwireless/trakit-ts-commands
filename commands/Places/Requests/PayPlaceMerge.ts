@@ -13,7 +13,7 @@ export class PayPlaceMerge extends Payload implements IPaySingle {
 	place: ParamPlaceMerge;
 
 	/**
-	 *
+	 * 
 
 	 **/
 		getKey(): string {

@@ -11,7 +11,7 @@ export class PayProviderRegistrationMerge extends Payload implements IPaySingle 
 	providerRegistration: ParamProviderRegistrationMerge;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.providerRegistration?.code ?? "";

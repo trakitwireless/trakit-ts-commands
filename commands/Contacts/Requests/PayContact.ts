@@ -11,7 +11,7 @@ export abstract class PayContact extends Payload implements IPaySingle {
 	contact: ParamId;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.contact?.id.ToString() ?? "";

@@ -11,7 +11,7 @@ export class PayBehaviourMerge extends Payload implements IPaySingle {
 	behaviour: ParamBehaviourMerge;
 
 	/**
-		///
+	 * 
 	 **/
 		getKey(): string {
 			return  this.behaviour?.id?.ToString() ?? "";

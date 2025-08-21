@@ -13,7 +13,7 @@ export abstract class PayFormTemplate extends Payload implements IPaySingle {
 	formTemplate: ParamId;
 
 	/**
-	 *
+	 * 
 
 	 **/
 		getKey(): string {

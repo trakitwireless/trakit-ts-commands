@@ -6,7 +6,7 @@
  **/
 export class SelfUser extends Compound implements IBelongCompany, IEnabled, IDeletable {
 	/**
-		///
+	 * 
 	 **/
 		[JsonIgnore]
 		protected override Component[] Pieces => new Component[] {
@@ -30,7 +30,7 @@ export class SelfUser extends Compound implements IBelongCompany, IEnabled, IDel
 						?? throw new NullReferenceException("general");
 
 	/**
-		///
+	 * 
 	 **/
 		[JsonIgnore]
 	General: SelfUserGeneral;
@@ -122,7 +122,7 @@ export class SelfUser extends Compound implements IBelongCompany, IEnabled, IDel
 		}
 
 	/**
-		///
+	 * 
 	 **/
 		[JsonIgnore]
 	Advanced: SelfUserAdvanced;
