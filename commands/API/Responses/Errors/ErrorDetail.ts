@@ -10,4 +10,5 @@ export abstract class ErrorDetail {
 	/**
 	 * A hint for deserializing the error's details.
 	 **/
-	kind: ErrorDetailType;}
+	kind: ErrorDetailType;
+}

@@ -1,10 +1,11 @@
-import { Component } from "trakit-ts-objects";
+import { Base } from "@objects/API/Base";
+
 /**
  * Interface for responses that return a list or loaded objects.
  **/
-export interface IRepTComponent<TComponent extends Component> {
+export interface IRepTComponent<TBase extends Base> {
 	/**
 	 * The collection of objects.
 	 **/
-	GetCollection(): TComponent[];
+	getCollection(): TBase[];
 }

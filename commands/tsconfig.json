@@ -3,14 +3,16 @@
         "target": "ESNext",
         "module": "ESNext",
         "outDir": "_publish",
+        "composite": true,
         "sourceMap": true,
         "strict": true,
         "noImplicitAny": true,
         "noImplicitOverride": true,
         "noImplicitUseStrict": false,
         "strictNullChecks": true,
-    },
-    "references": [
-        {"path": "../objects" }
-    ]
+        "baseUrl": ".",
+        "paths": {
+            "@objects/*": ["../trakit-ts-objects/*"]
+        }
+    }
 }

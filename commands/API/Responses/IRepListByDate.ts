@@ -1,13 +1,14 @@
 
 /**
-	///
+ * Interface for responses that return a list of objects by date.
  **/
 export interface IRepListByDate {
 	/**
-		///
+	 * The date to start the list from.
 	 **/
-		Date? after;
+	after?: Date;
 	/**
-		///
+	 * The date to end the list at.
 	 **/
-		Date? before;}
+	before?: Date;
+}
