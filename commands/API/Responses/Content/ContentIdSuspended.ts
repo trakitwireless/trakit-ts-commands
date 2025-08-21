@@ -1,0 +1,14 @@
+import { ContentIdCompany } from "./ContentIdCompany";
+
+/**
+ * For suspend/revive commands, this contains the id, version keys, owning <see cref="Company.id"/>, and suspended state.
+ **/
+export class ContentIdSuspended extends ContentIdCompany {
+	/**
+	 * Flag showing if the object is suspended.
+	 **/
+	suspended: boolean;
+	/**
+	 * Object version keys used to validate synchronization for all object properties.
+	 **/
+	v: uint[];}

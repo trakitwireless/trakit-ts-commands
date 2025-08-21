@@ -1,10 +1,10 @@
-﻿
-	/// <summary>
-	/// These are the details of an input or format exception.
-	/// </summary>
-	export class ErrorDetailInput extends ErrorDetail {
-		/// <summary>
-		/// The given input which caused the error.
-		/// </summary>
-		public input: string;
-	}
+import { ErrorDetail } from "./ErrorDetail";
+
+/**
+ * These are the details of an input or format exception.
+ **/
+export class ErrorDetailInput extends ErrorDetail {
+	/**
+	 * The given input which caused the error.
+	 **/
+	input: string;}

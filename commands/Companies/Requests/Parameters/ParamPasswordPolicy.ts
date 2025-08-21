@@ -1,35 +1,34 @@
-﻿
+import { ParamMerge } from "../../../API/Requests/Parameters/ParamMerge";
 
-	/// <summary>
-	/// Parameter values for creating a new or updating an existing <see cref="PasswordPolicy"/>.
-	/// </summary>
-	export class ParamPasswordPolicy extends ParamMerge {
-		/// <summary>
-		/// The minimum number of characters required.
-		/// </summary>
-		public minimumLength?: byte;
-		/// <summary>
-		/// Do passwords require alphabetical characters.
-		/// </summary>
-		public includeLetters?: boolean;
-		/// <summary>
-		/// Do passwords require numeric characters.
-		/// </summary>
-		public includeNumbers?: boolean;
-		/// <summary>
-		/// Do passwords require upper-case and lower-case letters.
-		/// </summary>
-		public includeUpperLower?: boolean;
-		/// <summary>
-		/// Do passwords require non-alphanumeric characters.
-		/// </summary>
-		public includeSpecial?: boolean;
-		/// <summary>
-		/// Defines how passwords expire.
-		/// </summary>
-		public expireMode?: PasswordExpiryMode;
-		/// <summary>
-		/// The threshold for expiry (in days).
-		/// </summary>
-		public expireThreshold?: byte;  
-	}
+/**
+ * Parameter values for creating a new or updating an existing <see cref="PasswordPolicy"/>.
+ **/
+export class ParamPasswordPolicy extends ParamMerge {
+	/**
+	 * The minimum number of characters required.
+	 **/
+	minimumLength: byte | undefined;
+	/**
+	 * Do passwords require alphabetical characters.
+	 **/
+	includeLetters: boolean | undefined;
+	/**
+	 * Do passwords require numeric characters.
+	 **/
+	includeNumbers: boolean | undefined;
+	/**
+	 * Do passwords require upper-case and lower-case letters.
+	 **/
+	includeUpperLower: boolean | undefined;
+	/**
+	 * Do passwords require non-alphanumeric characters.
+	 **/
+	includeSpecial: boolean | undefined;
+	/**
+	 * Defines how passwords expire.
+	 **/
+	expireMode: PasswordExpiryMode | undefined;
+	/**
+	 * The threshold for expiry (in days).
+	 **/
+	expireThreshold: byte | undefined;}

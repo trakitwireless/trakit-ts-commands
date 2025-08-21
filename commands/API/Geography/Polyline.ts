@@ -1,16 +1,22 @@
-﻿
 
-	/// <summary>
-	/// 
-	/// </summary>
+/**
+	///
+ **/
 	public static class Polyline {
-		/// <summary>
-		/// 
-		/// </summary>
+	/**
+		///
+	 **/
 		public const byte DEFAULT_PRECISION = 6;
 
-		/// <summary>
-		/// A C# implementation to encode a polyline 			Action<int> encode = (diff) => {
+	/**
+	 * A C# implementation to encode a polyline using Google's Encoded Polyline algorithm.
+	 * <param name="latlngs"></param>
+	 * <param name="precision"></param>
+	 **/
+	 * @returns Encoded string
+		public static string Encode(LatLng[] latlngs, byte precision = DEFAULT_PRECISION) {
+			var encodedPoints = new StringBuilder();
+			Action<int> encode = (diff) => {
 				int shifted = diff << 1;
 				if (diff < 0) shifted = ~shifted;
 				while (shifted >= 0x20) {
@@ -30,10 +36,16 @@
 				lastLat = currentLat;
 				lastLng = currentLng;
 			}
-			return encodedPoints.toString();
+			return encodedPoints.ToString();
 		}
-		/// <summary>
-		/// A C# implementation to decode a polyline 
+	/**
+	 * A C# implementation to decode a polyline using Google's Encoded Polyline algorithm.
+	 * <param name="encodedPoints"></param>
+	 * <param name="precision"></param>
+	 **/
+			public static LatLng[] Decode(string encodedPoints, byte precision = DEFAULT_PRECISION) {
+			if (string.IsNullOrEmpty(encodedPoints)) throw new ArgumentNullException("encodedPoints");
+
 			var polylineChars = encodedPoints.ToCharArray();
 			int index = 0,
 				currentLat = 0,
@@ -78,5 +90,4 @@
 					Convert.ToDouble(currentLng) / factor
 				);
 			}
-		}
-	}
+		}}
