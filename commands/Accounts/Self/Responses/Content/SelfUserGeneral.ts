@@ -7,4 +7,5 @@ export class SelfUserGeneral extends UserGeneral {
 	/**
 	 * Associated contact information for this user.
 	 **/
-		new public Contact contact;}
+	contact: Contact;
+}

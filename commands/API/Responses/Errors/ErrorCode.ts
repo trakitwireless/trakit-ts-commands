@@ -59,11 +59,6 @@ export enum ErrorCode {
 	 **/
 	samePassword = 17,
 	/**
-	 * Unable to Kill the session.
-	 * @deprecated
-	 **/
-	killSessionFailed = 18,
-	/**
 	 * Session not found.
 	 **/
 	sessionNotFound = 19,
@@ -79,11 +74,6 @@ export enum ErrorCode {
 	 * {@link User} not deleted.
 	 **/
 	userNotDeleted = 55,
-	/**
-	 * Cannot access deleted {@link User}.
-	 * @deprecated Throws userNotFound instead
-	 **/
-	deletedUser = 56,
 	/**
 	 * Cannot kill your own Session, or delete/disable your own {@link User}.
 	 **/
@@ -153,11 +143,6 @@ export enum ErrorCode {
 	 * Client input could not be properly parsed.
 	 **/
 	invalidData = 3,
-	/**
-	 * Not a valid {@link PermissionType}.
-	 * @deprecated
-	 **/
-	invalidPermission = 4,
 	/**
 	 * Permission denied.
 	 * The operation not successful because access is restricted.
@@ -306,16 +291,6 @@ export enum ErrorCode {
 	 * {@link Company} not deleted.
 	 **/
 	companyNotDeleted = 29,
-	/**
-	 * {@link CompanyLabels.labels} codes must be unique.
-	 * @deprecated
-	 **/
-	labelsListNotUnique = 58,
-	/**
-	 * {@link CompanyLabels.tags} codes must be unique.
-	 * @deprecated
-	 **/
-	tagsListNotUnique = 59,
 
 	/**
 	 * {@link CompanyReseller} not found.
@@ -477,12 +452,6 @@ export enum ErrorCode {
 	 * {@link MaintenanceSchedule} not deleted.
 	 **/
 	maintenanceScheduleNotDeleted = 38,
-	/**
-	 * {@link MaintenanceSchedule} currently in use by one or more {@link MaintenanceJob}s.
-	 * In order to delete a {@link MaintenanceSchedule}, all {@link MaintenanceJob}s referencing this schedule must be deleted first.
-	 * @deprecated
-	 **/
-	maintenanceScheduleInUse = 39,
 	//#endregion Maintenance
 
 	//#region Places
@@ -514,11 +483,6 @@ export enum ErrorCode {
 	 **/
 	providersListNotFound = 45,
 	/**
-	 * Cannot access deleted {@link Provider}.
-	 * @deprecated Throws providerNotFound instead
-	 **/
-	deletedProvider = 46,
-	/**
 	 * {@link ProviderConfigurationType} not found.
 	 **/
 	providerConfigurationTypeNotFound = 47,
@@ -548,11 +512,6 @@ export enum ErrorCode {
 	 * @ignore
 	 **/
 	verifyTimeout = 89,
-	/**
-	 * Unknown or invalid {@link ProviderType}.
-	 * @deprecated Use invalidData instead
-	 **/
-	invalidProviderType = 92,
 	/**
 	 * {@link Provider} suspended.
 	 **/
