@@ -2,12 +2,12 @@ import { PayFormResult } from "./PayFormResult";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 
 /**
- * Gets details of the specified @link {FormResult}.
+ * Gets details of the specified {@link FormResult}.
 
  **/
 export class PayFormResultGet extends PayFormResult implements IPayDeletable {
 	/**
-	 * When true, the command will also return a deleted @link {FormResult} (if it exists).
+	 * When true, the command will also return a deleted {@link FormResult} (if it exists).
 
 	 **/
 	includeDeleted: boolean;}

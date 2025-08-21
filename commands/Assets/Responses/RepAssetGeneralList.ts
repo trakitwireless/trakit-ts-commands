@@ -3,26 +3,26 @@ import { RepAssetGeneralList } from "./RepAssetGeneralList";
 import { RepAssetGeneralListByCompany } from "./RepAssetGeneralList";
 
 /**
- * A container for the requested @link {assetGenerals}.
+ * A container for the requested {@link assetGenerals}.
  **/
 export abstract class RepAssetGeneralList extends Reply {
 	/**
-	 * The list of requested @link {AssetGeneral}s.
+	 * The list of requested {@link AssetGeneral}s.
 	 **/
 	assetGenerals: AssetGeneral[];
 	}
 
 /**
- * A container owner @link {Company} of the collection.
+ * A container owner {@link Company} of the collection.
  **/
 export class RepAssetGeneralListByCompany extends RepAssetGeneralList {
 	/**
-	 * Identifier of the @link {Company} to which this collection belongs.
+	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
 	company: ContentId;
 	}
 /**
- * A container owner @link {Company} of the collection.
+ * A container owner {@link Company} of the collection.
  **/
 export class RepAssetGeneralListByCompanyAndLabels extends RepAssetGeneralListByCompany {
 	/**
@@ -32,7 +32,7 @@ export class RepAssetGeneralListByCompanyAndLabels extends RepAssetGeneralListBy
 	labels: string[];
 	}
 /**
- * A container owner @link {Company} of the collection.
+ * A container owner {@link Company} of the collection.
  **/
 export class RepAssetGeneralListByCompanyAndRefPairs extends RepAssetGeneralListByCompany {
 	/**

@@ -1,7 +1,7 @@
 import { ContentKeyCompany } from "./ContentKeyCompany";
 
 /**
- * For delete/restore commands, this contains the @link {Machine.key}, version keys, owning @link {Company.id}, and deleted state.
+ * For delete/restore commands, this contains the {@link Machine.key}, version keys, owning {@link Company.id}, and deleted state.
  **/
 export class ContentKeyDeleted extends ContentKeyCompany {
 	/**

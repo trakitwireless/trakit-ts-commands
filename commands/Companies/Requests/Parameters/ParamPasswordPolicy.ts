@@ -1,7 +1,7 @@
 import { ParamMerge } from "../../../API/Requests/Parameters/ParamMerge";
 
 /**
- * Parameter values for creating a new or updating an existing @link {PasswordPolicy}.
+ * Parameter values for creating a new or updating an existing {@link PasswordPolicy}.
  **/
 export class ParamPasswordPolicy extends ParamMerge {
 	/**

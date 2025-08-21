@@ -8,38 +8,38 @@ import { IPayListByLabels } from "../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../API/Requests/IPayListByReferences";
 
 /**
- * Gets a list of @link {Asset}s.
+ * Gets a list of {@link Asset}s.
  **/
 export abstract class PayAssetList extends Payload implements IPayDeletable, IPaySuspendable {
 	/**
-	 * When true, the command will also return @link {AssetMessage}s for the asset.
+	 * When true, the command will also return {@link AssetMessage}s for the asset.
 	 **/
 	includeMessages: boolean;
 	/**
-	 * When true, the command will also return @link {DispatchTask}s for the asset.
+	 * When true, the command will also return {@link DispatchTask}s for the asset.
 	 **/
 	includeTasks: boolean;
 	/**
-	 * When true, the command will also return suspended @link {Asset}s.
+	 * When true, the command will also return suspended {@link Asset}s.
 	 **/
 	includeSuspended: boolean;
 	/**
-	 * When true, the command will also return a deleted @link {Asset} (if it exists).
+	 * When true, the command will also return a deleted {@link Asset} (if it exists).
 	 **/
 	includeDeleted: boolean;
 	}
 
 /**
- * Gets the list of @link {Asset}s for the specified @link {Company}.
+ * Gets the list of {@link Asset}s for the specified {@link Company}.
  **/
 export class PayAssetListByCompany extends PayAssetList implements IPayListByCompany {
 	/**
-	 * Identifier of the @link {Company} to which this collection belongs.
+	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
 	company: ParamId;
 	}
 /**
- * Gets the list of @link {Asset}s for the specified @link {Company} only if the @link {AssetGeneral.labels} matches all of the given @link {Parameters.labels}.
+ * Gets the list of {@link Asset}s for the specified {@link Company} only if the {@link AssetGeneral.labels} matches all of the given {@link Parameters.labels}.
  **/
 export class PayAssetListByCompanyAndLabels extends PayAssetListByCompany implements IPayListByLabels {
 	/**
@@ -49,9 +49,9 @@ export class PayAssetListByCompanyAndLabels extends PayAssetListByCompany implem
 	labels: string[];
 	}
 /**
- * Gets the list of @link {Asset}s for the specified @link {Company} only if one of the specified @link {AssetGeneral.references} fields match.
- * If no references are specified, it will match any @link {Asset} with no references.
- * If a reference value is null, it will match any @link {Asset} without that reference key.
+ * Gets the list of {@link Asset}s for the specified {@link Company} only if one of the specified {@link AssetGeneral.references} fields match.
+ * If no references are specified, it will match any {@link Asset} with no references.
+ * If a reference value is null, it will match any {@link Asset} without that reference key.
  **/
 export class PayAssetListByCompanyAndRefPairs extends PayAssetListByCompany implements IPayListByReferences {
 	/**

@@ -1,7 +1,7 @@
 import { ContentIdendifierCompany } from "./ContentIdendifierCompany";
 
 /**
- * For delete/restore commands, this contains the @link {Provider.id}, version keys, owning @link {Company.id}, and deleted state.
+ * For delete/restore commands, this contains the {@link Provider.id}, version keys, owning {@link Company.id}, and deleted state.
  **/
 export class ContentIdendifierDeleted extends ContentIdendifierCompany {
 	/**

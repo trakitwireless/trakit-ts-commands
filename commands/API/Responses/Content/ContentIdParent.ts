@@ -1,7 +1,7 @@
 import { ContentId } from "./ContentId";
 
 /**
- * A container for the id and the requested/created @link {Company.parent}.
+ * A container for the id and the requested/created {@link Company.parent}.
  **/
 export class ContentIdParent extends ContentId {
 	/**

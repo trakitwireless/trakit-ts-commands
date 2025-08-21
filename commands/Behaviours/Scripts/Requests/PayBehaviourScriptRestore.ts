@@ -1,6 +1,6 @@
 import { PayBehaviourScript } from "./PayBehaviourScript";
 
 /**
- * Restores a deleted @link {BehaviourScript}.
+ * Restores a deleted {@link BehaviourScript}.
  **/
 export class PayBehaviourScriptRestore extends PayBehaviourScript {}

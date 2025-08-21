@@ -9,7 +9,7 @@ export class ErrorDetailThrottled extends ErrorDetail {
 	 **/
 	ghostId: string;
 	/**
-	 * The @link {User} being throttled.
+	 * The {@link User} being throttled.
 	 **/
 	login: string;
 	/**

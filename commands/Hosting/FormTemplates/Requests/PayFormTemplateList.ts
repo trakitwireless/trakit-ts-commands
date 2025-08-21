@@ -4,23 +4,23 @@ import { PayFormTemplateList } from "./PayFormTemplateList";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 
 /**
- * Gets details of the specified @link {formTemplate}.
+ * Gets details of the specified {@link formTemplate}.
 
  **/
 export abstract class PayFormTemplateList extends Payload implements IPayDeletable {
 	/**
-	 * When true, the command will also return  deleted @link {FormTemplate}s.
+	 * When true, the command will also return  deleted {@link FormTemplate}s.
 
 	 **/
 	includeDeleted: boolean;
 	}
 /**
- * Contains the @link {Company.id} of the collection.
+ * Contains the {@link Company.id} of the collection.
 
  **/
 export class PayFormTemplateListByCompany extends PayFormTemplateList implements IPayListByCompany {
 	/**
-	 * Identifier of the @link {Company} to which this collection belongs.
+	 * Identifier of the {@link Company} to which this collection belongs.
 
 	 **/
 	company: ParamId;}

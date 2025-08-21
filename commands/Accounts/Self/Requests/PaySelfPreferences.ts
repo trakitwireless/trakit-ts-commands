@@ -1,7 +1,7 @@
 import { Payload } from "../../../API/Requests/Payload";
 
 /**
- * Allows a session @link {User} to change their own preferences.
+ * Allows a session {@link User} to change their own preferences.
  **/
 export class PaySelfPreferences extends Payload {
 	/**
@@ -10,12 +10,12 @@ export class PaySelfPreferences extends Payload {
 	 **/
 	language: string;
 	/**
-	 * Your local @link {Timezone} used to calculate times.
+	 * Your local {@link Timezone} used to calculate times.
 	 * @see {@link Timezone.code}
 	 **/
 	timezone: TimeZoneInfo;
 	/**
-	 * List of @link {UserNotifications} preferences.
+	 * List of {@link UserNotifications} preferences.
 	 * Please note that active times cannot overlap.
 	 **/
 	notify: UserNotifications[];

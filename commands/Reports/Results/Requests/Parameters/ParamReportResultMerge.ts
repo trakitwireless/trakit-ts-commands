@@ -1,25 +1,25 @@
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
- * Parameters used to create or update an @link {ReportResult}.
+ * Parameters used to create or update an {@link ReportResult}.
  **/
 export class ParamReportResultMerge extends ParamMergeSubscribable {
 	/**
-	 * The unique identifier of the @link {ReportResult} you want to update.
-	 * Leave this as <c>null</c> when creating a new @link {ReportResult}.
+	 * The unique identifier of the {@link ReportResult} you want to update.
+	 * Leave this as `null` when creating a new {@link ReportResult}.
 	 **/
 	id: ulong | undefined;
 	/**
-	 * The @link {Company} to which this @link {ReportResult} belongs.
+	 * The {@link Company} to which this {@link ReportResult} belongs.
 	 * After creation, this value is read-only.
 	 **/
 	company: ulong | undefined;
 	/**
-	 * Name for the @link {ReportResult}.
+	 * Name for the {@link ReportResult}.
 	 **/
 	name: string;
 	/**
-	 * Notes for the @link {ReportResult}.
+	 * Notes for the {@link ReportResult}.
 	 **/
 	notes: string;
 	/**
@@ -64,10 +64,10 @@ export class ParamReportResultMerge extends ParamMergeSubscribable {
 	 **/
 	options: Map<string, string>;
 	/**
-	 * A list of roles they play in the @link {Company}.
+	 * A list of roles they play in the {@link Company}.
 	 **/
 	roles: string[];
 	/**
-	 * @link {Picture}s of this @link {ReportResult}.
+	 * {@link Picture}s of this {@link ReportResult}.
 	 **/
 	pictures: ulong[];}

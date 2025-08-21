@@ -3,26 +3,26 @@ import { RepCompanyDirectoryList } from "./RepCompanyDirectoryList";
 import { RepCompanyDirectoryListByCompany } from "./RepCompanyDirectoryList";
 
 /**
- * A container for the requested @link {companyDirectorys}.
+ * A container for the requested {@link companyDirectorys}.
  **/
 export abstract class RepCompanyDirectoryList extends Reply {
 	/**
-	 * The list of requested @link {CompanyDirectory}s.
+	 * The list of requested {@link CompanyDirectory}s.
 	 **/
 	companyDirectorys: CompanyDirectory[];
 	}
 
 /**
- * A container owner @link {Company} of the collection.
+ * A container owner {@link Company} of the collection.
  **/
 export class RepCompanyDirectoryListByCompany extends RepCompanyDirectoryList {
 	/**
-	 * Identifier of the @link {Company} to which this collection belongs.
+	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
 	company: ContentId;
 	}
 /**
- * A container owner @link {Company} of the collection.
+ * A container owner {@link Company} of the collection.
  **/
 export class RepCompanyDirectoryListByCompanyAndLabels extends RepCompanyDirectoryListByCompany {
 	/**
@@ -32,7 +32,7 @@ export class RepCompanyDirectoryListByCompanyAndLabels extends RepCompanyDirecto
 	labels: string[];
 	}
 /**
- * A container owner @link {Company} of the collection.
+ * A container owner {@link Company} of the collection.
  **/
 export class RepCompanyDirectoryListByCompanyAndRefPairs extends RepCompanyDirectoryListByCompany {
 	/**

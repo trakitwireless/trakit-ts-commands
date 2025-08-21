@@ -3,26 +3,26 @@ import { RepAssetDispatchList } from "./RepAssetDispatchList";
 import { RepAssetDispatchListByCompany } from "./RepAssetDispatchList";
 
 /**
- * A container for the requested @link {assetDispatches}.
+ * A container for the requested {@link assetDispatches}.
  **/
 export abstract class RepAssetDispatchList extends Reply {
 	/**
-	 * The list of requested @link {AssetDispatch}es.
+	 * The list of requested {@link AssetDispatch}es.
 	 **/
 	assetDispatches: AssetDispatch[];
 	}
 
 /**
- * A container owner @link {Company} of the collection.
+ * A container owner {@link Company} of the collection.
  **/
 export class RepAssetDispatchListByCompany extends RepAssetDispatchList {
 	/**
-	 * Identifier of the @link {Company} to which this collection belongs.
+	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
 	company: ContentId;
 	}
 /**
- * A container owner @link {Company} of the collection.
+ * A container owner {@link Company} of the collection.
  **/
 export class RepAssetDispatchListByCompanyAndLabels extends RepAssetDispatchListByCompany {
 	/**
@@ -32,7 +32,7 @@ export class RepAssetDispatchListByCompanyAndLabels extends RepAssetDispatchList
 	labels: string[];
 	}
 /**
- * A container owner @link {Company} of the collection.
+ * A container owner {@link Company} of the collection.
  **/
 export class RepAssetDispatchListByCompanyAndRefPairs extends RepAssetDispatchListByCompany {
 	/**

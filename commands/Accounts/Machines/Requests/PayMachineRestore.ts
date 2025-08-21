@@ -1,6 +1,6 @@
 import { PayMachine } from "./PayMachine";
 
 /**
- * Restores a deleted @link {Machine}.
+ * Restores a deleted {@link Machine}.
  **/
 export class PayMachineRestore extends PayMachine {}

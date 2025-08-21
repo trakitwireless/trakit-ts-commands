@@ -1,10 +1,10 @@
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
- * A container for the @link {User} of the current session.
+ * A container for the {@link User} of the current session.
  **/
 export class RepSessionDelete extends Reply {
 	/**
-	 * An object which contains the @link {Session.handle}, related @link {User.login}, and owning @link {User.company} id.
+	 * An object which contains the {@link Session.handle}, related {@link User.login}, and owning {@link User.company} id.
 	 **/
 	session: SessionHandle;}

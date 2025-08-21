@@ -7,26 +7,26 @@ import { IPayListByLabels } from "../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../API/Requests/IPayListByReferences";
 
 /**
- * Gets a list of @link {CompanyDirectory}s.
+ * Gets a list of {@link CompanyDirectory}s.
  **/
 export abstract class PayCompanyDirectoryList extends Payload implements IPayDeletable {
 	/**
-	 * When true, the command will also return a deleted @link {CompanyDirectory} (if it exists).
+	 * When true, the command will also return a deleted {@link CompanyDirectory} (if it exists).
 	 **/
 	includeDeleted: boolean;
 	}
 
 /**
- * Gets the list of @link {CompanyDirectory}s for the specified @link {Company}.
+ * Gets the list of {@link CompanyDirectory}s for the specified {@link Company}.
  **/
 export class PayCompanyDirectoryListByCompany extends PayCompanyDirectoryList implements IPayListByCompany {
 	/**
-	 * Identifier of the @link {Company} to which this collection belongs.
+	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
 	company: ParamId;
 	}
 /**
- * Gets the list of @link {CompanyDirectory}s for the specified @link {Company} only if the @link {CompanyDirectoryDirectory.labels} matches all of the given @link {Parameters.labels}.
+ * Gets the list of {@link CompanyDirectory}s for the specified {@link Company} only if the {@link CompanyDirectoryDirectory.labels} matches all of the given {@link Parameters.labels}.
  **/
 export class PayCompanyDirectoryListByCompanyAndLabels extends PayCompanyDirectoryListByCompany implements IPayListByLabels {
 	/**
@@ -36,9 +36,9 @@ export class PayCompanyDirectoryListByCompanyAndLabels extends PayCompanyDirecto
 	labels: string[];
 	}
 /**
- * Gets the list of @link {CompanyDirectory}s for the specified @link {Company} only if one of the specified @link {CompanyDirectoryDirectory.references} fields match.
- * If no references are specified, it will match any @link {CompanyDirectory} with no references.
- * If a reference value is null, it will match any @link {CompanyDirectory} without that reference key.
+ * Gets the list of {@link CompanyDirectory}s for the specified {@link Company} only if one of the specified {@link CompanyDirectoryDirectory.references} fields match.
+ * If no references are specified, it will match any {@link CompanyDirectory} with no references.
+ * If a reference value is null, it will match any {@link CompanyDirectory} without that reference key.
  **/
 export class PayCompanyDirectoryListByCompanyAndRefPairs extends PayCompanyDirectoryListByCompany implements IPayListByReferences {
 	/**

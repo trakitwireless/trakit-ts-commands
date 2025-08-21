@@ -3,19 +3,19 @@ import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { IPayListByUser } from "../../../API/Requests/IPayListByUser";
 
 /**
- * Gets the list of @link {Session} for the specified @link {Company}.
+ * Gets the list of {@link Session} for the specified {@link Company}.
  **/
 export class PaySessionListByCompany extends Payload implements IPayListByCompany {
 	/**
-	 * An object to contain the "id" of the @link {Company}.
+	 * An object to contain the "id" of the {@link Company}.
 	 **/
 	company: ParamId;
 	}
 /**
- * Gets the list of @link {Session}s for the specified @link {User}.
+ * Gets the list of {@link Session}s for the specified {@link User}.
  **/
 export class PaySessionListByUser extends Payload implements IPayListByUser {
 	/**
-	 * An object to contain the "login" of the @link {User}.
+	 * An object to contain the "login" of the {@link User}.
 	 **/
 	user: ParamLogin;}

@@ -8,11 +8,11 @@ import { IRepListByLabels } from "../../../API/Responses/IRepListByLabels";
 import { IRepListByReferences } from "../../../API/Responses/IRepListByReferences";
 
 /**
- * A container for the requested @link {dispatchJobs}.
+ * A container for the requested {@link dispatchJobs}.
  **/
 export abstract class RepDispatchJobList extends Reply {
 	/**
-	 * The list of requested @link {DispatchJob}s.
+	 * The list of requested {@link DispatchJob}s.
 	 **/
 	dispatchJobs: DispatchJob[];
 	}
@@ -22,7 +22,7 @@ export abstract class RepDispatchJobList extends Reply {
  **/
 export class RepDispatchJobListByAsset extends RepDispatchJobList implements IRepListByAsset {
 	/**
-	 * Identifier of the @link {Company} to which this collection belongs.
+	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
 	asset: ContentId;
 	}
@@ -42,7 +42,7 @@ export class RepDispatchJobListByAssetAndRefPairs extends RepDispatchJobListByAs
  **/
 export class RepDispatchJobListByCompany extends RepDispatchJobList implements IRepListByCompany {
 	/**
-	 * Identifier of the @link {Company} to which this collection belongs.
+	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
 	company: ContentId;
 	}
@@ -51,8 +51,8 @@ export class RepDispatchJobListByCompany extends RepDispatchJobList implements I
  **/
 export class RepDispatchJobListByCompanyAndLabels extends RepDispatchJobListByCompany implements IRepListByLabels {
 	/**
-	 * A list of @link {LabelStyle.code|label codes} used to match @link {DispatchJob}s.
-	 * All labels must match to include a @link {DispatchJob} in the result.
+	 * A list of {@link LabelStyle.code|label codes} used to match {@link DispatchJob}s.
+	 * All labels must match to include a {@link DispatchJob} in the result.
 	 **/
 	labels: string[];
 	}

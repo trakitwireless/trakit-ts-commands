@@ -7,26 +7,26 @@ import { IPayListByLabels } from "../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../API/Requests/IPayListByReferences";
 
 /**
- * Gets a list of @link {CompanyReseller}s.
+ * Gets a list of {@link CompanyReseller}s.
  **/
 export abstract class PayCompanyResellerList extends Payload implements IPayDeletable {
 	/**
-	 * When true, the command will also return a deleted @link {CompanyReseller} (if it exists).
+	 * When true, the command will also return a deleted {@link CompanyReseller} (if it exists).
 	 **/
 	includeDeleted: boolean;
 	}
 
 /**
- * Gets the list of @link {CompanyReseller}s for the specified @link {Company}.
+ * Gets the list of {@link CompanyReseller}s for the specified {@link Company}.
  **/
 export class PayCompanyResellerListByCompany extends PayCompanyResellerList implements IPayListByCompany {
 	/**
-	 * Identifier of the @link {Company} to which this collection belongs.
+	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
 	company: ParamId;
 	}
 /**
- * Gets the list of @link {CompanyReseller}s for the specified @link {Company} only if the @link {CompanyResellerReseller.labels} matches all of the given @link {Parameters.labels}.
+ * Gets the list of {@link CompanyReseller}s for the specified {@link Company} only if the {@link CompanyResellerReseller.labels} matches all of the given {@link Parameters.labels}.
  **/
 export class PayCompanyResellerListByCompanyAndLabels extends PayCompanyResellerListByCompany implements IPayListByLabels {
 	/**
@@ -36,9 +36,9 @@ export class PayCompanyResellerListByCompanyAndLabels extends PayCompanyReseller
 	labels: string[];
 	}
 /**
- * Gets the list of @link {CompanyReseller}s for the specified @link {Company} only if one of the specified @link {CompanyResellerReseller.references} fields match.
- * If no references are specified, it will match any @link {CompanyReseller} with no references.
- * If a reference value is null, it will match any @link {CompanyReseller} without that reference key.
+ * Gets the list of {@link CompanyReseller}s for the specified {@link Company} only if one of the specified {@link CompanyResellerReseller.references} fields match.
+ * If no references are specified, it will match any {@link CompanyReseller} with no references.
+ * If a reference value is null, it will match any {@link CompanyReseller} without that reference key.
  **/
 export class PayCompanyResellerListByCompanyAndRefPairs extends PayCompanyResellerListByCompany implements IPayListByReferences {
 	/**

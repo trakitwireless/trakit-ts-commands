@@ -1,9 +1,9 @@
 import { ErrorDetail } from "./ErrorDetail";
 
 /**
- * Details about why the request failed an authentication process when a @link {Machine.secret} is used.
+ * Details about why the request failed an authentication process when a {@link Machine.secret} is used.
  * <remarks>
- * Only available for @link {Machine} accounts using the beta services.
+ * Only available for {@link Machine} accounts using the beta services.
  * </remarks>
  **/
 export class ErrorDetailSecret extends ErrorDetail {
@@ -17,7 +17,7 @@ export class ErrorDetailSecret extends ErrorDetail {
 	accepted: Date;
 
 	/**
-	 * The unique identifier given for the @link {Machine} to access the system.
+	 * The unique identifier given for the {@link Machine} to access the system.
 	 **/
 	key: string;
 	/**
@@ -29,7 +29,7 @@ export class ErrorDetailSecret extends ErrorDetail {
 	 **/
 	date: string;
 	/**
-	 * The parsed @link {HttpMethod} (should be upper-case).
+	 * The parsed {@link HttpMethod} (should be upper-case).
 	 **/
 	method: string;
 	/**

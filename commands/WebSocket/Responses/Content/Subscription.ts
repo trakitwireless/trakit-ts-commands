@@ -1,6 +1,6 @@
 
 /**
- * Contains a @link {Company.id} and an array of @link {SubscriptionType}s for each @link {Company}.
+ * Contains a {@link Company.id} and an array of {@link SubscriptionType}s for each {@link Company}.
  **/
 export class Subscription {
 	/**

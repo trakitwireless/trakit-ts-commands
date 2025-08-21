@@ -1,26 +1,26 @@
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
- * Parameters used to create or update an @link {ProviderConfiguration}.
+ * Parameters used to create or update an {@link ProviderConfiguration}.
  **/
 	[Obsolete("Use ParamProviderConfigMerge instead")]
 export class ParamProviderConfigurationMerge extends ParamMergeSubscribable {
 	/**
-	 * The unique identifier of the @link {ProviderConfiguration} you want to update.
-	 * Leave this as <c>null</c> when creating a new @link {ProviderConfiguration}.
+	 * The unique identifier of the {@link ProviderConfiguration} you want to update.
+	 * Leave this as `null` when creating a new {@link ProviderConfiguration}.
 	 **/
 	id: ulong | undefined;
 	/**
-	 * The @link {Company} to which this @link {ProviderConfiguration} belongs.
+	 * The {@link Company} to which this {@link ProviderConfiguration} belongs.
 	 * After creation, this value is read-only.
 	 **/
 	company: ulong | undefined;
 	/**
-	 * Name for the @link {ProviderConfiguration}.
+	 * Name for the {@link ProviderConfiguration}.
 	 **/
 	name: string;
 	/**
-	 * Notes for the @link {ProviderConfiguration}.
+	 * Notes for the {@link ProviderConfiguration}.
 	 **/
 	notes: string;
 	/**
@@ -65,10 +65,10 @@ export class ParamProviderConfigurationMerge extends ParamMergeSubscribable {
 	 **/
 	options: Map<string, string>;
 	/**
-	 * A list of roles they play in the @link {Company}.
+	 * A list of roles they play in the {@link Company}.
 	 **/
 	roles: string[];
 	/**
-	 * @link {Picture}s of this @link {ProviderConfiguration}.
+	 * {@link Picture}s of this {@link ProviderConfiguration}.
 	 **/
 	pictures: ulong[];}

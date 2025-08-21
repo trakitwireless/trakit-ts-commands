@@ -1,25 +1,25 @@
 import { ParamMergeSubscribable } from "../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
- * Parameters used to create or update an @link {AssetMessage}.
+ * Parameters used to create or update an {@link AssetMessage}.
  **/
 export class ParamAssetMessageMerge extends ParamMergeSubscribable {
 	/**
-	 * The unique identifier of the @link {AssetMessage} you want to update.
-	 * Leave this as <c>null</c> when creating a new @link {AssetMessage}.
+	 * The unique identifier of the {@link AssetMessage} you want to update.
+	 * Leave this as `null` when creating a new {@link AssetMessage}.
 	 **/
 	id: ulong | undefined;
 	/**
-	 * The @link {Company} to which this @link {AssetMessage} belongs.
+	 * The {@link Company} to which this {@link AssetMessage} belongs.
 	 * After creation, this value is read-only.
 	 **/
 	company: ulong | undefined;
 	/**
-	 * Name for the @link {AssetMessage}.
+	 * Name for the {@link AssetMessage}.
 	 **/
 	name: string;
 	/**
-	 * Notes for the @link {AssetMessage}.
+	 * Notes for the {@link AssetMessage}.
 	 **/
 	notes: string;
 	/**
@@ -64,10 +64,10 @@ export class ParamAssetMessageMerge extends ParamMergeSubscribable {
 	 **/
 	options: Map<string, string>;
 	/**
-	 * A list of roles they play in the @link {Company}.
+	 * A list of roles they play in the {@link Company}.
 	 **/
 	roles: string[];
 	/**
-	 * @link {Picture}s of this @link {AssetMessage}.
+	 * {@link Picture}s of this {@link AssetMessage}.
 	 **/
 	pictures: ulong[];}

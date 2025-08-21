@@ -4,21 +4,21 @@ import { PayProviderConfigurationTypeList } from "./PayProviderConfigurationType
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 
 /**
- * Gets details of the specified @link {providerConfigurationType}.
+ * Gets details of the specified {@link providerConfigurationType}.
  **/
 	[Obsolete("Use ReqProviderScriptList instead")]
 export abstract class PayProviderConfigurationTypeList extends Payload implements IPayDeletable {
 	/**
-	 * When true, the command will also return  deleted @link {ProviderConfigurationType}s.
+	 * When true, the command will also return  deleted {@link ProviderConfigurationType}s.
 	 **/
 	includeDeleted: boolean;
 	}
 /**
- * Contains the @link {Company.id} of the collection.
+ * Contains the {@link Company.id} of the collection.
  **/
 	[Obsolete("Use ReqProviderScriptListByCompany instead")]
 export class PayProviderConfigurationTypeListByCompany extends PayProviderConfigurationTypeList implements IPayListByCompany {
 	/**
-	 * Identifier of the @link {Company} to which this collection belongs.
+	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
 	company: ParamId;}

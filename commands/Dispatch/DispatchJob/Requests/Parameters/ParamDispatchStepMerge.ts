@@ -1,12 +1,12 @@
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
- * Parameter values for updating the @link {DispatchStep} for a @link {DispatchJob}.
+ * Parameter values for updating the {@link DispatchStep} for a {@link DispatchJob}.
  **/
 export class ParamDispatchStepMerge extends ParamMergeSubscribable {
 	/**
 	 * The identifier of the step.
-	 * Identifiers are unique to a @link {DispatchJob}, but are not unique system-wide.
+	 * Identifiers are unique to a {@link DispatchJob}, but are not unique system-wide.
 	 **/
 	id: ulong | undefined;
 	/**
@@ -31,10 +31,10 @@ export class ParamDispatchStepMerge extends ParamMergeSubscribable {
 	 **/
 	address: string;
 	/**
-	 * The lat/long coordinates of where the step must be @link {DispatchStepStatus.completed}.
+	 * The lat/long coordinates of where the step must be {@link DispatchStepStatus.completed}.
 	 **/
 	latlng: LatLng;
 	/**
-	 * When true, will mean a signature is required to complete this @link {DispatchStep}.
+	 * When true, will mean a signature is required to complete this {@link DispatchStep}.
 	 **/
 	signature: boolean | undefined;}

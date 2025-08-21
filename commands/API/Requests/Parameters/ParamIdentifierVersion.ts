@@ -1,7 +1,7 @@
 import { ParamIdentifier } from "./ParamIdentifier";
 
 /**
- * A container class used to house the string identifying a @link {Provider}.
+ * A container class used to house the string identifying a {@link Provider}.
  **/
 export class ParamIdentifierVersion extends ParamIdentifier {
 	/**

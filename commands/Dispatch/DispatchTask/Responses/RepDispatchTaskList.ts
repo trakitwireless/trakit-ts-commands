@@ -7,11 +7,11 @@ import { RepDispatchTaskListByCompany } from "./RepDispatchTaskList";
 import { IRepListByReferences } from "../../../API/Responses/IRepListByReferences";
 
 /**
- * A container for the requested @link {dispatchTasks}.
+ * A container for the requested {@link dispatchTasks}.
  **/
 export abstract class RepDispatchTaskList extends Reply {
 	/**
-	 * The list of requested @link {DispatchTask}s.
+	 * The list of requested {@link DispatchTask}s.
 	 **/
 	dispatchTasks: DispatchTask[];
 	}
@@ -21,7 +21,7 @@ export abstract class RepDispatchTaskList extends Reply {
  **/
 export class RepDispatchTaskListByAsset extends RepDispatchTaskList implements IRepListByAsset {
 	/**
-	 * Identifier of the @link {Company} to which this collection belongs.
+	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
 	asset: ContentId;
 	}
@@ -41,7 +41,7 @@ export class RepDispatchTaskListByAssetAndRefPairs extends RepDispatchTaskListBy
  **/
 export class RepDispatchTaskListByCompany extends RepDispatchTaskList implements IRepListByCompany {
 	/**
-	 * Identifier of the @link {Company} to which this collection belongs.
+	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
 	company: ContentId;
 	}

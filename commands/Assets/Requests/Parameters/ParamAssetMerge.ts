@@ -1,43 +1,43 @@
 import { ParamMergeSubscribable } from "../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
- * Parameters used to create or update an @link {Asset}.
+ * Parameters used to create or update an {@link Asset}.
  **/
 export class ParamAssetMerge extends ParamMergeSubscribable {
 	/**
-	 * The unique identifier of the @link {Asset} you want to update.
+	 * The unique identifier of the {@link Asset} you want to update.
 	 * <override required="update" />
 	 **/
 	id: ulong | undefined;
 	/**
-	 * The identifier of the @link {Company} to which this @link {Asset} belongs.
+	 * The identifier of the {@link Company} to which this {@link Asset} belongs.
 	 * After creation, this value is read-only.
 	 * <override required="create" />
 	 **/
 	company: ulong | undefined;
 	/**
-	 * The kind of @link {Asset} being created.
+	 * The kind of {@link Asset} being created.
 	 * After creation, this value is read-only.
 	 * <override required="create" />
 	 **/
 	kind: AssetType | undefined;
 	/**
-	 * Name for the @link {Asset}.
+	 * Name for the {@link Asset}.
 	 * <override required="create" max-length="100" />
 	 **/
 	name: string;
 	/**
-	 * Notes for the @link {Asset}.
+	 * Notes for the {@link Asset}.
 	 **/
 	notes: string;
 	/**
-	 * The identifier of the @link {Icon} used to represent this @link {Asset} in the UI.
+	 * The identifier of the {@link Icon} used to represent this {@link Asset} in the UI.
 	 * <override required="create" />
 	 * @see {@link Icon.id}
 	 **/
 	icon: ulong | undefined;
 	/**
-	 * A list of <format id="codified"/>&amp;nbsp;@link {CompanyStyles.labels|label} names to categorize/organize this @link {Asset}.
+	 * A list of <format id="codified"/>&amp;nbsp;{@link CompanyStyles.labels|label} names to categorize/organize this {@link Asset}.
 	 * <override>
 	 * <values format="codified">
 	 * @see {@link LabelStyle.code}
@@ -46,25 +46,25 @@ export class ParamAssetMerge extends ParamMergeSubscribable {
 	 **/
 	labels: string[];
 	/**
-	 * Replaces the @link {Asset}'s status tags with the given list of <format id="codified"/> tags.
+	 * Replaces the {@link Asset}'s status tags with the given list of <format id="codified"/> tags.
 	 **/
 	tags: string[];
 	/**
 	 * Allows you to add, remove, and replace attributes.
-	 * For each @link {AssetAttribute} in the attributes object,
-	 * the value will be replaced on the @link {Asset}.
-	 * If value is null, the attribute is removed from the @link {Asset}.
-	 * If the key in the attributes object is different from the <format id="codified"/>(@link {AssetAttribute.name})
-	 * in the object, the attribute of the key is removed from the @link {Asset}, and one of the codified name is added to the @link {Asset}.
+	 * For each {@link AssetAttribute} in the attributes object,
+	 * the value will be replaced on the {@link Asset}.
+	 * If value is null, the attribute is removed from the {@link Asset}.
+	 * If the key in the attributes object is different from the <format id="codified"/>({@link AssetAttribute.name})
+	 * in the object, the attribute of the key is removed from the {@link Asset}, and one of the codified name is added to the {@link Asset}.
 	 * If a new value or null is not provided for a current attribute, no change is made.
 	 **/
 	attributes: Map<string, AssetAttribute?>;
 	/**
-	 * The email address or phone number of this @link {Asset} when a @link {Person}'s @link {Contact} card is blank, or the @link {Provider}'s @link {ProviderGeneral.pnd|PND} is not installed.
+	 * The email address or phone number of this {@link Asset} when a {@link Person}'s {@link Contact} card is blank, or the {@link Provider}'s {@link ProviderGeneral.pnd|PND} is not installed.
 	 **/
 	messagingAddress: string;
 	/**
-	 * The identifiers of @link {Picture}s of this @link {Asset}.
+	 * The identifiers of {@link Picture}s of this {@link Asset}.
 	 * <override>
 	 * <values>
 	 * @see {@link Picture.id}
@@ -74,63 +74,63 @@ export class ParamAssetMerge extends ParamMergeSubscribable {
 	pictures: ulong[];
 	/**
 	 * Name/value collections of custom fields used to refer to external systems.
-	 * If the value is null, the references are removed from the @link {Asset}.
+	 * If the value is null, the references are removed from the {@link Asset}.
 	 **/
 	references: Map<string, string>;
 	/**
-	 * The contact card details for this @link {Asset}.
-	 * Only applicable if <c>asset.kind</c> is @link {AssetType.person}.
+	 * The contact card details for this {@link Asset}.
+	 * Only applicable if `asset.kind` is {@link AssetType.person}.
 	 * <override required="create (for person)" />
 	 **/
 	contact: ulong | undefined;
 	/**
-	 * The year this @link {Vehicle} or @link {Trailer} was built.
-	 * Only applicable if <c>asset.kind</c> is @link {AssetType.vehicle} or @link {AssetType.trailer}.
+	 * The year this {@link Vehicle} or {@link Trailer} was built.
+	 * Only applicable if `asset.kind` is {@link AssetType.vehicle} or {@link AssetType.trailer}.
 	 **/
 	year: ushort | undefined;
 	/**
-	 * The license plate of this @link {Vehicle} or @link {Trailer}.
-	 * Only applicable if <c>asset.kind</c> is @link {AssetType.vehicle} or @link {AssetType.trailer}.
+	 * The license plate of this {@link Vehicle} or {@link Trailer}.
+	 * Only applicable if `asset.kind` is {@link AssetType.vehicle} or {@link AssetType.trailer}.
 	 **/
 	plate: string;
 	/**
-	 * The manufacturer of this @link {Vehicle} or @link {Trailer}.
-	 * Only applicable if <c>asset.kind</c> is @link {AssetType.vehicle} or @link {AssetType.trailer}.
+	 * The manufacturer of this {@link Vehicle} or {@link Trailer}.
+	 * Only applicable if `asset.kind` is {@link AssetType.vehicle} or {@link AssetType.trailer}.
 	 **/
 	make: string;
 	/**
-	 * The model of this @link {Vehicle} or @link {Trailer}.
-	 * Only applicable if <c>asset.kind</c> is @link {AssetType.vehicle} or @link {AssetType.trailer}.
+	 * The model of this {@link Vehicle} or {@link Trailer}.
+	 * Only applicable if `asset.kind` is {@link AssetType.vehicle} or {@link AssetType.trailer}.
 	 **/
 	model: string;
 	/**
-	 * The pretty-pretty colour of this @link {Vehicle} or @link {Trailer}.
-	 * Only applicable if <c>asset.kind</c> is @link {AssetType.vehicle} or @link {AssetType.trailer}.
+	 * The pretty-pretty colour of this {@link Vehicle} or {@link Trailer}.
+	 * Only applicable if `asset.kind` is {@link AssetType.vehicle} or {@link AssetType.trailer}.
 	 * <override max-length="22" format="colour" />
 	 **/
 	colour: string;
 	/**
-	 * The manufacturer's identification number of this @link {Trailer}.
-	 * Only applicable if <c>asset.kind</c> is @link {AssetType.vehicle}.
+	 * The manufacturer's identification number of this {@link Trailer}.
+	 * Only applicable if `asset.kind` is {@link AssetType.vehicle}.
 	 **/
 	serial: string;
 	/**
-	 * The Vehicle Identification Number of this @link {Vehicle}.
-	 * Only applicable if <c>asset.kind</c> is @link {AssetType.trailer}.
+	 * The Vehicle Identification Number of this {@link Vehicle}.
+	 * Only applicable if `asset.kind` is {@link AssetType.trailer}.
 	 **/
 	vin: string;
 	/**
-	 * The distance travelled by this @link {Asset}.
+	 * The distance travelled by this {@link Asset}.
 	 * Can be a GPS odometer, OBD-II odometer, or other depending on scripts.
 	 **/
 	odometer: double | undefined;
 	/**
-	 * The number of hours the engine has been running for this @link {Vehicle}.
-	 * Only applicable if <c>asset.kind</c> is @link {AssetType.vehicle}.
+	 * The number of hours the engine has been running for this {@link Vehicle}.
+	 * Only applicable if `asset.kind` is {@link AssetType.vehicle}.
 	 **/
 	engineHours: double | undefined;
 	/**
-	 * A list of related asset identifiers like a driver for a @link {Vehicle}, or @link {Trailer} for a truck.
+	 * A list of related asset identifiers like a driver for a {@link Vehicle}, or {@link Trailer} for a truck.
 	 * <override>
 	 * <values>
 	 * @see {@link Asset.id}

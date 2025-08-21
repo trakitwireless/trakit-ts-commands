@@ -7,26 +7,26 @@ import { IPayListByLabels } from "../../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../../API/Requests/IPayListByReferences";
 
 /**
- * Gets a list of @link {UserGeneral}s.
+ * Gets a list of {@link UserGeneral}s.
  **/
 export abstract class PayUserGeneralList extends Payload implements IPayDeletable {
 	/**
-	 * When true, the command will also return a deleted @link {UserGeneral} (if it exists).
+	 * When true, the command will also return a deleted {@link UserGeneral} (if it exists).
 	 **/
 	includeDeleted: boolean;
 	}
 
 /**
- * Gets the list of @link {UserGeneral}s for the specified @link {Company}.
+ * Gets the list of {@link UserGeneral}s for the specified {@link Company}.
  **/
 export class PayUserGeneralListByCompany extends PayUserGeneralList implements IPayListByCompany {
 	/**
-	 * Identifier of the @link {Company} to which this collection belongs.
+	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
 	company: ParamId;
 	}
 /**
- * Gets the list of @link {UserGeneral}s for the specified @link {Company} only if the @link {UserGeneralGeneral.labels} matches all of the given @link {Parameters.labels}.
+ * Gets the list of {@link UserGeneral}s for the specified {@link Company} only if the {@link UserGeneralGeneral.labels} matches all of the given {@link Parameters.labels}.
  **/
 export class PayUserGeneralListByCompanyAndLabels extends PayUserGeneralListByCompany implements IPayListByLabels {
 	/**
@@ -36,9 +36,9 @@ export class PayUserGeneralListByCompanyAndLabels extends PayUserGeneralListByCo
 	labels: string[];
 	}
 /**
- * Gets the list of @link {UserGeneral}s for the specified @link {Company} only if one of the specified @link {UserGeneralGeneral.references} fields match.
- * If no references are specified, it will match any @link {UserGeneral} with no references.
- * If a reference value is null, it will match any @link {UserGeneral} without that reference key.
+ * Gets the list of {@link UserGeneral}s for the specified {@link Company} only if one of the specified {@link UserGeneralGeneral.references} fields match.
+ * If no references are specified, it will match any {@link UserGeneral} with no references.
+ * If a reference value is null, it will match any {@link UserGeneral} without that reference key.
  **/
 export class PayUserGeneralListByCompanyAndRefPairs extends PayUserGeneralListByCompany implements IPayListByReferences {
 	/**

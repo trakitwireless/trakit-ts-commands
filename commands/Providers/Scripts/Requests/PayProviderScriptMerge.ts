@@ -2,11 +2,11 @@ import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
 
 /**
- * Creates a new or updates an existing @link {ProviderScript}.
+ * Creates a new or updates an existing {@link ProviderScript}.
  **/
 export class PayProviderScriptMerge extends Payload implements IPaySingle {
 	/**
-	 * Parameters given to create or update a @link {ProviderScript}.
+	 * Parameters given to create or update a {@link ProviderScript}.
 	 **/
 	providerScript: ParamProviderScriptMerge;
 

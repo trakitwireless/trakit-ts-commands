@@ -3,26 +3,26 @@ import { RepAssetList } from "./RepAssetList";
 import { RepAssetListByCompany } from "./RepAssetList";
 
 /**
- * A container for the requested @link {assets}.
+ * A container for the requested {@link assets}.
  **/
 export abstract class RepAssetList extends Reply {
 	/**
-	 * The list of requested @link {Asset}s.
+	 * The list of requested {@link Asset}s.
 	 **/
 	assets: Asset[];
 	}
 
 /**
- * Contains the @link {Company.id} of the collection.
+ * Contains the {@link Company.id} of the collection.
  **/
 export class RepAssetListByCompany extends RepAssetList {
 	/**
-	 * Identifier of the @link {Company} to which this collection belongs.
+	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
 	company: ContentId;
 	}
 /**
- * Contains the codified @link {Company.labels} keys used to filter the collection.
+ * Contains the codified {@link Company.labels} keys used to filter the collection.
  **/
 export class RepAssetListByCompanyAndLabels extends RepAssetListByCompany {
 	/**
@@ -32,7 +32,7 @@ export class RepAssetListByCompanyAndLabels extends RepAssetListByCompany {
 	labels: string[];
 	}
 /**
- * Contains the @link {AssetGeneral.references} used to filter the collection.
+ * Contains the {@link AssetGeneral.references} used to filter the collection.
  **/
 export class RepAssetListByCompanyAndRefPairs extends RepAssetListByCompany {
 	/**

@@ -1,7 +1,7 @@
 import { ContentIdCompany } from "./ContentIdCompany";
 
 /**
- * A container for the id, owning @link {ReportTemplate} id, and owning @link {Company.id} of the report object requested/created.
+ * A container for the id, owning {@link ReportTemplate} id, and owning {@link Company.id} of the report object requested/created.
  **/
 export class ContentIdCompanyTemplate extends ContentIdCompany {
 	/**

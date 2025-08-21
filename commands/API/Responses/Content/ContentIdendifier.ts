@@ -1,6 +1,6 @@
 
 /**
- * A container for the id of the @link {Provider} requested/created.
+ * A container for the id of the {@link Provider} requested/created.
  **/
 export class ContentIdendifier {
 	/**

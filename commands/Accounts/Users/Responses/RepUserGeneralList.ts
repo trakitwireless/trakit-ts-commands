@@ -3,26 +3,26 @@ import { RepUserGeneralList } from "./RepUserGeneralList";
 import { RepUserGeneralListByCompany } from "./RepUserGeneralList";
 
 /**
- * A container for the requested @link {userGenerals}.
+ * A container for the requested {@link userGenerals}.
  **/
 export abstract class RepUserGeneralList extends Reply {
 	/**
-	 * The list of requested @link {UserGeneral}s.
+	 * The list of requested {@link UserGeneral}s.
 	 **/
 	userGenerals: UserGeneral[];
 	}
 
 /**
- * A container owner @link {Company} of the collection.
+ * A container owner {@link Company} of the collection.
  **/
 export class RepUserGeneralListByCompany extends RepUserGeneralList {
 	/**
-	 * Identifier of the @link {Company} to which this collection belongs.
+	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
 	company: ContentId;
 	}
 /**
- * A container owner @link {Company} of the collection.
+ * A container owner {@link Company} of the collection.
  **/
 export class RepUserGeneralListByCompanyAndLabels extends RepUserGeneralListByCompany {
 	/**
@@ -32,7 +32,7 @@ export class RepUserGeneralListByCompanyAndLabels extends RepUserGeneralListByCo
 	labels: string[];
 	}
 /**
- * A container owner @link {Company} of the collection.
+ * A container owner {@link Company} of the collection.
  **/
 export class RepUserGeneralListByCompanyAndRefPairs extends RepUserGeneralListByCompany {
 	/**

@@ -12,24 +12,24 @@ import { IPayListByReferences } from "../../../API/Requests/IPayListByReferences
  **/
 export abstract class PayDispatchTaskList extends Payload implements IPayDeletable {
 	/**
-	 * When true, the command will also return  deleted @link {DispatchTask}s.
+	 * When true, the command will also return  deleted {@link DispatchTask}s.
 	 **/
 	includeDeleted: boolean;
 	}
 
 /**
- * Gets the list of @link {DispatchTask}s for the specified @link {Asset}.
+ * Gets the list of {@link DispatchTask}s for the specified {@link Asset}.
  **/
 export class PayDispatchTaskListByAsset extends PayDispatchTaskList implements IPayListByAsset {
 	/**
-	 * Identifier of the @link {Company} to which this collection belongs.
+	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
 	asset: ParamId;
 	}
 /**
- * Gets the list of @link {DispatchTask}s for the specified @link {Asset} only if the specified reference fields match.
- * If no references are specified, it will match any @link {DispatchTask} with no references.
- * If a reference value is null, it will match any @link {DispatchTask} without that reference key.
+ * Gets the list of {@link DispatchTask}s for the specified {@link Asset} only if the specified reference fields match.
+ * If no references are specified, it will match any {@link DispatchTask} with no references.
+ * If a reference value is null, it will match any {@link DispatchTask} without that reference key.
  **/
 export class PayDispatchTaskListByAssetAndRefPairs extends PayDispatchTaskListByAsset {
 	/**
@@ -40,18 +40,18 @@ export class PayDispatchTaskListByAssetAndRefPairs extends PayDispatchTaskListBy
 	}
 
 /**
- * Gets the list of @link {DispatchTask}s for the specified @link {Company}.
+ * Gets the list of {@link DispatchTask}s for the specified {@link Company}.
  **/
 export class PayDispatchTaskListByCompany extends PayDispatchTaskList implements IPayListByCompany {
 	/**
-	 * Identifier of the @link {Company} to which this collection belongs.
+	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
 	company: ParamId;
 	}
 /**
- * Gets the list of @link {DispatchTask}s for the specified @link {Company} only if the specified reference fields match.
- * If no references are specified, it will match any @link {DispatchTask} with no references.
- * If a reference value is null, it will match any @link {DispatchTask} without that reference key.
+ * Gets the list of {@link DispatchTask}s for the specified {@link Company} only if the specified reference fields match.
+ * If no references are specified, it will match any {@link DispatchTask} with no references.
+ * If a reference value is null, it will match any {@link DispatchTask} without that reference key.
  **/
 export class PayDispatchTaskListByCompanyAndRefPairs extends PayDispatchTaskListByCompany implements IPayListByReferences {
 	/**

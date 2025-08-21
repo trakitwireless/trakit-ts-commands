@@ -1,7 +1,7 @@
 import { ContentIdCompany } from "./ContentIdCompany";
 
 /**
- * For suspend/revive commands, this contains the id, version keys, owning @link {Company.id}, and suspended state.
+ * For suspend/revive commands, this contains the id, version keys, owning {@link Company.id}, and suspended state.
  **/
 export class ContentIdSuspended extends ContentIdCompany {
 	/**

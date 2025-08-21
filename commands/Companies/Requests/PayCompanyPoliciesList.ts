@@ -7,26 +7,26 @@ import { IPayListByLabels } from "../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../API/Requests/IPayListByReferences";
 
 /**
- * Gets a list of @link {CompanyPolicies}s.
+ * Gets a list of {@link CompanyPolicies}s.
  **/
 export abstract class PayCompanyPoliciesList extends Payload implements IPayDeletable {
 	/**
-	 * When true, the command will also return a deleted @link {CompanyPolicies} (if it exists).
+	 * When true, the command will also return a deleted {@link CompanyPolicies} (if it exists).
 	 **/
 	includeDeleted: boolean;
 	}
 
 /**
- * Gets the list of @link {CompanyPolicies}s for the specified @link {Company}.
+ * Gets the list of {@link CompanyPolicies}s for the specified {@link Company}.
  **/
 export class PayCompanyPoliciesListByCompany extends PayCompanyPoliciesList implements IPayListByCompany {
 	/**
-	 * Identifier of the @link {Company} to which this collection belongs.
+	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
 	company: ParamId;
 	}
 /**
- * Gets the list of @link {CompanyPolicies}s for the specified @link {Company} only if the @link {CompanyPoliciesPolicies.labels} matches all of the given @link {Parameters.labels}.
+ * Gets the list of {@link CompanyPolicies}s for the specified {@link Company} only if the {@link CompanyPoliciesPolicies.labels} matches all of the given {@link Parameters.labels}.
  **/
 export class PayCompanyPoliciesListByCompanyAndLabels extends PayCompanyPoliciesListByCompany implements IPayListByLabels {
 	/**
@@ -36,9 +36,9 @@ export class PayCompanyPoliciesListByCompanyAndLabels extends PayCompanyPolicies
 	labels: string[];
 	}
 /**
- * Gets the list of @link {CompanyPolicies}s for the specified @link {Company} only if one of the specified @link {CompanyPoliciesPolicies.references} fields match.
- * If no references are specified, it will match any @link {CompanyPolicies} with no references.
- * If a reference value is null, it will match any @link {CompanyPolicies} without that reference key.
+ * Gets the list of {@link CompanyPolicies}s for the specified {@link Company} only if one of the specified {@link CompanyPoliciesPolicies.references} fields match.
+ * If no references are specified, it will match any {@link CompanyPolicies} with no references.
+ * If a reference value is null, it will match any {@link CompanyPolicies} without that reference key.
  **/
 export class PayCompanyPoliciesListByCompanyAndRefPairs extends PayCompanyPoliciesListByCompany implements IPayListByReferences {
 	/**

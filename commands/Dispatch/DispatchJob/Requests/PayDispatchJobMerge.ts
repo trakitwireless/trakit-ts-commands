@@ -2,11 +2,11 @@ import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
 
 /**
- * Creates a new or updates an existing @link {DispatchJob}.
+ * Creates a new or updates an existing {@link DispatchJob}.
  **/
 export class PayDispatchJobMerge extends Payload implements IPaySingle {
 	/**
-	 * Parameters given to create or update a @link {DispatchJob}.
+	 * Parameters given to create or update a {@link DispatchJob}.
 	 **/
 	dispatchJob: ParamDispatchJobMerge;
 

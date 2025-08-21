@@ -1,14 +1,13 @@
 
 /**
- * Similar to the @link {User} object, but instead of the @link {contact}
- * and @link {groups} properties being identifiers of other objects,
- * the @link {Contact} and @link {UserGroup} objects are embedded within.
+ * Similar to the {@link User} object, but instead of the {@link contact}
+ * and {@link groups} properties being identifiers of other objects,
+ * the {@link Contact} and {@link UserGroup} objects are embedded within.
  **/
 export class SelfUser extends Compound implements IBelongCompany, IEnabled, IDeletable {
 	/**
 	 * 
 	 **/
-		[JsonIgnore]
 		protected override Component[] Pieces => new Component[] {
 			this.General,
 			this.Advanced,
@@ -32,7 +31,6 @@ export class SelfUser extends Compound implements IBelongCompany, IEnabled, IDel
 	/**
 	 * 
 	 **/
-		[JsonIgnore]
 	General: SelfUserGeneral;
 	/**
 	 * Indicated whether the credentials have expired according to the company's policy.
@@ -124,17 +122,16 @@ export class SelfUser extends Compound implements IBelongCompany, IEnabled, IDel
 	/**
 	 * 
 	 **/
-		[JsonIgnore]
 	Advanced: SelfUserAdvanced;
 	/**
-	 * Individual permission rules which override the @link {UserGroup} rules.
+	 * Individual permission rules which override the {@link UserGroup} rules.
 	 **/
 		public Permission[] permissions {
 			get => (this.Advanced ?? throw new NullReferenceException("advanced")).permissions;
 			set => (this.Advanced ?? throw new NullReferenceException("advanced")).permissions = value;
 		}
 	/**
-	 * The list of @link {UserGroup}s to which this @link {User} belongs.
+	 * The list of {@link UserGroup}s to which this {@link User} belongs.
 	 **/
 		public UserGroup[] groups {
 			get => (this.Advanced ?? throw new NullReferenceException("advanced")).groups;
@@ -143,7 +140,7 @@ export class SelfUser extends Compound implements IBelongCompany, IEnabled, IDel
 
 		// IRequestable
 	/**
-	 * The @link {login} is the key.
+	 * The {@link login} is the key.
 	 **/
 			public override string GetKey() => this.login;
 

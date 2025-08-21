@@ -1,6 +1,6 @@
 import { PayPicture } from "./PayPicture";
 
 /**
- * Restores a deleted @link {Picture}.
+ * Restores a deleted {@link Picture}.
  **/
 export class PayPictureRestore extends PayPicture {}

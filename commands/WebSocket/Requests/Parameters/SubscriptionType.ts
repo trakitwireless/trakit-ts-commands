@@ -1,11 +1,11 @@
 
 /**
- * The types of subscriptions available using @link {subscribe}/@link {unsubscribe}.
+ * The types of subscriptions available using {@link subscribe}/{@link unsubscribe}.
  * Each type has a different synchronization messages and objects.
  **/
 	public enum SubscriptionType {
 	/**
-	 * Assets' @link {AssetGeneral|general properties} such as name, icon, and labels.
+	 * Assets' {@link AssetGeneral|general properties} such as name, icon, and labels.
 	 * @see {@link AssetGeneral}
 	 * @see {@link PersonGeneral}
 	 * @see {@link VehicleGeneral}
@@ -13,57 +13,57 @@
 	 **/
 		assetGeneral,
 	/**
-	 * Assets' @link {AssetAdvanced|advanced properties} such as position, attributes, and status tags.
+	 * Assets' {@link AssetAdvanced|advanced properties} such as position, attributes, and status tags.
 	 * @see {@link AssetAdvanced}
 	 * @see {@link VehicleAdvanced}
 	 **/
 		assetAdvanced,
 	/**
-	 * @link {AssetMessage}s between @link {Asset}s and @link {User}s.
+	 * {@link AssetMessage}s between {@link Asset}s and {@link User}s.
 	 * @see {@link AssetMessage}
 	 **/
 		assetMessage,
 	/**
-	 * Assets' @link {AssetDispatch|current dispatch} such as  @link {DispatchJob}s and route progress.
+	 * Assets' {@link AssetDispatch|current dispatch} such as  {@link DispatchJob}s and route progress.
 	 * @see {@link AssetDispatch}
 	 **/
 		assetDispatch,
 
 	/**
-	 * Assets' @link {DispatchTask} information.
+	 * Assets' {@link DispatchTask} information.
 	 * @see {@link DispatchTask}
 	 **/
 		dispatchTask,
 	/**
-	 * Some work that needs to be done by performing one or more @link {DispatchStep}s.
+	 * Some work that needs to be done by performing one or more {@link DispatchStep}s.
 	 * @see {@link DispatchJob}
 	 **/
 		dispatchJob,
 
 	/**
-	 * Customized @link {FormTemplate|forms} to be filled.
+	 * Customized {@link FormTemplate|forms} to be filled.
 	 * @see {@link FormTemplate}
 	 **/
 		formTemplate,
 	/**
-	 * @link {FormResult|Forms} that are completed and fully filled out.
+	 * {@link FormResult|Forms} that are completed and fully filled out.
 	 * @see {@link FormResult}
 	 **/
 		formResult,
 
 	/**
-	 * @link {Place} information.
+	 * {@link Place} information.
 	 * @see {@link PlaceGeneral}
 	 **/
 		placeGeneral,
 
 	/**
-	 * Providers' (device) @link {ProviderGeneral|general properties} such as name, notes, and selected @link {Asset}.
+	 * Providers' (device) {@link ProviderGeneral|general properties} such as name, notes, and selected {@link Asset}.
 	 * @see {@link ProviderGeneral}
 	 **/
 		providerGeneral,
 	/**
-	 * Raw provider (device) @link {ProviderAdvanced|data} like GPS coordinates and parsed ODB-II values.
+	 * Raw provider (device) {@link ProviderAdvanced|data} like GPS coordinates and parsed ODB-II values.
 	 * @see {@link ProviderAdvanced}
 	 **/
 		providerAdvanced,
@@ -95,12 +95,12 @@
 		providerRegistration,
 
 	/**
-	 * Recurring maintenance work for @link {Vehicle}s and @link {Trailer}s.
+	 * Recurring maintenance work for {@link Vehicle}s and {@link Trailer}s.
 	 * @see {@link MaintenanceSchedule}
 	 **/
 		maintenanceSchedule,
 	/**
-	 * Historical @link {Vehicle} and @link {Trailer} maintenance work.
+	 * Historical {@link Vehicle} and {@link Trailer} maintenance work.
 	 * @see {@link MaintenanceJob}
 	 **/
 		maintenanceJob,
@@ -116,7 +116,7 @@
 	 **/
 		behaviour,
 	/**
-	 * Behaviour log messages to help developers debug their @link {BehaviourScript}.
+	 * Behaviour log messages to help developers debug their {@link BehaviourScript}.
 	 * @see {@link BehaviourLog}
 	 **/
 		behaviourLog,
@@ -132,49 +132,49 @@
 	 **/
 		companyLabels,
 	/**
-	 * Company's @link {SessionPolicy} and @link {PasswordPolicy}.
+	 * Company's {@link SessionPolicy} and {@link PasswordPolicy}.
 	 * @see {@link CompanyPolicies}
 	 **/
 		companyPolicies,
 		///// <summary>
-		///// Company's list of @link {Contact}s broken down by role.
+		///// Company's list of {@link Contact}s broken down by role.
 		//
 		///// @see {@link CompanyDirectory}
 		//companyDirectory,
 	/**
-	 * A @link {Company}'s white-labelling details.
+	 * A {@link Company}'s white-labelling details.
 	 * @see {@link CompanyReseller}
 	 **/
 		companyReseller,
 
 	/**
-	 * Profiles used to generate @link {BillingReport} for a customer.
+	 * Profiles used to generate {@link BillingReport} for a customer.
 	 * @see {@link BillingProfile}
 	 **/
 		billingProfile,
 	/**
-	 * Billing rules for @link {Asset}s.
+	 * Billing rules for {@link Asset}s.
 	 * @see {@link BillableHostingRule}
 	 **/
 		billingHosting,
 	/**
-	 * Discount rules for @link {Asset}s.
+	 * Discount rules for {@link Asset}s.
 	 * @see {@link BillableHostingDiscount}
 	 **/
 		billingDiscount,
 	/**
-	 * Hardware licenses for @link {Provider}s.
+	 * Hardware licenses for {@link Provider}s.
 	 * @see {@link BillableHostingLicense}
 	 **/
 		billingLicense,
 	/**
-	 * Reports generated for a billee @link {Company}.
+	 * Reports generated for a billee {@link Company}.
 	 * @see {@link BillingReport}
 	 **/
 		billingReport,
 
 	/**
-	 * Contact information used by @link {Asset}s and @link {User}s.
+	 * Contact information used by {@link Asset}s and {@link User}s.
 	 * @see {@link Contact}
 	 **/
 		contact,

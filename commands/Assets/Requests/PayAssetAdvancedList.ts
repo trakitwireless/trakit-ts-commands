@@ -8,38 +8,38 @@ import { IPayListByLabels } from "../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../API/Requests/IPayListByReferences";
 
 /**
- * Gets a list of @link {AssetAdvanced}s.
+ * Gets a list of {@link AssetAdvanced}s.
  **/
 export abstract class PayAssetAdvancedList extends Payload implements IPayDeletable, IPaySuspendable {
 	/**
-	 * When true, the command will also return @link {AssetAdvancedMessage}s for the asset.
+	 * When true, the command will also return {@link AssetAdvancedMessage}s for the asset.
 	 **/
 	includeMessages: boolean;
 	/**
-	 * When true, the command will also return @link {DispatchTask}s for the asset.
+	 * When true, the command will also return {@link DispatchTask}s for the asset.
 	 **/
 	includeTasks: boolean;
 	/**
-	 * When true, the command will also return suspended @link {AssetAdvanced}s.
+	 * When true, the command will also return suspended {@link AssetAdvanced}s.
 	 **/
 	includeSuspended: boolean;
 	/**
-	 * When true, the command will also return a deleted @link {AssetAdvanced} (if it exists).
+	 * When true, the command will also return a deleted {@link AssetAdvanced} (if it exists).
 	 **/
 	includeDeleted: boolean;
 	}
 
 /**
- * Gets the list of @link {AssetAdvanced}s for the specified @link {Company}.
+ * Gets the list of {@link AssetAdvanced}s for the specified {@link Company}.
  **/
 export class PayAssetAdvancedListByCompany extends PayAssetAdvancedList implements IPayListByCompany {
 	/**
-	 * Identifier of the @link {Company} to which this collection belongs.
+	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
 	company: ParamId;
 	}
 /**
- * Gets the list of @link {AssetAdvanced}s for the specified @link {Company} only if the @link {AssetAdvancedGeneral.labels} matches all of the given @link {Parameters.labels}.
+ * Gets the list of {@link AssetAdvanced}s for the specified {@link Company} only if the {@link AssetAdvancedGeneral.labels} matches all of the given {@link Parameters.labels}.
  **/
 export class PayAssetAdvancedListByCompanyAndLabels extends PayAssetAdvancedListByCompany implements IPayListByLabels {
 	/**
@@ -49,9 +49,9 @@ export class PayAssetAdvancedListByCompanyAndLabels extends PayAssetAdvancedList
 	labels: string[];
 	}
 /**
- * Gets the list of @link {AssetAdvanced}s for the specified @link {Company} only if one of the specified @link {AssetAdvancedGeneral.references} fields match.
- * If no references are specified, it will match any @link {AssetAdvanced} with no references.
- * If a reference value is null, it will match any @link {AssetAdvanced} without that reference key.
+ * Gets the list of {@link AssetAdvanced}s for the specified {@link Company} only if one of the specified {@link AssetAdvancedGeneral.references} fields match.
+ * If no references are specified, it will match any {@link AssetAdvanced} with no references.
+ * If a reference value is null, it will match any {@link AssetAdvanced} without that reference key.
  **/
 export class PayAssetAdvancedListByCompanyAndRefPairs extends PayAssetAdvancedListByCompany implements IPayListByReferences {
 	/**

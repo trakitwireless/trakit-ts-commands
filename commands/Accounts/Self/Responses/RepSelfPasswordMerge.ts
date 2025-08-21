@@ -9,6 +9,6 @@ export class RepSelfPasswordMerge extends Reply {
 	 **/
 	expires: Date | undefined;
 	/**
-	 * Your @link {Company}'s @link {PasswordPolicy|password policy}.
+	 * Your {@link Company}'s {@link PasswordPolicy|password policy}.
 	 **/
 	passwordPolicy: PasswordPolicy;}

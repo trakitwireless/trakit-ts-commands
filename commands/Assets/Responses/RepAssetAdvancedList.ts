@@ -3,26 +3,26 @@ import { RepAssetAdvancedList } from "./RepAssetAdvancedList";
 import { RepAssetAdvancedListByCompany } from "./RepAssetAdvancedList";
 
 /**
- * A container for the requested @link {assetAdvanceds}.
+ * A container for the requested {@link assetAdvanceds}.
  **/
 export abstract class RepAssetAdvancedList extends Reply {
 	/**
-	 * The list of requested @link {AssetAdvanced}s.
+	 * The list of requested {@link AssetAdvanced}s.
 	 **/
 	assetAdvanceds: AssetAdvanced[];
 	}
 
 /**
- * A container owner @link {Company} of the collection.
+ * A container owner {@link Company} of the collection.
  **/
 export class RepAssetAdvancedListByCompany extends RepAssetAdvancedList {
 	/**
-	 * Identifier of the @link {Company} to which this collection belongs.
+	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
 	company: ContentId;
 	}
 /**
- * A container owner @link {Company} of the collection.
+ * A container owner {@link Company} of the collection.
  **/
 export class RepAssetAdvancedListByCompanyAndLabels extends RepAssetAdvancedListByCompany {
 	/**
@@ -32,7 +32,7 @@ export class RepAssetAdvancedListByCompanyAndLabels extends RepAssetAdvancedList
 	labels: string[];
 	}
 /**
- * A container owner @link {Company} of the collection.
+ * A container owner {@link Company} of the collection.
  **/
 export class RepAssetAdvancedListByCompanyAndRefPairs extends RepAssetAdvancedListByCompany {
 	/**

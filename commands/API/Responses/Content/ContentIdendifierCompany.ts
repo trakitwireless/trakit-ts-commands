@@ -1,10 +1,10 @@
 import { ContentIdendifier } from "./ContentIdendifier";
 
 /**
- * A container for the id and owning @link {Company} of the @link {Provider} requested/created.
+ * A container for the id and owning {@link Company} of the {@link Provider} requested/created.
  **/
 export class ContentIdendifierCompany extends ContentIdendifier {
 	/**
-	 * Identifier of the @link {Company} to which this object belongs.
+	 * Identifier of the {@link Company} to which this object belongs.
 	 **/
 	company: ulong;}

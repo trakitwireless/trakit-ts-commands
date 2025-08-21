@@ -1,25 +1,25 @@
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
- * Parameters used to create or update an @link {Behaviour}.
+ * Parameters used to create or update an {@link Behaviour}.
  **/
 export class ParamBehaviourMerge extends ParamMergeSubscribable {
 	/**
-	 * The unique identifier of the @link {Behaviour} you want to update.
-	 * Leave this as <c>null</c> when creating a new @link {Behaviour}.
+	 * The unique identifier of the {@link Behaviour} you want to update.
+	 * Leave this as `null` when creating a new {@link Behaviour}.
 	 **/
 	id: ulong | undefined;
 	/**
-	 * The @link {Company} to which this @link {Behaviour} belongs.
+	 * The {@link Company} to which this {@link Behaviour} belongs.
 	 * After creation, this value is read-only.
 	 **/
 	company: ulong | undefined;
 	/**
-	 * Name for the @link {Behaviour}.
+	 * Name for the {@link Behaviour}.
 	 **/
 	name: string;
 	/**
-	 * Notes for the @link {Behaviour}.
+	 * Notes for the {@link Behaviour}.
 	 **/
 	notes: string;
 	/**
@@ -64,10 +64,10 @@ export class ParamBehaviourMerge extends ParamMergeSubscribable {
 	 **/
 	options: Map<string, string>;
 	/**
-	 * A list of roles they play in the @link {Company}.
+	 * A list of roles they play in the {@link Company}.
 	 **/
 	roles: string[];
 	/**
-	 * @link {Picture}s of this @link {Behaviour}.
+	 * {@link Picture}s of this {@link Behaviour}.
 	 **/
 	pictures: ulong[];}

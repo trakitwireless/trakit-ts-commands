@@ -1,25 +1,25 @@
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
- * Parameters used to create or update an @link {BehaviourScript}.
+ * Parameters used to create or update an {@link BehaviourScript}.
  **/
 export class ParamBehaviourScriptMerge extends ParamMergeSubscribable {
 	/**
-	 * The unique identifier of the @link {BehaviourScript} you want to update.
-	 * Leave this as <c>null</c> when creating a new @link {BehaviourScript}.
+	 * The unique identifier of the {@link BehaviourScript} you want to update.
+	 * Leave this as `null` when creating a new {@link BehaviourScript}.
 	 **/
 	id: ulong | undefined;
 	/**
-	 * The @link {Company} to which this @link {BehaviourScript} belongs.
+	 * The {@link Company} to which this {@link BehaviourScript} belongs.
 	 * After creation, this value is read-only.
 	 **/
 	company: ulong | undefined;
 	/**
-	 * Name for the @link {BehaviourScript}.
+	 * Name for the {@link BehaviourScript}.
 	 **/
 	name: string;
 	/**
-	 * Notes for the @link {BehaviourScript}.
+	 * Notes for the {@link BehaviourScript}.
 	 **/
 	notes: string;
 	/**
@@ -64,10 +64,10 @@ export class ParamBehaviourScriptMerge extends ParamMergeSubscribable {
 	 **/
 	options: Map<string, string>;
 	/**
-	 * A list of roles they play in the @link {Company}.
+	 * A list of roles they play in the {@link Company}.
 	 **/
 	roles: string[];
 	/**
-	 * @link {Picture}s of this @link {BehaviourScript}.
+	 * {@link Picture}s of this {@link BehaviourScript}.
 	 **/
 	pictures: ulong[];}

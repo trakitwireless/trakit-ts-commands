@@ -1,6 +1,6 @@
 
 /**
- * A container for the id of the @link {ProviderRegistration} requested/created.
+ * A container for the id of the {@link ProviderRegistration} requested/created.
  **/
 export class ContentCode {
 	/**

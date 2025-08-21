@@ -1,25 +1,25 @@
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
- * Parameters used to create or update an @link {MaintenanceJob}.
+ * Parameters used to create or update an {@link MaintenanceJob}.
  **/
 export class ParamMaintenanceJobMerge extends ParamMergeSubscribable {
 	/**
-	 * The unique identifier of the @link {MaintenanceJob} you want to update.
-	 * Leave this as <c>null</c> when creating a new @link {MaintenanceJob}.
+	 * The unique identifier of the {@link MaintenanceJob} you want to update.
+	 * Leave this as `null` when creating a new {@link MaintenanceJob}.
 	 **/
 	id: ulong | undefined;
 	/**
-	 * The @link {Company} to which this @link {MaintenanceJob} belongs.
+	 * The {@link Company} to which this {@link MaintenanceJob} belongs.
 	 * After creation, this value is read-only.
 	 **/
 	company: ulong | undefined;
 	/**
-	 * Name for the @link {MaintenanceJob}.
+	 * Name for the {@link MaintenanceJob}.
 	 **/
 	name: string;
 	/**
-	 * Notes for the @link {MaintenanceJob}.
+	 * Notes for the {@link MaintenanceJob}.
 	 **/
 	notes: string;
 	/**
@@ -64,10 +64,10 @@ export class ParamMaintenanceJobMerge extends ParamMergeSubscribable {
 	 **/
 	options: Map<string, string>;
 	/**
-	 * A list of roles they play in the @link {Company}.
+	 * A list of roles they play in the {@link Company}.
 	 **/
 	roles: string[];
 	/**
-	 * @link {Picture}s of this @link {MaintenanceJob}.
+	 * {@link Picture}s of this {@link MaintenanceJob}.
 	 **/
 	pictures: ulong[];}

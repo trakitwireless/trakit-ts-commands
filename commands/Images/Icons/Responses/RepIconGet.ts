@@ -1,10 +1,10 @@
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
- * A container for the @link {icon}.
+ * A container for the {@link icon}.
  **/
 export class RepIconGet extends Reply {
 	/**
-	 * The requested @link {Icon}.
+	 * The requested {@link Icon}.
 	 **/
 	icon: Icon;}
