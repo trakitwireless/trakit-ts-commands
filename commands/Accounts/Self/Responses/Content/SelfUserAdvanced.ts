@@ -1,3 +1,4 @@
+import { UserAdvanced } from "@objects/Accounts/UserAdvanced";
 
 /**
  * Similar to the {@link UserAdvanced} object, but instead of the {@link groups} being a list of identifiers,

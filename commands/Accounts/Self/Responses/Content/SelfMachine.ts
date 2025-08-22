@@ -1,3 +1,4 @@
+import { Machine } from "@objects/Accounts/Machine";
 
 /**
  * A container for the details of the {@link Machine} requested.

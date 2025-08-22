@@ -1,3 +1,4 @@
+import { UserGeneral } from "@objects/Accounts/UserGeneral";
 
 /**
  * Similar to the {@link UserGeneral} object, but instead of the {@link contact} being an identifier,

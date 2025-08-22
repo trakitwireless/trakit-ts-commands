@@ -1,4 +1,7 @@
+import { int } from "@objects/API/Types";
+import { ErrorCode } from "./Errors/ErrorCode";
 import { ErrorDetail } from "./Errors/ErrorDetail";
+import { Payload } from "../Requests/Payload";
 
 /**
  * Base class for all responses from commands.
@@ -10,23 +13,28 @@ import { ErrorDetail } from "./Errors/ErrorDetail";
  **/
 export class Reply {
 	/**
+	 * 
+	 */
+	getRequest(): Payload {
+		throw "not implemented yet";
+	}
+
+	/**
 	 * Identifier used by external system to correlate requests to responses.
-	 * <remarks>
 	 * This is only used with the Trak-iT WebSocket API service.
-	 * </remarks>
 	 **/
 	reqId: int | undefined;
 	/**
 	 * The unique, numeric error code when processing this request.
 	 **/
-	errorCode: ErrorCode;
+	errorCode!: ErrorCode;
 	/**
 	 * An English description of the error.
 	 **/
-	message: string;
+	message!: string;
 	/**
 	 * An object to provide developers with a hint about the nature of the error.
 	 * The key is not always present, and only available for some errors.
 	 **/
-	errorDetails: ErrorDetail;
+	errorDetails!: ErrorDetail;
 }

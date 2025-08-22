@@ -1,3 +1,5 @@
+import { int } from "@objects/API/Types";
+
 /// Used to split the Payload class name into pieces to help create commands
 const Payload_SPLITTER = /Pay([A-Z][a-z]+)+?((?:Batch)?(?:Get|List|Merge|Delete|Restore|Suspend|Revive|Cancel|Change))(By.+)?/;
 

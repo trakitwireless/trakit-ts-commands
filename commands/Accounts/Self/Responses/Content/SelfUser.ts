@@ -1,10 +1,15 @@
+import { BaseCompound } from "@objects/API/BaseCompound";
+import { ID } from "@objects/API/Functions";
+import { IBelongCompany } from "@objects/API/Interfaces/IBelongCompany";
+import { IEnabled } from "@objects/API/Interfaces/IEnabled";
+import { IDeletable } from "@objects/API/Interfaces/IDeletable";
 
 /**
  * Similar to the {@link User} object, but instead of the {@link contact}
  * and {@link groups} properties being identifiers of other objects,
  * the {@link Contact} and {@link UserGroup} objects are embedded within.
  **/
-export class SelfUser extends Compound implements IBelongCompany, IEnabled, IDeletable {
+export class SelfUser extends BaseCompound implements IBelongCompany, IEnabled, IDeletable {
 	/**
 	 * 
 	 **/
