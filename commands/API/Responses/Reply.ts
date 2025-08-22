@@ -1,7 +1,6 @@
 import { int } from "@objects/API/Types";
 import { ErrorCode } from "./Errors/ErrorCode";
 import { ErrorDetail } from "./Errors/ErrorDetail";
-import { Payload } from "../Requests/Payload";
 
 /**
  * Base class for all responses from commands.
@@ -12,13 +11,6 @@ import { Payload } from "../Requests/Payload";
  * </remarks>
  **/
 export class Reply {
-	/**
-	 * 
-	 */
-	getRequest(): Payload {
-		throw "not implemented yet";
-	}
-
 	/**
 	 * Identifier used by external system to correlate requests to responses.
 	 * This is only used with the Trak-iT WebSocket API service.
