@@ -1,3 +1,4 @@
+import { ContentId } from "commands/API/Responses/Content/ContentId";
 import { Reply } from "../../API/Responses/Reply";
 
 /**
@@ -10,17 +11,17 @@ export class RepSubscription extends Reply {
 	 * The "id" key is the unique identifier of the company to which the array of objects relate.
 	 * @see {@link Company.id}
 	 **/
-	company: ContentId;
+	company!: ContentId;
 	/**
 	 * Subscription types added/removed (or were not applicable) to your socket's subscription list.
 	 **/
-	merged: SubscriptionType[];
+	merged!: SubscriptionType[];
 	/**
 	 * Subscription types not added to your socket due to insufficient permissions.
 	 **/
-	denied: SubscriptionType[];
+	denied!: SubscriptionType[];
 	/**
 	 * A returned list of nonsense you sent to my beautiful service.
 	 **/
-	invalid: string[];
+	invalid!: string[];
 }
