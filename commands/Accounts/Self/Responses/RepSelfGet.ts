@@ -3,6 +3,9 @@ import { SelfMachine } from "./Content/SelfMachine";
 import { SelfUser } from "./Content/SelfUser";
 import { SessionPolicy } from "@objects/Companies/SessionPolicy";
 import { PasswordPolicy } from "@objects/Companies/PasswordPolicy";
+import { ErrorDetail } from "commands/API/Responses/Errors/ErrorDetail";
+import { int } from "@objects/API/Types";
+import { ErrorCode } from "commands/API/Responses/Errors/ErrorCode";
 
 /**
  * A container for the {@link User} or {@link Machine} of the current session.
@@ -37,5 +40,17 @@ export class RepSelfGet extends Reply {
 	/**
 	 * The UTC date/time of the server hosting the connection.
 	 **/
-	serverTime!: Date;
+	serverTime: Date;
+
+	constructor(json: any) {
+		super(json["errorCode"], json["message"], json["errorDetails"], json["reqId"]);
+
+		this.ghostId = json["ghostId"];
+		this.expiry = json["expiry"];
+		this.user = json["user"];
+		this.machine = json["machine"];
+		this.sessionPolicy = json["sessionPolicy"];
+		this.passwordPolicy = json["passwordPolicy"];
+		this.serverTime = json["serverTime"];
+	}
 }

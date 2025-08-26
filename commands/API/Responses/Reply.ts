@@ -5,10 +5,6 @@ import { ErrorDetail } from "./Errors/ErrorDetail";
 /**
  * Base class for all responses from commands.
  * All command response classes use this as the base.
- * <remarks>
- * It will always have the {@link reqId}, {@link errorCode}, {@link message}, and {@link errorDetails} properties, but can also contain any number of other properties.
- * A child class per command type should be created.
- * </remarks>
  **/
 export class Reply {
 	/**
@@ -19,14 +15,21 @@ export class Reply {
 	/**
 	 * The unique, numeric error code when processing this request.
 	 **/
-	errorCode!: ErrorCode;
+	errorCode: ErrorCode;
 	/**
 	 * An English description of the error.
 	 **/
-	message!: string;
+	message: string;
 	/**
 	 * An object to provide developers with a hint about the nature of the error.
 	 * The key is not always present, and only available for some errors.
 	 **/
-	errorDetails!: ErrorDetail;
+	errorDetails: ErrorDetail | null;
+
+	constructor(errorCode: ErrorCode, message: string, errorDetails: ErrorDetail | null = null, reqId?: int) {
+		this.errorCode = errorCode;
+		this.message = message;
+		this.errorDetails = errorDetails;
+		this.reqId = reqId;
+	}
 }

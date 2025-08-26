@@ -26,7 +26,7 @@ export abstract class TrakitCommander {
      * @param path  Optional path to append to the base address.
      * @returns     The constructed URL string.
      */
-    protected createBaseUri(path: string | null = null): URL {
+    protected createBaseUrl(path: string | null = null): URL {
         const endpoint = new URL(path ?? "", this.baseAddress);
         for (let [key, value] of this.query) {
             endpoint.searchParams.append(key, value);
