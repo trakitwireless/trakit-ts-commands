@@ -1,6 +1,9 @@
 ﻿/**
- * Command definitions that work with our various APIs.
- * {@link https://github.com/trakitwireless/trakit-ts-commands|TypeScript command documentation.}
+ * Trak-iT API Commands Definition
+ * {@link https://github.com/trakitwireless/trakit-ts-commands|Commands definition.}
+ * The Trak-iT APIs use the same command definitions for all HTTPS, RESTful, and WebSocket commands.
+ * For example, a "get icon" command in the RESTful service will return a JSON definition of the icon,
+ * whereas the same command to the Imaging service will return a PNG.
  * Last updated on Thu Feb 27 2025 11:59:01 
  * @copyright Trak-iT Wireless Inc. 2025
  **/

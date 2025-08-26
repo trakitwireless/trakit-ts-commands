@@ -8,12 +8,13 @@ export class PaySelfLogin extends Payload {
 	/**
 	 * The {@link User}'s login.
 	 **/
-	username: string;
+	username!: string;
 	/**
 	 * The {@link User}'s password.
 	 **/
-	password: string;
+	password!: string;
 	/**
 	 * A string to identify the User-Agent of the login request.
 	 **/
-	userAgent: string;}
+	userAgent!: string | null;
+}
