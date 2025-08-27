@@ -2,7 +2,8 @@
   "name": "@trakit/commands",
   "type": "module",
   "version": "0.0.1",
-  "main": "commands.min.js",
+  "main": "_publish/trakit-ts-commands.min.js",
+  "types": "_publish/commands.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,5 +25,8 @@
     "@rollup/plugin-terser": "^0.4.4",
     "rollup": "^4.36.0",
     "rollup-plugin-typescript2": "^0.36.0"
+  },
+  "dependencies": {
+    "@trakit/objects": "file://d:/Hebra/trakit-ts-objects/_publish/trakit-ts-objects.min.js"
   }
 }

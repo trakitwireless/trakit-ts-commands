@@ -3,6 +3,7 @@
         "target": "ESNext",
         "module": "ESNext",
         "outDir": "_publish",
+        "declaration": true,
         "composite": true,
         "sourceMap": true,
         "strict": true,
@@ -12,7 +13,7 @@
         "strictNullChecks": true,
         "baseUrl": ".",
         "paths": {
-            "@objects/*": ["../trakit-ts-objects/objects/*"],
+            "@trakit/objects": ["../trakit-ts-objects/_publish/objects.d.ts"],
         }
     },
     "references": [
