@@ -5,17 +5,23 @@
  * @copyright Trak-iT Wireless Inc. 2025
  */
 
+import { TrakitCommander } from "clients/TrakitCommander";
 import { ErrorCode } from "./API/Responses/Errors/ErrorCode";
+import { TrakitObjectCommander } from "clients/TrakitObjectCommander";
 
 
 /**
  * Version number for this release.
  */
-const version = 5.0;
+export const version = 5.0;
 
 export default {
     version,
 
+    clients: {
+        TrakitCommander,
+        TrakitObjectCommander
+    },
     //#region Accounts
     //#endregion Accounts
     
