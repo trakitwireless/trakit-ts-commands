@@ -1,7 +1,7 @@
-﻿import { SystemsOfUnits } from '@objects/Accounts/SystemsOfUnits';
-import { UserNotifications } from '@objects/Accounts/UserNotifications';
-import { Timezone } from '@objects/API/Timezone';
-import { ulong, url } from '@objects/API/Types';
+﻿import { SystemsOfUnits } from '@trakit/objects';
+import { UserNotifications } from '@trakit/objects';
+import { Timezone } from '@trakit/objects';
+import { ulong, url } from '@trakit/objects';
 import { PaySelfContact } from 'commands/Accounts/Self/Requests/PaySelfContact';
 import { PaySelfGet } from 'commands/Accounts/Self/Requests/PaySelfGet';
 import { PaySelfLogin } from 'commands/Accounts/Self/Requests/PaySelfLogin';

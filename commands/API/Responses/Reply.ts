@@ -1,4 +1,4 @@
-import { int } from "@objects/API/Types";
+import { int } from '@trakit/objects';
 import { ErrorCode } from "./Errors/ErrorCode";
 import { ErrorDetail } from "./Errors/ErrorDetail";
 

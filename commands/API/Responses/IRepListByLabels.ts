@@ -1,4 +1,4 @@
-import { codified } from "@objects/API/Types";
+import { codified } from '@trakit/objects';
 
 /**
  * Interface for responses that return a list by labels.

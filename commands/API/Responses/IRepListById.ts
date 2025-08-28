@@ -1,4 +1,4 @@
-import { ulong } from "@objects/API/Types";
+import { ulong } from '@trakit/objects';
 /**
  * Interface for responses that return a list of objects by ID.
  **/

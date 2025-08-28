@@ -1,4 +1,4 @@
-import { Base } from "@objects/API/Base";
+import { Base } from '@trakit/objects';
 
 /**
  * Interface for responses that return a list or loaded objects.
