@@ -12,7 +12,7 @@ const obfuscate = {
   //   toplevel: true,
   // },
   // sourceMap: {
-  //   filename: '../_publish/trakit-ts-commands.min.js',
+  //   filename: '../_publish/trakit-commands.min.js',
   // },
   mangle: {
     keep_classnames: /^(Pay|Rep)/i,
@@ -21,16 +21,15 @@ const obfuscate = {
 
 export default [
   {
-    input: 'commands/commands.ts',
+    input: 'commands.ts',
     output: [
       // {
-      //   file: '../_publish/trakit-ts-commands.js',
+      //   file: '../_publish/trakit-commands.js',
       //   format: 'es',
       // },
       {
-        file: '_publish/trakit-ts-commands.min.js',
+        file: '_publish/trakit-commands.min.js',
         format: 'es',
-        sourceMap: true,
         plugins: [terser(obfuscate)]
       }
     ],
