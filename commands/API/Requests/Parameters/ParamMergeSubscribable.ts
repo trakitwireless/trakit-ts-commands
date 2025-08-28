@@ -9,4 +9,15 @@ export abstract class ParamMergeSubscribable extends ParamMerge {
 	 * The version keys used to validate synchronization.
 	 **/
 	v: int[];
+
+	constructor(json: any) {
+		super();
+		this.v = json?.v || [];
+	}
+
+	override toJSON() {
+		return {
+			v: this.v,
+		};
+	}
 }
