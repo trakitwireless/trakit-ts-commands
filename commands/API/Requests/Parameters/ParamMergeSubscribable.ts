@@ -7,4 +7,5 @@ export abstract class ParamMergeSubscribable extends ParamMerge {
 	/**
 	 * The version keys used to validate synchronization.
 	 **/
-	v: int[];}
+	v: int[];
+}

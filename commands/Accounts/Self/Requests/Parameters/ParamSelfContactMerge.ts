@@ -60,4 +60,5 @@ export class ParamSelfContactMerge extends ParamMergeSubscribable {
 	/**
 	 * {@link Picture}s of yourself.
 	 **/
-	pictures: ulong[];}
+	pictures: ulong[];
+}

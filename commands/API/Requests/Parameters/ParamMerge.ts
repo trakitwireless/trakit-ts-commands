@@ -6,4 +6,5 @@ export abstract class ParamMerge {
 	/**
 	 * A list of keys given to this object so we can differentiate between null and undefined.
 	 **/
-	givenKeys: string[];}
+	givenKeys: string[];
+}
