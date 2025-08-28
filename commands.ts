@@ -15,7 +15,7 @@ import { TrakitObjectCommander } from "./clients/TrakitObjectCommander";
 export const version = 5.03;
 
 /**
- * Command execution classes.
+ * Abstract command execution classes.
  */
 export {
     TrakitCommander,

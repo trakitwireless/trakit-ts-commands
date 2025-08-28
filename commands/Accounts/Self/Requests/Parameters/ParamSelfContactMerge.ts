@@ -41,13 +41,13 @@ export class ParamSelfContactMerge extends ParamMergeSubscribable {
 	 * Use the object key like a name of the address.
 	 * Example keys: Downloads, Support, FTP, etc.
 	 **/
-	urls: Map<string, Uri>;
+	urls: Map<string, URL>;
 	/**
 	 * Date information
 	 * Use the object key like a name of the date.
 	 * Example keys: Birthday, Started Date, Retired On, etc.
 	 **/
-	dates: Map<string, Date?>;
+	dates: Map<string, Date|null>;
 	/**
 	 * Uncategorized information
 	 * Use the object keys and values however you'd like.

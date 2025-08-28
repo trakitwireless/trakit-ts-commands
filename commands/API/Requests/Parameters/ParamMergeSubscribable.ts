@@ -1,3 +1,4 @@
+import { int } from "@trakit/objects";
 import { ParamMerge } from "./ParamMerge";
 
 /**
