@@ -1,85 +1,85 @@
-
 /**
  * {@link ErrorDetail}s are identified for deserialization using {@link ErrorDetail.kind}.
  **/
-	public enum ErrorDetailType {
+export enum ErrorDetailType {
 	/**
 	 * These are the details of an exception while trying to parse the JSON input.
 	 **/
-		parse,
+	parse = "parse",
 	/**
 	 * For unhandled exceptions, a full stack trace may be given.
 	 **/
-		stack,
+	stack = "stack",
 	/**
 	 * Details for how long a resource is locked, or if a command cannot be executed right away, how long until it can be executed.
 	 **/
-		locked,
+	locked = "locked",
 	/**
 	 * Details of a command or session being throttled.
 	 **/
-		throttled,
+	throttled = "throttled",
 	/**
 	 * These are the details when a number of things create the exception.
 	 **/
-		count,
+	count = "count",
 	/**
 	 * These are the details of when a value needed to be within a certain range, and was not.
 	 **/
-		minMax,
+	minMax = "minMax",
 	/**
 	 * These are the details of an input or format exception.
 	 **/
-		input,
+	input = "input",
 	/**
 	 * These are the details of an enum input that failed to parse.
 	 **/
-		@enum,
+	enum = "enum",
 	/**
 	 * These are the details of a phone number input that failed to parse.
 	 **/
-		phone,
+	phone = "phone",
 	/**
 	 * These details contain a list of bad keys, labels or tags, or parameter names that caused the failure.
 	 **/
-		badKeys,
+	badKeys = "badKeys",
 	/**
 	 * These details contain unique identifiers that caused the failure.
 	 **/
-		badIds,
+	badIds = "badIds",
 	/**
 	 * These details contain array indexes that caused the failure.
 	 **/
-		badIndexes,
+	badIndexes = "badIndexes",
 	/**
 	 * Details of a permission escallation error thrown when modifying a resource or user that would grant the following extra permissions.
 	 **/
-		escalation,
+	escalation = "escalation",
 	/**
 	 * These are the errors/warnings taken from the output of some other system.
 	 **/
-		externals,
+	externals = "externals",
 	/**
 	 * Details for how a circular {@link Company} tree would have been created.
 	 **/
-		parent,
+	parent = "parent",
 	/**
 	 * Details for how many and which {@link User}s are still in the {@link UserGroup}.
 	 **/
-		userGroupInUse,
+	userGroupInUse = "userGroupInUse",
 	/**
 	 * Details for how many and which {@link Asset}s and {@link User}s are still using this {@link Contact}.
 	 **/
-		contactInUse,
+	contactInUse = "contactInUse",
 	/**
 	 * Details for how many and which {@link FormResult}s are still using this {@link FormTemplate}.
 	 **/
-		formTemplateInUse,
+	formTemplateInUse = "formTemplateInUse",
 	/**
 	 * For batch commands, these are the errors thrown by the sub-command.
 	 **/
-		batch,
+	batch = "batch",
 	/**
 	 * Details about why the request failed an authentication process when a {@link Machine.secret} is used.
 	 **/
-		secret,}
+	secret = "secret",
+}

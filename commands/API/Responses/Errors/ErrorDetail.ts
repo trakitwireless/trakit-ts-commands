@@ -1,3 +1,4 @@
+import { ErrorDetailType } from "./ErrorDetailType";
 
 /**
  * An object which contains details about the error.
@@ -10,5 +11,5 @@ export abstract class ErrorDetail {
 	/**
 	 * A hint for deserializing the error's details.
 	 **/
-	kind: ErrorDetailType;
+	abstract get kind(): ErrorDetailType;
 }
