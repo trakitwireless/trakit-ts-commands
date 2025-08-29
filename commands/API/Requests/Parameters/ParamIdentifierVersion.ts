@@ -1,3 +1,4 @@
+import { int } from "@trakit/objects";
 import { ParamIdentifier } from "./ParamIdentifier";
 
 /**
@@ -7,4 +8,5 @@ export class ParamIdentifierVersion extends ParamIdentifier {
 	/**
 	 * Requested version key(s).
 	 **/
-	v: int[];}
+	v!: int[];
+}

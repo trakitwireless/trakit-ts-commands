@@ -1,3 +1,4 @@
+import { ulong } from "@trakit/objects";
 import { ContentIdCompany } from "./ContentIdCompany";
 
 /**
@@ -7,4 +8,5 @@ export class ContentIdAsset extends ContentIdCompany {
 	/**
 	 * Identifier of the {@link Asset} to which this object belongs
 	 **/
-	asset: ulong;}
+	asset!: ulong;
+}

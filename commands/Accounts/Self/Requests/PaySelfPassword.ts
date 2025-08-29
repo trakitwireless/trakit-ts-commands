@@ -7,9 +7,9 @@ export class PaySelfPassword extends Payload {
 	/**
 	 * Your current password, as verification that you are the proper account owner.
 	 **/
-	current: string;
+	current!: string;
 	/**
 	 * Your new password must conform to your company's {@link PasswordPolicy|password policy}.
 	 **/
-	password: string;
+	password!: string;
 }

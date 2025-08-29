@@ -1,3 +1,4 @@
+import { nothing, ulong } from "@trakit/objects";
 import { ContentIdCompany } from "./ContentIdCompany";
 
 /**
@@ -7,4 +8,5 @@ export class ContentIdCompanyTemplate extends ContentIdCompany {
 	/**
 	 * Identifier of the template to which this object belongs.
 	 **/
-	template: ulong | undefined;}
+	template!: ulong | nothing;
+}

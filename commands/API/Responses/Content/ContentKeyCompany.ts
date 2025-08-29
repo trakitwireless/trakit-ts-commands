@@ -1,3 +1,4 @@
+import { ulong } from "@trakit/objects";
 import { ContentKey } from "./ContentKey";
 
 /**
@@ -7,4 +8,5 @@ export class ContentKeyCompany extends ContentKey {
 	/**
 	 * Identifier of the {@link Company} to which the {@link Machine} belongs.
 	 **/
-	company: ulong;}
+	company!: ulong;
+}

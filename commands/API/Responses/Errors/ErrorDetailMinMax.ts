@@ -1,20 +1,18 @@
-import { ErrorDetailMinMax } from "./ErrorDetailMinMax";
+import { double } from "@trakit/objects";
+import { ErrorDetailType } from "./ErrorDetailType";
+import { ErrorDetail } from "./ErrorDetail";
 
 /**
  * These are the details of when a value needed to be within a certain range, and was not.
  **/
-export class ErrorDetailMinMax<T> extends ErrorDetail where T : struct {
+export class ErrorDetailMinMax extends ErrorDetail {
+	override get kind() { return ErrorDetailType.minMax; }
 	/**
 	 * Minimum possible value.
 	 **/
-	min: T | undefined;
+	min: Date | double | undefined;
 	/**
 	 * Maximum possible value.
 	 **/
-	max: T | undefined;
-	}
-
-/**
- * These are the details of when a value needed to be within a certain range, and was not.
- **/
-export class ErrorDetailMinMax extends ErrorDetailMinMax<double> {}
+	max: Date | double | undefined;
+}

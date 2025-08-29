@@ -1,3 +1,4 @@
+import { ulong } from "@trakit/objects";
 import { ContentIdCompany } from "./ContentIdCompany";
 
 /**
@@ -7,4 +8,5 @@ export class ContentIdScript extends ContentIdCompany {
 	/**
 	 * Identifier of the script to which this object belongs.
 	 **/
-	script: ulong;}
+	script!: ulong;
+}

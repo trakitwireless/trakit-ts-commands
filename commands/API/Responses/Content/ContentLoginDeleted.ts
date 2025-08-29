@@ -1,3 +1,4 @@
+import { uint } from "@trakit/objects";
 import { ContentLoginCompany } from "./ContentLoginCompany";
 
 /**
@@ -7,8 +8,9 @@ export class ContentLoginDeleted extends ContentLoginCompany {
 	/**
 	 * Flag showing if the object is deleted.
 	 **/
-	deleted: boolean;
+	deleted!: boolean;
 	/**
 	 * Object version keys used to validate synchronization for all object properties.
 	 **/
-	v: uint[];}
+	v!: uint[];
+}

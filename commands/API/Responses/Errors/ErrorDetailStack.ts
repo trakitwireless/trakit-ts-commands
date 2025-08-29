@@ -1,4 +1,5 @@
 import { ErrorDetail } from "./ErrorDetail";
+import { ErrorDetailType } from "./ErrorDetailType";
 
 /**
  * For unhandled exceptions, a full stack trace may be given.
@@ -7,11 +8,13 @@ import { ErrorDetail } from "./ErrorDetail";
  * </remarks>
  **/
 export class ErrorDetailStack extends ErrorDetail {
+	override get kind() { return ErrorDetailType.stack; }
 	/**
 	 * Exception message.
 	 **/
-	message: string;
+	message!: string;
 	/**
 	 * The full stack trace if available.
 	 **/
-	stack: string;}
+	stack!: string;
+}

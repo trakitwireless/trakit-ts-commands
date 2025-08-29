@@ -7,4 +7,5 @@ export class ParamCode {
 	 * A "code" identifying a resource.
 	 * <override required="always" />
 	 **/
-	code: string;}
+	code!: string;
+}

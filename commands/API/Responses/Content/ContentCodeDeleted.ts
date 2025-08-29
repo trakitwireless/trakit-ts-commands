@@ -8,4 +8,5 @@ export class ContentCodeDeleted extends ContentCodeCompany {
 	/**
 	 * Flag showing if the object is deleted.
 	 **/
-	deleted: boolean;}
+	deleted!: boolean;
+}

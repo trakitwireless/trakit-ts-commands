@@ -6,4 +6,5 @@ export class ContentIdendifier {
 	/**
 	 * Identifier given as input for the command.
 	 **/
-	id: string;}
+	id!: string;
+}

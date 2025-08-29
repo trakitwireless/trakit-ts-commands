@@ -69,13 +69,13 @@ export class ParamSelfContactMerge extends ParamMergeSubscribable {
 		this.notes = json?.notes || "";
 		this.otherNames = new Map(Object.entries(json?.otherNames || {}));
 		this.emails = new Map(Object.entries(json?.emails || {}));
-		this.phones = new Map(Object.entries(json?.phones || {}).map(([k, v]) => [k, v ? utility.phoneNumber(v) : null]));
+		this.phones = new Map(Object.entries(json?.phones || {}).map(([k, v]) => [k, v ? utility.phoneNumber(v as string) : null]));
 		this.addresses = new Map(Object.entries(json?.addresses || {}));
-		this.urls = new Map(Object.entries(json?.urls || {}).map(([k, v]) => [k, v ? new URL(v) : null]));
-		this.dates = new Map(Object.entries(json?.dates || {}).map(([k, v]) => [k, v ? new Date(v) : null]));
+		this.urls = new Map(Object.entries(json?.urls || {}).map(([k, v]) => [k, v ? new URL(v as string) : null]));
+		this.dates = new Map(Object.entries(json?.dates || {}).map(([k, v]) => [k, v ? new Date(v as string) : null]));
 		this.options = new Map(Object.entries(json?.options || {}));
 		this.roles = json?.roles || [];
-		this.pictures = (json?.pictures || []).map((v: any) => BigInt(v));
+		this.pictures = (json?.pictures || []).map((v: any) => utility.id(v));
 	}
 
 	override toJSON() {

@@ -1,93 +1,79 @@
+import { LatLng } from "@trakit/objects";
 
 /**
  * 
- **/
-	public static class Polyline {
-	/**
-	 * 
-	 **/
-		public const byte DEFAULT_PRECISION = 6;
+ */
+const DEFAULT_PRECISION = 6;
 
-	/**
-	 * A C# implementation to encode a polyline using Google's Encoded Polyline algorithm.
-	 * <param name="latlngs"></param>
-	 * <param name="precision"></param>
-	 **/
-	 * @returns Encoded string
-		public static string Encode(LatLng[] latlngs, byte precision = DEFAULT_PRECISION) {
-			var encodedPoints = new StringBuilder();
-			Action<int> encode = (diff) => {
-				int shifted = diff << 1;
-				if (diff < 0) shifted = ~shifted;
-				while (shifted >= 0x20) {
-					encodedPoints.Append((char)((0x20 | (shifted & 0x1f)) + 63));
-					shifted >>= 5;
-				}
-				encodedPoints.Append((char)(shifted + 63));
-			};
-			int factor = (int)Math.Pow(10, precision),
-				lastLat = 0,
-				lastLng = 0;
-			foreach (var latlng in latlngs) {
-				int currentLat = (int)Math.Round(latlng.lat * factor),
-					currentLng = (int)Math.Round(latlng.lng * factor);
-				encode(currentLat - lastLat);
-				encode(currentLng - lastLng);
-				lastLat = currentLat;
-				lastLng = currentLng;
-			}
-			return encodedPoints.ToString();
-		}
-	/**
-	 * A C# implementation to decode a polyline using Google's Encoded Polyline algorithm.
-	 * <param name="encodedPoints"></param>
-	 * <param name="precision"></param>
-	 **/
-			public static LatLng[] Decode(string encodedPoints, byte precision = DEFAULT_PRECISION) {
-			if (string.IsNullOrEmpty(encodedPoints)) throw new ArgumentNullException("encodedPoints");
+/**
+ * Encodes a single coordinate value using the Google's Encoded Polyline algorithm.
+ * @param {!number} value
+ * @param {!number} factor			
+ */
+function ROUTE_ENCODE_CHAR(value: number, factor: number) {
+	var chars = [],
+		shifted = (value * factor) << 1;
+	if (shifted < 0) shifted = ~shifted;
+	while (shifted >= 0x20) {
+		chars.push((0x20 | (shifted & 0x1f)) + 0x3f);
+		shifted >>= 0x05;
+	}
+	chars.push(shifted + 0x3f);
+	return chars.map((c) => String.fromCharCode(c)).join("");
+}
+/**
+ * Our implementation to encode a polyline using Google's Encoded Polyline algorithm.
+ * This version allows you to change the precision of the encoding.
+ * We use 6 decimal places by default. Google uses 5.
+ * https://developers.google.com/maps/documentation/utilities/polylinealgorithm
+ * @param route		The array of coordinates representing a path.
+ * @param precision			Optional number of decimal places to use to calculate the results.  Default is 5.
+ * @returns
+ */
+export function ROUTE_ENCODE(route: LatLng[], precision = DEFAULT_PRECISION) {
+	var factor = Math.pow(10, precision || 5),
+		output = ROUTE_ENCODE_CHAR(route[0].lat, factor) + ROUTE_ENCODE_CHAR(route[0].lng, factor);
 
-			var polylineChars = encodedPoints.ToCharArray();
-			int index = 0,
-				currentLat = 0,
-				currentLng = 0,
-				factor = (int)Math.Pow(10, precision);
+	for (var i = 1; i < route.length; i++) {
+		var a = route[i], b = route[i - 1];
+		output += ROUTE_ENCODE_CHAR(a.lat - b.lat, factor) + ROUTE_ENCODE_CHAR(a.lng - b.lng, factor);
+	}
 
-			while (index < polylineChars.Length) {
-				// calculate next latitude
-				int sum = 0,
-					shifter = 0,
-					next5bits;
-				do {
-					next5bits = (int)polylineChars[index++] - 63;
-					sum |= (next5bits & 31) << shifter;
-					shifter += 5;
-				} while (next5bits >= 32 && index < polylineChars.Length);
+	return output;
+}
 
-				if (index >= polylineChars.Length) break;
-
-				currentLat += (sum & 1) == 1
-						? ~(sum >> 1)
-						: (sum >> 1);
-
-				//calculate next longitude
-				sum = 0;
-				shifter = 0;
-				do {
-					next5bits = (int)polylineChars[index++] - 63;
-					sum |= (next5bits & 31) << shifter;
-					shifter += 5;
-				} while (next5bits >= 32 && index < polylineChars.Length);
-
-				if (index >= polylineChars.Length && next5bits >= 32)
-					break;
-
-				currentLng += (sum & 1) == 1
-						? ~(sum >> 1)
-						: (sum >> 1);
-
-				yield return new LatLng(
-					Convert.ToDouble(currentLat) / factor,
-					Convert.ToDouble(currentLng) / factor
-				);
-			}
-		}}
+/**
+ * Our implementation to decode a polyline using Google's Encoded Polyline algorithm.
+ * This version allows you to change the precision of the encoding.
+ * We use 6 decimal places by default. Google uses 5.
+ * @param encodedPoints 
+ * @param precision 
+ * @returns 
+ */
+export function ROUTE_DECODE(route: string, precision = DEFAULT_PRECISION) {
+	var index = 0,
+		length = route.length,
+		lat = index,
+		lng = index,
+		path = [],
+		factor = Math.pow(10, precision || DEFAULT_PRECISION);
+	function diff() {
+		var shift = 0,
+			result = 0;
+		do {
+			var byte = route.charCodeAt(index++) - 0x3f;
+			result |= (byte & 0x1f) << shift;
+			shift += 0x05;
+		} while (byte >= 0x20);
+		return result & 1
+			? ~(result >> 1)
+			: result >> 1;
+	}
+	while (index < length) {
+		path.push(new LatLng(
+			(lat += diff()) / factor,
+			(lng += diff()) / factor
+		));
+	}
+	return path;
+}

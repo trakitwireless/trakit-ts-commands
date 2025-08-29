@@ -6,4 +6,5 @@ export class ParamKey {
 	/**
 	 * The {@link Machine}'s login.
 	 **/
-	key: string;}
+	key!: string;
+}

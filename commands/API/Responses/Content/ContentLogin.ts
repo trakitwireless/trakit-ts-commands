@@ -6,4 +6,5 @@ export class ContentLogin {
 	/**
 	 * The {@link User}'s login.
 	 **/
-	login: string;}
+	login!: string;
+}

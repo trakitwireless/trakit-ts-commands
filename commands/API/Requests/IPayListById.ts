@@ -1,3 +1,4 @@
+import { ulong } from "@trakit/objects";
 
 /**
  * Interface for requests that filter lists by ID range.
@@ -11,4 +12,4 @@ export interface IPayListById {
 	 * The highest ID in the range.
 	 **/
 	highest: ulong | undefined;
-}}
+}

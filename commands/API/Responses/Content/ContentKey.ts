@@ -6,4 +6,5 @@ export class ContentKey {
 	/**
 	 * The {@link Machine}'s key.
 	 **/
-	key: string;}
+	key!: string;
+}

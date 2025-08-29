@@ -1,32 +1,36 @@
+import { int, TimeSpan } from "@trakit/objects";
 import { ErrorDetail } from "./ErrorDetail";
+import { ErrorDetailType } from "./ErrorDetailType";
 
 /**
  * Details of a command or session being throttled.
  **/
 export class ErrorDetailThrottled extends ErrorDetail {
+	override get kind() { return ErrorDetailType.throttled; }
 	/**
 	 * The session identifier being throttled.
 	 **/
-	ghostId: string;
+	ghostId!: string;
 	/**
 	 * The {@link User} being throttled.
 	 **/
-	login: string;
+	login!: string;
 	/**
 	 * The client IP address.
 	 **/
-	ip: string;
+	ip!: string;
 	/**
 	 * The name of the WebSocket command, or the RESTful route.
 	 **/
-	command: string;
+	command!: string;
 	/**
 	 * How many times this command was invoked during the window.
 	 * Alternatively, can be the maximum number of times this command can be invoked (like creating a session).
 	 **/
-	count: int;
+	count!: int;
 	/**
 	 * The size of the window.
 	 * If this throttled command has no window (ie; creating too many sessions) this value is null.
 	 **/
-	timeout: TimeSpan | undefined;}
+	timeout!: TimeSpan | undefined;
+}

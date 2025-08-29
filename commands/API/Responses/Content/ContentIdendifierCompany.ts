@@ -1,3 +1,4 @@
+import { ulong } from "@trakit/objects";
 import { ContentIdendifier } from "./ContentIdendifier";
 
 /**
@@ -7,4 +8,5 @@ export class ContentIdendifierCompany extends ContentIdendifier {
 	/**
 	 * Identifier of the {@link Company} to which this object belongs.
 	 **/
-	company: ulong;}
+	company!: ulong;
+}

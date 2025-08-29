@@ -1,3 +1,4 @@
+import { nothing, ulong } from "@trakit/objects";
 import { ContentIdendifierCompany } from "./ContentIdendifierCompany";
 
 /**
@@ -10,4 +11,5 @@ export class ContentIdendifierAsset extends ContentIdendifierCompany {
 	 * This value must remain nullable because Providers can have a null value for their asset member.
 	 * </remarks>
 	 **/
-	asset: ulong | undefined;}
+	asset!: ulong | nothing;
+}

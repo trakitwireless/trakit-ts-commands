@@ -1,3 +1,4 @@
+import { nothing, ulong } from "@trakit/objects";
 import { ContentId } from "./ContentId";
 
 /**
@@ -7,4 +8,5 @@ export class ContentIdParent extends ContentId {
 	/**
 	 * Identifier of the parent to which this company belongs
 	 **/
-	parent: ulong | undefined;}
+	parent!: ulong | nothing;
+}

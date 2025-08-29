@@ -6,4 +6,5 @@ export class ParamIdentifier {
 	/**
 	 * The {@link Provider}'s identifier.
 	 **/
-	id: string;}
+	id!: string;
+}

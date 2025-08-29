@@ -1,3 +1,4 @@
+import { email } from "@trakit/objects";
 
 /**
  * A container class used to house the login identifying a {@link User}.
@@ -7,4 +8,5 @@ export class ParamLogin {
 	/**
 	 * The {@link User}'s login.
 	 **/
-	login: string;}
+	login!: email;
+}

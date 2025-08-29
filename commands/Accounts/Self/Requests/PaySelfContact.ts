@@ -8,5 +8,5 @@ export class PaySelfContact extends Payload {
 	/**
 	 * 
 	 **/
-	contact: ParamSelfContactMerge;
+	contact!: ParamSelfContactMerge;
 }

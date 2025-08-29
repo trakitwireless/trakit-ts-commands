@@ -1,18 +1,21 @@
 import { ErrorDetail } from "./ErrorDetail";
+import { ErrorDetailType } from "./ErrorDetailType";
 
 /**
  * These are the errors/warnings taken from the output of some other system.
  **/
 export class ErrorDetailExternals extends ErrorDetail {
+	override get kind() { return ErrorDetailType.externals; }
 	/**
 	 * List of errors.
 	 **/
-	errors: string[];
+	errors!: string[];
 	/**
 	 * List of warnings.
 	 **/
-	warnings: string[];
+	warnings!: string[];
 	/**
 	 * List of messages.
 	 **/
-	messages: string[];}
+	messages!: string[];
+}

@@ -1,3 +1,4 @@
+import { ulong } from "@trakit/objects";
 import { ContentLogin } from "./ContentLogin";
 
 /**
@@ -7,4 +8,5 @@ export class ContentLoginCompany extends ContentLogin {
 	/**
 	 * Identifier of the {@link Company} to which the {@link User} belongs.
 	 **/
-	company: ulong;}
+	company!: ulong;
+}
