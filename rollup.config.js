@@ -15,7 +15,7 @@ const obfuscate = {
   //   filename: '../_publish/trakit-commands.min.js',
   // },
   mangle: {
-    keep_classnames: /^(Pay|Rep)/i,
+    keep_classnames: /^(Pay|Rep)/,
   },
 };
 

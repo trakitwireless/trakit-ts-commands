@@ -1,5 +1,5 @@
 ﻿import { Machine } from '@trakit/objects';
-import { guid, url } from '@trakit/objects';
+import { guid, url, nothing } from '@trakit/objects';
 import { RepSelfGet } from 'commands/Accounts/Self/Responses/RepSelfGet';
 import { Payload } from 'commands/API/Requests/Payload';
 import { Reply } from 'commands/API/Responses/Reply';
@@ -34,15 +34,15 @@ export abstract class TrakitCommander {
         return endpoint;
     }
 
-    constructor(baseAddress?: url | null) {
+    constructor(baseAddress?: url | nothing) {
         this.baseAddress = baseAddress || "";
     }
 
     //#region Authorization
     // saved API credentials when using a service account
-    #machine?: Machine | null;
+    #machine?: Machine | null = null;
     // saved session identifier when using a user account
-    #sessionId?: guid | null;
+    #sessionId?: guid | null = null;
     /**
      * Unsets the authentication mechanism so that requests are sent without any.
      */
@@ -51,22 +51,22 @@ export abstract class TrakitCommander {
      * Saves the authentication mechanism as a {@link Machine}.
      * @param machine          The machine to use for authentication.
      */
-    setAuth(machine?: Machine | null): void
+    setAuth(machine?: Machine | nothing): void
     /**
      * Saves the authentication mechanism as a session id.
      * @param sessionId         The session id to use for authentication.
      */
-    setAuth(sessionId?: guid | null): void
+    setAuth(sessionId?: guid | nothing): void
     /**
      * Saves the authentication mechanism as a session id.
      * @param account         The {@link RepSelfGet} object from a login, or "get self details" response.
      */
-    setAuth(account?: RepSelfGet | null): void
+    setAuth(account?: RepSelfGet | nothing): void
     /**
      * Sets the authentication mechanism using either a session id or a Machine object.
      * @param value  The session id (string), {@link Machine} object, or {@link RepSelfGet} object.
      */
-    setAuth(value?: any | null): void {
+    setAuth(value?: any | nothing): void {
         this.#machine = null;
         this.#sessionId = null;
         if (typeof value === "string") {

@@ -1,9 +1,9 @@
 {
   "name": "@trakit/commands",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "_publish/trakit-ts-commands.min.js",
-  "types": "_publish/commands.d.ts",
+  "types": "commands.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
