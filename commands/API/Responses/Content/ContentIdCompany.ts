@@ -8,5 +8,10 @@ export class ContentIdCompany extends ContentId /*implements IBelongCompany*/ {
 	/**
 	 * Identifier of the {@link Company} to which this object belongs.
 	 **/
-	company!: ulong;
+	company: ulong;
+
+	constructor(json: any) {
+		super(json);
+		this.company = json.company;
+	}
 }

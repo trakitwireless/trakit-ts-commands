@@ -7,5 +7,9 @@ export class ContentId {
 	/**
 	 * Identifier given as input for the command.
 	 **/
-	id!: ulong | nothing;
+	id: ulong | nothing;
+
+	constructor(json: any) {
+		this.id = json.id;
+	}
 }

@@ -13,4 +13,10 @@ export abstract class ContentIdDeleted extends ContentIdCompany {
 	 * Object version keys used to validate synchronization for all object properties.
 	 **/
 	v!: uint[];
+
+	constructor(json: any) {
+		super(json);
+		this.deleted = json.deleted;
+		this.v = json.v;
+	}
 }
