@@ -72,26 +72,27 @@ export class ParamSelfContactMerge extends ParamMergeSubscribable {
 		this.phones = new Map(Object.entries(json?.phones || {}).map(([k, v]) => [k, v ? utility.phoneNumber(v as string) : null]));
 		this.addresses = new Map(Object.entries(json?.addresses || {}));
 		this.urls = new Map(Object.entries(json?.urls || {}).map(([k, v]) => [k, v ? new URL(v as string) : null]));
-		this.dates = new Map(Object.entries(json?.dates || {}).map(([k, v]) => [k, v ? new Date(v as string) : null]));
+		this.dates = new Map(Object.entries(json?.dates || {}).map(([k, v]) => [k, v ? utility.date(v as any) : null]));
 		this.options = new Map(Object.entries(json?.options || {}));
 		this.roles = json?.roles || [];
 		this.pictures = (json?.pictures || []).map((v: any) => utility.id(v));
 	}
 
 	override toJSON() {
-		return {
+		const json: any = {
 			...super.toJSON(),
-			name: this.name,
-			notes: this.notes,
-			otherNames: Object.fromEntries(this.otherNames),
-			emails: Object.fromEntries(this.emails),
-			phones: Object.fromEntries(this.phones),
-			addresses: Object.fromEntries(this.addresses),
-			urls: Object.fromEntries(this.urls),
-			dates: Object.fromEntries(this.dates),
-			options: Object.fromEntries(this.options),
-			roles: this.roles,
-			pictures: this.pictures.map(v => v.toString()),
 		};
+		if (this.name) json["name"] = this.name;
+		if (this.notes) json["notes"] = this.notes;
+		if (this.otherNames.size) json["otherNames"] = utility.mapToJson(this.otherNames);
+		if (this.emails.size) json["emails"] = utility.mapToJson(this.emails);
+		if (this.phones.size) json["phones"] = utility.objectFromMap(this.phones, (k, v) => [k, utility.phoneNumber(v) || null]);
+		if (this.addresses.size) json["addresses"] = utility.mapToJson(this.addresses);
+		if (this.urls.size) json["urls"] = utility.objectFromMap(this.urls, (k, v) => [k, v?.toString() || null]);
+		if (this.dates.size) json["dates"] = utility.objectFromMap(this.dates, (k, v) => [k, isNaN(v = utility.date(v) as any) ? null : v.toISOString()]);
+		if (this.options.size) json["options"] = utility.mapToJson(this.options);
+		if (this.roles.length) json["roles"] = [...this.roles];
+		if (this.pictures.length) json["pictures"] = [...this.pictures];
+		return json;
 	}
 }

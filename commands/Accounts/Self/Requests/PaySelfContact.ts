@@ -8,5 +8,10 @@ export class PaySelfContact extends Payload {
 	/**
 	 * 
 	 **/
-	contact!: ParamSelfContactMerge;
+	contact: ParamSelfContactMerge;
+
+	constructor(json: any) {
+		super();
+		this.contact = new ParamSelfContactMerge(json?.contact);
+	}
 }
