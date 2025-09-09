@@ -6,5 +6,9 @@ export class ParamKey {
 	/**
 	 * The {@link Machine}'s login.
 	 **/
-	key!: string;
+	key: string;
+
+	constructor(json: any) {
+		this.key = json?.key ?? "";
+	}
 }

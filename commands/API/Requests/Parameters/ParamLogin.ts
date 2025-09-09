@@ -8,5 +8,9 @@ export class ParamLogin {
 	/**
 	 * The {@link User}'s login.
 	 **/
-	login!: email;
+	login: email;
+
+	constructor(json: any) {
+		this.login = json?.login ?? "";
+	}
 }

@@ -72,7 +72,7 @@ import { IRepListByLabels } from "commands/API/Responses/IRepListByLabels";
 import { IRepListByReferences } from "commands/API/Responses/IRepListByReferences";
 import { IRepListByUser } from "commands/API/Responses/IRepListByUser";
 import { Reply } from "commands/API/Responses/Reply";
-import { ROUTE_DECODE, ROUTE_ENCODE } from "../trakit-ts-objects/_publish/API/Geography/Functions";
+import { ROUTE_DECODE, ROUTE_ENCODE } from "./commands/API/Geography/Polyline"
 import { TrakitObjectCommander } from "./clients/TrakitObjectCommander";
 import { ErrorCode } from "./commands/API/Responses/Errors/ErrorCode";
 

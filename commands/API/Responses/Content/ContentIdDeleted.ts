@@ -4,7 +4,7 @@ import { ContentIdCompany } from "./ContentIdCompany";
 /**
  * For delete/restore commands, this contains the id, version keys, owning {@link Company.id}, and deleted state.
  **/
-export abstract class ContentIdDeleted extends ContentIdCompany {
+export class ContentIdDeleted extends ContentIdCompany {
 	/**
 	 * Flag showing if the object is deleted.
 	 **/

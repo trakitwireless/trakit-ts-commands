@@ -1,3 +1,5 @@
+import { nothing, serialization, SystemsOfUnits, Timezone, ulong, utility } from "@trakit/objects";
+import { ParamPermission } from "commands/Accounts/Permissions/ParamPermission";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
@@ -12,7 +14,7 @@ export class ParamMachineMerge extends ParamMergeSubscribable {
 	/**
 	 * A flag to either remove, or generate a new {@link Machine.secret}.
 	 **/
-	secret: boolean | undefined;
+	secret: boolean | nothing;
 	/**
 	 * The company to which this {@link Machine} belongs.
 	 * After creation, this value is read-only.
@@ -47,7 +49,7 @@ export class ParamMachineMerge extends ParamMergeSubscribable {
 	 * @see {@link Timezone.code}
 	 * <override type="System.String" format="codified" />
 	 **/
-	timezone: TimeZoneInfo;
+	timezone: Timezone | nothing;
 	/**
 	 * Preferred region/language for the UI and notifications.
 	 * Valid formats use &lt;ISO 639-1&gt;&lt;dash&gt;&lt;ISO 3166-2&gt; such as "fr-CA" or "en-US".
@@ -63,7 +65,7 @@ export class ParamMachineMerge extends ParamMergeSubscribable {
 	 * Preferred way of displaying ambiguous numbers in the context of measurements.
 	 * <override keys="codified" />
 	 **/
-	measurements: Map<string, SystemsOfUnits?>;
+	measurements: Map<string, SystemsOfUnits | nothing>;
 	/**
 	 * Additional options which do not fit in with the formats or measurements preferences.
 	 * <override keys="codified" max-values-length="20" />
@@ -89,14 +91,14 @@ export class ParamMachineMerge extends ParamMergeSubscribable {
 	 * <values type="System.String" max-length="254" format="url" />
 	 * </override>
 	 **/
-	services: Uri[];
+	services: URL[];
 	/**
 	 * Optional list of your managed domains from which this {@link Machine} can be used.
 	 * <override>
 	 * <values type="System.String" max-length="254" format="url" />
 	 * </override>
 	 **/
-	referrers: Uri[];
+	referrers: URL[];
 	/**
 	 * Restrict {@link Machine} access to only the provided IPv4 ranges (using CIDR slash-notation).
 	 * <override>
@@ -107,4 +109,56 @@ export class ParamMachineMerge extends ParamMergeSubscribable {
 	/**
 	 * Indicates whether completely insecure/unrestricted system access is allowed.
 	 **/
-	insecure: boolean | undefined;}
+	insecure: boolean | nothing;
+
+	constructor(json?: any) {
+		super(json);
+		this.key = json?.key ?? "";
+		this.secret = json?.secret;
+		this.company = json?.company ?? undefined;
+		this.nickname = json?.nickname ?? "";
+		this.notes = json?.notes ?? "";
+		this.enabled = json?.enabled ?? undefined;
+		this.notBefore = json?.notBefore ? new Date(json.notBefore) : undefined;
+		this.notAfter = json?.notAfter ? new Date(json.notAfter) : undefined;
+		this.timezone = utility.findTimeZoneById(json?.timezone);
+		this.language = json?.language ?? "";
+		this.formats = new Map<string, string>(json?.formats ?? []);
+		this.measurements = new Map<string, SystemsOfUnits | nothing>(json?.measurements ?? []);
+		this.options = new Map<string, string>(json?.options ?? []);
+		this.groups = json?.groups ?? [];
+		this.permissions = (json?.permissions ?? []).map((p: any) => new ParamPermission(p));
+		this.services = (json?.services ?? []).map((s: any) => new URL(s));
+		this.referrers = (json?.referrers ?? []).map((r: any) => new URL(r));
+		this.ipRanges = json?.ipRanges ?? [];
+		this.insecure = json?.insecure;
+	}
+
+	override toJSON(): any {
+		const json: any = {};
+		if (this.key) {
+			json["key"] = this.key;
+			json["v"] = [...this.v];
+		} else if (utility.isntNaN(this.company)) {
+			json["company"] = this.company;
+		}
+		if (this.secret) json.secret = this.secret;
+		if (this.nickname) json["nickname"] = this.nickname;
+		if (this.notes) json["notes"] = this.notes;
+		if (!utility.isNothing(this.enabled)) json["enabled"] = this.enabled;
+		if (this.notBefore) json["notBefore"] = this.notBefore.toISOString();
+		if (this.notAfter) json["notAfter"] = this.notAfter.toISOString();
+		if (this.timezone?.code) json.timezone = this.timezone?.code;
+		if (this.language) json.language = this.language;
+		if (this.formats.size > 0) json.formats = serialization.fromMap(this.formats);
+		if (this.measurements.size > 0) json.measurements = serialization.fromMap(this.measurements);
+		if (this.options.size > 0) json.options = serialization.fromMap(this.options);
+		if (this.groups?.length ?? 0 > 0) json["groups"] = this.groups;
+		if (this.permissions?.length ?? 0 > 0) json["permissions"] = this.permissions?.map(p => p.toJSON());
+		if (this.services?.length ?? 0 > 0) json["services"] = this.services.map(s => s.toString());
+		if (this.referrers?.length ?? 0 > 0) json["referrers"] = this.referrers.map(r => r.toString());
+		if (this.ipRanges?.length ?? 0 > 0) json["ipRanges"] = this.ipRanges;
+		if (!utility.isNothing(this.insecure)) json["insecure"] = this.insecure;
+		return json;
+	}
+}

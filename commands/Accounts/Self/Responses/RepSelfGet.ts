@@ -39,7 +39,7 @@ export class RepSelfGet extends Reply {
 	serverTime: Date;
 
 	constructor(json: any) {
-		super(json["errorCode"], json["message"], json["errorDetails"], json["reqId"]);
+		super(json);
 
 		this.ghostId = json["ghostId"] ?? "";
 		this.expiry = utility.date(json["expiry"]);

@@ -23,4 +23,8 @@ export class Payload {
 	 * Identifier used by external system to correlate requests to responses.
 	 **/
 	reqId: int | undefined;
+
+	constructor(json?: any) {
+		this.reqId = json?.reqId;
+	}
 }

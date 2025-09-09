@@ -7,5 +7,9 @@ export class ParamId {
 	/**
 	 * Identifier given as input for the command.
 	 **/
-	id!: ulong;
+	id: ulong;
+
+	constructor(json?: any) {
+		this.id = json?.id;
+	}
 }
