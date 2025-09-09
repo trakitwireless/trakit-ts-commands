@@ -1,9 +1,11 @@
-import { ParamMergeSubscribable } from "../../../API/Requests/Parameters/ParamMergeSubscribable";
+import { serialization, utility } from "@trakit/objects";
+import { nothing, ulong } from "@trakit/objects/objects/API/Types";
+import { ParamSelfContactMerge } from "commands/Accounts/Self/Requests/Parameters/ParamSelfContactMerge";
 
 /**
  * Parameters used to create or update an {@link Contact}.
  **/
-export class ParamContactMerge extends ParamMergeSubscribable {
+export class ParamContactMerge extends ParamSelfContactMerge {
 	/**
 	 * The unique identifier of the {@link Contact} you want to update.
 	 * Leave this as `null` when creating a new {@link Contact}.
@@ -14,60 +16,23 @@ export class ParamContactMerge extends ParamMergeSubscribable {
 	 * After creation, this value is read-only.
 	 **/
 	company: ulong | undefined;
-	/**
-	 * Name for the {@link Contact}.
-	 **/
-	name: string;
-	/**
-	 * Notes for the {@link Contact}.
-	 **/
-	notes: string;
-	/**
-	 * A collection of other names this person might go by.
-	 * Use the object key like a name identifier.
-	 * Example keys: Initials, Nickname, Maiden Name, etc.
-	 **/
-	otherNames: Map<string, string>;
-	/**
-	 * Email addresses
-	 * Use the object key like a name of the address.
-	 * Example keys: Home, Work, Support, Old, etc.
-	 **/
-	emails: Map<string, string>;
-	/**
-	 * Phone numbers.
-	 * Use the object key like a name of the phone number.
-	 * Example keys: Mobile, Fax, Home, Office, etc.
-	 **/
-	phones: Map<string, ulong?>;
-	/**
-	 * Mailing addresses
-	 * Use the object key like a name of the address.
-	 * Example keys: Home, Work, Park, etc.
-	 **/
-	addresses: Map<string, string>;
-	/**
-	 * Websites and other online resources
-	 * Use the object key like a name of the address.
-	 * Example keys: Downloads, Support, FTP, etc.
-	 **/
-	urls: Map<string, Uri>;
-	/**
-	 * Date information
-	 * Use the object key like a name of the date.
-	 * Example keys: Birthday, Started Date, Retired On, etc.
-	 **/
-	dates: Map<string, Date?>;
-	/**
-	 * Uncategorized information
-	 * Use the object keys and values however you'd like.
-	 **/
-	options: Map<string, string>;
-	/**
-	 * A list of roles they play in the {@link Company}.
-	 **/
-	roles: string[];
-	/**
-	 * {@link Picture}s of this {@link Contact}.
-	 **/
-	pictures: ulong[];}
+
+	constructor(json: any) {
+		super(json);
+		this.id = json?.id;
+		this.company = json?.company;
+	}
+
+	override toJSON(): any {
+		const json: any = {
+			...super.toJSON(),
+		};
+		if (utility.isntNaN(this.id)) {
+			json["id"] = this.id;
+			json["v"] = [...this.v];
+		} else if (utility.isntNaN(this.company)) {
+			json["company"] = this.company;
+		}
+		return json;
+	}
+}

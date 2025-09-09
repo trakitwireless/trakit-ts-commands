@@ -1,4 +1,4 @@
-import { ulong, utility } from "@trakit/objects";
+import { nothing, serialization, ulong, utility } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
@@ -18,42 +18,42 @@ export class ParamSelfContactMerge extends ParamMergeSubscribable {
 	 * Use the object key like a name identifier.
 	 * Example keys: Initials, Nickname, Maiden Name, etc.
 	 **/
-	otherNames: Map<string, string | null>;
+	otherNames: Map<string, string | nothing>;
 	/**
 	 * Email addresses
 	 * Use the object key like a name of the address.
 	 * Example keys: Home, Work, Support, Old, etc.
 	 **/
-	emails: Map<string, string | null>;
+	emails: Map<string, string | nothing>;
 	/**
 	 * Phone numbers.
 	 * Use the object key like a name of the phone number.
 	 * Example keys: Mobile, Fax, Home, Office, etc.
 	 **/
-	phones: Map<string, ulong | null>;
+	phones: Map<string, ulong | nothing>;
 	/**
 	 * Mailing addresses
 	 * Use the object key like a name of the address.
 	 * Example keys: Home, Work, Park, etc.
 	 **/
-	addresses: Map<string, string | null>;
+	addresses: Map<string, string | nothing>;
 	/**
 	 * Websites and other online resources
 	 * Use the object key like a name of the address.
 	 * Example keys: Downloads, Support, FTP, etc.
 	 **/
-	urls: Map<string, URL | null>;
+	urls: Map<string, URL | nothing>;
 	/**
 	 * Date information
 	 * Use the object key like a name of the date.
 	 * Example keys: Birthday, Started Date, Retired On, etc.
 	 **/
-	dates: Map<string, Date | null>;
+	dates: Map<string, Date | nothing>;
 	/**
 	 * Uncategorized information
 	 * Use the object keys and values however you'd like.
 	 **/
-	options: Map<string, string | null>;
+	options: Map<string, string | nothing>;
 	/**
 	 * A list of roles they play in the {@link Company}.
 	 **/
@@ -79,18 +79,16 @@ export class ParamSelfContactMerge extends ParamMergeSubscribable {
 	}
 
 	override toJSON() {
-		const json: any = {
-			...super.toJSON(),
-		};
+		const json: any = {};
 		if (this.name) json["name"] = this.name;
 		if (this.notes) json["notes"] = this.notes;
-		if (this.otherNames.size) json["otherNames"] = utility.mapToJson(this.otherNames);
-		if (this.emails.size) json["emails"] = utility.mapToJson(this.emails);
-		if (this.phones.size) json["phones"] = utility.objectFromMap(this.phones, (k, v) => [k, utility.phoneNumber(v) || null]);
-		if (this.addresses.size) json["addresses"] = utility.mapToJson(this.addresses);
-		if (this.urls.size) json["urls"] = utility.objectFromMap(this.urls, (k, v) => [k, v?.toString() || null]);
-		if (this.dates.size) json["dates"] = utility.objectFromMap(this.dates, (k, v) => [k, isNaN(v = utility.date(v) as any) ? null : v.toISOString()]);
-		if (this.options.size) json["options"] = utility.mapToJson(this.options);
+		if (this.otherNames.size) json["otherNames"] = serialization.fromMap(this.otherNames);
+		if (this.emails.size) json["emails"] = serialization.fromMap(this.emails);
+		if (this.phones.size) json["phones"] = serialization.fromMap(this.phones);
+		if (this.addresses.size) json["addresses"] = serialization.fromMap(this.addresses);
+		if (this.urls.size) json["urls"] = serialization.fromMap(this.urls);
+		if (this.dates.size) json["dates"] = serialization.fromMap(this.dates);
+		if (this.options.size) json["options"] = serialization.fromMap(this.options);
 		if (this.roles.length) json["roles"] = [...this.roles];
 		if (this.pictures.length) json["pictures"] = [...this.pictures];
 		return json;
