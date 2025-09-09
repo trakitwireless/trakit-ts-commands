@@ -26,10 +26,10 @@ export class Reply {
 	 **/
 	errorDetails: ErrorDetail | null;
 
-	constructor(errorCode: ErrorCode, message: string, errorDetails: ErrorDetail | null = null, reqId?: int) {
-		this.errorCode = errorCode;
-		this.message = message;
-		this.errorDetails = errorDetails;
-		this.reqId = reqId;
+	constructor(json: any) {
+		this.errorCode = json.errorCode;
+		this.message = json.message;
+		this.errorDetails = json.errorDetails || null;
+		this.reqId = json.reqId;
 	}
 }

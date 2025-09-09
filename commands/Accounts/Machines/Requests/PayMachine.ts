@@ -1,5 +1,6 @@
-import { Payload } from "../../../API/Requests/Payload";
+import { ParamKey } from "../../../API/Requests/Parameters/ParamKey";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
+import { Payload } from "../../../API/Requests/Payload";
 
 /**
  * A container for the {@link machine} object.
@@ -10,9 +11,14 @@ export abstract class PayMachine extends Payload implements IPaySingle {
 	 **/
 	machine: ParamKey;
 
+	constructor(json: any) {
+		super(json);
+		this.machine = new ParamKey(json?.machine);
+	}
 	/**
 	 * 
 	 **/
-		getKey(): string {
-			return  this.machine?.key ?? "";
-		}}
+	getKey(): string {
+		return this.machine?.key ?? "";
+	}
+}

@@ -12,6 +12,11 @@ export abstract class PayUserGroup extends Payload implements IPaySingle {
 	 **/
 	userGroup: ParamId | nothing;
 
+	constructor(json?: any) {
+		super(json);
+		if (json) this.userGroup = new ParamId(json["userGroup"]);
+	}
+
 	/**
 	 * 
 	 **/

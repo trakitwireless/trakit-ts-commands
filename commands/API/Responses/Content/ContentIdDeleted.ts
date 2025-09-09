@@ -4,7 +4,7 @@ import { ContentIdCompany } from "./ContentIdCompany";
 /**
  * For delete/restore commands, this contains the id, version keys, owning {@link Company.id}, and deleted state.
  **/
-export abstract class ContentIdDeleted extends ContentIdCompany {
+export class ContentIdDeleted extends ContentIdCompany {
 	/**
 	 * Flag showing if the object is deleted.
 	 **/
@@ -13,4 +13,10 @@ export abstract class ContentIdDeleted extends ContentIdCompany {
 	 * Object version keys used to validate synchronization for all object properties.
 	 **/
 	v!: uint[];
+
+	constructor(json: any) {
+		super(json);
+		this.deleted = json.deleted;
+		this.v = json.v;
+	}
 }

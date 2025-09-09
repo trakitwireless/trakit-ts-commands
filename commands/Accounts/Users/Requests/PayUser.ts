@@ -1,5 +1,6 @@
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
+import { ParamLogin } from "commands/API/Requests/Parameters/ParamLogin";
 
 /**
  * A container for the {@link user} object.
@@ -13,6 +14,7 @@ export abstract class PayUser extends Payload implements IPaySingle {
 	/**
 	 * 
 	 **/
-		getKey(): string {
-			return  this.user?.login ?? "";
-		}}
+	getKey(): string {
+		return this.user?.login ?? "";
+	}
+}
