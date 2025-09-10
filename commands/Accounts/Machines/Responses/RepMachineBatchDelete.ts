@@ -1,3 +1,4 @@
+import { ContentIdDeleted } from "commands/API/Responses/Content/ContentIdDeleted";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -7,4 +8,10 @@ export class RepMachineBatchDelete extends Reply {
 	/**
 	 * Details about deleting/restoring the requested {@link Machine}.
 	 **/
-	machines: ContentIdDeleted[];}
+	machines: ContentIdDeleted[];
+
+	constructor(json: any) {
+		super(json);
+		this.machines = json?.machines.map((m: any) => new ContentIdDeleted(m)) ?? [];
+	}
+}

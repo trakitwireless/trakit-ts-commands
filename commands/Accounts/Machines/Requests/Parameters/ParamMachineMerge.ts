@@ -10,7 +10,7 @@ export class ParamMachineMerge extends ParamMergeSubscribable {
 	 * The unique identifier of the {@link Machine} you want to update.
 	 * <override required="update" />
 	 **/
-	key: string;
+	key: string | nothing;
 	/**
 	 * A flag to either remove, or generate a new {@link Machine.secret}.
 	 **/
@@ -20,7 +20,7 @@ export class ParamMachineMerge extends ParamMergeSubscribable {
 	 * After creation, this value is read-only.
 	 * <override required="create" />
 	 **/
-	company: ulong | undefined;
+	company: ulong | nothing;
 	/**
 	 * Human friendly name for this {@link Machine}.
 	 * <override max-length="100" />
@@ -30,19 +30,19 @@ export class ParamMachineMerge extends ParamMergeSubscribable {
 	 * Notes about this {@link Machine}.
 	 * <override max-length="8000" />
 	 **/
-	notes: string;
+	notes: string | nothing;
 	/**
 	 * Indicates whether system access is disable.
 	 **/
-	enabled: boolean | undefined;
+	enabled: boolean | nothing;
 	/**
 	 * An optional timestamp that restricts this {@link Machine} from being used before the given date.
 	 **/
-	notBefore: Date | undefined;
+	notBefore: Date | nothing;
 	/**
 	 * An optional timestamp that restricts this {@link Machine} from being used after the given date.
 	 **/
-	notAfter: Date | undefined;
+	notAfter: Date | nothing;
 
 	/**
 	 * The {@link Machine}'s local timezone.
@@ -70,7 +70,7 @@ export class ParamMachineMerge extends ParamMergeSubscribable {
 	 * Additional options which do not fit in with the formats or measurements preferences.
 	 * <override keys="codified" max-values-length="20" />
 	 **/
-	options: Map<string, string>;
+	options: Map<string, string | nothing>;
 
 	/**
 	 * A list of {@link MachineGroup} to which this {@link Machine} belongs.
@@ -142,22 +142,22 @@ export class ParamMachineMerge extends ParamMergeSubscribable {
 		} else if (utility.isntNaN(this.company)) {
 			json["company"] = this.company;
 		}
-		if (this.secret) json.secret = this.secret;
+		if (this.secret) json["secret"] = this.secret;
 		if (this.nickname) json["nickname"] = this.nickname;
 		if (this.notes) json["notes"] = this.notes;
 		if (!utility.isNothing(this.enabled)) json["enabled"] = this.enabled;
-		if (this.notBefore) json["notBefore"] = this.notBefore.toISOString();
-		if (this.notAfter) json["notAfter"] = this.notAfter.toISOString();
-		if (this.timezone?.code) json.timezone = this.timezone?.code;
-		if (this.language) json.language = this.language;
-		if (this.formats.size > 0) json.formats = serialization.fromMap(this.formats);
-		if (this.measurements.size > 0) json.measurements = serialization.fromMap(this.measurements);
-		if (this.options.size > 0) json.options = serialization.fromMap(this.options);
-		if (this.groups?.length ?? 0 > 0) json["groups"] = this.groups;
-		if (this.permissions?.length ?? 0 > 0) json["permissions"] = this.permissions?.map(p => p.toJSON());
-		if (this.services?.length ?? 0 > 0) json["services"] = this.services.map(s => s.toString());
-		if (this.referrers?.length ?? 0 > 0) json["referrers"] = this.referrers.map(r => r.toString());
-		if (this.ipRanges?.length ?? 0 > 0) json["ipRanges"] = this.ipRanges;
+		if (!isNaN(this.notBefore?.valueOf() as number)) json["notBefore"] = this.notBefore?.toISOString();
+		if (!isNaN(this.notAfter?.valueOf() as number)) json["notAfter"] = this.notAfter?.toISOString();
+		if (this.timezone?.code) json["timezone"] = this.timezone?.code;
+		if (this.language) json["language"] = this.language;
+		if (this.formats?.size) json["formats"] = serialization.fromMap(this.formats);
+		if (this.measurements?.size) json["measurements"] = serialization.fromMap(this.measurements);
+		if (this.options?.size) json["options"] = serialization.fromMap(this.options);
+		if (this.groups?.length) json["groups"] = this.groups;
+		if (this.permissions?.length) json["permissions"] = this.permissions?.map(p => p.toJSON());
+		if (this.services?.length) json["services"] = this.services.map(s => s.toString());
+		if (this.referrers?.length) json["referrers"] = this.referrers.map(r => r.toString());
+		if (this.ipRanges?.length) json["ipRanges"] = this.ipRanges;
 		if (!utility.isNothing(this.insecure)) json["insecure"] = this.insecure;
 		return json;
 	}

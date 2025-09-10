@@ -1,3 +1,4 @@
+import { Machine } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -7,4 +8,10 @@ export class RepMachineGet extends Reply {
 	/**
 	 * The requested {@link Machine}.
 	 **/
-	machine: Machine;}
+	machine: Machine;
+
+	constructor(json: any) {
+		super(json);
+		this.machine = new Machine(json?.machine);
+	}
+}

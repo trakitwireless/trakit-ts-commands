@@ -1,3 +1,4 @@
+import { ContentIdDeleted } from "commands/API/Responses/Content/ContentIdDeleted";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -7,4 +8,10 @@ export class RepMachineDelete extends Reply {
 	/**
 	 * Details about deleting/restoring the requested {@link Machine}.
 	 **/
-	machine: ContentIdDeleted;}
+	machine: ContentIdDeleted;
+
+	constructor(json: any) {
+		super(json);
+		this.machine = new ContentIdDeleted(json?.machine);
+	}
+}

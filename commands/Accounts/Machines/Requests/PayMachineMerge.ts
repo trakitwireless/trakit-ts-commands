@@ -1,5 +1,6 @@
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
+import { ParamMachineMerge } from "./Parameters/ParamMachineMerge";
 
 /**
  * Creates a new or updates an existing {@link Machine}.
@@ -10,9 +11,15 @@ export class PayMachineMerge extends Payload implements IPaySingle {
 	 **/
 	machine: ParamMachineMerge;
 
+	constructor(json: any) {
+		super(json);
+		this.machine = new ParamMachineMerge(json?.machine);
+	}
+
 	/**
 	 * 
 	 **/
-		getKey(): string {
-			return  this.machine?.key ?? "";
-		}}
+	getKey(): string {
+		return this.machine?.key ?? "";
+	}
+}

@@ -45,15 +45,9 @@ export class ParamUserGroupMerge extends ParamMergeSubscribable {
 		} else if (utility.isntNaN(this.company)) {
 			json["company"] = this.company;
 		}
-		if (this.name) {
-			json["name"] = this.name;
-		}
-		if (this.notes) {
-			json["notes"] = this.notes;
-		}
-		if (this.permissions?.length ?? 0 > 0) {
-			json["permissions"] = (this.permissions as ParamPermission[]).map(p => p.toJSON());
-		}
+		if (this.name) json["name"] = this.name;
+		if (this.notes) json["notes"] = this.notes;
+		if (this.permissions?.length) json["permissions"] = (this.permissions as ParamPermission[]).map(p => p.toJSON());
 		return json;
 	}
 }
