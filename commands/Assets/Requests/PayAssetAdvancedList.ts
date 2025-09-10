@@ -1,11 +1,10 @@
 import { Payload } from "../../API/Requests/Payload";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
 import { IPaySuspendable } from "../../API/Requests/IPaySuspendable";
-import { PayAssetAdvancedList } from "./PayAssetAdvancedList";
 import { IPayListByCompany } from "../../API/Requests/IPayListByCompany";
-import { PayAssetAdvancedListByCompany } from "./PayAssetAdvancedList";
 import { IPayListByLabels } from "../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../API/Requests/IPayListByReferences";
+import { ParamId } from "commands/API/Requests/Parameters/ParamId";
 
 /**
  * Gets a list of {@link AssetAdvanced}s.
@@ -27,7 +26,15 @@ export abstract class PayAssetAdvancedList extends Payload implements IPayDeleta
 	 * When true, the command will also return a deleted {@link AssetAdvanced} (if it exists).
 	 **/
 	includeDeleted: boolean;
+
+	constructor(json?: any) {
+		super(json);
+		this.includeMessages = json?.includeMessages;
+		this.includeTasks = json?.includeTasks;
+		this.includeSuspended = json?.includeSuspended;
+		this.includeDeleted = json?.includeDeleted;
 	}
+}
 
 /**
  * Gets the list of {@link AssetAdvanced}s for the specified {@link Company}.
@@ -37,7 +44,12 @@ export class PayAssetAdvancedListByCompany extends PayAssetAdvancedList implemen
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
 	company: ParamId;
+
+	constructor(json?: any) {
+		super(json);
+		this.company = new ParamId(json?.company);
 	}
+}
 /**
  * Gets the list of {@link AssetAdvanced}s for the specified {@link Company} only if the {@link AssetAdvancedGeneral.labels} matches all of the given {@link Parameters.labels}.
  **/
@@ -47,7 +59,12 @@ export class PayAssetAdvancedListByCompanyAndLabels extends PayAssetAdvancedList
 	 * @see {@link AssetGeneral.labels}
 	 **/
 	labels: string[];
+
+	constructor(json?: any) {
+		super(json);
+		this.labels = json?.labels ?? [];
 	}
+}
 /**
  * Gets the list of {@link AssetAdvanced}s for the specified {@link Company} only if one of the specified {@link AssetAdvancedGeneral.references} fields match.
  * If no references are specified, it will match any {@link AssetAdvanced} with no references.
@@ -58,4 +75,10 @@ export class PayAssetAdvancedListByCompanyAndRefPairs extends PayAssetAdvancedLi
 	 * The parsed references given as input.
 	 * @see {@link AssetAdvancedGeneral.references}
 	 **/
-	references: Map<string, string>;}
+	references: Map<string, string>;
+
+	constructor(json?: any) {
+		super(json);
+		this.references = json?.references ? new Map(Object.entries(json.references)) : new Map();
+	}
+}

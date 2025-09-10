@@ -16,4 +16,12 @@ export class PayAssetGeneralGet extends PayAsset implements IPayDeletable {
 	/**
 	 * When true, the command will also return {@link DispatchTask}s for the asset.
 	 **/
-	includeTasks: boolean;}
+	includeTasks: boolean;
+
+	constructor(json?: any) {
+		super(json);
+		this.includeDeleted = json?.includeDeleted;
+		this.includeMessages = json?.includeMessages;
+		this.includeTasks = json?.includeTasks;
+	}
+}

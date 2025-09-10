@@ -1,5 +1,6 @@
 import { Payload } from "../../API/Requests/Payload";
 import { IPaySingle } from "../../API/Requests/IPaySingle";
+import { ParamId } from "commands/API/Requests/Parameters/ParamId";
 
 /**
  * A container for the {@link asset} object.
@@ -10,9 +11,15 @@ export abstract class PayAsset extends Payload implements IPaySingle {
 	 **/
 	asset: ParamId;
 
+	constructor(json: any) {
+		super(json);
+		this.asset = new ParamId(json?.asset);
+	}
+
 	/**
 	 * 
 	 **/
-		getKey(): string {
-			return  this.asset?.id.ToString() ?? "";
-		}}
+	getKey(): string {
+		return this.asset?.id.toString() ?? "";
+	}
+}

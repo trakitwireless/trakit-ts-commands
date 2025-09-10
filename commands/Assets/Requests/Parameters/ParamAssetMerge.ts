@@ -1,3 +1,4 @@
+import { AssetAttribute, AssetType, double, nothing, serialization, ulong, ushort, utility } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
@@ -8,34 +9,34 @@ export class ParamAssetMerge extends ParamMergeSubscribable {
 	 * The unique identifier of the {@link Asset} you want to update.
 	 * <override required="update" />
 	 **/
-	id: ulong | undefined;
+	id: ulong | nothing;
 	/**
 	 * The identifier of the {@link Company} to which this {@link Asset} belongs.
 	 * After creation, this value is read-only.
 	 * <override required="create" />
 	 **/
-	company: ulong | undefined;
+	company: ulong | nothing;
 	/**
 	 * The kind of {@link Asset} being created.
 	 * After creation, this value is read-only.
 	 * <override required="create" />
 	 **/
-	kind: AssetType | undefined;
+	kind: AssetType | nothing;
 	/**
 	 * Name for the {@link Asset}.
 	 * <override required="create" max-length="100" />
 	 **/
-	name: string;
+	name: string | nothing;
 	/**
 	 * Notes for the {@link Asset}.
 	 **/
-	notes: string;
+	notes: string | nothing;
 	/**
 	 * The identifier of the {@link Icon} used to represent this {@link Asset} in the UI.
 	 * <override required="create" />
 	 * @see {@link Icon.id}
 	 **/
-	icon: ulong | undefined;
+	icon: ulong | nothing;
 	/**
 	 * A list of <format id="codified"/>&amp;nbsp;{@link CompanyStyles.labels|label} names to categorize/organize this {@link Asset}.
 	 * <override>
@@ -44,11 +45,11 @@ export class ParamAssetMerge extends ParamMergeSubscribable {
 	 * </values>
 	 * </override>
 	 **/
-	labels: string[];
+	labels: string[] | nothing;
 	/**
 	 * Replaces the {@link Asset}'s status tags with the given list of <format id="codified"/> tags.
 	 **/
-	tags: string[];
+	tags: string[] | nothing;
 	/**
 	 * Allows you to add, remove, and replace attributes.
 	 * For each {@link AssetAttribute} in the attributes object,
@@ -58,11 +59,11 @@ export class ParamAssetMerge extends ParamMergeSubscribable {
 	 * in the object, the attribute of the key is removed from the {@link Asset}, and one of the codified name is added to the {@link Asset}.
 	 * If a new value or null is not provided for a current attribute, no change is made.
 	 **/
-	attributes: Map<string, AssetAttribute?>;
+	attributes: Map<string, AssetAttribute | nothing> | nothing;
 	/**
 	 * The email address or phone number of this {@link Asset} when a {@link Person}'s {@link Contact} card is blank, or the {@link Provider}'s {@link ProviderGeneral.pnd|PND} is not installed.
 	 **/
-	messagingAddress: string;
+	messagingAddress: string | nothing;
 	/**
 	 * The identifiers of {@link Picture}s of this {@link Asset}.
 	 * <override>
@@ -71,64 +72,64 @@ export class ParamAssetMerge extends ParamMergeSubscribable {
 	 * </values>
 	 * </override>
 	 **/
-	pictures: ulong[];
+	pictures: ulong[] | nothing;
 	/**
 	 * Name/value collections of custom fields used to refer to external systems.
 	 * If the value is null, the references are removed from the {@link Asset}.
 	 **/
-	references: Map<string, string>;
+	references: Map<string, string | nothing> | nothing;
 	/**
 	 * The contact card details for this {@link Asset}.
 	 * Only applicable if `asset.kind` is {@link AssetType.person}.
 	 * <override required="create (for person)" />
 	 **/
-	contact: ulong | undefined;
+	contact: ulong | nothing;
 	/**
 	 * The year this {@link Vehicle} or {@link Trailer} was built.
 	 * Only applicable if `asset.kind` is {@link AssetType.vehicle} or {@link AssetType.trailer}.
 	 **/
-	year: ushort | undefined;
+	year: ushort | nothing;
 	/**
 	 * The license plate of this {@link Vehicle} or {@link Trailer}.
 	 * Only applicable if `asset.kind` is {@link AssetType.vehicle} or {@link AssetType.trailer}.
 	 **/
-	plate: string;
+	plate: string | nothing;
 	/**
 	 * The manufacturer of this {@link Vehicle} or {@link Trailer}.
 	 * Only applicable if `asset.kind` is {@link AssetType.vehicle} or {@link AssetType.trailer}.
 	 **/
-	make: string;
+	make: string | nothing;
 	/**
 	 * The model of this {@link Vehicle} or {@link Trailer}.
 	 * Only applicable if `asset.kind` is {@link AssetType.vehicle} or {@link AssetType.trailer}.
 	 **/
-	model: string;
+	model: string | nothing;
 	/**
 	 * The pretty-pretty colour of this {@link Vehicle} or {@link Trailer}.
 	 * Only applicable if `asset.kind` is {@link AssetType.vehicle} or {@link AssetType.trailer}.
 	 * <override max-length="22" format="colour" />
 	 **/
-	colour: string;
+	colour: string | nothing;
 	/**
 	 * The manufacturer's identification number of this {@link Trailer}.
 	 * Only applicable if `asset.kind` is {@link AssetType.vehicle}.
 	 **/
-	serial: string;
+	serial: string | nothing;
 	/**
 	 * The Vehicle Identification Number of this {@link Vehicle}.
 	 * Only applicable if `asset.kind` is {@link AssetType.trailer}.
 	 **/
-	vin: string;
+	vin: string | nothing;
 	/**
 	 * The distance travelled by this {@link Asset}.
 	 * Can be a GPS odometer, OBD-II odometer, or other depending on scripts.
 	 **/
-	odometer: double | undefined;
+	odometer: double | nothing;
 	/**
 	 * The number of hours the engine has been running for this {@link Vehicle}.
 	 * Only applicable if `asset.kind` is {@link AssetType.vehicle}.
 	 **/
-	engineHours: double | undefined;
+	engineHours: double | nothing;
 	/**
 	 * A list of related asset identifiers like a driver for a {@link Vehicle}, or {@link Trailer} for a truck.
 	 * <override>
@@ -137,4 +138,68 @@ export class ParamAssetMerge extends ParamMergeSubscribable {
 	 * </values>
 	 * </override>
 	 **/
-	relationships: ulong[];}
+	relationships: ulong[] | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.id = json?.id;
+		this.company = json?.company;
+		this.kind = json?.kind;
+		this.name = json?.name;
+		this.notes = json?.notes;
+		this.icon = json?.icon;
+		this.labels = json?.labels.slice();
+		this.tags = json?.tags.slice();
+		this.attributes = json?.attributes
+			? serialization.toMapPredicate(json?.attributes, (k, v) => [k, AssetAttribute.fromJSON(v)])
+			: null;
+		this.messagingAddress = json?.messagingAddress;
+		this.pictures = json?.pictures.slice();
+		this.references = json?.references
+			? serialization.toMap(json?.references)
+			: null;
+		this.contact = json?.contact;
+		this.year = json?.year;
+		this.plate = json?.plate;
+		this.make = json?.make;
+		this.model = json?.model;
+		this.colour = json?.colour;
+		this.serial = json?.serial;
+		this.vin = json?.vin;
+		this.odometer = json?.odometer;
+		this.engineHours = json?.engineHours;
+		this.relationships = json?.relationships;
+	}
+
+	override toJSON(): any {
+		const json: any = {};
+		if (this.id) {
+			json.id = this.id;
+			json["v"] = [...this.v];
+		} else {
+			json["company"] = this.company;
+			json.kind = this.kind;
+		}
+		if (this.name) json.name = this.name;
+		if (this.notes) json.notes = this.notes;
+		if (utility.isntNaN(this.icon)) json.icon = this.icon;
+		if (this.labels?.length) json.labels = [...this.labels];
+		if (this.tags?.length) json.tags = [...this.tags];
+		if (this.attributes?.size) json.attributes = serialization.fromMapPredicate(this.attributes, (k, v) => [k, v?.toJSON()]);
+		if (this.messagingAddress) json.messagingAddress = this.messagingAddress;
+		if (this.pictures?.length) json.pictures = [...this.pictures];
+		if (this.references?.size) json.references = serialization.fromMap(this.references);
+		if (utility.isntNaN(this.contact)) json.contact = this.contact;
+		if (utility.isntNaN(this.year)) json.year = this.year;
+		if (this.plate) json.plate = this.plate;
+		if (this.make) json.make = this.make;
+		if (this.model) json.model = this.model;
+		if (this.colour) json.colour = this.colour;
+		if (this.serial) json.serial = this.serial;
+		if (this.vin) json.vin = this.vin;
+		if (utility.isntNaN(this.odometer)) json.odometer = this.odometer;
+		if (utility.isntNaN(this.engineHours)) json.engineHours = this.engineHours;
+		if (this.relationships?.length) json.relationships = [...this.relationships];
+		return json;
+	}
+}

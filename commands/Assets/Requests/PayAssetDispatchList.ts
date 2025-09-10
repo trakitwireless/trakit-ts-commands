@@ -1,11 +1,10 @@
 import { Payload } from "../../API/Requests/Payload";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
 import { IPaySuspendable } from "../../API/Requests/IPaySuspendable";
-import { PayAssetDispatchList } from "./PayAssetDispatchList";
 import { IPayListByCompany } from "../../API/Requests/IPayListByCompany";
-import { PayAssetDispatchListByCompany } from "./PayAssetDispatchList";
 import { IPayListByLabels } from "../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../API/Requests/IPayListByReferences";
+import { ParamId } from "commands/API/Requests/Parameters/ParamId";
 
 /**
  * Gets a list of {@link AssetDispatch}s.
@@ -27,7 +26,15 @@ export abstract class PayAssetDispatchList extends Payload implements IPayDeleta
 	 * When true, the command will also return a deleted {@link AssetDispatch} (if it exists).
 	 **/
 	includeDeleted: boolean;
+
+	constructor(json?: any) {
+		super(json);
+		this.includeMessages = json?.includeMessages;
+		this.includeTasks = json?.includeTasks;
+		this.includeSuspended = json?.includeSuspended;
+		this.includeDeleted = json?.includeDeleted;
 	}
+}
 
 /**
  * Gets the list of {@link AssetDispatch}s for the specified {@link Company}.
@@ -37,7 +44,13 @@ export class PayAssetDispatchListByCompany extends PayAssetDispatchList implemen
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
 	company: ParamId;
+
+	constructor(json?: any) {
+		super(json);
+		this.company = new ParamId(json?.company);
 	}
+}
+
 /**
  * Gets the list of {@link AssetDispatch}s for the specified {@link Company} only if the {@link AssetDispatchGeneral.labels} matches all of the given {@link Parameters.labels}.
  **/
@@ -47,7 +60,13 @@ export class PayAssetDispatchListByCompanyAndLabels extends PayAssetDispatchList
 	 * @see {@link AssetGeneral.labels}
 	 **/
 	labels: string[];
+
+	constructor(json?: any) {
+		super(json);
+		this.labels = json?.labels ?? [];
 	}
+}
+
 /**
  * Gets the list of {@link AssetDispatch}s for the specified {@link Company} only if one of the specified {@link AssetDispatchGeneral.references} fields match.
  * If no references are specified, it will match any {@link AssetDispatch} with no references.
@@ -58,4 +77,10 @@ export class PayAssetDispatchListByCompanyAndRefPairs extends PayAssetDispatchLi
 	 * The parsed references given as input.
 	 * @see {@link AssetDispatchGeneral.references}
 	 **/
-	references: Map<string, string>;}
+	references: Map<string, string>;
+
+	constructor(json?: any) {
+		super(json);
+		this.references = new Map(Object.entries(json?.references ?? {}));
+	}
+}
