@@ -6,4 +6,9 @@ export class ParamHandle {
 	/**
 	 * A "handle" identifying a session.
 	 **/
-	handle: string;}
+	handle: string;
+
+	constructor(json: any) {
+		this.handle = json?.handle ?? "";
+	}
+}

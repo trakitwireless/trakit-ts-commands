@@ -1,3 +1,4 @@
+import { nothing, ulong, utility } from "@trakit/objects";
 
 /**
  * A container class used to house the "handle" identifying a {@link Session}.
@@ -11,7 +12,7 @@ export class SessionHandle {
 	 * Identifier of the {@link Company} to which this object belongs
 	 * @see {@link Company.id}
 	 **/
-	company: ulong;
+	company: ulong | nothing;
 	/**
 	 * The {@link User} to which the {@link Session} belongs.
 	 * @see {@link User.login}
@@ -20,4 +21,12 @@ export class SessionHandle {
 	/**
 	 * A timestamp for when the {@link Session} will expire.
 	 **/
-	expiry: Date;}
+	expiry: Date;
+
+	constructor(json: any) {
+		this.handle = json?.handle ?? "";
+		this.company = json?.company;
+		this.login = json?.login ?? "";
+		this.expiry = utility.date(json?.["expiry"]);
+	}
+}

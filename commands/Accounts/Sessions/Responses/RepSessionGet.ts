@@ -1,3 +1,4 @@
+import { Session } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -7,4 +8,10 @@ export class RepSessionGet extends Reply {
 	/**
 	 * The requested {@link Session} details.
 	 **/
-	session: Session;}
+	session: Session;
+
+	constructor(json: any) {
+		super(json);
+		this.session = new Session(json?.session);
+	}
+}
