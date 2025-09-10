@@ -14,5 +14,5 @@ export class PayReportResultMerge extends Payload implements IPaySingle {
 	 * 
 	 **/
 		getKey(): string {
-			return  this.reportResult?.id?.ToString() ?? "";
+			return  this.reportResult?.id?.toString() ?? "";
 		}}

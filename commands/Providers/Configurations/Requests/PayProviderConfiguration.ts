@@ -15,5 +15,5 @@ export abstract class PayProviderConfiguration extends Payload implements IPaySi
 	 * 
 	 **/
 		getKey(): string {
-			return  this.providerConfiguration?.id.ToString() ?? "";
+			return  this.providerConfiguration?.id.toString() ?? "";
 		}}

@@ -15,5 +15,5 @@ export abstract class PayDashcam extends Payload implements IPaySingle {
 	 * 
 	 **/
 		getKey(): string {
-			return  this.dashcam?.id.ToString() ?? "";
+			return  this.dashcam?.id.toString() ?? "";
 		}}

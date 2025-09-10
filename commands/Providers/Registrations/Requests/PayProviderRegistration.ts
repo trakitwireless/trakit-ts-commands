@@ -14,5 +14,5 @@ export abstract class PayProviderRegistration extends Payload implements IPaySin
 	 * 
 	 **/
 		getKey(): string {
-			return  this.providerRegistration?.code.ToString() ?? "";
+			return  this.providerRegistration?.code.toString() ?? "";
 		}}

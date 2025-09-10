@@ -17,5 +17,5 @@ export class PayFormTemplateMerge extends Payload implements IPaySingle {
 
 	 **/
 		getKey(): string {
-			return  this.formTemplate?.id?.ToString() ?? "";
+			return  this.formTemplate?.id?.toString() ?? "";
 		}}

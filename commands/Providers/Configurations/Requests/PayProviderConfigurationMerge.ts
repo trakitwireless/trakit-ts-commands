@@ -15,5 +15,5 @@ export class PayProviderConfigurationMerge extends Payload implements IPaySingle
 	 * 
 	 **/
 		getKey(): string {
-			return  this.providerConfiguration?.id?.ToString() ?? "";
+			return  this.providerConfiguration?.id?.toString() ?? "";
 		}}

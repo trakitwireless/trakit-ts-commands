@@ -17,5 +17,5 @@ export abstract class PayPlace extends Payload implements IPaySingle {
 
 	 **/
 		getKey(): string {
-			return  this.place?.id.ToString() ?? "";
+			return  this.place?.id.toString() ?? "";
 		}}

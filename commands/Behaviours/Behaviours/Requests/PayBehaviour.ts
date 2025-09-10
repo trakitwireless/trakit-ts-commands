@@ -14,5 +14,5 @@ export abstract class PayBehaviour extends Payload implements IPaySingle {
 	 * 
 	 **/
 		getKey(): string {
-			return  this.behaviour?.id.ToString() ?? "";
+			return  this.behaviour?.id.toString() ?? "";
 		}}

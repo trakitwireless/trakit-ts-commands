@@ -14,5 +14,5 @@ export class PayBehaviourScriptMerge extends Payload implements IPaySingle {
 	 * 
 	 **/
 		getKey(): string {
-			return  this.behaviourScript?.id?.ToString() ?? "";
+			return  this.behaviourScript?.id?.toString() ?? "";
 		}}
