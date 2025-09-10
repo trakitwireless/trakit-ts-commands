@@ -1,3 +1,4 @@
+import { nothing, utility } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -7,9 +8,15 @@ export class RepSelfLogout extends Reply {
 	/**
 	 * Your old, no longer valid, session identifier.
 	 **/
-	ghostId!: string;
+	ghostId: string;
 	/**
 	 * The timestamp from when your session expired.
 	 **/
-	expiry!: Date | undefined;
+	expiry: Date;
+
+	constructor(json: any) {
+		super(json);
+		this.ghostId = json?.ghostId ?? "";
+		this.expiry = utility.date(json?.["expiry"]);
+	}
 }

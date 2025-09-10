@@ -8,11 +8,11 @@ export class ParamSelfContactMerge extends ParamMergeSubscribable {
 	/**
 	 * Name for yourself.
 	 **/
-	name: string;
+	name: string | nothing;
 	/**
 	 * Notes for yourself.
 	 **/
-	notes: string;
+	notes: string | nothing;
 	/**
 	 * A collection of other names this person might go by.
 	 * Use the object key like a name identifier.
@@ -57,11 +57,11 @@ export class ParamSelfContactMerge extends ParamMergeSubscribable {
 	/**
 	 * A list of roles they play in the {@link Company}.
 	 **/
-	roles: string[];
+	roles: string[] | nothing;
 	/**
 	 * {@link Picture}s of yourself.
 	 **/
-	pictures: ulong[];
+	pictures: ulong[] | nothing;
 
 	constructor(json: any) {
 		super(json);
@@ -89,8 +89,8 @@ export class ParamSelfContactMerge extends ParamMergeSubscribable {
 		if (this.urls.size) json["urls"] = serialization.fromMap(this.urls);
 		if (this.dates.size) json["dates"] = serialization.fromMap(this.dates);
 		if (this.options.size) json["options"] = serialization.fromMap(this.options);
-		if (this.roles.length) json["roles"] = [...this.roles];
-		if (this.pictures.length) json["pictures"] = [...this.pictures];
+		if (this.roles?.length) json["roles"] = [...this.roles];
+		if (this.pictures?.length) json["pictures"] = [...this.pictures];
 		return json;
 	}
 }

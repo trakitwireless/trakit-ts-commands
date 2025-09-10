@@ -1,3 +1,4 @@
+import { nothing } from "@trakit/objects";
 import { Payload } from "../../../API/Requests/Payload";
 
 /**
@@ -8,13 +9,20 @@ export class PaySelfLogin extends Payload {
 	/**
 	 * The {@link User}'s login.
 	 **/
-	username!: string;
+	username: string;
 	/**
 	 * The {@link User}'s password.
 	 **/
-	password!: string;
+	password: string;
 	/**
 	 * A string to identify the User-Agent of the login request.
 	 **/
-	userAgent!: string | null;
+	userAgent: string | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.username = json?.username;
+		this.password = json?.password;
+		this.userAgent = json?.userAgent;
+	}
 }
