@@ -8,5 +8,5 @@ export class ContentIdCompanyTemplate extends ContentIdCompany {
 	/**
 	 * Identifier of the template to which this object belongs.
 	 **/
-	template!: ulong | nothing;
+	template: ulong | nothing;
 }

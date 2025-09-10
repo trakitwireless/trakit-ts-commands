@@ -9,5 +9,10 @@ export class ErrorDetailInput extends ErrorDetail {
 	/**
 	 * The given input which caused the error.
 	 **/
-	input!: string;
+	input: string;
+
+	constructor(json: any) {
+		super();
+		this.input = json?.input ?? "";
+	}
 }

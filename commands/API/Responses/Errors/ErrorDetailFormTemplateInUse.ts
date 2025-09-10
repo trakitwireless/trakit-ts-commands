@@ -10,5 +10,10 @@ export class ErrorDetailFormTemplateInUse extends ErrorDetail {
 	/**
 	 * A list of {@link FormResult.id}s currently being referenced.
 	 **/
-	formResults!: ulong[];
+	formResults: ulong[];
+
+	constructor(json: any) {
+		super();
+		this.formResults = json?.formResults ?? [];
+	}
 }

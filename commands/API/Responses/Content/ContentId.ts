@@ -10,6 +10,6 @@ export class ContentId {
 	id: ulong | nothing;
 
 	constructor(json: any) {
-		this.id = json.id;
+		this.id = json?.id;
 	}
 }

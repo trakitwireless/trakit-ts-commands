@@ -8,11 +8,11 @@ export class ContentIdDeleted extends ContentIdCompany {
 	/**
 	 * Flag showing if the object is deleted.
 	 **/
-	deleted!: boolean;
+	deleted: boolean;
 	/**
 	 * Object version keys used to validate synchronization for all object properties.
 	 **/
-	v!: uint[];
+	v: uint[];
 
 	constructor(json: any) {
 		super(json);

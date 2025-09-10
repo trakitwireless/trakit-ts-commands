@@ -11,5 +11,10 @@ export class ContentIdendifierAsset extends ContentIdendifierCompany {
 	 * This value must remain nullable because Providers can have a null value for their asset member.
 	 * </remarks>
 	 **/
-	asset!: ulong | nothing;
+	asset: ulong | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.asset = json?.asset;
+	}
 }

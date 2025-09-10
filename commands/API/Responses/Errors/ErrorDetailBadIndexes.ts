@@ -7,4 +7,8 @@ import { ErrorDetailType } from "./ErrorDetailType";
  **/
 export class ErrorDetailBadIndexes extends ErrorDetailBadBase<int> {
     override get kind() { return ErrorDetailType.badIndexes; }
+
+	constructor(json: any) {
+		super(json);
+	}
 }

@@ -1,3 +1,4 @@
+import { ErrorDetailType } from "commands";
 import { ErrorDetail } from "./ErrorDetail";
 
 /**
@@ -7,5 +8,10 @@ export abstract class ErrorDetailBadBase<T> extends ErrorDetail {
 	/**
 	 * List of bad ids or keys or whatever.
 	 **/
-	invalid!: T[];
+	invalid: T[];
+
+	constructor(json: any) {
+		super();
+		this.invalid = json?.invalid ?? [];
+	}
 }

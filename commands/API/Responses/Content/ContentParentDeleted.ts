@@ -8,13 +8,20 @@ export class ContentParentDeleted extends ContentId {
 	/**
 	 * Identifier of the {@link Company|parent} to which the {@link Company} is a child.
 	 **/
-	parent!: ulong;
+	parent: ulong;
 	/**
 	 * Flag showing if the object is deleted.
 	 **/
-	deleted!: boolean;
+	deleted: boolean;
 	/**
 	 * Object version keys used to validate synchronization for all object properties.
 	 **/
-	v!: uint[];
+	v: uint[];
+
+	constructor(json: any) {
+		super(json);
+		this.parent = json?.parent;
+		this.deleted = !!(json?.deleted);
+		this.v = json?.v ?? [];
+	}
 }

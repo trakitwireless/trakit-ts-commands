@@ -9,13 +9,20 @@ export class ErrorDetailExternals extends ErrorDetail {
 	/**
 	 * List of errors.
 	 **/
-	errors!: string[];
+	errors: string[];
 	/**
 	 * List of warnings.
 	 **/
-	warnings!: string[];
+	warnings: string[];
 	/**
 	 * List of messages.
 	 **/
-	messages!: string[];
+	messages: string[];
+
+	constructor(json: any) {
+		super();
+		this.errors = json?.errors ?? [];
+		this.warnings = json?.warnings ?? [];
+		this.messages = json?.messages ?? [];
+	}
 }

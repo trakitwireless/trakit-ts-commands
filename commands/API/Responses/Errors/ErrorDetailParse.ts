@@ -1,4 +1,4 @@
-import { int } from "@trakit/objects";
+import { int, nothing } from "@trakit/objects";
 import { ErrorDetail } from "./ErrorDetail";
 import { ErrorDetailType } from "./ErrorDetailType";
 
@@ -10,13 +10,20 @@ export class ErrorDetailParse extends ErrorDetail {
 	/**
 	 * The line number in the input string.
 	 **/
-	line!: int;
+	line: int | nothing;
 	/**
 	 * The character on which the failure occurred.
 	 **/
-	column!: int;
+	column: int | nothing;
 	/**
 	 * The last sucessfully parsed object.
 	 **/
-	after!: string;
+	after: string | nothing;
+
+	constructor(json: any) {
+		super();
+		this.line = json?.line;
+		this.column = json?.column;
+		this.after = json?.after;
+	}
 }

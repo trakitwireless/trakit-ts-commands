@@ -1,4 +1,4 @@
-import { ulong } from "@trakit/objects";
+import { nothing, ulong } from "@trakit/objects";
 import { ErrorDetail } from "./ErrorDetail";
 import { ErrorDetailType } from "./ErrorDetailType";
 
@@ -10,9 +10,15 @@ export class ErrorDetailParent extends ErrorDetail {
 	/**
 	 * The {@link Company.parent} specified in the parameters.
 	 **/
-	parent!: ulong;
+	parent: ulong | nothing;
 	/**
 	 * ID of the child {@link Company} that would cause a circular reference.
 	 **/
-	descendant!: ulong;
+	descendant: ulong | nothing;
+
+	constructor(json: any) {
+		super();
+		this.parent = json?.parent;
+		this.descendant = json?.descendant;
+	}
 }

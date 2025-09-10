@@ -1,4 +1,4 @@
-import { double } from "@trakit/objects";
+import { double, nothing, utility } from "@trakit/objects";
 import { ErrorDetailType } from "./ErrorDetailType";
 import { ErrorDetail } from "./ErrorDetail";
 
@@ -10,9 +10,24 @@ export class ErrorDetailMinMax extends ErrorDetail {
 	/**
 	 * Minimum possible value.
 	 **/
-	min: Date | double | undefined;
+	min: Date | double | nothing;
 	/**
 	 * Maximum possible value.
 	 **/
-	max: Date | double | undefined;
+	max: Date | double | nothing;
+
+	constructor(json: any) {
+		super();
+		let date: Date;
+		this.min = utility.isntNaN(json?.min)
+			? json.min
+			: !isNaN((date = utility.date(json?.min)).valueOf())
+				? date
+				: null;
+		this.max = utility.isntNaN(json?.max)
+			? json.max
+			: !isNaN((date = utility.date(json?.max)).valueOf())
+				? date
+				: null;
+	}
 }

@@ -11,5 +11,10 @@ export class ErrorDetailCount extends ErrorDetail {
 	/**
 	 * The number of items that failed, or number of items preventing success.
 	 **/
-	count!: int;
+	count: int;
+
+	constructor(json: any) {
+		super();
+		this.count = json?.count ?? 0;
+	}
 }

@@ -12,9 +12,15 @@ export class ErrorDetailStack extends ErrorDetail {
 	/**
 	 * Exception message.
 	 **/
-	message!: string;
+	message: string;
 	/**
 	 * The full stack trace if available.
 	 **/
-	stack!: string;
+	stack: string;
+
+	constructor(json: any) {
+		super();
+		this.message = json?.message ?? "";
+		this.stack = json?.stack ?? "";
+	}
 }

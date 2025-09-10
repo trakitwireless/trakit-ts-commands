@@ -8,5 +8,10 @@ export class ContentCodeDeleted extends ContentCodeCompany {
 	/**
 	 * Flag showing if the object is deleted.
 	 **/
-	deleted!: boolean;
+	deleted: boolean;
+
+	constructor(json: any) {
+		super(json);
+		this.deleted = !!(json?.deleted);
+	}
 }

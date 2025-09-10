@@ -10,5 +10,10 @@ export class ErrorDetailEscalation extends ErrorDetail {
 	/**
 	 * A list of escallated permission details.
 	 **/
-	escalations!: PermissionEscalation[];
+	escalations: PermissionEscalation[];
+
+	constructor(json: any) {
+		super();
+		this.escalations = (json?.escalations ?? []).map((e: any) => PermissionEscalation.fromJson(e));
+	}
 }

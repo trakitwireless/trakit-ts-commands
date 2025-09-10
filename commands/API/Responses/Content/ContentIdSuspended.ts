@@ -8,9 +8,15 @@ export class ContentIdSuspended extends ContentIdCompany {
 	/**
 	 * Flag showing if the object is suspended.
 	 **/
-	suspended!: boolean;
+	suspended: boolean;
 	/**
 	 * Object version keys used to validate synchronization for all object properties.
 	 **/
-	v!: uint[];
+	v: uint[];
+
+	constructor(json: any) {
+		super(json);
+		this.suspended = !!(json?.suspended);
+		this.v = json?.v ?? [];
+	}
 }

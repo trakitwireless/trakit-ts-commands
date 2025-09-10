@@ -1,4 +1,4 @@
-import { ulong } from "@trakit/objects";
+import { nothing, ulong } from "@trakit/objects";
 import { ErrorDetailInput } from "./ErrorDetailInput";
 import { ErrorDetailType } from "./ErrorDetailType";
 
@@ -10,9 +10,15 @@ export class ErrorDetailPhone extends ErrorDetailInput {
 	/**
 	 * The number that was parsed from the input.
 	 **/
-	number!: ulong;
+	number: ulong | nothing;
 	/**
 	 * The digital characters used to try to parse the number.
 	 **/
-	usable!: string;
+	usable: string | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.number = json?.number;
+		this.usable = json?.usable;
+	}
 }

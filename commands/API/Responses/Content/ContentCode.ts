@@ -6,5 +6,9 @@ export class ContentCode {
 	/**
 	 * Identifier given as input for the command.
 	 **/
-	code!: string;
+	code: string;
+
+	constructor(json: any) {
+		this.code = json?.code ?? "";
+	}
 }

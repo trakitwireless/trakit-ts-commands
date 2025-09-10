@@ -8,5 +8,10 @@ export class ContentLoginCompany extends ContentLogin {
 	/**
 	 * Identifier of the {@link Company} to which the {@link User} belongs.
 	 **/
-	company!: ulong;
+	company: ulong;
+
+	constructor(json: any) {
+		super(json);
+		this.company = json?.company;
+	}
 }

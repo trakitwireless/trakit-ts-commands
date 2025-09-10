@@ -10,5 +10,10 @@ export class ErrorDetailBatch extends ErrorDetail {
 	/**
 	 * Index-preserved list of sub-command errors.
 	 **/
-	errors!: Reply[];
+	errors: Reply[];
+
+	constructor(json: any) {
+		super();
+		this.errors = (json?.errors ?? []).map((e: any) => new Reply(e));
+	}
 }

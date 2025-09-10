@@ -9,5 +9,10 @@ export class ErrorDetailEnum extends ErrorDetailInput {
 	/**
 	 * This is a list of possible values the input should have been.
 	 **/
-	valid!: string[];
+	valid: string[];
+
+	constructor(json: any) {
+		super();
+		this.valid = json?.valid ?? [];
+	}
 }

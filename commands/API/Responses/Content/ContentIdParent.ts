@@ -8,5 +8,10 @@ export class ContentIdParent extends ContentId {
 	/**
 	 * Identifier of the parent to which this company belongs
 	 **/
-	parent!: ulong | nothing;
+	parent: ulong | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.parent = json?.parent;
+	}
 }

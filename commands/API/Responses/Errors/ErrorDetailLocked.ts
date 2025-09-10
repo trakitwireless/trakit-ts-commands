@@ -1,4 +1,4 @@
-import { TimeSpan } from "@trakit/objects";
+import { nothing, TimeSpan, utility } from "@trakit/objects";
 import { ErrorDetail } from "./ErrorDetail";
 import { ErrorDetailType } from "./ErrorDetailType";
 
@@ -10,9 +10,15 @@ export class ErrorDetailLocked extends ErrorDetail {
 	/**
 	 * The amount of time the resource is locked, or you are prevented from issuing the command.
 	 **/
-	timeout!: TimeSpan | undefined;
+	timeout: TimeSpan;
 	/**
 	 * This timestamp represents the moment the resource becomes available again.
 	 **/
-	until!: Date | undefined;
+	until: Date;
+
+	constructor(json: any) {
+		super();
+		this.timeout = TimeSpan.fromSeconds(json.timeout);
+		this.until = utility.date(json?.until);
+	}
 }

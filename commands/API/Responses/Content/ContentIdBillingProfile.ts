@@ -1,4 +1,4 @@
-import { ulong } from "@trakit/objects";
+import { nothing, ulong } from "@trakit/objects";
 import { ContentIdCompany } from "./ContentIdCompany";
 
 /**
@@ -8,5 +8,10 @@ export class ContentIdBillingProfile extends ContentIdCompany {
 	/**
 	 * Identifier of the {@link BillingProfile} to which this object belongs
 	 **/
-	profile!: ulong;
+	profile: ulong | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.profile = json?.profile;
+	}
 }

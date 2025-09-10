@@ -1,3 +1,4 @@
+import { nothing } from "@trakit/objects";
 import { ErrorDetail } from "./ErrorDetail";
 import { ErrorDetailType } from "./ErrorDetailType";
 
@@ -9,9 +10,15 @@ export class ErrorDetailUserGroupInUse extends ErrorDetail {
 	/**
 	 * A list of {@link User}s currently being referenced.
 	 **/
-	users!: string[];
+	users: string[] | nothing;
 	/**
 	 * A list of {@link User}s currently being referenced.
 	 **/
-	machines!: string[];
+	machines: string[] | nothing;
+
+	constructor(json: any) {
+		super();
+		this.users = json?.users;
+		this.machines = json?.machines;
+	}
 }

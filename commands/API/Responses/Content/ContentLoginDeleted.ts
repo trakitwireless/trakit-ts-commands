@@ -8,9 +8,15 @@ export class ContentLoginDeleted extends ContentLoginCompany {
 	/**
 	 * Flag showing if the object is deleted.
 	 **/
-	deleted!: boolean;
+	deleted: boolean;
 	/**
 	 * Object version keys used to validate synchronization for all object properties.
 	 **/
-	v!: uint[];
+	v: uint[];
+
+	constructor(json: any) {
+		super(json);
+		this.deleted = !!(json?.deleted);
+		this.v = json?.v ?? [];
+	}
 }
