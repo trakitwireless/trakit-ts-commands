@@ -11,7 +11,7 @@ export abstract class TrakitCommander {
     /**
      * {@link url} of the underlying Trak-iT API service.
      */
-    baseAddress!: url;
+    baseAddress: URL;
     /**
      * Additional (optional) values added to the query-string of the connection request.
      */
@@ -35,7 +35,7 @@ export abstract class TrakitCommander {
     }
 
     constructor(baseAddress?: url | nothing) {
-        this.baseAddress = baseAddress || "";
+        this.baseAddress = new URL(baseAddress || "");
     }
 
     //#region Authorization

@@ -1,4 +1,4 @@
-﻿import { SystemsOfUnits } from '@trakit/objects';
+﻿import { nothing, SystemsOfUnits } from '@trakit/objects';
 import { UserNotifications } from '@trakit/objects';
 import { Timezone } from '@trakit/objects';
 import { ulong, url } from '@trakit/objects';
@@ -22,7 +22,7 @@ export abstract class TrakitObjectCommander extends TrakitCommander {
     /**
      * Details of the {@link User} or {@link Machine} who is connected to the underlying Trak-iT API service.
      */
-    account!: RepSelfGet | null;
+    account: RepSelfGet | nothing;
     
     //#region Commands - Self
     /**
