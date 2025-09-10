@@ -11,6 +11,11 @@ export abstract class PayUser extends Payload implements IPaySingle {
 	 **/
 	user: ParamLogin;
 
+	constructor(json: any) {
+		super();
+		this.user = new ParamLogin(json?.user);
+	}
+	
 	/**
 	 * 
 	 **/

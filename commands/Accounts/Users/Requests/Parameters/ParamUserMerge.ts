@@ -1,4 +1,4 @@
-import { nothing, SystemsOfUnits, Timezone, ulong, UserNotifications } from "@trakit/objects";
+import { nothing, serialization, SystemsOfUnits, Timezone, ulong, UserNotifications, utility } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 import { ParamPermission } from "commands/Accounts/Permissions/ParamPermission";
 
@@ -71,28 +71,74 @@ export class ParamUserMerge extends ParamMergeSubscribable {
 	 **/
 	permissions: ParamPermission[] | nothing;
 
-	override toJSON(): any {
-		const json = {
-			login: this.login,
+	constructor(json: any) {
+		super(json);
+		this.login = json?.login;
+		this.company = json?.company;
+		this.nickname = json?.nickname;
+		this.password = json?.password;
+		this.passwordExpired = json?.passwordExpired;
+		this.enabled = json?.enabled;
+		this.contact = json?.contact;
+		this.timezone = json?.timezone;
+		this.language = json?.language;
+		this.formats = json?.formats ? serialization.toMap(json.formats) : null;
+		this.measurements = json?.measurements ? serialization.toMap(json.measurements) : null;
+		this.options = json?.options ? serialization.toMap(json.options) : null;
+		this.notify = json?.notify?.map((n: any) => UserNotifications.fromJSON(n));
+		this.groups = json?.groups;
+		this.permissions = json?.permissions?.map((p: any) => new ParamPermission(p));
+	}
+
+	override toJSON() {
+		const json: any = {
+			"login": this.login,
 		};
-		
-		return {
-			v: [...this.v],
-			login: this.login,
-			company: this.company,
-			nickname: this.nickname,
-			password: this.password,
-			passwordExpired: this.passwordExpired,
-			enabled: this.enabled,
-			contact: this.contact,
-			timezone: this.timezone,
-			language: this.language,
-			formats: this.formats,
-			measurements: this.measurements,
-			options: this.options,
-			notify: this.notify,
-			groups: this.groups,
-			permissions: this.permissions
-		};
+		if (this.v?.length) {
+			json.v = [...this.v];
+		} else {
+			json["company"] = this.company;
+		}
+
+		if (this.nickname?.length) {
+			json["nickname"] = this.nickname;
+		}
+		if (this.password?.length) {
+			json["password"] = this.password;
+		}
+		if (!utility.isNothing(this.passwordExpired)) {
+			json["passwordExpired"] = this.passwordExpired;
+		}
+		if (!utility.isNothing(this.enabled)) {
+			json["enabled"] = this.enabled;
+		}
+		if (utility.isntNaN(this.contact as number)) {
+			json["contact"] = this.contact;
+		}
+		if (this.timezone) {
+			json["timezone"] = this.timezone.code
+		}
+		if (this.language?.length) {
+			json["language"] = this.language;
+		}
+		if (this.formats?.size) {
+			json["formats"] = serialization.fromMap(this.formats);
+		}
+		if (this.measurements?.size) {
+			json["measurements"] = serialization.fromMap(this.measurements);
+		}
+		if (this.options?.size) {
+			json["options"] = serialization.fromMap(this.options);
+		}
+		if (this.notify?.length) {
+			json["notify"] = this.notify?.map(n => n.toJSON());
+		}
+		if (this.groups?.length) {
+			json["groups"] = [...this.groups as ulong[]];
+		}
+		if (this.permissions?.length) {
+			json["permissions"] = this.permissions?.map(p => p.toJSON());
+		}
+		return json;
 	}
 }

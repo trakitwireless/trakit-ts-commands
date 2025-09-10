@@ -1,8 +1,8 @@
-import { Payload } from "../../../API/Requests/Payload";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
-import { PayUserAdvancedList } from "./PayUserAdvancedList";
+import { Payload } from "../../../API/Requests/Payload";
+import { serialization } from "@trakit/objects";
+import { ParamId } from "commands/API/Requests/Parameters/ParamId";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
-import { PayUserAdvancedListByCompany } from "./PayUserAdvancedList";
 import { IPayListByLabels } from "../../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../../API/Requests/IPayListByReferences";
 
@@ -14,7 +14,12 @@ export abstract class PayUserAdvancedList extends Payload implements IPayDeletab
 	 * When true, the command will also return a deleted {@link UserAdvanced} (if it exists).
 	 **/
 	includeDeleted: boolean;
+
+	constructor(json?: any) {
+		super(json);
+		this.includeDeleted = json?.includeDeleted;
 	}
+}
 
 /**
  * Gets the list of {@link UserAdvanced}s for the specified {@link Company}.
@@ -24,7 +29,12 @@ export class PayUserAdvancedListByCompany extends PayUserAdvancedList implements
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
 	company: ParamId;
+
+	constructor(json: any) {
+		super(json);
+		this.company = new ParamId(json?.company);
 	}
+}
 /**
  * Gets the list of {@link UserAdvanced}s for the specified {@link Company} only if the {@link UserAdvancedGeneral.labels} matches all of the given {@link Parameters.labels}.
  **/
@@ -34,7 +44,12 @@ export class PayUserAdvancedListByCompanyAndLabels extends PayUserAdvancedListBy
 	 * @see {@link UserGeneral.labels}
 	 **/
 	labels: string[];
+
+	constructor(json: any) {
+		super(json);
+		this.labels = json?.labels ?? [];
 	}
+}
 /**
  * Gets the list of {@link UserAdvanced}s for the specified {@link Company} only if one of the specified {@link UserAdvancedGeneral.references} fields match.
  * If no references are specified, it will match any {@link UserAdvanced} with no references.
@@ -45,4 +60,10 @@ export class PayUserAdvancedListByCompanyAndRefPairs extends PayUserAdvancedList
 	 * The parsed references given as input.
 	 * @see {@link UserAdvancedGeneral.references}
 	 **/
-	references: Map<string, string>;}
+	references: Map<string, string>;
+
+	constructor(json: any) {
+		super(json);
+		this.references = serialization.toMap(json?.references ?? {});
+	}
+}

@@ -1,3 +1,4 @@
+import { ContentIdDeleted } from "commands/API/Responses/Content/ContentIdDeleted";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -7,4 +8,10 @@ export class RepUserBatchDelete extends Reply {
 	/**
 	 * Details about deleting/restoring the requested {@link User}.
 	 **/
-	users: ContentIdDeleted[];}
+	users: ContentIdDeleted[];
+
+	constructor(json?: any) {
+		super(json);
+		this.users = (json?.users ?? []).map((u: any) => new ContentIdDeleted(u));
+	}
+}
