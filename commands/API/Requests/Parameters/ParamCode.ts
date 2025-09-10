@@ -7,5 +7,9 @@ export class ParamCode {
 	 * A "code" identifying a resource.
 	 * <override required="always" />
 	 **/
-	code!: string;
+	code: string;
+
+	constructor(json:any) {
+		this.code = json?.code ?? "";
+	}
 }

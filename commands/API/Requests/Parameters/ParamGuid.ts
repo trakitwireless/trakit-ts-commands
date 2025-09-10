@@ -7,5 +7,9 @@ export class ParamGuid {
 	/**
 	 * The global unique identifier.
 	 **/
-	guid!: guid;
+	guid: guid;
+
+	constructor(json: any) {
+		this.guid = json?.guid ?? "";
+	}
 }

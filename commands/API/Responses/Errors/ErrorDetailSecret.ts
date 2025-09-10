@@ -69,3 +69,4 @@ export class ErrorDetailSecret extends ErrorDetail {
 		this.input = json?.input;
 		this.output = json?.output;
 	}
+}

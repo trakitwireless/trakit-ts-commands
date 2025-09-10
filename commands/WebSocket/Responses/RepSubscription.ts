@@ -11,17 +11,25 @@ export class RepSubscription extends Reply {
 	 * The "id" key is the unique identifier of the company to which the array of objects relate.
 	 * @see {@link Company.id}
 	 **/
-	company!: ContentId;
+	company: ContentId;
 	/**
 	 * Subscription types added/removed (or were not applicable) to your socket's subscription list.
 	 **/
-	merged!: SubscriptionType[];
+	merged: SubscriptionType[];
 	/**
 	 * Subscription types not added to your socket due to insufficient permissions.
 	 **/
-	denied!: SubscriptionType[];
+	denied: SubscriptionType[];
 	/**
 	 * A returned list of nonsense you sent to my beautiful service.
 	 **/
-	invalid!: string[];
+	invalid: string[];
+
+	constructor(json: any) {
+		super(json);
+		this.company = new ContentId(json?.company);
+		this.merged = Array.isArray(json?.merged) ? json.merged.map((v: any) => v as SubscriptionType) : [];
+		this.denied = Array.isArray(json?.denied) ? json.denied.map((v: any) => v as SubscriptionType) : [];
+		this.invalid = Array.isArray(json?.invalid) ? json.invalid.map((v: any) => v as string) : [];
+	}
 }

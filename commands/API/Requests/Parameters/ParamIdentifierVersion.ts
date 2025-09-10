@@ -8,5 +8,10 @@ export class ParamIdentifierVersion extends ParamIdentifier {
 	/**
 	 * Requested version key(s).
 	 **/
-	v!: int[];
+	v: int[];
+
+	constructor(json: any) {
+		super(json);
+		this.v = json?.v ?? [];
+	}
 }
