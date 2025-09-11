@@ -1,4 +1,6 @@
+import { ContentIdSuspended } from "commands/API/Responses/Content/ContentIdSuspended";
 import { Reply } from "../../API/Responses/Reply";
+import { nothing } from "@trakit/objects";
 
 /**
  * 
@@ -7,4 +9,10 @@ export class RepAssetSuspend extends Reply {
 	/**
 	 * 
 	 **/
-	asset: ContentIdSuspended;}
+	asset: ContentIdSuspended | nothing;
+
+	constructor(json?: any) {
+		super(json);
+		this.asset = ContentIdSuspended.fromJSON(json?.asset);
+	}
+}

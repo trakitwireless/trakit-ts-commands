@@ -1,3 +1,4 @@
+import { AssetDispatch, nothing } from "@trakit/objects";
 import { Reply } from "../../API/Responses/Reply";
 
 /**
@@ -7,4 +8,12 @@ export class RepAssetDispatchGet extends Reply {
 	/**
 	 * The requested {@link AssetDispatch}.
 	 **/
-	assetDispatch: AssetDispatch;}
+	assetDispatch: AssetDispatch | nothing;
+
+	constructor(json?: any) {
+		super(json);
+		if (json?.assetDispatch) {
+			this.assetDispatch = new AssetDispatch(json.assetDispatch);
+		}
+	}
+}

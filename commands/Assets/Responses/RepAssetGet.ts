@@ -1,3 +1,4 @@
+import { Asset, nothing } from "@trakit/objects";
 import { Reply } from "../../API/Responses/Reply";
 
 /**
@@ -7,4 +8,12 @@ export class RepAssetGet extends Reply {
 	/**
 	 * The requested {@link Asset}.
 	 **/
-	asset: Asset;}
+	asset: Asset | nothing;
+
+	constructor(json?: any) {
+		super(json);
+		if (json?.asset) {
+			this.asset = new Asset(json.asset);
+		}
+	}
+}

@@ -1,4 +1,4 @@
-import { AssetAdvanced } from "@trakit/objects";
+import { AssetAdvanced, nothing } from "@trakit/objects";
 import { Reply } from "../../API/Responses/Reply";
 
 /**
@@ -8,10 +8,12 @@ export class RepAssetAdvancedGet extends Reply {
 	/**
 	 * The requested {@link AssetAdvanced}.
 	 **/
-	assetAdvanced: AssetAdvanced;
+	assetAdvanced: AssetAdvanced | nothing;
 
 	constructor(json?: any) {
 		super(json);
-		this.assetAdvanced = new AssetAdvanced(json?.assetAdvanced);
+		if (json?.assetAdvanced) {
+			this.assetAdvanced = new AssetAdvanced(json?.assetAdvanced);
+		}
 	}
 }
