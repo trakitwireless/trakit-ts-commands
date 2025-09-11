@@ -11,6 +11,10 @@ export class ParamBehaviourMerge extends ParamMergeSubscribable {
 	 **/
 	id: ulong | nothing;
 	/**
+	 * The {@link BehaviourScript} this {@link Behaviour} implements.
+	 **/
+	script: ulong | nothing;
+	/**
 	 * The {@link Company} to which this {@link Behaviour} belongs.
 	 * After creation, this value is read-only.
 	 **/
@@ -23,6 +27,22 @@ export class ParamBehaviourMerge extends ParamMergeSubscribable {
 	 * Notes for the {@link Behaviour}.
 	 **/
 	notes: string | nothing;
+
+
+
+
+
+
+
+
+// wtf
+
+
+
+
+
+
+
 	/**
 	 * A collection of other names this person might go by.
 	 * Use the object key like a name identifier.
@@ -96,8 +116,9 @@ export class ParamBehaviourMerge extends ParamMergeSubscribable {
 			json.id = this.id;
 			json.v = [...this.v];
 		} else {
-			json.company = this.company;
+			json.script = this.script;
 		}
+		if (this.company) json.company = this.company;
 		if (this.name) json.name = this.name;
 		if (this.notes) json.notes = this.notes;
 		if (this.otherNames) json.otherNames = serialization.fromMap(this.otherNames);

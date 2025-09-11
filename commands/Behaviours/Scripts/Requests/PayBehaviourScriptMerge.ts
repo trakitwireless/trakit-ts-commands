@@ -1,5 +1,6 @@
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
+import { ParamBehaviourScriptMerge } from "./Parameters/ParamBehaviourScriptMerge";
 
 /**
  * Creates a new or updates an existing {@link BehaviourScript}.
@@ -10,9 +11,15 @@ export class PayBehaviourScriptMerge extends Payload implements IPaySingle {
 	 **/
 	behaviourScript: ParamBehaviourScriptMerge;
 
+	constructor(json?: any) {
+		super(json);
+		this.behaviourScript = new ParamBehaviourScriptMerge(json?.behaviourScript);
+	}
+
 	/**
 	 * 
 	 **/
-		getKey(): string {
-			return  this.behaviourScript?.id?.toString() ?? "";
-		}}
+	getKey(): string {
+		return this.behaviourScript?.id?.toString() ?? "";
+	}
+}

@@ -1,3 +1,4 @@
+import { nothing, ulong } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
@@ -8,26 +9,26 @@ export class ParamBehaviourScriptMerge extends ParamMergeSubscribable {
 	 * The unique identifier of the {@link BehaviourScript} you want to update.
 	 * Leave this as `null` when creating a new {@link BehaviourScript}.
 	 **/
-	id: ulong | undefined;
+	id: ulong | nothing;
 	/**
 	 * The {@link Company} to which this {@link BehaviourScript} belongs.
 	 * After creation, this value is read-only.
 	 **/
-	company: ulong | undefined;
+	company: ulong | nothing;
 	/**
 	 * Name for the {@link BehaviourScript}.
 	 **/
-	name: string;
+	name: string | nothing;
 	/**
 	 * Notes for the {@link BehaviourScript}.
 	 **/
-	notes: string;
+	notes: string | nothing;
 	/**
 	 * A collection of other names this person might go by.
 	 * Use the object key like a name identifier.
 	 * Example keys: Initials, Nickname, Maiden Name, etc.
 	 **/
-	otherNames: Map<string, string>;
+	otherNames: Map<string, string | nothing> | nothing;
 	/**
 	 * Email addresses
 	 * Use the object key like a name of the address.
@@ -66,8 +67,10 @@ export class ParamBehaviourScriptMerge extends ParamMergeSubscribable {
 	/**
 	 * A list of roles they play in the {@link Company}.
 	 **/
-	roles: string[];
+	roles: string[] | nothing;
 	/**
 	 * {@link Picture}s of this {@link BehaviourScript}.
 	 **/
-	pictures: ulong[];}
+	pictures: ulong[] | nothing;
+	
+}
