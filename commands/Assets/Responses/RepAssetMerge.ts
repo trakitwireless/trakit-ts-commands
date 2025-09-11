@@ -7,7 +7,7 @@ import { nothing } from "@trakit/objects";
  **/
 export class RepAssetMerge extends Reply {
 	/**
-	 * An object which contains the `id</c> and <c>company` keys when there is no error.
+	 * An object which contains the `id` and `company` keys when there is no error.
 	 **/
 	asset: ContentIdCompany | nothing;
 

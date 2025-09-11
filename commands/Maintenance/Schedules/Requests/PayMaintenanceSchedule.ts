@@ -14,5 +14,5 @@ export abstract class PayMaintenanceSchedule extends Payload implements IPaySing
 	 * 
 	 **/
 		getKey(): string {
-			return  this.maintenanceSchedule?.id.toString() ?? "";
+			return  this.maintenanceSchedule?.id?.toString() ?? "";
 		}}

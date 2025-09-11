@@ -14,5 +14,5 @@ export abstract class PayCompany extends Payload implements IPaySingle {
 	 * 
 	 **/
 		getKey(): string {
-			return  this.company?.id.toString() ?? "";
+			return  this.company?.id?.toString() ?? "";
 		}}

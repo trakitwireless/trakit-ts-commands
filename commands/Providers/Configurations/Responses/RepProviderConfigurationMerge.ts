@@ -6,6 +6,6 @@ import { Reply } from "../../../API/Responses/Reply";
 	[Obsolete("Use RespProviderConfigMerge instead")]
 export class RepProviderConfigurationMerge extends Reply {
 	/**
-	 * An object which contains the `id</c> and <c>company` keys when there is no error.
+	 * An object which contains the `id` and `company` keys when there is no error.
 	 **/
 	providerConfiguration: ContentIdCompany;}

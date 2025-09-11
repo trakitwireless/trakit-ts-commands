@@ -14,5 +14,5 @@ export abstract class PayProviderConfig extends Payload implements IPaySingle {
 	 * 
 	 **/
 		getKey(): string {
-			return  this.providerConfig?.id.toString() ?? "";
+			return  this.providerConfig?.id?.toString() ?? "";
 		}}

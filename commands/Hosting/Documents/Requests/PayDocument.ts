@@ -14,5 +14,5 @@ export abstract class PayDocument extends Payload implements IPaySingle {
 	 * 
 	 **/
 		getKey(): string {
-			return  this.document?.id.toString() ?? "";
+			return  this.document?.id?.toString() ?? "";
 		}}

@@ -14,5 +14,5 @@ export abstract class PayReportSchedule extends Payload implements IPaySingle {
 	 * 
 	 **/
 		getKey(): string {
-			return  this.reportSchedule?.id.toString() ?? "";
+			return  this.reportSchedule?.id?.toString() ?? "";
 		}}

@@ -6,7 +6,7 @@ import { Reply } from "../../../API/Responses/Reply";
  **/
 export class RepFormTemplateMerge extends Reply {
 	/**
-	 * An object which contains the `id</c> and <c>company` keys when there is no error.
+	 * An object which contains the `id` and `company` keys when there is no error.
 
 	 **/
 	formTemplate: ContentIdCompany;}

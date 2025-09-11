@@ -174,7 +174,7 @@ export enum ErrorCode {
 	 **/
 	operationRunning = 109,
 	/**
-	 * The long-running operation has failed; see `message</c> and <c>errorDetails` for more information.
+	 * The long-running operation has failed; see `message` and `errorDetails` for more information.
 	 **/
 	operationFailed = 110,
 	/**

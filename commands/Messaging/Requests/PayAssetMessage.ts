@@ -14,5 +14,5 @@ export abstract class PayAssetMessage extends Payload implements IPaySingle {
 	 * 
 	 **/
 		getKey(): string {
-			return  this.assetMessage?.id.toString() ?? "";
+			return  this.assetMessage?.id?.toString() ?? "";
 		}}

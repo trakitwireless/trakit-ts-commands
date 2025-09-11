@@ -17,5 +17,5 @@ export abstract class PayFormTemplate extends Payload implements IPaySingle {
 
 	 **/
 		getKey(): string {
-			return  this.formTemplate?.id.toString() ?? "";
+			return  this.formTemplate?.id?.toString() ?? "";
 		}}

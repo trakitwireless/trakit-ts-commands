@@ -29,13 +29,13 @@ export class ParamDispatchTaskMerge extends ParamMergeSubscribable {
 	references: Map<string, string>;
 	/**
 	 * The street address of this {@link DispatchTask}.
-	 * Condition: You must provide a `place</c>, a <c>latlng</c>, or an <c>address`.
+	 * Condition: You must provide a `place`, a `latlng`, or an `address`.
 	 * Note: If you ommit the `address`, the geocoder attempts to populate the field, but will not return an error if it fails.
 	 **/
 	address: string;
 	/**
 	 * An optional identifier of a {@link Place} for this {@link DispatchTask}.  Using a {@link Place} makes detecting the "arrived" status more reliable.
-	 * Condition: You must provide a `place</c>, a <c>latlng</c>, or an <c>address`.
+	 * Condition: You must provide a `place`, a `latlng`, or an `address`.
 	 * Note: If you invoke the geocoder, the `address` is also replaced with the geocoded value.
 	 **/
 	place: ulong | undefined;
@@ -50,7 +50,7 @@ export class ParamDispatchTaskMerge extends ParamMergeSubscribable {
 	attachments: ulong[];
 	/**
 	 * The lat/long coordinates of the street address.
-	 * Condition: You must provide a `place</c>, a <c>latlng</c>, or an <c>address`.
+	 * Condition: You must provide a `place`, a `latlng`, or an `address`.
 	 * Note: If you invoke the geocoder, the `address` is also replaced with the geocoded value.
 	 **/
 	latlng: LatLng;
