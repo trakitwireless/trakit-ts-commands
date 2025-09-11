@@ -6,6 +6,17 @@ import { ContentIdendifier } from "./ContentIdendifier";
  **/
 export class ContentIdendifierCompany extends ContentIdendifier {
 	/**
+	 * Creates a {@link ContentIdendifierCompany} from a JSON object.
+	 * @param json - JSON object to create the {@link ContentIdendifierCompany} from.
+	 * @returns A {@link ContentIdendifierCompany} instance or nothing.
+	 */
+	static override fromJSON(json: any): ContentIdendifierCompany | nothing {
+		return json
+			? new ContentIdendifierCompany(json)
+			: null;
+	}
+
+	/**
 	 * Identifier of the {@link Company} to which this object belongs.
 	 **/
 	company: ulong | nothing;

@@ -6,6 +6,17 @@ import { ContentCode } from "./ContentCode";
  **/
 export class ContentCodeCompany extends ContentCode {
 	/**
+	 * Creates a {@link ContentCodeCompany} from a JSON object.
+	 * @param json - JSON object to create the {@link ContentCodeCompany} from.
+	 * @returns A {@link ContentCodeCompany} instance or nothing.
+	 */
+	static override fromJSON(json: any): ContentCodeCompany | nothing {
+		return json
+			? new ContentCodeCompany(json)
+			: null;
+	}
+
+	/**
 	 * Identifier of the {@link Company} to which this object belongs.
 	 **/
 	company: ulong | nothing;

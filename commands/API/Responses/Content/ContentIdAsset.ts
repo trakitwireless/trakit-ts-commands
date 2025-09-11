@@ -6,6 +6,17 @@ import { ContentIdCompany } from "./ContentIdCompany";
  **/
 export class ContentIdAsset extends ContentIdCompany {
 	/**
+	 * Creates a {@link ContentIdAsset} from a JSON object.
+	 * @param json - JSON object to create the {@link ContentIdAsset} from.
+	 * @returns A {@link ContentIdAsset} instance or nothing.
+	 */
+	static override fromJSON(json: any): ContentIdAsset | nothing {
+		return json
+			? new ContentIdAsset(json)
+			: null;
+	}
+
+	/**
 	 * Identifier of the {@link Asset} to which this object belongs
 	 **/
 	asset: ulong | nothing;

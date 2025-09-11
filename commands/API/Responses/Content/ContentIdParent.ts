@@ -6,6 +6,17 @@ import { ContentId } from "./ContentId";
  **/
 export class ContentIdParent extends ContentId {
 	/**
+	 * Creates a {@link ContentIdParent} from a JSON object.
+	 * @param json - JSON object to create the {@link ContentIdParent} from.
+	 * @returns A {@link ContentIdParent} instance or nothing.
+	 */
+	static override fromJSON(json: any): ContentIdParent | nothing {
+		return json
+			? new ContentIdParent(json)
+			: null;
+	}
+
+	/**
 	 * Identifier of the parent to which this company belongs
 	 **/
 	parent: ulong | nothing;

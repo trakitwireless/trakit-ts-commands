@@ -6,7 +6,23 @@ import { ContentIdCompany } from "./ContentIdCompany";
  **/
 export class ContentIdCompanyTemplate extends ContentIdCompany {
 	/**
+	 * Creates a {@link ContentIdCompanyTemplate} from a JSON object.
+	 * @param json - JSON object to create the {@link ContentIdCompanyTemplate} from.
+	 * @returns A {@link ContentIdCompanyTemplate} instance or nothing.
+	 */
+	static override fromJSON(json: any): ContentIdCompanyTemplate | nothing {
+		return json
+			? new ContentIdCompanyTemplate(json)
+			: null;
+	}
+
+	/**
 	 * Identifier of the template to which this object belongs.
 	 **/
 	template: ulong | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.template = json?.template;
+	}
 }

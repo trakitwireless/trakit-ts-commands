@@ -6,6 +6,17 @@ import { ContentIdendifierCompany } from "./ContentIdendifierCompany";
  **/
 export class ContentIdendifierAsset extends ContentIdendifierCompany {
 	/**
+	 * Creates a {@link ContentIdendifierAsset} from a JSON object.
+	 * @param json - JSON object to create the {@link ContentIdendifierAsset} from.
+	 * @returns A {@link ContentIdendifierAsset} instance or nothing.
+	 */
+	static override fromJSON(json: any): ContentIdendifierAsset | nothing {
+		return json
+			? new ContentIdendifierAsset(json)
+			: null;
+	}
+
+	/**
 	 * Identifier of the {@link Asset} to which this object belongs.
 	 * <remarks>
 	 * This value must remain nullable because Providers can have a null value for their asset member.
