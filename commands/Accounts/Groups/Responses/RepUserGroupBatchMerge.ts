@@ -1,3 +1,4 @@
+import { nothing } from "@trakit/objects";
 import { ContentIdCompany } from "../../../API/Responses/Content/ContentIdCompany";
 import { Reply } from "../../../API/Responses/Reply";
 
@@ -8,10 +9,10 @@ export class RepUserGroupBatchMerge extends Reply {
 	/**
 	 * The list of user groups to be merged.
 	 **/
-	userGroups: ContentIdCompany[];
+	userGroups: ContentIdCompany[] | nothing;
 
 	constructor(json?: any) {
 		super(json);
-		this.userGroups = (json?.["userGroups"] || []).map((ug: any) => new ContentIdCompany(ug));
+		this.userGroups = json.userGroups?.map((ug: any) => new ContentIdCompany(ug));
 	}
 }

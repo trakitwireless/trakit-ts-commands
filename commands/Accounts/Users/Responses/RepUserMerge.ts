@@ -1,5 +1,6 @@
 import { ContentIdCompany } from "commands/API/Responses/Content/ContentIdCompany";
 import { Reply } from "../../../API/Responses/Reply";
+import { nothing } from "@trakit/objects";
 
 /**
  * A container for the {@link user}.
@@ -8,10 +9,10 @@ export class RepUserMerge extends Reply {
 	/**
 	 * An object which contains the `id</c> and <c>company` keys when there is no error.
 	 **/
-	user: ContentIdCompany;
+	user: ContentIdCompany | nothing;
 
 	constructor(json?: any) {
 		super(json);
-		this.user = new ContentIdCompany(json?.user);
+		this.user = ContentIdCompany.fromJSON(json?.user);
 	}
 }

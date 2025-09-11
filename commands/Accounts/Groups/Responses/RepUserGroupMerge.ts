@@ -1,3 +1,4 @@
+import { nothing } from "@trakit/objects";
 import { ContentIdCompany } from "../../../API/Responses/Content/ContentIdCompany";
 import { Reply } from "../../../API/Responses/Reply";
 
@@ -6,12 +7,12 @@ import { Reply } from "../../../API/Responses/Reply";
  **/
 export class RepUserGroupMerge extends Reply {
 	/**
-	 * An object which contains the `id</c> and <c>company` keys when there is no error.
+	 * An object which contains the `id` and `company` keys when there is no error.
 	 **/
-	userGroup: ContentIdCompany;
+	userGroup: ContentIdCompany | nothing;
 
 	constructor(json?: any) {
 		super(json);
-		this.userGroup = new ContentIdCompany(json?.["userGroup"]);
+		this.userGroup = ContentIdCompany.fromJSON(json?.userGroup);
 	}
 }

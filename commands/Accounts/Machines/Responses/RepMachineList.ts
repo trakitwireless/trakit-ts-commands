@@ -1,4 +1,4 @@
-import { Machine } from "@trakit/objects";
+import { Machine, nothing } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 import { ContentId } from "commands/API/Responses/Content/ContentId";
 
@@ -9,11 +9,11 @@ export abstract class RepMachineList extends Reply {
 	/**
 	 * The list of requested {@link Machine}s.
 	 **/
-	machines: Machine[];
+	machines: Machine[] | nothing;
 
 	constructor(json: any) {
 		super(json);
-		this.machines = json?.machines.map((m: any) => new Machine(m)) ?? [];
+		this.machines = json?.machines?.map((m: any) => new Machine(m));
 	}
 }
 /**
@@ -23,10 +23,10 @@ export class RepMachineListByCompany extends RepMachineList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
-	company: ContentId;
+	company: ContentId | nothing;
 
 	constructor(json: any) {
 		super(json);
-		this.company = new ContentId(json?.company);
+		this.company = ContentId.fromJSON(json?.company);
 	}
 }

@@ -1,4 +1,4 @@
-import { UserGroup } from "@trakit/objects";
+import { nothing, UserGroup } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -8,10 +8,12 @@ export class RepUserGroupGet extends Reply {
 	/**
 	 * The requested {@link UserGroup}.
 	 **/
-	userGroup: UserGroup;
-	
+	userGroup: UserGroup | nothing;
+
 	constructor(json?: any) {
 		super(json);
-		this.userGroup = new UserGroup(json?.["userGroup"]);
+		if (json?.userGroup) {
+			this.userGroup = new UserGroup(json["userGroup"]);
+		}
 	}
 }

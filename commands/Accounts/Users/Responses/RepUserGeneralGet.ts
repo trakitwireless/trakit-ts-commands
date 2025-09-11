@@ -1,4 +1,4 @@
-import { UserGeneral } from "@trakit/objects";
+import { nothing, UserGeneral } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -8,10 +8,12 @@ export class RepUserGeneralGet extends Reply {
 	/**
 	 * The requested {@link User}.
 	 **/
-	userGeneral: UserGeneral;
+	userGeneral: UserGeneral | nothing;
 
 	constructor(json?: any) {
 		super(json);
-		this.userGeneral = new UserGeneral(json?.userGeneral);
+		if (json?.userGeneral) {
+			this.userGeneral = new UserGeneral(json.userGeneral);
+		}
 	}
 }

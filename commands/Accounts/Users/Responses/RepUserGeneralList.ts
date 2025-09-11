@@ -1,4 +1,4 @@
-import { serialization, UserGeneral } from "@trakit/objects";
+import { nothing, serialization, UserGeneral } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 import { ContentId } from "commands/API/Responses/Content/ContentId";
 
@@ -24,11 +24,11 @@ export class RepUserGeneralListByCompany extends RepUserGeneralList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
-	company: ContentId;
+	company: ContentId | nothing;
 
 	constructor(json: any) {
 		super(json);
-		this.company = new ContentId(json?.company);
+		this.company = ContentId.fromJSON(json?.company);
 	}
 }
 /**
