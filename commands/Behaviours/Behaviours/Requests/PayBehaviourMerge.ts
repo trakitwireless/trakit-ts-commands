@@ -1,5 +1,6 @@
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
+import { ParamBehaviourMerge } from "./Parameters/ParamBehaviourMerge";
 
 /**
  * Creates a new or updates an existing {@link Behaviour}.
@@ -10,9 +11,15 @@ export class PayBehaviourMerge extends Payload implements IPaySingle {
 	 **/
 	behaviour: ParamBehaviourMerge;
 
+	constructor(json?: any) {
+		super(json);
+		this.behaviour = new ParamBehaviourMerge(json?.behaviour);
+	}
+
 	/**
 	 * 
 	 **/
-		getKey(): string {
-			return  this.behaviour?.id?.toString() ?? "";
-		}}
+	getKey(): string {
+		return this.behaviour?.id?.toString() ?? "";
+	}
+}

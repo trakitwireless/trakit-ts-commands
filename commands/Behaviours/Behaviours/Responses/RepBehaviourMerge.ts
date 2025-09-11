@@ -1,10 +1,18 @@
+import { ContentIdCompany } from "commands/API/Responses/Content/ContentIdCompany";
 import { Reply } from "../../../API/Responses/Reply";
+import { nothing } from "@trakit/objects";
 
 /**
  * A container for the {@link behaviour}.
  **/
 export class RepBehaviourMerge extends Reply {
 	/**
-	 * An object which contains the `id</c> and <c>company` keys when there is no error.
+	 * An object which contains the `id` and `company` keys when there is no error.
 	 **/
-	behaviour: ContentIdCompany;}
+	behaviour: ContentIdCompany | nothing;
+
+	constructor(json?: any) {
+		super(json);
+		this.behaviour = ContentIdCompany.fromJSON(json?.behaviour);
+	}
+}
