@@ -12,6 +12,6 @@ export class PayUserGroupGet extends PayUserGroup implements IPayDeletable {
 	
 	constructor(json?: any) {
 		super(json);
-		this.includeDeleted = json?.["includeDeleted"] ?? false;
+		this.includeDeleted = json?.includeDeleted ?? false;
 	}
 }

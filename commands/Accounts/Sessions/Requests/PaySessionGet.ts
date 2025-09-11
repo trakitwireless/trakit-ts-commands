@@ -12,6 +12,6 @@ export class PaySessionGet extends Payload {
 
 	constructor(json: any) {
 		super(json);
-		this.session = new ParamHandle(json?.["session"]);
+		this.session = new ParamHandle(json?.session);
 	}
 }

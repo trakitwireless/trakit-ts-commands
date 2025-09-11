@@ -21,6 +21,6 @@ export abstract class PayUserGroup extends Payload implements IPaySingle {
 	 * 
 	 **/
 	getKey(): string {
-		return this.userGroup?.id.toString() ?? "";
+		return this.userGroup?.id?.toString() ?? "";
 	}
 }

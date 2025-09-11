@@ -13,6 +13,6 @@ export class PayUserGroupBatchDelete extends Payload {
 
 	constructor(json?: any) {
 		super(json);
-		this.userGroups = (json?.["userGroups"] || []).map((ug: any) => new ParamId(ug)) ?? [];
+		this.userGroups = (json?.userGroups || []).map((ug: any) => new ParamId(ug)) ?? [];
 	}
 }

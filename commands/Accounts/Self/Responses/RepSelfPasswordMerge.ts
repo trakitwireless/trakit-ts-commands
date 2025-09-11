@@ -16,7 +16,7 @@ export class RepSelfPasswordMerge extends Reply {
 
 	constructor(json: any) {
 		super(json);
-		this.expires = new Date(json?.["expires"]);
+		this.expires = new Date(json?.expires);
 		this.passwordPolicy = json["passwordPolicy"]
 			? PasswordPolicy.fromJSON(json["passwordPolicy"])
 			: null;

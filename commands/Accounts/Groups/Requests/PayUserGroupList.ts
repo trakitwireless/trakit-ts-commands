@@ -14,7 +14,7 @@ export abstract class PayUserGroupList extends Payload implements IPayDeletable 
 
 	constructor(json?: any) {
 		super(json);
-		this.includeDeleted = json?.["includeDeleted"] ?? false;
+		this.includeDeleted = json?.includeDeleted ?? false;
 	}
 }
 /**
@@ -28,6 +28,6 @@ export class PayUserGroupListByCompany extends PayUserGroupList implements IPayL
 
 	constructor(json?: any) {
 		super(json);
-		this.company = new ParamId(json?.["company"]);
+		this.company = new ParamId(json?.company);
 	}
 }

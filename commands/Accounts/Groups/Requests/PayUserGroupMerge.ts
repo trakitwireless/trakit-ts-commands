@@ -13,7 +13,7 @@ export class PayUserGroupMerge extends Payload implements IPaySingle {
 
 	constructor(json?: any) {
 		super(json);
-		this.userGroup = new ParamUserGroupMerge(json?.["userGroup"]);
+		this.userGroup = new ParamUserGroupMerge(json?.userGroup);
 	}
 
 	/**

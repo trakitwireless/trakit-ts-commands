@@ -20,6 +20,6 @@ export abstract class PayAsset extends Payload implements IPaySingle {
 	 * 
 	 **/
 	getKey(): string {
-		return this.asset?.id.toString() ?? "";
+		return this.asset?.id?.toString() ?? "";
 	}
 }

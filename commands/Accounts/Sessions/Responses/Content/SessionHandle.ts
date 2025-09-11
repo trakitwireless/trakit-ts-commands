@@ -27,6 +27,6 @@ export class SessionHandle {
 		this.handle = json?.handle ?? "";
 		this.company = json?.company;
 		this.login = json?.login ?? "";
-		this.expiry = utility.date(json?.["expiry"]);
+		this.expiry = utility.date(json?.expiry);
 	}
 }

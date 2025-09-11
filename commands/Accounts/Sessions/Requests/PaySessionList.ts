@@ -15,7 +15,7 @@ export class PaySessionListByCompany extends Payload implements IPayListByCompan
 
 	constructor(json: any) {
 		super(json);
-		this.company = new ParamId(json?.["company"]);
+		this.company = new ParamId(json?.company);
 	}
 }
 
@@ -30,6 +30,6 @@ export class PaySessionListByUser extends Payload implements IPayListByUser {
 
 	constructor(json: any) {
 		super(json);
-		this.user = new ParamLogin(json?.["user"]);
+		this.user = new ParamLogin(json?.user);
 	}
 }
