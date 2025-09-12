@@ -1,4 +1,4 @@
-import { nothing, ulong } from "@trakit/objects";
+import { BehaviourParameter, nothing, serialization, ulong } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
@@ -24,53 +24,69 @@ export class ParamBehaviourScriptMerge extends ParamMergeSubscribable {
 	 **/
 	notes: string | nothing;
 	/**
-	 * A collection of other names this person might go by.
-	 * Use the object key like a name identifier.
-	 * Example keys: Initials, Nickname, Maiden Name, etc.
-	 **/
-	otherNames: Map<string, string | nothing> | nothing;
+	 * The name of the symbol shown in the UI.
+	 */
+	graphic: string | nothing;
 	/**
-	 * Email addresses
-	 * Use the object key like a name of the address.
-	 * Example keys: Home, Work, Support, Old, etc.
-	 **/
-	emails: Map<string, string>;
+	 * Background and fill colour in the UI.
+	 */
+	fill: string | nothing;
 	/**
-	 * Phone numbers.
-	 * Use the object key like a name of the phone number.
-	 * Example keys: Mobile, Fax, Home, Office, etc.
-	 **/
-	phones: Map<string, ulong?>;
+	 * Text and outline colour in the UI.
+	 */
+	stroke: string | nothing;
 	/**
-	 * Mailing addresses
-	 * Use the object key like a name of the address.
-	 * Example keys: Home, Work, Park, etc.
-	 **/
-	addresses: Map<string, string>;
+	 * Source code of the {@link BehaviourScript}.
+	 */
+	source: string | nothing;
 	/**
-	 * Websites and other online resources
-	 * Use the object key like a name of the address.
-	 * Example keys: Downloads, Support, FTP, etc.
-	 **/
-	urls: Map<string, Uri>;
+	 * When set to true, this {@link Company} as well as all child companies will be able to implement this {@link BehaviourScript} for that companies assets.
+	 */
+	global: boolean | nothing;
 	/**
-	 * Date information
-	 * Use the object key like a name of the date.
-	 * Example keys: Birthday, Started Date, Retired On, etc.
-	 **/
-	dates: Map<string, Date?>;
+	 * A search pattern used to select the providers.
+	 */
+	filters: string | nothing;
 	/**
-	 * Uncategorized information
-	 * Use the object keys and values however you'd like.
-	 **/
-	options: Map<string, string>;
-	/**
-	 * A list of roles they play in the {@link Company}.
-	 **/
-	roles: string[] | nothing;
-	/**
-	 * {@link Picture}s of this {@link BehaviourScript}.
-	 **/
-	pictures: ulong[] | nothing;
-	
+	 * The defined arguments for this {@link BehaviourScript}.
+	 * Each key in the object is the name of an argument.
+	 */
+	parameters: Map<string, BehaviourParameter | nothing> | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.id = json?.id;
+		this.company = json?.company;
+		this.name = json?.name;
+		this.notes = json?.notes;
+		this.graphic = json?.graphic;
+		this.fill = json?.fill;
+		this.stroke = json?.stroke;
+		this.source = json?.source;
+		this.global = json?.global;
+		this.filters = json?.filters;
+		this.parameters = json?.parameters
+			? serialization.toMapPredicate(json.parameters, (key, value) => [key, value ? BehaviourParameter.fromJSON(value) : null])
+			: null;
+	}
+
+	override toJSON(): any {
+		const json: any = {};
+		if (this.id) {
+			json.id = this.id;
+			json.v = [...this.v];
+		} else {
+			json.company = this.company;
+		}
+		if (this.name) json.name = this.name;
+		if (this.notes) json.notes = this.notes;
+		if (this.graphic) json.graphic = this.graphic;
+		if (this.fill) json.fill = this.fill;
+		if (this.stroke) json.stroke = this.stroke;
+		if (this.source) json.source = this.source;
+		if (this.global) json.global = this.global;
+		if (this.filters) json.filters = this.filters;
+		if (this.parameters?.size) json.parameters = serialization.fromMapPredicate(this.parameters, (key, value) => [key, value?.toJSON() ?? null]);
+		return json;
+	}
 }
