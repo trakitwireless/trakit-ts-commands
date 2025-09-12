@@ -1,5 +1,4 @@
-import { serialization, utility } from "@trakit/objects";
-import { nothing, ulong } from "@trakit/objects/objects/API/Types";
+import { nothing, ulong, utility } from "@trakit/objects";
 import { ParamSelfContactMerge } from "commands/Accounts/Self/Requests/Parameters/ParamSelfContactMerge";
 
 /**
@@ -10,12 +9,12 @@ export class ParamContactMerge extends ParamSelfContactMerge {
 	 * The unique identifier of the {@link Contact} you want to update.
 	 * Leave this as `null` when creating a new {@link Contact}.
 	 **/
-	id: ulong | undefined;
+	id: ulong | nothing;
 	/**
 	 * The {@link Company} to which this {@link Contact} belongs.
 	 * After creation, this value is read-only.
 	 **/
-	company: ulong | undefined;
+	company: ulong | nothing;
 
 	constructor(json: any) {
 		super(json);

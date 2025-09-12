@@ -1,5 +1,6 @@
+import { Contact, nothing } from "@trakit/objects";
 import { Reply } from "../../API/Responses/Reply";
-import { RepContactList } from "./RepContactList";
+import { ContentId } from "commands/API/Responses/Content/ContentId";
 
 /**
  * A container for the requested {@link contacts}.
@@ -8,8 +9,13 @@ export abstract class RepContactList extends Reply {
 	/**
 	 * The list of requested {@link Contact}s.
 	 **/
-	contacts: Contact[];
+	contacts: Contact[] | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.contacts = json?.contacts?.map((c: any) => new Contact(c)) ?? [];
 	}
+}
 
 /**
  * Contains the {@link Company.id} of the collection.
@@ -18,4 +24,10 @@ export class RepContactListByCompany extends RepContactList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
-	company: ContentId;}
+	company: ContentId | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.company = ContentId.fromJSON(json?.company);
+	}
+}
