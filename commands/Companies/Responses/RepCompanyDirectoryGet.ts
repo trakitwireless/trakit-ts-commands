@@ -1,3 +1,4 @@
+import { CompanyDirectory, nothing } from "@trakit/objects";
 import { Reply } from "../../API/Responses/Reply";
 
 /**
@@ -7,4 +8,12 @@ export class RepCompanyDirectoryGet extends Reply {
 	/**
 	 * The requested {@link CompanyDirectory}.
 	 **/
-	companyDirectory: CompanyDirectory;}
+	companyDirectory: CompanyDirectory | nothing;
+
+	constructor(json: any) {
+		super(json);
+		if (json?.companyDirectory) {
+			this.companyDirectory = new CompanyDirectory(json.companyDirectory);
+		}
+	}
+}

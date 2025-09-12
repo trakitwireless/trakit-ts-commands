@@ -1,3 +1,4 @@
+import { CompanyReseller, nothing } from "@trakit/objects";
 import { Reply } from "../../API/Responses/Reply";
 
 /**
@@ -7,4 +8,12 @@ export class RepCompanyResellerGet extends Reply {
 	/**
 	 * The requested {@link CompanyReseller}.
 	 **/
-	companyReseller: CompanyReseller;}
+	companyReseller: CompanyReseller | nothing;
+
+	constructor(json: any) {
+		super(json);
+		if (json?.companyReseller) {
+			this.companyReseller = new CompanyReseller(json.companyReseller);
+		}
+	}
+}

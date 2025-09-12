@@ -1,7 +1,7 @@
 import { Reply } from "../../API/Responses/Reply";
-import { RepCompanyList } from "./RepCompanyList";
-import { RepCompanyListByCompany } from "./RepCompanyList";
 import { IPayListByReferences } from "../../API/Requests/IPayListByReferences";
+import { Company, nothing, serialization } from "@trakit/objects";
+import { ContentId } from "commands/API/Responses/Content/ContentId";
 
 /**
  * A container for the requested {@link companies}.
@@ -10,8 +10,13 @@ export abstract class RepCompanyList extends Reply {
 	/**
 	 * The list of requested {@link Company}s.
 	 **/
-	companies: Company[];
+	companies: Company[] | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.companies = json?.companies?.map((c: any) => new Company(c));
 	}
+}
 
 /**
  * Contains the {@link Company.id} of the collection.
@@ -20,14 +25,28 @@ export class RepCompanyListByCompany extends RepCompanyList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
-	company: ContentId;
+	company: ContentId | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.company = ContentId.fromJSON(json?.company);
 	}
+}
+
 /**
  * Contains the {@link Company.id} of the collection.
  **/
-export class RepCompanyListByCompanyAndRefPairs extends RepCompanyListByCompany implements IPayListByReferences {
+export class RepCompanyListByCompanyAndRefPairs extends RepCompanyListByCompany {
 	/**
 	 * The parsed references given as input.
 	 * @see {@link CompanyGeneral.references}
 	 **/
-	references: Map<string, string>;}
+	references: Map<string, string> | nothing;
+
+	constructor(json: any) {
+		super(json);
+		if (json?.references) {
+			this.references = serialization.toMap(json.references);
+		}
+	}
+}

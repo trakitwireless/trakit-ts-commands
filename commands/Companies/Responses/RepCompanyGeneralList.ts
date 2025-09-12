@@ -1,6 +1,6 @@
+import { CompanyGeneral, nothing, serialization } from "@trakit/objects";
 import { Reply } from "../../API/Responses/Reply";
-import { RepCompanyGeneralList } from "./RepCompanyGeneralList";
-import { RepCompanyGeneralListByCompany } from "./RepCompanyGeneralList";
+import { ContentId } from "commands/API/Responses/Content/ContentId";
 
 /**
  * A container for the requested {@link companyGenerals}.
@@ -9,8 +9,13 @@ export abstract class RepCompanyGeneralList extends Reply {
 	/**
 	 * The list of requested {@link CompanyGeneral}s.
 	 **/
-	companyGenerals: CompanyGeneral[];
+	companyGenerals: CompanyGeneral[] | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.companyGenerals = json?.companyGenerals?.map((c: any) => new CompanyGeneral(c));
 	}
+}
 
 /**
  * A container owner {@link Company} of the collection.
@@ -19,8 +24,13 @@ export class RepCompanyGeneralListByCompany extends RepCompanyGeneralList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
-	company: ContentId;
+	company: ContentId | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.company = ContentId.fromJSON(json?.company);
 	}
+}
 /**
  * A container owner {@link Company} of the collection.
  **/
@@ -29,8 +39,13 @@ export class RepCompanyGeneralListByCompanyAndLabels extends RepCompanyGeneralLi
 	 * The labels given as input.
 	 * @see {@link CompanyGeneral.labels}
 	 **/
-	labels: string[];
+	labels: string[] | nothing;
+	
+	constructor(json: any) {
+		super(json);
+		this.labels = json?.labels;
 	}
+}
 /**
  * A container owner {@link Company} of the collection.
  **/
@@ -39,4 +54,12 @@ export class RepCompanyGeneralListByCompanyAndRefPairs extends RepCompanyGeneral
 	 * The reference string given as input.
 	 * @see {@link CompanyGeneral.references}
 	 **/
-	references: Map<string, string>;}
+	references: Map<string, string> | nothing;
+
+	constructor(json: any) {
+		super(json);
+		if (json?.references) {
+			this.references = serialization.toMap(json.references);
+		}
+	}
+}
