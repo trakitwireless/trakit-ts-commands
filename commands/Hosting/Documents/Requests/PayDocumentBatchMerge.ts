@@ -1,4 +1,5 @@
 import { Payload } from "../../../API/Requests/Payload";
+import { ParamDocumentMerge } from "./Parameters/ParamDocumentMerge";
 
 /**
  * 
@@ -7,4 +8,10 @@ export class PayDocumentBatchMerge extends Payload {
 	/**
 	 * 
 	 **/
-	documents: ParamDocumentMerge[];}
+	documents: ParamDocumentMerge[];
+
+	constructor(json: any) {
+		super(json);
+		this.documents = (json?.documents ?? []).map((d: any) => new ParamDocumentMerge(d));
+	}
+}

@@ -1,5 +1,6 @@
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
+import { ParamId } from "commands/API/Requests/Parameters/ParamId";
 
 /**
  * A container for the {@link document} object.
@@ -10,9 +11,15 @@ export abstract class PayDocument extends Payload implements IPaySingle {
 	 **/
 	document: ParamId;
 
+	constructor(json: any) {
+		super(json);
+		this.document = new ParamId(json?.document);
+	}
+	
 	/**
 	 * 
 	 **/
-		getKey(): string {
-			return  this.document?.id?.toString() ?? "";
-		}}
+	getKey(): string {
+		return this.document?.id?.toString() ?? "";
+	}
+}
