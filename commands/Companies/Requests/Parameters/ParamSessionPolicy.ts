@@ -1,3 +1,4 @@
+import { byte, nothing, SessionMultiUser, ushort } from "@trakit/objects";
 import { ParamMerge } from "../../../API/Requests/Parameters/ParamMerge";
 
 /**
@@ -7,24 +8,49 @@ export class ParamSessionPolicy extends ParamMerge {
 	/**
 	 * The list of applications users are allowed to use to create sessions.
 	 **/
-	applications: string[];
+	applications: string[] | nothing;
 	/**
 	 * Restrict session creation to only the provided IPv4 ranges (using CIDR slash-notation).  Leave blank for Internet access.
 	 **/
-		public string[] ipv4Ranges;
+	ipv4Ranges: string[] | nothing;
 	/**
 	 * Defines the behaviour of the system when a user creates multiple sessions.
 	 **/
-	multiUser: SessionMultiUser | undefined;
+	multiUser: SessionMultiUser | nothing;
 	/**
 	 * Defines whether a session should be automatically killed when the connection breaks.
 	 **/
-	idleAllowed: boolean | undefined;
+	idleAllowed: boolean | nothing;
 	/**
 	 * The lifetime duration of a session in minutes.
 	 **/
-	expireTimeout: ushort | undefined;
+	expireTimeout: ushort | nothing;
 	/**
 	 * The maximum number of sessions allowed per user.
 	 **/
-	maxSessions: byte | undefined;}
+	maxSessions: byte | nothing;
+
+	constructor(json: any) {
+		super();
+		this.applications = json?.applications;
+		this.ipv4Ranges = json?.ipv4Ranges;
+		this.multiUser = json?.multiUser;
+		this.idleAllowed = json?.idleAllowed;
+		this.expireTimeout = json?.expireTimeout;
+		this.maxSessions = json?.maxSessions;
+	}
+
+	/**
+	 * Converts the parameter values to a JSON-compatible format.
+	 **/
+	override toJSON(): any {
+		const json: any = {};
+		if (this.applications) json.applications = this.applications;
+		if (this.ipv4Ranges) json.ipv4Ranges = this.ipv4Ranges;
+		if (this.multiUser) json.multiUser = this.multiUser;
+		if (this.idleAllowed) json.idleAllowed = this.idleAllowed;
+		if (this.expireTimeout) json.expireTimeout = this.expireTimeout;
+		if (this.maxSessions) json.maxSessions = this.maxSessions;
+		return json;
+	}
+}

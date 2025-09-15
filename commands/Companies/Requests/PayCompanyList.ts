@@ -1,9 +1,9 @@
 import { Payload } from "../../API/Requests/Payload";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
-import { PayCompanyList } from "./PayCompanyList";
 import { IPayListByCompany } from "../../API/Requests/IPayListByCompany";
-import { PayCompanyListByCompany } from "./PayCompanyList";
 import { IPayListByReferences } from "../../API/Requests/IPayListByReferences";
+import { ParamId } from "commands/API/Requests/Parameters/ParamId";
+import { serialization } from "@trakit/objects";
 
 /**
  * Gets details of the specified {@link company}.
@@ -22,7 +22,15 @@ export abstract class PayCompanyList extends Payload implements IPayDeletable {
 	 * When true, the command will also return  deleted {@link Company}s.
 	 **/
 	includeDeleted: boolean;
+
+	constructor(json: any) {
+		super();
+		this.tree = json?.tree ?? true;
+		this.includeParent = json?.includeParent ?? false;
+		this.includeDeleted = json?.includeDeleted ?? false;
 	}
+}
+
 /**
  * Contains the {@link Company.id} of the collection.
  **/
@@ -31,7 +39,12 @@ export class PayCompanyListByCompany extends PayCompanyList implements IPayListB
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
 	company: ParamId;
+
+	constructor(json: any) {
+		super(json);
+		this.company = new ParamId(json?.company);
 	}
+}
 /**
  * Contains the {@link Company.id} of the collection.
  **/
@@ -40,4 +53,12 @@ export class PayCompanyListByCompanyAndRefPairs extends PayCompanyListByCompany 
 	 * Case-insensitive reference pairs used to match {@link Company}s.
 	 * @see {@link CompanyGeneral.references}
 	 **/
-	references: Map<string, string>;}
+	references: Map<string, string>;
+
+	constructor(json: any) {
+		super(json);
+		this.references = json?.references
+			? serialization.toMap(json.references)
+			: new Map<string, string>();
+	}
+}

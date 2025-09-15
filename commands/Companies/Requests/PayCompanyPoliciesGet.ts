@@ -8,4 +8,10 @@ export class PayCompanyPoliciesGet extends PayCompany implements IPayDeletable {
 	/**
 	 * When true, the command will also return a deleted {@link CompanyPolicies} (if it exists).
 	 **/
-	includeDeleted: boolean;}
+	includeDeleted: boolean;
+
+	constructor(json: any) {
+		super(json);
+		this.includeDeleted = json?.includeDeleted ?? false;
+	}
+}
