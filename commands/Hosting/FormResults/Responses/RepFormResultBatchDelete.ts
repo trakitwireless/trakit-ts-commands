@@ -4,8 +4,7 @@ import { ContentIdDeleted } from "commands/API/Responses/Content/ContentIdDelete
 
 /**
  * A container for the {@link formResult}.
-
- **/
+ */
 export class RepFormResultBatchDelete extends Reply {
 	/**
 	 * Details about deleting/restoring the requested {@link FormResult}.

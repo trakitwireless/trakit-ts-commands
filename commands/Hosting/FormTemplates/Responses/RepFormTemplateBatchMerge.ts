@@ -4,13 +4,11 @@ import { nothing } from "@trakit/objects";
 
 /**
  * 
-
- **/
+ */
 export class RepFormTemplateBatchMerge extends Reply {
 	/**
 	 * 
-
-	 **/
+	 */
 	formTemplates: ContentIdCompany[] | nothing;
 
 	constructor(json: any) {

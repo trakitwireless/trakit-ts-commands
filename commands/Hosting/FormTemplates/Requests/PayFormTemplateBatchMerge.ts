@@ -1,4 +1,5 @@
 import { Payload } from "../../../API/Requests/Payload";
+import { ParamFormTemplateMerge } from "./Parameters/ParamFormTemplateMerge";
 
 /**
  * 

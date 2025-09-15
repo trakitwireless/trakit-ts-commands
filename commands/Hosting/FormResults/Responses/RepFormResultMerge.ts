@@ -4,13 +4,11 @@ import { ContentIdCompany } from "commands/API/Responses/Content/ContentIdCompan
 
 /**
  * A container for the {@link formResult}.
-
- **/
+ */
 export class RepFormResultMerge extends Reply {
 	/**
 	 * An object which contains the `id` and `company` keys when there is no error.
-
-	 **/
+	 */
 	formResult: ContentIdCompany | nothing;
 
 	constructor(json: any) {

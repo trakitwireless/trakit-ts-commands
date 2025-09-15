@@ -4,13 +4,11 @@ import { Reply } from "../../../API/Responses/Reply";
 
 /**
  * A container for the requested {@link formResults}.
-
- **/
+ */
 export abstract class RepFormResultList extends Reply {
 	/**
 	 * The list of requested {@link FormResult}s.
-
-	 **/
+	 */
 	formResults: FormResult[] | nothing;
 
 	constructor(json: any) {
@@ -21,13 +19,11 @@ export abstract class RepFormResultList extends Reply {
 
 /**
  * Contains the {@link Company.id} of the collection.
-
- **/
+ */
 export class RepFormResultListByCompany extends RepFormResultList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-
-	 **/
+	 */
 	company: ContentId | nothing;
 
 	constructor(json: any) {

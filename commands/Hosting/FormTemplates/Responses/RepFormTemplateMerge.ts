@@ -4,13 +4,11 @@ import { ContentIdCompany } from "commands/API/Responses/Content/ContentIdCompan
 
 /**
  * A container for the {@link formTemplate}.
-
- **/
+ */
 export class RepFormTemplateMerge extends Reply {
 	/**
 	 * An object which contains the `id` and `company` keys when there is no error.
-
-	 **/
+	 */
 	formTemplate: ContentIdCompany | nothing;
 
 	constructor(json: any) {
