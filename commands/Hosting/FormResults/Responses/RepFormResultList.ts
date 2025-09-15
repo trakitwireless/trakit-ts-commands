@@ -1,5 +1,6 @@
+import { FormResult, nothing } from "@trakit/objects";
+import { ContentId } from "commands/API/Responses/Content/ContentId";
 import { Reply } from "../../../API/Responses/Reply";
-import { RepFormResultList } from "./RepFormResultList";
 
 /**
  * A container for the requested {@link formResults}.
@@ -10,8 +11,13 @@ export abstract class RepFormResultList extends Reply {
 	 * The list of requested {@link FormResult}s.
 
 	 **/
-	formResults: FormResult[];
+	formResults: FormResult[] | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.formResults = json?.formResults?.map((item: any) => new FormResult(item));
 	}
+}
 
 /**
  * Contains the {@link Company.id} of the collection.
@@ -22,4 +28,10 @@ export class RepFormResultListByCompany extends RepFormResultList {
 	 * Identifier of the {@link Company} to which this collection belongs.
 
 	 **/
-	company: ContentId;}
+	company: ContentId | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.company = ContentId.fromJSON(json?.company);
+	}
+}
