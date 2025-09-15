@@ -1,5 +1,6 @@
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
+import { ParamId } from "commands/API/Requests/Parameters/ParamId";
 
 /**
  * A container for the {@link dispatchTask} object.
@@ -10,9 +11,14 @@ export abstract class PayDispatchTask extends Payload implements IPaySingle {
 	 **/
 	dispatchTask: ParamId;
 
+	constructor(json: any) {
+		super(json);
+		this.dispatchTask = new ParamId(json?.dispatchTask);
+	}
 	/**
 	 * 
 	 **/
-		getKey(): string {
-			return  this.dispatchTask?.id?.toString() ?? "";
-		}}
+	getKey(): string {
+		return this.dispatchTask?.id?.toString() ?? "";
+	}
+}

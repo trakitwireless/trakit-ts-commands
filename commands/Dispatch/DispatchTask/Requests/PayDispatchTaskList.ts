@@ -1,11 +1,10 @@
-import { Payload } from "../../../API/Requests/Payload";
+import { ParamId } from "commands/API/Requests/Parameters/ParamId";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
-import { PayDispatchTaskList } from "./PayDispatchTaskList";
 import { IPayListByAsset } from "../../../API/Requests/IPayListByAsset";
-import { PayDispatchTaskListByAsset } from "./PayDispatchTaskList";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
-import { PayDispatchTaskListByCompany } from "./PayDispatchTaskList";
 import { IPayListByReferences } from "../../../API/Requests/IPayListByReferences";
+import { Payload } from "../../../API/Requests/Payload";
+import { serialization } from "@trakit/objects";
 
 /**
  * 
@@ -15,7 +14,12 @@ export abstract class PayDispatchTaskList extends Payload implements IPayDeletab
 	 * When true, the command will also return  deleted {@link DispatchTask}s.
 	 **/
 	includeDeleted: boolean;
+
+	constructor(json: any) {
+		super(json);
+		this.includeDeleted = json?.includeDeleted ?? false;
 	}
+}
 
 /**
  * Gets the list of {@link DispatchTask}s for the specified {@link Asset}.
@@ -25,7 +29,12 @@ export class PayDispatchTaskListByAsset extends PayDispatchTaskList implements I
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
 	asset: ParamId;
+
+	constructor(json: any) {
+		super(json);
+		this.asset = new ParamId(json?.asset);
 	}
+}
 /**
  * Gets the list of {@link DispatchTask}s for the specified {@link Asset} only if the specified reference fields match.
  * If no references are specified, it will match any {@link DispatchTask} with no references.
@@ -37,8 +46,14 @@ export class PayDispatchTaskListByAssetAndRefPairs extends PayDispatchTaskListBy
 	 * @see {@link DispatchTask.references}
 	 **/
 	references: Map<string, string>;
-	}
 
+	constructor(json: any) {
+		super(json);
+		this.references = json?.references
+			? serialization.toMap(json.references)
+			: new Map<string, string>();
+	}
+}
 /**
  * Gets the list of {@link DispatchTask}s for the specified {@link Company}.
  **/
@@ -47,7 +62,12 @@ export class PayDispatchTaskListByCompany extends PayDispatchTaskList implements
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
 	company: ParamId;
+
+	constructor(json: any) {
+		super(json);
+		this.company = new ParamId(json?.company);
 	}
+}
 /**
  * Gets the list of {@link DispatchTask}s for the specified {@link Company} only if the specified reference fields match.
  * If no references are specified, it will match any {@link DispatchTask} with no references.
@@ -58,4 +78,12 @@ export class PayDispatchTaskListByCompanyAndRefPairs extends PayDispatchTaskList
 	 * Case-insensitive reference pairs used to match jobs.
 	 * @see {@link DispatchTask.references}
 	 **/
-	references: Map<string, string>;}
+	references: Map<string, string>;
+
+	constructor(json: any) {
+		super(json);
+		this.references = json?.references
+			? serialization.toMap(json.references)
+			: new Map<string, string>();
+	}
+}

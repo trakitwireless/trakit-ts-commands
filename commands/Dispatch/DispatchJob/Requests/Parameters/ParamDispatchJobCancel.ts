@@ -1,3 +1,4 @@
+import { nothing, ulong } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
@@ -12,9 +13,26 @@ export class ParamDispatchJobCancel extends ParamMergeSubscribable {
 	 * The reason the {@link DispatchJob} was cancelled.
 	 * The given value is added as a {@link DispatchJob.references} with the key `cancelled`.
 	 **/
-	reason: string;
+	reason: string | nothing;
 	/**
 	 * The codified status tag names reflecting the conditions of the {@link DispatchJob}.
 	 * A new tag `cancelled` is always added.
 	 **/
-	tags: string[];}
+	tags: string[] | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.id = json?.id;
+		this.reason = json?.reason;
+		this.tags = json?.tags;
+	}
+
+	override toJSON(): any {
+		const json: any = {
+			id: this.id,
+		};
+		if (this.reason) json.reason = this.reason;
+		if (this.tags?.length) json.tags = [...this.tags];
+		return json;
+	}
+}

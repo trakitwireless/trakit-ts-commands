@@ -1,5 +1,6 @@
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
+import { ParamDispatchJobChange } from "./Parameters/ParamDispatchJobChange";
 
 /**
  * Completes or modifies an existing {@link DispatchJob} from a driver's perspective.
@@ -11,9 +12,15 @@ export class PayDispatchJobChange extends Payload implements IPaySingle {
 	 **/
 	dispatchJob: ParamDispatchJobChange;
 
+	constructor(json: any) {
+		super(json);
+		this.dispatchJob = new ParamDispatchJobChange(json?.dispatchJob);
+	}
+
 	/**
 	 * 
 	 **/
-		getKey(): string {
-			return  this.dispatchJob?.id?.toString() ?? "";
-		}}
+	getKey(): string {
+		return this.dispatchJob?.id?.toString() ?? "";
+	}
+}

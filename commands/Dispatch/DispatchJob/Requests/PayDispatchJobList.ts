@@ -1,13 +1,11 @@
-import { Payload } from "../../../API/Requests/Payload";
+import { ParamId } from "commands/API/Requests/Parameters/ParamId";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
-import { PayDispatchJobList } from "./PayDispatchJobList";
 import { IPayListByAsset } from "../../../API/Requests/IPayListByAsset";
-import { PayDispatchJobListByAsset } from "./PayDispatchJobList";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
-import { PayDispatchJobListByCompany } from "./PayDispatchJobList";
 import { IPayListByLabels } from "../../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../../API/Requests/IPayListByReferences";
-import { PayDispatchJobListByUnassigned } from "./PayDispatchJobList";
+import { Payload } from "../../../API/Requests/Payload";
+import { serialization } from "@trakit/objects";
 
 /**
  * 
@@ -17,7 +15,12 @@ export abstract class PayDispatchJobList extends Payload implements IPayDeletabl
 	 * When true, the command will also return  deleted {@link DispatchJob}s.
 	 **/
 	includeDeleted: boolean;
+
+	constructor(json: any) {
+		super(json);
+		this.includeDeleted = json?.includeDeleted ?? false;
 	}
+}
 
 /**
  * Gets the list of {@link DispatchJob}s for the specified {@link Asset}.
@@ -27,7 +30,12 @@ export class PayDispatchJobListByAsset extends PayDispatchJobList implements IPa
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
 	asset: ParamId;
+
+	constructor(json: any) {
+		super(json);
+		this.asset = new ParamId(json?.asset);
 	}
+}
 /**
  * Gets the list of {@link DispatchJob}s for the specified {@link Asset} only if the specified reference fields match.
  * If no references are specified, it will match any {@link DispatchJob} with no references.
@@ -39,7 +47,14 @@ export class PayDispatchJobListByAssetAndRefPairs extends PayDispatchJobListByAs
 	 * @see {@link DispatchJob.references}
 	 **/
 	references: Map<string, string>;
+
+	constructor(json: any) {
+		super(json);
+		this.references = json?.references
+			? serialization.toMap(json.references)
+			: new Map<string, string>();
 	}
+}
 
 /**
  * Gets the list of {@link DispatchJob}s for the specified {@link Company}.
@@ -49,7 +64,12 @@ export class PayDispatchJobListByCompany extends PayDispatchJobList implements I
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
 	company: ParamId;
+
+	constructor(json: any) {
+		super(json);
+		this.company = new ParamId(json?.company);
 	}
+}
 /**
  * Gets the list of {@link DispatchJob}s for the specified {@link Company} only if the {@link DispatchJob.labels} matches all of the given {@link labels}.
  **/
@@ -59,7 +79,12 @@ export class PayDispatchJobListByCompanyAndLabels extends PayDispatchJobListByCo
 	 * All labels must match to include a {@link DispatchJob} in the result.
 	 **/
 	labels: string[];
+
+	constructor(json: any) {
+		super(json);
+		this.labels = json?.labels ?? [];
 	}
+}
 /**
  * Gets the list of {@link DispatchJob}s for the specified {@link Company} only if the specified reference fields match.
  * If no references are specified, it will match any {@link DispatchJob} with no references.
@@ -71,7 +96,14 @@ export class PayDispatchJobListByCompanyAndRefPairs extends PayDispatchJobListBy
 	 * @see {@link DispatchJob.references}
 	 **/
 	references: Map<string, string>;
+
+	constructor(json: any) {
+		super(json);
+		this.references = json?.references
+			? serialization.toMap(json.references)
+			: new Map<string, string>();
 	}
+}
 
 /**
  * Gets the list of {@link DispatchJob}s for the specified {@link Company} which are not assigned to an {@link Asset}.
@@ -86,7 +118,12 @@ export class PayDispatchJobListByUnassignedAndLabels extends PayDispatchJobListB
 	 * All labels must match to include a {@link DispatchJob} in the result.
 	 **/
 	labels: string[];
+
+	constructor(json: any) {
+		super(json);
+		this.labels = json?.labels ?? [];
 	}
+}
 /**
  * Gets the list of {@link DispatchJob}s for the specified {@link Company} which are not assigned to an {@link Asset}, only if the specified reference fields match.
  * If no references are specified, it will match any {@link DispatchJob} with no references.
@@ -97,4 +134,12 @@ export class PayDispatchJobListByUnassignedAndRefPairs extends PayDispatchJobLis
 	 * Case-insensitive reference pairs used to match jobs.
 	 * @see {@link DispatchJob.references}
 	 **/
-	references: Map<string, string>;}
+	references: Map<string, string>;
+
+	constructor(json: any) {
+		super(json);
+		this.references = json?.references
+			? serialization.toMap(json.references)
+			: new Map<string, string>();
+	}
+}
