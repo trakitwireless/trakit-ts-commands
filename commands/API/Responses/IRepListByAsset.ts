@@ -1,3 +1,4 @@
+import { nothing } from "@trakit/objects";
 import { ContentId } from "./Content/ContentId";
 
 /**
@@ -7,5 +8,5 @@ export interface IRepListByAsset {
 	/**
 	 * The asset to filter the list by.
 	 **/
-	asset: ContentId;
+	asset: ContentId | nothing;
 }

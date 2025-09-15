@@ -1,10 +1,9 @@
-import { Reply } from "../../../API/Responses/Reply";
-import { RepDispatchTaskList } from "./RepDispatchTaskList";
+import { DispatchTask, nothing, serialization } from "@trakit/objects";
 import { IRepListByAsset } from "../../../API/Responses/IRepListByAsset";
-import { RepDispatchTaskListByAsset } from "./RepDispatchTaskList";
 import { IRepListByCompany } from "../../../API/Responses/IRepListByCompany";
-import { RepDispatchTaskListByCompany } from "./RepDispatchTaskList";
 import { IRepListByReferences } from "../../../API/Responses/IRepListByReferences";
+import { Reply } from "../../../API/Responses/Reply";
+import { ContentId } from "commands/API/Responses/Content/ContentId";
 
 /**
  * A container for the requested {@link dispatchTasks}.
@@ -13,8 +12,13 @@ export abstract class RepDispatchTaskList extends Reply {
 	/**
 	 * The list of requested {@link DispatchTask}s.
 	 **/
-	dispatchTasks: DispatchTask[];
+	dispatchTasks: DispatchTask[] | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.dispatchTasks = json?.dispatchTasks?.map((dt: any) => new DispatchTask(dt));
 	}
+}
 
 /**
  * 
@@ -23,8 +27,13 @@ export class RepDispatchTaskListByAsset extends RepDispatchTaskList implements I
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
-	asset: ContentId;
+	asset: ContentId | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.asset = ContentId.fromJSON(json?.asset);
 	}
+}
 /**
  * 
  **/
@@ -33,9 +42,15 @@ export class RepDispatchTaskListByAssetAndRefPairs extends RepDispatchTaskListBy
 	 * Case-insensitive reference pairs used to match jobs.
 	 * @see {@link DispatchTask.references}
 	 **/
-	references: Map<string, string>;
+	references: Map<string, string> | nothing;
+	
+	constructor(json: any) {
+		super(json);
+		this.references = json?.references
+			? serialization.toMap(json.references)
+			: null;
 	}
-
+}
 /**
  * 
  **/
@@ -43,8 +58,13 @@ export class RepDispatchTaskListByCompany extends RepDispatchTaskList implements
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
-	company: ContentId;
+	company: ContentId | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.company = ContentId.fromJSON(json?.company);
 	}
+}
 /**
  * 
  **/
@@ -53,4 +73,12 @@ export class RepDispatchTaskListByCompanyAndRefPairs extends RepDispatchTaskList
 	 * Case-insensitive reference pairs used to match jobs.
 	 * @see {@link DispatchTask.references}
 	 **/
-	references: Map<string, string>;}
+	references: Map<string, string> | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.references = json?.references
+			? serialization.toMap(json.references)
+			: null;
+	}
+}

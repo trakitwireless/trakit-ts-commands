@@ -1,3 +1,5 @@
+import { nothing } from "@trakit/objects";
+import { ContentIdDeleted } from "commands/API/Responses/Content/ContentIdDeleted";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -7,4 +9,10 @@ export class RepDispatchTaskBatchDeleted extends Reply {
 	/**
 	 * Details about deleting/restoring the requested {@link DispatchTask}.
 	 **/
-	dispatchTasks: ContentIdDeleted[];}
+	dispatchTasks: ContentIdDeleted[] | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.dispatchTasks = json?.dispatchTasks?.map((dt: any) => new ContentIdDeleted(dt)) ?? [];
+	}
+}

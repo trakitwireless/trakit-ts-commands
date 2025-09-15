@@ -1,11 +1,10 @@
-import { Reply } from "../../../API/Responses/Reply";
-import { RepDispatchJobList } from "./RepDispatchJobList";
+import { DispatchJob, nothing, serialization } from "@trakit/objects";
 import { IRepListByAsset } from "../../../API/Responses/IRepListByAsset";
-import { RepDispatchJobListByAsset } from "./RepDispatchJobList";
 import { IRepListByCompany } from "../../../API/Responses/IRepListByCompany";
-import { RepDispatchJobListByCompany } from "./RepDispatchJobList";
 import { IRepListByLabels } from "../../../API/Responses/IRepListByLabels";
 import { IRepListByReferences } from "../../../API/Responses/IRepListByReferences";
+import { Reply } from "../../../API/Responses/Reply";
+import { ContentId } from "commands/API/Responses/Content/ContentId";
 
 /**
  * A container for the requested {@link dispatchJobs}.
@@ -14,8 +13,13 @@ export abstract class RepDispatchJobList extends Reply {
 	/**
 	 * The list of requested {@link DispatchJob}s.
 	 **/
-	dispatchJobs: DispatchJob[];
+	dispatchJobs: DispatchJob[] | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.dispatchJobs = json?.dispatchJobs?.map((dj: any) => new DispatchJob(dj));
 	}
+}
 
 /**
  * 
@@ -24,19 +28,33 @@ export class RepDispatchJobListByAsset extends RepDispatchJobList implements IRe
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
-	asset: ContentId;
+	asset: ContentId | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.asset = json?.asset
+			? new ContentId(json.asset)
+			: null;
 	}
+}
+
 /**
  * 
  **/
-export class RepDispatchJobListByAssetAndRefPairs extends RepDispatchJobListByAsset {
+export class RepDispatchJobListByAssetAndRefPairs extends RepDispatchJobListByAsset implements IRepListByReferences {
 	/**
 	 * Case-insensitive reference pairs used to match jobs.
 	 * @see {@link DispatchJob.references}
 	 **/
-	references: Map<string, string>;
-	}
+	references: Map<string, string> | nothing;
 
+	constructor(json: any) {
+		super(json);
+		this.references = json?.references
+			? serialization.toMap(json.references)
+			: null;
+	}
+}
 /**
  * 
  **/
@@ -44,8 +62,13 @@ export class RepDispatchJobListByCompany extends RepDispatchJobList implements I
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
-	company: ContentId;
+	company: ContentId|nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.company = ContentId.fromJSON(json?.company);
 	}
+}
 /**
  * 
  **/
@@ -54,8 +77,13 @@ export class RepDispatchJobListByCompanyAndLabels extends RepDispatchJobListByCo
 	 * A list of {@link LabelStyle.code|label codes} used to match {@link DispatchJob}s.
 	 * All labels must match to include a {@link DispatchJob} in the result.
 	 **/
-	labels: string[];
+	labels: string[] | nothing;
+	
+	constructor(json: any) {
+		super(json);
+		this.labels = json?.labels;
 	}
+}
 /**
  * 
  **/
@@ -64,4 +92,12 @@ export class RepDispatchJobListByCompanyAndRefPairs extends RepDispatchJobListBy
 	 * Case-insensitive reference pairs used to match jobs.
 	 * @see {@link DispatchJob.references}
 	 **/
-	references: Map<string, string>;}
+	references: Map<string, string> | nothing;
+	
+	constructor(json: any) {
+		super(json);
+		this.references = json?.references
+			? serialization.toMap(json.references)
+			: null;
+	}
+}

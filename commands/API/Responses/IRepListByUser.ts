@@ -1,3 +1,4 @@
+import { nothing } from "@trakit/objects";
 import { ContentLogin } from "./Content/ContentLogin";
 
 /**
@@ -7,5 +8,5 @@ export interface IRepListByUser {
 	/**
 	 * The user to filter the list by.
 	 **/
-	user: ContentLogin;
+	user: ContentLogin | nothing;
 }

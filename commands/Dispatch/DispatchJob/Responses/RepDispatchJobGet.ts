@@ -1,3 +1,4 @@
+import { DispatchJob, nothing } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -7,4 +8,12 @@ export class RepDispatchJobGet extends Reply {
 	/**
 	 * The requested {@link DispatchJob}.
 	 **/
-	dispatchJob: DispatchJob;}
+	dispatchJob: DispatchJob | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.dispatchJob = json?.dispatchJob
+			? new DispatchJob(json.dispatchJob)
+			: null;
+	}
+}

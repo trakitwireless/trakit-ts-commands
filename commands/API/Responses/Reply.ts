@@ -1,4 +1,4 @@
-import { int } from '@trakit/objects';
+import { int, nothing } from '@trakit/objects';
 import { ErrorCode } from "./Errors/ErrorCode";
 import { ErrorDetail } from "./Errors/ErrorDetail";
 
@@ -24,12 +24,12 @@ export class Reply {
 	 * An object to provide developers with a hint about the nature of the error.
 	 * The key is not always present, and only available for some errors.
 	 **/
-	errorDetails: ErrorDetail | null;
+	errorDetails: ErrorDetail | nothing;
 
 	constructor(json: any) {
 		this.errorCode = json.errorCode;
 		this.message = json.message;
-		this.errorDetails = json.errorDetails || null;
+		this.errorDetails = json.errorDetails;
 		this.reqId = json.reqId;
 	}
 }

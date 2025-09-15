@@ -1,3 +1,4 @@
+import { nothing } from "@trakit/objects";
 import { ContentId } from "./Content/ContentId";
 
 /**
@@ -7,5 +8,5 @@ export interface IRepListByCompany {
 	/**
 	 * The unique identifier of the company.
 	 **/
-	company: ContentId;
+	company: ContentId | nothing;
 }
