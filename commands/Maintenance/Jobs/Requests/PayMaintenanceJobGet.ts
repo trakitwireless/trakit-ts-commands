@@ -8,4 +8,10 @@ export class PayMaintenanceJobGet extends PayMaintenanceJob implements IPayDelet
 	/**
 	 * When true, the command will also return a deleted {@link MaintenanceJob} (if it exists).
 	 **/
-	includeDeleted: boolean;}
+	includeDeleted: boolean;
+
+	constructor(json?: any) {
+		super(json);
+		this.includeDeleted = json?.includeDeleted;
+	}
+}

@@ -1,4 +1,5 @@
 import { Payload } from "../../../API/Requests/Payload";
+import { ParamMaintenanceScheduleMerge } from "./Parameters/ParamMaintenanceScheduleMerge";
 
 /**
  * 
@@ -7,4 +8,10 @@ export class PayMaintenanceScheduleBatchMerge extends Payload {
 	/**
 	 * 
 	 **/
-	maintenanceSchedules: ParamMaintenanceScheduleMerge[];}
+	maintenanceSchedules: ParamMaintenanceScheduleMerge[];
+
+	constructor(json?: any) {
+		super(json);
+		this.maintenanceSchedules = json?.maintenanceSchedules?.map((item: any) => new ParamMaintenanceScheduleMerge(item)) ?? [];
+	}
+}

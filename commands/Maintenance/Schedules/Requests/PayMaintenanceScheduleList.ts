@@ -1,7 +1,7 @@
-import { Payload } from "../../../API/Requests/Payload";
+import { ParamId } from "commands/API/Requests/Parameters/ParamId";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
-import { PayMaintenanceScheduleList } from "./PayMaintenanceScheduleList";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
+import { Payload } from "../../../API/Requests/Payload";
 
 /**
  * Gets details of the specified {@link maintenanceSchedule}.
@@ -11,7 +11,12 @@ export abstract class PayMaintenanceScheduleList extends Payload implements IPay
 	 * When true, the command will also return  deleted {@link MaintenanceSchedule}s.
 	 **/
 	includeDeleted: boolean;
+
+	constructor(json?: any) {
+		super(json);
+		this.includeDeleted = json?.includeDeleted;
 	}
+}
 /**
  * Contains the {@link Company.id} of the collection.
  **/
@@ -19,4 +24,10 @@ export class PayMaintenanceScheduleListByCompany extends PayMaintenanceScheduleL
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
-	company: ParamId;}
+	company: ParamId;
+
+	constructor(json?: any) {
+		super(json);
+		this.company = new ParamId(json?.company);
+	}
+}

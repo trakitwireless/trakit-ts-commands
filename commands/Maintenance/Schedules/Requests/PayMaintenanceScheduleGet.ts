@@ -8,4 +8,10 @@ export class PayMaintenanceScheduleGet extends PayMaintenanceSchedule implements
 	/**
 	 * When true, the command will also return a deleted {@link MaintenanceSchedule} (if it exists).
 	 **/
-	includeDeleted: boolean;}
+	includeDeleted: boolean;
+
+	constructor(json?: any) {
+		super(json);
+		this.includeDeleted = json?.includeDeleted;
+	}
+}

@@ -1,3 +1,4 @@
+import { MaintenanceInterval, double, nothing, TimeSpan, uint, ulong, serialization, utility } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
@@ -22,52 +23,129 @@ export class ParamMaintenanceScheduleMerge extends ParamMergeSubscribable {
 	 * Notes for the {@link MaintenanceSchedule}.
 	 **/
 	notes: string;
-	/**
-	 * A collection of other names this person might go by.
-	 * Use the object key like a name identifier.
-	 * Example keys: Initials, Nickname, Maiden Name, etc.
-	 **/
-	otherNames: Map<string, string>;
-	/**
-	 * Email addresses
-	 * Use the object key like a name of the address.
-	 * Example keys: Home, Work, Support, Old, etc.
-	 **/
-	emails: Map<string, string>;
-	/**
-	 * Phone numbers.
-	 * Use the object key like a name of the phone number.
-	 * Example keys: Mobile, Fax, Home, Office, etc.
-	 **/
-	phones: Map<string, ulong?>;
-	/**
-	 * Mailing addresses
-	 * Use the object key like a name of the address.
-	 * Example keys: Home, Work, Park, etc.
-	 **/
-	addresses: Map<string, string>;
-	/**
-	 * Websites and other online resources
-	 * Use the object key like a name of the address.
-	 * Example keys: Downloads, Support, FTP, etc.
-	 **/
-	urls: Map<string, Uri>;
-	/**
-	 * Date information
-	 * Use the object key like a name of the date.
-	 * Example keys: Birthday, Started Date, Retired On, etc.
-	 **/
-	dates: Map<string, Date?>;
-	/**
-	 * Uncategorized information
-	 * Use the object keys and values however you'd like.
-	 **/
-	options: Map<string, string>;
-	/**
-	 * A list of roles they play in the {@link Company}.
-	 **/
-	roles: string[];
-	/**
-	 * {@link Picture}s of this {@link MaintenanceSchedule}.
-	 **/
-	pictures: ulong[];}
+
+	/// <summary>
+	/// Which <see cref="Asset"/>s are targetted by this <see cref="MaintenanceSchedule"/>.
+	/// </summary>
+	/// <override type="System.String" format="expression" />
+	targets: string | nothing;
+	/// <summary>
+	/// List of Users to send notifications.
+	/// </summary>
+	/// <see cref="User.login" />
+	/// <override>
+	/// <values format="email" />
+	/// </override>
+	notify: string[] | nothing;
+
+	/// <summary>
+	/// The fill/background colour of the icon.  Should be a hex colour in the format #RRGGBB.
+	/// </summary>
+	/// <override max-length="22" />
+	fill: string | nothing;
+	/// <summary>
+	/// Outline and graphic colour.  Should be a hex colour in the format #RRGGBB.
+	/// </summary>
+	/// <override max-length="22" />
+	stroke: string | nothing;
+	/// <summary>
+	/// The name of the symbol for this report.
+	/// </summary>
+	/// <override max-length="22" format="codified" />
+	graphic: string | nothing;
+
+	/// <summary>
+	/// The number of days in advance to predict a <see cref="MaintenanceJob"/> will become pending.
+	/// </summary>
+	/// <override min-value="5" max-value="180" />
+	predictionDays: uint | nothing;
+	/// <summary>
+	/// The number of days between service visits.
+	/// </summary>
+	recurDays: uint | nothing;
+	/// <summary>
+	/// The amount of mileage between service visits.
+	/// </summary>
+	recurDistance: double | nothing;
+	/// <summary>
+	/// The number of operating hours between service visits.
+	/// </summary>
+	recurEngineHours: double | nothing;
+	/// <summary>
+	/// The per-<see cref="Asset"/> details calculated by the system to help predict the creation of <see cref="MaintenanceJob"/>s.
+	/// </summary>
+	intervals: Map<ulong, MaintenanceInterval | nothing> | nothing;
+
+	// ------------ repair details ------------
+	/// <summary>
+	/// The name of the garage or service facility where the work is done.
+	/// </summary>
+	/// <override max-length="100" />
+	garage: string | nothing;
+	/// <summary>
+	/// The estimated time for the created <see cref="MaintenanceJob"/>.
+	/// </summary>
+	duration: TimeSpan | nothing;
+	/// <summary>
+	/// The estimated cost for the created <see cref="MaintenanceJob"/> cost in dollars.
+	/// </summary>
+	cost: double | nothing;
+	/// <summary>
+	/// A reference code used to track this created <see cref="MaintenanceJob"/>.
+	/// </summary>
+	/// <override max-length="100" />
+	reference: string | nothing;
+	
+	constructor(json: any) {
+		super(json);
+		this.id = json?.id;
+		this.company = json?.company;
+		this.name = json?.name || "";
+		this.notes = json?.notes || "";
+		this.targets = json?.targets;
+		this.notify = json?.notify;
+		this.fill = json?.fill;
+		this.stroke = json?.stroke;
+		this.graphic = json?.graphic;
+		this.predictionDays = json?.predictionDays;
+		this.recurDays = json?.recurDays;
+		this.recurDistance = json?.recurDistance;
+		this.recurEngineHours = json?.recurEngineHours;
+		this.intervals = json?.intervals
+			? serialization.toMapPredicate(json.intervals, (k: string, v: any) => [utility.id(k), MaintenanceInterval.fromJSON(v)])
+			: null;
+		this.garage = json?.garage;
+		this.duration = json?.duration
+			? new TimeSpan(json?.duration)
+			: null;
+		this.cost = json?.cost;
+		this.reference = json?.reference;
+	}
+
+	override toJSON(): any {
+		const json: any = {};
+		if (this.id) {
+			json.id = this.id;
+			json.v = [...this.v];
+		} else {
+			json.company = this.company;
+		}
+		if (this.name) json.name = this.name;
+		if (this.notes) json.notes = this.notes;
+		if (this.targets) json.targets = this.targets;
+		if (this.notify?.length) json.notify = [...this.notify];
+		if (this.fill) json.fill = this.fill;
+		if (this.stroke) json.stroke = this.stroke;
+		if (this.graphic) json.graphic = this.graphic;
+		if (utility.isntNaN(this.predictionDays)) json.predictionDays = this.predictionDays;
+		if (utility.isntNaN(this.recurDays)) json.recurDays = this.recurDays;
+		if (utility.isntNaN(this.recurDistance)) json.recurDistance = this.recurDistance;
+		if (utility.isntNaN(this.recurEngineHours)) json.recurEngineHours = this.recurEngineHours;
+		if (this.intervals?.size) json.intervals = serialization.fromMapPredicate(this.intervals, (k: number, v: MaintenanceInterval | nothing) => [k.toString(), v?.toJSON() ?? null]);
+		if (this.garage) json.garage = this.garage;
+		if (this.duration) json.duration = this.duration.toString();
+		if (utility.isntNaN(this.cost)) json.cost = this.cost;
+		if (this.reference) json.reference = this.reference;
+		return json;
+	}
+}

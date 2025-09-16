@@ -1,5 +1,6 @@
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
+import { ParamId } from "commands/API/Requests/Parameters/ParamId";
 
 /**
  * A container for the {@link maintenanceSchedule} object.
@@ -10,9 +11,15 @@ export abstract class PayMaintenanceSchedule extends Payload implements IPaySing
 	 **/
 	maintenanceSchedule: ParamId;
 
+	constructor(json?: any) {
+		super(json);
+		this.maintenanceSchedule = new ParamId(json?.maintenanceSchedule);
+	}
+
 	/**
 	 * 
 	 **/
-		getKey(): string {
-			return  this.maintenanceSchedule?.id?.toString() ?? "";
-		}}
+	getKey(): string {
+		return this.maintenanceSchedule?.id?.toString() ?? "";
+	}
+}
