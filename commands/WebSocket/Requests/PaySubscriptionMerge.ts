@@ -1,5 +1,6 @@
 import { ParamId } from "../../API/Requests/Parameters/ParamId";
 import { Payload } from "../../API/Requests/Payload";
+import { SubscriptionType } from "./Parameters/SubscriptionType";
 
 /**
  * The types of subscriptions available using {@link subscribe}/{@link unsubscribe}.
@@ -16,4 +17,10 @@ export class PaySubscriptionMerge extends Payload {
 	 * @see {@link SubscriptionType}
 	 **/
 	subscriptionTypes: SubscriptionType[];
+
+	constructor(json?: any) {
+		super(json);
+		this.company = new ParamId(json?.company);
+		this.subscriptionTypes = json?.subscriptionTypes;
+	}
 }
