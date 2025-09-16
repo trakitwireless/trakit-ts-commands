@@ -1,3 +1,4 @@
+import { nothing, Rectangle, ulong } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
@@ -8,66 +9,45 @@ export class ParamPictureMerge extends ParamMergeSubscribable {
 	 * The unique identifier of the {@link Picture} you want to update.
 	 * Leave this as `null` when creating a new {@link Picture}.
 	 **/
-	id: ulong | undefined;
+	id: ulong | nothing;
 	/**
 	 * The {@link Company} to which this {@link Picture} belongs.
 	 * After creation, this value is read-only.
 	 **/
-	company: ulong | undefined;
+	company: ulong | nothing;
 	/**
 	 * Name for the {@link Picture}.
 	 **/
-	name: string;
+	name: string | nothing;
 	/**
 	 * Notes for the {@link Picture}.
 	 **/
-	notes: string;
-	/**
-	 * A collection of other names this person might go by.
-	 * Use the object key like a name identifier.
-	 * Example keys: Initials, Nickname, Maiden Name, etc.
-	 **/
-	otherNames: Map<string, string>;
-	/**
-	 * Email addresses
-	 * Use the object key like a name of the address.
-	 * Example keys: Home, Work, Support, Old, etc.
-	 **/
-	emails: Map<string, string>;
-	/**
-	 * Phone numbers.
-	 * Use the object key like a name of the phone number.
-	 * Example keys: Mobile, Fax, Home, Office, etc.
-	 **/
-	phones: Map<string, ulong?>;
-	/**
-	 * Mailing addresses
-	 * Use the object key like a name of the address.
-	 * Example keys: Home, Work, Park, etc.
-	 **/
-	addresses: Map<string, string>;
-	/**
-	 * Websites and other online resources
-	 * Use the object key like a name of the address.
-	 * Example keys: Downloads, Support, FTP, etc.
-	 **/
-	urls: Map<string, Uri>;
-	/**
-	 * Date information
-	 * Use the object key like a name of the date.
-	 * Example keys: Birthday, Started Date, Retired On, etc.
-	 **/
-	dates: Map<string, Date?>;
-	/**
-	 * Uncategorized information
-	 * Use the object keys and values however you'd like.
-	 **/
-	options: Map<string, string>;
-	/**
-	 * A list of roles they play in the {@link Company}.
-	 **/
-	roles: string[];
-	/**
-	 * {@link Picture}s of this {@link Picture}.
-	 **/
-	pictures: ulong[];}
+	notes: string | nothing;
+	/// <summary>
+	/// A list of focal points in the <see cref="Picture"/> like faces.
+	/// </summary>
+	focals: Rectangle[] | nothing;
+	
+	constructor(json: any) {
+		super(json);
+		this.id = json?.id;
+		this.company = json?.company;
+		this.name = json?.name;
+		this.notes = json?.notes;
+		this.focals = json?.focals?.map((focal: any) => Rectangle.fromJSON(focal));
+	}
+
+	override toJSON(): any {
+		const json: any = {}
+		if (this.id) {
+			json.id = this.id;
+			json.v = [...this.v];
+		} else {
+			json.company = this.company;
+		}
+		if (this.name) json.name = this.name;
+		if (this.notes) json.notes = this.notes;
+		if (this.focals) json.focals = this.focals.map(focal => focal.toJSON());
+		return json;
+	}
+}

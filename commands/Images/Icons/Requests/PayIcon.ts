@@ -1,5 +1,6 @@
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
+import { ParamId } from "commands/API/Requests/Parameters/ParamId";
 
 /**
  * A container for the {@link icon} object.
@@ -10,9 +11,15 @@ export abstract class PayIcon extends Payload implements IPaySingle {
 	 **/
 	icon: ParamId;
 
+	constructor(json: any) {
+		super(json);
+		this.icon = new ParamId(json?.icon);
+	}
+
 	/**
 	 * 
 	 **/
-		getKey(): string {
-			return  this.icon?.id?.toString() ?? "";
-		}}
+	getKey(): string {
+		return this.icon?.id?.toString() ?? "";
+	}
+}

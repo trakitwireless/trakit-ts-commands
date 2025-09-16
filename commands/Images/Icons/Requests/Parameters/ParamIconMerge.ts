@@ -1,3 +1,4 @@
+import { IconGlyph, IconLabel, nothing, ulong, utility } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
@@ -8,66 +9,80 @@ export class ParamIconMerge extends ParamMergeSubscribable {
 	 * The unique identifier of the {@link Icon} you want to update.
 	 * Leave this as `null` when creating a new {@link Icon}.
 	 **/
-	id: ulong | undefined;
+	id: ulong | nothing;
 	/**
 	 * The {@link Company} to which this {@link Icon} belongs.
 	 * After creation, this value is read-only.
 	 **/
-	company: ulong | undefined;
+	company: ulong | nothing;
 	/**
 	 * Name for the {@link Icon}.
 	 **/
-	name: string;
+	name: string | nothing;
 	/**
 	 * Notes for the {@link Icon}.
 	 **/
-	notes: string;
-	/**
-	 * A collection of other names this person might go by.
-	 * Use the object key like a name identifier.
-	 * Example keys: Initials, Nickname, Maiden Name, etc.
-	 **/
-	otherNames: Map<string, string>;
-	/**
-	 * Email addresses
-	 * Use the object key like a name of the address.
-	 * Example keys: Home, Work, Support, Old, etc.
-	 **/
-	emails: Map<string, string>;
-	/**
-	 * Phone numbers.
-	 * Use the object key like a name of the phone number.
-	 * Example keys: Mobile, Fax, Home, Office, etc.
-	 **/
-	phones: Map<string, ulong?>;
-	/**
-	 * Mailing addresses
-	 * Use the object key like a name of the address.
-	 * Example keys: Home, Work, Park, etc.
-	 **/
-	addresses: Map<string, string>;
-	/**
-	 * Websites and other online resources
-	 * Use the object key like a name of the address.
-	 * Example keys: Downloads, Support, FTP, etc.
-	 **/
-	urls: Map<string, Uri>;
-	/**
-	 * Date information
-	 * Use the object key like a name of the date.
-	 * Example keys: Birthday, Started Date, Retired On, etc.
-	 **/
-	dates: Map<string, Date?>;
-	/**
-	 * Uncategorized information
-	 * Use the object keys and values however you'd like.
-	 **/
-	options: Map<string, string>;
-	/**
-	 * A list of roles they play in the {@link Company}.
-	 **/
-	roles: string[];
-	/**
-	 * {@link Picture}s of this {@link Icon}.
-	 **/
-	pictures: ulong[];}
+	notes: string | nothing;
+	/// <summary>
+	/// A noun to describe the type of thing represented.  Like Truck, Car, Trailer, Hot-Air Balloon, etc...
+	/// </summary>
+	/// <override max-length="100" />
+	category: string | nothing;
+	/// <summary>
+	/// Indicates whether this <see cref="Icon"/> is available to child companies.
+	/// </summary>
+	global: boolean | nothing;
+	/// <summary>
+	/// A list of things that this <see cref="Icon"/> can be used to represent.  Like <c>asset</c>, <c>place</c>, <c>user</c>, etc...
+	/// </summary>
+	usage: string[] | nothing;
+	/// <summary>
+	/// Definition for the name bubble above the <see cref="Icon"/> on a map.
+	/// </summary>
+	label: IconLabel | nothing;
+	/// <summary>
+	/// Definition for the name badge beside the <see cref="Icon"/> on a map.
+	/// </summary>
+	badge: IconLabel | nothing;
+	/// <summary>
+	/// The images used to show the detail of this <see cref="Icon"/>.
+	/// </summary>
+	glyphs: IconGlyph[] | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.id = json?.id;
+		this.company = json?.company;
+		this.name = json?.name;
+		this.notes = json?.notes;
+		this.category = json?.category;
+		this.global = json?.global;
+		this.usage = json?.usage;
+		this.label = json?.label
+			? IconLabel.fromJSON(json?.label)
+			: null;
+		this.badge = json?.badge
+			? IconLabel.fromJSON(json?.badge)
+			: null;
+		this.glyphs = json?.glyphs?.map((glyph: any) => IconGlyph.fromJSON(glyph));
+	}
+
+	override toJSON(): any {
+		const json: any = {};
+		if (this.id) {
+			json.id = this.id;
+			json.v = [...this.v];
+		} else {
+			json.company = this.company;
+		}
+		if (this.name) json.name = this.name;
+		if (this.notes) json.notes = this.notes;
+		if (this.category) json.category = this.category;
+		if (!utility.isNothing(this.global)) json.global = this.global;
+		if (this.usage) json.usage = [...this.usage];
+		if (this.label) json.label = this.label.toJSON();
+		if (this.badge) json.badge = this.badge.toJSON();
+		if (this.glyphs?.length) json.glyphs = this.glyphs.map((g) => g.toJSON());
+		return json;
+	}
+}

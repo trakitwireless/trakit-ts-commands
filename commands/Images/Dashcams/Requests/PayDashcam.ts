@@ -9,11 +9,17 @@ export abstract class PayDashcam extends Payload implements IPaySingle {
 	/**
 	 * An object to contain the "id" of the {@link Dashcam}.
 	 **/
-	dashcam: ParamId | undefined;
+	dashcam: ParamId;
+
+	constructor(json: any) {
+		super(json);
+		this.dashcam = new ParamId(json?.dashcam);
+	}
 
 	/**
 	 * 
 	 **/
-		getKey(): string {
-			return  this.dashcam?.id?.toString() ?? "";
-		}}
+	getKey(): string {
+		return this.dashcam?.id?.toString() ?? "";
+	}
+}
