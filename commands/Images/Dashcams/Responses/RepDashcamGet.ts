@@ -1,3 +1,4 @@
+import { Dashcam, nothing } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -7,4 +8,12 @@ export class RepDashcamGet extends Reply {
 	/**
 	 * The requested {@link Dashcam}.
 	 **/
-	dashcam: Dashcam;}
+	dashcam: Dashcam | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.dashcam = json?.dashcam
+			? new Dashcam(json.dashcam)
+			: null;
+	}
+}

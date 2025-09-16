@@ -1,3 +1,4 @@
+import { ContentIdDeleted } from "commands/API/Responses/Content/ContentIdDeleted";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -7,4 +8,10 @@ export class RepPictureBatchDelete extends Reply {
 	/**
 	 * Details about deleting/restoring the requested {@link Picture}.
 	 **/
-	pictures: ContentIdDeleted[];}
+	pictures: ContentIdDeleted[];
+
+	constructor(json: any) {
+		super(json);
+		this.pictures = json?.pictures?.map((p: any) => new ContentIdDeleted(p));
+	}
+}

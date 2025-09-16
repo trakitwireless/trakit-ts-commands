@@ -1,3 +1,4 @@
+import { nothing, Picture } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -7,4 +8,12 @@ export class RepPictureGet extends Reply {
 	/**
 	 * The requested {@link Picture}.
 	 **/
-	picture: Picture;}
+	picture: Picture | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.picture = json?.picture
+			? new Picture(json.picture)
+			: null;
+	}
+}
