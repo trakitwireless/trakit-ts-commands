@@ -1,4 +1,6 @@
+import { ContentIdDeleted } from "commands/API/Responses/Content/ContentIdDeleted";
 import { Reply } from "../../../API/Responses/Reply";
+import { nothing } from "@trakit/objects/objects/API/Types";
 
 /**
  * A container for the {@link maintenanceJob}.
@@ -7,4 +9,10 @@ export class RepMaintenanceJobDelete extends Reply {
 	/**
 	 * Details about deleting/restoring the requested {@link MaintenanceJob}.
 	 **/
-	maintenanceJob: ContentIdDeleted;}
+	maintenanceJob: ContentIdDeleted | nothing;
+
+	constructor(json?: any) {
+		super(json);
+		this.maintenanceJob = ContentIdDeleted.fromJSON(json?.maintenanceJob);
+	}
+}

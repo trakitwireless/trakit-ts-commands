@@ -1,3 +1,4 @@
+import { MaintenanceSchedule, nothing } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -7,4 +8,12 @@ export class RepMaintenanceScheduleGet extends Reply {
 	/**
 	 * The requested {@link MaintenanceSchedule}.
 	 **/
-	maintenanceSchedule: MaintenanceSchedule;}
+	maintenanceSchedule: MaintenanceSchedule | nothing;
+
+	constructor(json?: any) {
+		super(json);
+		this.maintenanceSchedule = json?.maintenanceSchedule
+			? new MaintenanceSchedule(json.maintenanceSchedule)
+			: null;
+	}
+}
