@@ -1,73 +1,80 @@
-import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
+import { nothing, ulong, utility } from "@trakit/objects";
+import { ParamMergeSubscribable } from "commands/API/Requests/Parameters/ParamMergeSubscribable";
+import { ParamReportOptions } from "commands/Reports/Parameters/ParamReportOptions";
+import { ParamReportNotify } from "./ParamReportNotify";
+import { ParamReportRecurrence } from "./ParamReportRecurrence";
 
 /**
  * Parameters used to create or update an {@link ReportSchedule}.
  **/
 export class ParamReportScheduleMerge extends ParamMergeSubscribable {
-	/**
-	 * The unique identifier of the {@link ReportSchedule} you want to update.
-	 * Leave this as `null` when creating a new {@link ReportSchedule}.
-	 **/
-	id: ulong | undefined;
-	/**
-	 * The {@link Company} to which this {@link ReportSchedule} belongs.
-	 * After creation, this value is read-only.
-	 **/
-	company: ulong | undefined;
-	/**
-	 * Name for the {@link ReportSchedule}.
-	 **/
-	name: string;
-	/**
-	 * Notes for the {@link ReportSchedule}.
-	 **/
-	notes: string;
-	/**
-	 * A collection of other names this person might go by.
-	 * Use the object key like a name identifier.
-	 * Example keys: Initials, Nickname, Maiden Name, etc.
-	 **/
-	otherNames: Map<string, string>;
-	/**
-	 * Email addresses
-	 * Use the object key like a name of the address.
-	 * Example keys: Home, Work, Support, Old, etc.
-	 **/
-	emails: Map<string, string>;
-	/**
-	 * Phone numbers.
-	 * Use the object key like a name of the phone number.
-	 * Example keys: Mobile, Fax, Home, Office, etc.
-	 **/
-	phones: Map<string, ulong?>;
-	/**
-	 * Mailing addresses
-	 * Use the object key like a name of the address.
-	 * Example keys: Home, Work, Park, etc.
-	 **/
-	addresses: Map<string, string>;
-	/**
-	 * Websites and other online resources
-	 * Use the object key like a name of the address.
-	 * Example keys: Downloads, Support, FTP, etc.
-	 **/
-	urls: Map<string, Uri>;
-	/**
-	 * Date information
-	 * Use the object key like a name of the date.
-	 * Example keys: Birthday, Started Date, Retired On, etc.
-	 **/
-	dates: Map<string, Date?>;
-	/**
-	 * Uncategorized information
-	 * Use the object keys and values however you'd like.
-	 **/
-	options: Map<string, string>;
-	/**
-	 * A list of roles they play in the {@link Company}.
-	 **/
-	roles: string[];
-	/**
-	 * {@link Picture}s of this {@link ReportSchedule}.
-	 **/
-	pictures: ulong[];}
+	/// <summary>
+	/// The unique identifier of the <see cref="ReportSchedule"/> you want to update.
+	/// Leave this as <c>null</c> when creating a new <see cref="ReportSchedule"/>.
+	/// </summary>
+	id: ulong | nothing;
+	/// <summary>
+	/// Identifier of the <see cref="ReportTemplate"/> used to help create results.
+	/// </summary>
+	template: ulong | nothing;
+	/// <summary>
+	/// Name for the <see cref="ReportSchedule"/>.
+	/// </summary>
+	name: string | nothing;
+	/// <summary>
+	/// Notes for the <see cref="ReportSchedule"/>.
+	/// </summary>
+	notes: string | nothing;
+	/// <summary>
+	/// The user which owns the schedule.
+	/// When report results are created, they will be created with this user's <see cref="Asset"/> permissions.
+	/// </summary>
+	owner: string | nothing;
+	/// <summary>
+	/// Indicates whether this schedule is allowed to run.
+	/// </summary>
+	enabled: boolean | nothing;
+	/// <summary>
+	/// The recurring schedule to generate report results.
+	/// </summary>
+	repetition: ParamReportRecurrence | nothing;
+	/// <summary>
+	/// Specified parameters for the report logic, targeted <see cref="Asset"/>s, and filtering Places.
+	/// </summary>
+	options: ParamReportOptions | nothing;
+	/// <summary>
+	/// A list of users and a targeting expression for <see cref="Asset"/>s which receive report results notifications.
+	/// </summary>
+	notify: ParamReportNotify | nothing;
+	
+	constructor(json: any) {
+		super(json);
+		this.id = json?.id;
+		this.template = json?.template;
+		this.name = json?.name;
+		this.notes = json?.notes;
+		this.owner = json?.owner;
+		this.enabled = json?.enabled;
+		this.repetition = ParamReportRecurrence.fromJSON(json?.repetition);
+		this.options = ParamReportOptions.fromJSON(json?.options);
+		this.notify = ParamReportNotify.fromJSON(json?.notify);
+	}
+
+	override toJSON(): any {
+		const json: any = {};
+		if (this.id) {
+			json.id = this.id;
+			json.v = [...this.v];
+		} else {
+			json.template = this.template;
+		}
+		if (this.name) json.name = this.name;
+		if (this.notes) json.notes = this.notes;
+		if (this.owner) json.owner = this.owner;
+		if (!utility.isNothing(this.enabled)) json.enabled = !!this.enabled;
+		if (!utility.isNothing(this.repetition)) json.repetition = this.repetition;
+		if (!utility.isNothing(this.options)) json.options = this.options;
+		if (!utility.isNothing(this.notify)) json.notify = this.notify;
+		return json;
+	}
+}

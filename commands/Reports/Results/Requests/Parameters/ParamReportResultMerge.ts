@@ -1,73 +1,80 @@
+import { nothing, ReportType, Timezone, ulong, utility } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
+import { ParamReportOptions } from "commands/Reports/Parameters/ParamReportOptions";
 
 /**
  * Parameters used to create or update an {@link ReportResult}.
  **/
 export class ParamReportResultMerge extends ParamMergeSubscribable {
-	/**
-	 * The unique identifier of the {@link ReportResult} you want to update.
-	 * Leave this as `null` when creating a new {@link ReportResult}.
-	 **/
-	id: ulong | undefined;
-	/**
-	 * The {@link Company} to which this {@link ReportResult} belongs.
-	 * After creation, this value is read-only.
-	 **/
-	company: ulong | undefined;
-	/**
-	 * Name for the {@link ReportResult}.
-	 **/
-	name: string;
-	/**
-	 * Notes for the {@link ReportResult}.
-	 **/
-	notes: string;
-	/**
-	 * A collection of other names this person might go by.
-	 * Use the object key like a name identifier.
-	 * Example keys: Initials, Nickname, Maiden Name, etc.
-	 **/
-	otherNames: Map<string, string>;
-	/**
-	 * Email addresses
-	 * Use the object key like a name of the address.
-	 * Example keys: Home, Work, Support, Old, etc.
-	 **/
-	emails: Map<string, string>;
-	/**
-	 * Phone numbers.
-	 * Use the object key like a name of the phone number.
-	 * Example keys: Mobile, Fax, Home, Office, etc.
-	 **/
-	phones: Map<string, ulong?>;
-	/**
-	 * Mailing addresses
-	 * Use the object key like a name of the address.
-	 * Example keys: Home, Work, Park, etc.
-	 **/
-	addresses: Map<string, string>;
-	/**
-	 * Websites and other online resources
-	 * Use the object key like a name of the address.
-	 * Example keys: Downloads, Support, FTP, etc.
-	 **/
-	urls: Map<string, Uri>;
-	/**
-	 * Date information
-	 * Use the object key like a name of the date.
-	 * Example keys: Birthday, Started Date, Retired On, etc.
-	 **/
-	dates: Map<string, Date?>;
-	/**
-	 * Uncategorized information
-	 * Use the object keys and values however you'd like.
-	 **/
-	options: Map<string, string>;
-	/**
-	 * A list of roles they play in the {@link Company}.
-	 **/
-	roles: string[];
-	/**
-	 * {@link Picture}s of this {@link ReportResult}.
-	 **/
-	pictures: ulong[];}
+	/// <summary>
+	/// The unique identifier of the <see cref="ReportResult"/> you want to update.
+	/// Leave this as <c>null</c> when creating a new <see cref="ReportResult"/>.
+	/// </summary>
+	id: ulong | nothing;
+	/// <summary>
+	/// Identifier of the <see cref="ReportTemplate"/> used to help create these <see cref="ReportResult"/>.
+	/// </summary>
+	template: ulong | nothing;
+	/// <summary>
+	/// The <see cref="Company"/> to which these report <see cref="ReportResult"/> belongs.
+	/// </summary>
+	company: ulong | nothing;
+	/// <summary>
+	/// The kind of logic used to build the report <see cref="ReportResult"/>.
+	/// </summary>
+	kind: ReportType | nothing;
+	/// <summary>
+	/// Name for the report <see cref="ReportResult"/>.
+	/// </summary>
+	name: string | nothing;
+	/// <summary>
+	/// Notes for these report <see cref="ReportResult"/>.
+	/// </summary>
+	notes: string | nothing;
+	/// <summary>
+	/// Indicates whether this report should be archived.
+	/// Archived report <see cref="ReportResult"/> are stored for six months.
+	/// Non-archive reports are purged after 24 hours.
+	/// </summary>
+	archive: boolean | nothing;
+	/// <summary>
+	/// Specified parameters for the report logic, targeted <see cref="Asset"/>s, and filtering <see cref="Place"/>s and/or regions.
+	/// </summary>
+	options: ParamReportOptions | nothing;
+	/// <summary>
+	/// The <see cref="Timezone.code"/> of the local timezone used to calculate times.
+	/// </summary>
+	/// <seealso cref="Timezone.code" />
+	timezone: Timezone | nothing;
+	
+	constructor(json: any) {
+		super(json);
+		this.id = json?.id;
+		this.template = json?.template;
+		this.company = json?.company;
+		this.kind = json?.kind;
+		this.name = json?.name;
+		this.notes = json?.notes;
+		this.archive = json?.archive;
+		this.options = ParamReportOptions.fromJSON(json?.options);
+		this.timezone = json?.timezone;
+	}
+
+	override toJSON(): any {
+		const json: any = {};
+		if (this.id) {
+			json.id = this.id;
+			json.v = [...this.v];
+		} else {
+			json.template = this.template;
+			json.company = this.company;
+		}
+		if (this.kind) json.kind = this.kind;
+		if (this.name) json.name = this.name;
+		if (this.notes) json.notes = this.notes;
+		if (!utility.isNothing(this.archive)) json.archive = this.archive;
+		if (this.options) json.options = this.options.toJSON();
+		if (this.timezone) json.timezone = this.timezone.code;
+		return json;
+	}
+}

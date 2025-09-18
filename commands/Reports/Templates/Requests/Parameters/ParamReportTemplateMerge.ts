@@ -1,73 +1,78 @@
+import { nothing, ReportType, ulong } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
+import { ParamReportOptions } from "commands/Reports/Parameters/ParamReportOptions";
 
 /**
  * Parameters used to create or update an {@link ReportTemplate}.
  **/
 export class ParamReportTemplateMerge extends ParamMergeSubscribable {
-	/**
-	 * The unique identifier of the {@link ReportTemplate} you want to update.
-	 * Leave this as `null` when creating a new {@link ReportTemplate}.
-	 **/
-	id: ulong | undefined;
-	/**
-	 * The {@link Company} to which this {@link ReportTemplate} belongs.
-	 * After creation, this value is read-only.
-	 **/
-	company: ulong | undefined;
-	/**
-	 * Name for the {@link ReportTemplate}.
-	 **/
-	name: string;
-	/**
-	 * Notes for the {@link ReportTemplate}.
-	 **/
-	notes: string;
-	/**
-	 * A collection of other names this person might go by.
-	 * Use the object key like a name identifier.
-	 * Example keys: Initials, Nickname, Maiden Name, etc.
-	 **/
-	otherNames: Map<string, string>;
-	/**
-	 * Email addresses
-	 * Use the object key like a name of the address.
-	 * Example keys: Home, Work, Support, Old, etc.
-	 **/
-	emails: Map<string, string>;
-	/**
-	 * Phone numbers.
-	 * Use the object key like a name of the phone number.
-	 * Example keys: Mobile, Fax, Home, Office, etc.
-	 **/
-	phones: Map<string, ulong?>;
-	/**
-	 * Mailing addresses
-	 * Use the object key like a name of the address.
-	 * Example keys: Home, Work, Park, etc.
-	 **/
-	addresses: Map<string, string>;
-	/**
-	 * Websites and other online resources
-	 * Use the object key like a name of the address.
-	 * Example keys: Downloads, Support, FTP, etc.
-	 **/
-	urls: Map<string, Uri>;
-	/**
-	 * Date information
-	 * Use the object key like a name of the date.
-	 * Example keys: Birthday, Started Date, Retired On, etc.
-	 **/
-	dates: Map<string, Date?>;
-	/**
-	 * Uncategorized information
-	 * Use the object keys and values however you'd like.
-	 **/
-	options: Map<string, string>;
-	/**
-	 * A list of roles they play in the {@link Company}.
-	 **/
-	roles: string[];
-	/**
-	 * {@link Picture}s of this {@link ReportTemplate}.
-	 **/
-	pictures: ulong[];}
+	/// <summary>
+	/// The unique identifier of the <see cref="ReportTemplate"/> you want to update.
+	/// Leave this as <c>null</c> when creating a new <see cref="ReportTemplate"/>.
+	/// </summary>
+	id: ulong | nothing;
+	/// <summary>
+	/// The <see cref="Company"/> to which this <see cref="ReportTemplate"/> belongs.
+	/// After creation, this value is read-only.
+	/// </summary>
+	company: ulong | nothing;
+	/// <summary>
+	/// Name for the <see cref="ReportTemplate"/>.
+	/// </summary>
+	name: string | nothing;
+	/// <summary>
+	/// Notes for the <see cref="ReportTemplate"/>.
+	/// </summary>
+	notes: string | nothing;
+	/// <summary>
+	/// The kind of logic used to build the report results.
+	/// </summary>
+	kind: ReportType | nothing;
+	/// <summary>
+	/// Specified parameters for the report logic, targeted <see cref="Asset"/>s, and filtering <see cref="Place"/>s and/or regions.
+	/// </summary>
+	options: ParamReportOptions | nothing;
+	/// <summary>
+	/// Background and fill colour in the UI.
+	/// </summary>
+	fill: string | nothing;
+	/// <summary>
+	/// Text and outline colour in the UI.
+	/// </summary>
+	stroke: string | nothing;
+	/// <summary>
+	/// The name of the symbol shown in the UI.
+	/// </summary>
+	graphic: string | nothing;
+	
+	constructor(json: any) {
+		super(json);
+		this.id = json?.id;
+		this.company = json?.company;
+		this.name = json?.name;
+		this.notes = json?.notes;
+		this.kind = json?.kind;
+		this.options = ParamReportOptions.fromJSON(json?.options);
+		this.fill = json?.fill;
+		this.stroke = json?.stroke;
+		this.graphic = json?.graphic;
+	}
+
+	override toJSON(): any {
+		const json: any = super.toJSON();
+		if (this.id) {
+			json.id = this.id;
+			json.v = [...this.v];
+		} else {
+			json.company = this.company;
+		}
+		if (this.name) json.name = this.name;
+		if (this.notes) json.notes = this.notes;
+		if (this.kind) json.kind = this.kind;
+		if (this.options) json.options = this.options.toJSON();
+		if (this.fill) json.fill = this.fill;
+		if (this.stroke) json.stroke = this.stroke;
+		if (this.graphic) json.graphic = this.graphic;
+		return json;
+	}
+}
