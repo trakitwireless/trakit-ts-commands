@@ -1,11 +1,17 @@
+import { ParamId } from "commands/API/Requests/Parameters/ParamId";
 import { Payload } from "../../../API/Requests/Payload";
 
 /**
  * 
  **/
-	[Obsolete("Use ReqProviderConfigBatchDelete instead")]
 export class PayProviderConfigurationBatchDelete extends Payload {
 	/**
 	 * 
 	 **/
-	providerConfigurations: ParamId[];}
+	providerConfigurations: ParamId[];
+
+	constructor(json: any) {
+		super(json);
+		this.providerConfigurations = json?.providerConfigurations?.map((e: any) => new ParamId(e)) ?? [];
+	}
+}

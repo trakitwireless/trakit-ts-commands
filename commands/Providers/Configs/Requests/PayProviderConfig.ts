@@ -1,5 +1,6 @@
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
+import { ParamId } from "commands/API/Requests/Parameters/ParamId";
 
 /**
  * A container for the {@link providerConfig} object.
@@ -10,9 +11,14 @@ export abstract class PayProviderConfig extends Payload implements IPaySingle {
 	 **/
 	providerConfig: ParamId;
 
+	constructor(json: any) {
+		super(json);
+		this.providerConfig = new ParamId(json?.providerConfig);
+	}
 	/**
 	 * 
 	 **/
-		getKey(): string {
-			return  this.providerConfig?.id?.toString() ?? "";
-		}}
+	getKey(): string {
+		return this.providerConfig?.id?.toString() ?? "";
+	}
+}
