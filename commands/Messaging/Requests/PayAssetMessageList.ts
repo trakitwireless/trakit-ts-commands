@@ -1,8 +1,8 @@
 import { Payload } from "../../API/Requests/Payload";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
-import { PayAssetMessageList } from "./PayAssetMessageList";
 import { IPayListByCompany } from "../../API/Requests/IPayListByCompany";
 import { IPayListByAsset } from "../../API/Requests/IPayListByAsset";
+import { ParamId } from "commands/API/Requests/Parameters/ParamId";
 
 /**
  * Gets details of the specified {@link assetMessage}.
@@ -12,7 +12,12 @@ export abstract class PayAssetMessageList extends Payload implements IPayDeletab
 	 * When true, the command will also return  deleted {@link AssetMessage}s.
 	 **/
 	includeDeleted: boolean;
+
+	constructor(json: any) {
+		super(json);
+		this.includeDeleted = json?.includeDeleted ?? false;
 	}
+}
 
 /**
  * Contains the {@link Company.id} of the collection.
@@ -22,7 +27,12 @@ export class PayAssetMessageListByCompany extends PayAssetMessageList implements
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
 	company: ParamId;
+
+	constructor(json: any) {
+		super(json);
+		this.company = new ParamId(json?.company);
 	}
+}
 /**
  * Contains the {@link Company.id} of the collection.
  **/
@@ -30,4 +40,10 @@ export class PayAssetMessageListByAsset extends PayAssetMessageList implements I
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
-	asset: ParamId;}
+	asset: ParamId;
+
+	constructor(json: any) {
+		super(json);
+		this.asset = new ParamId(json?.asset);
+	}
+}
