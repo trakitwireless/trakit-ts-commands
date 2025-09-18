@@ -1,74 +1,68 @@
+import { nothing, serialization, ulong } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
  * Parameters used to create or update an {@link ProviderConfiguration}.
  **/
-	[Obsolete("Use ParamProviderConfigMerge instead")]
 export class ParamProviderConfigurationMerge extends ParamMergeSubscribable {
 	/**
 	 * The unique identifier of the {@link ProviderConfiguration} you want to update.
 	 * Leave this as `null` when creating a new {@link ProviderConfiguration}.
 	 **/
-	id: ulong | undefined;
+	id: ulong | nothing;
 	/**
 	 * The {@link Company} to which this {@link ProviderConfiguration} belongs.
 	 * After creation, this value is read-only.
 	 **/
-	company: ulong | undefined;
-	/**
-	 * Name for the {@link ProviderConfiguration}.
-	 **/
-	name: string;
-	/**
-	 * Notes for the {@link ProviderConfiguration}.
-	 **/
-	notes: string;
-	/**
-	 * A collection of other names this person might go by.
-	 * Use the object key like a name identifier.
-	 * Example keys: Initials, Nickname, Maiden Name, etc.
-	 **/
-	otherNames: Map<string, string>;
-	/**
-	 * Email addresses
-	 * Use the object key like a name of the address.
-	 * Example keys: Home, Work, Support, Old, etc.
-	 **/
-	emails: Map<string, string>;
-	/**
-	 * Phone numbers.
-	 * Use the object key like a name of the phone number.
-	 * Example keys: Mobile, Fax, Home, Office, etc.
-	 **/
-	phones: Map<string, ulong?>;
-	/**
-	 * Mailing addresses
-	 * Use the object key like a name of the address.
-	 * Example keys: Home, Work, Park, etc.
-	 **/
-	addresses: Map<string, string>;
-	/**
-	 * Websites and other online resources
-	 * Use the object key like a name of the address.
-	 * Example keys: Downloads, Support, FTP, etc.
-	 **/
-	urls: Map<string, Uri>;
-	/**
-	 * Date information
-	 * Use the object key like a name of the date.
-	 * Example keys: Birthday, Started Date, Retired On, etc.
-	 **/
-	dates: Map<string, Date?>;
-	/**
-	 * Uncategorized information
-	 * Use the object keys and values however you'd like.
-	 **/
-	options: Map<string, string>;
-	/**
-	 * A list of roles they play in the {@link Company}.
-	 **/
-	roles: string[];
-	/**
-	 * {@link Picture}s of this {@link ProviderConfiguration}.
-	 **/
-	pictures: ulong[];}
+	company: ulong | nothing;
+	/// <summary>
+	/// The <see cref="ProviderConfigurationType"/> that the <see cref="ProviderConfiguration"/> implements.
+	/// After creation, this value is read-only.
+	/// </summary>
+	type: ulong | nothing;
+	/// <summary>
+	/// Name for the <see cref="ProviderConfiguration"/>.
+	/// </summary>
+	name: string | nothing;
+	/// <summary>
+	/// Notes for the <see cref="ProviderConfiguration"/>.
+	/// </summary>
+	notes: string | nothing;
+	/// <summary>
+	/// The values needed to implement the <see cref="ProviderConfigurationType"/>.
+	/// Each key in this object is the identifier of a required <see cref="ProviderConfigurationNode"/>.
+	/// This command does not support patch semantics; all keys must be sent if any are sent.
+	/// </summary>
+	scriptParameters: Map<string, object> | nothing;
+	/// <summary>
+	/// A list of <see cref="Place"/>s whose shape is programmed directly onto <see cref="Provider"/>s to raise instant boundary events.
+	/// </summary>
+	geofences: ulong[] | nothing;
+	
+	constructor(json: any) {
+		super(json);
+		this.id = json?.id;
+		this.type = json?.type;
+		this.name = json?.name;
+		this.notes = json?.notes;
+		this.scriptParameters = json?.scriptParameters
+			? serialization.toMap(json.scriptParameters)
+			: null;
+		this.geofences = json?.geofences;
+	}
+	override toJSON(): any {
+		const json: any = {};
+		if (this.id) {
+			json.id = this.id;
+			json.v = [...this.v];
+		} else {
+			json.company = this.company;
+			json.type = this.type;
+		}
+		if (this.name) json.name = this.name;
+		if (this.notes) json.notes = this.notes;
+		if (this.scriptParameters?.size) json.scriptParameters = serialization.fromMap(this.scriptParameters);
+		if (this.geofences) json.geofences = this.geofences;
+		return json;
+	}
+}

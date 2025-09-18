@@ -1,3 +1,4 @@
+import { MessageFolder, MessageType, nothing, ulong } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
@@ -8,66 +9,69 @@ export class ParamAssetMessageMerge extends ParamMergeSubscribable {
 	 * The unique identifier of the {@link AssetMessage} you want to update.
 	 * Leave this as `null` when creating a new {@link AssetMessage}.
 	 **/
-	id: ulong | undefined;
-	/**
-	 * The {@link Company} to which this {@link AssetMessage} belongs.
-	 * After creation, this value is read-only.
-	 **/
-	company: ulong | undefined;
-	/**
-	 * Name for the {@link AssetMessage}.
-	 **/
-	name: string;
-	/**
-	 * Notes for the {@link AssetMessage}.
-	 **/
-	notes: string;
-	/**
-	 * A collection of other names this person might go by.
-	 * Use the object key like a name identifier.
-	 * Example keys: Initials, Nickname, Maiden Name, etc.
-	 **/
-	otherNames: Map<string, string>;
-	/**
-	 * Email addresses
-	 * Use the object key like a name of the address.
-	 * Example keys: Home, Work, Support, Old, etc.
-	 **/
-	emails: Map<string, string>;
-	/**
-	 * Phone numbers.
-	 * Use the object key like a name of the phone number.
-	 * Example keys: Mobile, Fax, Home, Office, etc.
-	 **/
-	phones: Map<string, ulong?>;
-	/**
-	 * Mailing addresses
-	 * Use the object key like a name of the address.
-	 * Example keys: Home, Work, Park, etc.
-	 **/
-	addresses: Map<string, string>;
-	/**
-	 * Websites and other online resources
-	 * Use the object key like a name of the address.
-	 * Example keys: Downloads, Support, FTP, etc.
-	 **/
-	urls: Map<string, Uri>;
-	/**
-	 * Date information
-	 * Use the object key like a name of the date.
-	 * Example keys: Birthday, Started Date, Retired On, etc.
-	 **/
-	dates: Map<string, Date?>;
-	/**
-	 * Uncategorized information
-	 * Use the object keys and values however you'd like.
-	 **/
-	options: Map<string, string>;
-	/**
-	 * A list of roles they play in the {@link Company}.
-	 **/
-	roles: string[];
-	/**
-	 * {@link Picture}s of this {@link AssetMessage}.
-	 **/
-	pictures: ulong[];}
+	id: ulong | nothing;
+	/// <summary>
+	/// The <see cref="Asset"/> that this <see cref="Message"/> was sent from or to.
+	/// After creation, this value is read-only.
+	/// </summary>
+	asset: ulong | nothing;
+	/// <summary>
+	/// The kind of protocol used for this <see cref="Message"/>.
+	/// After creation, this value is read-only.
+	/// </summary>
+	kind: MessageType | nothing;
+	/// <summary>
+	/// The folder where this <see cref="Message"/> is stored.
+	/// </summary>
+	folder: MessageFolder | nothing;
+	/// <summary>
+	/// Optional to address used when creating the <see cref="Message"/> if no messaging address is available.
+	/// After creation, this value is read-only.
+	/// </summary>
+	to: string | nothing;
+	/// <summary>
+	/// The <see cref="Message"/> subject field.
+	/// After creation, this value is read-only.
+	/// This is used exclusively with <see cref="MemoType.email"/> type <see cref="Message"/>s.
+	/// </summary>
+	subject: string | nothing;
+	/// <summary>
+	/// The body of the <see cref="Message"/>.
+	/// After creation, this value is read-only.
+	/// </summary>
+	body: string | nothing;
+	/// <summary>
+	/// Set to true to log that the <see cref="Message"/> was received and read by yourself.
+	/// Once set, the <see cref="Message.readBy"/> value will be your login, and cannot be set by anyone else.
+	/// </summary>
+	read: boolean | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.id = json?.id;
+		this.asset = json?.asset;
+		this.kind = json?.kind;
+		this.folder = json?.folder;
+		this.to = json?.to;
+		this.subject = json?.subject;
+		this.body = json?.body;
+		this.read = json?.read;
+	}
+
+	override toJSON(): any {
+		const json: any = {};
+		if (this.id) {
+			json.id = this.id;
+			json.v = [...this.v];
+		} else {
+			json.asset = this.asset;
+		}
+		if (this.kind) json.kind = this.kind;
+		if (this.folder) json.folder = this.folder;
+		if (this.to) json.to = this.to;
+		if (this.subject) json.subject = this.subject;
+		if (this.body) json.body = this.body;
+		if (this.read) json.read = this.read;
+		return json;
+	}
+}

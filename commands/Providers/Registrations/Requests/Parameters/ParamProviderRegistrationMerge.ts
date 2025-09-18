@@ -1,73 +1,71 @@
-import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
+import { nothing, TimeSpan, ulong, utility } from "@trakit/objects";
+import { ParamMerge } from "commands/API/Requests/Parameters/ParamMerge";
 
 /**
  * Parameters used to create or update an {@link ProviderRegistration}.
  **/
-export class ParamProviderRegistrationMerge extends ParamMergeSubscribable {
-	/**
-	 * The unique identifier of the {@link ProviderRegistration} you want to update.
-	 * Leave this as `null` when creating a new {@link ProviderRegistration}.
-	 **/
-	code: string;
-	/**
-	 * The {@link Company} to which this {@link ProviderRegistration} belongs.
-	 * After creation, this value is read-only.
-	 **/
-	company: ulong | undefined;
-	/**
-	 * Name for the {@link ProviderRegistration}.
-	 **/
-	name: string;
-	/**
-	 * Notes for the {@link ProviderRegistration}.
-	 **/
-	notes: string;
-	/**
-	 * A collection of other names this person might go by.
-	 * Use the object key like a name identifier.
-	 * Example keys: Initials, Nickname, Maiden Name, etc.
-	 **/
-	otherNames: Map<string, string>;
-	/**
-	 * Email addresses
-	 * Use the object key like a name of the address.
-	 * Example keys: Home, Work, Support, Old, etc.
-	 **/
-	emails: Map<string, string>;
-	/**
-	 * Phone numbers.
-	 * Use the object key like a name of the phone number.
-	 * Example keys: Mobile, Fax, Home, Office, etc.
-	 **/
-	phones: Map<string, ulong?>;
-	/**
-	 * Mailing addresses
-	 * Use the object key like a name of the address.
-	 * Example keys: Home, Work, Park, etc.
-	 **/
-	addresses: Map<string, string>;
-	/**
-	 * Websites and other online resources
-	 * Use the object key like a name of the address.
-	 * Example keys: Downloads, Support, FTP, etc.
-	 **/
-	urls: Map<string, Uri>;
-	/**
-	 * Date information
-	 * Use the object key like a name of the date.
-	 * Example keys: Birthday, Started Date, Retired On, etc.
-	 **/
-	dates: Map<string, Date?>;
-	/**
-	 * Uncategorized information
-	 * Use the object keys and values however you'd like.
-	 **/
-	options: Map<string, string>;
-	/**
-	 * A list of roles they play in the {@link Company}.
-	 **/
-	roles: string[];
-	/**
-	 * {@link Picture}s of this {@link ProviderRegistration}.
-	 **/
-	pictures: ulong[];}
+export class ParamProviderRegistrationMerge extends ParamMerge {
+	/// <summary>
+	/// The identifier of the <see cref="ProviderConfig"/>/<see cref="ProviderConfiguration"/> that will be loaded onto the new <see cref="Provider"/>.
+	/// </summary>
+	config: ulong | nothing;
+	/// <summary>
+	/// An optional <see cref="Asset"/> to which the new <see cref="Provider"/> will be assigned.
+	/// </summary>
+	asset: ulong | nothing;
+	/// <summary>
+	/// Identifier of the <see cref="Provider"/> to setup.
+	/// This is helpful for long-term deployments, but will be overwritten during provisioning.
+	/// </summary>
+	/// <seealso cref="Provider.id" />
+	identifier: string | nothing;
+	/// <summary>
+	/// If known beforehand, a phone number can be specified for new <see cref="Provider"/>s.
+	/// </summary>
+	phone: ulong | nothing;
+	/// <summary>
+	/// The lifetime of the <see cref="ProviderRegistration"/>.
+	/// The default value (if not specified) is 10 minutes.
+	/// It can be specified as up to 2 months to allow for longer deployments.
+	/// </summary>
+	lifetime: TimeSpan | nothing;
+	/// <summary>
+	/// A nickname given to the <see cref="Provider"/> once it has been provisioned.
+	/// </summary>
+	name: string | nothing;
+	/// <summary>
+	/// Notes about the <see cref="Provider"/> for after it's been programmed.
+	/// </summary>
+	notes: string | nothing;
+	/// <summary>
+	/// The password programmed on the <see cref="Provider"/> used to ensure the system is the only client authorized to make changes.
+	/// </summary>
+	password: string | nothing;
+
+	constructor(json: any) {
+		super();
+		this.config = json?.config;
+		this.asset = json?.asset;
+		this.identifier = json?.identifier;
+		this.phone = json?.phone;
+		this.lifetime = json?.lifetime
+			? new TimeSpan(json.lifetime)
+			: null;
+		this.name = json?.name;
+		this.notes = json?.notes;
+		this.password = json?.password;
+	}
+
+	override toJSON(): any {
+		const json: any = {};
+		if (this.config) json.config = this.config;
+		if (!utility.isNothing(this.asset)) json.asset = this.asset;
+		if (!utility.isNothing(this.identifier)) json.identifier = this.identifier;
+		if (this.phone) json.phone = this.phone;
+		if (this.lifetime) json.lifetime = this.lifetime.toString();
+		if (this.name) json.name = this.name;
+		if (this.notes) json.notes = this.notes;
+		if (this.password) json.password = this.password;
+		return json;
+	}
+}
