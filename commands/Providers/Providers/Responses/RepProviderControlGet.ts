@@ -1,3 +1,4 @@
+import { nothing, ProviderControl } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -7,4 +8,12 @@ export class RepProviderControlGet extends Reply {
 	/**
 	 * The requested {@link ProviderControl}.
 	 **/
-	providerControl: ProviderControl;}
+	providerControl: ProviderControl | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.providerControl = json?.providerControl
+			? new ProviderControl(json.providerControl)
+			: null;
+	}
+}

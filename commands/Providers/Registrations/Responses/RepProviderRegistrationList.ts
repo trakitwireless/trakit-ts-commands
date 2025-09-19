@@ -1,5 +1,6 @@
+import { nothing, ProviderRegistration } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
-import { RepProviderRegistrationList } from "./RepProviderRegistrationList";
+import { ContentId } from "commands/API/Responses/Content/ContentId";
 
 /**
  * A container for the requested {@link providerRegistrations}.
@@ -8,8 +9,13 @@ export abstract class RepProviderRegistrationList extends Reply {
 	/**
 	 * The list of requested {@link ProviderRegistration}s.
 	 **/
-	providerRegistrations: ProviderRegistration[];
+	providerRegistrations: ProviderRegistration[] | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.providerRegistrations = json?.providerRegistrations?.map((v: any) => new ProviderRegistration(v));
 	}
+}
 
 /**
  * Contains the {@link Company.id} of the collection.
@@ -18,4 +24,10 @@ export class RepProviderRegistrationListByCompany extends RepProviderRegistratio
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
-	company: ContentId;}
+	company: ContentId | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.company = ContentId.fromJSON(json?.company);
+	}
+}

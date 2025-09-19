@@ -1,3 +1,4 @@
+import { nothing, ProviderAdvanced } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -7,4 +8,12 @@ export class RepProviderAdvancedGet extends Reply {
 	/**
 	 * The requested {@link ProviderAdvanced}.
 	 **/
-	providerAdvanced: ProviderAdvanced;}
+	providerAdvanced: ProviderAdvanced | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.providerAdvanced = json?.providerAdvanced
+			? new ProviderAdvanced(json.providerAdvanced)
+			: null;
+	}
+}

@@ -1,3 +1,4 @@
+import { nothing, ProviderScript } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -7,4 +8,12 @@ export class RepProviderScriptGet extends Reply {
 	/**
 	 * The requested {@link ProviderScript}.
 	 **/
-	providerScript: ProviderScript;}
+	providerScript: ProviderScript | nothing;
+	
+	constructor(json: any) {
+		super(json);
+		this.providerScript = json?.providerScript
+			? new ProviderScript(json.providerScript)
+			: null;
+	}
+}

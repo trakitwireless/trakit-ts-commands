@@ -1,23 +1,33 @@
+import { nothing, ProviderConfigurationType } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
-import { RepProviderConfigurationTypeList } from "./RepProviderConfigurationTypeList";
+import { ContentId } from "commands/API/Responses/Content/ContentId";
 
 /**
  * A container for the requested {@link providerConfigurationTypes}.
  **/
-	[Obsolete("Use RespProviderScriptList instead")]
 export abstract class RepProviderConfigurationTypeList extends Reply {
 	/**
 	 * The list of requested {@link ProviderConfigurationType}s.
 	 **/
-	providerConfigurationTypes: ProviderConfigurationType[];
+	providerConfigurationTypes: ProviderConfigurationType[] | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.providerConfigurationTypes = json?.providerConfigurationTypes?.map((v: any) => new ProviderConfigurationType(v));
 	}
+}
 
 /**
  * Contains the {@link Company.id} of the collection.
  **/
-	[Obsolete("Use RespProviderScriptListByCompany instead")]
 export class RepProviderConfigurationTypeListByCompany extends RepProviderConfigurationTypeList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
-	company: ContentId;}
+	company: ContentId | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.company = ContentId.fromJSON(json?.company);
+	}
+}

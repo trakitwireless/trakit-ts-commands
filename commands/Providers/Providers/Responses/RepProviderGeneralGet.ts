@@ -1,3 +1,4 @@
+import { nothing, ProviderGeneral } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -7,4 +8,12 @@ export class RepProviderGeneralGet extends Reply {
 	/**
 	 * The requested {@link Provider}.
 	 **/
-	providerGeneral: ProviderGeneral;}
+	providerGeneral: ProviderGeneral | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.providerGeneral = json?.providerGeneral
+			? new ProviderGeneral(json.providerGeneral)
+			: null;
+	}
+}

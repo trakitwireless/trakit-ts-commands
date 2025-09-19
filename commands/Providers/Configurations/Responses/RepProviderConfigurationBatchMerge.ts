@@ -1,11 +1,18 @@
+import { ContentIdCompany } from "commands/API/Responses/Content/ContentIdCompany";
 import { Reply } from "../../../API/Responses/Reply";
+import { nothing } from "@trakit/objects";
 
 /**
  * 
  **/
-	[Obsolete("Use RespProviderConfigBatchMerge instead")]
 export class RepProviderConfigurationBatchMerge extends Reply {
 	/**
 	 * 
 	 **/
-	providerConfigurations: ContentIdCompany[];}
+	providerConfigurations: ContentIdCompany[] | nothing;
+	
+	constructor(json: any) {
+		super(json);
+		this.providerConfigurations = json?.providerConfigurations?.map((v: any) => ContentIdCompany.fromJSON(v));
+	}
+}

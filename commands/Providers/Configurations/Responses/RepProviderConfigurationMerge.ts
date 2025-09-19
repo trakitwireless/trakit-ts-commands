@@ -1,11 +1,18 @@
+import { nothing } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
+import { ContentIdCompany } from "commands/API/Responses/Content/ContentIdCompany";
 
 /**
  * A container for the {@link providerConfiguration}.
  **/
-	[Obsolete("Use RespProviderConfigMerge instead")]
 export class RepProviderConfigurationMerge extends Reply {
 	/**
 	 * An object which contains the `id` and `company` keys when there is no error.
 	 **/
-	providerConfiguration: ContentIdCompany;}
+	providerConfiguration: ContentIdCompany | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.providerConfiguration = ContentIdCompany.fromJSON(json?.providerConfiguration);
+	}
+}

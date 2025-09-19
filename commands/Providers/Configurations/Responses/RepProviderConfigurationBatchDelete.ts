@@ -1,11 +1,18 @@
+import { nothing } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
+import { ContentIdDeleted } from "commands/API/Responses/Content/ContentIdDeleted";
 
 /**
  * A container for the {@link providerConfiguration}.
  **/
-	[Obsolete("Use RespProviderConfigBatchDelete instead")]
 export class RepProviderConfigurationBatchDelete extends Reply {
 	/**
 	 * Details about deleting/restoring the requested {@link ProviderConfiguration}.
 	 **/
-	providerConfigurations: ContentIdDeleted[];}
+	providerConfigurations: ContentIdDeleted[] | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.providerConfigurations = json?.providerConfigurations?.map((v: any) => new ContentIdDeleted(v));
+	}
+}
