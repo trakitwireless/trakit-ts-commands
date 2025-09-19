@@ -12,6 +12,6 @@ export class PayFormTemplateBatchMerge extends Payload {
 
 	constructor(json?: any) {
 		super(json);
-		this.formTemplates = (json?.formTemplates ?? []).map((item: any) => new ParamFormTemplateMerge(item));
+		this.formTemplates = json?.formTemplates?.map((item: any) => new ParamFormTemplateMerge(item)) ?? [];
 	}
 }

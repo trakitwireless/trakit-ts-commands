@@ -14,6 +14,6 @@ export class ErrorDetailBatch extends ErrorDetail {
 
 	constructor(json: any) {
 		super();
-		this.errors = (json?.errors ?? []).map((e: any) => new Reply(e));
+		this.errors = json?.errors?.map((e: any) => new Reply(e)) ?? [];
 	}
 }

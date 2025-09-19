@@ -113,24 +113,24 @@ export class ParamMachineMerge extends ParamMergeSubscribable {
 
 	constructor(json?: any) {
 		super(json);
-		this.key = json?.key ?? "";
+		this.key = json?.key;
 		this.secret = json?.secret;
-		this.company = json?.company ?? undefined;
-		this.nickname = json?.nickname ?? "";
-		this.notes = json?.notes ?? "";
-		this.enabled = json?.enabled ?? undefined;
-		this.notBefore = json?.notBefore ? new Date(json.notBefore) : undefined;
-		this.notAfter = json?.notAfter ? new Date(json.notAfter) : undefined;
+		this.company = json?.company;
+		this.nickname = json?.nickname;
+		this.notes = json?.notes;
+		this.enabled = json?.enabled;
+		this.notBefore = json?.notBefore ? utility.date(json.notBefore) : undefined;
+		this.notAfter = json?.notAfter ? utility.date(json.notAfter) : undefined;
 		this.timezone = utility.findTimeZoneById(json?.timezone);
-		this.language = json?.language ?? "";
-		this.formats = new Map<string, string>(json?.formats ?? []);
-		this.measurements = new Map<string, SystemsOfUnits | nothing>(json?.measurements ?? []);
-		this.options = new Map<string, string>(json?.options ?? []);
-		this.groups = json?.groups ?? [];
-		this.permissions = (json?.permissions ?? []).map((p: any) => new ParamPermission(p));
-		this.services = (json?.services ?? []).map((s: any) => new URL(s));
-		this.referrers = (json?.referrers ?? []).map((r: any) => new URL(r));
-		this.ipRanges = json?.ipRanges ?? [];
+		this.language = json?.language;
+		this.formats = serialization.toMap(json?.formats ?? {});
+		this.measurements = serialization.toMap(json?.measurements ?? {});
+		this.options = serialization.toMap(json?.options ?? {});
+		this.groups = json?.groups;
+		this.permissions = json?.permissions?.map((p: any) => new ParamPermission(p));
+		this.services = json?.services?.map((s: any) => new URL(s));
+		this.referrers = json?.referrers?.map((r: any) => new URL(r));
+		this.ipRanges = json?.ipRanges;
 		this.insecure = json?.insecure;
 	}
 

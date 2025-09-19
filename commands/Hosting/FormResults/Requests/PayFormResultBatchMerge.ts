@@ -12,6 +12,6 @@ export class PayFormResultBatchMerge extends Payload {
 
 	constructor(json?: any) {
 		super(json);
-		this.formResults = (json?.formResults ?? []).map((item: any) => new ParamFormResultMerge(item));
+		this.formResults = json?.formResults?.map((item: any) => new ParamFormResultMerge(item)) ?? [];
 	}
 }

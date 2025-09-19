@@ -12,6 +12,6 @@ export class PayDocumentBatchDelete extends Payload {
 
 	constructor(json: any) {
 		super(json);
-		this.documents = (json?.documents ?? []).map((d: any) => new ParamId(d));
+		this.documents = (json?.documents?.map((d: any) => new ParamId(d)) ?? [];
 	}
 }

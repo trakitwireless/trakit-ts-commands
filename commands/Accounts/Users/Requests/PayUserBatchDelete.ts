@@ -12,6 +12,6 @@ export class PayUserBatchDelete extends Payload {
 
 	constructor(json?: any) {
 		super(json);
-		this.users = (json?.users ?? []).map((u: any) => new ParamLogin(u));
+		this.users = json?.users?.map((u: any) => new ParamLogin(u)) ?? [];
 	}
 }

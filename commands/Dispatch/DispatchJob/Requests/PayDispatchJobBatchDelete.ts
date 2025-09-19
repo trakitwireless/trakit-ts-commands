@@ -12,6 +12,6 @@ export class PayDispatchJobBatchDelete extends Payload {
 
 	constructor(json: any) {
 		super(json);
-		this.dispatchJobs = (json?.dispatchJobs ?? []).map((id: any) => new ParamId(id));
+		this.dispatchJobs = json?.dispatchJobs?.map((id: any) => new ParamId(id)) ?? [];
 	}
 }

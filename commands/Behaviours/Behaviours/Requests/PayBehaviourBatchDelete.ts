@@ -13,6 +13,6 @@ export class PayBehaviourBatchDelete extends Payload {
 
 	constructor(json?: any) {
 		super(json);
-		this.behaviours = (json?.behaviours ?? []).map((item: any) => new ParamId(item));
+		this.behaviours = json?.behaviours?.map((item: any) => new ParamId(item)) ?? [];
 	}
 }

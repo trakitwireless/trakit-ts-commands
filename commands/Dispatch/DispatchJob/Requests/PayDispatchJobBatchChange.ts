@@ -12,6 +12,6 @@ export class PayDispatchJobBatchChange extends Payload {
 
 	constructor(json: any) {
 		super(json);
-		this.dispatchJobs = (json?.dispatchJobs ?? []).map((dj: any) => new ParamDispatchJobChange(dj));
+		this.dispatchJobs = json?.dispatchJobs?.map((dj: any) => new ParamDispatchJobChange(dj)) ?? [];
 	}
 }

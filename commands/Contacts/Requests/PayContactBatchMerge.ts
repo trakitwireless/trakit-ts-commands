@@ -12,6 +12,6 @@ export class PayContactBatchMerge extends Payload {
 
 	constructor(json: any) {
 		super(json);
-		this.contacts = (json?.contacts ?? []).map((c: any) => new ParamContactMerge(c));
+		this.contacts = json?.contacts?.map((c: any) => new ParamContactMerge(c)) ?? [];
 	}
 }

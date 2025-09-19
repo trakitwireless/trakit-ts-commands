@@ -12,6 +12,6 @@ export class PayContactBatchDelete extends Payload {
 
 	constructor(json: any) {
 		super(json);
-		this.contacts = (json?.contacts ?? []).map((c: any) => new ParamId(c));
+		this.contacts = json?.contacts?.map((c: any) => new ParamId(c)) ?? [];
 	}
 }

@@ -12,6 +12,6 @@ export class PayBehaviourScriptBatchDelete extends Payload {
 
 	constructor(json?: any) {
 		super(json);
-		this.behaviourScripts = (json?.behaviourScripts ?? []).map((x: any) => new ParamId(x));
+		this.behaviourScripts = json?.behaviourScripts?.map((x: any) => new ParamId(x)) ?? [];
 	}
 }

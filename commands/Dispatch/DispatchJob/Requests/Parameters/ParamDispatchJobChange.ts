@@ -28,7 +28,7 @@ export class ParamDispatchJobChange extends ParamMergeSubscribable {
 		this.id = json?.id;
 		this.driver = json?.driver ?? "";
 		this.tags = json?.tags ?? [];
-		this.steps = (json?.steps ?? []).map((s: any) => new ParamDispatchStepChange(s));
+		this.steps = json?.steps?.map((s: any) => new ParamDispatchStepChange(s)) ?? [];
 	}
 
 	override toJSON(): any {

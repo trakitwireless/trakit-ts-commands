@@ -12,6 +12,6 @@ export class PayBehaviourScriptBatchMerge extends Payload {
 
 	constructor(json?: any) {
 		super(json);
-		this.behaviourScripts = (json?.behaviourScripts ?? []).map((x: any) => new ParamBehaviourScriptMerge(x));
+		this.behaviourScripts = json?.behaviourScripts?.map((x: any) => new ParamBehaviourScriptMerge(x)) ?? [];
 	}
 }

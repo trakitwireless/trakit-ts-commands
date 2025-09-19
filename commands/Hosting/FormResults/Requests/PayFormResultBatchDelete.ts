@@ -12,6 +12,6 @@ export class PayFormResultBatchDelete extends Payload {
 
 	constructor(json?: any) {
 		super(json);
-		this.formResults = (json?.formResults ?? []).map((item: any) => new ParamId(item));
+		this.formResults = json?.formResults?.map((item: any) => new ParamId(item)) ?? [];
 	}
 }

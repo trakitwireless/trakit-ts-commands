@@ -12,6 +12,6 @@ export class PayUserBatchMerge extends Payload {
 
 	constructor(json?: any) {
 		super(json);
-		this.users = (json?.users ?? []).map((u: any) => new ParamUserMerge(u));
+		this.users = json?.users?.map((u: any) => new ParamUserMerge(u)) ?? [];
 	}
 }

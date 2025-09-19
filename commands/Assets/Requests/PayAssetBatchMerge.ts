@@ -12,6 +12,6 @@ export class PayAssetBatchMerge extends Payload {
 
 	constructor(json?: any) {
 		super(json);
-		this.assets = (json?.assets ?? []).map((a: any) => new ParamAssetMerge(a));
+		this.assets = json?.assets?.map((a: any) => new ParamAssetMerge(a)) ?? [];
 	}
 }

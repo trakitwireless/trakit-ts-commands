@@ -12,6 +12,6 @@ export class PayAssetBatchDelete extends Payload {
 	
 	constructor(json?: any) {
 		super(json);
-		this.assets = (json?.assets ?? []).map((id: any) => new ParamId(id));
+		this.assets = json?.assets?.map((id: any) => new ParamId(id)) ?? [];
 	}
 }

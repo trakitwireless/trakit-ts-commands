@@ -13,6 +13,6 @@ export class PayBehaviourBatchMerge extends Payload {
 
 	constructor(json?: any) {
 		super(json);
-		this.behaviours = (json?.behaviours ?? []).map((item: any) => new ParamBehaviourMerge(item));
+		this.behaviours = json?.behaviours?.map((item: any) => new ParamBehaviourMerge(item)) ?? [];
 	}
 }

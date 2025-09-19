@@ -12,6 +12,6 @@ export class PayDispatchTaskBatchMerge extends Payload {
 
 	constructor(json: any) {
 		super(json);
-		this.dispatchTasks = (json?.dispatchTasks ?? []).map((dt: any) => new ParamDispatchTaskMerge(dt));
+		this.dispatchTasks = json?.dispatchTasks?.map((dt: any) => new ParamDispatchTaskMerge(dt)) ?? [];
 	}
 }

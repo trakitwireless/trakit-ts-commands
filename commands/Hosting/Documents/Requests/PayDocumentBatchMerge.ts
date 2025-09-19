@@ -12,6 +12,6 @@ export class PayDocumentBatchMerge extends Payload {
 
 	constructor(json: any) {
 		super(json);
-		this.documents = (json?.documents ?? []).map((d: any) => new ParamDocumentMerge(d));
+		this.documents = json?.documents?.map((d: any) => new ParamDocumentMerge(d)) ?? [];
 	}
 }

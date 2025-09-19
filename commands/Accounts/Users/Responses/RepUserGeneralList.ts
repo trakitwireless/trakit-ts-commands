@@ -13,7 +13,7 @@ export abstract class RepUserGeneralList extends Reply {
 
 	constructor(json?: any) {
 		super(json);
-		this.userGenerals = (json?.userGenerals ?? []).map((u: any) => new UserGeneral(u));
+		this.userGenerals = json?.userGenerals?.map((u: any) => new UserGeneral(u)) ?? [];
 	}
 }
 

@@ -12,6 +12,6 @@ export class PayDispatchTaskBatchDelete extends Payload {
 
 	constructor(json: any) {
 		super(json);
-		this.dispatchTasks = (json?.dispatchTasks ?? []).map((id: any) => new ParamId(id));
+		this.dispatchTasks = json?.dispatchTasks?.map((id: any) => new ParamId(id)) ?? [];
 	}
 }
