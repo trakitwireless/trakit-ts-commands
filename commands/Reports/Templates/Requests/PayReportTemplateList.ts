@@ -1,7 +1,7 @@
 import { Payload } from "../../../API/Requests/Payload";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
-import { PayReportTemplateList } from "./PayReportTemplateList";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
+import { ParamId } from "commands/API/Requests/Parameters/ParamId";
 
 /**
  * Gets details of the specified {@link reportTemplate}.
@@ -11,7 +11,13 @@ export abstract class PayReportTemplateList extends Payload implements IPayDelet
 	 * When true, the command will also return  deleted {@link ReportTemplate}s.
 	 **/
 	includeDeleted: boolean;
+
+	constructor(json: any) {
+		super();
+		this.includeDeleted = json?.includeDeleted ?? false;
 	}
+}
+
 /**
  * Contains the {@link Company.id} of the collection.
  **/
@@ -19,4 +25,10 @@ export class PayReportTemplateListByCompany extends PayReportTemplateList implem
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
-	company: ParamId;}
+	company: ParamId;
+
+	constructor(json: any) {
+		super(json);
+		this.company = new ParamId(json?.company);
+	}
+}

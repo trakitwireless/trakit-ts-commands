@@ -1,5 +1,6 @@
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
+import { ParamId } from "commands/API/Requests/Parameters/ParamId";
 
 /**
  * A container for the {@link reportResult} object.
@@ -10,9 +11,14 @@ export abstract class PayReportResult extends Payload implements IPaySingle {
 	 **/
 	reportResult: ParamId;
 
+	constructor(json: any) {
+		super();
+		this.reportResult = new ParamId(json?.reportResult);
+	}
 	/**
 	 * 
 	 **/
-		getKey(): string {
-			return  this.reportResult?.id?.toString() ?? "";
-		}}
+	getKey(): string {
+		return this.reportResult?.id?.toString() ?? "";
+	}
+}

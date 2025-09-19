@@ -8,4 +8,10 @@ export class PayReportScheduleGet extends PayReportSchedule implements IPayDelet
 	/**
 	 * When true, the command will also return a deleted {@link ReportSchedule} (if it exists).
 	 **/
-	includeDeleted: boolean;}
+	includeDeleted: boolean;
+
+	constructor(json: any) {
+		super(json);
+		this.includeDeleted = json?.includeDeleted ?? false;
+	}
+}
