@@ -1,18 +1,15 @@
-﻿import { nothing, SystemsOfUnits } from '@trakit/objects';
-import { UserNotifications } from '@trakit/objects';
-import { Timezone } from '@trakit/objects';
-import { ulong, url } from '@trakit/objects';
-import { PaySelfContact } from 'commands/Accounts/Self/Requests/PaySelfContact';
-import { PaySelfGet } from 'commands/Accounts/Self/Requests/PaySelfGet';
-import { PaySelfLogin } from 'commands/Accounts/Self/Requests/PaySelfLogin';
-import { PaySelfLogout } from 'commands/Accounts/Self/Requests/PaySelfLogout';
-import { PaySelfPassword } from 'commands/Accounts/Self/Requests/PaySelfPassword';
-import { PaySelfPreferences } from 'commands/Accounts/Self/Requests/PaySelfPreferences';
-import { RepSelfGet } from 'commands/Accounts/Self/Responses/RepSelfGet';
-import { RepSelfLogout } from 'commands/Accounts/Self/Responses/RepSelfLogout';
-import { RepSelfPasswordMerge } from 'commands/Accounts/Self/Responses/RepSelfPasswordMerge';
-import { ErrorCode } from 'commands/API/Responses/Errors/ErrorCode';
-import { Reply } from 'commands/API/Responses/Reply';
+﻿import { nothing, SystemsOfUnits, Timezone, ulong, url, UserNotifications } from '@trakit/objects';
+import { PaySelfContact } from '../commands/Accounts/Self/Requests/PaySelfContact';
+import { PaySelfGet } from '../commands/Accounts/Self/Requests/PaySelfGet';
+import { PaySelfLogin } from '../commands/Accounts/Self/Requests/PaySelfLogin';
+import { PaySelfLogout } from '../commands/Accounts/Self/Requests/PaySelfLogout';
+import { PaySelfPassword } from '../commands/Accounts/Self/Requests/PaySelfPassword';
+import { PaySelfPreferences } from '../commands/Accounts/Self/Requests/PaySelfPreferences';
+import { RepSelfGet } from '../commands/Accounts/Self/Responses/RepSelfGet';
+import { RepSelfLogout } from '../commands/Accounts/Self/Responses/RepSelfLogout';
+import { RepSelfPasswordMerge } from '../commands/Accounts/Self/Responses/RepSelfPasswordMerge';
+import { ErrorCode } from '../commands/API/Responses/Errors/ErrorCode';
+import { Reply } from '../commands/API/Responses/Reply';
 import { TrakitCommander } from './TrakitCommander';
 
 /**
