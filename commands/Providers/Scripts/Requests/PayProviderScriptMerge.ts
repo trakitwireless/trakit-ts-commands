@@ -1,5 +1,6 @@
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
+import { ParamProviderScriptMerge } from "./Parameters/ParamProviderScriptMerge";
 
 /**
  * Creates a new or updates an existing {@link ProviderScript}.
@@ -10,9 +11,14 @@ export class PayProviderScriptMerge extends Payload implements IPaySingle {
 	 **/
 	providerScript: ParamProviderScriptMerge;
 
+	constructor(json: any) {
+		super();
+		this.providerScript = new ParamProviderScriptMerge(json?.providerScript);
+	}
 	/**
 	 * 
 	 **/
-		getKey(): string {
-			return  this.providerScript?.id?.toString() ?? "";
-		}}
+	getKey(): string {
+		return this.providerScript?.id?.toString() ?? "";
+	}
+}

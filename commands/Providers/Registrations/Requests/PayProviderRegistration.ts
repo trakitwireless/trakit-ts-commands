@@ -1,5 +1,6 @@
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
+import { ParamCode } from "commands/API/Requests/Parameters/ParamCode";
 
 /**
  * A container for the {@link providerRegistration} object.
@@ -10,9 +11,15 @@ export abstract class PayProviderRegistration extends Payload implements IPaySin
 	 **/
 	providerRegistration: ParamCode;
 
+	constructor(json: any) {
+		super(json);
+		this.providerRegistration = new ParamCode(json?.providerRegistration);
+	}
+
 	/**
 	 * 
 	 **/
-		getKey(): string {
-			return  this.providerRegistration?.code.toString() ?? "";
-		}}
+	getKey(): string {
+		return this.providerRegistration?.code.toString() ?? "";
+	}
+}
