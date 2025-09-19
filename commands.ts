@@ -5,6 +5,78 @@
  * @copyright Trak-iT Wireless Inc. 2025
  */
 import { TrakitCommander } from "clients/TrakitCommander";
+import { ParamAssetMerge } from "commands/Assets/Requests/Parameters/ParamAssetMerge";
+import { PayAsset } from "commands/Assets/Requests/PayAsset";
+import { PayAssetAdvancedGet } from "commands/Assets/Requests/PayAssetAdvancedGet";
+import { PayAssetAdvancedList, PayAssetAdvancedListByCompany, PayAssetAdvancedListByCompanyAndLabels, PayAssetAdvancedListByCompanyAndRefPairs } from "commands/Assets/Requests/PayAssetAdvancedList";
+import { PayAssetBatchDelete } from "commands/Assets/Requests/PayAssetBatchDelete";
+import { PayAssetBatchMerge } from "commands/Assets/Requests/PayAssetBatchMerge";
+import { PayAssetDelete } from "commands/Assets/Requests/PayAssetDelete";
+import { PayAssetDispatchGet } from "commands/Assets/Requests/PayAssetDispatchGet";
+import { PayAssetDispatchList, PayAssetDispatchListByCompany, PayAssetDispatchListByCompanyAndLabels, PayAssetDispatchListByCompanyAndRefPairs } from "commands/Assets/Requests/PayAssetDispatchList";
+import { PayAssetGeneralGet } from "commands/Assets/Requests/PayAssetGeneralGet";
+import { PayAssetGeneralList, PayAssetGeneralListByCompany, PayAssetGeneralListByCompanyAndLabels, PayAssetGeneralListByCompanyAndRefPairs } from "commands/Assets/Requests/PayAssetGeneralList";
+import { PayAssetGet } from "commands/Assets/Requests/PayAssetGet";
+import { PayAssetList, PayAssetListByCompany, PayAssetListByCompanyAndLabels, PayAssetListByCompanyAndRefPairs } from "commands/Assets/Requests/PayAssetList";
+import { PayAssetMerge } from "commands/Assets/Requests/PayAssetMerge";
+import { PayAssetReactivate } from "commands/Assets/Requests/PayAssetReactivate";
+import { PayAssetRestore } from "commands/Assets/Requests/PayAssetRestore";
+import { PayAssetSuspend } from "commands/Assets/Requests/PayAssetSuspend";
+import { RepAssetAdvancedGet } from "commands/Assets/Responses/RepAssetAdvancedGet";
+import { RepAssetAdvancedList, RepAssetAdvancedListByCompany, RepAssetAdvancedListByCompanyAndLabels, RepAssetAdvancedListByCompanyAndRefPairs } from "commands/Assets/Responses/RepAssetAdvancedList";
+import { RepAssetDelete } from "commands/Assets/Responses/RepAssetDelete";
+import { RepAssetDispatchGet } from "commands/Assets/Responses/RepAssetDispatchGet";
+import { RepAssetDispatchList, RepAssetDispatchListByCompany, RepAssetDispatchListByCompanyAndLabels, RepAssetDispatchListByCompanyAndRefPairs } from "commands/Assets/Responses/RepAssetDispatchList";
+import { RepAssetGeneralGet } from "commands/Assets/Responses/RepAssetGeneralGet";
+import { RepAssetGeneralList, RepAssetGeneralListByCompany, RepAssetGeneralListByCompanyAndLabels, RepAssetGeneralListByCompanyAndRefPairs } from "commands/Assets/Responses/RepAssetGeneralList";
+import { RepAssetGet } from "commands/Assets/Responses/RepAssetGet";
+import { RepAssetList, RepAssetListByCompany, RepAssetListByCompanyAndLabels, RepAssetListByCompanyAndRefPairs } from "commands/Assets/Responses/RepAssetList";
+import { RepAssetMerge } from "commands/Assets/Responses/RepAssetMerge";
+import { RepAssetSuspend } from "commands/Assets/Responses/RepAssetSuspend";
+import { ParamBehaviourMerge } from "commands/Behaviours/Behaviours/Requests/Parameters/ParamBehaviourMerge";
+import { PayBehaviour } from "commands/Behaviours/Behaviours/Requests/PayBehaviour";
+import { PayBehaviourBatchDelete } from "commands/Behaviours/Behaviours/Requests/PayBehaviourBatchDelete";
+import { PayBehaviourBatchMerge } from "commands/Behaviours/Behaviours/Requests/PayBehaviourBatchMerge";
+import { PayBehaviourDelete } from "commands/Behaviours/Behaviours/Requests/PayBehaviourDelete";
+import { PayBehaviourGet } from "commands/Behaviours/Behaviours/Requests/PayBehaviourGet";
+import { PayBehaviourList, PayBehaviourListByCompany } from "commands/Behaviours/Behaviours/Requests/PayBehaviourList";
+import { PayBehaviourMerge } from "commands/Behaviours/Behaviours/Requests/PayBehaviourMerge";
+import { PayBehaviourRestore } from "commands/Behaviours/Behaviours/Requests/PayBehaviourRestore";
+import { RepBehaviourBatchDelete } from "commands/Behaviours/Behaviours/Responses/RepBehaviourBatchDelete";
+import { RepBehaviourBatchMerge } from "commands/Behaviours/Behaviours/Responses/RepBehaviourBatchMerge";
+import { RepBehaviourDelete } from "commands/Behaviours/Behaviours/Responses/RepBehaviourDelete";
+import { RepBehaviourGet } from "commands/Behaviours/Behaviours/Responses/RepBehaviourGet";
+import { RepBehaviourList, RepBehaviourListByCompany } from "commands/Behaviours/Behaviours/Responses/RepBehaviourList";
+import { RepBehaviourMerge } from "commands/Behaviours/Behaviours/Responses/RepBehaviourMerge";
+import { PayBehaviourLogBatchDelete } from "commands/Behaviours/Logs/Requests/PayBehaviourLogBatchDelete";
+import { PayBehaviourLogList, PayBehaviourLogListByCompany } from "commands/Behaviours/Logs/Requests/PayBehaviourLogList";
+import { RepBehaviourLogBatchDelete } from "commands/Behaviours/Logs/Responses/RepBehaviourLogBatchDelete";
+import { RepBehaviourLogList, RepBehaviourLogListByCompany } from "commands/Behaviours/Logs/Responses/RepBehaviourLogList";
+import { ParamBehaviourScriptMerge } from "commands/Behaviours/Scripts/Requests/Parameters/ParamBehaviourScriptMerge";
+import { PayBehaviourScript } from "commands/Behaviours/Scripts/Requests/PayBehaviourScript";
+import { PayBehaviourScriptBatchDelete } from "commands/Behaviours/Scripts/Requests/PayBehaviourScriptBatchDelete";
+import { PayBehaviourScriptBatchMerge } from "commands/Behaviours/Scripts/Requests/PayBehaviourScriptBatchMerge";
+import { PayBehaviourScriptDelete } from "commands/Behaviours/Scripts/Requests/PayBehaviourScriptDelete";
+import { PayBehaviourScriptGet } from "commands/Behaviours/Scripts/Requests/PayBehaviourScriptGet";
+import { PayBehaviourScriptList, PayBehaviourScriptListByCompany } from "commands/Behaviours/Scripts/Requests/PayBehaviourScriptList";
+import { PayBehaviourScriptMerge } from "commands/Behaviours/Scripts/Requests/PayBehaviourScriptMerge";
+import { PayBehaviourScriptRestore } from "commands/Behaviours/Scripts/Requests/PayBehaviourScriptRestore";
+import { RepBehaviourScriptBatchDelete } from "commands/Behaviours/Scripts/Responses/RepBehaviourScriptBatchDelete";
+import { RepBehaviourScriptBatchMerge } from "commands/Behaviours/Scripts/Responses/RepBehaviourScriptBatchMerge";
+import { RepBehaviourScriptDelete } from "commands/Behaviours/Scripts/Responses/RepBehaviourScriptDelete";
+import { RepBehaviourScriptGet } from "commands/Behaviours/Scripts/Responses/RepBehaviourScriptGet";
+import { RepBehaviourScriptList, RepBehaviourScriptListByCompany } from "commands/Behaviours/Scripts/Responses/RepBehaviourScriptList";
+import { RepBehaviourScriptMerge } from "commands/Behaviours/Scripts/Responses/RepBehaviourScriptMerge";
+import { RepCompanyGeneralGet } from "commands/Companies/Responses/RepCompanyGeneralGet";
+import { RepCompanyGet } from "commands/Companies/Responses/RepCompanyGet";
+import { RepCompanyList, RepCompanyListByCompany, RepCompanyListByCompanyAndRefPairs } from "commands/Companies/Responses/RepCompanyList";
+import { RepCompanyMerge } from "commands/Companies/Responses/RepCompanyMerge";
+import { RepCompanyPoliciesGet } from "commands/Companies/Responses/RepCompanyPoliciesGet";
+import { RepCompanyPoliciesList, RepCompanyPoliciesListByCompany, RepCompanyPoliciesListByCompanyAndLabels, RepCompanyPoliciesListByCompanyAndRefPairs } from "commands/Companies/Responses/RepCompanyPoliciesList";
+import { RepCompanyResellerGet } from "commands/Companies/Responses/RepCompanyResellerGet";
+import { RepCompanyResellerList, RepCompanyResellerListByCompany, RepCompanyResellerListByCompanyAndLabels, RepCompanyResellerListByCompanyAndRefPairs } from "commands/Companies/Responses/RepCompanyResellerList";
+import { RepCompanyStylesGet } from "commands/Companies/Responses/RepCompanyStylesGet";
+import { RepCompanyStylesList, RepCompanyStylesListByCompany, RepCompanyStylesListByCompanyAndLabels, RepCompanyStylesListByCompanyAndRefPairs } from "commands/Companies/Responses/RepCompanyStylesList";
 import { TrakitObjectCommander } from "./clients/TrakitObjectCommander";
 import { ParamUserGroupMerge } from "./commands/Accounts/Groups/Requests/Parameters/ParamUserGroupMerge";
 import { PayUserGroupBatchDelete } from "./commands/Accounts/Groups/Requests/PayUserGroupBatchDelete";
@@ -255,8 +327,6 @@ export const polyline = {
 //#endregion API
 
 //#region Accounts
-
-// Accounts exports
 export {
 	ParamHandle,
 	ParamMachineMerge,
@@ -336,20 +406,140 @@ export {
 	SelfUser,
 	SelfUserAdvanced,
 	SelfUserGeneral,
-	SessionHandle
+	SessionHandle,
 };
 //#endregion Accounts
 
 //#region Assets
+export {
+	ParamAssetMerge, PayAsset,
+	PayAssetAdvancedGet,
+	PayAssetAdvancedList,
+	PayAssetAdvancedListByCompany,
+	PayAssetAdvancedListByCompanyAndLabels,
+	PayAssetAdvancedListByCompanyAndRefPairs,
+	PayAssetBatchDelete,
+	PayAssetBatchMerge,
+	PayAssetDelete,
+	PayAssetDispatchGet,
+	PayAssetDispatchList,
+	PayAssetDispatchListByCompany,
+	PayAssetDispatchListByCompanyAndLabels,
+	PayAssetDispatchListByCompanyAndRefPairs,
+	PayAssetGeneralGet,
+	PayAssetGeneralList,
+	PayAssetGeneralListByCompany,
+	PayAssetGeneralListByCompanyAndLabels,
+	PayAssetGeneralListByCompanyAndRefPairs,
+	PayAssetGet,
+	PayAssetList,
+	PayAssetListByCompany,
+	PayAssetListByCompanyAndLabels,
+	PayAssetListByCompanyAndRefPairs,
+	PayAssetMerge,
+	PayAssetReactivate,
+	PayAssetRestore,
+	PayAssetSuspend, RepAssetAdvancedGet,
+	RepAssetAdvancedList,
+	RepAssetAdvancedListByCompany,
+	RepAssetAdvancedListByCompanyAndLabels,
+	RepAssetAdvancedListByCompanyAndRefPairs,
+	RepAssetDelete,
+	RepAssetDispatchGet,
+	RepAssetDispatchList,
+	RepAssetDispatchListByCompany,
+	RepAssetDispatchListByCompanyAndLabels,
+	RepAssetDispatchListByCompanyAndRefPairs,
+	RepAssetGeneralGet,
+	RepAssetGeneralList,
+	RepAssetGeneralListByCompany,
+	RepAssetGeneralListByCompanyAndLabels,
+	RepAssetGeneralListByCompanyAndRefPairs,
+	RepAssetGet,
+	RepAssetList,
+	RepAssetListByCompany,
+	RepAssetListByCompanyAndLabels,
+	RepAssetListByCompanyAndRefPairs,
+	RepAssetMerge,
+	RepAssetSuspend,
+};
 //#endregion Assets
 
 //#region Behaviours
+export {
+	ParamBehaviourMerge,
+	// Scripts Requests
+	ParamBehaviourScriptMerge,
+	// Behaviours Requests
+	PayBehaviour,
+	PayBehaviourBatchDelete,
+	PayBehaviourBatchMerge,
+	PayBehaviourDelete,
+	PayBehaviourGet,
+	PayBehaviourList,
+	PayBehaviourListByCompany,
+	// Logs Requests
+	PayBehaviourLogBatchDelete,
+	PayBehaviourLogList,
+	PayBehaviourLogListByCompany, PayBehaviourMerge,
+	PayBehaviourRestore, PayBehaviourScript,
+	PayBehaviourScriptBatchDelete,
+	PayBehaviourScriptBatchMerge,
+	PayBehaviourScriptDelete,
+	PayBehaviourScriptGet,
+	PayBehaviourScriptList,
+	PayBehaviourScriptListByCompany,
+	PayBehaviourScriptMerge,
+	PayBehaviourScriptRestore,
+	// Behaviours Responses
+	RepBehaviourBatchDelete,
+	RepBehaviourBatchMerge,
+	RepBehaviourDelete,
+	RepBehaviourGet,
+	RepBehaviourList,
+	RepBehaviourListByCompany,
+	// Logs Responses
+	RepBehaviourLogBatchDelete,
+	RepBehaviourLogList,
+	RepBehaviourLogListByCompany, RepBehaviourMerge,
+	// Scripts Responses
+	RepBehaviourScriptBatchDelete,
+	RepBehaviourScriptBatchMerge,
+	RepBehaviourScriptDelete,
+	RepBehaviourScriptGet,
+	RepBehaviourScriptList,
+	RepBehaviourScriptListByCompany,
+	RepBehaviourScriptMerge,
+};
 //#endregion Behaviours
 
 //#region Billing
 //#endregion Billing
 
 //#region Company
+export {
+	RepCompanyGeneralGet,
+	RepCompanyGet,
+	RepCompanyList,
+	RepCompanyListByCompany,
+	RepCompanyListByCompanyAndRefPairs,
+	RepCompanyMerge,
+	RepCompanyPoliciesGet,
+	RepCompanyPoliciesList,
+	RepCompanyPoliciesListByCompany,
+	RepCompanyPoliciesListByCompanyAndLabels,
+	RepCompanyPoliciesListByCompanyAndRefPairs,
+	RepCompanyResellerGet,
+	RepCompanyResellerList,
+	RepCompanyResellerListByCompany,
+	RepCompanyResellerListByCompanyAndLabels,
+	RepCompanyResellerListByCompanyAndRefPairs,
+	RepCompanyStylesGet,
+	RepCompanyStylesList,
+	RepCompanyStylesListByCompany,
+	RepCompanyStylesListByCompanyAndLabels,
+	RepCompanyStylesListByCompanyAndRefPairs,
+};
 //#endregion Company
 
 //#region Dispatch
