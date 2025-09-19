@@ -1,3 +1,4 @@
+import { nothing, ReportResult } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -7,4 +8,12 @@ export class RepReportResultGet extends Reply {
 	/**
 	 * The requested {@link ReportResult}.
 	 **/
-	reportResult: ReportResult;}
+	reportResult: ReportResult | nothing;
+	
+	constructor(json: any) {
+		super(json);
+		this.reportResult = json?.reportResult
+			? new ReportResult(json.reportResult)
+			: null;
+	}
+}

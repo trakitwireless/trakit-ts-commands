@@ -1,3 +1,4 @@
+import { nothing } from "@trakit/objects";
 import { Reply } from "../../API/Responses/Reply";
 import { Subscription } from "./Content/Subscription";
 
@@ -8,10 +9,10 @@ export class RepSubscriptionList extends Reply {
 	/**
 	 * The list of your current subscription types.
 	 **/
-	subscriptions: Subscription[];
+	subscriptions: Subscription[] | nothing;
 
 	constructor(json: any) {
 		super(json);
-		this.subscriptions = json?.subscriptions?.map((v: any) => new Subscription(v)) || [];
+		this.subscriptions = json?.subscriptions?.map((v: any) => new Subscription(v));
 	}
 }

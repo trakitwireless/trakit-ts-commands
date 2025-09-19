@@ -1,3 +1,4 @@
+import { nothing, ReportTemplate } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -7,4 +8,12 @@ export class RepReportTemplateGet extends Reply {
 	/**
 	 * The requested {@link ReportTemplate}.
 	 **/
-	reportTemplate: ReportTemplate;}
+	reportTemplate: ReportTemplate | nothing;
+	
+	constructor(json: any) {
+		super(json);
+		this.reportTemplate = json?.reportTemplate
+			? new ReportTemplate(json.reportTemplate)
+			: null;
+	}
+}

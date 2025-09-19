@@ -1,6 +1,5 @@
-import { byte, nothing, utility } from "@trakit/objects";
+import { ReportRecurrenceType, byte, nothing, utility } from "@trakit/objects";
 import { ParamMerge } from "commands/API/Requests/Parameters/ParamMerge";
-import { ReportRecurrenceType } from "../../../../../../trakit-ts-objects/_publish/Reports/ReportRecurrenceType";
 
 /**
  * Parameters used to create or update an {@link ReportSchedule}.
