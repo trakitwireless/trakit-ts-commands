@@ -1,5 +1,4 @@
-import { nothing } from "@trakit/objects";
-import { FormResult } from "../../../../../trakit-ts-objects/_publish/Hosting/FormResult";
+import { FormResult, nothing } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**

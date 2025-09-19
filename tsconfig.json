@@ -20,7 +20,7 @@
         "strictNullChecks": true,
         "baseUrl": ".",
         "paths": {
-            "@trakit/objects": ["../trakit-ts-objects/objects/index.ts"],
+            "@trakit/objects": ["../trakit-ts-objects/_publish/index.d.ts"],
         },
     }
 }
