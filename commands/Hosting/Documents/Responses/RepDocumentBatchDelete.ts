@@ -13,6 +13,6 @@ export class RepDocumentBatchDelete extends Reply {
 
 	constructor(json: any) {
 		super(json);
-		this.documents = json?.documents?.map((item: any) => new ContentIdDeleted(item)) ?? nothing;
+		this.documents = json?.documents?.map((item: any) => new ContentIdDeleted(item));
 	}
 }

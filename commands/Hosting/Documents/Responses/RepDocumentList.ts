@@ -13,7 +13,7 @@ export abstract class RepDocumentList extends Reply {
 
 	constructor(json: any) {
 		super(json);
-		this.documents = json?.documents?.map((item: any) => new Document(item)) ?? nothing;
+		this.documents = json?.documents?.map((item: any) => new Document(item));
 	}
 }
 

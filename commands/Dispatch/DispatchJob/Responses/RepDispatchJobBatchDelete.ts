@@ -13,6 +13,6 @@ export class RepDispatchJobBatchDelete extends Reply {
 
 	constructor(json: any) {
 		super(json);
-		this.dispatchJobs = json?.dispatchJobs?.map((dj: any) => new ContentIdDeleted(dj)) ?? nothing;
+		this.dispatchJobs = json?.dispatchJobs?.map((dj: any) => new ContentIdDeleted(dj));
 	}
 }

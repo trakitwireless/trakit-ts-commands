@@ -1,4 +1,4 @@
-import { CompanyStyles } from "@trakit/objects";
+import { CompanyStyles, nothing } from "@trakit/objects";
 import { Reply } from "../../API/Responses/Reply";
 
 /**
@@ -8,7 +8,7 @@ export class RepCompanyStylesGet extends Reply {
 	/**
 	 * The requested {@link CompanyStyles}.
 	 **/
-	companyStyles: CompanyStyles;
+	companyStyles: CompanyStyles | nothing;
 
 	constructor(json: any) {
 		super(json);

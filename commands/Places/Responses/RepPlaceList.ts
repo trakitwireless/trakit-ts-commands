@@ -13,7 +13,7 @@ export abstract class RepPlaceList extends Reply {
 
 	constructor(json?: any) {
 		super(json);
-		this.places = json?.places?.map((item: any) => new Place(item)) ?? nothing;
+		this.places = json?.places?.map((item: any) => new Place(item));
 	}
 }
 

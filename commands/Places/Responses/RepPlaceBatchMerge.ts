@@ -13,6 +13,6 @@ export class RepPlaceBatchMerge extends Reply {
 	
 	constructor(json?: any) {
 		super(json);
-		this.places = json?.places?.map((item: any) => new ContentIdCompany(item)) ?? nothing;
+		this.places = json?.places?.map((item: any) => new ContentIdCompany(item));
 	}
 }

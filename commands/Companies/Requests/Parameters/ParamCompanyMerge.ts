@@ -80,7 +80,7 @@ export class ParamCompanyMerge extends ParamMergeSubscribable {
 		if (this.references) json.references = serialization.fromMap(this.references);
 		if (this.directory) json.directory = serialization.fromMap(this.directory);
 		if (this.labels) json.labels = serialization.fromMapPredicate(this.labels, (key, value) => [key, value?.toJSON() ?? null]);
-		if (this.tags) json.tags = serialization.fromMap(this.tags, (key, value) => [key, value?.toJSON() ?? null]);
+		if (this.tags) json.tags = serialization.fromMapPredicate(this.tags, (key, value) => [key, value?.toJSON() ?? null]);
 		json.sessionPolicy = this.sessionPolicy
 			? this.sessionPolicy.toJSON()
 			: null;

@@ -1,6 +1,5 @@
 import { Payload } from "../../../API/Requests/Payload";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
-import { PayDocumentList } from "./PayDocumentList";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { ParamId } from "commands/API/Requests/Parameters/ParamId";
 

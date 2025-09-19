@@ -13,6 +13,6 @@ export class RepFormResultBatchMerge extends Reply {
 
 	constructor(json: any) {
 		super(json);
-		this.formResults = json?.formResults?.map((item: any) => new ContentIdCompany(item)) ?? nothing;
+		this.formResults = json?.formResults?.map((item: any) => new ContentIdCompany(item));
 	}
 }

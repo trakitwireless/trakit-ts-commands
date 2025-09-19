@@ -12,6 +12,6 @@ export class PayBehaviourLogBatchDelete extends Payload {
 
 	constructor(json?: any) {
 		super(json);
-		this.behaviourLogs = (json?.behaviourLogs?.map((item: any) => new ParamId(item)) ?? [];
+		this.behaviourLogs = json?.behaviourLogs?.map((item: any) => new ParamId(item)) ?? [];
 	}
 }

@@ -13,6 +13,6 @@ export class RepDocumentBatchMerge extends Reply {
 
 	constructor(json: any) {
 		super(json);
-		this.documents = json?.documents?.map((item: any) => new ContentIdCompany(item)) ?? nothing;
+		this.documents = json?.documents?.map((item: any) => new ContentIdCompany(item));
 	}
 }

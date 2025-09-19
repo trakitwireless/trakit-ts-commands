@@ -59,7 +59,7 @@ export class ParamReportTemplateMerge extends ParamMergeSubscribable {
 	}
 
 	override toJSON(): any {
-		const json: any = super.toJSON();
+		const json: any = {}
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];

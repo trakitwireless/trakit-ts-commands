@@ -13,6 +13,6 @@ export class RepPlaceBatchDelete extends Reply {
 
 	constructor(json?: any) {
 		super(json);
-		this.places = json?.places?.map((item: any) => new ContentIdDeleted(item)) ?? nothing;
+		this.places = json?.places?.map((item: any) => new ContentIdDeleted(item));
 	}
 }

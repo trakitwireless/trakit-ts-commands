@@ -48,7 +48,7 @@ export class ParamReportOptions extends ParamMerge {
 		this.filtering = json?.filtering;
 		this.places = json?.places;
 		this.regions = json?.regions;
-		this.scorecardRules = json?.scorecardRules ? new ParamReportScorecardRules(json.scorecardRules) : nothing;
+		if (json?.scorecardRules) this.scorecardRules = new ParamReportScorecardRules(json.scorecardRules);
 	}
 
 	override toJSON(): any {
