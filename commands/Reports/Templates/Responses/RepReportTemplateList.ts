@@ -1,6 +1,6 @@
 import { nothing, ReportTemplate } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
-import { ContentId } from "commands";
+import { ContentId } from "../../../API/Responses/Content/ContentId";
 
 /**
  * A container for the requested {@link reportTemplates}.

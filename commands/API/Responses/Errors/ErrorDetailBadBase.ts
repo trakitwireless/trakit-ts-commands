@@ -1,4 +1,3 @@
-import { ErrorDetailType } from "commands";
 import { ErrorDetail } from "./ErrorDetail";
 
 /**

@@ -1,4 +1,4 @@
-import { ParamId } from "commands";
+import { ParamId } from "../../../API/Requests/Parameters/ParamId";
 import { Payload } from "../../../API/Requests/Payload";
 import { ParamUserGroupMerge } from "./Parameters/ParamUserGroupMerge";
 

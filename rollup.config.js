@@ -21,7 +21,7 @@ const obfuscate = {
 
 export default [
   {
-    input: 'commands.ts',
+    input: 'index.ts',
     output: [
       // {
       //   file: '../_publish/trakit-commands.js',
