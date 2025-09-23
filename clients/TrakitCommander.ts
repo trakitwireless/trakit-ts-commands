@@ -27,11 +27,15 @@ export abstract class TrakitCommander {
 	 * @returns     The constructed URL string.
 	 */
 	protected createBaseUrl(path: string | null = null): URL {
-		const endpoint = new URL(path ?? "", this.baseAddress);
-		for (let [key, value] of this.query) {
-			endpoint.searchParams.append(key, value);
+		const route = new URL(path ?? "", this.baseAddress),
+			query = new Map(this.query);
+		if (this._sessionId) {
+			query.set("ghostId", this._sessionId);
 		}
-		return endpoint;
+		for (let [key, value] of query) {
+			route.searchParams.append(key, value);
+		}
+		return route;
 	}
 
 	constructor(baseAddress?: url | nothing) {

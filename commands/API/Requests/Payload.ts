@@ -4,6 +4,9 @@ import { Reply } from '../Responses/Reply';
 // Used to split the Payload class name into pieces to help create commands
 const Payload_SPLITTER = /Pay((?:[A-Z][a-z]+)+?)(Batch)?(Get|List|Merge|Delete|Restore|Suspend|Revive|Cancel|Change)(?:By(.+))?/;
 
+// type of command
+type ActionType = "Get" | "List" | "Merge" | "Delete" | "Restore" | "Suspend" | "Revive" | "Cancel" | "Change";
+
 /**
  * Base class for all command parameters.
  * All command parameter classes use this as the base.
@@ -31,14 +34,14 @@ export abstract class Payload {
 	 * - [3]: True if this will be a batch operation, or false otherwise.
 	 */
 	getNameParts(): [
-		"Get" | "List" | "Merge" | "Delete" | "Restore" | "Suspend" | "Revive" | "Cancel" | "Change",
+		ActionType,
 		string,
 		string,
 		boolean,
 	] {
 		const matches = [...this.constructor.name.match(Payload_SPLITTER) as string[]];
 		return [
-			(matches[3] ?? "Get") as "Get" | "List" | "Merge" | "Delete" | "Restore" | "Suspend" | "Revive" | "Cancel" | "Change",
+			(matches[3] ?? "Get") as ActionType,
 			matches[1] ?? "",
 			matches[4] ?? "",
 			matches[2] === "Batch",
