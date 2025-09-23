@@ -1,4 +1,4 @@
-import { nothing, utility } from "@trakit/objects";
+import { guid, nothing, utility } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -8,7 +8,7 @@ export class RepSelfLogout extends Reply {
 	/**
 	 * Your old, no longer valid, session identifier.
 	 **/
-	ghostId: string;
+	ghostId: guid | nothing;
 	/**
 	 * The timestamp from when your session expired.
 	 **/

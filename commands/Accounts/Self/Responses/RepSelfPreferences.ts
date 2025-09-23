@@ -3,4 +3,4 @@ import { Reply } from "../../../API/Responses/Reply";
 /**
  * 
  **/
-export class RepSelfPreferencesMerge extends Reply { }
+export class RepSelfPreferences extends Reply { }

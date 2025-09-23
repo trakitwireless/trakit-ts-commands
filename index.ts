@@ -1,7 +1,7 @@
 /**
- * Object definitions that work with our various APIs.
+ * Command definitions that work with our various APIs.
  * {@link https://github.com/trakitwireless/trakit-ts-commands|TypeScript documentation.}
- * Last updated on Thu Feb 27 2025 11:59:01 
+ * Last updated on Thu Sept 23 2025 01:39:01 
  * @copyright Trak-iT Wireless Inc. 2025
  */
 import { TrakitCommander } from "clients/TrakitCommander";
@@ -319,11 +319,11 @@ import { SelfMachine } from "./commands/Accounts/Self/Responses/Content/SelfMach
 import { SelfUser } from "./commands/Accounts/Self/Responses/Content/SelfUser";
 import { SelfUserAdvanced } from "./commands/Accounts/Self/Responses/Content/SelfUserAdvanced";
 import { SelfUserGeneral } from "./commands/Accounts/Self/Responses/Content/SelfUserGeneral";
-import { RepSelfContactMerge } from "./commands/Accounts/Self/Responses/RepSelfContactMerge";
+import { RepSelfContact } from "./commands/Accounts/Self/Responses/RepSelfContact";
 import { RepSelfGet } from "./commands/Accounts/Self/Responses/RepSelfGet";
 import { RepSelfLogout } from "./commands/Accounts/Self/Responses/RepSelfLogout";
-import { RepSelfPasswordMerge } from "./commands/Accounts/Self/Responses/RepSelfPasswordMerge";
-import { RepSelfPreferencesMerge } from "./commands/Accounts/Self/Responses/RepSelfPreferencesMerge";
+import { RepSelfPassword } from "./commands/Accounts/Self/Responses/RepSelfPassword";
+import { RepSelfPreferences } from "./commands/Accounts/Self/Responses/RepSelfPreferences";
 import { ParamHandle } from "./commands/Accounts/Sessions/Requests/Parameters/ParamHandle";
 import { PaySessionDelete } from "./commands/Accounts/Sessions/Requests/PaySessionDelete";
 import { PaySessionListByCompany, PaySessionListByUser } from "./commands/Accounts/Sessions/Requests/PaySessionList";
@@ -577,11 +577,11 @@ export {
 	RepMachineGet,
 	RepMachineListByCompany,
 	RepMachineMerge,
-	RepSelfContactMerge,
+	RepSelfContact,
 	RepSelfGet,
 	RepSelfLogout,
-	RepSelfPasswordMerge,
-	RepSelfPreferencesMerge,
+	RepSelfPassword,
+	RepSelfPreferences,
 	RepUserAdvancedGet,
 	RepUserAdvancedListByCompany,
 	RepUserAdvancedListByCompanyAndLabels,
@@ -710,7 +710,7 @@ export {
 	RepBehaviourScriptGet,
 	RepBehaviourScriptList,
 	RepBehaviourScriptListByCompany,
-	RepBehaviourScriptMerge
+	RepBehaviourScriptMerge,
 };
 //#endregion Behaviours
 
@@ -739,7 +739,7 @@ export {
 	RepCompanyStylesList,
 	RepCompanyStylesListByCompany,
 	RepCompanyStylesListByCompanyAndLabels,
-	RepCompanyStylesListByCompanyAndRefPairs
+	RepCompanyStylesListByCompanyAndRefPairs,
 };
 //#endregion Company
 
@@ -772,7 +772,7 @@ export {
 	RepDispatchTaskBatchMerged,
 	RepDispatchTaskDelete,
 	RepDispatchTaskGet,
-	RepDispatchTaskMerge
+	RepDispatchTaskMerge,
 };
 //#endregion Dispatch
 
@@ -802,7 +802,7 @@ export {
 	RepFormTemplateGet,
 	RepFormTemplateList,
 	RepFormTemplateListByCompany,
-	RepFormTemplateMerge
+	RepFormTemplateMerge,
 };
 //#endregion Hosting
 
@@ -831,7 +831,7 @@ export {
 	RepPictureGet,
 	RepPictureList,
 	RepPictureListByCompany,
-	RepPictureMerge
+	RepPictureMerge,
 };
 //#endregion Images
 
@@ -872,7 +872,7 @@ export {
 	RepMaintenanceScheduleGet,
 	RepMaintenanceScheduleList,
 	RepMaintenanceScheduleListByCompany,
-	RepMaintenanceScheduleMerge
+	RepMaintenanceScheduleMerge,
 };
 //#endregion Maintenance
 
@@ -897,7 +897,7 @@ export {
 	RepPlaceGet,
 	RepPlaceList,
 	RepPlaceListByCompany,
-	RepPlaceMerge
+	RepPlaceMerge,
 };
 //#endregion Places
 
@@ -987,7 +987,7 @@ export {
 	RepProviderScriptGet,
 	RepProviderScriptList,
 	RepProviderScriptListByCompany,
-	RepProviderScriptMerge
+	RepProviderScriptMerge,
 };
 //#endregion Providers
 
@@ -1022,7 +1022,7 @@ export {
 	RepReportTemplateGet,
 	RepReportTemplateList,
 	RepReportTemplateListByCompany,
-	RepReportTemplateMerge
+	RepReportTemplateMerge,
 };
 //#endregion Reports
 
@@ -1036,6 +1036,6 @@ export {
 	RepSubscription,
 	RepSubscriptionList,
 	// Content
-	Subscription
+	Subscription,
 };
 //#endregion WebSocket

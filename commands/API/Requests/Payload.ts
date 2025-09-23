@@ -1,4 +1,4 @@
-import { int } from '@trakit/objects';
+import { int, nothing, utility } from '@trakit/objects';
 import { Reply } from '../Responses/Reply';
 
 // Used to split the Payload class name into pieces to help create commands
@@ -16,7 +16,7 @@ export abstract class Payload {
 	/**
 	 * Identifier used by external system to correlate requests to responses.
 	 */
-	reqId: int | undefined;
+	reqId: int | nothing;
 
 	constructor(json?: any) {
 		this.reqId = json?.reqId;
@@ -25,25 +25,24 @@ export abstract class Payload {
 	/**
 	 * Splits this class' name into parts helpful to breaking down how the command request should be sent.
 	 * The returned array contains:
-	 * - [0]: Name of the object being acted upon (ie: `Asset`, `ProviderGeneral`, `User`, etc.)
-	 * - [1]: A flag for batch operations. This will be `Batch` if the operation is a batch operation, or an empty string otherwise.
-	 * - [2]: The action being performed (ie: `Get`, `List`, `Merge`, `Delete`, etc.)
-	 * - [3]: The filter type, if any (ie: `Asset`, `Company`, `CompanyAndLabels`, etc.). This will be an empty string if no filter is used.
+	 * - [0]: The action being performed (ie: `Get`, `List`, `Merge`, `Delete`, etc.)
+	 * - [1]: Name of the object being acted upon (ie: `Asset`, `ProviderGeneral`, `User`, etc.)
+	 * - [2]: The filter type, if any (ie: `Asset`, `Company`, `CompanyAndLabels`, etc.). This will be an empty string if no filter is used.
+	 * - [3]: True if this will be a batch operation, or false otherwise.
 	 */
 	getNameParts(): [
-		string,
-		"" | "Batch",
 		"Get" | "List" | "Merge" | "Delete" | "Restore" | "Suspend" | "Revive" | "Cancel" | "Change",
-		string
+		string,
+		string,
+		boolean,
 	] {
-		return [...this.constructor.name.match(Payload_SPLITTER) as string[]]
-			.slice(1)
-			.map(m => m ?? "") as [
-				string,
-				"" | "Batch",
-				"Get" | "List" | "Merge" | "Delete" | "Restore" | "Suspend" | "Revive" | "Cancel" | "Change",
-				string
-			];
+		const matches = [...this.constructor.name.match(Payload_SPLITTER) as string[]];
+		return [
+			(matches[3] ?? "Get") as "Get" | "List" | "Merge" | "Delete" | "Restore" | "Suspend" | "Revive" | "Cancel" | "Change",
+			matches[1] ?? "",
+			matches[4] ?? "",
+			matches[2] === "Batch",
+		];
 	}
 
 	/**
@@ -53,4 +52,14 @@ export abstract class Payload {
 	 * @returns 
 	 */
 	abstract createReply(json: any): Reply;
+
+	/**
+	 * Payloads are serialized conditionally before being sent to the server.
+	 * @returns 
+	 */
+	toJSON(): any {
+		return utility.isNaN(this.reqId)
+			? {}
+			: { reqId: this.reqId };
+	}
 }

@@ -4,7 +4,7 @@ import { Reply } from "../../../API/Responses/Reply";
 /**
  * 
  **/
-export class RepSelfPasswordMerge extends Reply {
+export class RepSelfPassword extends Reply {
 	/**
 	 * Specific date/time of when the password will expire.
 	 **/

@@ -1,5 +1,5 @@
 ﻿import { nothing, SystemsOfUnits, Timezone, ulong, url, UserNotifications } from '@trakit/objects';
-import { PaySelfContact } from '../commands/Accounts/Self/Requests/PaySelfContact';
+import { PaySelfContactMerge } from '../commands/Accounts/Self/Requests/PaySelfContact';
 import { PaySelfGet } from '../commands/Accounts/Self/Requests/PaySelfGet';
 import { PaySelfLogin } from '../commands/Accounts/Self/Requests/PaySelfLogin';
 import { PaySelfLogout } from '../commands/Accounts/Self/Requests/PaySelfLogout';
@@ -7,7 +7,7 @@ import { PaySelfPassword } from '../commands/Accounts/Self/Requests/PaySelfPassw
 import { PaySelfPreferences } from '../commands/Accounts/Self/Requests/PaySelfPreferences';
 import { RepSelfGet } from '../commands/Accounts/Self/Responses/RepSelfGet';
 import { RepSelfLogout } from '../commands/Accounts/Self/Responses/RepSelfLogout';
-import { RepSelfPasswordMerge } from '../commands/Accounts/Self/Responses/RepSelfPasswordMerge';
+import { RepSelfPassword } from '../commands/Accounts/Self/Responses/RepSelfPassword';
 import { ErrorCode } from '../commands/API/Responses/Errors/ErrorCode';
 import { Reply } from '../commands/API/Responses/Reply';
 import { TrakitCommander } from './TrakitCommander';
@@ -122,7 +122,7 @@ export abstract class TrakitObjectCommander extends TrakitCommander {
                 roles: roles,
                 pictures: pictures,
             },
-        } as PaySelfContact);
+        } as PaySelfContactMerge);
     }
     /**
      * Allows a session {@link User} to change their own password.
@@ -133,8 +133,8 @@ export abstract class TrakitObjectCommander extends TrakitCommander {
     public updatePassword(
         oldPassword: string,
         newPassword: string
-    ): Promise<RepSelfPasswordMerge> {
-        return this.command<RepSelfPasswordMerge>({
+    ): Promise<RepSelfPassword> {
+        return this.command<RepSelfPassword>({
             current: oldPassword,
             password: newPassword,
         } as PaySelfPassword);

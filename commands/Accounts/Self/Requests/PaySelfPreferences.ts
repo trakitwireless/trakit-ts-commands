@@ -1,5 +1,7 @@
-import { nothing, SystemsOfUnits, Timezone, UserNotifications, utility } from "@trakit/objects";
-import { Payload } from "commands/API/Requests/Payload";
+import { nothing, serialization, SystemsOfUnits, Timezone, UserNotifications, utility } from "@trakit/objects";
+import { Payload } from "../../../API/Requests/Payload";
+import { RepSelfPreferences } from "../Responses/RepSelfPreferences";
+import { Reply } from "../../../API/Responses/Reply";
 
 /**
  * Allows a session {@link User} to change their own preferences.
@@ -43,5 +45,20 @@ export class PaySelfPreferences extends Payload {
 		this.formats = json?.formats ? new Map(Object.entries(json?.formats)) : null;
 		this.measurements = json?.measurements ? new Map(Object.entries(json?.measurements)) : null;
 		this.options = json?.options ? new Map(Object.entries(json?.options)) : null;
+	}
+
+	override createReply(json: any): Reply {
+		return new RepSelfPreferences(json);
+	}
+
+	override toJSON(): any {
+		const json: any = super.toJSON();
+		if (this.language) json.language = this.language;
+		if (this.timezone) json.timezone = this.timezone.code;
+		if (this.notify) json.notify = this.notify.map((n) => n.toJSON());
+		if (this.formats?.size) json.formats = serialization.fromMap(this.formats);
+		if (this.measurements?.size) json.measurements = serialization.fromMap(this.measurements);
+		if (this.options?.size) json.options = serialization.fromMap(this.options);
+		return json;
 	}
 }

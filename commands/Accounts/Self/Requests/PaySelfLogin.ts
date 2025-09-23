@@ -1,5 +1,7 @@
-import { nothing } from "@trakit/objects";
+import { email, nothing } from "@trakit/objects";
+import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
+import { RepSelfGet } from "../Responses/RepSelfGet";
 
 /**
  * A container class used to house the login identifying a {@link User}.
@@ -9,7 +11,7 @@ export class PaySelfLogin extends Payload {
 	/**
 	 * The {@link User}'s login.
 	 **/
-	username: string;
+	username: email;
 	/**
 	 * The {@link User}'s password.
 	 **/
@@ -21,8 +23,22 @@ export class PaySelfLogin extends Payload {
 
 	constructor(json: any) {
 		super(json);
-		this.username = json?.username;
-		this.password = json?.password;
+		this.username = json?.username ?? "";
+		this.password = json?.password ?? "";
 		this.userAgent = json?.userAgent;
+	}
+	
+	override createReply(json: any): Reply {
+		return new RepSelfGet(json);
+	}
+
+	override toJSON(): any {
+		const json: any = {
+			...super.toJSON(),
+			username: this.username,
+			password: this.password,
+		};
+		if (this.userAgent?.trim()) json.userAgent = this.userAgent;
+		return json;
 	}
 }

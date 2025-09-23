@@ -1,4 +1,6 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
+import { RepSelfPassword as RepSelfPassword } from "../Responses/RepSelfPassword";
 
 /**
  * Allows a {@link User} to change their own password.
@@ -15,7 +17,19 @@ export class PaySelfPassword extends Payload {
 
 	constructor(json: any) {
 		super(json);
-		this.current = json?.current;
-		this.password = json?.password;
+		this.current = json?.current ?? "";
+		this.password = json?.password ?? "";
+	}
+
+	override createReply(json: any): Reply {
+		return new RepSelfPassword(json);
+	}
+
+	override toJSON(): any {
+		return {
+			...super.toJSON(),
+			current: this.current ?? "",
+			password: this.password ?? "",
+		};
 	}
 }
