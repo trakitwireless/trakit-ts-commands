@@ -1,4 +1,6 @@
+import { Reply } from "../../API/Responses/Reply";
 import { Payload } from "../../API/Requests/Payload";
+import { RepAssetMerge } from "../Responses/RepAssetMerge";
 import { ParamAssetMerge } from "./Parameters/ParamAssetMerge";
 
 /**
@@ -13,5 +15,9 @@ export class PayAssetMerge extends Payload {
 	constructor(json?: any) {
 		super(json);
 		this.asset = new ParamAssetMerge(json?.asset);
+	}
+
+	override createReply(json: any): Reply {
+		return new RepAssetMerge(json);
 	}
 }

@@ -1,3 +1,4 @@
+import { Reply } from "../../API/Responses/Reply";
 import { Payload } from "../../API/Requests/Payload";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
 import { IPaySuspendable } from "../../API/Requests/IPaySuspendable";
@@ -5,6 +6,7 @@ import { IPayListByCompany } from "../../API/Requests/IPayListByCompany";
 import { IPayListByLabels } from "../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../API/Requests/IPayListByReferences";
 import { ParamId } from "commands/API/Requests/Parameters/ParamId";
+import { RepAssetAdvancedListByCompany, RepAssetAdvancedListByCompanyAndLabels, RepAssetAdvancedListByCompanyAndRefPairs } from "../Responses/RepAssetAdvancedList";
 
 /**
  * Gets a list of {@link AssetAdvanced}s.
@@ -49,6 +51,10 @@ export class PayAssetAdvancedListByCompany extends PayAssetAdvancedList implemen
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
+
+	override createReply(json: any): Reply {
+		return new RepAssetAdvancedListByCompany(json);
+	}
 }
 /**
  * Gets the list of {@link AssetAdvanced}s for the specified {@link Company} only if the {@link AssetAdvancedGeneral.labels} matches all of the given {@link Parameters.labels}.
@@ -63,6 +69,10 @@ export class PayAssetAdvancedListByCompanyAndLabels extends PayAssetAdvancedList
 	constructor(json?: any) {
 		super(json);
 		this.labels = json?.labels ?? [];
+	}
+
+	override createReply(json: any): Reply {
+		return new RepAssetAdvancedListByCompanyAndLabels(json);
 	}
 }
 /**
@@ -80,5 +90,9 @@ export class PayAssetAdvancedListByCompanyAndRefPairs extends PayAssetAdvancedLi
 	constructor(json?: any) {
 		super(json);
 		this.references = json?.references ? new Map(Object.entries(json.references)) : new Map();
+	}
+
+	override createReply(json: any): Reply {
+		return new RepAssetAdvancedListByCompanyAndRefPairs(json);
 	}
 }

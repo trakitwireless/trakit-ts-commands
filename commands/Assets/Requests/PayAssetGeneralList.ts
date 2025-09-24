@@ -1,10 +1,12 @@
-import { Payload } from "../../API/Requests/Payload";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
-import { IPaySuspendable } from "../../API/Requests/IPaySuspendable";
 import { IPayListByCompany } from "../../API/Requests/IPayListByCompany";
 import { IPayListByLabels } from "../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../API/Requests/IPayListByReferences";
-import { ParamId } from "commands/API/Requests/Parameters/ParamId";
+import { IPaySuspendable } from "../../API/Requests/IPaySuspendable";
+import { ParamId } from "../../API/Requests/Parameters/ParamId";
+import { Payload } from "../../API/Requests/Payload";
+import { Reply } from "../../API/Responses/Reply";
+import { RepAssetGeneralListByCompany, RepAssetGeneralListByCompanyAndLabels, RepAssetGeneralListByCompanyAndRefPairs } from "../Responses/RepAssetGeneralList";
 
 /**
  * Gets a list of {@link AssetGeneral}s.
@@ -49,8 +51,11 @@ export class PayAssetGeneralListByCompany extends PayAssetGeneralList implements
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
-}
 
+	override createReply(json: any): Reply {
+		return new RepAssetGeneralListByCompany(json);
+	}
+}
 /**
  * Gets the list of {@link AssetGeneral}s for the specified {@link Company} only if the {@link AssetGeneralGeneral.labels} matches all of the given {@link Parameters.labels}.
  **/
@@ -64,6 +69,10 @@ export class PayAssetGeneralListByCompanyAndLabels extends PayAssetGeneralListBy
 	constructor(json?: any) {
 		super(json);
 		this.labels = json?.labels ?? [];
+	}
+
+	override createReply(json: any): Reply {
+		return new RepAssetGeneralListByCompanyAndLabels(json);
 	}
 }
 /**
@@ -81,5 +90,9 @@ export class PayAssetGeneralListByCompanyAndRefPairs extends PayAssetGeneralList
 	constructor(json?: any) {
 		super(json);
 		this.references = new Map(Object.entries(json?.references ?? {}));
+	}
+
+	override createReply(json: any): Reply {
+		return new RepAssetGeneralListByCompanyAndRefPairs(json);
 	}
 }

@@ -1,10 +1,12 @@
-import { ParamId } from "commands/API/Requests/Parameters/ParamId";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../API/Requests/IPayListByCompany";
 import { IPayListByLabels } from "../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../API/Requests/IPayListByReferences";
 import { IPaySuspendable } from "../../API/Requests/IPaySuspendable";
+import { ParamId } from "../../API/Requests/Parameters/ParamId";
 import { Payload } from "../../API/Requests/Payload";
+import { Reply } from "../../API/Responses/Reply";
+import { RepAssetListByCompany, RepAssetListByCompanyAndLabels, RepAssetListByCompanyAndRefPairs } from "../Responses/RepAssetList";
 
 /**
  * Gets a list of {@link Asset}s.
@@ -49,6 +51,10 @@ export class PayAssetListByCompany extends PayAssetList implements IPayListByCom
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
+
+	override createReply(json: any): Reply {
+		return new RepAssetListByCompany(json);
+	}
 }
 
 /**
@@ -64,6 +70,10 @@ export class PayAssetListByCompanyAndLabels extends PayAssetListByCompany implem
 	constructor(json?: any) {
 		super(json);
 		this.labels = json?.labels ?? [];
+	}
+
+	override createReply(json: any): Reply {
+		return new RepAssetListByCompanyAndLabels(json);
 	}
 }
 
@@ -82,5 +92,9 @@ export class PayAssetListByCompanyAndRefPairs extends PayAssetListByCompany impl
 	constructor(json?: any) {
 		super(json);
 		this.references = new Map(Object.entries(json?.references ?? {}));
+	}
+
+	override createReply(json: any): Reply {
+		return new RepAssetListByCompanyAndRefPairs(json);
 	}
 }

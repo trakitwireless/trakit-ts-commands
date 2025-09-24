@@ -1,10 +1,12 @@
-import { Payload } from "../../API/Requests/Payload";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
-import { IPaySuspendable } from "../../API/Requests/IPaySuspendable";
 import { IPayListByCompany } from "../../API/Requests/IPayListByCompany";
 import { IPayListByLabels } from "../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../API/Requests/IPayListByReferences";
-import { ParamId } from "commands/API/Requests/Parameters/ParamId";
+import { IPaySuspendable } from "../../API/Requests/IPaySuspendable";
+import { ParamId } from "../../API/Requests/Parameters/ParamId";
+import { Payload } from "../../API/Requests/Payload";
+import { Reply } from "../../API/Responses/Reply";
+import { RepAssetDispatchListByCompany, RepAssetDispatchListByCompanyAndLabels, RepAssetDispatchListByCompanyAndRefPairs } from "../Responses/RepAssetDispatchList";
 
 /**
  * Gets a list of {@link AssetDispatch}s.
@@ -49,6 +51,10 @@ export class PayAssetDispatchListByCompany extends PayAssetDispatchList implemen
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
+
+	override createReply(json: any): Reply {
+		return new RepAssetDispatchListByCompany(json);
+	}
 }
 
 /**
@@ -64,6 +70,10 @@ export class PayAssetDispatchListByCompanyAndLabels extends PayAssetDispatchList
 	constructor(json?: any) {
 		super(json);
 		this.labels = json?.labels ?? [];
+	}
+
+	override createReply(json: any): Reply {
+		return new RepAssetDispatchListByCompanyAndLabels(json);
 	}
 }
 
@@ -82,5 +92,9 @@ export class PayAssetDispatchListByCompanyAndRefPairs extends PayAssetDispatchLi
 	constructor(json?: any) {
 		super(json);
 		this.references = new Map(Object.entries(json?.references ?? {}));
+	}
+
+	override createReply(json: any): Reply {
+		return new RepAssetDispatchListByCompanyAndRefPairs(json);
 	}
 }

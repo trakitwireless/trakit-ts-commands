@@ -1,5 +1,7 @@
+import { Reply } from "../../API/Responses/Reply";
 import { PayAsset } from "./PayAsset";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
+import { RepAssetDispatchGet } from "../Responses/RepAssetDispatchGet";
 
 /**
  * Gets details of the specified {@link AssetDispatch}.
@@ -23,5 +25,9 @@ export class PayAssetDispatchGet extends PayAsset implements IPayDeletable {
 		this.includeDeleted = json?.includeDeleted;
 		this.includeMessages = json?.includeMessages;
 		this.includeTasks = json?.includeTasks;
+	}
+
+	override createReply(json: any): Reply {
+		return new RepAssetDispatchGet(json);
 	}
 }
