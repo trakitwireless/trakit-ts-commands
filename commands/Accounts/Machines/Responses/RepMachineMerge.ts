@@ -1,4 +1,4 @@
-import { ContentIdCompany } from "commands/API/Responses/Content/ContentIdCompany";
+import { ContentKeyCompany } from "commands/API/Responses/Content/ContentKeyCompany";
 import { Reply } from "../../../API/Responses/Reply";
 import { nothing } from "@trakit/objects";
 
@@ -9,10 +9,10 @@ export class RepMachineMerge extends Reply {
 	/**
 	 * An object which contains the `id` and `company` keys when there is no error.
 	 **/
-	machine: ContentIdCompany | nothing;
+	machine: ContentKeyCompany | nothing;
 
 	constructor(json: any) {
 		super(json);
-		this.machine = ContentIdCompany.fromJSON(json?.machine);
+		this.machine = ContentKeyCompany.fromJSON(json?.machine);
 	}
 }
