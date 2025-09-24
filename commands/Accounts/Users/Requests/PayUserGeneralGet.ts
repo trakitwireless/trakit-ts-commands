@@ -1,5 +1,7 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { PayUser } from "./PayUser";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
+import { RepUserGeneralGet } from "../Responses/RepUserGeneralGet";
 
 /**
  * Gets details of the specified {@link UserGeneral}.
@@ -13,5 +15,9 @@ export class PayUserGeneralGet extends PayUser implements IPayDeletable {
 	constructor(json?: any) {
 		super(json);
 		this.includeDeleted = !!(json?.includeDeleted);
+	}
+
+	override createReply(json: any): Reply {
+		return new RepUserGeneralGet(json);
 	}
 }

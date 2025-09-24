@@ -1,10 +1,12 @@
-import { Payload } from "../../../API/Requests/Payload";
+import { serialization } from "@trakit/objects";
+import { ParamId } from "commands/API/Requests/Parameters/ParamId";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { IPayListByLabels } from "../../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../../API/Requests/IPayListByReferences";
-import { ParamId } from "commands/API/Requests/Parameters/ParamId";
-import { serialization } from "@trakit/objects";
+import { Payload } from "../../../API/Requests/Payload";
+import { Reply } from "../../../API/Responses/Reply";
+import { RepUserGeneralListByCompany, RepUserGeneralListByCompanyAndLabels, RepUserGeneralListByCompanyAndRefPairs } from "../Responses/RepUserGeneralList";
 
 /**
  * Gets a list of {@link UserGeneral}s.
@@ -34,6 +36,10 @@ export class PayUserGeneralListByCompany extends PayUserGeneralList implements I
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
+
+	override createReply(json: any): Reply {
+		return new RepUserGeneralListByCompany (json);
+	}
 }
 /**
  * Gets the list of {@link UserGeneral}s for the specified {@link Company} only if the {@link UserGeneralGeneral.labels} matches all of the given {@link Parameters.labels}.
@@ -48,6 +54,10 @@ export class PayUserGeneralListByCompanyAndLabels extends PayUserGeneralListByCo
 	constructor(json: any) {
 		super(json);
 		this.labels = json?.labels ?? [];
+	}
+
+	override createReply(json: any): Reply {
+		return new RepUserGeneralListByCompanyAndLabels(json);
 	}
 }
 /**
@@ -65,5 +75,9 @@ export class PayUserGeneralListByCompanyAndRefPairs extends PayUserGeneralListBy
 	constructor(json: any) {
 		super(json);
 		this.references = serialization.toMap(json?.references ?? {});
+	}
+
+	override createReply(json: any): Reply {
+		return new RepUserGeneralListByCompanyAndRefPairs(json);
 	}
 }

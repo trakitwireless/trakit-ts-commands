@@ -1,5 +1,7 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { ParamId } from "../../../API/Requests/Parameters/ParamId";
 import { Payload } from "../../../API/Requests/Payload";
+import { RepUserGroupBatchMerge } from "../Responses/RepUserGroupBatchMerge";
 import { ParamUserGroupMerge } from "./Parameters/ParamUserGroupMerge";
 
 /**
@@ -14,5 +16,9 @@ export class PayUserGroupBatchMerge extends Payload {
 	constructor(json?: any) {
 		super(json);
 		this.userGroups = (json?.userGroups || []).map((ug: any) => new ParamId(ug)) ?? [];
+	}
+
+	override createReply(json: any): Reply {
+		return new RepUserGroupBatchMerge(json);
 	}
 }

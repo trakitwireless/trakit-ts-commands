@@ -1,10 +1,12 @@
-import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
-import { Payload } from "../../../API/Requests/Payload";
 import { serialization } from "@trakit/objects";
 import { ParamId } from "commands/API/Requests/Parameters/ParamId";
+import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { IPayListByLabels } from "../../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../../API/Requests/IPayListByReferences";
+import { Payload } from "../../../API/Requests/Payload";
+import { Reply } from "../../../API/Responses/Reply";
+import { RepUserAdvancedListByCompany, RepUserAdvancedListByCompanyAndLabels, RepUserAdvancedListByCompanyAndRefPairs } from "../Responses/RepUserAdvancedList";
 
 /**
  * Gets a list of {@link UserAdvanced}s.
@@ -34,6 +36,10 @@ export class PayUserAdvancedListByCompany extends PayUserAdvancedList implements
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
+	
+	override createReply(json: any): Reply {
+		return new RepUserAdvancedListByCompany(json);
+	}
 }
 /**
  * Gets the list of {@link UserAdvanced}s for the specified {@link Company} only if the {@link UserAdvancedGeneral.labels} matches all of the given {@link Parameters.labels}.
@@ -48,6 +54,10 @@ export class PayUserAdvancedListByCompanyAndLabels extends PayUserAdvancedListBy
 	constructor(json: any) {
 		super(json);
 		this.labels = json?.labels ?? [];
+	}
+
+	override createReply(json: any): Reply {
+		return new RepUserAdvancedListByCompanyAndLabels(json);
 	}
 }
 /**
@@ -65,5 +75,9 @@ export class PayUserAdvancedListByCompanyAndRefPairs extends PayUserAdvancedList
 	constructor(json: any) {
 		super(json);
 		this.references = serialization.toMap(json?.references ?? {});
+	}
+
+	override createReply(json: any): Reply {
+		return new RepUserAdvancedListByCompanyAndRefPairs(json);
 	}
 }

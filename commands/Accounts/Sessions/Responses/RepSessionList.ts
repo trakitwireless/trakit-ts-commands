@@ -20,7 +20,7 @@ export abstract class RepSessionList extends Reply {
 /**
  * Contains the {@link Company.id} of the collection.
  **/
-export abstract class RepSessionListByCompany extends RepSessionList {
+export class RepSessionListByCompany extends RepSessionList {
 	/**
 	 * An object to contain the "id" of the {@link Company} to which the array of {@link Session}s belong.
 	 **/
@@ -34,7 +34,7 @@ export abstract class RepSessionListByCompany extends RepSessionList {
 /**
  * Contains the {@link User.login} of the collection.
  **/
-export abstract class RepSessionListByUser extends RepSessionList {
+export class RepSessionListByUser extends RepSessionList {
 	/**
 	 * An object to contain the "login" of the {@link User} to which the array of {@link Session}s belong.
 	 **/

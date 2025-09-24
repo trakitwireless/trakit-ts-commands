@@ -1,5 +1,7 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { PayUserGroup } from "./PayUserGroup";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
+import { RepUserGroupGet } from "../Responses/RepUserGroupGet";
 
 /**
  * Gets details of the specified {@link UserGroup}.
@@ -13,5 +15,9 @@ export class PayUserGroupGet extends PayUserGroup implements IPayDeletable {
 	constructor(json?: any) {
 		super(json);
 		this.includeDeleted = json?.includeDeleted ?? false;
+	}
+
+	override createReply(json: any): Reply {
+		return new RepUserGroupGet(json);
 	}
 }

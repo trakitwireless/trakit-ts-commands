@@ -1,7 +1,9 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { ParamId } from "commands/API/Requests/Parameters/ParamId";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { Payload } from "../../../API/Requests/Payload";
+import { RepUserListByCompany } from "../Responses/RepUserList";
 
 /**
  * Gets details of the specified {@link user}.
@@ -30,5 +32,9 @@ export class PayUserListByCompany extends PayUserList implements IPayListByCompa
 	constructor(json: any) {
 		super(json);
 		this.company = new ParamId(json?.company);
+	}
+
+	override createReply(json: any): Reply {
+		return new RepUserListByCompany(json);
 	}
 }

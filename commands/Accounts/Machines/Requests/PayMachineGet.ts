@@ -1,5 +1,7 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { PayMachine } from "./PayMachine";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
+import { RepMachineGet } from "../Responses/RepMachineGet";
 
 /**
  * Gets details of the specified {@link Machine}.
@@ -13,5 +15,9 @@ export class PayMachineGet extends PayMachine implements IPayDeletable {
 	constructor(json: any) {
 		super(json);
 		this.includeDeleted = json?.includeDeleted ?? false;
+	}
+
+	override createReply(json: any): Reply {
+		return new RepMachineGet(json);
 	}
 }

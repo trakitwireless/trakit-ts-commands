@@ -1,7 +1,9 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { ParamId } from "commands/API/Requests/Parameters/ParamId";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { Payload } from "../../../API/Requests/Payload";
+import { RepMachineListByCompany } from "../Responses/RepMachineList";
 
 /**
  * Gets details of the specified {@link machine}.
@@ -30,5 +32,9 @@ export class PayMachineListByCompany extends PayMachineList implements IPayListB
 	constructor(json: any) {
 		super(json);
 		this.company = new ParamId(json?.company);
+	}
+
+	override createReply(json: any): Reply {
+		return new RepMachineListByCompany(json);
 	}
 }
