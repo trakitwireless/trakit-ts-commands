@@ -418,12 +418,20 @@ import { IRepListByLabels } from "./commands/API/Responses/IRepListByLabels";
 import { IRepListByReferences } from "./commands/API/Responses/IRepListByReferences";
 import { IRepListByUser } from "./commands/API/Responses/IRepListByUser";
 import { Reply } from "./commands/API/Responses/Reply";
+import { IPayListByAsset } from "commands/API/Requests/IPayListByAsset";
+import { IPayListByCompany } from "commands/API/Requests/IPayListByCompany";
+import { IPayListByDate } from "commands/API/Requests/IPayListByDate";
+import { IPayListById } from "commands/API/Requests/IPayListById";
+import { IPayListByKey } from "commands/API/Requests/IPayListByKey";
+import { IPayListByLabels } from "commands/API/Requests/IPayListByLabels";
+import { IPayListByReferences } from "commands/API/Requests/IPayListByReferences";
+import { IPayListByUser } from "commands/API/Requests/IPayListByUser";
 
 
 /**
  * Version number for this release.
  */
-export const version = 5.03;
+export const version = 5.04;
 
 /**
  * Abstract command execution classes.
@@ -441,6 +449,15 @@ export {
 	type IParamAsset,
 	type IParamBillingProfile,
 	type IParamCompany,
+	type IPayListByAsset,
+	type IPayListByCompany,
+	type IPayListByDate,
+	type IPayListById,
+	type IPayListByKey,
+	type IPayListByLabels,
+	type IPayListByReferences,
+	type IPayListByUser,
+
 	ParamCode,
 	ParamGuid,
 	ParamId,
