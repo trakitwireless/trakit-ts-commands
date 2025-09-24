@@ -36,6 +36,22 @@ export class RepCompanyListByCompany extends RepCompanyList {
 /**
  * Contains the {@link Company.id} of the collection.
  **/
+export class RepCompanyListByCompanyAndLabels extends RepCompanyListByCompany {
+	/**
+	 * The labels given as input.
+	 * @see {@link CompanyStyles.labels}
+	 **/
+	labels: string[] | nothing;
+	
+	constructor(json: any) {
+		super(json);
+		this.labels = json?.labels;
+	}
+}
+
+/**
+ * Contains the {@link Company.id} of the collection.
+ **/
 export class RepCompanyListByCompanyAndRefPairs extends RepCompanyListByCompany {
 	/**
 	 * The parsed references given as input.

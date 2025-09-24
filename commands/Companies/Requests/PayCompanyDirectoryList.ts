@@ -5,6 +5,8 @@ import { IPayListByLabels } from "../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../API/Requests/IPayListByReferences";
 import { serialization } from "@trakit/objects";
 import { ParamId } from "commands/API/Requests/Parameters/ParamId";
+import { Reply } from "commands/API/Responses/Reply";
+import { RepCompanyDirectoryListByCompany, RepCompanyDirectoryListByCompanyAndLabels, RepCompanyDirectoryListByCompanyAndRefPairs } from "../Responses/RepCompanyDirectoryList";
 
 /**
  * Gets a list of {@link CompanyDirectory}s.
@@ -34,6 +36,10 @@ export class PayCompanyDirectoryListByCompany extends PayCompanyDirectoryList im
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
+
+	override createReply(json: any): Reply {
+		return new RepCompanyDirectoryListByCompany(json);
+	}
 }
 
 /**
@@ -49,6 +55,10 @@ export class PayCompanyDirectoryListByCompanyAndLabels extends PayCompanyDirecto
 	constructor(json: any) {
 		super(json);
 		this.labels = json?.labels ?? [];
+	}
+
+	override createReply(json: any): Reply {
+		return new RepCompanyDirectoryListByCompanyAndLabels(json);
 	}
 }
 
@@ -69,5 +79,9 @@ export class PayCompanyDirectoryListByCompanyAndRefPairs extends PayCompanyDirec
 		this.references = json?.references
 			? serialization.toMap(json.references)
 			: new Map<string, string>();
+	}
+
+	override createReply(json: any): Reply {
+		return new RepCompanyDirectoryListByCompanyAndRefPairs(json);
 	}
 }

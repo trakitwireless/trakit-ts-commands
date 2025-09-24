@@ -1,5 +1,7 @@
+import { Reply } from "../../API/Responses/Reply";
 import { PayCompany } from "./PayCompany";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
+import { RepCompanyGeneralGet } from "../Responses/RepCompanyGeneralGet";
 
 /**
  * Gets details of the specified {@link CompanyGeneral}.
@@ -13,5 +15,9 @@ export class PayCompanyGeneralGet extends PayCompany implements IPayDeletable {
 	constructor(json: any) {
 		super(json);
 		this.includeDeleted = json?.includeDeleted ?? false;
+	}
+
+	override createReply(json: any): Reply {
+		return new RepCompanyGeneralGet(json);
 	}
 }

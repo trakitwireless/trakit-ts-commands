@@ -1,4 +1,6 @@
+import { Reply } from "../../API/Responses/Reply";
 import { Payload } from "../../API/Requests/Payload";
+import { RepCompanyBatchMerge } from "../Responses/RepCompanyBatchMerge";
 import { ParamCompanyMerge } from "./Parameters/ParamCompanyMerge";
 
 /**
@@ -13,5 +15,9 @@ export class PayCompanyBatchMerge extends Payload {
 	constructor(json: any) {
 		super();
 		this.companies = json?.companies?.map((c: any) => new ParamCompanyMerge(c)) ?? [];
+	}
+
+	override createReply(json: any): Reply {
+		return new RepCompanyBatchMerge(json);
 	}
 }

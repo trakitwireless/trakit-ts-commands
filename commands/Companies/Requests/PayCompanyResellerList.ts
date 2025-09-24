@@ -5,6 +5,8 @@ import { IPayListByLabels } from "../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../API/Requests/IPayListByReferences";
 import { serialization } from "@trakit/objects";
 import { ParamId } from "commands/API/Requests/Parameters/ParamId";
+import { RepCompanyResellerListByCompany, RepCompanyResellerListByCompanyAndLabels, RepCompanyResellerListByCompanyAndRefPairs } from "../Responses/RepCompanyResellerList";
+import { Reply } from "../../API/Responses/Reply";
 
 /**
  * Gets a list of {@link CompanyReseller}s.
@@ -34,6 +36,10 @@ export class PayCompanyResellerListByCompany extends PayCompanyResellerList impl
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
+
+	override createReply(json: any): Reply {
+		return new RepCompanyResellerListByCompany(json);
+	}
 }
 /**
  * Gets the list of {@link CompanyReseller}s for the specified {@link Company} only if the {@link CompanyResellerReseller.labels} matches all of the given {@link Parameters.labels}.
@@ -48,6 +54,10 @@ export class PayCompanyResellerListByCompanyAndLabels extends PayCompanyReseller
 	constructor(json: any) {
 		super(json);
 		this.labels = json?.labels ?? [];
+	}
+
+	override createReply(json: any): Reply {
+		return new RepCompanyResellerListByCompanyAndLabels(json);
 	}
 }
 /**
@@ -67,5 +77,9 @@ export class PayCompanyResellerListByCompanyAndRefPairs extends PayCompanyResell
 		this.references = json?.references
 			? serialization.toMap(json.references)
 			: new Map<string, string>();
+	}
+
+	override createReply(json: any): Reply {
+		return new RepCompanyResellerListByCompanyAndRefPairs(json);
 	}
 }

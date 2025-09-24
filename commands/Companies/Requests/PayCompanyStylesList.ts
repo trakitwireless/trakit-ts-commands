@@ -1,3 +1,4 @@
+import { Reply } from "../../API/Responses/Reply";
 import { serialization } from "@trakit/objects";
 import { ParamId } from "commands/API/Requests/Parameters/ParamId";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
@@ -5,6 +6,7 @@ import { IPayListByCompany } from "../../API/Requests/IPayListByCompany";
 import { IPayListByLabels } from "../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../API/Requests/IPayListByReferences";
 import { Payload } from "../../API/Requests/Payload";
+import { RepCompanyStylesListByCompany, RepCompanyStylesListByCompanyAndLabels, RepCompanyStylesListByCompanyAndRefPairs } from "../Responses/RepCompanyStylesList";
 
 /**
  * Gets a list of {@link CompanyStyles}s.
@@ -34,6 +36,10 @@ export class PayCompanyStylesListByCompany extends PayCompanyStylesList implemen
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
+
+	override createReply(json: any): Reply {
+		return new RepCompanyStylesListByCompany(json);
+	}
 }
 /**
  * Gets the list of {@link CompanyStyles}s for the specified {@link Company} only if the {@link CompanyStylesStyles.labels} matches all of the given {@link Parameters.labels}.
@@ -48,6 +54,10 @@ export class PayCompanyStylesListByCompanyAndLabels extends PayCompanyStylesList
 	constructor(json: any) {
 		super(json);
 		this.labels = json?.labels ?? [];
+	}
+
+	override createReply(json: any): Reply {
+		return new RepCompanyStylesListByCompanyAndLabels(json);
 	}
 }
 /**
@@ -67,5 +77,9 @@ export class PayCompanyStylesListByCompanyAndRefPairs extends PayCompanyStylesLi
 		this.references = json?.references
 			? serialization.toMap(json.references)
 			: new Map<string, string>();
+	}
+
+	override createReply(json: any): Reply {
+		return new RepCompanyStylesListByCompanyAndRefPairs(json);
 	}
 }

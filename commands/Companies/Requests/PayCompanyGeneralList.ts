@@ -5,6 +5,8 @@ import { IPayListByLabels } from "../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../API/Requests/IPayListByReferences";
 import { ParamId } from "commands/API/Requests/Parameters/ParamId";
 import { serialization } from "@trakit/objects";
+import { RepCompanyGeneralListByCompany, RepCompanyGeneralListByCompanyAndLabels, RepCompanyGeneralListByCompanyAndRefPairs } from "../Responses/RepCompanyGeneralList";
+import { Reply } from "commands/API/Responses/Reply";
 
 /**
  * Gets a list of {@link CompanyGeneral}s.
@@ -34,6 +36,10 @@ export class PayCompanyGeneralListByCompany extends PayCompanyGeneralList implem
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
+
+	override createReply(json: any): Reply {
+		return new RepCompanyGeneralListByCompany(json);
+	}
 }
 /**
  * Gets the list of {@link CompanyGeneral}s for the specified {@link Company} only if the {@link CompanyGeneral.labels} matches all of the given {@link CompanyStyles.labels}.
@@ -48,6 +54,9 @@ export class PayCompanyGeneralListByCompanyAndLabels extends PayCompanyGeneralLi
 	constructor(json: any) {
 		super(json);
 		this.labels = json?.labels ?? [];
+	}
+	override createReply(json: any): Reply {
+		return new RepCompanyGeneralListByCompanyAndLabels(json);
 	}
 }
 /**
@@ -67,5 +76,9 @@ export class PayCompanyGeneralListByCompanyAndRefPairs extends PayCompanyGeneral
 		this.references = json?.references
 			? serialization.toMap(json.references)
 			: new Map<string, string>();
+	}
+
+	override createReply(json: any): Reply {
+		return new RepCompanyGeneralListByCompanyAndRefPairs(json);
 	}
 }

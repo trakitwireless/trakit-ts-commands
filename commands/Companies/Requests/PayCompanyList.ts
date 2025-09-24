@@ -4,6 +4,8 @@ import { IPayListByCompany } from "../../API/Requests/IPayListByCompany";
 import { IPayListByReferences } from "../../API/Requests/IPayListByReferences";
 import { ParamId } from "commands/API/Requests/Parameters/ParamId";
 import { serialization } from "@trakit/objects";
+import { RepCompanyListByCompany, RepCompanyListByCompanyAndLabels, RepCompanyListByCompanyAndRefPairs } from "../Responses/RepCompanyList";
+import { Reply } from "commands/API/Responses/Reply";
 
 /**
  * Gets details of the specified {@link company}.
@@ -29,6 +31,10 @@ export abstract class PayCompanyList extends Payload implements IPayDeletable {
 		this.includeParent = json?.includeParent ?? false;
 		this.includeDeleted = json?.includeDeleted ?? false;
 	}
+
+	override createReply(json: any): Reply {
+		return new RepCompanyListByCompany(json);
+	}
 }
 
 /**
@@ -43,6 +49,10 @@ export class PayCompanyListByCompany extends PayCompanyList implements IPayListB
 	constructor(json: any) {
 		super(json);
 		this.company = new ParamId(json?.company);
+	}
+
+	override createReply(json: any): Reply {
+		return new RepCompanyListByCompanyAndLabels(json);
 	}
 }
 /**
@@ -60,5 +70,9 @@ export class PayCompanyListByCompanyAndRefPairs extends PayCompanyListByCompany 
 		this.references = json?.references
 			? serialization.toMap(json.references)
 			: new Map<string, string>();
+	}
+
+	override createReply(json: any): Reply {
+		return new RepCompanyListByCompanyAndRefPairs(json);
 	}
 }
