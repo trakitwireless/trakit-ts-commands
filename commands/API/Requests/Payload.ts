@@ -33,19 +33,19 @@ export abstract class Payload {
 	 * - [2]: The filter type, if any (ie: `Asset`, `Company`, `CompanyAndLabels`, etc.). This will be an empty string if no filter is used.
 	 * - [3]: True if this will be a batch operation, or false otherwise.
 	 */
-	getNameParts(): [
-		ActionType,
-		string,
-		string,
-		boolean,
-	] {
+	getAction(): {
+		kind: ActionType,
+		object: string,
+		filter: string,
+		batch: boolean,
+	} {
 		const matches = [...this.constructor.name.match(Payload_SPLITTER) as string[]];
-		return [
-			(matches[3] ?? "Get") as ActionType,
-			matches[1] ?? "",
-			matches[4] ?? "",
-			matches[2] === "Batch",
-		];
+		return {
+			kind: matches[3] as ActionType,
+			object: matches[1] ?? "",
+			filter: matches[4] ?? "",
+			batch: matches[2] === "Batch",
+		};
 	}
 
 	/**

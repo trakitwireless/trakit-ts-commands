@@ -28,6 +28,20 @@ export class PaySelfLogin extends Payload {
 		this.userAgent = json?.userAgent;
 	}
 	
+	override getAction(): {
+		kind: "Merge",
+		object: "Self",
+		filter: "Login",
+		batch: false,
+	} {
+		return {
+			kind: "Merge",
+			object: "Self",
+			filter: "Login",
+			batch: false,
+		};
+	}
+
 	override createReply(json: any): Reply {
 		return new RepSelfGet(json);
 	}

@@ -1,3 +1,4 @@
+import { nothing } from "@trakit/objects";
 
 /**
  * Interface for requests on a list of objects by references.

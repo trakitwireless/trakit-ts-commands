@@ -21,6 +21,20 @@ export class PaySelfPassword extends Payload {
 		this.password = json?.password ?? "";
 	}
 
+	override getAction(): {
+		kind: "Merge",
+		object: "Self",
+		filter: "Password",
+		batch: false,
+	} {
+		return {
+			kind: "Merge",
+			object: "Self",
+			filter: "Password",
+			batch: false,
+		};
+	}
+
 	override createReply(json: any): Reply {
 		return new RepSelfPassword(json);
 	}

@@ -47,6 +47,20 @@ export class PaySelfPreferences extends Payload {
 		this.options = json?.options ? new Map(Object.entries(json?.options)) : null;
 	}
 
+	override getAction(): {
+		kind: "Merge",
+		object: "Self",
+		filter: "Preferences",
+		batch: false,
+	} {
+		return {
+			kind: "Merge",
+			object: "Self",
+			filter: "Preferences",
+			batch: false,
+		};
+	}
+
 	override createReply(json: any): Reply {
 		return new RepSelfPreferences(json);
 	}

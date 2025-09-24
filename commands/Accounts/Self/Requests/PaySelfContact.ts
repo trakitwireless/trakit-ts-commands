@@ -17,6 +17,20 @@ export class PaySelfContact extends Payload {
 		this.contact = new ParamSelfContactMerge(json?.contact);
 	}
 
+	override getAction(): {
+		kind: "Merge",
+		object: "Self",
+		filter: "Contact",
+		batch: false,
+	} {
+		return {
+			kind: "Merge",
+			object: "Self",
+			filter: "Contact",
+			batch: false,
+		};
+	}
+
 	override createReply(json: any): Reply {
 		return new RepSelfContact(json);
 	}
