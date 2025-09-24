@@ -2,10 +2,10 @@ import { int, nothing, utility } from '@trakit/objects';
 import { Reply } from '../Responses/Reply';
 
 // Used to split the Payload class name into pieces to help create commands
-const Payload_SPLITTER = /Pay((?:[A-Z][a-z]+)+?)(Batch)?(Get|List|Merge|Delete|Restore|Suspend|Revive|Cancel|Change)(?:By(.+))?/;
+const Payload_SPLITTER = /Pay((?:[A-Z][a-z]+)+?)(Batch)?(Get|List|Merge|Delete|Restore|Suspend|Reactivate|Cancel|Change)(?:By(.+))?/;
 
 // type of command
-type ActionType = "Get" | "List" | "Merge" | "Delete" | "Restore" | "Suspend" | "Revive" | "Cancel" | "Change";
+type ActionType = "Get" | "List" | "Merge" | "Delete" | "Restore" | "Suspend" | "Reactivate" | "Cancel" | "Change";
 
 /**
  * Base class for all command parameters.
@@ -41,7 +41,7 @@ export abstract class Payload {
 	} {
 		const matches = [...this.constructor.name.match(Payload_SPLITTER) as string[]];
 		return {
-			kind: matches[3] as ActionType,
+			kind: (matches[3] ?? "Get") as ActionType,
 			object: matches[1] ?? "",
 			filter: matches[4] ?? "",
 			batch: matches[2] === "Batch",

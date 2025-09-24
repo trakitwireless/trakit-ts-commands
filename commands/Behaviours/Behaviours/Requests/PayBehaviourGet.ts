@@ -1,5 +1,7 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { PayBehaviour } from "./PayBehaviour";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
+import { RepBehaviourGet } from "../Responses/RepBehaviourGet";
 
 /**
  * Gets details of the specified {@link Behaviour}.
@@ -13,5 +15,9 @@ export class PayBehaviourGet extends PayBehaviour implements IPayDeletable {
 	constructor(json?: any) {
 		super(json);
 		this.includeDeleted = json?.includeDeleted ?? false;
+	}
+
+	override createReply(json: any): Reply {
+		return new RepBehaviourGet(json);
 	}
 }

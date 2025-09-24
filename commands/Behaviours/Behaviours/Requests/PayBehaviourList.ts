@@ -1,7 +1,9 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { ParamId } from "commands/API/Requests/Parameters/ParamId";
+import { RepBehaviourListByCompany } from "../Responses/RepBehaviourList";
 
 /**
  * Gets details of the specified {@link behaviour}.
@@ -29,5 +31,9 @@ export class PayBehaviourListByCompany extends PayBehaviourList implements IPayL
 	constructor(json?: any) {
 		super(json);
 		this.company = new ParamId(json?.company);
+	}
+
+	override createReply(json: any): Reply {
+		return new RepBehaviourListByCompany(json);
 	}
 }

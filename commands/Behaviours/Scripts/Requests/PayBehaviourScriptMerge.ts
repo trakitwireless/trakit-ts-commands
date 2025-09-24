@@ -1,6 +1,8 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
 import { ParamBehaviourScriptMerge } from "./Parameters/ParamBehaviourScriptMerge";
+import { RepBehaviourScriptMerge } from "../Responses/RepBehaviourScriptMerge";
 
 /**
  * Creates a new or updates an existing {@link BehaviourScript}.
@@ -21,5 +23,9 @@ export class PayBehaviourScriptMerge extends Payload implements IPaySingle {
 	 **/
 	getKey(): string {
 		return this.behaviourScript?.id?.toString() ?? "";
+	}
+
+	override createReply(json: any): Reply {
+		return new RepBehaviourScriptMerge(json);
 	}
 }
