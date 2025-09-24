@@ -31,4 +31,8 @@ export class PayFormResultListByCompany extends PayFormResultList implements IPa
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
+
+	override createReply(json: any): Reply {
+		return new RepFormResultListByCompany extends PayFormResultList implements IPayList(json);
+	}
 }

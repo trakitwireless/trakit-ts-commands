@@ -22,4 +22,8 @@ export class PayFormTemplateMerge extends Payload implements IPaySingle {
 	getKey(): string {
 		return this.formTemplate?.id?.toString() ?? "";
 	}
+
+	override createReply(json: any): Reply {
+		return new RepFormTemplateMerge(json);
+	}
 }

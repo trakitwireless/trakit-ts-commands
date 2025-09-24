@@ -14,4 +14,8 @@ export class PayAssetMessageBatchMerge extends Payload {
 		super(json);
 		this.assetMessages = json?.assetMessages?.map((e: any) => new ParamAssetMessageMerge(e)) ?? [];
 	}
+
+	override createReply(json: any): Reply {
+		return new RepAssetMessageBatchMerge(json);
+	}
 }

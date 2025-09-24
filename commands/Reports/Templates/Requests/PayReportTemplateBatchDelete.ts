@@ -14,4 +14,8 @@ export class PayReportTemplateBatchDelete extends Payload {
 		super();
 		this.reportTemplates = json?.reportTemplates?.map((e: any) => new ParamId(e)) ?? [];
 	}
+
+	override createReply(json: any): Reply {
+		return new RepReportTemplateBatchDelete(json);
+	}
 }

@@ -21,4 +21,8 @@ export class PayMaintenanceJobMerge extends Payload implements IPaySingle {
 	getKey(): string {
 		return this.maintenanceJob?.id?.toString() ?? "";
 	}
+
+	override createReply(json: any): Reply {
+		return new RepMaintenanceJobMerge(json);
+	}
 }

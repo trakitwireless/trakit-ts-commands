@@ -14,4 +14,8 @@ export class PayFormTemplateBatchMerge extends Payload {
 		super(json);
 		this.formTemplates = json?.formTemplates?.map((item: any) => new ParamFormTemplateMerge(item)) ?? [];
 	}
+
+	override createReply(json: any): Reply {
+		return new RepFormTemplateBatchMerge(json);
+	}
 }

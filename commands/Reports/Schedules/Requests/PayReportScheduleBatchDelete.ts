@@ -14,4 +14,8 @@ export class PayReportScheduleBatchDelete extends Payload {
 		super();
 		this.reportSchedules = json?.reportSchedules?.map((e: any) => new ParamId(e)) ?? [];
 	}
+
+	override createReply(json: any): Reply {
+		return new RepReportScheduleBatchDelete(json);
+	}
 }

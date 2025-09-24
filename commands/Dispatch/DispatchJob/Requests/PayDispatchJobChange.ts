@@ -23,4 +23,8 @@ export class PayDispatchJobChange extends Payload implements IPaySingle {
 	getKey(): string {
 		return this.dispatchJob?.id?.toString() ?? "";
 	}
+
+	override createReply(json: any): Reply {
+		return new RepDispatchJobChange(json);
+	}
 }

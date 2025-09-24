@@ -14,4 +14,8 @@ export class PayReportResultGet extends PayReportResult implements IPayDeletable
 		super(json);
 		this.includeDeleted = json?.includeDeleted ?? false;
 	}
+
+	override createReply(json: any): Reply {
+		return new RepReportResultGet(json);
+	}
 }

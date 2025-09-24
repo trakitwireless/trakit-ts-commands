@@ -14,4 +14,8 @@ export class PayDocumentBatchDelete extends Payload {
 		super(json);
 		this.documents = json?.documents?.map((d: any) => new ParamId(d)) ?? [];
 	}
+
+	override createReply(json: any): Reply {
+		return new RepDocumentBatchDelete(json);
+	}
 }

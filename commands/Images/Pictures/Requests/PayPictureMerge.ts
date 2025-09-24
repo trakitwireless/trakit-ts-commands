@@ -22,4 +22,8 @@ export class PayPictureMerge extends Payload implements IPaySingle {
 	getKey(): string {
 		return this.picture?.id?.toString() ?? "";
 	}
+
+	override createReply(json: any): Reply {
+		return new RepPictureMerge(json);
+	}
 }

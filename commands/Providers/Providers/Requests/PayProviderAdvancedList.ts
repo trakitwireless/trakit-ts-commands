@@ -74,4 +74,8 @@ export class PayProviderAdvancedListByCompanyAndRefPairs extends PayProviderAdva
 			? serialization.toMap(json.references)
 			: new Map;
 	}
+
+	override createReply(json: any): Reply {
+		return new RepProviderAdvancedListByCompany extends PayProviderAdvancedList implements IPayList(json);
+	}
 }

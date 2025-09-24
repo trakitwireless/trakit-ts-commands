@@ -74,4 +74,8 @@ export class PayProviderControlListByCompanyAndRefPairs extends PayProviderContr
 			? serialization.toMap(json.references)
 			: new Map;
 	}
+
+	override createReply(json: any): Reply {
+		return new RepProviderControlListByCompany extends PayProviderControlList implements IPayList(json);
+	}
 }

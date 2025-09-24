@@ -22,4 +22,8 @@ export class PayDocumentMerge extends Payload implements IPaySingle {
 	getKey(): string {
 		return this.document?.id?.toString() ?? "";
 	}
+
+	override createReply(json: any): Reply {
+		return new RepDocumentMerge(json);
+	}
 }

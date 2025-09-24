@@ -14,4 +14,8 @@ export class PayFormTemplateBatchDelete extends Payload {
 		super(json);
 		this.formTemplates = json?.formTemplates?.map((item: any) => new ParamId(item)) ?? [];
 	}
+
+	override createReply(json: any): Reply {
+		return new RepFormTemplateBatchDelete(json);
+	}
 }

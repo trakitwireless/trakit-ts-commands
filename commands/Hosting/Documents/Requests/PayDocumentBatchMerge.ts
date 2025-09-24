@@ -14,4 +14,8 @@ export class PayDocumentBatchMerge extends Payload {
 		super(json);
 		this.documents = json?.documents?.map((d: any) => new ParamDocumentMerge(d)) ?? [];
 	}
+
+	override createReply(json: any): Reply {
+		return new RepDocumentBatchMerge(json);
+	}
 }

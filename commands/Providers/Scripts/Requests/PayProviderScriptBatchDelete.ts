@@ -14,4 +14,8 @@ export class PayProviderScriptBatchDelete extends Payload {
 		super();
 		this.providerScripts = json?.providerScripts?.map((e: any) => new ParamId(e)) ?? [];
 	}
+
+	override createReply(json: any): Reply {
+		return new RepProviderScriptBatchDelete(json);
+	}
 }

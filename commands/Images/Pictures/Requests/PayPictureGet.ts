@@ -14,4 +14,8 @@ export class PayPictureGet extends PayPicture implements IPayDeletable {
 		super(json);
 		this.includeDeleted = json?.includeDeleted ?? false;
 	}
+
+	override createReply(json: any): Reply {
+		return new RepPictureGet(json);
+	}
 }

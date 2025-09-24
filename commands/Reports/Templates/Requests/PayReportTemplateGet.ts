@@ -14,4 +14,8 @@ export class PayReportTemplateGet extends PayReportTemplate implements IPayDelet
 		super(json);
 		this.includeDeleted = json?.includeDeleted ?? false;
 	}
+
+	override createReply(json: any): Reply {
+		return new RepReportTemplateGet(json);
+	}
 }

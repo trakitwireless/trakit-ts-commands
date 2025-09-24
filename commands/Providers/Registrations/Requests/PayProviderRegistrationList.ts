@@ -31,4 +31,8 @@ export class PayProviderRegistrationListByCompany extends PayProviderRegistratio
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
+
+	override createReply(json: any): Reply {
+		return new RepProviderRegistrationListByCompany extends PayProviderRegistrationList implements IPayList(json);
+	}
 }

@@ -23,4 +23,8 @@ export class PaySubscriptionMerge extends Payload {
 		this.company = new ParamId(json?.company);
 		this.subscriptionTypes = json?.subscriptionTypes;
 	}
+
+	override createReply(json: any): Reply {
+		return new RepSubscriptionMerge(json);
+	}
 }

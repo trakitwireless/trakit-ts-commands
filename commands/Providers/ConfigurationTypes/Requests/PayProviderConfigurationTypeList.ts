@@ -31,4 +31,8 @@ export class PayProviderConfigurationTypeListByCompany extends PayProviderConfig
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
+
+	override createReply(json: any): Reply {
+		return new RepProviderConfigurationTypeListByCompany extends PayProviderConfigurationTypeList implements IPayList(json);
+	}
 }

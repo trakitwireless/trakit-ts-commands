@@ -14,4 +14,8 @@ export class PayProviderConfigurationGet extends PayProviderConfiguration implem
 		super(json);
 		this.includeDeleted = json?.includeDeleted ?? false;
 	}
+
+	override createReply(json: any): Reply {
+		return new RepProviderConfigurationGet(json);
+	}
 }

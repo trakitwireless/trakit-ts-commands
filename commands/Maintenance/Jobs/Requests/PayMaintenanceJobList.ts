@@ -31,4 +31,8 @@ export class PayMaintenanceJobListByCompany extends PayMaintenanceJobList implem
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
+
+	override createReply(json: any): Reply {
+		return new RepMaintenanceJobListByCompany extends PayMaintenanceJobList implements IPayList(json);
+	}
 }

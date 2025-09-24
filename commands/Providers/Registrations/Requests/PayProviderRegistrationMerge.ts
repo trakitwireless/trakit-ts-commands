@@ -15,4 +15,8 @@ export class PayProviderRegistrationMerge extends Payload {
 		super(json);
 		this.providerRegistration = new ParamProviderRegistrationMerge(json?.providerRegistration);
 	}
+
+	override createReply(json: any): Reply {
+		return new RepProviderRegistrationMerge(json);
+	}
 }

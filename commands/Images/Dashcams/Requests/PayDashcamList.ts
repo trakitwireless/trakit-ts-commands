@@ -30,4 +30,8 @@ export class PayDashcamListByCompany extends PayDashcamList implements IPayListB
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
+
+	override createReply(json: any): Reply {
+		return new RepDashcamListByCompany extends PayDashcamList implements IPayList(json);
+	}
 }

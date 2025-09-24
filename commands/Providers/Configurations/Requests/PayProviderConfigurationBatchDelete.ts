@@ -14,4 +14,8 @@ export class PayProviderConfigurationBatchDelete extends Payload {
 		super(json);
 		this.providerConfigurations = json?.providerConfigurations?.map((e: any) => new ParamId(e)) ?? [];
 	}
+
+	override createReply(json: any): Reply {
+		return new RepProviderConfigurationBatchDelete(json);
+	}
 }

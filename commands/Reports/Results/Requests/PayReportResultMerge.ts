@@ -21,4 +21,8 @@ export class PayReportResultMerge extends Payload implements IPaySingle {
 	getKey(): string {
 		return this.reportResult?.id?.toString() ?? "";
 	}
+
+	override createReply(json: any): Reply {
+		return new RepReportResultMerge(json);
+	}
 }

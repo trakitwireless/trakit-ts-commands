@@ -14,4 +14,8 @@ export class PayMaintenanceScheduleBatchDelete extends Payload {
 		super(json);
 		this.maintenanceSchedules = json?.maintenanceSchedules?.map((item: any) => new ParamId(item)) ?? [];
 	}
+
+	override createReply(json: any): Reply {
+		return new RepMaintenanceScheduleBatchDelete(json);
+	}
 }

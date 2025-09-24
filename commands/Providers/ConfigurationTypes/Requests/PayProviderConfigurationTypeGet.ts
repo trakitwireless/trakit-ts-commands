@@ -14,4 +14,8 @@ export class PayProviderConfigurationTypeGet extends PayProviderConfigurationTyp
 		super(json);
 		this.includeDeleted = json?.includeDeleted ?? false;
 	}
+
+	override createReply(json: any): Reply {
+		return new RepProviderConfigurationTypeGet(json);
+	}
 }

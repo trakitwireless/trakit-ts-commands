@@ -14,4 +14,8 @@ export class PayMaintenanceScheduleBatchMerge extends Payload {
 		super(json);
 		this.maintenanceSchedules = json?.maintenanceSchedules?.map((item: any) => new ParamMaintenanceScheduleMerge(item)) ?? [];
 	}
+
+	override createReply(json: any): Reply {
+		return new RepMaintenanceScheduleBatchMerge(json);
+	}
 }

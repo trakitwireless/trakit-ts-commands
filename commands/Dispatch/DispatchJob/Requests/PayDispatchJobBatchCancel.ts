@@ -14,4 +14,8 @@ export class PayDispatchJobBatchCancel extends Payload {
 		super(json);
 		this.dispatchJobs = json?.dispatchJobs?.map((dj: any) => new ParamDispatchJobCancel(dj)) ?? [];
 	}
+
+	override createReply(json: any): Reply {
+		return new RepDispatchJobBatchCancel(json);
+	}
 }

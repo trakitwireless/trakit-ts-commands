@@ -14,4 +14,8 @@ export class PayPlaceBatchMerge extends Payload {
 		super(json);
 		this.places = json?.places?.map((item: any) => new ParamPlaceMerge(item)) ?? [];
 	}
+
+	override createReply(json: any): Reply {
+		return new RepPlaceBatchMerge(json);
+	}
 }

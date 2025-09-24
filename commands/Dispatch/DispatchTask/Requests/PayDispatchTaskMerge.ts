@@ -22,4 +22,8 @@ export class PayDispatchTaskMerge extends Payload implements IPaySingle {
 	getKey(): string {
 		return this.dispatchTask?.id?.toString() ?? "";
 	}
+
+	override createReply(json: any): Reply {
+		return new RepDispatchTaskMerge(json);
+	}
 }

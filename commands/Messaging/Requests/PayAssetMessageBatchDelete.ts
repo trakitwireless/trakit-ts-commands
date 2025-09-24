@@ -14,4 +14,8 @@ export class PayAssetMessageBatchDelete extends Payload {
 		super();
 		this.assetMessages = json?.assetMessages?.map((e: any) => new ParamId(e)) ?? [];
 	}
+
+	override createReply(json: any): Reply {
+		return new RepAssetMessageBatchDelete(json);
+	}
 }

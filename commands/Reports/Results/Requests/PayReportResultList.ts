@@ -31,4 +31,8 @@ export class PayReportResultListByCompany extends PayReportResultList implements
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
+
+	override createReply(json: any): Reply {
+		return new RepReportResultListByCompany extends PayReportResultList implements IPayList(json);
+	}
 }

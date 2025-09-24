@@ -14,4 +14,8 @@ export class PayDispatchTaskBatchDelete extends Payload {
 		super(json);
 		this.dispatchTasks = json?.dispatchTasks?.map((id: any) => new ParamId(id)) ?? [];
 	}
+
+	override createReply(json: any): Reply {
+		return new RepDispatchTaskBatchDelete(json);
+	}
 }

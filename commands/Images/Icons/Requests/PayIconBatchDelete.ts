@@ -14,4 +14,8 @@ export class PayIconBatchDelete extends Payload {
 		super(json);
 		this.icons = json?.icons?.map((i: any) => new ParamId(i)) ?? [];
 	}
+
+	override createReply(json: any): Reply {
+		return new RepIconBatchDelete(json);
+	}
 }

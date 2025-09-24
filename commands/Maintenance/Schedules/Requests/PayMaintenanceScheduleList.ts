@@ -30,4 +30,8 @@ export class PayMaintenanceScheduleListByCompany extends PayMaintenanceScheduleL
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
+
+	override createReply(json: any): Reply {
+		return new RepMaintenanceScheduleListByCompany extends PayMaintenanceScheduleList implements IPayList(json);
+	}
 }

@@ -75,4 +75,8 @@ export class PayProviderGeneralListByCompanyAndRefPairs extends PayProviderGener
 			? serialization.toMap(json.references)
 			: new Map;
 	}
+
+	override createReply(json: any): Reply {
+		return new RepProviderGeneralListByCompany extends PayProviderGeneralList implements IPayList(json);
+	}
 }

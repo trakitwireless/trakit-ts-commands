@@ -46,4 +46,8 @@ export class PayAssetMessageListByAsset extends PayAssetMessageList implements I
 		super(json);
 		this.asset = new ParamId(json?.asset);
 	}
+
+	override createReply(json: any): Reply {
+		return new RepAssetMessageListByCompany extends PayAssetMessageList implements IPayList(json);
+	}
 }

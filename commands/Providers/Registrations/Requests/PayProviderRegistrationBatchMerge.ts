@@ -14,4 +14,8 @@ export class PayProviderRegistrationBatchMerge extends Payload {
 		super(json);
 		this.providerRegistrations = json?.providerRegistrations?.map((e: any) => new ParamProviderRegistrationMerge(e)) ?? [];
 	}
+
+	override createReply(json: any): Reply {
+		return new RepProviderRegistrationBatchMerge(json);
+	}
 }

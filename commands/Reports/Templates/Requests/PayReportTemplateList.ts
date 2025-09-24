@@ -31,4 +31,8 @@ export class PayReportTemplateListByCompany extends PayReportTemplateList implem
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
+
+	override createReply(json: any): Reply {
+		return new RepReportTemplateListByCompany extends PayReportTemplateList implements IPayList(json);
+	}
 }

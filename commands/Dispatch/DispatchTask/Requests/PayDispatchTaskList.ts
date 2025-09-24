@@ -86,4 +86,8 @@ export class PayDispatchTaskListByCompanyAndRefPairs extends PayDispatchTaskList
 			? serialization.toMap(json.references)
 			: new Map<string, string>();
 	}
+
+	override createReply(json: any): Reply {
+		return new RepDispatchTaskListByAsset extends PayDispatchTaskList implements IPayList(json);
+	}
 }

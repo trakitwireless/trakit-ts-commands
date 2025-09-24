@@ -22,4 +22,8 @@ export class PayIconMerge extends Payload implements IPaySingle {
 	getKey(): string {
 		return this.icon?.id?.toString() ?? "";
 	}
+
+	override createReply(json: any): Reply {
+		return new RepIconMerge(json);
+	}
 }

@@ -14,4 +14,8 @@ export class PayMaintenanceScheduleGet extends PayMaintenanceSchedule implements
 		super(json);
 		this.includeDeleted = json?.includeDeleted;
 	}
+
+	override createReply(json: any): Reply {
+		return new RepMaintenanceScheduleGet(json);
+	}
 }

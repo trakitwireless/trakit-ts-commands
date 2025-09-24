@@ -14,4 +14,8 @@ export class PayPictureBatchDelete extends Payload {
 		super(json);
 		this.pictures = json?.pictures?.map((i: any) => new ParamId(i)) ?? [];
 	}
+
+	override createReply(json: any): Reply {
+		return new RepPictureBatchDelete(json);
+	}
 }

@@ -14,4 +14,8 @@ export class PayPlaceBatchDelete extends Payload {
 		super(json);
 		this.places = json?.places?.map((item: any) => new ParamId(item)) ?? [];
 	}
+
+	override createReply(json: any): Reply {
+		return new RepPlaceBatchDelete(json);
+	}
 }

@@ -14,4 +14,8 @@ export class PayReportResultBatchMerge extends Payload {
 		super(json);
 		this.reportResults = json?.reportResults?.map((e: any) => new ParamReportResultMerge(e)) ?? [];
 	}
+
+	override createReply(json: any): Reply {
+		return new RepReportResultBatchMerge(json);
+	}
 }

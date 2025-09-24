@@ -31,4 +31,8 @@ export class PayReportScheduleListByCompany extends PayReportScheduleList implem
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
+
+	override createReply(json: any): Reply {
+		return new RepReportScheduleListByCompany extends PayReportScheduleList implements IPayList(json);
+	}
 }

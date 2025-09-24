@@ -14,4 +14,8 @@ export class PayReportScheduleBatchMerge extends Payload {
 		super(json);
 		this.reportSchedules = json?.reportSchedules?.map((e: any) => new ParamReportScheduleMerge(e)) ?? [];
 	}
+
+	override createReply(json: any): Reply {
+		return new RepReportScheduleBatchMerge(json);
+	}
 }

@@ -31,4 +31,8 @@ export class PayFormTemplateListByCompany extends PayFormTemplateList implements
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
+
+	override createReply(json: any): Reply {
+		return new RepFormTemplateListByCompany extends PayFormTemplateList implements IPayList(json);
+	}
 }

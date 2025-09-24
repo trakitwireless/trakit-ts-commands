@@ -21,4 +21,8 @@ export class PayAssetMessageMerge extends Payload implements IPaySingle {
 	getKey(): string {
 		return this.assetMessage?.id?.toString() ?? "";
 	}
+
+	override createReply(json: any): Reply {
+		return new RepAssetMessageMerge(json);
+	}
 }

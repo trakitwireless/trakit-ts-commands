@@ -14,4 +14,8 @@ export class PayDispatchJobBatchMerge extends Payload {
 		super(json);
 		this.dispatchJobs = json?.dispatchJobs?.map((dj: any) => new ParamDispatchJobMerge(dj)) ?? [];
 	}
+
+	override createReply(json: any): Reply {
+		return new RepDispatchJobBatchMerge(json);
+	}
 }

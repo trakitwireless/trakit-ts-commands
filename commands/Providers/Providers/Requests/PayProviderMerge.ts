@@ -21,4 +21,8 @@ export class PayProviderMerge extends Payload implements IPaySingle {
 	getKey(): string {
 		return this.provider?.id?.toString() ?? "";
 	}
+
+	override createReply(json: any): Reply {
+		return new RepProviderMerge(json);
+	}
 }

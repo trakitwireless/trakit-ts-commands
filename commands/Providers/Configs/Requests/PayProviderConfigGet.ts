@@ -14,4 +14,8 @@ export class PayProviderConfigGet extends PayProviderConfig implements IPayDelet
 		super(json);
 		this.includeDeleted = json?.includeDeleted ?? false;
 	}
+
+	override createReply(json: any): Reply {
+		return new RepProviderConfigGet(json);
+	}
 }

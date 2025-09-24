@@ -22,4 +22,8 @@ export class PayPlaceMerge extends Payload implements IPaySingle {
 	getKey(): string {
 		return this.place?.id?.toString() ?? "";
 	}
+
+	override createReply(json: any): Reply {
+		return new RepPlaceMerge(json);
+	}
 }
