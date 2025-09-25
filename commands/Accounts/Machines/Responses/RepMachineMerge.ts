@@ -1,4 +1,4 @@
-import { ContentKeyCompany } from "commands/API/Responses/Content/ContentKeyCompany";
+import { ContentKeyCompany } from "../../../API/Responses/Content/ContentKeyCompany";
 import { Reply } from "../../../API/Responses/Reply";
 import { nothing } from "@trakit/objects";
 

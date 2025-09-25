@@ -1,4 +1,4 @@
-import { Reply } from "commands/API/Responses/Reply";
+import { Reply } from "../../../API/Responses/Reply";
 import { ParamId } from "../../../API/Requests/Parameters/ParamId";
 import { Payload } from "../../../API/Requests/Payload";
 import { RepUserGroupBatchDelete } from "../Responses/RepUserGroupBatchDelete";

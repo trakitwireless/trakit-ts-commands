@@ -1,8 +1,8 @@
 ﻿import { Machine } from '@trakit/objects';
 import { guid, url, nothing } from '@trakit/objects';
-import { RepSelfGet } from 'commands/Accounts/Self/Responses/RepSelfGet';
-import { Payload } from 'commands/API/Requests/Payload';
-import { Reply } from 'commands/API/Responses/Reply';
+import { RepSelfGet } from '../commands/Accounts/Self/Responses/RepSelfGet';
+import { Payload } from '../commands/API/Requests/Payload';
+import { Reply } from '../commands/API/Responses/Reply';
 
 /**
  * The base class used to help define interaction with all Trak-iT API services.

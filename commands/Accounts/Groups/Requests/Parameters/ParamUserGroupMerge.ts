@@ -1,5 +1,5 @@
 import { nothing, ulong, utility } from "@trakit/objects";
-import { ParamPermission } from "commands/Accounts/Permissions/ParamPermission";
+import { ParamPermission } from "../../../Permissions/ParamPermission";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**

@@ -1,5 +1,5 @@
 import { Reply } from "../../../API/Responses/Reply";
-import { ParamId } from "commands/API/Requests/Parameters/ParamId";
+import { ParamId } from "../../../API/Requests/Parameters/ParamId";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByAsset } from "../../../API/Requests/IPayListByAsset";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";

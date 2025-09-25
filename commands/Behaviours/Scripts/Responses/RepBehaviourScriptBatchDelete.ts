@@ -1,5 +1,5 @@
 import { nothing } from "@trakit/objects";
-import { ContentIdDeleted } from "commands/API/Responses/Content/ContentIdDeleted";
+import { ContentIdDeleted } from "../../../API/Responses/Content/ContentIdDeleted";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**

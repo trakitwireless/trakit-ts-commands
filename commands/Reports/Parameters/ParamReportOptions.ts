@@ -1,5 +1,5 @@
 import { nothing, ReportFilterMode, ReportParameter } from "@trakit/objects";
-import { ParamMerge } from "commands/API/Requests/Parameters/ParamMerge";
+import { ParamMerge } from "../../API/Requests/Parameters/ParamMerge";
 import { ParamReportScorecardRules } from "./ParamReportScorecardRules";
 
 /**

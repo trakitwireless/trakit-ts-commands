@@ -1,4 +1,4 @@
-import { ContentId } from "commands/API/Responses/Content/ContentId";
+import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { Reply } from "../../../API/Responses/Reply";
 import { Dashcam, nothing } from "@trakit/objects";
 /**

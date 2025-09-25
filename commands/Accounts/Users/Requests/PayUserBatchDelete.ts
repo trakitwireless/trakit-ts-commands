@@ -1,5 +1,5 @@
 import { Reply } from "../../../API/Responses/Reply";
-import { ParamLogin } from "commands/API/Requests/Parameters/ParamLogin";
+import { ParamLogin } from "../../../API/Requests/Parameters/ParamLogin";
 import { Payload } from "../../../API/Requests/Payload";
 import { RepUserBatchDelete } from "../Responses/RepUserBatchDelete";
 

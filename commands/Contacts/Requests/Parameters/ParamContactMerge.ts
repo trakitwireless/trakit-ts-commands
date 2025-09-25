@@ -1,5 +1,5 @@
 import { nothing, ulong, utility } from "@trakit/objects";
-import { ParamSelfContactMerge } from "commands/Accounts/Self/Requests/Parameters/ParamSelfContactMerge";
+import { ParamSelfContactMerge } from "../../../Accounts/Self/Requests/Parameters/ParamSelfContactMerge";
 
 /**
  * Parameters used to create or update an {@link Contact}.

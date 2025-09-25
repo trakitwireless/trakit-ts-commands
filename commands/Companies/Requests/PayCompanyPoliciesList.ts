@@ -1,12 +1,12 @@
-import { Payload } from "../../API/Requests/Payload";
+import { serialization } from "@trakit/objects";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../API/Requests/IPayListByCompany";
 import { IPayListByLabels } from "../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../API/Requests/IPayListByReferences";
-import { ParamId } from "commands/API/Requests/Parameters/ParamId";
-import { serialization } from "@trakit/objects";
+import { ParamId } from "../../API/Requests/Parameters/ParamId";
+import { Payload } from "../../API/Requests/Payload";
+import { Reply } from "../../API/Responses/Reply";
 import { RepCompanyPoliciesListByCompany, RepCompanyPoliciesListByCompanyAndLabels, RepCompanyPoliciesListByCompanyAndRefPairs } from "../Responses/RepCompanyPoliciesList";
-import { Reply } from "commands/API/Responses/Reply";
 
 /**
  * Gets a list of {@link CompanyPolicies}s.

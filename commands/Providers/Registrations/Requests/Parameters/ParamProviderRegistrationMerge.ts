@@ -1,5 +1,5 @@
 import { nothing, TimeSpan, ulong, utility } from "@trakit/objects";
-import { ParamMerge } from "commands/API/Requests/Parameters/ParamMerge";
+import { ParamMerge } from "../../../../API/Requests/Parameters/ParamMerge";
 
 /**
  * Parameters used to create or update an {@link ProviderRegistration}.

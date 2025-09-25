@@ -1,6 +1,6 @@
 import { nothing, ReportType, Timezone, ulong, utility } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
-import { ParamReportOptions } from "commands/Reports/Parameters/ParamReportOptions";
+import { ParamReportOptions } from "../../../Parameters/ParamReportOptions";
 
 /**
  * Parameters used to create or update an {@link ReportResult}.

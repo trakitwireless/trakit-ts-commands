@@ -1,4 +1,4 @@
-import { ContentIdSuspended } from "commands/API/Responses/Content/ContentIdSuspended";
+import { ContentIdSuspended } from "../../API/Responses/Content/ContentIdSuspended";
 import { Reply } from "../../API/Responses/Reply";
 import { nothing } from "@trakit/objects";
 

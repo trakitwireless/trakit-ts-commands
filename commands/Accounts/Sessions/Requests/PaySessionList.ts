@@ -1,5 +1,5 @@
-import { ParamId } from "commands/API/Requests/Parameters/ParamId";
-import { ParamLogin } from "commands/API/Requests/Parameters/ParamLogin";
+import { ParamId } from "../../../API/Requests/Parameters/ParamId";
+import { ParamLogin } from "../../../API/Requests/Parameters/ParamLogin";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { IPayListByUser } from "../../../API/Requests/IPayListByUser";
 import { Payload } from "../../../API/Requests/Payload";

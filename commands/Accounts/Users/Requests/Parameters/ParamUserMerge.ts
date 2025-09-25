@@ -1,6 +1,6 @@
 import { nothing, serialization, SystemsOfUnits, Timezone, ulong, UserNotifications, utility } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
-import { ParamPermission } from "commands/Accounts/Permissions/ParamPermission";
+import { ParamPermission } from "../../../Permissions/ParamPermission";
 
 /**
  * Parameters used to create or update an {@link User}.

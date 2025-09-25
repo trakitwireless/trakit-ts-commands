@@ -1,6 +1,6 @@
 import { nothing, ulong, utility } from "@trakit/objects";
-import { ParamMergeSubscribable } from "commands/API/Requests/Parameters/ParamMergeSubscribable";
-import { ParamReportOptions } from "commands/Reports/Parameters/ParamReportOptions";
+import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
+import { ParamReportOptions } from "../../../Parameters/ParamReportOptions";
 import { ParamReportNotify } from "./ParamReportNotify";
 import { ParamReportRecurrence } from "./ParamReportRecurrence";
 

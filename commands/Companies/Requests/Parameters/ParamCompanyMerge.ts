@@ -1,7 +1,7 @@
 import { ulong, LabelStyle, serialization, nothing } from "@trakit/objects";
 import { ParamPasswordPolicy } from "./ParamPasswordPolicy";
 import { ParamSessionPolicy } from "./ParamSessionPolicy";
-import { ParamMergeSubscribable } from "commands/API/Requests/Parameters/ParamMergeSubscribable";
+import { ParamMergeSubscribable } from "../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
  * Parameters used to create or update an {@link Company}.

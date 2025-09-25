@@ -1,5 +1,5 @@
 import { ulong } from "@trakit/objects";
-import { SubscriptionType } from "commands/WebSocket/Requests/Parameters/SubscriptionType";
+import { SubscriptionType } from "../../Requests/Parameters/SubscriptionType";
 
 /**
  * Contains a {@link Company.id} and an array of {@link SubscriptionType}s for each {@link Company}.

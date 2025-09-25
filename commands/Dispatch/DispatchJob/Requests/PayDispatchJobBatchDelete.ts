@@ -1,4 +1,4 @@
-import { ParamId } from "commands/API/Requests/Parameters/ParamId";
+import { ParamId } from "../../../API/Requests/Parameters/ParamId";
 import { Reply } from "../../../API/Responses/Reply";
 import { RepDispatchJobBatchDelete } from "../Responses/RepDispatchJobBatchDelete";
 import { PayDispatchJobSpecial } from "./PayDispatchJob";

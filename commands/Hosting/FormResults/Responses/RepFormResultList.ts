@@ -1,5 +1,5 @@
 import { FormResult, nothing } from "@trakit/objects";
-import { ContentId } from "commands/API/Responses/Content/ContentId";
+import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**

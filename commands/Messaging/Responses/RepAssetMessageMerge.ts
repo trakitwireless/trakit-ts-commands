@@ -1,6 +1,6 @@
 import { nothing } from "@trakit/objects";
+import { ContentIdCompany } from "../../API/Responses/Content/ContentIdCompany";
 import { Reply } from "../../API/Responses/Reply";
-import { ContentIdCompany } from "commands/API/Responses/Content/ContentIdCompany";
 
 /**
  * A container for the {@link assetMessage}.

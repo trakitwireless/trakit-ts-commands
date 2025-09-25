@@ -1,6 +1,6 @@
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
-import { ParamId } from "commands/API/Requests/Parameters/ParamId";
+import { ParamId } from "../../../API/Requests/Parameters/ParamId";
 
 /**
  * A container for the {@link icon} object.

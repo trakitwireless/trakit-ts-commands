@@ -1,7 +1,7 @@
 import { Session } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
-import { ContentId } from "commands/API/Responses/Content/ContentId";
-import { ContentLoginCompany } from "commands/API/Responses/Content/ContentLoginCompany";
+import { ContentId } from "../../../API/Responses/Content/ContentId";
+import { ContentLoginCompany } from "../../../API/Responses/Content/ContentLoginCompany";
 
 /**
  * A container for the requested {@link sessions}.

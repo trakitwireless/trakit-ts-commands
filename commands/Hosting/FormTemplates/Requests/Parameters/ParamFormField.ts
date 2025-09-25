@@ -1,7 +1,5 @@
 import { double, FormFieldNumericSize, FormFieldType, long, nothing, serialization, TimeSpan, ulong, utility } from "@trakit/objects";
-import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
-import { ParamMerge } from "commands/API/Requests/Parameters/ParamMerge";
-import { timespan } from "@trakit/objects";
+import { ParamMerge } from "../../../../API/Requests/Parameters/ParamMerge";
 
 /**
  * Parameters used to create or update an {@link FormTemplate}.

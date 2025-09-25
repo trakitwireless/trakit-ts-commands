@@ -1,4 +1,4 @@
-import { ParamId } from "commands/API/Requests/Parameters/ParamId";
+import { ParamId } from "../../../API/Requests/Parameters/ParamId";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { IPaySuspendable } from "../../../API/Requests/IPaySuspendable";

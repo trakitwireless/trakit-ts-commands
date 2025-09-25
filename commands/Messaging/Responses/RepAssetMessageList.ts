@@ -1,8 +1,8 @@
-import { Reply } from "../../API/Responses/Reply";
-import { IRepListByCompany } from "../../API/Responses/IRepListByCompany";
-import { IRepListByAsset } from "../../API/Responses/IRepListByAsset";
 import { AssetMessage, nothing } from "@trakit/objects";
-import { ContentId } from "commands/API/Responses/Content/ContentId";
+import { ContentId } from "../../API/Responses/Content/ContentId";
+import { IRepListByAsset } from "../../API/Responses/IRepListByAsset";
+import { IRepListByCompany } from "../../API/Responses/IRepListByCompany";
+import { Reply } from "../../API/Responses/Reply";
 
 /**
  * A container for the requested {@link assetMessages}.

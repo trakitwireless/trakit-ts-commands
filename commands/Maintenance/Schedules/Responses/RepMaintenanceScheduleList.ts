@@ -1,6 +1,6 @@
 import { Reply } from "../../../API/Responses/Reply";
 import { MaintenanceSchedule } from "@trakit/objects";
-import { ContentId } from "commands/API/Responses/Content/ContentId";
+import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { nothing } from "@trakit/objects";
 /**
  * A container for the requested {@link maintenanceSchedules}.

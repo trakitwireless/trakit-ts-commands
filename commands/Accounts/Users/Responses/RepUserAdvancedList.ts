@@ -1,6 +1,6 @@
 import { nothing, serialization, UserAdvanced } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
-import { ContentId } from "commands/API/Responses/Content/ContentId";
+import { ContentId } from "../../../API/Responses/Content/ContentId";
 
 /**
  * A container for the requested {@link userAdvanceds}.

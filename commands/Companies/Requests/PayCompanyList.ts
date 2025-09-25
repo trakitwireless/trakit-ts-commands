@@ -1,11 +1,11 @@
-import { Payload } from "../../API/Requests/Payload";
+import { serialization } from "@trakit/objects";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../API/Requests/IPayListByCompany";
 import { IPayListByReferences } from "../../API/Requests/IPayListByReferences";
-import { ParamId } from "commands/API/Requests/Parameters/ParamId";
-import { serialization } from "@trakit/objects";
+import { ParamId } from "../../API/Requests/Parameters/ParamId";
+import { Payload } from "../../API/Requests/Payload";
+import { Reply } from "../../API/Responses/Reply";
 import { RepCompanyListByCompany, RepCompanyListByCompanyAndLabels, RepCompanyListByCompanyAndRefPairs } from "../Responses/RepCompanyList";
-import { Reply } from "commands/API/Responses/Reply";
 
 /**
  * Gets details of the specified {@link company}.

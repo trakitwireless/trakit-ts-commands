@@ -5,7 +5,7 @@ import { IPaySuspendable } from "../../API/Requests/IPaySuspendable";
 import { IPayListByCompany } from "../../API/Requests/IPayListByCompany";
 import { IPayListByLabels } from "../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../API/Requests/IPayListByReferences";
-import { ParamId } from "commands/API/Requests/Parameters/ParamId";
+import { ParamId } from "../../API/Requests/Parameters/ParamId";
 import { RepAssetAdvancedListByCompany, RepAssetAdvancedListByCompanyAndLabels, RepAssetAdvancedListByCompanyAndRefPairs } from "../Responses/RepAssetAdvancedList";
 
 /**

@@ -1,6 +1,6 @@
 import { Reply } from "../../../API/Responses/Reply";
 import { nothing, ProviderGeneral } from "@trakit/objects";
-import { ContentId } from "commands/API/Responses/Content/ContentId";
+import { ContentId } from "../../../API/Responses/Content/ContentId";
 /**
  * A container for the requested {@link providerGenerals}.
  **/

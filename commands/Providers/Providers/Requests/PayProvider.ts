@@ -1,6 +1,6 @@
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
-import { ParamIdentifier } from "commands/API/Requests/Parameters/ParamIdentifier";
+import { ParamIdentifier } from "../../../API/Requests/Parameters/ParamIdentifier";
 
 /**
  * A container for the {@link provider} object.

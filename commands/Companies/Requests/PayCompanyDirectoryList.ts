@@ -1,11 +1,11 @@
-import { Payload } from "../../API/Requests/Payload";
+import { serialization } from "@trakit/objects";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../API/Requests/IPayListByCompany";
 import { IPayListByLabels } from "../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../API/Requests/IPayListByReferences";
-import { serialization } from "@trakit/objects";
-import { ParamId } from "commands/API/Requests/Parameters/ParamId";
-import { Reply } from "commands/API/Responses/Reply";
+import { ParamId } from "../../API/Requests/Parameters/ParamId";
+import { Payload } from "../../API/Requests/Payload";
+import { Reply } from "../../API/Responses/Reply";
 import { RepCompanyDirectoryListByCompany, RepCompanyDirectoryListByCompanyAndLabels, RepCompanyDirectoryListByCompanyAndRefPairs } from "../Responses/RepCompanyDirectoryList";
 
 /**

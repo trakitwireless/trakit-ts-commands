@@ -1,6 +1,6 @@
 import { Contact, nothing } from "@trakit/objects";
+import { ContentId } from "../../API/Responses/Content/ContentId";
 import { Reply } from "../../API/Responses/Reply";
-import { ContentId } from "commands/API/Responses/Content/ContentId";
 
 /**
  * A container for the requested {@link contacts}.

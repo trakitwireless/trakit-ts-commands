@@ -1,6 +1,5 @@
 import { nothing, utility } from "@trakit/objects";
-import { ParamMerge } from "commands/API/Requests/Parameters/ParamMerge";
-import { ParamMergeSubscribable } from "commands/API/Requests/Parameters/ParamMergeSubscribable";
+import { ParamMerge } from "../../../../API/Requests/Parameters/ParamMerge";
 
 /**
  * Parameters used to create or update an {@link ReportSchedule}.

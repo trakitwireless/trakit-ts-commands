@@ -1,6 +1,6 @@
 import { nothing } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
-import { ContentIdendifierDeleted } from "commands/API/Responses/Content/ContentIdendifierDeleted";
+import { ContentIdendifierDeleted } from "../../../API/Responses/Content/ContentIdendifierDeleted";
 
 /**
  * A container for the {@link provider}.
