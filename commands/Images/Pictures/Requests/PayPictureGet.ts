@@ -1,5 +1,7 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { PayPicture } from "./PayPicture";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
+import { RepPictureGet } from "../Responses/RepPictureGet";
 
 /**
  * Gets details of the specified {@link Picture}.

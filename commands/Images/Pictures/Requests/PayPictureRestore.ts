@@ -1,3 +1,5 @@
+import { Reply } from "../../../API/Responses/Reply";
+import { RepPictureDelete } from "../Responses/RepPictureDelete";
 import { PayPicture } from "./PayPicture";
 
 /**
@@ -5,6 +7,6 @@ import { PayPicture } from "./PayPicture";
  **/
 export class PayPictureRestore extends PayPicture { 
 	override createReply(json: any): Reply {
-		return new RepPictureRestore(json);
+		return new RepPictureDelete(json);
 	}
 }

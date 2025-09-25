@@ -1,5 +1,7 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { PayIcon } from "./PayIcon";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
+import { RepIconGet } from "../Responses/RepIconGet";
 
 /**
  * Gets details of the specified {@link Icon}.

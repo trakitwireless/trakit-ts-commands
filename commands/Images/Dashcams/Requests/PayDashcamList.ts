@@ -1,7 +1,9 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { ParamId } from "commands/API/Requests/Parameters/ParamId";
+import { RepDashcamListByCompany } from "../Responses/RepDashcamList";
 
 /**
  * Gets details of the specified {@link dashcam}.
@@ -32,6 +34,6 @@ export class PayDashcamListByCompany extends PayDashcamList implements IPayListB
 	}
 
 	override createReply(json: any): Reply {
-		return new RepDashcamListByCompany extends PayDashcamList implements IPayList(json);
+		return new RepDashcamListByCompany(json);
 	}
 }

@@ -1,6 +1,8 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
 import { ParamPictureMerge } from "./Parameters/ParamPictureMerge";
+import { RepPictureMerge } from "../Responses/RepPictureMerge";
 
 /**
  * Creates a new or updates an existing {@link Picture}.

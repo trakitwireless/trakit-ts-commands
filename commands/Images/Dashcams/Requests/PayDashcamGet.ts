@@ -1,5 +1,7 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { PayDashcam } from "./PayDashcam";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
+import { RepDashcamGet } from "../Responses/RepDashcamGet";
 
 /**
  * Gets details of the specified {@link Dashcam}.

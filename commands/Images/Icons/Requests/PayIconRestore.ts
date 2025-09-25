@@ -1,3 +1,5 @@
+import { Reply } from "../../../API/Responses/Reply";
+import { RepIconDelete } from "../Responses/RepIconDelete";
 import { PayIcon } from "./PayIcon";
 
 /**
@@ -5,6 +7,6 @@ import { PayIcon } from "./PayIcon";
  **/
 export class PayIconRestore extends PayIcon { 
 	override createReply(json: any): Reply {
-		return new RepIconRestore(json);
+		return new RepIconDelete(json);
 	}
 }
