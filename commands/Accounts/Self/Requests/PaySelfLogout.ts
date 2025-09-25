@@ -7,13 +7,13 @@ import { RepSelfLogout } from "../Responses/RepSelfLogout";
  **/
 export class PaySelfLogout extends Payload { 
 	override getAction(): {
-		kind: "Merge",
+		kind: "Delete",
 		object: "Self",
 		filter: "Logout",
 		batch: false,
 	} {
 		return {
-			kind: "Merge",
+			kind: "Delete",
 			object: "Self",
 			filter: "Logout",
 			batch: false,

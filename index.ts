@@ -96,7 +96,7 @@ import { ParamKey } from "./commands/API/Requests/Parameters/ParamKey";
 import { ParamLogin } from "./commands/API/Requests/Parameters/ParamLogin";
 import { ParamMerge } from "./commands/API/Requests/Parameters/ParamMerge";
 import { ParamMergeSubscribable } from "./commands/API/Requests/Parameters/ParamMergeSubscribable";
-import { Payload } from "./commands/API/Requests/Payload";
+import { ActionType, Payload } from "./commands/API/Requests/Payload";
 import { ContentCode } from "./commands/API/Responses/Content/ContentCode";
 import { ContentCodeCompany } from "./commands/API/Responses/Content/ContentCodeCompany";
 import { ContentCodeDeleted } from "./commands/API/Responses/Content/ContentCodeDeleted";
@@ -446,6 +446,7 @@ export {
  */
 export {
 	Payload,
+	type ActionType,
 	type IParamAsset,
 	type IParamBillingProfile,
 	type IParamCompany,

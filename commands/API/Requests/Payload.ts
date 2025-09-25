@@ -5,7 +5,7 @@ import { Reply } from '../Responses/Reply';
 const Payload_SPLITTER = /Pay((?:[A-Z][a-z]+)+?)(Batch)?(Get|List|Merge|Delete|Restore|Suspend|Reactivate|Cancel|Change)(?:By(.+))?/;
 
 // type of command
-type ActionType = "Get" | "List" | "Merge" | "Delete" | "Restore" | "Suspend" | "Reactivate" | "Cancel" | "Change";
+export type ActionType = "Get" | "List" | "Merge" | "Delete" | "Restore" | "Suspend" | "Reactivate" | "Cancel" | "Change";
 
 /**
  * Base class for all command parameters.
