@@ -1,5 +1,7 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { PayReportTemplate } from "./PayReportTemplate";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
+import { RepReportTemplateGet } from "../Responses/RepReportTemplateGet";
 
 /**
  * Gets details of the specified {@link ReportTemplate}.

@@ -1,7 +1,9 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { ParamId } from "commands/API/Requests/Parameters/ParamId";
+import { RepReportResultListByCompany } from "../Responses/RepReportResultList";
 
 /**
  * Gets details of the specified {@link reportResult}.
@@ -33,6 +35,6 @@ export class PayReportResultListByCompany extends PayReportResultList implements
 	}
 
 	override createReply(json: any): Reply {
-		return new RepReportResultListByCompany extends PayReportResultList implements IPayList(json);
+		return new RepReportResultListByCompany(json);
 	}
 }

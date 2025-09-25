@@ -1,6 +1,8 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
 import { ParamReportResultMerge } from "./Parameters/ParamReportResultMerge";
+import { RepReportResultMerge } from "../Responses/RepReportResultMerge";
 
 /**
  * Creates a new or updates an existing {@link ReportResult}.

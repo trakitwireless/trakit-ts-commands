@@ -1,3 +1,5 @@
+import { Reply } from "../../../API/Responses/Reply";
+import { RepReportResultDelete } from "../Responses/RepReportResultDelete";
 import { PayReportResult } from "./PayReportResult";
 
 /**
@@ -5,6 +7,6 @@ import { PayReportResult } from "./PayReportResult";
  **/
 export class PayReportResultRestore extends PayReportResult { 
 	override createReply(json: any): Reply {
-		return new RepReportResultRestore(json);
+		return new RepReportResultDelete(json);
 	}
 }
