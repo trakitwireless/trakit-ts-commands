@@ -1,12 +1,12 @@
 import { Reply } from "../../../API/Responses/Reply";
-import { Payload } from "../../../API/Requests/Payload";
 import { RepDispatchJobBatchMerge } from "../Responses/RepDispatchJobBatchMerge";
 import { ParamDispatchJobMerge } from "./Parameters/ParamDispatchJobMerge";
+import { PayDispatchJobSpecial } from "./PayDispatchJob";
 
 /**
  * Creates multiple new, or updates multiple existing {@link DispatchJob}s.
  **/
-export class PayDispatchJobBatchMerge extends Payload {
+export class PayDispatchJobBatchMerge extends PayDispatchJobSpecial {
 	/**
 	 * List of {@link DispatchJob}s to update or create.
 	 **/

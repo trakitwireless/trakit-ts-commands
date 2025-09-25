@@ -1,12 +1,12 @@
-import { Reply } from "../../../API/Responses/Reply";
 import { ParamId } from "commands/API/Requests/Parameters/ParamId";
-import { Payload } from "../../../API/Requests/Payload";
+import { Reply } from "../../../API/Responses/Reply";
 import { RepDispatchJobBatchDelete } from "../Responses/RepDispatchJobBatchDelete";
+import { PayDispatchJobSpecial } from "./PayDispatchJob";
 
 /**
  * Deletes multiple {@link DispatchJob}s.
  **/
-export class PayDispatchJobBatchDelete extends Payload {
+export class PayDispatchJobBatchDelete extends PayDispatchJobSpecial {
 	/**
 	 * List of {@link DispatchJob.id}s to delete.
 	 **/
