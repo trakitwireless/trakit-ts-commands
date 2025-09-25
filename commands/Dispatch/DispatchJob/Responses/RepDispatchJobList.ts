@@ -20,41 +20,6 @@ export abstract class RepDispatchJobList extends Reply {
 		this.dispatchJobs = json?.dispatchJobs?.map((dj: any) => new DispatchJob(dj));
 	}
 }
-
-/**
- * 
- **/
-export class RepDispatchJobListByAsset extends RepDispatchJobList implements IRepListByAsset {
-	/**
-	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
-	asset: ContentId | nothing;
-
-	constructor(json: any) {
-		super(json);
-		this.asset = json?.asset
-			? new ContentId(json.asset)
-			: null;
-	}
-}
-
-/**
- * 
- **/
-export class RepDispatchJobListByAssetAndRefPairs extends RepDispatchJobListByAsset implements IRepListByReferences {
-	/**
-	 * Case-insensitive reference pairs used to match jobs.
-	 * @see {@link DispatchJob.references}
-	 **/
-	references: Map<string, string> | nothing;
-
-	constructor(json: any) {
-		super(json);
-		this.references = json?.references
-			? serialization.toMap(json.references)
-			: null;
-	}
-}
 /**
  * 
  **/
@@ -62,7 +27,7 @@ export class RepDispatchJobListByCompany extends RepDispatchJobList implements I
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
-	company: ContentId|nothing;
+	company: ContentId | nothing;
 
 	constructor(json: any) {
 		super(json);
@@ -88,6 +53,53 @@ export class RepDispatchJobListByCompanyAndLabels extends RepDispatchJobListByCo
  * 
  **/
 export class RepDispatchJobListByCompanyAndRefPairs extends RepDispatchJobListByCompany implements IRepListByReferences {
+	/**
+	 * Case-insensitive reference pairs used to match jobs.
+	 * @see {@link DispatchJob.references}
+	 **/
+	references: Map<string, string> | nothing;
+	
+	constructor(json: any) {
+		super(json);
+		this.references = json?.references
+			? serialization.toMap(json.references)
+			: null;
+	}
+}
+
+/**
+ * 
+ **/
+export class RepDispatchJobListByAsset extends RepDispatchJobList implements IRepListByAsset {
+	/**
+	 * Identifier of the {@link Asset} to which this collection belongs.
+	 **/
+	asset: ContentId | nothing;
+
+	constructor(json: any) {
+		super(json);
+		this.asset = ContentId.fromJSON(json?.asset);
+	}
+}
+/**
+ * 
+ **/
+export class RepDispatchJobListByAssetAndLabels extends RepDispatchJobListByAsset implements IRepListByLabels {
+	/**
+	 * A list of {@link LabelStyle.code|label codes} used to match {@link DispatchJob}s.
+	 * All labels must match to include a {@link DispatchJob} in the result.
+	 **/
+	labels: string[] | nothing;
+	
+	constructor(json: any) {
+		super(json);
+		this.labels = json?.labels;
+	}
+}
+/**
+ * 
+ **/
+export class RepDispatchJobListByAssetAndRefPairs extends RepDispatchJobListByAsset implements IRepListByReferences {
 	/**
 	 * Case-insensitive reference pairs used to match jobs.
 	 * @see {@link DispatchJob.references}

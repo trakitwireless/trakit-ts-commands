@@ -1,3 +1,5 @@
+import { Reply } from "../../../API/Responses/Reply";
+import { RepDispatchTaskDelete } from "../Responses/RepDispatchTaskDelete";
 import { PayDispatchTask } from "./PayDispatchTask";
 
 /**

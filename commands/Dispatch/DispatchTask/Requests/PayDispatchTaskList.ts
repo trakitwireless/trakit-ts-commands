@@ -1,3 +1,4 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { ParamId } from "commands/API/Requests/Parameters/ParamId";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByAsset } from "../../../API/Requests/IPayListByAsset";
@@ -5,6 +6,7 @@ import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { IPayListByReferences } from "../../../API/Requests/IPayListByReferences";
 import { Payload } from "../../../API/Requests/Payload";
 import { serialization } from "@trakit/objects";
+import { RepDispatchTaskListByAsset, RepDispatchTaskListByAssetAndRefPairs, RepDispatchTaskListByCompany, RepDispatchTaskListByCompanyAndRefPairs } from "../Responses/RepDispatchTaskList";
 
 /**
  * 
@@ -34,6 +36,10 @@ export class PayDispatchTaskListByAsset extends PayDispatchTaskList implements I
 		super(json);
 		this.asset = new ParamId(json?.asset);
 	}
+
+	override createReply(json: any): Reply {
+		return new RepDispatchTaskListByAsset(json);
+	}
 }
 /**
  * Gets the list of {@link DispatchTask}s for the specified {@link Asset} only if the specified reference fields match.
@@ -53,6 +59,10 @@ export class PayDispatchTaskListByAssetAndRefPairs extends PayDispatchTaskListBy
 			? serialization.toMap(json.references)
 			: new Map<string, string>();
 	}
+
+	override createReply(json: any): Reply {
+		return new RepDispatchTaskListByAssetAndRefPairs(json);
+	}
 }
 /**
  * Gets the list of {@link DispatchTask}s for the specified {@link Company}.
@@ -66,6 +76,10 @@ export class PayDispatchTaskListByCompany extends PayDispatchTaskList implements
 	constructor(json: any) {
 		super(json);
 		this.company = new ParamId(json?.company);
+	}
+
+	override createReply(json: any): Reply {
+		return new RepDispatchTaskListByCompany(json);
 	}
 }
 /**
@@ -88,6 +102,6 @@ export class PayDispatchTaskListByCompanyAndRefPairs extends PayDispatchTaskList
 	}
 
 	override createReply(json: any): Reply {
-		return new RepDispatchTaskListByAsset extends PayDispatchTaskList implements IPayList(json);
+		return new RepDispatchTaskListByCompanyAndRefPairs(json);
 	}
 }

@@ -1,4 +1,6 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
+import { RepDispatchJobBatchMerge } from "../Responses/RepDispatchJobBatchMerge";
 import { ParamDispatchJobMerge } from "./Parameters/ParamDispatchJobMerge";
 
 /**

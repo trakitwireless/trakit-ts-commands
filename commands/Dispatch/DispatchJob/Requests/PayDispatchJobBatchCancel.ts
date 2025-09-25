@@ -1,5 +1,7 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
 import { ParamDispatchJobCancel } from "./Parameters/ParamDispatchJobCancel";
+import { RepDispatchJobBatchMerge } from "../Responses/RepDispatchJobBatchMerge";
 
 /**
  * Cancels multiple existing {@link DispatchJob}s, removing them from the dispatcher's and driver's views.
@@ -16,6 +18,6 @@ export class PayDispatchJobBatchCancel extends Payload {
 	}
 
 	override createReply(json: any): Reply {
-		return new RepDispatchJobBatchCancel(json);
+		return new RepDispatchJobBatchMerge(json);
 	}
 }

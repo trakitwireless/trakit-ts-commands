@@ -1,6 +1,8 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
 import { ParamDispatchJobChange } from "./Parameters/ParamDispatchJobChange";
+import { RepDispatchJobMerge } from "../Responses/RepDispatchJobMerge";
 
 /**
  * Completes or modifies an existing {@link DispatchJob} from a driver's perspective.
@@ -25,6 +27,6 @@ export class PayDispatchJobChange extends Payload implements IPaySingle {
 	}
 
 	override createReply(json: any): Reply {
-		return new RepDispatchJobChange(json);
+		return new RepDispatchJobMerge(json);
 	}
 }

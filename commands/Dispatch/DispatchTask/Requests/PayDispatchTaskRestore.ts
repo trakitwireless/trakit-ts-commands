@@ -1,3 +1,5 @@
+import { Reply } from "../../../API/Responses/Reply";
+import { RepDispatchTaskDelete } from "../Responses/RepDispatchTaskDelete";
 import { PayDispatchTask } from "./PayDispatchTask";
 
 /**
@@ -5,6 +7,6 @@ import { PayDispatchTask } from "./PayDispatchTask";
  **/
 export class PayDispatchTaskRestore extends PayDispatchTask { 
 	override createReply(json: any): Reply {
-		return new RepDispatchTaskRestore(json);
+		return new RepDispatchTaskDelete(json);
 	}
 }

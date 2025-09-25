@@ -1,5 +1,7 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { PayDispatchTask } from "./PayDispatchTask";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
+import { RepDispatchTaskGet } from "../Responses/RepDispatchTaskGet";
 
 /**
  * Gets details of the specified {@link DispatchTask}.

@@ -1,5 +1,7 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { PayDispatchJob } from "./PayDispatchJob";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
+import { RepDispatchJobGet } from "../Responses/RepDispatchJobGet";
 
 /**
  * Gets details of the specified {@link DispatchJob}.

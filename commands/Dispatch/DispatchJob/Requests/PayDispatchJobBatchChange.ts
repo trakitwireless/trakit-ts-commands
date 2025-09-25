@@ -1,4 +1,6 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
+import { RepDispatchJobBatchMerge } from "../Responses/RepDispatchJobBatchMerge";
 import { ParamDispatchJobChange } from "./Parameters/ParamDispatchJobChange";
 
 /**
@@ -16,6 +18,6 @@ export class PayDispatchJobBatchChange extends Payload {
 	}
 
 	override createReply(json: any): Reply {
-		return new RepDispatchJobBatchChange(json);
+		return new RepDispatchJobBatchMerge(json);
 	}
 }

@@ -96,8 +96,8 @@ import { PayDispatchTaskDelete } from "commands/Dispatch/DispatchTask/Requests/P
 import { PayDispatchTaskGet } from "commands/Dispatch/DispatchTask/Requests/PayDispatchTaskGet";
 import { PayDispatchTaskMerge } from "commands/Dispatch/DispatchTask/Requests/PayDispatchTaskMerge";
 import { PayDispatchTaskRestore } from "commands/Dispatch/DispatchTask/Requests/PayDispatchTaskRestore";
-import { RepDispatchTaskBatchDeleted } from "commands/Dispatch/DispatchTask/Responses/RepDispatchTaskBatchDeleted";
-import { RepDispatchTaskBatchMerged } from "commands/Dispatch/DispatchTask/Responses/RepDispatchTaskBatchMerged";
+import { RepDispatchTaskBatchDelete } from "commands/Dispatch/DispatchTask/Responses/RepDispatchTaskBatchDelete";
+import { RepDispatchTaskBatchMerge } from "commands/Dispatch/DispatchTask/Responses/RepDispatchTaskBatchMerge";
 import { RepDispatchTaskDelete } from "commands/Dispatch/DispatchTask/Responses/RepDispatchTaskDelete";
 import { RepDispatchTaskGet } from "commands/Dispatch/DispatchTask/Responses/RepDispatchTaskGet";
 import { RepDispatchTaskMerge } from "commands/Dispatch/DispatchTask/Responses/RepDispatchTaskMerge";
@@ -785,8 +785,8 @@ export {
 	RepDispatchJobGet,
 	RepDispatchJobMerge,
 	// DispatchTask Responses
-	RepDispatchTaskBatchDeleted,
-	RepDispatchTaskBatchMerged,
+	RepDispatchTaskBatchDelete,
+	RepDispatchTaskBatchMerge,
 	RepDispatchTaskDelete,
 	RepDispatchTaskGet,
 	RepDispatchTaskMerge,

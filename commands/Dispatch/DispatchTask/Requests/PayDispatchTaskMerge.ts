@@ -1,6 +1,8 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
 import { ParamDispatchTaskMerge } from "./Parameters/ParamDispatchTaskMerge";
+import { RepDispatchTaskMerge } from "../Responses/RepDispatchTaskMerge";
 
 /**
  * Creates a new or updates an existing {@link DispatchTask}.

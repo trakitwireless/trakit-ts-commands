@@ -1,6 +1,8 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
 import { ParamDispatchJobCancel } from "./Parameters/ParamDispatchJobCancel";
+import { RepDispatchJobMerge } from "../Responses/RepDispatchJobMerge";
 
 /**
  * Cancels a {@link DispatchJob}, removing it from the dispatcher's and driver's views.
@@ -24,6 +26,6 @@ export class PayDispatchJobCancel extends Payload implements IPaySingle {
 	}
 
 	override createReply(json: any): Reply {
-		return new RepDispatchJobCancel(json);
+		return new RepDispatchJobMerge(json);
 	}
 }

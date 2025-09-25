@@ -1,3 +1,5 @@
+import { RepDispatchJobDelete } from "../Responses/RepDispatchJobDelete";
+import { Reply } from "../../../API/Responses/Reply";
 import { PayDispatchJob } from "./PayDispatchJob";
 
 /**
