@@ -1,3 +1,5 @@
+import { Reply } from "../../API/Responses/Reply";
+import { RepSubscription } from "../Responses/RepSubscription";
 import { PaySubscriptionMerge } from "./PaySubscriptionMerge";
 
 /**
@@ -6,6 +8,6 @@ import { PaySubscriptionMerge } from "./PaySubscriptionMerge";
  **/
 export class PaySubscriptionRemove extends PaySubscriptionMerge { 
 	override createReply(json: any): Reply {
-		return new RepSubscriptionRemove extends PaySubscriptionMerge(json);
+		return new RepSubscription(json);
 	}
 }

@@ -1,6 +1,8 @@
+import { Reply } from "../../API/Responses/Reply";
 import { ParamId } from "../../API/Requests/Parameters/ParamId";
 import { Payload } from "../../API/Requests/Payload";
 import { SubscriptionType } from "./Parameters/SubscriptionType";
+import { RepSubscription } from "../Responses/RepSubscription";
 
 /**
  * The types of subscriptions available using {@link subscribe}/{@link unsubscribe}.
@@ -25,6 +27,6 @@ export class PaySubscriptionMerge extends Payload {
 	}
 
 	override createReply(json: any): Reply {
-		return new RepSubscriptionMerge(json);
+		return new RepSubscription(json);
 	}
 }
