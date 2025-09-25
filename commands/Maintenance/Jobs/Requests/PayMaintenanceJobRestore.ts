@@ -1,3 +1,5 @@
+import { Reply } from "../../../API/Responses/Reply";
+import { RepMaintenanceJobDelete } from "../Responses/RepMaintenanceJobDelete";
 import { PayMaintenanceJob } from "./PayMaintenanceJob";
 
 /**
@@ -5,6 +7,6 @@ import { PayMaintenanceJob } from "./PayMaintenanceJob";
  **/
 export class PayMaintenanceJobRestore extends PayMaintenanceJob { 
 	override createReply(json: any): Reply {
-		return new RepMaintenanceJobRestore(json);
+		return new RepMaintenanceJobDelete(json);
 	}
 }

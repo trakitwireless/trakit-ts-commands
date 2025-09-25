@@ -1,6 +1,8 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
 import { ParamMaintenanceJobMerge } from "./Parameters/ParamMaintenanceJobMerge";
+import { RepMaintenanceJobMerge } from "../Responses/RepMaintenanceJobMerge";
 
 /**
  * Creates a new or updates an existing {@link MaintenanceJob}.

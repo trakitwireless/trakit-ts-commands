@@ -1,7 +1,9 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { ParamId } from "commands/API/Requests/Parameters/ParamId";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { Payload } from "../../../API/Requests/Payload";
+import { RepMaintenanceScheduleListByCompany } from "../Responses/RepMaintenanceScheduleList";
 
 /**
  * Gets details of the specified {@link maintenanceSchedule}.
@@ -32,6 +34,6 @@ export class PayMaintenanceScheduleListByCompany extends PayMaintenanceScheduleL
 	}
 
 	override createReply(json: any): Reply {
-		return new RepMaintenanceScheduleListByCompany extends PayMaintenanceScheduleList implements IPayList(json);
+		return new RepMaintenanceScheduleListByCompany(json);
 	}
 }

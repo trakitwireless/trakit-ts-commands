@@ -1,6 +1,8 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
 import { ParamMaintenanceScheduleMerge } from "./Parameters/ParamMaintenanceScheduleMerge";
+import { RepMaintenanceScheduleMerge } from "../Responses/RepMaintenanceScheduleMerge";
 
 /**
  * Creates a new or updates an existing {@link MaintenanceSchedule}.

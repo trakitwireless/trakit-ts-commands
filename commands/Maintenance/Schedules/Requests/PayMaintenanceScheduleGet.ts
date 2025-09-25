@@ -1,5 +1,7 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { PayMaintenanceSchedule } from "./PayMaintenanceSchedule";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
+import { RepMaintenanceScheduleGet } from "../Responses/RepMaintenanceScheduleGet";
 
 /**
  * Gets details of the specified {@link MaintenanceSchedule}.
