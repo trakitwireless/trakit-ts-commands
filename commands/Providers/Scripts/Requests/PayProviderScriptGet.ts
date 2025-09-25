@@ -1,5 +1,7 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { PayProviderScript } from "./PayProviderScript";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
+import { RepProviderScriptGet } from "../Responses/RepProviderScriptGet";
 
 /**
  * Gets details of the specified {@link ProviderScript}.

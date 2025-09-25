@@ -1,7 +1,9 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { ParamId } from "commands/API/Requests/Parameters/ParamId";
+import { RepProviderConfigurationListByCompany } from "../Responses/RepProviderConfigurationList";
 
 /**
  * Gets details of the specified {@link providerConfiguration}.
@@ -32,6 +34,6 @@ export class PayProviderConfigurationListByCompany extends PayProviderConfigurat
 	}
 
 	override createReply(json: any): Reply {
-		return new RepProviderConfigurationListByCompany extends PayProviderConfigurationList implements IPayList(json);
+		return new RepProviderConfigurationListByCompany(json);
 	}
 }

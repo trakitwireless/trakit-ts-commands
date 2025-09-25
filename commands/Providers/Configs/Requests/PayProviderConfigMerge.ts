@@ -1,6 +1,8 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
 import { ParamProviderConfigMerge } from "./Parameters/ParamProviderConfigMerge";
+import { RepProviderConfigMerge } from "../Responses/RepProviderConfigMerge";
 
 /**
  * Creates a new or updates an existing {@link ProviderConfig}.

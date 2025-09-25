@@ -1,7 +1,9 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { ParamId } from "commands/API/Requests/Parameters/ParamId";
+import { RepProviderScriptListByCompany } from "../Responses/RepProviderScriptList";
 
 /**
  * Gets details of the specified {@link providerScript}.
@@ -33,6 +35,6 @@ export class PayProviderScriptListByCompany extends PayProviderScriptList implem
 	}
 
 	override createReply(json: any): Reply {
-		return new RepProviderScriptListByCompany extends PayProviderScriptList implements IPayList(json);
+		return new RepProviderScriptListByCompany(json);
 	}
 }

@@ -1,3 +1,5 @@
+import { Reply } from "../../../API/Responses/Reply";
+import { RepProviderDelete } from "../Responses/RepProviderDelete";
 import { PayProvider } from "./PayProvider";
 
 /**

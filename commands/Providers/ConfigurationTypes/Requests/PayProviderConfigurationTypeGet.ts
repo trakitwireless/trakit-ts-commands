@@ -1,5 +1,7 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { PayProviderConfigurationType } from "./PayProviderConfigurationType";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
+import { RepProviderConfigurationTypeGet } from "../Responses/RepProviderConfigurationTypeGet";
 
 /**
  * Gets details of the specified {@link ProviderConfigurationType}.

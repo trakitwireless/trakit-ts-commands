@@ -1,5 +1,7 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { PayProvider } from "./PayProvider";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
+import { RepProviderGeneralGet } from "../Responses/RepProviderGeneralGet";
 
 /**
  * Gets details of the specified {@link ProviderGeneral}.

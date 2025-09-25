@@ -1,4 +1,6 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
+import { RepProviderBatchMerge } from "../Responses/RepProviderBatchMerge";
 import { ParamProviderMerge } from "./Parameters/ParamProviderMerge";
 
 /**

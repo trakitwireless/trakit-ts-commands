@@ -1,6 +1,8 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
 import { ParamProviderScriptMerge } from "./Parameters/ParamProviderScriptMerge";
+import { RepProviderScriptMerge } from "../Responses/RepProviderScriptMerge";
 
 /**
  * Creates a new or updates an existing {@link ProviderScript}.

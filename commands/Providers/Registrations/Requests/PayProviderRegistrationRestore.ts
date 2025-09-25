@@ -1,3 +1,5 @@
+import { Reply } from "../../../API/Responses/Reply";
+import { RepProviderRegistrationDelete } from "../Responses/RepProviderRegistrationDelete";
 import { PayProviderRegistration } from "./PayProviderRegistration";
 
 /**
@@ -5,6 +7,6 @@ import { PayProviderRegistration } from "./PayProviderRegistration";
  **/
 export class PayProviderRegistrationRestore extends PayProviderRegistration { 
 	override createReply(json: any): Reply {
-		return new RepProviderRegistrationRestore(json);
+		return new RepProviderRegistrationDelete(json);
 	}
 }

@@ -1,11 +1,10 @@
-import { Payload } from "../../../API/Requests/Payload";
-import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
-import { IPaySuspendable } from "../../../API/Requests/IPaySuspendable";
-import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
-import { IPayListByLabels } from "../../../API/Requests/IPayListByLabels";
-import { IPayListByReferences } from "../../../API/Requests/IPayListByReferences";
 import { ParamId } from "commands/API/Requests/Parameters/ParamId";
-import { serialization } from "@trakit/objects";
+import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
+import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
+import { IPaySuspendable } from "../../../API/Requests/IPaySuspendable";
+import { Payload } from "../../../API/Requests/Payload";
+import { Reply } from "../../../API/Responses/Reply";
+import { RepProviderGeneralListByCompany, RepProviderGeneralListByConfig } from "../Responses/RepProviderGeneralList";
 
 /**
  * Gets a list of {@link ProviderGeneral}s.
@@ -40,43 +39,26 @@ export class PayProviderGeneralListByCompany extends PayProviderGeneralList impl
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
-}
 
-/**
- * Gets the list of {@link ProviderGeneral}s for the specified {@link Company} only if the {@link ProviderGeneralGeneral.labels} matches all of the given {@link Parameters.labels}.
- **/
-export class PayProviderGeneralListByCompanyAndLabels extends PayProviderGeneralListByCompany implements IPayListByLabels {
-	/**
-	 * The parsed labels given as input.
-	 * @see {@link ProviderGeneral.labels}
-	 **/
-	labels: string[];
-
-	constructor(json: any) {
-		super(json);
-		this.labels = json?.labels ?? [];
+	override createReply(json: any): Reply {
+		return new RepProviderGeneralListByCompany(json);
 	}
 }
 /**
- * Gets the list of {@link ProviderGeneral}s for the specified {@link Company} only if one of the specified {@link ProviderGeneralGeneral.references} fields match.
- * If no references are specified, it will match any {@link ProviderGeneral} with no references.
- * If a reference value is null, it will match any {@link ProviderGeneral} without that reference key.
+ * Gets the list of {@link ProviderGeneral}s for the specified {@link Company}.
  **/
-export class PayProviderGeneralListByCompanyAndRefPairs extends PayProviderGeneralListByCompany implements IPayListByReferences {
+export class PayProviderGeneralListByConfig extends PayProviderGeneralList {
 	/**
-	 * The parsed references given as input.
-	 * @see {@link ProviderGeneralGeneral.references}
+	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
-	references: Map<string, string>;
+	config: ParamId;
 
 	constructor(json: any) {
 		super(json);
-		this.references = json?.references
-			? serialization.toMap(json.references)
-			: new Map;
+		this.config = new ParamId(json?.config);
 	}
 
 	override createReply(json: any): Reply {
-		return new RepProviderGeneralListByCompany extends PayProviderGeneralList implements IPayList(json);
+		return new RepProviderGeneralListByConfig(json);
 	}
 }

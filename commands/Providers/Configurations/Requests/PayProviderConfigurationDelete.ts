@@ -1,3 +1,5 @@
+import { RepProviderConfigurationDelete } from "../Responses/RepProviderConfigurationDelete";
+import { Reply } from "../../../API/Responses/Reply";
 import { PayProviderConfiguration } from "./PayProviderConfiguration";
 
 /**

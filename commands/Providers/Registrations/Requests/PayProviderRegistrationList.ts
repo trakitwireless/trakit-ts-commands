@@ -1,7 +1,9 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { ParamId } from "commands/API/Requests/Parameters/ParamId";
+import { RepProviderRegistrationListByCompany } from "../Responses/RepProviderRegistrationList";
 
 /**
  * Gets details of the specified {@link providerRegistration}.
@@ -33,6 +35,6 @@ export class PayProviderRegistrationListByCompany extends PayProviderRegistratio
 	}
 
 	override createReply(json: any): Reply {
-		return new RepProviderRegistrationListByCompany extends PayProviderRegistrationList implements IPayList(json);
+		return new RepProviderRegistrationListByCompany(json);
 	}
 }

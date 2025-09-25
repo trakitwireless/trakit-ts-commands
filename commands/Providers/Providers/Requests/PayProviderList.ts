@@ -1,7 +1,9 @@
-import { Payload } from "../../../API/Requests/Payload";
+import { ParamId } from "commands/API/Requests/Parameters/ParamId";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
-import { ParamId } from "commands/API/Requests/Parameters/ParamId";
+import { Payload } from "../../../API/Requests/Payload";
+import { Reply } from "../../../API/Responses/Reply";
+import { RepProviderListByCompany, RepProviderListByConfig } from "../Responses/RepProviderList";
 
 /**
  * Gets details of the specified {@link provider}.
@@ -38,6 +40,24 @@ export class PayProviderListByCompany extends PayProviderList implements IPayLis
 	}
 
 	override createReply(json: any): Reply {
-		return new RepProviderListByCompany extends PayProviderList implements IPayList(json);
+		return new RepProviderListByCompany(json);
+	}
+}
+/**
+ * Contains the {@link Company.id} of the collection.
+ **/
+export class PayProviderListByConfig extends PayProviderList {
+	/**
+	 * Identifier of the {@link Company} to which this collection belongs.
+	 **/
+	config: ParamId;
+
+	constructor(json: any) {
+		super(json);
+		this.config = new ParamId(json?.config);
+	}
+
+	override createReply(json: any): Reply {
+		return new RepProviderListByConfig(json);
 	}
 }

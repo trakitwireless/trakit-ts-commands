@@ -1,3 +1,5 @@
+import { Reply } from "../../../API/Responses/Reply";
+import { RepProviderConfigurationDelete } from "../Responses/RepProviderConfigurationDelete";
 import { PayProviderConfiguration } from "./PayProviderConfiguration";
 
 /**
@@ -5,6 +7,6 @@ import { PayProviderConfiguration } from "./PayProviderConfiguration";
  **/
 export class PayProviderConfigurationRestore extends PayProviderConfiguration { 
 	override createReply(json: any): Reply {
-		return new RepProviderConfigurationRestore(json);
+		return new RepProviderConfigurationDelete(json);
 	}
 }
