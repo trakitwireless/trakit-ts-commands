@@ -1,6 +1,8 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
 import { ParamFormTemplateMerge } from "./Parameters/ParamFormTemplateMerge";
+import { RepFormTemplateMerge } from "../Responses/RepFormTemplateMerge";
 
 /**
  * Creates a new or updates an existing {@link FormTemplate}.

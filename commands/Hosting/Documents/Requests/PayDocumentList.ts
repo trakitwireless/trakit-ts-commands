@@ -1,7 +1,9 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { ParamId } from "commands/API/Requests/Parameters/ParamId";
+import { RepDocumentListByCompany } from "../Responses/RepDocumentList";
 
 /**
  * Gets details of the specified {@link document}.
@@ -33,6 +35,6 @@ export class PayDocumentListByCompany extends PayDocumentList implements IPayLis
 	}
 
 	override createReply(json: any): Reply {
-		return new RepDocumentListByCompany extends PayDocumentList implements IPayList(json);
+		return new RepDocumentListByCompany(json);
 	}
 }

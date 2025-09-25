@@ -1,6 +1,8 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
 import { ParamDocumentMerge } from "./Parameters/ParamDocumentMerge";
+import { RepDocumentMerge } from "../Responses/RepDocumentMerge";
 
 /**
  * Creates a new or updates an existing {@link Document}.

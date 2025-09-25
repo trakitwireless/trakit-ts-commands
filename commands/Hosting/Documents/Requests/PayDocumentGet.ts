@@ -1,5 +1,7 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { PayDocument } from "./PayDocument";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
+import { RepDocumentGet } from "../Responses/RepDocumentGet";
 
 /**
  * Gets details of the specified {@link Document}.

@@ -1,3 +1,5 @@
+import { Reply } from "../../../API/Responses/Reply";
+import { RepFormTemplateDelete } from "../Responses/RepFormTemplateDelete";
 import { PayFormTemplate } from "./PayFormTemplate";
 
 /**
@@ -5,6 +7,6 @@ import { PayFormTemplate } from "./PayFormTemplate";
  */
 export class PayFormTemplateRestore extends PayFormTemplate { 
 	override createReply(json: any): Reply {
-		return new RepFormTemplateRestore(json);
+		return new RepFormTemplateDelete(json);
 	}
 }

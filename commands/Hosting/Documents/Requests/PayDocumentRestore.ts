@@ -1,3 +1,5 @@
+import { Reply } from "../../../API/Responses/Reply";
+import { RepDocumentDelete } from "../Responses/RepDocumentDelete";
 import { PayDocument } from "./PayDocument";
 
 /**
@@ -5,6 +7,6 @@ import { PayDocument } from "./PayDocument";
  **/
 export class PayDocumentRestore extends PayDocument { 
 	override createReply(json: any): Reply {
-		return new RepDocumentRestore(json);
+		return new RepDocumentDelete(json);
 	}
 }

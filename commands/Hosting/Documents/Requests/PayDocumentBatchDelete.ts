@@ -1,5 +1,7 @@
-import { ParamId } from "commands/API/Requests/Parameters/ParamId";
+import { Reply } from "../../../API/Responses/Reply";
+import { ParamId } from "../../../API/Requests/Parameters/ParamId";
 import { Payload } from "../../../API/Requests/Payload";
+import { RepDocumentBatchDelete } from "../Responses/RepDocumentBatchDelete";
 
 /**
  * 

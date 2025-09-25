@@ -1,5 +1,7 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { PayFormTemplate } from "./PayFormTemplate";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
+import { RepFormTemplateGet } from "../Responses/RepFormTemplateGet";
 
 /**
  * Gets details of the specified {@link FormTemplate}.

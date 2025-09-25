@@ -1,4 +1,6 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
+import { RepFormTemplateBatchMerge } from "../Responses/RepFormTemplateBatchMerge";
 import { ParamFormTemplateMerge } from "./Parameters/ParamFormTemplateMerge";
 
 /**

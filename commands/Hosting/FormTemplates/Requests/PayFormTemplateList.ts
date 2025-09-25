@@ -1,7 +1,9 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { ParamId } from "commands/API/Requests/Parameters/ParamId";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { Payload } from "../../../API/Requests/Payload";
+import { RepFormTemplateListByCompany } from "../Responses/RepFormTemplateList";
 
 /**
  * Gets details of the specified {@link formTemplate}.
@@ -33,6 +35,6 @@ export class PayFormTemplateListByCompany extends PayFormTemplateList implements
 	}
 
 	override createReply(json: any): Reply {
-		return new RepFormTemplateListByCompany extends PayFormTemplateList implements IPayList(json);
+		return new RepFormTemplateListByCompany(json);
 	}
 }

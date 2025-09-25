@@ -1,5 +1,7 @@
+import { Reply } from "../../../API/Responses/Reply";
 import { PayFormResult } from "./PayFormResult";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
+import { RepFormResultGet } from "../Responses/RepFormResultGet";
 
 /**
  * Gets details of the specified {@link FormResult}.
