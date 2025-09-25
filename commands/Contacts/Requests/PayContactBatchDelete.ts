@@ -1,5 +1,7 @@
 import { ParamId } from "commands/API/Requests/Parameters/ParamId";
 import { Payload } from "../../API/Requests/Payload";
+import { Reply } from "../../API/Responses/Reply";
+import { RepContactBatchDelete } from "../Responses/RepContactBatchDelete";
 
 /**
  * 

@@ -1,3 +1,5 @@
+import { Reply } from "../../API/Responses/Reply";
+import { RepContactDelete } from "../Responses/RepContactDelete";
 import { PayContact } from "./PayContact";
 
 /**
@@ -5,6 +7,6 @@ import { PayContact } from "./PayContact";
  **/
 export class PayContactRestore extends PayContact { 
 	override createReply(json: any): Reply {
-		return new RepContactRestore(json);
+		return new RepContactDelete(json);
 	}
 }

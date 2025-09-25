@@ -1,3 +1,5 @@
+import { Reply } from "../../../API/Responses/Reply";
+import { RepBehaviourScriptDelete } from "../Responses/RepBehaviourScriptDelete";
 import { PayBehaviourScript } from "./PayBehaviourScript";
 
 /**
@@ -5,6 +7,6 @@ import { PayBehaviourScript } from "./PayBehaviourScript";
  **/
 export class PayBehaviourScriptRestore extends PayBehaviourScript { 
 	override createReply(json: any): Reply {
-		return new RepBehaviourScriptRestore(json);
+		return new RepBehaviourScriptDelete(json);
 	}
 }

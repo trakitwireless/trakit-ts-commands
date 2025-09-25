@@ -1,6 +1,8 @@
+import { Reply } from "../../API/Responses/Reply";
 import { Payload } from "../../API/Requests/Payload";
 import { IPaySingle } from "../../API/Requests/IPaySingle";
 import { ParamContactMerge } from "./Parameters/ParamContactMerge";
+import { RepContactMerge } from "../Responses/RepContactMerge";
 
 /**
  * Creates a new or updates an existing {@link Contact}.

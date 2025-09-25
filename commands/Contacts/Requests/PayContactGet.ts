@@ -1,5 +1,7 @@
+import { Reply } from "../../API/Responses/Reply";
 import { PayContact } from "./PayContact";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
+import { RepContactGet } from "../Responses/RepContactGet";
 
 /**
  * Gets details of the specified {@link Contact}.

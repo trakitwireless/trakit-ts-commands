@@ -1,7 +1,9 @@
+import { Reply } from "../../API/Responses/Reply";
 import { Payload } from "../../API/Requests/Payload";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../API/Requests/IPayListByCompany";
 import { ParamId } from "commands/API/Requests/Parameters/ParamId";
+import { RepContactListByCompany } from "../Responses/RepContactList";
 
 /**
  * Gets details of the specified {@link contact}.
@@ -33,6 +35,6 @@ export class PayContactListByCompany extends PayContactList implements IPayListB
 	}
 
 	override createReply(json: any): Reply {
-		return new RepContactListByCompany extends PayContactList implements IPayList(json);
+		return new RepContactListByCompany(json);
 	}
 }
