@@ -1,6 +1,8 @@
+import { Reply } from "../../API/Responses/Reply";
 import { Payload } from "../../API/Requests/Payload";
 import { IPaySingle } from "../../API/Requests/IPaySingle";
 import { ParamPlaceMerge } from "./Parameters/ParamPlaceMerge";
+import { RepPlaceMerge } from "../Responses/RepPlaceMerge";
 
 /**
  * Creates a new or updates an existing {@link Place}.

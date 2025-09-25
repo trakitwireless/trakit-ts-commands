@@ -1,4 +1,6 @@
+import { Reply } from "../../API/Responses/Reply";
 import { Payload } from "../../API/Requests/Payload";
+import { RepPlaceBatchMerge } from "../Responses/RepPlaceBatchMerge";
 import { ParamPlaceMerge } from "./Parameters/ParamPlaceMerge";
 
 /**

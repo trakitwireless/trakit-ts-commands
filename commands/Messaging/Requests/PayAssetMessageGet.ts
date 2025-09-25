@@ -1,5 +1,7 @@
+import { Reply } from "../../API/Responses/Reply";
 import { PayAssetMessage } from "./PayAssetMessage";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
+import { RepAssetMessageGet } from "../Responses/RepAssetMessageGet";
 
 /**
  * Gets details of the specified {@link AssetMessage}.

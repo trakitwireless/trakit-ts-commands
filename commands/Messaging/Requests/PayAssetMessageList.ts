@@ -1,8 +1,10 @@
+import { Reply } from "../../API/Responses/Reply";
 import { Payload } from "../../API/Requests/Payload";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../API/Requests/IPayListByCompany";
 import { IPayListByAsset } from "../../API/Requests/IPayListByAsset";
 import { ParamId } from "commands/API/Requests/Parameters/ParamId";
+import { RepAssetMessageListByAsset, RepAssetMessageListByCompany } from "../Responses/RepAssetMessageList";
 
 /**
  * Gets details of the specified {@link assetMessage}.
@@ -32,6 +34,10 @@ export class PayAssetMessageListByCompany extends PayAssetMessageList implements
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
+
+	override createReply(json: any): Reply {
+		return new RepAssetMessageListByCompany(json);
+	}
 }
 /**
  * Contains the {@link Company.id} of the collection.
@@ -48,6 +54,6 @@ export class PayAssetMessageListByAsset extends PayAssetMessageList implements I
 	}
 
 	override createReply(json: any): Reply {
-		return new RepAssetMessageListByCompany extends PayAssetMessageList implements IPayList(json);
+		return new RepAssetMessageListByAsset(json);
 	}
 }

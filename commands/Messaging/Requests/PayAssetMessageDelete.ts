@@ -1,3 +1,5 @@
+import { RepAssetMessageDelete } from "../Responses/RepAssetMessageDelete";
+import { Reply } from "../../API/Responses/Reply";
 import { PayAssetMessage } from "./PayAssetMessage";
 
 /**

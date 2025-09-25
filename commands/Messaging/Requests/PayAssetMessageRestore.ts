@@ -1,3 +1,5 @@
+import { Reply } from "../../API/Responses/Reply";
+import { RepAssetMessageDelete } from "../Responses/RepAssetMessageDelete";
 import { PayAssetMessage } from "./PayAssetMessage";
 
 /**
@@ -5,6 +7,6 @@ import { PayAssetMessage } from "./PayAssetMessage";
  **/
 export class PayAssetMessageRestore extends PayAssetMessage { 
 	override createReply(json: any): Reply {
-		return new RepAssetMessageRestore(json);
+		return new RepAssetMessageDelete(json);
 	}
 }

@@ -1,3 +1,5 @@
+import { RepPlaceDelete } from "../Responses/RepPlaceDelete";
+import { Reply } from "../../API/Responses/Reply";
 import { PayPlace } from "./PayPlace";
 
 /**

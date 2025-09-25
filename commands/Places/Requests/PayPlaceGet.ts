@@ -1,5 +1,7 @@
+import { Reply } from "../../API/Responses/Reply";
 import { PayPlace } from "./PayPlace";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
+import { RepPlaceGet } from "../Responses/RepPlaceGet";
 
 /**
  * Gets details of the specified {@link Place}.

@@ -1,7 +1,9 @@
+import { Reply } from "../../API/Responses/Reply";
 import { Payload } from "../../API/Requests/Payload";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../API/Requests/IPayListByCompany";
 import { ParamId } from "commands/API/Requests/Parameters/ParamId";
+import { RepPlaceListByCompany } from "../Responses/RepPlaceList";
 
 /**
  * Gets details of the specified {@link place}.
@@ -32,6 +34,6 @@ export class PayPlaceListByCompany extends PayPlaceList implements IPayListByCom
 	}
 
 	override createReply(json: any): Reply {
-		return new RepPlaceListByCompany extends PayPlaceList implements IPayList(json);
+		return new RepPlaceListByCompany(json);
 	}
 }

@@ -1,6 +1,8 @@
+import { Reply } from "../../API/Responses/Reply";
 import { Payload } from "../../API/Requests/Payload";
 import { IPaySingle } from "../../API/Requests/IPaySingle";
 import { ParamAssetMessageMerge } from "./Parameters/ParamAssetMessageMerge";
+import { RepAssetMessageMerge } from "../Responses/RepAssetMessageMerge";
 
 /**
  * Creates a new or updates an existing {@link AssetMessage}.
