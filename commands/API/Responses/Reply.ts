@@ -27,9 +27,9 @@ export class Reply {
 	errorDetails: ErrorDetail | nothing;
 
 	constructor(json: any) {
-		this.errorCode = json.errorCode;
-		this.message = json.message;
-		this.errorDetails = json.errorDetails;
-		this.reqId = json.reqId;
+		this.errorCode = json?.errorCode ?? ErrorCode.unknown;
+		this.message = json?.message ?? "Unknown error";
+		this.errorDetails = json?.errorDetails;
+		this.reqId = json?.reqId;
 	}
 }

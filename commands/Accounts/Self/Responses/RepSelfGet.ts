@@ -46,15 +46,15 @@ export class RepSelfGet extends Reply {
 	 **/
 	serverTime: Date;
 
-	constructor(json: any) {
+	constructor(json?: any) {
 		super(json);
-		this.serverTime = utility.date(json["serverTime"]);
-		this.ghostId = json["ghostId"] ?? "";
-		this.expiry = utility.date(json["expiry"]);
+		this.serverTime = utility.date(json?.["serverTime"]);
+		this.ghostId = json?.["ghostId"] ?? "";
+		this.expiry = utility.date(json?.["expiry"]);
 
-		const jsonUser = json["user"],
+		const jsonUser = json?.["user"],
 			jsonContact = jsonUser?.["contact"],
-			jsonMachine = json["machine"];
+			jsonMachine = json?.["machine"];
 		if (jsonUser) {
 			if (jsonContact) {
 				jsonUser["contact"] = (
@@ -70,10 +70,10 @@ export class RepSelfGet extends Reply {
 				?? storage.machines.set(jsonMachine.key, this.machine = new Machine(jsonMachine));
 		}
 
-		this.sessionPolicy = json["sessionPolicy"]
+		this.sessionPolicy = json?.["sessionPolicy"]
 			? SessionPolicy.fromJSON(json["sessionPolicy"])
 			: null;
-		this.passwordPolicy = json["passwordPolicy"]
+		this.passwordPolicy = json?.["passwordPolicy"]
 			? PasswordPolicy.fromJSON(json["passwordPolicy"])
 			: null;
 	}
