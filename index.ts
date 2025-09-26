@@ -42,10 +42,6 @@ import { PaySelfLogin } from "./commands/Accounts/Self/Requests/PaySelfLogin";
 import { PaySelfLogout } from "./commands/Accounts/Self/Requests/PaySelfLogout";
 import { PaySelfPassword } from "./commands/Accounts/Self/Requests/PaySelfPassword";
 import { PaySelfPreferences } from "./commands/Accounts/Self/Requests/PaySelfPreferences";
-import { SelfMachine } from "./commands/Accounts/Self/Responses/Content/SelfMachine";
-import { SelfUser } from "./commands/Accounts/Self/Responses/Content/SelfUser";
-import { SelfUserAdvanced } from "./commands/Accounts/Self/Responses/Content/SelfUserAdvanced";
-import { SelfUserGeneral } from "./commands/Accounts/Self/Responses/Content/SelfUserGeneral";
 import { RepSelfContact } from "./commands/Accounts/Self/Responses/RepSelfContact";
 import { RepSelfGet } from "./commands/Accounts/Self/Responses/RepSelfGet";
 import { RepSelfLogout } from "./commands/Accounts/Self/Responses/RepSelfLogout";
@@ -85,6 +81,7 @@ import { IPayListByKey } from "./commands/API/Requests/IPayListByKey";
 import { IPayListByLabels } from "./commands/API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "./commands/API/Requests/IPayListByReferences";
 import { IPayListByUser } from "./commands/API/Requests/IPayListByUser";
+import { IPaySingle } from "./commands/API/Requests/IPaySingle";
 import { IParamAsset } from "./commands/API/Requests/Parameters/IParamAsset";
 import { IParamBillingProfile } from "./commands/API/Requests/Parameters/IParamBillingProfile";
 import { IParamCompany } from "./commands/API/Requests/Parameters/IParamCompany";
@@ -458,6 +455,7 @@ export {
 	type IPayListByLabels,
 	type IPayListByReferences,
 	type IPayListByUser,
+	type IPaySingle,
 
 	ParamCode,
 	ParamGuid,
@@ -620,10 +618,6 @@ export {
 	RepUserGroupMerge,
 	RepUserListByCompany,
 	RepUserMerge,
-	SelfMachine,
-	SelfUser,
-	SelfUserAdvanced,
-	SelfUserGeneral,
 	SessionHandle,
 };
 //#endregion Accounts

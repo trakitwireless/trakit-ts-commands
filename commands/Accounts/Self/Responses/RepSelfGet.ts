@@ -1,7 +1,15 @@
-import { guid, nothing, PasswordPolicy, SessionPolicy, utility } from '@trakit/objects';
+import {
+	Contact,
+	guid,
+	Machine,
+	nothing,
+	PasswordPolicy,
+	SessionPolicy,
+	storage,
+	User,
+	utility,
+} from '@trakit/objects';
 import { Reply } from "../../../API/Responses/Reply";
-import { SelfMachine } from "./Content/SelfMachine";
-import { SelfUser } from "./Content/SelfUser";
 
 /**
  * A container for the {@link User} or {@link Machine} of the current session.
@@ -19,12 +27,12 @@ export class RepSelfGet extends Reply {
 	 * This session's {@link User} details (if the service is being used by a {@link User}).
 	 * If this value is not present, then the session is not yet authenticated.
 	 **/
-	user: SelfUser | nothing;
+	user: User | nothing;
 	/**
 	 * This {@link Machine}'s details (if the service is being used by a {@link Machine}).
 	 * If this value is not present, then the session is not a machine account.
 	 **/
-	machine: SelfMachine | nothing;
+	machine: Machine | nothing;
 	/**
 	 * This {@link User}'s {@link CompanyPolicies.sessionPolicy}.
 	 **/
@@ -41,15 +49,27 @@ export class RepSelfGet extends Reply {
 	constructor(json: any) {
 		super(json);
 		this.serverTime = utility.date(json["serverTime"]);
-
 		this.ghostId = json["ghostId"] ?? "";
 		this.expiry = utility.date(json["expiry"]);
-		this.user = json["user"]
-			? new SelfUser(json["user"])
-			: null;
-		this.machine = json["machine"]
-			? new SelfMachine(json["machine"])
-			: null;
+
+		const jsonUser = json["user"],
+			jsonContact = jsonUser?.["contact"],
+			jsonMachine = json["machine"];
+		if (jsonUser) {
+			if (jsonContact) {
+				jsonUser["contact"] = (
+					storage.contacts.get(jsonContact.id)?.fromJSON(jsonContact)
+					?? storage.contacts.set(jsonContact.id, new Contact(jsonContact))
+				)
+					&& jsonContact.id;
+			}
+			(this.user = storage.users.get(jsonUser.login))?.fromJSON(jsonUser)
+				?? storage.users.set(jsonUser.login, this.user = new User(jsonUser));
+		} else if (jsonMachine) {
+			(this.machine = storage.machines.get(jsonMachine.key))?.fromJSON(jsonMachine)
+				?? storage.machines.set(jsonMachine.key, this.machine = new Machine(jsonMachine));
+		}
+
 		this.sessionPolicy = json["sessionPolicy"]
 			? SessionPolicy.fromJSON(json["sessionPolicy"])
 			: null;
