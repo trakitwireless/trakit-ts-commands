@@ -1,5 +1,9 @@
-﻿import { Machine } from '@trakit/objects';
-import { guid, url, nothing } from '@trakit/objects';
+﻿import {
+	guid,
+	Machine,
+	nothing,
+	url,
+} from '@trakit/objects';
 import { RepSelfGet } from '../commands/Accounts/Self/Responses/RepSelfGet';
 import { Payload } from '../commands/API/Requests/Payload';
 import { Reply } from '../commands/API/Responses/Reply';

@@ -1,4 +1,11 @@
-﻿import { nothing, SystemsOfUnits, Timezone, ulong, url, UserNotifications } from '@trakit/objects';
+﻿import {
+	nothing,
+	SystemsOfUnits,
+	Timezone,
+	ulong,
+	url,
+	UserNotifications,
+} from '@trakit/objects';
 import { PaySelfContact } from '../commands/Accounts/Self/Requests/PaySelfContact';
 import { PaySelfGet } from '../commands/Accounts/Self/Requests/PaySelfGet';
 import { PaySelfLogin } from '../commands/Accounts/Self/Requests/PaySelfLogin';
