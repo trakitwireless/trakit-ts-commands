@@ -77,4 +77,31 @@ export class RepSelfGet extends Reply {
 			? PasswordPolicy.fromJSON(json["passwordPolicy"])
 			: null;
 	}
+
+	toJSON(): any {
+		const json: any = {
+			"errorCode": this.errorCode,
+			"message": this.message,
+			"errorDetails": this.errorDetails,
+			"ghostId": this.ghostId,
+			"expiry": utility.isntNaN(this.expiry.valueOf()) ? this.expiry.toISOString() : null,
+			"serverTime": utility.isntNaN(this.serverTime.valueOf()) ? this.serverTime.toISOString() : null,
+		};
+		if (this.user) {
+			json["user"] = this.user.toJSON();
+			if (this.user.contact) {
+				json["user"]["contact"] = this.user.contact.toJSON();
+			}
+		}
+		if (this.machine) {
+			json["machine"] = this.machine.toJSON();
+		}
+		if (this.sessionPolicy) {
+			json["sessionPolicy"] = this.sessionPolicy.toJSON();
+		}
+		if (this.passwordPolicy) {
+			json["passwordPolicy"] = this.passwordPolicy.toJSON();
+		}
+		return json;
+	}
 }

@@ -415,6 +415,7 @@ import { RepReportTemplateDelete } from "./commands/Reports/Templates/Responses/
 import { RepReportTemplateGet } from "./commands/Reports/Templates/Responses/RepReportTemplateGet";
 import { RepReportTemplateList, RepReportTemplateListByCompany } from "./commands/Reports/Templates/Responses/RepReportTemplateList";
 import { RepReportTemplateMerge } from "./commands/Reports/Templates/Responses/RepReportTemplateMerge";
+import { SubscriptionType } from "./commands/WebSocket/Requests/Parameters/SubscriptionType";
 import { PaySubscriptionList } from "./commands/WebSocket/Requests/PaySubscriptionList";
 import { PaySubscriptionMerge } from "./commands/WebSocket/Requests/PaySubscriptionMerge";
 import { PaySubscriptionRemove } from "./commands/WebSocket/Requests/PaySubscriptionRemove";
@@ -1049,8 +1050,9 @@ export {
 
 //#region WebSocket
 export {
-	PaySubscriptionList,
 	// Requests
+	SubscriptionType,
+	PaySubscriptionList,
 	PaySubscriptionMerge,
 	PaySubscriptionRemove,
 	// Responses
