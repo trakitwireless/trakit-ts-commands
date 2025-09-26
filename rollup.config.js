@@ -34,5 +34,6 @@ export default [
       }
     ],
     plugins: [typescript()],
+	external: ['@trakit/objects']
   }
 ];

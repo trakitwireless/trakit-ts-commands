@@ -1,11 +1,9 @@
 /**
  * Command definitions that work with our various APIs.
  * {@link https://github.com/trakitwireless/trakit-ts-commands|TypeScript documentation.}
- * Last updated on Thu Sept 23 2025 01:39:01 
+ * Last updated on Thu Sept 26 2025 15:28 
  * @copyright Trak-iT Wireless Inc. 2025
  */
-import { TrakitCommander } from "./clients/TrakitCommander";
-import { TrakitObjectCommander } from "./clients/TrakitObjectCommander";
 import { ParamUserGroupMerge } from "./commands/Accounts/Groups/Requests/Parameters/ParamUserGroupMerge";
 import { PayUserGroupBatchDelete } from "./commands/Accounts/Groups/Requests/PayUserGroupBatchDelete";
 import { PayUserGroupBatchMerge } from "./commands/Accounts/Groups/Requests/PayUserGroupBatchMerge";
@@ -430,13 +428,6 @@ import { RepSubscriptionList } from "./commands/WebSocket/Responses/RepSubscript
  */
 export const version = 5.05;
 
-/**
- * Abstract command execution classes.
- */
-export {
-	TrakitCommander,
-	TrakitObjectCommander,
-};
 //#region API
 /**
  * Command request payloads and parameter classes.
