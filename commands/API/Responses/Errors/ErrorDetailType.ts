@@ -82,4 +82,8 @@ export enum ErrorDetailType {
 	 * Details about why the request failed an authentication process when a {@link Machine.secret} is used.
 	 **/
 	secret = "secret",
+	/**
+	 * Details about WebSocket disconnection events, or command errors sent while the WebSocket is in an invalid state.
+	 */
+	connection = "connection",
 }

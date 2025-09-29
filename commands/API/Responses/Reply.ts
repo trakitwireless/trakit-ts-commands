@@ -29,7 +29,7 @@ export class Reply {
 	constructor(json: any) {
 		this.errorCode = json?.errorCode ?? ErrorCode.unknown;
 		this.message = json?.message ?? "Unknown error";
-		this.errorDetails = json?.errorDetails;
+		this.errorDetails = ErrorDetail.fromJSON(json?.errorDetails);
 		this.reqId = json?.reqId;
 	}
 }
