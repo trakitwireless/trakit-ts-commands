@@ -11,7 +11,7 @@ export class RepFormResultMerge extends Reply {
 	 */
 	formResult: ContentIdCompany | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.formResult = ContentIdCompany.fromJSON(json?.formResult);
 	}

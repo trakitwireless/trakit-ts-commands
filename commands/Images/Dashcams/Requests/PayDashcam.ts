@@ -11,7 +11,7 @@ export abstract class PayDashcam extends Payload implements IPaySingle {
 	 **/
 	dashcam: ParamId;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.dashcam = new ParamId(json?.dashcam);
 	}

@@ -13,12 +13,12 @@ export class PayUserGroupBatchMerge extends Payload {
 	 **/
 	userGroups: ParamUserGroupMerge[];
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.userGroups = (json?.userGroups || []).map((ug: any) => new ParamId(ug)) ?? [];
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepUserGroupBatchMerge(json);
 	}
 }

@@ -40,7 +40,7 @@ export class ParamDispatchStepMerge extends ParamMergeSubscribable {
 	 **/
 	signature: boolean | nothing;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id;
 		this.name = json?.name;
@@ -57,7 +57,7 @@ export class ParamDispatchStepMerge extends ParamMergeSubscribable {
 	}
 
 	override toJSON(): any {
-		const json: any = {};
+		const json: JsonObject = {};
 		if (this.id) json.id = this.id;
 		if (this.name) json.name = this.name;
 		if (this.eta) json.eta = this.eta.toISOString();

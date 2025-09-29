@@ -10,7 +10,7 @@ export class RepProviderConfigGet extends Reply {
 	 **/
 	providerConfig: ProviderConfig | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.providerConfig = json?.providerConfig
 			? new ProviderConfig(json.providerConfig)

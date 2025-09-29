@@ -11,7 +11,7 @@ export abstract class RepPictureList extends Reply {
 	 **/
 	pictures: Picture[] | nothing;
 	
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.pictures = json?.pictures?.map((i: any) => new Picture(i));
 	}
@@ -26,7 +26,7 @@ export class RepPictureListByCompany extends RepPictureList {
 	 **/
 	company: ContentId | nothing;
 	
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}

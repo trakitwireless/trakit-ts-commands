@@ -11,7 +11,7 @@ export class RepPictureDelete extends Reply {
 	 **/
 	picture: ContentIdDeleted | nothing;
 	
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.picture = ContentIdDeleted.fromJSON(json?.picture);
 	}

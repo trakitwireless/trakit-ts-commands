@@ -10,7 +10,7 @@ export class RepIconGet extends Reply {
 	 **/
 	icon: Icon | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.icon = json?.icon
 			? new Icon(json.icon)

@@ -8,7 +8,7 @@ export class ParamKey {
 	 **/
 	key: string;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		this.key = json?.key ?? "";
 	}
 }

@@ -15,7 +15,7 @@ export class Subscription {
 	 **/
 	subscriptionTypes: SubscriptionType[];
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		this.company = json?.company;
 		this.subscriptionTypes = json?.subscriptionTypes;
 	}

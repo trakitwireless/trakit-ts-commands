@@ -19,7 +19,7 @@ export class PaySelfGet extends Payload {
 			batch: false,
 		};
 	}
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepSelfGet(json);
 	}
 }

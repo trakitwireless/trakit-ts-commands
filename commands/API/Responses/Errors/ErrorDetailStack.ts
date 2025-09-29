@@ -18,7 +18,7 @@ export class ErrorDetailStack extends ErrorDetail {
 	 **/
 	stack: string;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super();
 		this.message = json?.message ?? "";
 		this.stack = json?.stack ?? "";

@@ -13,12 +13,12 @@ export class PayProviderRegistrationMerge extends Payload {
 	 **/
 	providerRegistration: ParamProviderRegistrationMerge;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.providerRegistration = new ParamProviderRegistrationMerge(json?.providerRegistration);
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepProviderRegistrationMerge(json);
 	}
 }

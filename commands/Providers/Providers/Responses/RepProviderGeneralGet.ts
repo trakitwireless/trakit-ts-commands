@@ -10,7 +10,7 @@ export class RepProviderGeneralGet extends Reply {
 	 **/
 	providerGeneral: ProviderGeneral | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.providerGeneral = json?.providerGeneral
 			? new ProviderGeneral(json.providerGeneral)

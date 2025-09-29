@@ -11,7 +11,7 @@ export class RepBehaviourLogBatchDelete extends Reply {
 	 **/
 	behaviourLogs: ContentIdDeleted[] | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.behaviourLogs = json?.behaviourLogs?.map((item: any) => new ContentIdDeleted(item));
 	}

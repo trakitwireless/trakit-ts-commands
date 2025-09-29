@@ -12,12 +12,12 @@ export class PayPlaceBatchMerge extends Payload {
 	 */
 	places: ParamPlaceMerge[];
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.places = json?.places?.map((item: any) => new ParamPlaceMerge(item)) ?? [];
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepPlaceBatchMerge(json);
 	}
 }

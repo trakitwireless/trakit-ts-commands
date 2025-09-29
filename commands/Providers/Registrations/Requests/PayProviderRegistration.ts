@@ -11,7 +11,7 @@ export abstract class PayProviderRegistration extends Payload implements IPaySin
 	 **/
 	providerRegistration: ParamCode;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.providerRegistration = new ParamCode(json?.providerRegistration);
 	}

@@ -11,7 +11,7 @@ export abstract class RepUserGroupList extends Reply {
 	 **/
 	userGroups: UserGroup[] | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.userGroups = json?.userGroups?.map((ug: any) => new UserGroup(ug));
 	}
@@ -26,7 +26,7 @@ export class RepUserGroupListByCompany extends RepUserGroupList {
 	 **/
 	company: ContentId | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}

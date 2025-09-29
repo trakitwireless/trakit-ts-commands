@@ -10,7 +10,7 @@ export class ParamIdentifierVersion extends ParamIdentifier {
 	 **/
 	v: int[];
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.v = json?.v ?? [];
 	}

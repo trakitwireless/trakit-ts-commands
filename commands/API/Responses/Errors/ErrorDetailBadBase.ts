@@ -9,7 +9,7 @@ export abstract class ErrorDetailBadBase<T> extends ErrorDetail {
 	 **/
 	invalid: T[];
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super();
 		this.invalid = json?.invalid ?? [];
 	}

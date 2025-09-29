@@ -12,7 +12,7 @@ export class PaySelfContact extends Payload {
 	 **/
 	contact: ParamSelfContactMerge;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super();
 		this.contact = new ParamSelfContactMerge(json?.contact);
 	}
@@ -31,7 +31,7 @@ export class PaySelfContact extends Payload {
 		};
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepSelfContact(json);
 	}
 

@@ -15,7 +15,7 @@ export abstract class RepDispatchJobList extends Reply {
 	 **/
 	dispatchJobs: DispatchJob[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.dispatchJobs = json?.dispatchJobs?.map((dj: any) => new DispatchJob(dj));
 	}
@@ -29,7 +29,7 @@ export class RepDispatchJobListByCompany extends RepDispatchJobList implements I
 	 **/
 	company: ContentId | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}
@@ -44,7 +44,7 @@ export class RepDispatchJobListByCompanyAndLabels extends RepDispatchJobListByCo
 	 **/
 	labels: string[] | nothing;
 	
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.labels = json?.labels;
 	}
@@ -59,7 +59,7 @@ export class RepDispatchJobListByCompanyAndRefPairs extends RepDispatchJobListBy
 	 **/
 	references: Map<string, string> | nothing;
 	
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.references = json?.references
 			? serialization.toMap(json.references)
@@ -76,7 +76,7 @@ export class RepDispatchJobListByAsset extends RepDispatchJobList implements IRe
 	 **/
 	asset: ContentId | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.asset = ContentId.fromJSON(json?.asset);
 	}
@@ -91,7 +91,7 @@ export class RepDispatchJobListByAssetAndLabels extends RepDispatchJobListByAsse
 	 **/
 	labels: string[] | nothing;
 	
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.labels = json?.labels;
 	}
@@ -106,7 +106,7 @@ export class RepDispatchJobListByAssetAndRefPairs extends RepDispatchJobListByAs
 	 **/
 	references: Map<string, string> | nothing;
 	
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.references = json?.references
 			? serialization.toMap(json.references)

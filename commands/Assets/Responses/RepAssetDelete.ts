@@ -11,7 +11,7 @@ export class RepAssetDelete extends Reply {
 	 **/
 	asset: ContentIdDeleted | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.asset = ContentIdDeleted.fromJSON(json?.asset);
 	}

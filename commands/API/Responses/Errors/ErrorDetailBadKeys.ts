@@ -7,7 +7,7 @@ import { ErrorDetailType } from "./ErrorDetailType";
 export class ErrorDetailBadKeys extends ErrorDetailBadBase<string> {
 	override get kind() { return ErrorDetailType.badKeys; }
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 	}
 }

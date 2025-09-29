@@ -10,7 +10,7 @@ export class RepProviderScriptGet extends Reply {
 	 **/
 	providerScript: ProviderScript | nothing;
 	
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.providerScript = json?.providerScript
 			? new ProviderScript(json.providerScript)

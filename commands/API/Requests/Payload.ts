@@ -21,7 +21,7 @@ export abstract class Payload {
 	 */
 	reqId: int | nothing;
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		this.reqId = json?.reqId;
 	}
 
@@ -54,7 +54,7 @@ export abstract class Payload {
 	 * @param json 
 	 * @returns 
 	 */
-	abstract createReply(json: any): Reply;
+	abstract createReply(json?: JsonObject): Reply;
 
 	/**
 	 * Payloads are serialized conditionally before being sent to the server.

@@ -11,7 +11,7 @@ export abstract class PayBehaviour extends Payload implements IPaySingle {
 	 **/
 	behaviour: ParamId;
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.behaviour = new ParamId(json?.behaviour);
 	}

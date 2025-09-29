@@ -11,7 +11,7 @@ export abstract class RepProviderScriptList extends Reply {
 	 **/
 	providerScripts: ProviderScript[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.providerScripts = json?.providerScripts?.map((v: any) => new ProviderScript(v));
 	}
@@ -26,7 +26,7 @@ export class RepProviderScriptListByCompany extends RepProviderScriptList {
 	 **/
 	company: ContentId | nothing;
 	
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}

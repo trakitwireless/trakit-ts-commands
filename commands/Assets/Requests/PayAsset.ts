@@ -11,7 +11,7 @@ export abstract class PayAsset extends Payload implements IPaySingle {
 	 **/
 	asset: ParamId;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.asset = new ParamId(json?.asset);
 	}

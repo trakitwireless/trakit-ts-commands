@@ -11,7 +11,7 @@ export abstract class RepBehaviourScriptList extends Reply {
 	 **/
 	behaviourScripts: BehaviourScript[] | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.behaviourScripts = json?.behaviourScripts?.map((x: any) => new BehaviourScript(x));
 	}
@@ -26,7 +26,7 @@ export class RepBehaviourScriptListByCompany extends RepBehaviourScriptList {
 	 **/
 	company: ContentId | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}

@@ -8,7 +8,7 @@ export class ParamIdentifier {
 	 **/
 	id: string;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		this.id = json?.id ?? "";
 	}
 }

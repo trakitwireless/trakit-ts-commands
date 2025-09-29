@@ -20,14 +20,14 @@ export class PayAssetGet extends PayAsset implements IPayDeletable {
 	 **/
 	includeTasks: boolean;
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.includeDeleted = json?.includeDeleted;
 		this.includeMessages = json?.includeMessages;
 		this.includeTasks = json?.includeTasks;
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepAssetGet(json);
 	}
 }

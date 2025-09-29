@@ -14,7 +14,7 @@ export class RepSelfPassword extends Reply {
 	 **/
 	passwordPolicy: PasswordPolicy | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.expires = new Date(json?.expires);
 		this.passwordPolicy = json["passwordPolicy"]

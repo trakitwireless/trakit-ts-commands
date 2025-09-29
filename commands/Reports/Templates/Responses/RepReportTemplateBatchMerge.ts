@@ -11,7 +11,7 @@ export class RepReportTemplateBatchMerge extends Reply {
 	 **/
 	reportTemplates: ContentIdCompany[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.reportTemplates = json?.reportTemplates?.map((e: any) => new ContentIdCompany(e));
 	}

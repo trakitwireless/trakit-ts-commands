@@ -11,7 +11,7 @@ export class RepMaintenanceJobGet extends Reply {
 	 **/
 	maintenanceJob: MaintenanceJob | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.maintenanceJob = json?.maintenanceJob
 			? new MaintenanceJob(json.maintenanceJob)

@@ -10,7 +10,7 @@ export class ContentIdendifierAsset extends ContentIdendifierCompany {
 	 * @param json - JSON object to create the {@link ContentIdendifierAsset} from.
 	 * @returns A {@link ContentIdendifierAsset} instance or nothing.
 	 */
-	static override fromJSON(json: any): ContentIdendifierAsset | nothing {
+	static override fromJSON(json: JsonObject): ContentIdendifierAsset | nothing {
 		return json
 			? new ContentIdendifierAsset(json)
 			: null;
@@ -24,7 +24,7 @@ export class ContentIdendifierAsset extends ContentIdendifierCompany {
 	 **/
 	asset: ulong | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.asset = json?.asset;
 	}

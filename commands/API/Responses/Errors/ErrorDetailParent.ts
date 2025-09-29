@@ -16,7 +16,7 @@ export class ErrorDetailParent extends ErrorDetail {
 	 **/
 	descendant: ulong | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super();
 		this.parent = json?.parent;
 		this.descendant = json?.descendant;

@@ -11,7 +11,7 @@ export abstract class RepMachineList extends Reply {
 	 **/
 	machines: Machine[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.machines = json?.machines?.map((m: any) => new Machine(m));
 	}
@@ -25,7 +25,7 @@ export class RepMachineListByCompany extends RepMachineList {
 	 **/
 	company: ContentId | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}

@@ -11,7 +11,7 @@ export class RepFormResultDelete extends Reply {
 	 */
 	formResult: ContentIdDeleted | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.formResult = ContentIdDeleted.fromJSON(json?.formResult);
 	}

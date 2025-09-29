@@ -11,7 +11,7 @@ export class ErrorDetailInput extends ErrorDetail {
 	 **/
 	input: string;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super();
 		this.input = json?.input ?? "";
 	}

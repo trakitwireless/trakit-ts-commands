@@ -11,7 +11,7 @@ export class RepBehaviourBatchMerge extends Reply {
 	 **/
 	behaviours: ContentIdCompany[] | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.behaviours = json?.behaviours?.map((item: any) => new ContentIdCompany(item));
 	}

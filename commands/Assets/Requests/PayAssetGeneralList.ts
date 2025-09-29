@@ -29,7 +29,7 @@ export abstract class PayAssetGeneralList extends Payload implements IPayDeletab
 	 **/
 	includeDeleted: boolean;
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.includeMessages = json?.includeMessages;
 		this.includeTasks = json?.includeTasks;
@@ -47,12 +47,12 @@ export class PayAssetGeneralListByCompany extends PayAssetGeneralList implements
 	 **/
 	company: ParamId;
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepAssetGeneralListByCompany(json);
 	}
 }
@@ -66,12 +66,12 @@ export class PayAssetGeneralListByCompanyAndLabels extends PayAssetGeneralListBy
 	 **/
 	labels: string[];
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.labels = json?.labels ?? [];
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepAssetGeneralListByCompanyAndLabels(json);
 	}
 }
@@ -87,12 +87,12 @@ export class PayAssetGeneralListByCompanyAndRefPairs extends PayAssetGeneralList
 	 **/
 	references: Map<string, string>;
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.references = new Map(Object.entries(json?.references ?? {}));
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepAssetGeneralListByCompanyAndRefPairs(json);
 	}
 }

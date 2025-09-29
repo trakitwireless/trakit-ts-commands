@@ -12,12 +12,12 @@ export class PayAssetMessageBatchMerge extends Payload {
 	 **/
 	assetMessages: ParamAssetMessageMerge[];
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.assetMessages = json?.assetMessages?.map((e: any) => new ParamAssetMessageMerge(e)) ?? [];
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepAssetMessageBatchMerge(json);
 	}
 }

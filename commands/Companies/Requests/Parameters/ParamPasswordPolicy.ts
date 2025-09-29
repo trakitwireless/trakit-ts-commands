@@ -34,7 +34,7 @@ export class ParamPasswordPolicy extends ParamMerge {
 	 **/
 	expireThreshold: byte | nothing;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super();
 		this.minimumLength = json?.minimumLength;
 		this.includeLetters = json?.includeLetters;
@@ -49,7 +49,7 @@ export class ParamPasswordPolicy extends ParamMerge {
 	 * Converts the parameter values to a JSON-compatible format.
 	 **/
 	override toJSON(): any {
-		const json: any = {};
+		const json: JsonObject = {};
 		if (this.minimumLength) json.minimumLength = this.minimumLength;
 		if (this.includeLetters) json.includeLetters = this.includeLetters;
 		if (this.includeNumbers) json.includeNumbers = this.includeNumbers;

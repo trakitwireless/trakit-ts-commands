@@ -12,12 +12,12 @@ export class PayMachineBatchMerge extends Payload {
 	 **/
 	machines: ParamMachineMerge[];
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.machines = json?.machines.map((m: any) => new ParamMachineMerge(m)) ?? [];
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepMachineBatchMerge(json);
 	}
 }

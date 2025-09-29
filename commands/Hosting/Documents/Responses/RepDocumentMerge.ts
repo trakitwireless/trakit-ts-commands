@@ -11,7 +11,7 @@ export class RepDocumentMerge extends Reply {
 	 **/
 	document: ContentIdCompany | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.document = ContentIdCompany.fromJSON(json?.document);
 	}

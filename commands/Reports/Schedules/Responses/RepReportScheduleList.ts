@@ -12,7 +12,7 @@ export abstract class RepReportScheduleList extends Reply {
 	 **/
 	reportSchedules: ReportSchedule[] | nothing;
 	
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.reportSchedules = json?.reportSchedules?.map((e: any) => new ReportSchedule(e));
 	}
@@ -27,7 +27,7 @@ export class RepReportScheduleListByCompany extends RepReportScheduleList {
 	 **/
 	company: ContentId | nothing;
 	
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}

@@ -11,7 +11,7 @@ export abstract class RepMaintenanceScheduleList extends Reply {
 	 **/
 	maintenanceSchedules: MaintenanceSchedule[] | nothing;
 	
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.maintenanceSchedules = json?.maintenanceSchedules?.map((item: any) => new MaintenanceSchedule(item));
 	}
@@ -26,7 +26,7 @@ export class RepMaintenanceScheduleListByCompany extends RepMaintenanceScheduleL
 	 **/
 	company: ContentId | nothing;
 	
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}

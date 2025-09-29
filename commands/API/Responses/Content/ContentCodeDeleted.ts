@@ -11,7 +11,7 @@ export class ContentCodeDeleted extends ContentCodeCompany {
 	 * @param json - JSON object to create the {@link ContentCodeDeleted} from.
 	 * @returns A {@link ContentCodeDeleted} instance or nothing.
 	 */
-	static override fromJSON(json: any): ContentCodeDeleted | nothing {
+	static override fromJSON(json: JsonObject): ContentCodeDeleted | nothing {
 		return json
 			? new ContentCodeDeleted(json)
 			: null;
@@ -22,7 +22,7 @@ export class ContentCodeDeleted extends ContentCodeCompany {
 	 **/
 	deleted: boolean;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.deleted = !!(json?.deleted);
 	}

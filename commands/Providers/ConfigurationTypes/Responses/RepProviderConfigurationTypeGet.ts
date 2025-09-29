@@ -10,7 +10,7 @@ export class RepProviderConfigurationTypeGet extends Reply {
 	 **/
 	providerConfigurationType: ProviderConfigurationType | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.providerConfigurationType = json?.providerConfigurationType
 			? new ProviderConfigurationType(json.providerConfigurationType)

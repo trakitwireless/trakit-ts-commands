@@ -11,7 +11,7 @@ export abstract class RepPlaceList extends Reply {
 	 */
 	places: Place[] | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.places = json?.places?.map((item: any) => new Place(item));
 	}
@@ -26,7 +26,7 @@ export class RepPlaceListByCompany extends RepPlaceList {
 	 */
 	company: ContentId | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}

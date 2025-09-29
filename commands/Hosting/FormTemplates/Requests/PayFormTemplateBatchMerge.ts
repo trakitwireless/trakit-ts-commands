@@ -12,12 +12,12 @@ export class PayFormTemplateBatchMerge extends Payload {
 	 */
 	formTemplates: ParamFormTemplateMerge[];
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.formTemplates = json?.formTemplates?.map((item: any) => new ParamFormTemplateMerge(item)) ?? [];
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepFormTemplateBatchMerge(json);
 	}
 }

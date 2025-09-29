@@ -12,12 +12,12 @@ export class PayIconBatchDelete extends Payload {
 	 **/
 	icons: ParamId[];
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.icons = json?.icons?.map((i: any) => new ParamId(i)) ?? [];
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepIconBatchDelete(json);
 	}
 }

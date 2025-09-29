@@ -16,14 +16,14 @@ export class ParamContactMerge extends ParamSelfContactMerge {
 	 **/
 	company: ulong | nothing;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id;
 		this.company = json?.company;
 	}
 
 	override toJSON(): any {
-		const json: any = {
+		const json: JsonObject = {
 			...super.toJSON(),
 		};
 		if (utility.isntNaN(this.id)) {

@@ -53,7 +53,7 @@ export class ErrorDetailSecret extends ErrorDetail {
 	 **/
 	output: string;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super();
 		this.headers = new Map<string, string[]>();
 		for (const [key, value] of Object.entries(json?.headers || {})) {

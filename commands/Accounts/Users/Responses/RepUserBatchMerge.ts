@@ -11,7 +11,7 @@ export class RepUserBatchMerge extends Reply {
 	 **/
 	users: ContentIdCompany[] | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.users = json?.users?.map((u: any) => new ContentIdCompany(u));
 	}

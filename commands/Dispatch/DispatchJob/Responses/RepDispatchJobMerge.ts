@@ -11,7 +11,7 @@ export class RepDispatchJobMerge extends Reply {
 	 **/
 	dispatchJob: ContentIdCompany | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.dispatchJob = ContentIdCompany.fromJSON(json?.dispatchJob);
 	}

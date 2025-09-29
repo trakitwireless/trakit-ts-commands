@@ -11,7 +11,7 @@ export class RepContactMerge extends Reply {
 	 **/
 	contact: ContentIdCompany | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.contact = ContentIdCompany.fromJSON(json?.contact);
 	}

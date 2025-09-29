@@ -12,7 +12,7 @@ export abstract class RepSessionList extends Reply {
 	 **/
 	sessions: Session[];
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.sessions = json?.sessions.map((s: any) => new Session(s)) ?? [];
 	}
@@ -26,7 +26,7 @@ export class RepSessionListByCompany extends RepSessionList {
 	 **/
 	company: ContentId;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = new ContentId(json?.company);
 	}
@@ -40,7 +40,7 @@ export class RepSessionListByUser extends RepSessionList {
 	 **/
 	user: ContentLoginCompany;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.user = new ContentLoginCompany(json?.user);
 	}

@@ -14,7 +14,7 @@ export abstract class PayMaintenanceScheduleList extends Payload implements IPay
 	 **/
 	includeDeleted: boolean;
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.includeDeleted = json?.includeDeleted;
 	}
@@ -28,12 +28,12 @@ export class PayMaintenanceScheduleListByCompany extends PayMaintenanceScheduleL
 	 **/
 	company: ParamId;
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepMaintenanceScheduleListByCompany(json);
 	}
 }

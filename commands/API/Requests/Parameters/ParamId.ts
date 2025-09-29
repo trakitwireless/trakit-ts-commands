@@ -9,7 +9,7 @@ export class ParamId {
 	 **/
 	id: ulong;
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		this.id = json?.id;
 	}
 }

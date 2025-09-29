@@ -11,7 +11,7 @@ export class RepSubscriptionList extends Reply {
 	 **/
 	subscriptions: Subscription[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.subscriptions = json?.subscriptions?.map((v: any) => new Subscription(v));
 	}

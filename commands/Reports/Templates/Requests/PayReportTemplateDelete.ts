@@ -6,7 +6,7 @@ import { PayReportTemplate } from "./PayReportTemplate";
  * Deletes an existing {@link ReportTemplate}.
  **/
 export class PayReportTemplateDelete extends PayReportTemplate { 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepReportTemplateDelete(json);
 	}
 }

@@ -13,7 +13,7 @@ export class PayBehaviourScriptMerge extends Payload implements IPaySingle {
 	 **/
 	behaviourScript: ParamBehaviourScriptMerge;
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.behaviourScript = new ParamBehaviourScriptMerge(json?.behaviourScript);
 	}
@@ -25,7 +25,7 @@ export class PayBehaviourScriptMerge extends Payload implements IPaySingle {
 		return this.behaviourScript?.id?.toString() ?? "";
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepBehaviourScriptMerge(json);
 	}
 }

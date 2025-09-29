@@ -16,7 +16,7 @@ export class ErrorDetailPhone extends ErrorDetailInput {
 	 **/
 	usable: string | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.number = json?.number;
 		this.usable = json?.usable;

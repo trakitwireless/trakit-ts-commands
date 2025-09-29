@@ -12,12 +12,12 @@ export class PayDispatchJobBatchCancel extends PayDispatchJobSpecial {
 	 **/
 	dispatchJobs: ParamDispatchJobCancel[];
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.dispatchJobs = json?.dispatchJobs?.map((dj: any) => new ParamDispatchJobCancel(dj)) ?? [];
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepDispatchJobBatchMerge(json);
 	}
 }

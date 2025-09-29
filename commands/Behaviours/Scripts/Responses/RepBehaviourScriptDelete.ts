@@ -11,7 +11,7 @@ export class RepBehaviourScriptDelete extends Reply {
 	 **/
 	behaviourScript: ContentIdDeleted | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.behaviourScript = ContentIdDeleted.fromJSON(json?.behaviourScript);
 	}

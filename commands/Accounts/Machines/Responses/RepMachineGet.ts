@@ -10,7 +10,7 @@ export class RepMachineGet extends Reply {
 	 **/
 	machine: Machine | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		if (json?.machine) {
 			this.machine = new Machine(json.machine);

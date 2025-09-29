@@ -10,7 +10,7 @@ export class ContentIdBillingProfile extends ContentIdCompany {
 	 * @param json - JSON object to create the {@link ContentIdBillingProfile} from.
 	 * @returns A {@link ContentIdBillingProfile} instance or nothing.
 	 */
-	static override fromJSON(json: any): ContentIdBillingProfile | nothing {
+	static override fromJSON(json: JsonObject): ContentIdBillingProfile | nothing {
 		return json
 			? new ContentIdBillingProfile(json)
 			: null;
@@ -21,7 +21,7 @@ export class ContentIdBillingProfile extends ContentIdCompany {
 	 **/
 	profile: ulong | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.profile = json?.profile;
 	}

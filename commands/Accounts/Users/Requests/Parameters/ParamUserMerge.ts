@@ -71,7 +71,7 @@ export class ParamUserMerge extends ParamMergeSubscribable {
 	 **/
 	permissions: ParamPermission[] | nothing;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.login = json?.login;
 		this.company = json?.company;
@@ -91,7 +91,7 @@ export class ParamUserMerge extends ParamMergeSubscribable {
 	}
 
 	override toJSON() {
-		const json: any = {
+		const json: JsonObject = {
 			"login": this.login,
 		};
 		if (this.v?.length) {

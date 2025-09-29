@@ -13,7 +13,7 @@ export abstract class RepAssetMessageList extends Reply {
 	 **/
 	assetMessages: AssetMessage[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.assetMessages = json?.assetMessages?.map((v: any) => new AssetMessage(v));
 	}
@@ -28,7 +28,7 @@ export class RepAssetMessageListByCompany extends RepAssetMessageList implements
 	 **/
 	company: ContentId | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}
@@ -42,7 +42,7 @@ export class RepAssetMessageListByAsset extends RepAssetMessageList implements I
 	 **/
 	asset: ContentId | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.asset = ContentId.fromJSON(json?.asset);
 	}

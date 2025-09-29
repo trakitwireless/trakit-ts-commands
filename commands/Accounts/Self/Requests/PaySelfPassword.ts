@@ -15,7 +15,7 @@ export class PaySelfPassword extends Payload {
 	 **/
 	password: string;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.current = json?.current ?? "";
 		this.password = json?.password ?? "";
@@ -35,7 +35,7 @@ export class PaySelfPassword extends Payload {
 		};
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepSelfPassword(json);
 	}
 

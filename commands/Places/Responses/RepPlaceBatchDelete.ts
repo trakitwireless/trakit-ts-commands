@@ -11,7 +11,7 @@ export class RepPlaceBatchDelete extends Reply {
 	 */
 	places: ContentIdDeleted[] | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.places = json?.places?.map((item: any) => new ContentIdDeleted(item));
 	}

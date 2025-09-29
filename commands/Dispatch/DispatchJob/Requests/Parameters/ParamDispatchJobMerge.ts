@@ -55,7 +55,7 @@ export class ParamDispatchJobMerge extends ParamMergeSubscribable {
 	 **/
 	steps: ParamDispatchStepMerge[] | nothing;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id;
 		this.company = json?.company;
@@ -71,7 +71,7 @@ export class ParamDispatchJobMerge extends ParamMergeSubscribable {
 	}
 
 	override toJSON(): any {
-		const json: any = {};
+		const json: JsonObject = {};
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];

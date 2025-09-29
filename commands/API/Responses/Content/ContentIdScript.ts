@@ -10,7 +10,7 @@ export class ContentIdScript extends ContentIdCompany {
 	 * @param json - JSON object to create the {@link ContentIdScript} from.
 	 * @returns A {@link ContentIdScript} instance or nothing.
 	 */
-	static override fromJSON(json: any): ContentIdScript | nothing {
+	static override fromJSON(json: JsonObject): ContentIdScript | nothing {
 		return json
 			? new ContentIdScript(json)
 			: null;
@@ -21,7 +21,7 @@ export class ContentIdScript extends ContentIdCompany {
 	 **/
 	script: ulong | nothing;
 	
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.script = json?.script;
 	}

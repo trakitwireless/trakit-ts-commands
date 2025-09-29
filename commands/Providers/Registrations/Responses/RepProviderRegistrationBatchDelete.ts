@@ -11,7 +11,7 @@ export class RepProviderRegistrationBatchDelete extends Reply {
 	 **/
 	providerRegistrations: ContentCodeDeleted[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.providerRegistrations = json?.providerRegistrations?.map((v: any) => new ContentCodeDeleted(v));
 	}

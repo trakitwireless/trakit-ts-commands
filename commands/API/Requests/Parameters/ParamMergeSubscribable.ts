@@ -10,7 +10,7 @@ export abstract class ParamMergeSubscribable extends ParamMerge {
 	 **/
 	v: int[];
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super();
 		this.v = json?.v || [];
 	}

@@ -9,7 +9,7 @@ export class ParamCode {
 	 **/
 	code: string;
 
-	constructor(json:any) {
+	constructor(json?: JsonObject) {
 		this.code = json?.code ?? "";
 	}
 }

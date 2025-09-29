@@ -28,7 +28,7 @@ export class ParamUserGroupMerge extends ParamMergeSubscribable {
 	 **/
 	permissions: ParamPermission[] | nothing;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id;
 		this.company = json?.company;
@@ -38,7 +38,7 @@ export class ParamUserGroupMerge extends ParamMergeSubscribable {
 	}
 
 	override toJSON(): any {
-		const json: any = {};
+		const json: JsonObject = {};
 		if (utility.isntNaN(this.id)) {
 			json["id"] = this.id;
 			json["v"] = [...this.v];

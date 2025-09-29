@@ -11,7 +11,7 @@ export class RepMaintenanceScheduleDelete extends Reply {
 	 **/
 	maintenanceSchedule: ContentIdDeleted | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.maintenanceSchedule = ContentIdDeleted.fromJSON(json?.maintenanceSchedule) ;
 	}

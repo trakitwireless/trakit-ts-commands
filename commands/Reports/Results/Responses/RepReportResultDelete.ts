@@ -11,7 +11,7 @@ export class RepReportResultDelete extends Reply {
 	 **/
 	reportResult: ContentIdDeleted | nothing;
 	
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.reportResult = ContentIdDeleted.fromJSON(json?.reportResult);
 	}

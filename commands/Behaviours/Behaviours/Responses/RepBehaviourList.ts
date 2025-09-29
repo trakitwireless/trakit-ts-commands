@@ -11,7 +11,7 @@ export abstract class RepBehaviourList extends Reply {
 	 **/
 	behaviours: Behaviour[] | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.behaviours = json?.behaviours?.map((item: any) => new Behaviour(item));
 	}
@@ -26,7 +26,7 @@ export class RepBehaviourListByCompany extends RepBehaviourList {
 	 **/
 	company: ContentId;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = new ContentId(json?.company);
 	}

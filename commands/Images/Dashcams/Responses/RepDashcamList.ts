@@ -10,7 +10,7 @@ export abstract class RepDashcamList extends Reply {
 	 **/
 	dashcams: Dashcam[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.dashcams = json?.dashcams?.map((d: any) => new Dashcam(d));
 	}
@@ -25,7 +25,7 @@ export class RepDashcamListByCompany extends RepDashcamList {
 	 **/
 	company: ContentId | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}

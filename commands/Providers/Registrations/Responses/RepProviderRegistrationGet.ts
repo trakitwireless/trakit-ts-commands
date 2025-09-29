@@ -10,7 +10,7 @@ export class RepProviderRegistrationGet extends Reply {
 	 **/
 	providerRegistration: ProviderRegistration | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.providerRegistration = json?.providerRegistration
 			? new ProviderRegistration(json.providerRegistration)

@@ -11,7 +11,7 @@ export class RepContactBatchMerge extends Reply {
 	 **/
 	contacts: ContentIdCompany[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.contacts = json?.contacts?.map((c: any) => new ContentIdCompany(c));
 	}

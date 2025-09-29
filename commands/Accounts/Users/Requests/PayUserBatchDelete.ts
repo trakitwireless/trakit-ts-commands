@@ -12,12 +12,12 @@ export class PayUserBatchDelete extends Payload {
 	 **/
 	users: ParamLogin[];
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.users = json?.users?.map((u: any) => new ParamLogin(u)) ?? [];
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepUserBatchDelete(json);
 	}
 }

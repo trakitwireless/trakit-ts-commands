@@ -13,7 +13,7 @@ export class PayBehaviourMerge extends Payload implements IPaySingle {
 	 **/
 	behaviour: ParamBehaviourMerge;
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.behaviour = new ParamBehaviourMerge(json?.behaviour);
 	}
@@ -25,7 +25,7 @@ export class PayBehaviourMerge extends Payload implements IPaySingle {
 		return this.behaviour?.id?.toString() ?? "";
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepBehaviourMerge(json);
 	}
 }

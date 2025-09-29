@@ -78,7 +78,7 @@ export class ParamFormField extends ParamMerge {
 	 */
 	maximum: long | double | Date | TimeSpan | nothing;
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super();
 		this.id = json?.id;
 		this.name = json?.name;
@@ -98,7 +98,7 @@ export class ParamFormField extends ParamMerge {
 	}
 
 	override toJSON(): any {
-		const json: any = {};
+		const json: JsonObject = {};
 		if (this.id) json.id = this.id;
 		if (this.name) json.name = this.name;
 		if (this.kind) json.kind = this.kind;

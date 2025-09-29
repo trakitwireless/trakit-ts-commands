@@ -11,7 +11,7 @@ export class ParamReportOptions extends ParamMerge {
 	 * @param json The JSON to parse.
 	 * @returns 
 	 */
-	static fromJSON(json: any): ParamReportOptions | nothing {
+	static fromJSON(json?: JsonObject): ParamReportOptions | nothing {
 		return json
 			? new ParamReportOptions(json)
 			: null;
@@ -41,7 +41,7 @@ export class ParamReportOptions extends ParamMerge {
 	/// </summary>
 	scorecardRules: ParamReportScorecardRules | nothing;
 	
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super();
 		this.parameters = json?.parameters?.map((e: any) => new ReportParameter(e));
 		this.targets = json?.targets;
@@ -52,7 +52,7 @@ export class ParamReportOptions extends ParamMerge {
 	}
 
 	override toJSON(): any {
-		const json: any = {};
+		const json: JsonObject = {};
 		if (this.parameters?.length) json.parameters = this.parameters.map((e) => e.toJSON());
 		if (this.targets) json.targets = this.targets;
 		if (this.filtering) json.filtering = this.filtering;

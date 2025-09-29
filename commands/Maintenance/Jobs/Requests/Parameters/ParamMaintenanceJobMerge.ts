@@ -87,7 +87,7 @@ export class ParamMaintenanceJobMerge extends ParamMergeSubscribable {
 	/// </override>
 	pictures: ulong[] | nothing;
 	
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id;
 		this.asset = json?.asset;
@@ -108,7 +108,7 @@ export class ParamMaintenanceJobMerge extends ParamMergeSubscribable {
 	}
 
 	override toJSON(): any {
-		const json: any = {}
+		const json: JsonObject = {}
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];

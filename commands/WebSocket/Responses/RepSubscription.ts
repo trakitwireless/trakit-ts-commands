@@ -27,7 +27,7 @@ export class RepSubscription extends Reply {
 	 **/
 	invalid: string[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 		this.merged = json?.merged?.map((v: any) => v as SubscriptionType);

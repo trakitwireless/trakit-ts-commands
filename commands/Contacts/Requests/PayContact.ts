@@ -11,7 +11,7 @@ export abstract class PayContact extends Payload implements IPaySingle {
 	 **/
 	contact: ParamId;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.contact = new ParamId(json?.contact);
 	}

@@ -10,7 +10,7 @@ export class RepSessionGet extends Reply {
 	 **/
 	session: Session;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.session = new Session(json?.session);
 	}

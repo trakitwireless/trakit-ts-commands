@@ -10,7 +10,7 @@ export class RepCompanyGet extends Reply {
 	 **/
 	company: Company | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		if (json?.company) {
 			this.company = new Company(json.company);

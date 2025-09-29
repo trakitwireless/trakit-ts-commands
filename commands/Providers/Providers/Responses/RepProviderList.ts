@@ -10,7 +10,7 @@ export abstract class RepProviderList extends Reply {
 	 **/
 	providers: Provider[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.providers = json?.providers?.map((v: any) => new Provider(v));
 	}
@@ -25,7 +25,7 @@ export class RepProviderListByCompany extends RepProviderList {
 	 **/
 	company: ContentId | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}
@@ -39,7 +39,7 @@ export class RepProviderListByConfig extends RepProviderList {
 	 **/
 	config: ContentId | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.config = ContentId.fromJSON(json?.config);
 	}

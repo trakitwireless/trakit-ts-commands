@@ -11,7 +11,7 @@ export class RepAssetBatchSuspend extends Reply {
 	 **/
 	assets: ContentIdSuspended[] | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.assets = json?.assets?.map((a: any) => new ContentIdSuspended(a));
 	}

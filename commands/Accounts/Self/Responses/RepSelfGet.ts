@@ -46,7 +46,7 @@ export class RepSelfGet extends Reply {
 	 **/
 	serverTime: Date;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.serverTime = utility.date(json?.["serverTime"]);
 		this.ghostId = json?.["ghostId"] ?? "";
@@ -79,7 +79,7 @@ export class RepSelfGet extends Reply {
 	}
 
 	toJSON(): any {
-		const json: any = {
+		const json: JsonObject = {
 			"errorCode": this.errorCode,
 			"message": this.message,
 			"errorDetails": this.errorDetails,

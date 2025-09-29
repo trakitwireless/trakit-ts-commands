@@ -11,7 +11,7 @@ export abstract class RepMaintenanceJobList extends Reply {
 	 **/
 	maintenanceJobs: MaintenanceJob[] | nothing;
 	
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.maintenanceJobs = json?.maintenanceJobs?.map((item: any) => new MaintenanceJob(item));
 	}
@@ -26,7 +26,7 @@ export class RepMaintenanceJobListByCompany extends RepMaintenanceJobList {
 	 **/
 	company: ContentId | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}

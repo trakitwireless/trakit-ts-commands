@@ -6,7 +6,7 @@ import { PayFormResult } from "./PayFormResult";
  * Restores a deleted {@link FormResult}.
  */
 export class PayFormResultRestore extends PayFormResult { 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepFormResultDelete(json);
 	}
 }

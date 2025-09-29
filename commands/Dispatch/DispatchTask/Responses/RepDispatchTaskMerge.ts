@@ -11,7 +11,7 @@ export class RepDispatchTaskMerge extends Reply {
 	 **/
 	dispatchTask: ContentIdCompany | nothing;
 	
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.dispatchTask = ContentIdCompany.fromJSON(json?.dispatchTask);
 	}

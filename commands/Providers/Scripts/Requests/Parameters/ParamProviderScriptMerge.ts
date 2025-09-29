@@ -53,7 +53,7 @@ export class ParamProviderScriptMerge extends ParamMergeSubscribable {
 	/// </summary>
 	parameters: Map<string, ProviderScriptParameter | nothing> | nothing;
 	
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id;
 		this.company = json?.company;
@@ -71,7 +71,7 @@ export class ParamProviderScriptMerge extends ParamMergeSubscribable {
 	}
 
 	override toJSON(): any {
-		const json: any = {};
+		const json: JsonObject = {};
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];

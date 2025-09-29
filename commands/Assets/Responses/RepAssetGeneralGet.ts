@@ -10,7 +10,7 @@ export class RepAssetGeneralGet extends Reply {
 	 **/
 	assetGeneral: AssetGeneral | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		if (json?.assetGeneral) {
 			this.assetGeneral = new AssetGeneral(json.assetGeneral);

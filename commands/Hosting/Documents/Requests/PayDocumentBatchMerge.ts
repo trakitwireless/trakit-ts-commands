@@ -12,12 +12,12 @@ export class PayDocumentBatchMerge extends Payload {
 	 **/
 	documents: ParamDocumentMerge[];
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.documents = json?.documents?.map((d: any) => new ParamDocumentMerge(d)) ?? [];
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepDocumentBatchMerge(json);
 	}
 }

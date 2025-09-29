@@ -12,12 +12,12 @@ export class PayBehaviourScriptBatchDelete extends Payload {
 	 **/
 	behaviourScripts: ParamId[];
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.behaviourScripts = json?.behaviourScripts?.map((x: any) => new ParamId(x)) ?? [];
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepBehaviourScriptBatchDelete(json);
 	}
 }

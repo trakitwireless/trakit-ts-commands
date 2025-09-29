@@ -11,7 +11,7 @@ export class RepProviderScriptDelete extends Reply {
 	 **/
 	providerScript: ContentIdDeleted | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.providerScript = ContentIdDeleted.fromJSON(json?.providerScript);
 	}

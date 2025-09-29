@@ -11,7 +11,7 @@ export class RepPlaceDelete extends Reply {
 	 */
 	place: ContentIdDeleted | nothing;
 	
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.place = ContentIdDeleted.fromJSON(json?.place);
 	}

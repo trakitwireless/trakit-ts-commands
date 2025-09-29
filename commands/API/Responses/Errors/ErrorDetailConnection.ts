@@ -33,7 +33,7 @@ export class ErrorDetailConnection extends ErrorDetail {
 	 */
 	retry: number | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super();
 		this.state = json?.state ?? WebSocket.CLOSED;
 		this.code = json?.code;

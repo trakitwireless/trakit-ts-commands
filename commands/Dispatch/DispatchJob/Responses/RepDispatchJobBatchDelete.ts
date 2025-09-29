@@ -11,7 +11,7 @@ export class RepDispatchJobBatchDelete extends Reply {
 	 **/
 	dispatchJobs: ContentIdDeleted[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.dispatchJobs = json?.dispatchJobs?.map((dj: any) => new ContentIdDeleted(dj));
 	}

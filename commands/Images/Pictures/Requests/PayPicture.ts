@@ -11,7 +11,7 @@ export abstract class PayPicture extends Payload implements IPaySingle {
 	 **/
 	picture: ParamId;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.picture = new ParamId(json?.picture);
 	}

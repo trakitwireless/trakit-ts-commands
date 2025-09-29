@@ -11,7 +11,7 @@ export class RepProviderScriptBatchMerge extends Reply {
 	 **/
 	providerScripts: ContentIdCompany[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.providerScripts = json?.providerScripts?.map((v: any) => new ContentIdCompany(v));
 	}

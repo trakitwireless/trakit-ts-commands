@@ -20,7 +20,7 @@ export class ParamDispatchJobCancel extends ParamMergeSubscribable {
 	 **/
 	tags: string[] | nothing;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id;
 		this.reason = json?.reason;
@@ -28,7 +28,7 @@ export class ParamDispatchJobCancel extends ParamMergeSubscribable {
 	}
 
 	override toJSON(): any {
-		const json: any = {
+		const json: JsonObject = {
 			id: this.id,
 		};
 		if (this.reason) json.reason = this.reason;

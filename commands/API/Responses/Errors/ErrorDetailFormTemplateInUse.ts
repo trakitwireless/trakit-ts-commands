@@ -12,7 +12,7 @@ export class ErrorDetailFormTemplateInUse extends ErrorDetail {
 	 **/
 	formResults: ulong[];
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super();
 		this.formResults = json?.formResults ?? [];
 	}

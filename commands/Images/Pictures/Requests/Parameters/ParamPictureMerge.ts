@@ -28,7 +28,7 @@ export class ParamPictureMerge extends ParamMergeSubscribable {
 	/// </summary>
 	focals: Rectangle[] | nothing;
 	
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id;
 		this.company = json?.company;
@@ -38,7 +38,7 @@ export class ParamPictureMerge extends ParamMergeSubscribable {
 	}
 
 	override toJSON(): any {
-		const json: any = {}
+		const json: JsonObject = {}
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];

@@ -12,12 +12,12 @@ export class PayReportScheduleBatchMerge extends Payload {
 	 **/
 	reportSchedules: ParamReportScheduleMerge[];
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.reportSchedules = json?.reportSchedules?.map((e: any) => new ParamReportScheduleMerge(e)) ?? [];
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepReportScheduleBatchMerge(json);
 	}
 }

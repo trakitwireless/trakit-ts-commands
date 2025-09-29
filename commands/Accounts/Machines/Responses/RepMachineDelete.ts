@@ -11,7 +11,7 @@ export class RepMachineDelete extends Reply {
 	 **/
 	machine: ContentKeyDeleted | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.machine = ContentKeyDeleted.fromJSON(json?.machine);
 	}

@@ -8,7 +8,7 @@ export class ParamHandle {
 	 **/
 	handle: string;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		this.handle = json?.handle ?? "";
 	}
 }

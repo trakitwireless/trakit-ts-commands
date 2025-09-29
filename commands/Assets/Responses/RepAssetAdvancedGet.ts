@@ -10,7 +10,7 @@ export class RepAssetAdvancedGet extends Reply {
 	 **/
 	assetAdvanced: AssetAdvanced | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		if (json?.assetAdvanced) {
 			this.assetAdvanced = new AssetAdvanced(json?.assetAdvanced);

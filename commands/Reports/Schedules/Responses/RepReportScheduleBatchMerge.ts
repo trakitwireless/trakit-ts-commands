@@ -11,7 +11,7 @@ export class RepReportScheduleBatchMerge extends Reply {
 	 **/
 	reportSchedules: ContentIdCompany[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.reportSchedules = json?.reportSchedules?.map((e: any) => new ContentIdCompany(e));
 	}

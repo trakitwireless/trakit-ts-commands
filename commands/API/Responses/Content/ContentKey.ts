@@ -9,7 +9,7 @@ export class ContentKey {
 	 * @param json - JSON object to create the {@link ContentId} from.
 	 * @returns A {@link ContentId} instance or nothing.
 	 */
-	static fromJSON(json: any): ContentKey | nothing {
+	static fromJSON(json: JsonObject): ContentKey | nothing {
 		return json
 			? new ContentKey(json)
 			: null;
@@ -20,7 +20,7 @@ export class ContentKey {
 	 **/
 	key: string;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		this.key = json?.key ?? "";
 	}
 }

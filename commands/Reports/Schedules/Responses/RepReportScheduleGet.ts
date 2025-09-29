@@ -10,7 +10,7 @@ export class RepReportScheduleGet extends Reply {
 	 **/
 	reportSchedule: ReportSchedule | nothing;
 	
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.reportSchedule = json?.reportSchedule
 			? new ReportSchedule(json.reportSchedule)

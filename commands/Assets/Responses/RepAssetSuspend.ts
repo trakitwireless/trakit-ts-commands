@@ -11,7 +11,7 @@ export class RepAssetSuspend extends Reply {
 	 **/
 	asset: ContentIdSuspended | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.asset = ContentIdSuspended.fromJSON(json?.asset);
 	}

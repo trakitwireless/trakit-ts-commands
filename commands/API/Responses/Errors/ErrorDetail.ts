@@ -34,7 +34,7 @@ export abstract class ErrorDetail {
 	 * @param json	The JSON to parse.
 	 * @returns		An instance of an ErrorDetail subclass, or null if the JSON is null or does not contain a recognized "kind" property.
 	 */
-	static fromJSON(json: any): ErrorDetail | null {
+	static fromJSON(json: JsonObject): ErrorDetail | null {
 		switch (json?.kind) {
 			case ErrorDetailType.badIds: 			return new ErrorDetailBadIds(json);
 			case ErrorDetailType.badIndexes:		return new ErrorDetailBadIndexes(json);

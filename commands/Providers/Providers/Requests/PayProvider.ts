@@ -11,7 +11,7 @@ export abstract class PayProvider extends Payload implements IPaySingle {
 	 **/
 	provider: ParamIdentifier;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.provider = new ParamIdentifier(json?.provider);
 	}

@@ -6,7 +6,7 @@ import { PayDispatchJob } from "./PayDispatchJob";
  * Deletes an existing {@link DispatchJob}.
  **/
 export class PayDispatchJobDelete extends PayDispatchJob { 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepDispatchJobDelete(json);
 	}
 }

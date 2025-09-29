@@ -10,7 +10,7 @@ export class RepDispatchTaskBatchMerge extends Reply {
 	 **/
 	dispatchTasks: ContentIdCompany[];
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.dispatchTasks = json?.dispatchTasks?.map((dt: any) => new ContentIdCompany(dt));
 	}

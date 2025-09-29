@@ -12,12 +12,12 @@ export class PaySessionGet extends Payload {
 	 **/
 	session: ParamHandle;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.session = new ParamHandle(json?.session);
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepSessionGet(json);
 	}
 }

@@ -11,7 +11,7 @@ export class RepUserGroupMerge extends Reply {
 	 **/
 	userGroup: ContentIdCompany | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.userGroup = ContentIdCompany.fromJSON(json?.userGroup);
 	}

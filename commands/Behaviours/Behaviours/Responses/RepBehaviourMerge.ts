@@ -11,7 +11,7 @@ export class RepBehaviourMerge extends Reply {
 	 **/
 	behaviour: ContentIdCompany | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.behaviour = ContentIdCompany.fromJSON(json?.behaviour);
 	}

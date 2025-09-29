@@ -11,7 +11,7 @@ export abstract class RepReportTemplateList extends Reply {
 	 **/
 	reportTemplates: ReportTemplate[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.reportTemplates = json?.reportTemplates?.map((e: any) => new ReportTemplate(e));
 	}
@@ -26,7 +26,7 @@ export class RepReportTemplateListByCompany extends RepReportTemplateList {
 	 **/
 	company: ContentId | nothing;
 	
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}

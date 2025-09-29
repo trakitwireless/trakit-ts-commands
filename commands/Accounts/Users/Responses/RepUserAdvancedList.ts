@@ -11,7 +11,7 @@ export abstract class RepUserAdvancedList extends Reply {
 	 **/
 	userAdvanceds: UserAdvanced[];
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.userAdvanceds = json?.userAdvanceds?.map((u: any) => new UserAdvanced(u)) ?? [];
 	}
@@ -26,7 +26,7 @@ export class RepUserAdvancedListByCompany extends RepUserAdvancedList {
 	 **/
 	company: ContentId | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}
@@ -41,7 +41,7 @@ export class RepUserAdvancedListByCompanyAndLabels extends RepUserAdvancedListBy
 	 **/
 	labels: string[];
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.labels = json?.labels ?? [];
 	}
@@ -56,7 +56,7 @@ export class RepUserAdvancedListByCompanyAndRefPairs extends RepUserAdvancedList
 	 **/
 	references: Map<string, string>;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.references = serialization.toMap(json?.references ?? {});
 	}

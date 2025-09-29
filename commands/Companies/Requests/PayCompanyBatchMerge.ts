@@ -12,12 +12,12 @@ export class PayCompanyBatchMerge extends Payload {
 	 **/
 	companies: ParamCompanyMerge[];
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super();
 		this.companies = json?.companies?.map((c: any) => new ParamCompanyMerge(c)) ?? [];
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepCompanyBatchMerge(json);
 	}
 }

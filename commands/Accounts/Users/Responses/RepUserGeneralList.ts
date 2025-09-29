@@ -11,7 +11,7 @@ export abstract class RepUserGeneralList extends Reply {
 	 **/
 	userGenerals: UserGeneral[];
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.userGenerals = json?.userGenerals?.map((u: any) => new UserGeneral(u)) ?? [];
 	}
@@ -26,7 +26,7 @@ export class RepUserGeneralListByCompany extends RepUserGeneralList {
 	 **/
 	company: ContentId | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}
@@ -41,7 +41,7 @@ export class RepUserGeneralListByCompanyAndLabels extends RepUserGeneralListByCo
 	 **/
 	labels: string[];
 	
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.labels = json?.labels ?? [];
 	}
@@ -56,7 +56,7 @@ export class RepUserGeneralListByCompanyAndRefPairs extends RepUserGeneralListBy
 	 **/
 	references: Map<string, string>;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.references = serialization.toMap(json?.references ?? {});
 	}

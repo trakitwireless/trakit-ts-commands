@@ -11,7 +11,7 @@ export class RepFormTemplateDelete extends Reply {
 	 */
 	formTemplate: ContentIdDeleted | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.formTemplate = ContentIdDeleted.fromJSON(json?.formTemplate);
 	}

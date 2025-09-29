@@ -6,7 +6,7 @@ import { PayProviderRegistration } from "./PayProviderRegistration";
  * Restores a deleted {@link ProviderRegistration}.
  **/
 export class PayProviderRegistrationRestore extends PayProviderRegistration { 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepProviderRegistrationDelete(json);
 	}
 }

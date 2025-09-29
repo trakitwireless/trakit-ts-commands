@@ -6,7 +6,7 @@ import { PayFormTemplate } from "./PayFormTemplate";
  * Deletes an existing {@link FormTemplate}.
  */
 export class PayFormTemplateDelete extends PayFormTemplate { 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepFormTemplateDelete(json);
 	}
 }

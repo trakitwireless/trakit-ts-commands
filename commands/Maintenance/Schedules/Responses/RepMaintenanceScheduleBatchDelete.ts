@@ -11,7 +11,7 @@ export class RepMaintenanceScheduleBatchDelete extends Reply {
 	 **/
 	maintenanceSchedules: ContentIdDeleted[] | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.maintenanceSchedules = json?.maintenanceSchedules?.map((item: any) => new ContentIdDeleted(item)) ;
 	}

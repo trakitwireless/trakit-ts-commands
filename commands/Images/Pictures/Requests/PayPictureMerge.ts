@@ -13,7 +13,7 @@ export class PayPictureMerge extends Payload implements IPaySingle {
 	 **/
 	picture: ParamPictureMerge;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.picture = new ParamPictureMerge(json?.picture);
 	}
@@ -25,7 +25,7 @@ export class PayPictureMerge extends Payload implements IPaySingle {
 		return this.picture?.id?.toString() ?? "";
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepPictureMerge(json);
 	}
 }

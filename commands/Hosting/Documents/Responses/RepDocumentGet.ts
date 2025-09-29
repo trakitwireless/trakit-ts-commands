@@ -10,7 +10,7 @@ export class RepDocumentGet extends Reply {
 	 **/
 	document: Document | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.document = json?.document
 			? new Document(json.document)

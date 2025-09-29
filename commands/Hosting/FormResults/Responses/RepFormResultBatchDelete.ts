@@ -11,7 +11,7 @@ export class RepFormResultBatchDelete extends Reply {
 	 **/
 	formResults: ContentIdDeleted[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.formResults = json?.formResults?.map((item: any) => new ContentIdDeleted(item));
 	}

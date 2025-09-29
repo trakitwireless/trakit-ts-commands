@@ -11,7 +11,7 @@ export abstract class RepCompanyPoliciesList extends Reply {
 	 **/
 	companyPolicies: CompanyPolicies[] | nothing;
 	
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.companyPolicies = json?.companyPolicies?.map((policy: any) => new CompanyPolicies(policy));
 	}
@@ -26,7 +26,7 @@ export class RepCompanyPoliciesListByCompany extends RepCompanyPoliciesList {
 	 **/
 	company: ContentId | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}
@@ -42,7 +42,7 @@ export class RepCompanyPoliciesListByCompanyAndLabels extends RepCompanyPolicies
 	 **/
 	labels: string[] | nothing;
 	
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.labels = json?.labels;
 	}
@@ -57,7 +57,7 @@ export class RepCompanyPoliciesListByCompanyAndRefPairs extends RepCompanyPolici
 	 **/
 	references: Map<string, string> | nothing;
 	
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		if (json?.references) {
 			this.references = serialization.toMap(json.references);

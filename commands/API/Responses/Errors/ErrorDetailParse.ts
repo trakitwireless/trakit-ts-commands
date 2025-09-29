@@ -20,7 +20,7 @@ export class ErrorDetailParse extends ErrorDetail {
 	 **/
 	after: string | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super();
 		this.line = json?.line;
 		this.column = json?.column;

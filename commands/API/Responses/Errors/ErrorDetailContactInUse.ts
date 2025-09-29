@@ -10,7 +10,7 @@ export class ErrorDetailContactInUse extends ErrorDetailUserGroupInUse {
 
 	assets: ulong[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.assets = json?.assets;
 	}

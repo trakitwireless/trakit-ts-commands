@@ -11,7 +11,7 @@ export class RepAssetMessageBatchDelete extends Reply {
 	 **/
 	assetMessages: ContentIdDeleted[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.assetMessages = json?.assetMessages?.map((v: any) => ContentIdDeleted.fromJSON(v));
 	}

@@ -14,7 +14,7 @@ export class RepSelfLogout extends Reply {
 	 **/
 	expiry: Date;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.ghostId = json?.ghostId ?? "";
 		this.expiry = utility.date(json?.expiry);

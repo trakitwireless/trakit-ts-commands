@@ -12,12 +12,12 @@ export class PayReportResultBatchDelete extends Payload {
 	 **/
 	reportResults: ParamId[];
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super();
 		this.reportResults = json?.reportResults?.map((e: any) => new ParamId(e)) ?? [];
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepReportResultBatchDelete(json);
 	}
 }

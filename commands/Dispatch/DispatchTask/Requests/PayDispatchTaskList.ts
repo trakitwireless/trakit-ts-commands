@@ -17,7 +17,7 @@ export abstract class PayDispatchTaskList extends Payload implements IPayDeletab
 	 **/
 	includeDeleted: boolean;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.includeDeleted = json?.includeDeleted ?? false;
 	}
@@ -32,12 +32,12 @@ export class PayDispatchTaskListByAsset extends PayDispatchTaskList implements I
 	 **/
 	asset: ParamId;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.asset = new ParamId(json?.asset);
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepDispatchTaskListByAsset(json);
 	}
 }
@@ -53,14 +53,14 @@ export class PayDispatchTaskListByAssetAndRefPairs extends PayDispatchTaskListBy
 	 **/
 	references: Map<string, string>;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.references = json?.references
 			? serialization.toMap(json.references)
 			: new Map<string, string>();
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepDispatchTaskListByAssetAndRefPairs(json);
 	}
 }
@@ -73,12 +73,12 @@ export class PayDispatchTaskListByCompany extends PayDispatchTaskList implements
 	 **/
 	company: ParamId;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepDispatchTaskListByCompany(json);
 	}
 }
@@ -94,14 +94,14 @@ export class PayDispatchTaskListByCompanyAndRefPairs extends PayDispatchTaskList
 	 **/
 	references: Map<string, string>;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.references = json?.references
 			? serialization.toMap(json.references)
 			: new Map<string, string>();
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepDispatchTaskListByCompanyAndRefPairs(json);
 	}
 }

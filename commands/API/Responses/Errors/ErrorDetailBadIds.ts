@@ -8,7 +8,7 @@ import { ErrorDetailType } from "./ErrorDetailType";
 export class ErrorDetailBadIds extends ErrorDetailBadBase<ulong> {
 	override get kind() { return ErrorDetailType.badIds; }
 	
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 	}
 }

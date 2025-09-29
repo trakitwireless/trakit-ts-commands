@@ -10,7 +10,7 @@ export class ParamReportRecurrence extends ParamMerge {
 	 * @param json The JSON to parse.
 	 * @returns A new instance of ParamReportRecurrence or null.
 	 */
-	static fromJSON(json: any): ParamReportRecurrence | nothing {
+	static fromJSON(json?: JsonObject): ParamReportRecurrence | nothing {
 		return json
 			? new ParamReportRecurrence(json)
 			: null;
@@ -37,7 +37,7 @@ export class ParamReportRecurrence extends ParamMerge {
 	/// </summary>
 	end: Date | nothing;
 	
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super();
 		this.kind = json?.kind;
 		this.weekdays = json?.weekdays;
@@ -51,7 +51,7 @@ export class ParamReportRecurrence extends ParamMerge {
 	}
 
 	override toJSON(): any {
-		const json: any = {};
+		const json: JsonObject = {};
 		if (this.kind) json.kind = this.kind;
 		if (this.weekdays?.length) json.weekdays = [...this.weekdays];
 		if (this.weekday) json.weekday = this.weekday;

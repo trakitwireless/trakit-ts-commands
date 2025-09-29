@@ -11,7 +11,7 @@ export class RepCompanyDelete extends Reply {
 	 **/
 	company: ContentIdDeleted | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentIdDeleted.fromJSON(json?.company);
 	}

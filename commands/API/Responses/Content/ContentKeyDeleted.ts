@@ -10,7 +10,7 @@ export class ContentKeyDeleted extends ContentKeyCompany {
 	 * @param json - JSON object to create the {@link ContentKeyDeleted} from.
 	 * @returns A {@link ContentKeyDeleted} instance or nothing.
 	 */
-	static override fromJSON(json: any): ContentKeyDeleted | nothing {
+	static override fromJSON(json: JsonObject): ContentKeyDeleted | nothing {
 		return json
 			? new ContentKeyDeleted(json)
 			: null;
@@ -25,7 +25,7 @@ export class ContentKeyDeleted extends ContentKeyCompany {
 	 **/
 	v: uint[];
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.deleted = !!(json?.deleted);
 		this.v = json?.v ?? [];

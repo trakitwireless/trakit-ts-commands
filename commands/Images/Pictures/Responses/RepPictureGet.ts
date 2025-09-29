@@ -10,7 +10,7 @@ export class RepPictureGet extends Reply {
 	 **/
 	picture: Picture | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.picture = json?.picture
 			? new Picture(json.picture)

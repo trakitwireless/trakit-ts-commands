@@ -15,12 +15,12 @@ export class PaySessionListByCompany extends Payload implements IPayListByCompan
 	 **/
 	company: ParamId;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepSessionListByCompany(json);
 	}
 }
@@ -34,12 +34,12 @@ export class PaySessionListByUser extends Payload implements IPayListByUser {
 	 **/
 	user: ParamLogin;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.user = new ParamLogin(json?.user);
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepSessionListByUser(json);
 	}
 }

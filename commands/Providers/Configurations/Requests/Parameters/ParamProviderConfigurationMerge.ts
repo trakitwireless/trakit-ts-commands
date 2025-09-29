@@ -39,7 +39,7 @@ export class ParamProviderConfigurationMerge extends ParamMergeSubscribable {
 	/// </summary>
 	geofences: ulong[] | nothing;
 	
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id;
 		this.type = json?.type;
@@ -51,7 +51,7 @@ export class ParamProviderConfigurationMerge extends ParamMergeSubscribable {
 		this.geofences = json?.geofences;
 	}
 	override toJSON(): any {
-		const json: any = {};
+		const json: JsonObject = {};
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];

@@ -10,7 +10,7 @@ export class RepBehaviourScriptBatchMerge extends Reply {
 	 **/
 	behaviourScripts: ContentIdCompany[];
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.behaviourScripts = json?.behaviourScripts?.map((x: any) => new ContentIdCompany(x));
 	}

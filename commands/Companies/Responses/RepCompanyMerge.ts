@@ -11,7 +11,7 @@ export class RepCompanyMerge extends Reply {
 	 **/
 	company: ContentIdParent | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentIdParent.fromJSON(json?.company);
 	}

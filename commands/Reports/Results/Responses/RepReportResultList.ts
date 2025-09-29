@@ -10,7 +10,7 @@ export abstract class RepReportResultList extends Reply {
 	 **/
 	reportResults: ReportResult[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.reportResults = json?.reportResults?.map((e: any) => new ReportResult(e));
 	}
@@ -25,7 +25,7 @@ export class RepReportResultListByCompany extends RepReportResultList {
 	 **/
 	company: ContentId | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}

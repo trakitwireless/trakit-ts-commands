@@ -9,7 +9,7 @@ export class ContentId {
 	 * @param json - JSON object to create the {@link ContentId} from.
 	 * @returns A {@link ContentId} instance or nothing.
 	 */
-	static fromJSON(json: any): ContentId | nothing {
+	static fromJSON(json: JsonObject): ContentId | nothing {
 		return json
 			? new ContentId(json)
 			: null;
@@ -20,7 +20,7 @@ export class ContentId {
 	 **/
 	id: ulong | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		this.id = json?.id;
 	}
 }

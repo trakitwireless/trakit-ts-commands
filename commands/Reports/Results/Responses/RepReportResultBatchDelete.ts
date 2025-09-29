@@ -11,7 +11,7 @@ export class RepReportResultBatchDelete extends Reply {
 	 **/
 	reportResults: ContentIdDeleted[] | nothing;
 	
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.reportResults = json.reportResults?.map((e: any) => new ContentIdDeleted(e));
 	}

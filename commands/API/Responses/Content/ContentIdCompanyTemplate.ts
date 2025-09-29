@@ -10,7 +10,7 @@ export class ContentIdCompanyTemplate extends ContentIdCompany {
 	 * @param json - JSON object to create the {@link ContentIdCompanyTemplate} from.
 	 * @returns A {@link ContentIdCompanyTemplate} instance or nothing.
 	 */
-	static override fromJSON(json: any): ContentIdCompanyTemplate | nothing {
+	static override fromJSON(json: JsonObject): ContentIdCompanyTemplate | nothing {
 		return json
 			? new ContentIdCompanyTemplate(json)
 			: null;
@@ -21,7 +21,7 @@ export class ContentIdCompanyTemplate extends ContentIdCompany {
 	 **/
 	template: ulong | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.template = json?.template;
 	}

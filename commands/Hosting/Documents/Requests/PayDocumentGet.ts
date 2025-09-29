@@ -12,12 +12,12 @@ export class PayDocumentGet extends PayDocument implements IPayDeletable {
 	 **/
 	includeDeleted: boolean;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.includeDeleted = json?.includeDeleted ?? false;
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepDocumentGet(json);
 	}
 }

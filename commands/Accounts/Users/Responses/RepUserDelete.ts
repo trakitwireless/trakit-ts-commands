@@ -11,7 +11,7 @@ export class RepUserDelete extends Reply {
 	 **/
 	user: ContentIdDeleted | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.user = ContentIdDeleted.fromJSON(json?.user);
 	}

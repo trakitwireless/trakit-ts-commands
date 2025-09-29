@@ -10,7 +10,7 @@ export class RepMaintenanceScheduleGet extends Reply {
 	 **/
 	maintenanceSchedule: MaintenanceSchedule | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.maintenanceSchedule = json?.maintenanceSchedule
 			? new MaintenanceSchedule(json.maintenanceSchedule)

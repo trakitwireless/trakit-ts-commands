@@ -17,7 +17,7 @@ export abstract class PayCompanyDirectoryList extends Payload implements IPayDel
 	 **/
 	includeDeleted: boolean;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super();
 		this.includeDeleted = json?.includeDeleted ?? false;
 	}
@@ -32,12 +32,12 @@ export class PayCompanyDirectoryListByCompany extends PayCompanyDirectoryList im
 	 **/
 	company: ParamId;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepCompanyDirectoryListByCompany(json);
 	}
 }
@@ -52,12 +52,12 @@ export class PayCompanyDirectoryListByCompanyAndLabels extends PayCompanyDirecto
 	 **/
 	labels: string[];
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.labels = json?.labels ?? [];
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepCompanyDirectoryListByCompanyAndLabels(json);
 	}
 }
@@ -74,14 +74,14 @@ export class PayCompanyDirectoryListByCompanyAndRefPairs extends PayCompanyDirec
 	 **/
 	references: Map<string, string>;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.references = json?.references
 			? serialization.toMap(json.references)
 			: new Map<string, string>();
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepCompanyDirectoryListByCompanyAndRefPairs(json);
 	}
 }

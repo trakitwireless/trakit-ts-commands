@@ -11,7 +11,7 @@ export class RepMaintenanceJobBatchMerge extends Reply {
 	 **/
 	maintenanceJobs: ContentIdCompany[] | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.maintenanceJobs = json?.maintenanceJobs?.map((item: any) => new ContentIdCompany(item));
 	}

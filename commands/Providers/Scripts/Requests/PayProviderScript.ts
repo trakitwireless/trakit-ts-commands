@@ -11,7 +11,7 @@ export abstract class PayProviderScript extends Payload implements IPaySingle {
 	 **/
 	providerScript: ParamId;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super();
 		this.providerScript = new ParamId(json?.providerScript);
 	}

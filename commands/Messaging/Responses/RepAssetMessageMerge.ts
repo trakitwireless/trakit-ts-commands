@@ -11,7 +11,7 @@ export class RepAssetMessageMerge extends Reply {
 	 **/
 	assetMessage: ContentIdCompany | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.assetMessage = ContentIdCompany.fromJSON(json?.assetMessage);
 	}

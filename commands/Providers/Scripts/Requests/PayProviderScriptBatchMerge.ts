@@ -12,12 +12,12 @@ export class PayProviderScriptBatchMerge extends Payload {
 	 **/
 	providerScripts: ParamProviderScriptMerge[];
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super();
 		this.providerScripts = json?.providerScripts?.map((e: any) => new ParamProviderScriptMerge(e)) ?? [];
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepProviderScriptBatchMerge(json);
 	}
 }

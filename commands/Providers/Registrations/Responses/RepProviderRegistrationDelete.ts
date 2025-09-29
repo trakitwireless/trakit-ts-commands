@@ -11,7 +11,7 @@ export class RepProviderRegistrationDelete extends Reply {
 	 **/
 	providerRegistration: ContentIdDeleted | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.providerRegistration = ContentIdDeleted.fromJSON(json?.providerRegistration);
 	}

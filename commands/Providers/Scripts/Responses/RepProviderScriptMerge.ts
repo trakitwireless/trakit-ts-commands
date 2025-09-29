@@ -11,7 +11,7 @@ export class RepProviderScriptMerge extends Reply {
 	 **/
 	providerScript: ContentIdCompany | nothing;
 	
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.providerScript = ContentIdCompany.fromJSON(json?.providerScript);
 	}

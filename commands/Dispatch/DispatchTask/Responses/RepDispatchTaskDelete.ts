@@ -11,7 +11,7 @@ export class RepDispatchTaskDelete extends Reply {
 	 **/
 	dispatchTask: ContentIdDeleted | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.dispatchTask = ContentIdDeleted.fromJSON(json?.dispatchTask);
 	}

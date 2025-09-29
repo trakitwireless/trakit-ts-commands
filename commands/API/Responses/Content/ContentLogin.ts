@@ -9,7 +9,7 @@ export class ContentLogin {
 	 * @param json - JSON object to create the {@link ContentLogin} from.
 	 * @returns A {@link ContentLogin} instance or nothing.
 	 */
-	static fromJSON(json: any): ContentLogin | nothing {
+	static fromJSON(json: JsonObject): ContentLogin | nothing {
 		return json
 			? new ContentLogin(json)
 			: null;
@@ -20,7 +20,7 @@ export class ContentLogin {
 	 **/
 	login: email;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		this.login = json?.login ?? "";
 	}
 }

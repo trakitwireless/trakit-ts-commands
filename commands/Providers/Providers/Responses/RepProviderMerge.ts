@@ -11,7 +11,7 @@ export class RepProviderMerge extends Reply {
 	 **/
 	provider: ContentIdendifierCompany | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.provider = ContentIdendifierCompany.fromJSON(json?.provider);
 	}

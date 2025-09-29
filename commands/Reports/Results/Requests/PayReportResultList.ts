@@ -14,7 +14,7 @@ export abstract class PayReportResultList extends Payload implements IPayDeletab
 	 **/
 	includeDeleted: boolean;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.includeDeleted = json?.includeDeleted ?? false;
 	}
@@ -29,12 +29,12 @@ export class PayReportResultListByCompany extends PayReportResultList implements
 	 **/
 	company: ParamId;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepReportResultListByCompany(json);
 	}
 }

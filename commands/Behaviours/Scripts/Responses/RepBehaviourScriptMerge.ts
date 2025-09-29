@@ -11,7 +11,7 @@ export class RepBehaviourScriptMerge extends Reply {
 	 **/
 	behaviourScript: ContentIdCompany | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.behaviourScript = ContentIdCompany.fromJSON(json?.behaviourScript);
 	}

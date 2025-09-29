@@ -10,7 +10,7 @@ export class ContentIdAsset extends ContentIdCompany {
 	 * @param json - JSON object to create the {@link ContentIdAsset} from.
 	 * @returns A {@link ContentIdAsset} instance or nothing.
 	 */
-	static override fromJSON(json: any): ContentIdAsset | nothing {
+	static override fromJSON(json: JsonObject): ContentIdAsset | nothing {
 		return json
 			? new ContentIdAsset(json)
 			: null;
@@ -21,7 +21,7 @@ export class ContentIdAsset extends ContentIdCompany {
 	 **/
 	asset: ulong | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.asset = json?.asset;
 	}

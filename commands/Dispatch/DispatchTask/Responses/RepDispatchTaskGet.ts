@@ -10,7 +10,7 @@ export class RepDispatchTaskGet extends Reply {
 	 **/
 	dispatchTask: DispatchTask | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.dispatchTask = json?.dispatchTask
 			? new DispatchTask(json.dispatchTask)

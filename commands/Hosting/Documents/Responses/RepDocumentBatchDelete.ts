@@ -11,7 +11,7 @@ export class RepDocumentBatchDelete extends Reply {
 	 **/
 	documents: ContentIdDeleted[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.documents = json?.documents?.map((item: any) => new ContentIdDeleted(item));
 	}

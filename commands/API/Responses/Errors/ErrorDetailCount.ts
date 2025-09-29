@@ -13,7 +13,7 @@ export class ErrorDetailCount extends ErrorDetail {
 	 **/
 	count: int;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super();
 		this.count = json?.count ?? 0;
 	}

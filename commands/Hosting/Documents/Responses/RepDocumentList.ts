@@ -11,7 +11,7 @@ export abstract class RepDocumentList extends Reply {
 	 **/
 	documents: Document[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.documents = json?.documents?.map((item: any) => new Document(item));
 	}
@@ -26,7 +26,7 @@ export class RepDocumentListByCompany extends RepDocumentList {
 	 **/
 	company: ContentId | nothing;
 	
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}

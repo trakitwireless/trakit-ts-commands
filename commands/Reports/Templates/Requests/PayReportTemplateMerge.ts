@@ -13,7 +13,7 @@ export class PayReportTemplateMerge extends Payload implements IPaySingle {
 	 **/
 	reportTemplate: ParamReportTemplateMerge;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.reportTemplate = new ParamReportTemplateMerge(json?.reportTemplate);
 	}
@@ -24,7 +24,7 @@ export class PayReportTemplateMerge extends Payload implements IPaySingle {
 		return this.reportTemplate?.id?.toString() ?? "";
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepReportTemplateMerge(json);
 	}
 }

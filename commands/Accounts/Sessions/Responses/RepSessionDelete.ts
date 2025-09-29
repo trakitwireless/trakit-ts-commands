@@ -10,7 +10,7 @@ export class RepSessionDelete extends Reply {
 	 **/
 	session: SessionHandle;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.session = new SessionHandle(json?.session);
 	}

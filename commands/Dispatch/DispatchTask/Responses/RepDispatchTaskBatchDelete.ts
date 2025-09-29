@@ -11,7 +11,7 @@ export class RepDispatchTaskBatchDelete extends Reply {
 	 **/
 	dispatchTasks: ContentIdDeleted[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.dispatchTasks = json?.dispatchTasks?.map((dt: any) => new ContentIdDeleted(dt)) ?? [];
 	}

@@ -6,7 +6,7 @@ import { PayPlace } from "./PayPlace";
  * Restores a deleted {@link Place}.
  */
 export class PayPlaceRestore extends PayPlace { 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepPlaceDelete(json);
 	}
 }

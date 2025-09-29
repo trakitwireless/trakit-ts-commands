@@ -16,7 +16,7 @@ export class ErrorDetailMinMax extends ErrorDetail {
 	 **/
 	max: Date | double | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super();
 		let date: Date;
 		this.min = utility.isntNaN(json?.min)

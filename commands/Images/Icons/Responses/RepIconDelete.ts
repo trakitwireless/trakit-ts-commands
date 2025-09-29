@@ -11,7 +11,7 @@ export class RepIconDelete extends Reply {
 	 **/
 	icon: ContentIdDeleted | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.icon = ContentIdDeleted.fromJSON(json?.icon);
 	}

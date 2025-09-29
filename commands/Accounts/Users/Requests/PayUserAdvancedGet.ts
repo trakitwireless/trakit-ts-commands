@@ -12,12 +12,12 @@ export class PayUserAdvancedGet extends PayUser implements IPayDeletable {
 	 **/
 	includeDeleted: boolean;
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.includeDeleted = json?.includeDeleted;
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepUserAdvancedGet(json);
 	}
 }

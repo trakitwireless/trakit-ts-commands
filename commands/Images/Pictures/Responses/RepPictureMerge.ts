@@ -11,7 +11,7 @@ export class RepPictureMerge extends Reply {
 	 **/
 	picture: ContentIdCompany | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.picture = ContentIdCompany.fromJSON(json?.picture);
 	}

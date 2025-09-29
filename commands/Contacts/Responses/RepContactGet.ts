@@ -10,7 +10,7 @@ export class RepContactGet extends Reply {
 	 **/
 	contact: Contact | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		if (json?.contact) {
 			this.contact = new Contact(json.contact);

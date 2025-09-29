@@ -34,7 +34,7 @@ export class ErrorDetailThrottled extends ErrorDetail {
 	 **/
 	timeout: TimeSpan;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super();
 		this.ghostId = json?.ghostId ?? "";
 		this.login = json?.login ?? "";

@@ -42,7 +42,7 @@ export class ParamProviderRegistrationMerge extends ParamMerge {
 	/// </summary>
 	password: string | nothing;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super();
 		this.config = json?.config;
 		this.asset = json?.asset;
@@ -57,7 +57,7 @@ export class ParamProviderRegistrationMerge extends ParamMerge {
 	}
 
 	override toJSON(): any {
-		const json: any = {};
+		const json: JsonObject = {};
 		if (this.config) json.config = this.config;
 		if (!utility.isNothing(this.asset)) json.asset = this.asset;
 		if (!utility.isNothing(this.identifier)) json.identifier = this.identifier;

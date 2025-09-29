@@ -11,7 +11,7 @@ export abstract class PayProviderConfigurationType extends Payload implements IP
 	 **/
 	providerConfigurationType: ParamId;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.providerConfigurationType = new ParamId(json?.providerConfigurationType);
 	}

@@ -12,12 +12,12 @@ export class PayMachineBatchDelete extends Payload {
 	 **/
 	machines: ParamKey[];
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.machines = json?.machines.map((m: any) => new ParamKey(m)) ?? [];
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepMachineBatchDelete(json);
 	}
 }

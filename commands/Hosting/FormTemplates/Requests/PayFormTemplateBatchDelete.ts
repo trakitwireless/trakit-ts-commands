@@ -12,12 +12,12 @@ export class PayFormTemplateBatchDelete extends Payload {
 	 */
 	formTemplates: ParamId[];
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.formTemplates = json?.formTemplates?.map((item: any) => new ParamId(item)) ?? [];
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepFormTemplateBatchDelete(json);
 	}
 }

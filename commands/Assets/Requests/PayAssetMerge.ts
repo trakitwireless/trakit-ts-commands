@@ -12,12 +12,12 @@ export class PayAssetMerge extends Payload {
 	 **/
 	asset: ParamAssetMerge;
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.asset = new ParamAssetMerge(json?.asset);
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepAssetMerge(json);
 	}
 }

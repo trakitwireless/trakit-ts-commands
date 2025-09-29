@@ -11,7 +11,7 @@ export class RepProviderScriptBatchDelete extends Reply {
 	 **/
 	providerScripts: ContentIdDeleted[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.providerScripts = json?.providerScripts?.map((v: any) => new ContentIdDeleted(v));
 	}

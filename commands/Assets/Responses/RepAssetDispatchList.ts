@@ -11,7 +11,7 @@ export abstract class RepAssetDispatchList extends Reply {
 	 **/
 	assetDispatches: AssetDispatch[] | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.assetDispatches = json?.assetDispatches?.map((el: any) => new AssetDispatch(el));
 	}
@@ -26,7 +26,7 @@ export class RepAssetDispatchListByCompany extends RepAssetDispatchList {
 	 **/
 	company: ContentId | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}
@@ -41,7 +41,7 @@ export class RepAssetDispatchListByCompanyAndLabels extends RepAssetDispatchList
 	 **/
 	labels: string[] | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.labels = json?.labels;
 	}
@@ -56,7 +56,7 @@ export class RepAssetDispatchListByCompanyAndRefPairs extends RepAssetDispatchLi
 	 **/
 	references: Map<string, string> | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		if (json?.references) {
 			this.references = serialization.toMap(json.references);

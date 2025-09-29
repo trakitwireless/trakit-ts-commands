@@ -10,7 +10,7 @@ export class ContentIdCompany extends ContentId /*implements IBelongCompany*/ {
 	 * @param json - JSON object to create the {@link ContentIdCompany} from.
 	 * @returns A {@link ContentIdCompany} instance or nothing.
 	 */
-	static override fromJSON(json: any): ContentIdCompany | nothing {
+	static override fromJSON(json: JsonObject): ContentIdCompany | nothing {
 		return json
 			? new ContentIdCompany(json)
 			: null;
@@ -21,7 +21,7 @@ export class ContentIdCompany extends ContentId /*implements IBelongCompany*/ {
 	 **/
 	company: ulong | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = json?.company;
 	}

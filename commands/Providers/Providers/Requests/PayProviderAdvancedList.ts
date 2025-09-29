@@ -19,7 +19,7 @@ export abstract class PayProviderAdvancedList extends Payload implements IPayDel
 	 **/
 	includeDeleted: boolean;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.includeSuspended = json?.includeSuspended ?? false;
 		this.includeDeleted = json?.includeDeleted ?? true;
@@ -35,12 +35,12 @@ export class PayProviderAdvancedListByCompany extends PayProviderAdvancedList im
 	 **/
 	company: ParamId;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
 	
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepProviderAdvancedListByCompany(json);
 	}
 }
@@ -53,12 +53,12 @@ export class PayProviderAdvancedListByConfig extends PayProviderAdvancedList {
 	 **/
 	config: ParamId;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.config = new ParamId(json?.config);
 	}
 	
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepProviderAdvancedListByConfig(json);
 	}
 }

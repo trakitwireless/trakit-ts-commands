@@ -10,7 +10,7 @@ export class RepFormTemplateBatchDelete extends Reply {
 	 */
 	formTemplates: ContentIdDeleted[];
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.formTemplates = json?.formTemplates?.map((item: any) => new ContentIdDeleted(item));
 	}

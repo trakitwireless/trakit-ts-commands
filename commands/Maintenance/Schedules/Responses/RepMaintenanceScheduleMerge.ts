@@ -11,7 +11,7 @@ export class RepMaintenanceScheduleMerge extends Reply {
 	 **/
 	maintenanceSchedule: ContentIdCompany | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.maintenanceSchedule = ContentIdCompany.fromJSON(json?.maintenanceSchedule);
 	}

@@ -11,7 +11,7 @@ export abstract class PayDispatchTask extends Payload implements IPaySingle {
 	 **/
 	dispatchTask: ParamId;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.dispatchTask = new ParamId(json?.dispatchTask);
 	}

@@ -11,7 +11,7 @@ export class RepFormTemplateBatchMerge extends Reply {
 	 */
 	formTemplates: ContentIdCompany[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.formTemplates = json?.formTemplates?.map((item: any) => new ContentIdCompany(item));
 	}

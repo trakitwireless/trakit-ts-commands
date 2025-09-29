@@ -10,7 +10,7 @@ export class RepAssetDispatchGet extends Reply {
 	 **/
 	assetDispatch: AssetDispatch | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		if (json?.assetDispatch) {
 			this.assetDispatch = new AssetDispatch(json.assetDispatch);

@@ -11,7 +11,7 @@ export abstract class RepAssetGeneralList extends Reply {
 	 **/
 	assetGenerals: AssetGeneral[] | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.assetGenerals = json?.assetGenerals?.map((el: any) => new AssetGeneral(el));
 	}
@@ -26,7 +26,7 @@ export class RepAssetGeneralListByCompany extends RepAssetGeneralList {
 	 **/
 	company: ContentId | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}
@@ -41,7 +41,7 @@ export class RepAssetGeneralListByCompanyAndLabels extends RepAssetGeneralListBy
 	 **/
 	labels: string[] | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.labels = json?.labels;
 	}
@@ -56,7 +56,7 @@ export class RepAssetGeneralListByCompanyAndRefPairs extends RepAssetGeneralList
 	 **/
 	references: Map<string, string> | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		if (json?.references) {
 			this.references = serialization.toMap(json.references);

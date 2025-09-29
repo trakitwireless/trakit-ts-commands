@@ -10,7 +10,7 @@ export class RepDashcamGet extends Reply {
 	 **/
 	dashcam: Dashcam | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.dashcam = json?.dashcam
 			? new Dashcam(json.dashcam)

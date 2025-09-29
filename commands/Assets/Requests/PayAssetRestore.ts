@@ -6,7 +6,7 @@ import { PayAsset } from "./PayAsset";
  * Restores a deleted {@link Asset}.
  **/
 export class PayAssetRestore extends PayAsset { 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepAssetDelete(json);
 	}
 }

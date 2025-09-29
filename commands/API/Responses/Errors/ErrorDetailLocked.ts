@@ -16,7 +16,7 @@ export class ErrorDetailLocked extends ErrorDetail {
 	 **/
 	until: Date;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super();
 		this.timeout = TimeSpan.fromSeconds(json.timeout);
 		this.until = utility.date(json?.until);

@@ -13,7 +13,7 @@ export class PayUserMerge extends Payload implements IPaySingle {
 	 **/
 	user: ParamUserMerge;
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.user = new ParamUserMerge(json?.user);
 	}
@@ -25,7 +25,7 @@ export class PayUserMerge extends Payload implements IPaySingle {
 		return this.user?.login ?? "";
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepUserMerge(json);
 	}
 }

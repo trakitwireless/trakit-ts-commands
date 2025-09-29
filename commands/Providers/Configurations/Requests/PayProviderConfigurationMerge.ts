@@ -13,7 +13,7 @@ export class PayProviderConfigurationMerge extends Payload implements IPaySingle
 	 **/
 	providerConfiguration: ParamProviderConfigurationMerge;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.providerConfiguration = new ParamProviderConfigurationMerge(json?.providerConfiguration);
 	}
@@ -25,7 +25,7 @@ export class PayProviderConfigurationMerge extends Payload implements IPaySingle
 		return this.providerConfiguration?.id?.toString() ?? "";
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepProviderConfigurationMerge(json);
 	}
 }

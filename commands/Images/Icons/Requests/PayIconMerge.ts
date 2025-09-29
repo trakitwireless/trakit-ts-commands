@@ -13,7 +13,7 @@ export class PayIconMerge extends Payload implements IPaySingle {
 	 **/
 	icon: ParamIconMerge;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.icon = new ParamIconMerge(json?.icon);
 	}
@@ -25,7 +25,7 @@ export class PayIconMerge extends Payload implements IPaySingle {
 		return this.icon?.id?.toString() ?? "";
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepIconMerge(json);
 	}
 }

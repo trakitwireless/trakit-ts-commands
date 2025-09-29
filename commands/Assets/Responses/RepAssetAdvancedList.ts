@@ -11,7 +11,7 @@ export abstract class RepAssetAdvancedList extends Reply {
 	 **/
 	assetAdvanceds: AssetAdvanced[] | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.assetAdvanceds = json?.assetAdvanceds?.map((el: any) => new AssetAdvanced(el));
 	}
@@ -26,7 +26,7 @@ export class RepAssetAdvancedListByCompany extends RepAssetAdvancedList {
 	 **/
 	company: ContentId | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}
@@ -41,7 +41,7 @@ export class RepAssetAdvancedListByCompanyAndLabels extends RepAssetAdvancedList
 	 **/
 	labels: string[] | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.labels = json?.labels;
 	}
@@ -56,7 +56,7 @@ export class RepAssetAdvancedListByCompanyAndRefPairs extends RepAssetAdvancedLi
 	 **/
 	references: Map<string, string> | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		if (json?.references) {
 			this.references = serialization.toMap(json.references);

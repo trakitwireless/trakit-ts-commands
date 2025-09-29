@@ -11,7 +11,7 @@ export abstract class RepIconList extends Reply {
 	 **/
 	icons: Icon[] | nothing;
 	
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.icons = json?.icons?.map((i: any) => new Icon(i));
 	}
@@ -26,7 +26,7 @@ export class RepIconListByCompany extends RepIconList {
 	 **/
 	company: ContentId | nothing;
 	
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}

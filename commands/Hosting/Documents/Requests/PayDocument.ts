@@ -11,7 +11,7 @@ export abstract class PayDocument extends Payload implements IPaySingle {
 	 **/
 	document: ParamId;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.document = new ParamId(json?.document);
 	}

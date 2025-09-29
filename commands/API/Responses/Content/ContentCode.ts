@@ -9,7 +9,7 @@ export class ContentCode {
 	 * @param json - JSON object to create the {@link ContentCode} from.
 	 * @returns A {@link ContentCode} instance or nothing.
 	 */
-	static fromJSON(json: any): ContentCode | nothing {
+	static fromJSON(json: JsonObject): ContentCode | nothing {
 		return json
 			? new ContentCode(json)
 			: null;
@@ -20,7 +20,7 @@ export class ContentCode {
 	 **/
 	code: string;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		this.code = json?.code ?? "";
 	}
 }

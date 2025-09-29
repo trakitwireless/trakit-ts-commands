@@ -14,7 +14,7 @@ export abstract class RepDispatchTaskList extends Reply {
 	 **/
 	dispatchTasks: DispatchTask[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.dispatchTasks = json?.dispatchTasks?.map((dt: any) => new DispatchTask(dt));
 	}
@@ -29,7 +29,7 @@ export class RepDispatchTaskListByAsset extends RepDispatchTaskList implements I
 	 **/
 	asset: ContentId | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.asset = ContentId.fromJSON(json?.asset);
 	}
@@ -44,7 +44,7 @@ export class RepDispatchTaskListByAssetAndRefPairs extends RepDispatchTaskListBy
 	 **/
 	references: Map<string, string> | nothing;
 	
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.references = json?.references
 			? serialization.toMap(json.references)
@@ -60,7 +60,7 @@ export class RepDispatchTaskListByCompany extends RepDispatchTaskList implements
 	 **/
 	company: ContentId | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}
@@ -75,7 +75,7 @@ export class RepDispatchTaskListByCompanyAndRefPairs extends RepDispatchTaskList
 	 **/
 	references: Map<string, string> | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.references = json?.references
 			? serialization.toMap(json.references)

@@ -41,7 +41,7 @@ export class ParamProviderConfigMerge extends ParamMergeSubscribable {
 	/// </summary>
 	geofences: string | nothing;
 	
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id;
 		this.script = json?.script;
@@ -54,7 +54,7 @@ export class ParamProviderConfigMerge extends ParamMergeSubscribable {
 	}
 
 	override toJSON(): any {
-		const json: any = {};
+		const json: JsonObject = {};
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];

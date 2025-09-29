@@ -10,7 +10,7 @@ export abstract class RepBehaviourLogList extends Reply {
 	 * The list of requested {@link BehaviourLog}s.
 	 **/
 	behaviourLogs: BehaviourLog[] | nothing;
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.behaviourLogs = json?.behaviourLogs?.map((item: any) => new BehaviourLog(item));
 	}
@@ -25,7 +25,7 @@ export class RepBehaviourLogListByCompany extends RepBehaviourLogList {
 	 **/
 	company: ContentId | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}

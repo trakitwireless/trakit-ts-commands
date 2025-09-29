@@ -10,7 +10,7 @@ export class ContentLoginCompany extends ContentLogin {
 	 * @param json - JSON object to create the {@link ContentLoginCompany} from.
 	 * @returns A {@link ContentLoginCompany} instance or nothing.
 	 */
-	static override fromJSON(json: any): ContentLoginCompany | nothing {
+	static override fromJSON(json: JsonObject): ContentLoginCompany | nothing {
 		return json
 			? new ContentLoginCompany(json)
 			: null;
@@ -21,7 +21,7 @@ export class ContentLoginCompany extends ContentLogin {
 	 **/
 	company: ulong;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = json?.company;
 	}

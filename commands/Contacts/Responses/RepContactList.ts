@@ -11,7 +11,7 @@ export abstract class RepContactList extends Reply {
 	 **/
 	contacts: Contact[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.contacts = json?.contacts?.map((c: any) => new Contact(c)) ?? [];
 	}
@@ -26,7 +26,7 @@ export class RepContactListByCompany extends RepContactList {
 	 **/
 	company: ContentId | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}

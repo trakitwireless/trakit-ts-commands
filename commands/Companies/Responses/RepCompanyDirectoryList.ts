@@ -11,7 +11,7 @@ export abstract class RepCompanyDirectoryList extends Reply {
 	 **/
 	companyDirectorys: CompanyDirectory[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.companyDirectorys = json?.companyDirectorys?.map((c: any) => new CompanyDirectory(c));
 	}
@@ -26,7 +26,7 @@ export class RepCompanyDirectoryListByCompany extends RepCompanyDirectoryList {
 	 **/
 	company: ContentId | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}
@@ -42,7 +42,7 @@ export class RepCompanyDirectoryListByCompanyAndLabels extends RepCompanyDirecto
 	 **/
 	labels: string[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.labels = json?.labels;
 	}
@@ -57,7 +57,7 @@ export class RepCompanyDirectoryListByCompanyAndRefPairs extends RepCompanyDirec
 	 **/
 	references: Map<string, string> | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		if (json?.references) {
 			this.references = serialization.toMap(json.references);

@@ -10,7 +10,7 @@ export class RepBehaviourScriptGet extends Reply {
 	 **/
 	behaviourScript: BehaviourScript | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		if (json?.behaviourScript) {
 			this.behaviourScript = new BehaviourScript(json.behaviourScript);

@@ -11,7 +11,7 @@ export abstract class PayMaintenanceSchedule extends Payload implements IPaySing
 	 **/
 	maintenanceSchedule: ParamId;
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.maintenanceSchedule = new ParamId(json?.maintenanceSchedule);
 	}

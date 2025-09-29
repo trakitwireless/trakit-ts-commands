@@ -12,12 +12,12 @@ export class PayMaintenanceJobBatchMerge extends Payload {
 	 **/
 	maintenanceJobs: ParamMaintenanceJobMerge[];
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.maintenanceJobs = json?.maintenanceJobs?.map((item: any) => new ParamMaintenanceJobMerge(item)) ?? [];
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepMaintenanceJobBatchMerge(json);
 	}
 }

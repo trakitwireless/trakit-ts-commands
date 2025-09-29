@@ -11,7 +11,7 @@ export class RepContactDelete extends Reply {
 	 **/
 	contact: ContentIdDeleted | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.contact = ContentIdDeleted.fromJSON(json?.contact);
 	}

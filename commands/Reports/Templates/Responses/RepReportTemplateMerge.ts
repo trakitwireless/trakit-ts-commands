@@ -11,7 +11,7 @@ export class RepReportTemplateMerge extends Reply {
 	 **/
 	reportTemplate: ContentIdCompany | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.reportTemplate = ContentIdCompany.fromJSON(json?.reportTemplate);
 	}

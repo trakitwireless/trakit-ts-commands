@@ -10,7 +10,7 @@ export abstract class RepProviderGeneralList extends Reply {
 	 **/
 	providerGenerals: ProviderGeneral[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.providerGenerals = json?.providerGenerals?.map((v: any) => new ProviderGeneral(v));
 	}
@@ -25,7 +25,7 @@ export class RepProviderGeneralListByCompany extends RepProviderGeneralList {
 	 **/
 	company: ContentId | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}
@@ -39,7 +39,7 @@ export class RepProviderGeneralListByConfig extends RepProviderGeneralList {
 	 **/
 	config: ContentId | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.config = ContentId.fromJSON(json?.config);
 	}

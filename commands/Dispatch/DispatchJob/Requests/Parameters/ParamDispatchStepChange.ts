@@ -24,7 +24,7 @@ export class ParamDispatchStepChange extends ParamMergeSubscribable {
 	 **/
 	status: DispatchStepStatus | nothing;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id;
 		this.notes = json?.notes;
@@ -32,7 +32,7 @@ export class ParamDispatchStepChange extends ParamMergeSubscribable {
 		this.status = json?.status;
 	}
 	override toJSON(): any {
-		const json: any = {
+		const json: JsonObject = {
 			id: this.id,
 		};
 		if (this.notes) json.notes = this.notes;

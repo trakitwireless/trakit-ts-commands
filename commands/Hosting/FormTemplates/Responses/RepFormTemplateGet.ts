@@ -10,7 +10,7 @@ export class RepFormTemplateGet extends Reply {
 	 */
 	formTemplate: FormTemplate | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.formTemplate = json?.formTemplate
 			? new FormTemplate(json.formTemplate)

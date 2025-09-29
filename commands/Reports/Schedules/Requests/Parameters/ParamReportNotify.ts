@@ -10,7 +10,7 @@ export class ParamReportNotify extends ParamMerge {
 	 * @param json The JSON to parse.
 	 * @returns A new instance of ParamReportNotify or null.
 	 */
-	static fromJSON(json: any): ParamReportNotify | nothing {
+	static fromJSON(json?: JsonObject): ParamReportNotify | nothing {
 		return json
 			? new ParamReportNotify(json)
 			: null;
@@ -26,14 +26,14 @@ export class ParamReportNotify extends ParamMerge {
 	/// </summary>
 	assets: string | nothing;
 	
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super();
 		this.users = json?.users ? [...json.users] : null;
 		this.assets = json?.assets;
 	}
 
 	override toJSON(): any {
-		const json: any = {};
+		const json: JsonObject = {};
 		if (this.users?.length) json.users = [...this.users];
 		if (!utility.isNothing(this.assets)) json.assets = this.assets;
 		return json;

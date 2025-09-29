@@ -11,7 +11,7 @@ export abstract class PayMachine extends Payload implements IPaySingle {
 	 **/
 	machine: ParamKey;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.machine = new ParamKey(json?.machine);
 	}

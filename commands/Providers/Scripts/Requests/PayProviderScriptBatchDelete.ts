@@ -12,12 +12,12 @@ export class PayProviderScriptBatchDelete extends Payload {
 	 **/
 	providerScripts: ParamId[];
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super();
 		this.providerScripts = json?.providerScripts?.map((e: any) => new ParamId(e)) ?? [];
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepProviderScriptBatchDelete(json);
 	}
 }

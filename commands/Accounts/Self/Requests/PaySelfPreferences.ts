@@ -37,7 +37,7 @@ export class PaySelfPreferences extends Payload {
 	 **/
 	options: Map<string, string | nothing> | nothing;
 	
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.language = json?.language;
 		this.timezone = utility.findTimeZoneById(json?.timezone);
@@ -61,12 +61,12 @@ export class PaySelfPreferences extends Payload {
 		};
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepSelfPreferences(json);
 	}
 
 	override toJSON(): any {
-		const json: any = super.toJSON();
+		const json: JsonObject = super.toJSON();
 		if (this.language) json.language = this.language;
 		if (this.timezone) json.timezone = this.timezone.code;
 		if (this.notify) json.notify = this.notify.map((n) => n.toJSON());

@@ -9,7 +9,7 @@ export class ContentIdendifier {
 	 * @param json - JSON object to create the {@link ContentId} from.
 	 * @returns A {@link ContentId} instance or nothing.
 	 */
-	static fromJSON(json: any): ContentIdendifier | nothing {
+	static fromJSON(json: JsonObject): ContentIdendifier | nothing {
 		return json
 			? new ContentIdendifier(json)
 			: null;
@@ -20,7 +20,7 @@ export class ContentIdendifier {
 	 **/
 	id: string;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		this.id = json?.id ?? "";
 	}
 }

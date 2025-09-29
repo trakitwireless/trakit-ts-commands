@@ -14,14 +14,14 @@ export class ParamReportScorecardRules extends ParamMerge {
 	/// </summary>
 	parameters: ReportScorecardParameter[] | nothing;
 	
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super();
 		this.baseScore = json?.baseScore;
 		this.parameters = json?.parameters?.map((e: any) => new ReportScorecardParameter(e));
 	}
 
 	override toJSON(): any {
-		const json: any = {};
+		const json: JsonObject = {};
 		if (this.baseScore) json.baseScore = this.baseScore;
 		if (this.parameters?.length) json.parameters = this.parameters?.map((e) => e.toJSON());
 		return json;

@@ -6,7 +6,7 @@ import { PayDocument } from "./PayDocument";
  * Restores a deleted {@link Document}.
  **/
 export class PayDocumentRestore extends PayDocument { 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepDocumentDelete(json);
 	}
 }

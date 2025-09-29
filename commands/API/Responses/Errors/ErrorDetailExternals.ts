@@ -19,7 +19,7 @@ export class ErrorDetailExternals extends ErrorDetail {
 	 **/
 	messages: string[];
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super();
 		this.errors = json?.errors ?? [];
 		this.warnings = json?.warnings ?? [];

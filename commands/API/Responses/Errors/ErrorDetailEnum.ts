@@ -11,7 +11,7 @@ export class ErrorDetailEnum extends ErrorDetailInput {
 	 **/
 	valid: string[];
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.valid = json?.valid ?? [];
 	}

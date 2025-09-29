@@ -11,7 +11,7 @@ export class RepContactBatchDelete extends Reply {
 	 **/
 	contacts: ContentIdDeleted[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.contacts = json?.contacts?.map((c: any) => new ContentIdDeleted(c));
 	}

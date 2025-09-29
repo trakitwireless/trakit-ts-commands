@@ -11,7 +11,7 @@ export abstract class RepFormResultList extends Reply {
 	 */
 	formResults: FormResult[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.formResults = json?.formResults?.map((item: any) => new FormResult(item));
 	}
@@ -26,7 +26,7 @@ export class RepFormResultListByCompany extends RepFormResultList {
 	 */
 	company: ContentId | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}

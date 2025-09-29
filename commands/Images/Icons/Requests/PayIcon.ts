@@ -11,7 +11,7 @@ export abstract class PayIcon extends Payload implements IPaySingle {
 	 **/
 	icon: ParamId;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.icon = new ParamId(json?.icon);
 	}

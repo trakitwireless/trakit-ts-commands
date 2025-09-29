@@ -10,7 +10,7 @@ export class RepProviderControlGet extends Reply {
 	 **/
 	providerControl: ProviderControl | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.providerControl = json?.providerControl
 			? new ProviderControl(json.providerControl)

@@ -6,7 +6,7 @@ import { PayUser } from "./PayUser";
  * Restores a deleted {@link User}.
  **/
 export class PayUserRestore extends PayUser { 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepUserDelete(json);
 	}
 }

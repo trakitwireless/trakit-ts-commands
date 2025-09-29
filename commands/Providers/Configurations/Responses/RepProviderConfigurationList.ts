@@ -11,7 +11,7 @@ export abstract class RepProviderConfigurationList extends Reply {
 	 **/
 	providerConfigurations: ProviderConfiguration[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.providerConfigurations = json?.providerConfigurations?.map((v: any) => new ProviderConfiguration(v));
 	}
@@ -26,7 +26,7 @@ export class RepProviderConfigurationListByCompany extends RepProviderConfigurat
 	 **/
 	company: ContentId | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}

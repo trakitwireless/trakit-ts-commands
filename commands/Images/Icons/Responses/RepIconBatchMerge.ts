@@ -11,7 +11,7 @@ export class RepIconBatchMerge extends Reply {
 	 **/
 	icons: ContentIdCompany[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.icons = json?.icons?.map((i: any) => new ContentIdCompany(i));
 	}

@@ -11,7 +11,7 @@ export class RepUserGroupBatchMerge extends Reply {
 	 **/
 	userGroups: ContentIdCompany[] | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.userGroups = json.userGroups?.map((ug: any) => new ContentIdCompany(ug));
 	}

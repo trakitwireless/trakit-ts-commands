@@ -17,7 +17,7 @@ export abstract class PayCompanyGeneralList extends Payload implements IPayDelet
 	 **/
 	includeDeleted: boolean;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super();
 		this.includeDeleted = json?.includeDeleted ?? false;
 	}
@@ -32,12 +32,12 @@ export class PayCompanyGeneralListByCompany extends PayCompanyGeneralList implem
 	 **/
 	company: ParamId;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepCompanyGeneralListByCompany(json);
 	}
 }
@@ -51,11 +51,11 @@ export class PayCompanyGeneralListByCompanyAndLabels extends PayCompanyGeneralLi
 	 **/
 	labels: string[];
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.labels = json?.labels ?? [];
 	}
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepCompanyGeneralListByCompanyAndLabels(json);
 	}
 }
@@ -71,14 +71,14 @@ export class PayCompanyGeneralListByCompanyAndRefPairs extends PayCompanyGeneral
 	 **/
 	references: Map<string, string>;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.references = json?.references
 			? serialization.toMap(json.references)
 			: new Map<string, string>();
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepCompanyGeneralListByCompanyAndRefPairs(json);
 	}
 }

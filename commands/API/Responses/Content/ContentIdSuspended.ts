@@ -10,7 +10,7 @@ export class ContentIdSuspended extends ContentIdCompany {
 	 * @param json - JSON object to create the {@link ContentIdSuspended} from.
 	 * @returns A {@link ContentIdSuspended} instance or nothing.
 	 */
-	static override fromJSON(json: any): ContentIdSuspended | nothing {
+	static override fromJSON(json: JsonObject): ContentIdSuspended | nothing {
 		return json
 			? new ContentIdSuspended(json)
 			: null;
@@ -25,7 +25,7 @@ export class ContentIdSuspended extends ContentIdCompany {
 	 **/
 	v: uint[];
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.suspended = !!(json?.suspended);
 		this.v = json?.v ?? [];

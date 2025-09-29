@@ -68,7 +68,7 @@ export class ParamDispatchTaskMerge extends ParamMergeSubscribable {
 	 **/
 	status: DispatchTaskStatus | nothing;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id;
 		this.asset = json?.asset;
@@ -86,7 +86,7 @@ export class ParamDispatchTaskMerge extends ParamMergeSubscribable {
 	}
 
 	override toJSON(): any {
-		const json: any = {};
+		const json: JsonObject = {};
 		if (this.id) json.id = this.id;
 		if (this.asset) json.asset = this.asset;
 		if (this.name) json.name = this.name;

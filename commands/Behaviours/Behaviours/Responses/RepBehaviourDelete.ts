@@ -11,7 +11,7 @@ export class RepBehaviourDelete extends Reply {
 	 **/
 	behaviour: ContentIdDeleted | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.behaviour = ContentIdDeleted.fromJSON(json?.behaviour);
 	}

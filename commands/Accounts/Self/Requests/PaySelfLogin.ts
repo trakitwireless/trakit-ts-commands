@@ -21,7 +21,7 @@ export class PaySelfLogin extends Payload {
 	 **/
 	userAgent: string | nothing;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.username = json?.username ?? "";
 		this.password = json?.password ?? "";
@@ -42,12 +42,12 @@ export class PaySelfLogin extends Payload {
 		};
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepSelfGet(json);
 	}
 
 	override toJSON(): any {
-		const json: any = {
+		const json: JsonObject = {
 			...super.toJSON(),
 			username: this.username,
 			password: this.password,

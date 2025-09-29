@@ -16,7 +16,7 @@ export class ErrorDetailUserGroupInUse extends ErrorDetail {
 	 **/
 	machines: string[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super();
 		this.users = json?.users;
 		this.machines = json?.machines;

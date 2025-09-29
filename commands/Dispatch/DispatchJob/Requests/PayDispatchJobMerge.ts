@@ -13,7 +13,7 @@ export class PayDispatchJobMerge extends Payload implements IPaySingle {
 	 **/
 	dispatchJob: ParamDispatchJobMerge;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.dispatchJob = new ParamDispatchJobMerge(json?.dispatchJob);
 	}
@@ -25,7 +25,7 @@ export class PayDispatchJobMerge extends Payload implements IPaySingle {
 		return this.dispatchJob?.id?.toString() ?? "";
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepDispatchJobMerge(json);
 	}
 }

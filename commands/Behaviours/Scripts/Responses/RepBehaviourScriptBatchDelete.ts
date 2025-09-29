@@ -11,7 +11,7 @@ export class RepBehaviourScriptBatchDelete extends Reply {
 	 **/
 	behaviourScripts: ContentIdDeleted[] | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.behaviourScripts = json?.behaviourScripts?.map((x: any) => new ContentIdDeleted(x));
 	}

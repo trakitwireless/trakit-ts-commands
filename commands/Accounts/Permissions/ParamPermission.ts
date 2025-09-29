@@ -36,7 +36,7 @@ export class ParamPermission {
 	 **/
 	labels: string[] | nothing;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		this.company = json?.company;
 		this.kind = json?.kind ?? json?.type;
 		this.level = json?.level;
@@ -45,7 +45,7 @@ export class ParamPermission {
 	}
 
 	toJSON(): any {
-		const json: any = {};
+		const json: JsonObject = {};
 		if (utility.isntNaN(this.company as number)) {
 			json["company"] = this.company;
 		}

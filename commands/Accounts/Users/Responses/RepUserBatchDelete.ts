@@ -10,7 +10,7 @@ export class RepUserBatchDelete extends Reply {
 	 **/
 	users: ContentIdDeleted[];
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.users = json?.users?.map((u: any) => new ContentIdDeleted(u));
 	}

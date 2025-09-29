@@ -10,7 +10,7 @@ export class RepPlaceGet extends Reply {
 	 */
 	place: Place | nothing;
 	
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.place = json?.place
 			? new Place(json.place)

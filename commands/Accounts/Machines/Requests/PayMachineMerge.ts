@@ -13,7 +13,7 @@ export class PayMachineMerge extends Payload implements IPaySingle {
 	 **/
 	machine: ParamMachineMerge;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.machine = new ParamMachineMerge(json?.machine);
 	}
@@ -25,7 +25,7 @@ export class PayMachineMerge extends Payload implements IPaySingle {
 		return this.machine?.key ?? "";
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepMachineMerge(json);
 	}
 }

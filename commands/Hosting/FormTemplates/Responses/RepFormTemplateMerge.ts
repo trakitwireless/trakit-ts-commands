@@ -11,7 +11,7 @@ export class RepFormTemplateMerge extends Reply {
 	 */
 	formTemplate: ContentIdCompany | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.formTemplate = ContentIdCompany.fromJSON(json?.formTemplate);
 	}

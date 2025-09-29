@@ -111,7 +111,7 @@ export class ParamMachineMerge extends ParamMergeSubscribable {
 	 **/
 	insecure: boolean | nothing;
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.key = json?.key;
 		this.secret = json?.secret;
@@ -135,7 +135,7 @@ export class ParamMachineMerge extends ParamMergeSubscribable {
 	}
 
 	override toJSON(): any {
-		const json: any = {};
+		const json: JsonObject = {};
 		if (this.key) {
 			json["key"] = this.key;
 			json["v"] = [...this.v];

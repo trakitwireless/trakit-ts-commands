@@ -29,7 +29,7 @@ export abstract class PayAssetAdvancedList extends Payload implements IPayDeleta
 	 **/
 	includeDeleted: boolean;
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.includeMessages = json?.includeMessages;
 		this.includeTasks = json?.includeTasks;
@@ -47,12 +47,12 @@ export class PayAssetAdvancedListByCompany extends PayAssetAdvancedList implemen
 	 **/
 	company: ParamId;
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepAssetAdvancedListByCompany(json);
 	}
 }
@@ -66,12 +66,12 @@ export class PayAssetAdvancedListByCompanyAndLabels extends PayAssetAdvancedList
 	 **/
 	labels: string[];
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.labels = json?.labels ?? [];
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepAssetAdvancedListByCompanyAndLabels(json);
 	}
 }
@@ -87,12 +87,12 @@ export class PayAssetAdvancedListByCompanyAndRefPairs extends PayAssetAdvancedLi
 	 **/
 	references: Map<string, string>;
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.references = json?.references ? new Map(Object.entries(json.references)) : new Map();
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepAssetAdvancedListByCompanyAndRefPairs(json);
 	}
 }

@@ -47,7 +47,7 @@ export class ParamReportResultMerge extends ParamMergeSubscribable {
 	/// <seealso cref="Timezone.code" />
 	timezone: Timezone | nothing;
 	
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id;
 		this.template = json?.template;
@@ -61,7 +61,7 @@ export class ParamReportResultMerge extends ParamMergeSubscribable {
 	}
 
 	override toJSON(): any {
-		const json: any = {};
+		const json: JsonObject = {};
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];

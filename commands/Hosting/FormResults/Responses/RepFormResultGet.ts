@@ -10,7 +10,7 @@ export class RepFormResultGet extends Reply {
 	 */
 	formResult: FormResult | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.formResult = json?.formResult
 			? new FormResult(json.formResult)

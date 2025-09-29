@@ -6,7 +6,7 @@ import { PayUserGroup } from "./PayUserGroup";
  * Restores a deleted {@link UserGroup}.
  **/
 export class PayUserGroupRestore extends PayUserGroup { 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepUserGroupDelete(json);
 	}
 }

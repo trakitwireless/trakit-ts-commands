@@ -11,7 +11,7 @@ export class RepMachineBatchMerge extends Reply {
 	 **/
 	machines: ContentKeyCompany[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.machines = json?.machines?.map((m: any) => new ContentKeyCompany(m));
 	}

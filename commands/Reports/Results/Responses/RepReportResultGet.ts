@@ -10,7 +10,7 @@ export class RepReportResultGet extends Reply {
 	 **/
 	reportResult: ReportResult | nothing;
 	
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.reportResult = json?.reportResult
 			? new ReportResult(json.reportResult)

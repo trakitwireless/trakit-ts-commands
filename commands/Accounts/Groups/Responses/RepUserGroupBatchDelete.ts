@@ -11,7 +11,7 @@ export class RepUserGroupBatchDelete extends Reply {
 	 **/
 	userGroups: ContentIdDeleted[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.userGroups = json.userGroups?.map((ug: any) => new ContentIdDeleted(ug));
 	}

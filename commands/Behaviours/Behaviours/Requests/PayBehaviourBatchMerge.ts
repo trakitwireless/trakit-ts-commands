@@ -13,12 +13,12 @@ export class PayBehaviourBatchMerge extends Payload {
 	 **/
 	behaviours: ParamBehaviourMerge[] | nothing;
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.behaviours = json?.behaviours?.map((item: any) => new ParamBehaviourMerge(item)) ?? [];
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepBehaviourBatchMerge(json);
 	}
 }

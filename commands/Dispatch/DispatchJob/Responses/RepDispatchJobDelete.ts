@@ -11,7 +11,7 @@ export class RepDispatchJobDelete extends Reply {
 	 **/
 	dispatchJob: ContentIdDeleted | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.dispatchJob = json?.dispatchJob
 			? new ContentIdDeleted(json.dispatchJob)

@@ -6,7 +6,7 @@ import { PayMaintenanceSchedule } from "./PayMaintenanceSchedule";
  * Restores a deleted {@link MaintenanceSchedule}.
  **/
 export class PayMaintenanceScheduleRestore extends PayMaintenanceSchedule { 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepMaintenanceScheduleDelete(json);
 	}
 }

@@ -10,7 +10,7 @@ export class ParamLogin {
 	 **/
 	login: email;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		this.login = json?.login ?? "";
 	}
 }

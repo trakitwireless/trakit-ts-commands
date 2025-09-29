@@ -10,7 +10,7 @@ export abstract class RepProviderControlList extends Reply {
 	 **/
 	providerControls: ProviderControl[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.providerControls = json?.providerControls?.map((v: any) => new ProviderControl(v));
 	}
@@ -25,7 +25,7 @@ export class RepProviderControlListByCompany extends RepProviderControlList {
 	 **/
 	company: ContentId | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company);
 	}
@@ -40,7 +40,7 @@ export class RepProviderControlListByConfig extends RepProviderControlList {
 	 **/
 	config: ContentId | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.config = ContentId.fromJSON(json?.config);
 	}

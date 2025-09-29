@@ -11,7 +11,7 @@ export class RepPictureBatchMerge extends Reply {
 	 **/
 	pictures: ContentIdCompany[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.pictures = json?.pictures?.map((p: any) => new ContentIdCompany(p));
 	}

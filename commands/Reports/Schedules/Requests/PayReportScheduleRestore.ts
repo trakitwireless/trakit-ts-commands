@@ -6,7 +6,7 @@ import { PayReportSchedule } from "./PayReportSchedule";
  * Restores a deleted {@link ReportSchedule}.
  **/
 export class PayReportScheduleRestore extends PayReportSchedule { 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepReportScheduleDelete(json);
 	}
 }

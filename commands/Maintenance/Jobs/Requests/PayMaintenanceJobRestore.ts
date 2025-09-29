@@ -6,7 +6,7 @@ import { PayMaintenanceJob } from "./PayMaintenanceJob";
  * Restores a deleted {@link MaintenanceJob}.
  **/
 export class PayMaintenanceJobRestore extends PayMaintenanceJob { 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepMaintenanceJobDelete(json);
 	}
 }

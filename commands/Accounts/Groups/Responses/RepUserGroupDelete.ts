@@ -11,7 +11,7 @@ export class RepUserGroupDelete extends Reply {
 	 **/
 	userGroup: ContentIdDeleted | nothing;
 	
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.userGroup = ContentIdDeleted.fromJSON(json?.userGroups);
 	}

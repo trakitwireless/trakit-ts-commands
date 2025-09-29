@@ -17,7 +17,7 @@ export abstract class PayUserAdvancedList extends Payload implements IPayDeletab
 	 **/
 	includeDeleted: boolean;
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.includeDeleted = json?.includeDeleted;
 	}
@@ -32,12 +32,12 @@ export class PayUserAdvancedListByCompany extends PayUserAdvancedList implements
 	 **/
 	company: ParamId;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.company = new ParamId(json?.company);
 	}
 	
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepUserAdvancedListByCompany(json);
 	}
 }
@@ -51,12 +51,12 @@ export class PayUserAdvancedListByCompanyAndLabels extends PayUserAdvancedListBy
 	 **/
 	labels: string[];
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.labels = json?.labels ?? [];
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepUserAdvancedListByCompanyAndLabels(json);
 	}
 }
@@ -72,12 +72,12 @@ export class PayUserAdvancedListByCompanyAndRefPairs extends PayUserAdvancedList
 	 **/
 	references: Map<string, string>;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.references = serialization.toMap(json?.references ?? {});
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepUserAdvancedListByCompanyAndRefPairs(json);
 	}
 }

@@ -10,7 +10,7 @@ export class ContentIdParent extends ContentId {
 	 * @param json - JSON object to create the {@link ContentIdParent} from.
 	 * @returns A {@link ContentIdParent} instance or nothing.
 	 */
-	static override fromJSON(json: any): ContentIdParent | nothing {
+	static override fromJSON(json: JsonObject): ContentIdParent | nothing {
 		return json
 			? new ContentIdParent(json)
 			: null;
@@ -21,7 +21,7 @@ export class ContentIdParent extends ContentId {
 	 **/
 	parent: ulong | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.parent = json?.parent;
 	}

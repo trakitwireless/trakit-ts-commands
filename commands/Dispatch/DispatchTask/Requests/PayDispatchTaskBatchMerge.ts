@@ -12,12 +12,12 @@ export class PayDispatchTaskBatchMerge extends Payload {
 	 **/
 	dispatchTasks: ParamDispatchTaskMerge[];
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.dispatchTasks = json?.dispatchTasks?.map((dt: any) => new ParamDispatchTaskMerge(dt)) ?? [];
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepDispatchTaskBatchMerge(json);
 	}
 }

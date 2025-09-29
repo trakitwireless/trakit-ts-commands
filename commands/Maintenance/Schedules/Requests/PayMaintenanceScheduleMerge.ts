@@ -13,7 +13,7 @@ export class PayMaintenanceScheduleMerge extends Payload implements IPaySingle {
 	 **/
 	maintenanceSchedule: ParamMaintenanceScheduleMerge;
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.maintenanceSchedule = new ParamMaintenanceScheduleMerge(json?.maintenanceSchedule);
 	}
@@ -24,7 +24,7 @@ export class PayMaintenanceScheduleMerge extends Payload implements IPaySingle {
 		return this.maintenanceSchedule?.id?.toString() ?? "";
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepMaintenanceScheduleMerge(json);
 	}
 }

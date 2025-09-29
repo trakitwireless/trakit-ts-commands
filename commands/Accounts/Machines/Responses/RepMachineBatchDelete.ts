@@ -11,7 +11,7 @@ export class RepMachineBatchDelete extends Reply {
 	 **/
 	machines: ContentKeyDeleted[] | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.machines = json?.machines?.map((m: any) => new ContentKeyDeleted(m));
 	}

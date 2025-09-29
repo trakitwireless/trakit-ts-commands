@@ -11,7 +11,7 @@ export class RepDocumentDelete extends Reply {
 	 **/
 	document: ContentIdDeleted | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.document = ContentIdDeleted.fromJSON(json?.document);
 	}

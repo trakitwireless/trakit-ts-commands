@@ -9,7 +9,7 @@ export class ParamGuid {
 	 **/
 	guid: guid;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		this.guid = json?.guid ?? "";
 	}
 }

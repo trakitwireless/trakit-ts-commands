@@ -13,7 +13,7 @@ export class PayFormResultMerge extends Payload implements IPaySingle {
 	 */
 	formResult: ParamFormResultMerge;
 
-	constructor(json?: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.formResult = new ParamFormResultMerge(json?.formResult);
 	}
@@ -25,7 +25,7 @@ export class PayFormResultMerge extends Payload implements IPaySingle {
 		return this.formResult?.id?.toString() ?? "";
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepFormResultMerge(json);
 	}
 }

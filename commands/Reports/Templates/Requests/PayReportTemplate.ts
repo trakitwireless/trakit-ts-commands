@@ -11,7 +11,7 @@ export abstract class PayReportTemplate extends Payload implements IPaySingle {
 	 **/
 	reportTemplate: ParamId;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super();
 		this.reportTemplate = new ParamId(json?.reportTemplate);
 	}

@@ -13,7 +13,7 @@ export class PayAssetMessageMerge extends Payload implements IPaySingle {
 	 **/
 	assetMessage: ParamAssetMessageMerge;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.assetMessage = new ParamAssetMessageMerge(json?.assetMessage);
 	}
@@ -24,7 +24,7 @@ export class PayAssetMessageMerge extends Payload implements IPaySingle {
 		return this.assetMessage?.id?.toString() ?? "";
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepAssetMessageMerge(json);
 	}
 }

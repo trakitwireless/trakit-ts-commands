@@ -10,7 +10,7 @@ export class RepCompanyDirectoryGet extends Reply {
 	 **/
 	companyDirectory: CompanyDirectory | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		if (json?.companyDirectory) {
 			this.companyDirectory = new CompanyDirectory(json.companyDirectory);

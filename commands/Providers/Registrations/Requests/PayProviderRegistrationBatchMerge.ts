@@ -12,12 +12,12 @@ export class PayProviderRegistrationBatchMerge extends Payload {
 	 **/
 	providerRegistrations: ParamProviderRegistrationMerge[];
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.providerRegistrations = json?.providerRegistrations?.map((e: any) => new ParamProviderRegistrationMerge(e)) ?? [];
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepProviderRegistrationBatchMerge(json);
 	}
 }

@@ -11,7 +11,7 @@ export class RepAssetBatchMerge extends Reply {
 	 **/
 	assets: ContentIdCompany[] | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.assets = json?.assets?.map((a: any) => new ContentIdCompany(a)) ;
 	}

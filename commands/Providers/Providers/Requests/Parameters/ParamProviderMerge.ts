@@ -44,7 +44,7 @@ export class ParamProviderMerge extends ParamMergeSubscribable {
 	/// </summary>
 	password: string | nothing;
 	
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id;
 		this.company = json?.company;
@@ -58,7 +58,7 @@ export class ParamProviderMerge extends ParamMergeSubscribable {
 	}
 
 	override toJSON(): any {
-		const json: any = {
+		const json: JsonObject = {
 			id: this.id,
 		};
 		if (this.v?.length) {

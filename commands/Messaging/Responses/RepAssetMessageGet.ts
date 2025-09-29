@@ -10,7 +10,7 @@ export class RepAssetMessageGet extends Reply {
 	 **/
 	assetMessage: AssetMessage | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.assetMessage = json?.assetMessage
 			? new AssetMessage(json.assetMessage)

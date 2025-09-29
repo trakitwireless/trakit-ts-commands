@@ -63,7 +63,7 @@ export class ParamSelfContactMerge extends ParamMergeSubscribable {
 	 **/
 	pictures: ulong[] | nothing;
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.name = json?.name || "";
 		this.notes = json?.notes || "";
@@ -93,7 +93,7 @@ export class ParamSelfContactMerge extends ParamMergeSubscribable {
 	}
 
 	override toJSON() {
-		const json: any = {};
+		const json: JsonObject = {};
 		if (this.name) json["name"] = this.name;
 		if (this.notes) json["notes"] = this.notes;
 		if (this.otherNames?.size) json["otherNames"] = serialization.fromMap(this.otherNames);

@@ -10,7 +10,7 @@ export class RepBehaviourGet extends Reply {
 	 **/
 	behaviour: Behaviour | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		if (json?.behaviour) {
 			this.behaviour = new Behaviour(json.behaviour);

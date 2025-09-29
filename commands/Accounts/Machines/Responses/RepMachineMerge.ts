@@ -11,7 +11,7 @@ export class RepMachineMerge extends Reply {
 	 **/
 	machine: ContentKeyCompany | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.machine = ContentKeyCompany.fromJSON(json?.machine);
 	}

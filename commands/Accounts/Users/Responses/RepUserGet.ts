@@ -10,7 +10,7 @@ export class RepUserGet extends Reply {
 	 **/
 	user: User | nothing;
 
-	constructor(json?: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		if (json?.user) {
 			this.user = new User(json.user);

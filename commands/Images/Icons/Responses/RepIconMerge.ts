@@ -11,7 +11,7 @@ export class RepIconMerge extends Reply {
 	 **/
 	icon: ContentIdCompany | nothing;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super(json);
 		this.icon = ContentIdCompany.fromJSON(json?.icon);
 	}

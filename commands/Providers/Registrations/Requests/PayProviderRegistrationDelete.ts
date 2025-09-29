@@ -6,7 +6,7 @@ import { PayProviderRegistration } from "./PayProviderRegistration";
  * Deletes an existing {@link ProviderRegistration}.
  **/
 export class PayProviderRegistrationDelete extends PayProviderRegistration { 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepProviderRegistrationDelete(json);
 	}
 }

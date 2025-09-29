@@ -14,7 +14,7 @@ export class PayContactMerge extends Payload implements IPaySingle {
 	contact: ParamContactMerge;
 
 
-	constructor(json: any) {
+	constructor(json?: JsonObject) {
 		super(json);
 		this.contact = new ParamContactMerge(json?.contact);
 	}
@@ -25,7 +25,7 @@ export class PayContactMerge extends Payload implements IPaySingle {
 		return this.contact?.id?.toString() ?? "";
 	}
 
-	override createReply(json: any): Reply {
+	override createReply(json?: JsonObject): Reply {
 		return new RepContactMerge(json);
 	}
 }

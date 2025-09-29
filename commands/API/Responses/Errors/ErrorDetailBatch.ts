@@ -12,7 +12,7 @@ export class ErrorDetailBatch extends ErrorDetail {
 	 **/
 	errors: Reply[];
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		super();
 		this.errors = json?.errors?.map((e: any) => new Reply(e)) ?? [];
 	}

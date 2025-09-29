@@ -23,7 +23,7 @@ export class SessionHandle {
 	 **/
 	expiry: Date;
 
-	constructor(json: any) {
+	constructor(json: JsonObject) {
 		this.handle = json?.handle ?? "";
 		this.company = json?.company;
 		this.login = json?.login ?? "";
