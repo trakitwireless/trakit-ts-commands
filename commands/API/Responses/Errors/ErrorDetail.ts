@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { ErrorDetailBadIds } from "./ErrorDetailBadIds";
 import { ErrorDetailBadIndexes } from "./ErrorDetailBadIndexes";
 import { ErrorDetailBadKeys } from "./ErrorDetailBadKeys";

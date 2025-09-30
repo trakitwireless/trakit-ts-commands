@@ -1,4 +1,4 @@
-import { nothing, ProviderRegistration } from "@trakit/objects";
+import { JsonObject, nothing, ProviderRegistration } from "@trakit/objects";
 import { ContentCodeCompany } from "./ContentCodeCompany";
 
 /**

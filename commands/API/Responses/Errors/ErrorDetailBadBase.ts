@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { ErrorDetail } from "./ErrorDetail";
 
 /**
@@ -11,6 +12,6 @@ export abstract class ErrorDetailBadBase<T> extends ErrorDetail {
 
 	constructor(json: JsonObject) {
 		super();
-		this.invalid = json?.invalid ?? [];
+		this.invalid = json?.invalid as T[] ?? [];
 	}
 }

@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { nothing, ulong } from "@trakit/objects";
 import { ContentIdendifierCompany } from "./ContentIdendifierCompany";
 
@@ -26,6 +27,6 @@ export class ContentIdendifierAsset extends ContentIdendifierCompany {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.asset = json?.asset;
+		this.asset = json?.asset as ulong;
 	}
 }

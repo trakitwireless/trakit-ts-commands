@@ -1,4 +1,4 @@
-import { ulong } from "@trakit/objects";
+import { JsonObject, ulong } from "@trakit/objects";
 import { ErrorDetail } from "./ErrorDetail";
 import { ErrorDetailType } from "./ErrorDetailType";
 
@@ -14,6 +14,6 @@ export class ErrorDetailFormTemplateInUse extends ErrorDetail {
 
 	constructor(json: JsonObject) {
 		super();
-		this.formResults = json?.formResults ?? [];
+		this.formResults = json?.formResults as ulong[] ?? [];
 	}
 }

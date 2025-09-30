@@ -1,4 +1,4 @@
-import { int, nothing, TimeSpan } from "@trakit/objects";
+import { int, JsonObject, timespan, TimeSpan } from "@trakit/objects";
 import { ErrorDetail } from "./ErrorDetail";
 import { ErrorDetailType } from "./ErrorDetailType";
 
@@ -36,11 +36,11 @@ export class ErrorDetailThrottled extends ErrorDetail {
 
 	constructor(json: JsonObject) {
 		super();
-		this.ghostId = json?.ghostId ?? "";
-		this.login = json?.login ?? "";
-		this.ip = json?.ip ?? "";
-		this.command = json?.command ?? "";
-		this.count = json?.count ?? 0;
-		this.timeout = new TimeSpan(json.timeout);
+		this.ghostId = json?.ghostId as string ?? "";
+		this.login = json?.login as string ?? "";
+		this.ip = json?.ip as string ?? "";
+		this.command = json?.command as string ?? "";
+		this.count = json?.count as int ?? 0;
+		this.timeout = new TimeSpan(json.timeout as timespan);
 	}
 }

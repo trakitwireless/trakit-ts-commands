@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { ulong } from "@trakit/objects";
 import { ErrorDetailBadBase } from "./ErrorDetailBadBase";
 import { ErrorDetailType } from "./ErrorDetailType";

@@ -1,4 +1,4 @@
-import { nothing } from "@trakit/objects";
+import { email, JsonObject, nothing } from "@trakit/objects";
 import { ErrorDetail } from "./ErrorDetail";
 import { ErrorDetailType } from "./ErrorDetailType";
 
@@ -18,7 +18,7 @@ export class ErrorDetailUserGroupInUse extends ErrorDetail {
 
 	constructor(json: JsonObject) {
 		super();
-		this.users = json?.users;
-		this.machines = json?.machines;
+		this.users = json?.users as email[];
+		this.machines = json?.machines as string[];
 	}
 }

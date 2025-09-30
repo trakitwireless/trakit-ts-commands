@@ -1,4 +1,4 @@
-import { nothing, ulong } from "@trakit/objects";
+import { JsonObject, nothing, ulong } from "@trakit/objects";
 import { ContentId } from "./ContentId";
 
 /**
@@ -23,6 +23,6 @@ export class ContentIdParent extends ContentId {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.parent = json?.parent;
+		this.parent = json?.parent as ulong;
 	}
 }

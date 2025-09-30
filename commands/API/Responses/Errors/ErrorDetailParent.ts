@@ -1,4 +1,4 @@
-import { nothing, ulong } from "@trakit/objects";
+import { JsonObject, nothing, ulong } from "@trakit/objects";
 import { ErrorDetail } from "./ErrorDetail";
 import { ErrorDetailType } from "./ErrorDetailType";
 
@@ -18,7 +18,7 @@ export class ErrorDetailParent extends ErrorDetail {
 
 	constructor(json: JsonObject) {
 		super();
-		this.parent = json?.parent;
-		this.descendant = json?.descendant;
+		this.parent = json?.parent as ulong;
+		this.descendant = json?.descendant as ulong;
 	}
 }

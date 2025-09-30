@@ -1,4 +1,4 @@
-import { nothing, ulong } from "@trakit/objects";
+import { JsonObject, nothing, ulong } from "@trakit/objects";
 import { ContentIdCompany } from "./ContentIdCompany";
 
 /**
@@ -23,6 +23,6 @@ export class ContentIdScript extends ContentIdCompany {
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.script = json?.script;
+		this.script = json?.script as ulong;
 	}
 }

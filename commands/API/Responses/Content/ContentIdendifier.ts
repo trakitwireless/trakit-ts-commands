@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { nothing } from "@trakit/objects";
 
 /**
@@ -21,6 +22,6 @@ export class ContentIdendifier {
 	id: string;
 
 	constructor(json: JsonObject) {
-		this.id = json?.id ?? "";
+		this.id = json?.id as string ?? "";
 	}
 }

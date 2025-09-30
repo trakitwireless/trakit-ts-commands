@@ -1,4 +1,4 @@
-import { nothing, uint, ulong } from "@trakit/objects";
+import { JsonObject, nothing, uint, ulong } from "@trakit/objects";
 import { ContentId } from "./ContentId";
 
 /**
@@ -31,8 +31,8 @@ export class ContentParentDeleted extends ContentId {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.parent = json?.parent;
+		this.parent = json?.parent as ulong;
 		this.deleted = !!(json?.deleted);
-		this.v = json?.v ?? [];
+		this.v = json?.v as uint[] ?? [];
 	}
 }

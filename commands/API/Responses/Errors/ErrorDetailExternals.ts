@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { ErrorDetail } from "./ErrorDetail";
 import { ErrorDetailType } from "./ErrorDetailType";
 
@@ -21,8 +22,8 @@ export class ErrorDetailExternals extends ErrorDetail {
 
 	constructor(json: JsonObject) {
 		super();
-		this.errors = json?.errors ?? [];
-		this.warnings = json?.warnings ?? [];
-		this.messages = json?.messages ?? [];
+		this.errors = json?.errors as string[] ?? [];
+		this.warnings = json?.warnings as string[] ?? [];
+		this.messages = json?.messages as string[] ?? [];
 	}
 }

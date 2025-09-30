@@ -23,6 +23,6 @@ export class ContentCodeCompany extends ContentCode {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = json?.company;
+		this.company = json?.company as ulong;
 	}
 }

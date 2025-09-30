@@ -1,4 +1,4 @@
-import { nothing, ulong } from "@trakit/objects";
+import { JsonObject, nothing, ulong } from "@trakit/objects";
 
 /**
  * A container for the id of the object requested.
@@ -21,6 +21,6 @@ export class ContentId {
 	id: ulong | nothing;
 
 	constructor(json: JsonObject) {
-		this.id = json?.id;
+		this.id = json?.id as ulong;
 	}
 }

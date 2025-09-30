@@ -1,4 +1,4 @@
-import { int } from "@trakit/objects";
+import { int, JsonObject } from "@trakit/objects";
 import { ErrorDetail } from "./ErrorDetail";
 import { ErrorDetailType } from "./ErrorDetailType";
 
@@ -15,6 +15,6 @@ export class ErrorDetailCount extends ErrorDetail {
 
 	constructor(json: JsonObject) {
 		super();
-		this.count = json?.count ?? 0;
+		this.count = json?.count as int ?? 0;
 	}
 }

@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { ErrorDetailInput } from "./ErrorDetailInput";
 import { ErrorDetailType } from "./ErrorDetailType";
 
@@ -13,6 +14,6 @@ export class ErrorDetailEnum extends ErrorDetailInput {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.valid = json?.valid ?? [];
+		this.valid = json?.valid as string[] ?? [];
 	}
 }

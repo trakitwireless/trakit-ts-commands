@@ -1,4 +1,4 @@
-import { nothing, ulong } from "@trakit/objects";
+import { JsonObject, nothing, ulong } from "@trakit/objects";
 import { ContentKey } from "./ContentKey";
 
 /**
@@ -23,6 +23,6 @@ export class ContentKeyCompany extends ContentKey {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = json?.company;
+		this.company = json?.company as ulong;
 	}
 }

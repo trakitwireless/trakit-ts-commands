@@ -1,4 +1,4 @@
-import { nothing } from "@trakit/objects";
+import { JsonObject, nothing } from "@trakit/objects";
 import { ErrorDetail } from "./ErrorDetail";
 import { ErrorDetailType } from "./ErrorDetailType";
 
@@ -35,11 +35,11 @@ export class ErrorDetailConnection extends ErrorDetail {
 
 	constructor(json: JsonObject) {
 		super();
-		this.state = json?.state ?? WebSocket.CLOSED;
-		this.code = json?.code;
-		this.reason = json?.reason;
-		this.wasClean = json?.wasClean;
-		this.reconnect = json?.reconnect;
-		this.retry = json?.retry;
+		this.state = json?.state as number ?? WebSocket.CLOSED;
+		this.code = json?.code as number;
+		this.reason = json?.reason as string;
+		this.wasClean = json?.wasClean as boolean;
+		this.reconnect = json?.reconnect as boolean;
+		this.retry = json?.retry as number;
 	}
 }

@@ -1,4 +1,3 @@
-
 /**
  * The possible errors returned by the system.
  **/

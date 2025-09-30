@@ -1,4 +1,4 @@
-import { nothing, ulong } from "@trakit/objects";
+import { JsonObject, nothing, ulong } from "@trakit/objects";
 import { ErrorDetailInput } from "./ErrorDetailInput";
 import { ErrorDetailType } from "./ErrorDetailType";
 
@@ -18,7 +18,7 @@ export class ErrorDetailPhone extends ErrorDetailInput {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.number = json?.number;
-		this.usable = json?.usable;
+		this.number = json?.number as ulong;
+		this.usable = json?.usable as string;
 	}
 }

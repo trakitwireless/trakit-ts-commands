@@ -1,4 +1,4 @@
-import { nothing } from "@trakit/objects";
+import { JsonObject, nothing } from "@trakit/objects";
 
 /**
  * A container for the key of the {@link Machine} requested/created.
@@ -21,6 +21,6 @@ export class ContentKey {
 	key: string;
 
 	constructor(json: JsonObject) {
-		this.key = json?.key ?? "";
+		this.key = json?.key as string ?? "";
 	}
 }

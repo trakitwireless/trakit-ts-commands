@@ -1,4 +1,4 @@
-import { nothing, TimeSpan, utility } from "@trakit/objects";
+import { datetime, JsonObject, timespan, TimeSpan, utility } from "@trakit/objects";
 import { ErrorDetail } from "./ErrorDetail";
 import { ErrorDetailType } from "./ErrorDetailType";
 
@@ -18,7 +18,7 @@ export class ErrorDetailLocked extends ErrorDetail {
 
 	constructor(json: JsonObject) {
 		super();
-		this.timeout = TimeSpan.fromSeconds(json.timeout);
-		this.until = utility.date(json?.until);
+		this.timeout = new TimeSpan(json?.timeout as timespan);
+		this.until = utility.date(json?.until as datetime);
 	}
 }

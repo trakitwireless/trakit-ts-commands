@@ -1,4 +1,4 @@
-import { nothing, ulong } from "@trakit/objects";
+import { JsonObject, nothing, ulong } from "@trakit/objects";
 import { ErrorDetailType } from "./ErrorDetailType";
 import { ErrorDetailUserGroupInUse } from "./ErrorDetailUserGroupInUse";
 
@@ -12,6 +12,6 @@ export class ErrorDetailContactInUse extends ErrorDetailUserGroupInUse {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.assets = json?.assets;
+		this.assets = json?.assets as ulong[];
 	}
 }

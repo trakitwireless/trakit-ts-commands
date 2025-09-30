@@ -1,4 +1,4 @@
-import { nothing, uint } from "@trakit/objects";
+import { JsonObject, nothing, uint } from "@trakit/objects";
 import { ContentIdCompany } from "./ContentIdCompany";
 
 /**
@@ -27,7 +27,7 @@ export class ContentIdDeleted extends ContentIdCompany {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.deleted = json.deleted;
-		this.v = json.v;
+		this.deleted = !!(json?.deleted);
+		this.v = json?.v as uint[] ?? [];
 	}
 }

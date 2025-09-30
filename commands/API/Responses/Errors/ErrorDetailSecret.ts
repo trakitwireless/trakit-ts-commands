@@ -1,4 +1,4 @@
-import { long, utility } from "@trakit/objects";
+import { datetime, JsonObject, long, nothing, serialization, utility } from "@trakit/objects";
 import { ErrorDetail } from "./ErrorDetail";
 import { ErrorDetailType } from "./ErrorDetailType";
 
@@ -42,7 +42,7 @@ export class ErrorDetailSecret extends ErrorDetail {
 	/**
 	 * The length of the content body (or the Content-Length header value).
 	 **/
-	length: long | undefined;
+	length: long | nothing;
 
 	/**
 	 * The input for creating a signature.
@@ -55,18 +55,15 @@ export class ErrorDetailSecret extends ErrorDetail {
 
 	constructor(json: JsonObject) {
 		super();
-		this.headers = new Map<string, string[]>();
-		for (const [key, value] of Object.entries(json?.headers || {})) {
-			this.headers.set(key, Array.isArray(value) ? value : [value]);
-		}
-		this.accepted = utility.date(json?.accepted);
-		this.key = json?.key;
-		this.signature = json?.signature;
-		this.date = json?.date;
-		this.method = json?.method;
-		this.uri = json?.uri;
-		this.length = json?.length;
-		this.input = json?.input;
-		this.output = json?.output;
+		this.headers = serialization.toMap(json?.headers as object ?? {});
+		this.accepted = utility.date(json?.accepted as datetime);
+		this.key = json?.key as string;
+		this.signature = json?.signature as string;
+		this.date = json?.date as string;
+		this.method = json?.method as string;
+		this.uri = json?.uri as string;
+		this.length = json?.length as long;
+		this.input = json?.input as string;
+		this.output = json?.output as string;
 	}
 }

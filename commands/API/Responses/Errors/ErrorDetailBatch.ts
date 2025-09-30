@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { Reply } from "../Reply";
 import { ErrorDetail } from "./ErrorDetail";
 import { ErrorDetailType } from "./ErrorDetailType";
@@ -14,6 +15,6 @@ export class ErrorDetailBatch extends ErrorDetail {
 
 	constructor(json: JsonObject) {
 		super();
-		this.errors = json?.errors?.map((e: any) => new Reply(e)) ?? [];
+		this.errors = (json?.errors as JsonObject[])?.map((e: any) => new Reply(e)) ?? [];
 	}
 }

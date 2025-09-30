@@ -1,4 +1,4 @@
-import { PermissionEscalation } from "@trakit/objects";
+import { JsonObject, PermissionEscalation } from "@trakit/objects";
 import { ErrorDetail } from "./ErrorDetail";
 import { ErrorDetailType } from "./ErrorDetailType";
 
@@ -14,6 +14,6 @@ export class ErrorDetailEscalation extends ErrorDetail {
 
 	constructor(json: JsonObject) {
 		super();
-		this.escalations = json?.escalations?.map((e: any) => PermissionEscalation.fromJSON(e)) ?? [];
+		this.escalations = (json?.escalations as JsonObject[])?.map((e: any) => PermissionEscalation.fromJSON(e)) ?? [];
 	}
 }

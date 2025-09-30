@@ -1,4 +1,4 @@
-import { nothing, ulong } from "@trakit/objects";
+import { JsonObject, nothing, ulong } from "@trakit/objects";
 import { ContentLogin } from "./ContentLogin";
 
 /**
@@ -23,6 +23,6 @@ export class ContentLoginCompany extends ContentLogin {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = json?.company;
+		this.company = json?.company as ulong;
 	}
 }
