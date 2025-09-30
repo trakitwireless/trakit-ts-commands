@@ -1,4 +1,4 @@
-import { Behaviour, BehaviourParameter, byte, Company, nothing, Picture, serialization, ulong, utility } from "@trakit/objects";
+import { Behaviour, BehaviourParameter, byte, Company, JsonObject, nothing, serialization, ulong } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
@@ -47,21 +47,21 @@ export class ParamBehaviourMerge extends ParamMergeSubscribable {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.id = json?.id;
-		this.company = json?.company;
-		this.name = json?.name;
-		this.notes = json?.notes;
-		this.script = json?.script;
-		this.priority = json?.priority;
-		this.targets = json?.targets;
-		this.filters = json?.filters;
+		this.id = json?.id as ulong;
+		this.company = json?.company as ulong;
+		this.name = json?.name as string;
+		this.notes = json?.notes as string;
+		this.script = json?.script as ulong;
+		this.priority = json?.priority as byte;
+		this.targets = json?.targets as string;
+		this.filters = json?.filters as string;
 		this.parameters = json?.parameters
-			? serialization.toMapPredicate(json.parameters, (key, value) => [key, value ? BehaviourParameter.fromJSON(value) : null])
+			? serialization.toMapPredicate(json?.parameters as object, (key, value) => [key, value ? BehaviourParameter.fromJSON(value) : null])
 			: null;
 	}
 
 	override toJSON(): any {
-		const json: JsonObject = {};
+		const json: any = {};
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];

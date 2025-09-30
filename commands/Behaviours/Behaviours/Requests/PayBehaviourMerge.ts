@@ -1,8 +1,9 @@
-import { Reply } from "../../../API/Responses/Reply";
-import { Payload } from "../../../API/Requests/Payload";
+import { JsonObject } from "@trakit/objects";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
-import { ParamBehaviourMerge } from "./Parameters/ParamBehaviourMerge";
+import { Payload } from "../../../API/Requests/Payload";
+import { Reply } from "../../../API/Responses/Reply";
 import { RepBehaviourMerge } from "../Responses/RepBehaviourMerge";
+import { ParamBehaviourMerge } from "./Parameters/ParamBehaviourMerge";
 
 /**
  * Creates a new or updates an existing {@link Behaviour}.
@@ -15,7 +16,7 @@ export class PayBehaviourMerge extends Payload implements IPaySingle {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.behaviour = new ParamBehaviourMerge(json?.behaviour);
+		this.behaviour = new ParamBehaviourMerge(json?.behaviour as JsonObject);
 	}
 
 	/**
@@ -25,7 +26,7 @@ export class PayBehaviourMerge extends Payload implements IPaySingle {
 		return this.behaviour?.id?.toString() ?? "";
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepBehaviourMerge(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepBehaviourMerge(json as JsonObject);
 	}
 }

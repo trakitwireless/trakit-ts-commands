@@ -1,6 +1,6 @@
-import { BehaviourScript, nothing } from "@trakit/objects";
-import { Reply } from "../../../API/Responses/Reply";
+import { BehaviourScript, JsonObject, nothing } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
+import { Reply } from "../../../API/Responses/Reply";
 
 /**
  * A container for the requested {@link behaviourScripts}.
@@ -13,7 +13,7 @@ export abstract class RepBehaviourScriptList extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.behaviourScripts = json?.behaviourScripts?.map((x: any) => new BehaviourScript(x));
+		this.behaviourScripts = (json?.behaviourScripts as JsonObject[])?.map((x: any) => new BehaviourScript(x));
 	}
 }
 
@@ -28,6 +28,6 @@ export class RepBehaviourScriptListByCompany extends RepBehaviourScriptList {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentId.fromJSON(json?.company);
+		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
 }

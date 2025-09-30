@@ -1,6 +1,7 @@
-import { Payload } from "../../../API/Requests/Payload";
+import { JsonObject } from "@trakit/objects";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
 import { ParamId } from "../../../API/Requests/Parameters/ParamId";
+import { Payload } from "../../../API/Requests/Payload";
 
 /**
  * A container for the {@link behaviourScript} object.
@@ -13,7 +14,7 @@ export abstract class PayBehaviourScript extends Payload implements IPaySingle {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.behaviourScript = new ParamId(json?.behaviourScript);
+		this.behaviourScript = new ParamId(json?.behaviourScript as JsonObject);
 	}
 	/**
 	 * 

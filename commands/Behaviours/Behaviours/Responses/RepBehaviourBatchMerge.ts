@@ -1,6 +1,6 @@
+import { JsonObject, nothing } from "@trakit/objects";
 import { ContentIdCompany } from "../../../API/Responses/Content/ContentIdCompany";
 import { Reply } from "../../../API/Responses/Reply";
-import { nothing } from "@trakit/objects";
 
 /**
  * 
@@ -13,6 +13,6 @@ export class RepBehaviourBatchMerge extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.behaviours = json?.behaviours?.map((item: any) => new ContentIdCompany(item));
+		this.behaviours = (json?.behaviours as JsonObject[])?.map((item: any) => new ContentIdCompany(item));
 	}
 }

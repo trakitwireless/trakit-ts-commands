@@ -1,6 +1,6 @@
-import { nothing } from "@trakit/objects";
-import { Reply } from "../../../API/Responses/Reply";
+import { JsonObject, nothing } from "@trakit/objects";
 import { ContentIdDeleted } from "../../../API/Responses/Content/ContentIdDeleted";
+import { Reply } from "../../../API/Responses/Reply";
 
 /**
  * A container for the {@link behaviour}.
@@ -13,6 +13,6 @@ export class RepBehaviourBatchDelete extends Reply {
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.behaviours = json?.behaviours?.map((item: any) => new ContentIdDeleted(item));
+		this.behaviours = (json?.behaviours as JsonObject[])?.map((item: any) => new ContentIdDeleted(item));
 	}
 }

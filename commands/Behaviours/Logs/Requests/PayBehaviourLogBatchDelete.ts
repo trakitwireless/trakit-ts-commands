@@ -1,6 +1,7 @@
-import { Reply } from "../../../API/Responses/Reply";
+import { JsonObject } from "@trakit/objects";
 import { ParamId } from "../../../API/Requests/Parameters/ParamId";
 import { Payload } from "../../../API/Requests/Payload";
+import { Reply } from "../../../API/Responses/Reply";
 import { RepBehaviourLogBatchDelete } from "../Responses/RepBehaviourLogBatchDelete";
 
 /**
@@ -14,10 +15,10 @@ export class PayBehaviourLogBatchDelete extends Payload {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.behaviourLogs = json?.behaviourLogs?.map((item: any) => new ParamId(item)) ?? [];
+		this.behaviourLogs = (json?.behaviourLogs as JsonObject[])?.map((item: any) => new ParamId(item)) ?? [];
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepBehaviourLogBatchDelete(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepBehaviourLogBatchDelete(json as JsonObject);
 	}
 }

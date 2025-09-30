@@ -1,7 +1,8 @@
-import { Reply } from "../../../API/Responses/Reply";
-import { PayBehaviour } from "./PayBehaviour";
+import { JsonObject } from "@trakit/objects";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
+import { Reply } from "../../../API/Responses/Reply";
 import { RepBehaviourGet } from "../Responses/RepBehaviourGet";
+import { PayBehaviour } from "./PayBehaviour";
 
 /**
  * Gets details of the specified {@link Behaviour}.
@@ -14,10 +15,10 @@ export class PayBehaviourGet extends PayBehaviour implements IPayDeletable {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.includeDeleted = json?.includeDeleted ?? false;
+		this.includeDeleted = !!json?.includeDeleted;
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepBehaviourGet(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepBehaviourGet(json as JsonObject);
 	}
 }

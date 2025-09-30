@@ -1,8 +1,9 @@
-import { Reply } from "../../../API/Responses/Reply";
-import { Payload } from "../../../API/Requests/Payload";
+import { JsonObject } from "@trakit/objects";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { ParamId } from "../../../API/Requests/Parameters/ParamId";
+import { Payload } from "../../../API/Requests/Payload";
+import { Reply } from "../../../API/Responses/Reply";
 import { RepBehaviourListByCompany } from "../Responses/RepBehaviourList";
 
 /**
@@ -16,7 +17,7 @@ export abstract class PayBehaviourList extends Payload implements IPayDeletable 
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.includeDeleted = json?.includeDeleted ?? false;
+		this.includeDeleted = !!json?.includeDeleted;
 	}
 }
 /**
@@ -30,10 +31,10 @@ export class PayBehaviourListByCompany extends PayBehaviourList implements IPayL
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.company = new ParamId(json?.company);
+		this.company = new ParamId(json?.company as JsonObject);
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepBehaviourListByCompany(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepBehaviourListByCompany(json as JsonObject);
 	}
 }

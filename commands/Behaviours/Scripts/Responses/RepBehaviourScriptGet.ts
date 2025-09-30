@@ -1,4 +1,4 @@
-import { BehaviourScript, nothing } from "@trakit/objects";
+import { BehaviourScript, JsonObject, nothing } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -13,7 +13,7 @@ export class RepBehaviourScriptGet extends Reply {
 	constructor(json: JsonObject) {
 		super(json);
 		if (json?.behaviourScript) {
-			this.behaviourScript = new BehaviourScript(json.behaviourScript);
+			this.behaviourScript = new BehaviourScript(json.behaviourScript as JsonObject);
 		}
 	}
 }
