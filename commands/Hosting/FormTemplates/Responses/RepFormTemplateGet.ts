@@ -1,4 +1,4 @@
-import { FormTemplate, nothing } from "@trakit/objects";
+import { FormTemplate, JsonObject, nothing } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -12,8 +12,8 @@ export class RepFormTemplateGet extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.formTemplate = json?.formTemplate
-			? new FormTemplate(json.formTemplate)
-			: null;
+		if (json?.formTemplate) {
+			this.formTemplate = new FormTemplate(json.formTemplate as JsonObject);
+		}
 	}
 }

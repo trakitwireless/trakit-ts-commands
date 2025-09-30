@@ -1,4 +1,4 @@
-import { nothing, serialization, ulong, utility } from "@trakit/objects";
+import { datetime, JsonObject, nothing, serialization, ulong, utility } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**

@@ -1,4 +1,4 @@
-import { nothing,Document } from "@trakit/objects";
+import { Document, JsonObject, nothing } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -12,8 +12,8 @@ export class RepDocumentGet extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.document = json?.document
-			? new Document(json.document)
-			: null;
+		if (json?.document) {
+			this.document = new Document(json.document as JsonObject);
+		}
 	}
 }

@@ -1,7 +1,8 @@
-import { Reply } from "../../../API/Responses/Reply";
-import { PayFormResult } from "./PayFormResult";
+import { JsonObject } from "@trakit/objects";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
+import { Reply } from "../../../API/Responses/Reply";
 import { RepFormResultGet } from "../Responses/RepFormResultGet";
+import { PayFormResult } from "./PayFormResult";
 
 /**
  * Gets details of the specified {@link FormResult}.

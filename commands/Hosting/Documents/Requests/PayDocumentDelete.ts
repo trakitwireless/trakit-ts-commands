@@ -1,5 +1,6 @@
-import { RepDocumentDelete } from "../Responses/RepDocumentDelete";
+import { JsonObject } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
+import { RepDocumentDelete } from "../Responses/RepDocumentDelete";
 import { PayDocument } from "./PayDocument";
 
 /**

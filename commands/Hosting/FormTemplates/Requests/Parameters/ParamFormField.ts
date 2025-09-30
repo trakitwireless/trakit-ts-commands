@@ -1,4 +1,4 @@
-import { double, FormFieldNumericSize, FormFieldType, long, nothing, serialization, TimeSpan, ulong, utility } from "@trakit/objects";
+import { double, FormFieldNumericSize, FormFieldType, JsonObject, long, nothing, serialization, TimeSpan, ulong, utility } from "@trakit/objects";
 import { ParamMerge } from "../../../../API/Requests/Parameters/ParamMerge";
 
 /**
@@ -82,19 +82,33 @@ export class ParamFormField extends ParamMerge {
 		super();
 		this.id = json?.id as ulong;
 		this.name = json?.name as string;
-		this.kind = json?.kind;
+		this.kind = json?.kind as FormFieldType;
 		this.notes = json?.notes as string;
-		this.required = json?.required;
-		this.value = json?.value;
-		this.editable = json?.editable;
-		this.size = json?.size;
-		this.precision = json?.precision;
-		this.step = json?.step;
-		this.units = json?.units;
-		this.choices = json?.choices;
-		this.rows = json?.rows;
-		this.minimum = json?.minimum;
-		this.maximum = json?.maximum;
+		this.required = json?.required as boolean;
+		this.value = json?.value as string;
+		this.editable = json?.editable as boolean;
+		this.size = json?.size as FormFieldNumericSize;
+		this.precision = json?.precision as long;
+		this.step = json?.step as double;
+		this.units = json?.units as string;
+		if(Array.isArray(json?.choices)) {
+			this.choices = json?.choices as string[];
+		} else if (json?.choices) {
+			this.choices = serialization.toMap(json?.choices as object);
+		}
+		this.rows = json?.rows as long;
+		if (typeof json?.minimum === "string") {
+			this.minimum = utility.date(json.minimum);
+			if (isNaN(this.minimum.valueOf())) this.minimum = new TimeSpan(json.minimum);
+		} else if (typeof json?.minimum === "number") {
+			this.minimum = json.minimum as long | double;
+		}
+		if (typeof json?.maximum === "string") {
+			this.maximum = utility.date(json.maximum);
+			if (isNaN(this.maximum.valueOf())) this.maximum = new TimeSpan(json.maximum);
+		} else if (typeof json?.maximum === "number") {
+			this.maximum = json.maximum as long | double;
+		}
 	}
 
 	override toJSON(): any {

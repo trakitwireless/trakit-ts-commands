@@ -1,4 +1,4 @@
-import { FormResult, nothing } from "@trakit/objects";
+import { FormResult, JsonObject, nothing } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { Reply } from "../../../API/Responses/Reply";
 

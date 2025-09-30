@@ -1,8 +1,9 @@
-import { Reply } from "../../../API/Responses/Reply";
-import { Payload } from "../../../API/Requests/Payload";
+import { JsonObject } from "@trakit/objects";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
-import { ParamDocumentMerge } from "./Parameters/ParamDocumentMerge";
+import { Payload } from "../../../API/Requests/Payload";
+import { Reply } from "../../../API/Responses/Reply";
 import { RepDocumentMerge } from "../Responses/RepDocumentMerge";
+import { ParamDocumentMerge } from "./Parameters/ParamDocumentMerge";
 
 /**
  * Creates a new or updates an existing {@link Document}.

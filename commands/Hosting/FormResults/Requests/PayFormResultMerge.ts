@@ -1,8 +1,9 @@
-import { Reply } from "../../../API/Responses/Reply";
-import { Payload } from "../../../API/Requests/Payload";
+import { JsonObject } from "@trakit/objects";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
-import { ParamFormResultMerge } from "./Parameters/ParamFormResultMerge";
+import { Payload } from "../../../API/Requests/Payload";
+import { Reply } from "../../../API/Responses/Reply";
 import { RepFormResultMerge } from "../Responses/RepFormResultMerge";
+import { ParamFormResultMerge } from "./Parameters/ParamFormResultMerge";
 
 /**
  * Creates a new or updates an existing {@link FormResult}.

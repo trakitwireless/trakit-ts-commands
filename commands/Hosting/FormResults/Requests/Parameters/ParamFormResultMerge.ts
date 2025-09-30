@@ -1,4 +1,4 @@
-import { LatLng, nothing, serialization, ulong, utility } from "@trakit/objects";
+import { codified, datetime, JsonObject, LatLng, nothing, serialization, ulong, utility } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
@@ -46,8 +46,8 @@ export class ParamFormResultMerge extends ParamMergeSubscribable {
 	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id as ulong;
-		this.asset = json?.asset;
-		this.template = json?.template;
+		this.asset = json?.asset as ulong;
+		this.template = json?.template as ulong;
 		this.name = json?.name as string;
 		this.notes = json?.notes as string;
 		this.labels = json?.labels as codified[];
@@ -56,7 +56,7 @@ export class ParamFormResultMerge extends ParamMergeSubscribable {
 			: null;
 		this.completed = utility.date(json?.completed as datetime);
 		this.latlng = json?.latlng
-			? LatLng.fromJSON(json.latlng)
+			? LatLng.fromJSON(json.latlng as JsonObject)
 			: null;
 	}
 
