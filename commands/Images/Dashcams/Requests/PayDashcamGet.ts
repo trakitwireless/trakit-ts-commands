@@ -1,7 +1,8 @@
-import { Reply } from "../../../API/Responses/Reply";
-import { PayDashcam } from "./PayDashcam";
+import { JsonObject } from "@trakit/objects";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
+import { Reply } from "../../../API/Responses/Reply";
 import { RepDashcamGet } from "../Responses/RepDashcamGet";
+import { PayDashcam } from "./PayDashcam";
 
 /**
  * Gets details of the specified {@link Dashcam}.

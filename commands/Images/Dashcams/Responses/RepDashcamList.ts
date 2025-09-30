@@ -1,6 +1,6 @@
+import { Dashcam, JsonObject, nothing } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { Reply } from "../../../API/Responses/Reply";
-import { Dashcam, nothing } from "@trakit/objects";
 /**
  * A container for the requested {@link dashcams}.
  **/

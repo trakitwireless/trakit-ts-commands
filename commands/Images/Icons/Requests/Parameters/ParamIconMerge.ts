@@ -1,4 +1,4 @@
-import { IconGlyph, IconLabel, nothing, ulong, utility } from "@trakit/objects";
+import { IconGlyph, IconLabel, JsonObject, nothing, ulong, utility } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
@@ -55,14 +55,14 @@ export class ParamIconMerge extends ParamMergeSubscribable {
 		this.company = json?.company as ulong;
 		this.name = json?.name as string;
 		this.notes = json?.notes as string;
-		this.category = json?.category;
-		this.global  = json?.global as boolean;
-		this.usage = json?.usage;
+		this.category = json?.category as string;
+		this.global = json?.global as boolean;
+		this.usage = json?.usage as string[];
 		this.label = json?.label
-			? IconLabel.fromJSON(json?.label)
+			? IconLabel.fromJSON(json?.label as JsonObject)
 			: null;
 		this.badge = json?.badge
-			? IconLabel.fromJSON(json?.badge)
+			? IconLabel.fromJSON(json?.badge as JsonObject)
 			: null;
 		this.glyphs = (json?.glyphs as JsonObject[])?.map((glyph: any) => IconGlyph.fromJSON(glyph));
 	}

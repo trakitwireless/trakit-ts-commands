@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { nothing, Rectangle, ulong } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 

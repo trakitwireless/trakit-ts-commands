@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { Icon, nothing } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
@@ -12,8 +13,8 @@ export class RepIconGet extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.icon = json?.icon
-			? new Icon(json.icon)
-			: null;
+		if (json?.icon) {
+			this.icon = new Icon(json.icon as JsonObject);
+		}
 	}
 }

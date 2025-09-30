@@ -1,4 +1,4 @@
-import { nothing, Picture } from "@trakit/objects";
+import { JsonObject, nothing, Picture } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -12,8 +12,8 @@ export class RepPictureGet extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.picture = json?.picture
-			? new Picture(json.picture)
-			: null;
+		if (json?.picture) {
+			this.picture = new Picture(json.picture as JsonObject);
+		}
 	}
 }

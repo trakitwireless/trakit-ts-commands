@@ -1,3 +1,4 @@
+import { JsonObject, nothing } from "@trakit/objects";
 import { ContentIdDeleted } from "../../../API/Responses/Content/ContentIdDeleted";
 import { Reply } from "../../../API/Responses/Reply";
 
@@ -8,7 +9,7 @@ export class RepPictureBatchDelete extends Reply {
 	/**
 	 * Details about deleting/restoring the requested {@link Picture}.
 	 **/
-	pictures: ContentIdDeleted[];
+	pictures: ContentIdDeleted[] | nothing;
 
 	constructor(json: JsonObject) {
 		super(json);

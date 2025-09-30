@@ -1,4 +1,4 @@
-import { Dashcam, nothing } from "@trakit/objects";
+import { Dashcam, JsonObject, nothing } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -12,8 +12,8 @@ export class RepDashcamGet extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.dashcam = json?.dashcam
-			? new Dashcam(json.dashcam)
-			: null;
+		if (json?.dashcam) {
+			this.dashcam = Dashcam.fromJSON(json.dashcam as JsonObject);
+		}
 	}
 }
