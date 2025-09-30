@@ -1,9 +1,9 @@
-import { serialization } from "@trakit/objects";
-import { ParamId } from "../../../API/Requests/Parameters/ParamId";
+import { JsonObject, serialization } from "@trakit/objects";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { IPayListByLabels } from "../../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../../API/Requests/IPayListByReferences";
+import { ParamId } from "../../../API/Requests/Parameters/ParamId";
 import { Payload } from "../../../API/Requests/Payload";
 import { Reply } from "../../../API/Responses/Reply";
 import { RepUserAdvancedListByCompany, RepUserAdvancedListByCompanyAndLabels, RepUserAdvancedListByCompanyAndRefPairs } from "../Responses/RepUserAdvancedList";
@@ -19,7 +19,7 @@ export abstract class PayUserAdvancedList extends Payload implements IPayDeletab
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.includeDeleted = json?.includeDeleted;
+		this.includeDeleted = !!json?.includeDeleted;
 	}
 }
 
@@ -34,11 +34,11 @@ export class PayUserAdvancedListByCompany extends PayUserAdvancedList implements
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.company = new ParamId(json?.company);
+		this.company = new ParamId(json?.company as JsonObject);
 	}
 	
-	override createReply(json?: JsonObject): Reply {
-		return new RepUserAdvancedListByCompany(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepUserAdvancedListByCompany(json as JsonObject);
 	}
 }
 /**
@@ -53,11 +53,11 @@ export class PayUserAdvancedListByCompanyAndLabels extends PayUserAdvancedListBy
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.labels = json?.labels ?? [];
+		this.labels = json?.labels as string[] ?? [];
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepUserAdvancedListByCompanyAndLabels(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepUserAdvancedListByCompanyAndLabels(json as JsonObject);
 	}
 }
 /**
@@ -74,10 +74,10 @@ export class PayUserAdvancedListByCompanyAndRefPairs extends PayUserAdvancedList
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.references = serialization.toMap(json?.references ?? {});
+		this.references = serialization.toMap(json?.references as object ?? {});
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepUserAdvancedListByCompanyAndRefPairs(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepUserAdvancedListByCompanyAndRefPairs(json as JsonObject);
 	}
 }

@@ -1,4 +1,4 @@
-import { nothing, serialization, SystemsOfUnits, Timezone, ulong, UserNotifications, utility } from "@trakit/objects";
+import { codified, email, JsonObject, nothing, serialization, SystemsOfUnits, Timezone, ulong, UserNotifications, utility } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 import { ParamPermission } from "../../../Permissions/ParamPermission";
 
@@ -73,25 +73,25 @@ export class ParamUserMerge extends ParamMergeSubscribable {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.login = json?.login;
-		this.company = json?.company;
-		this.nickname = json?.nickname;
-		this.password = json?.password;
-		this.passwordExpired = json?.passwordExpired;
-		this.enabled = json?.enabled;
-		this.contact = json?.contact;
-		this.timezone = json?.timezone;
-		this.language = json?.language;
-		this.formats = json?.formats ? serialization.toMap(json.formats) : null;
-		this.measurements = json?.measurements ? serialization.toMap(json.measurements) : null;
-		this.options = json?.options ? serialization.toMap(json.options) : null;
-		this.notify = json?.notify?.map((n: any) => UserNotifications.fromJSON(n));
-		this.groups = json?.groups;
-		this.permissions = json?.permissions?.map((p: any) => new ParamPermission(p));
+		this.login = json?.login as email;
+		this.company = json?.company as ulong;
+		this.nickname = json?.nickname as string;
+		this.password = json?.password as string;
+		this.passwordExpired = json?.passwordExpired as boolean;
+		this.enabled = json?.enabled as boolean;
+		this.contact = json?.contact as ulong;
+		this.timezone = utility.findTimeZoneById(json?.timezone as codified);
+		this.language = json?.language as codified;
+		this.formats = json?.formats ? serialization.toMap(json?.formats as object) : null;
+		this.measurements = json?.measurements ? serialization.toMap(json?.measurements as object) : null;
+		this.options = json?.options ? serialization.toMap(json?.options as object) : null;
+		this.notify = (json?.notify as JsonObject[])?.map((n: any) => UserNotifications.fromJSON(n));
+		this.groups = json?.groups as ulong[];
+		this.permissions = (json?.permissions as JsonObject[])?.map((p: any) => new ParamPermission(p));
 	}
 
 	override toJSON() {
-		const json: JsonObject = {
+		const json: any = {
 			"login": this.login,
 		};
 		if (this.v?.length) {

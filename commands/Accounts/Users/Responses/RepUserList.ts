@@ -1,6 +1,6 @@
-import { nothing, User } from "@trakit/objects";
-import { Reply } from "../../../API/Responses/Reply";
+import { JsonObject, nothing, User } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
+import { Reply } from "../../../API/Responses/Reply";
 
 /**
  * A container for the requested {@link users}.
@@ -13,7 +13,7 @@ export abstract class RepUserList extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.users = json?.users?.map((u: any) => new User(u));
+		this.users = (json?.users as JsonObject[])?.map((u: any) => new User(u));
 	}
 }
 
@@ -28,6 +28,6 @@ export class RepUserListByCompany extends RepUserList {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentId.fromJSON(json?.company);
+		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
 }

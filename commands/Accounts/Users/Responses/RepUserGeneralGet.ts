@@ -1,4 +1,4 @@
-import { nothing, UserGeneral } from "@trakit/objects";
+import { JsonObject, nothing, UserGeneral } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -13,7 +13,7 @@ export class RepUserGeneralGet extends Reply {
 	constructor(json: JsonObject) {
 		super(json);
 		if (json?.userGeneral) {
-			this.userGeneral = new UserGeneral(json.userGeneral);
+			this.userGeneral = new UserGeneral(json.userGeneral as JsonObject);
 		}
 	}
 }

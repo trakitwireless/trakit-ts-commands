@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 import { ParamId } from "../../../API/Requests/Parameters/ParamId";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
@@ -31,10 +32,10 @@ export class PayUserListByCompany extends PayUserList implements IPayListByCompa
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.company = new ParamId(json?.company);
+		this.company = new ParamId(json?.company as JsonObject);
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepUserListByCompany(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepUserListByCompany(json as JsonObject);
 	}
 }

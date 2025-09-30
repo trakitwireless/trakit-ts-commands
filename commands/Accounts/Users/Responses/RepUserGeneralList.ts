@@ -1,3 +1,4 @@
+import { codified, JsonObject } from "@trakit/objects";
 import { nothing, serialization, UserGeneral } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
@@ -13,7 +14,7 @@ export abstract class RepUserGeneralList extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.userGenerals = json?.userGenerals?.map((u: any) => new UserGeneral(u)) ?? [];
+		this.userGenerals = (json?.userGenerals as JsonObject[])?.map((u: any) => new UserGeneral(u)) ?? [];
 	}
 }
 
@@ -28,7 +29,7 @@ export class RepUserGeneralListByCompany extends RepUserGeneralList {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentId.fromJSON(json?.company);
+		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
 }
 /**
@@ -43,7 +44,7 @@ export class RepUserGeneralListByCompanyAndLabels extends RepUserGeneralListByCo
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.labels = json?.labels ?? [];
+		this.labels = json?.labels as codified[] ?? [];
 	}
 }
 /**
@@ -58,6 +59,6 @@ export class RepUserGeneralListByCompanyAndRefPairs extends RepUserGeneralListBy
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.references = serialization.toMap(json?.references ?? {});
+		this.references = serialization.toMap(json?.references as object ?? {});
 	}
 }

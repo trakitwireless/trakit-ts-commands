@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { Reply } from "../../../API/Responses/Reply";
 import { RepUserAdvancedGet } from "../Responses/RepUserAdvancedGet";
@@ -14,10 +15,10 @@ export class PayUserAdvancedGet extends PayUser implements IPayDeletable {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.includeDeleted = json?.includeDeleted;
+		this.includeDeleted = !!json?.includeDeleted;
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepUserAdvancedGet(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepUserAdvancedGet(json as JsonObject);
 	}
 }

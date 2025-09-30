@@ -1,6 +1,7 @@
-import { Payload } from "../../../API/Requests/Payload";
+import { JsonObject } from "@trakit/objects";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
 import { ParamLogin } from "../../../API/Requests/Parameters/ParamLogin";
+import { Payload } from "../../../API/Requests/Payload";
 
 /**
  * A container for the {@link user} object.
@@ -13,7 +14,7 @@ export abstract class PayUser extends Payload implements IPaySingle {
 
 	constructor(json?: JsonObject) {
 		super();
-		this.user = new ParamLogin(json?.user);
+		this.user = new ParamLogin(json?.user as JsonObject);
 	}
 	
 	/**

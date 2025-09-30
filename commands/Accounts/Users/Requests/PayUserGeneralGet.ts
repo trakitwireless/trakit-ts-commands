@@ -1,7 +1,8 @@
-import { Reply } from "../../../API/Responses/Reply";
-import { PayUser } from "./PayUser";
+import { JsonObject } from "@trakit/objects";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
+import { Reply } from "../../../API/Responses/Reply";
 import { RepUserGeneralGet } from "../Responses/RepUserGeneralGet";
+import { PayUser } from "./PayUser";
 
 /**
  * Gets details of the specified {@link UserGeneral}.
@@ -17,7 +18,7 @@ export class PayUserGeneralGet extends PayUser implements IPayDeletable {
 		this.includeDeleted = !!(json?.includeDeleted);
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepUserGeneralGet(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepUserGeneralGet(json as JsonObject);
 	}
 }

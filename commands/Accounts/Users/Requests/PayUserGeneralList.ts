@@ -1,9 +1,9 @@
-import { serialization } from "@trakit/objects";
-import { ParamId } from "../../../API/Requests/Parameters/ParamId";
+import { JsonObject, serialization } from "@trakit/objects";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { IPayListByLabels } from "../../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../../API/Requests/IPayListByReferences";
+import { ParamId } from "../../../API/Requests/Parameters/ParamId";
 import { Payload } from "../../../API/Requests/Payload";
 import { Reply } from "../../../API/Responses/Reply";
 import { RepUserGeneralListByCompany, RepUserGeneralListByCompanyAndLabels, RepUserGeneralListByCompanyAndRefPairs } from "../Responses/RepUserGeneralList";
@@ -34,11 +34,11 @@ export class PayUserGeneralListByCompany extends PayUserGeneralList implements I
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.company = new ParamId(json?.company);
+		this.company = new ParamId(json?.company as JsonObject);
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepUserGeneralListByCompany (json);
+	override createReply(json: JsonObject): Reply {
+		return new RepUserGeneralListByCompany(json);
 	}
 }
 /**
@@ -53,11 +53,11 @@ export class PayUserGeneralListByCompanyAndLabels extends PayUserGeneralListByCo
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.labels = json?.labels ?? [];
+		this.labels = json?.labels as string[] ?? [];
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepUserGeneralListByCompanyAndLabels(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepUserGeneralListByCompanyAndLabels(json as JsonObject);
 	}
 }
 /**
@@ -74,10 +74,10 @@ export class PayUserGeneralListByCompanyAndRefPairs extends PayUserGeneralListBy
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.references = serialization.toMap(json?.references ?? {});
+		this.references = serialization.toMap(json?.references as object ?? {});
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepUserGeneralListByCompanyAndRefPairs(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepUserGeneralListByCompanyAndRefPairs(json as JsonObject);
 	}
 }

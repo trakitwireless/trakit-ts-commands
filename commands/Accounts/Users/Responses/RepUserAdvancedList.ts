@@ -1,6 +1,6 @@
-import { nothing, serialization, UserAdvanced } from "@trakit/objects";
-import { Reply } from "../../../API/Responses/Reply";
+import { codified, JsonObject, nothing, serialization, UserAdvanced } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
+import { Reply } from "../../../API/Responses/Reply";
 
 /**
  * A container for the requested {@link userAdvanceds}.
@@ -13,7 +13,7 @@ export abstract class RepUserAdvancedList extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.userAdvanceds = json?.userAdvanceds?.map((u: any) => new UserAdvanced(u)) ?? [];
+		this.userAdvanceds = (json?.userAdvanceds as JsonObject[])?.map((u: any) => new UserAdvanced(u)) ?? [];
 	}
 }
 
@@ -28,7 +28,7 @@ export class RepUserAdvancedListByCompany extends RepUserAdvancedList {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentId.fromJSON(json?.company);
+		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
 }
 /**
@@ -43,7 +43,7 @@ export class RepUserAdvancedListByCompanyAndLabels extends RepUserAdvancedListBy
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.labels = json?.labels ?? [];
+		this.labels = json?.labels as codified[] ?? [];
 	}
 }
 /**
@@ -58,6 +58,6 @@ export class RepUserAdvancedListByCompanyAndRefPairs extends RepUserAdvancedList
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.references = serialization.toMap(json?.references ?? {});
+		this.references = serialization.toMap(json?.references as object ?? {});
 	}
 }
