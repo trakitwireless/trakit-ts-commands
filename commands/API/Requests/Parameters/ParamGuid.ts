@@ -1,4 +1,4 @@
-import { guid } from "@trakit/objects";
+import { guid, JsonObject } from "@trakit/objects";
 
 /**
  * A container class used to house the guid identifying a resource.
@@ -10,6 +10,6 @@ export class ParamGuid {
 	guid: guid;
 
 	constructor(json?: JsonObject) {
-		this.guid = json?.guid ?? "";
+		this.guid = json?.guid as guid ?? "";
 	}
 }

@@ -1,4 +1,4 @@
-import { email } from "@trakit/objects";
+import { email, JsonObject } from "@trakit/objects";
 
 /**
  * A container class used to house the login identifying a {@link User}.
@@ -11,6 +11,6 @@ export class ParamLogin {
 	login: email;
 
 	constructor(json?: JsonObject) {
-		this.login = json?.login ?? "";
+		this.login = json?.login as email ?? "";
 	}
 }

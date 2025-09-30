@@ -1,4 +1,4 @@
-import { nothing } from "@trakit/objects";
+import { JsonObject, nothing } from "@trakit/objects";
 
 /**
  * A container for the id of the {@link ProviderRegistration} requested/created.
@@ -21,6 +21,6 @@ export class ContentCode {
 	code: string;
 
 	constructor(json: JsonObject) {
-		this.code = json?.code ?? "";
+		this.code = json?.code as string ?? "";
 	}
 }

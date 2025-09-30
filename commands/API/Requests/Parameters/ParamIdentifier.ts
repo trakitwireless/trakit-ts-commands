@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 
 /**
  * A container class used to house the string identifying a {@link Provider}.
@@ -9,6 +10,6 @@ export class ParamIdentifier {
 	id: string;
 
 	constructor(json?: JsonObject) {
-		this.id = json?.id ?? "";
+		this.id = json?.id as string ?? "";
 	}
 }

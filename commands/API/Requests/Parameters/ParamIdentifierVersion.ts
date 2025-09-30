@@ -1,4 +1,4 @@
-import { int } from "@trakit/objects";
+import { int, JsonObject } from "@trakit/objects";
 import { ParamIdentifier } from "./ParamIdentifier";
 
 /**
@@ -12,6 +12,6 @@ export class ParamIdentifierVersion extends ParamIdentifier {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.v = json?.v ?? [];
+		this.v = json?.v as int[] ?? [];
 	}
 }

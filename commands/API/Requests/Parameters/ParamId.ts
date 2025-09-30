@@ -1,4 +1,4 @@
-import { ulong } from "@trakit/objects";
+import { JsonObject, ulong } from "@trakit/objects";
 
 /**
  * A container class used to house the id of the object requested.
@@ -10,6 +10,6 @@ export class ParamId {
 	id: ulong;
 
 	constructor(json?: JsonObject) {
-		this.id = json?.id;
+		this.id = json?.id as ulong;
 	}
 }

@@ -1,4 +1,4 @@
-import { int, nothing, utility } from '@trakit/objects';
+import { int, JsonObject, nothing, utility } from '@trakit/objects';
 import { Reply } from '../Responses/Reply';
 
 // Used to split the Payload class name into pieces to help create commands
@@ -22,7 +22,7 @@ export abstract class Payload {
 	reqId: int | nothing;
 
 	constructor(json?: JsonObject) {
-		this.reqId = json?.reqId;
+		this.reqId = json?.reqId as int;
 	}
 
 	/**

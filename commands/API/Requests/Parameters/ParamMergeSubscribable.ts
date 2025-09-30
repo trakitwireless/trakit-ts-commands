@@ -1,4 +1,4 @@
-import { int } from "@trakit/objects";
+import { int, JsonObject } from "@trakit/objects";
 import { ParamMerge } from "./ParamMerge";
 
 /**
@@ -12,6 +12,6 @@ export abstract class ParamMergeSubscribable extends ParamMerge {
 
 	constructor(json?: JsonObject) {
 		super();
-		this.v = json?.v || [];
+		this.v = json?.v as int[] || [];
 	}
 }

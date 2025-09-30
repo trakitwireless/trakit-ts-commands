@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 
 /**
  * A container class used to house the key identifying a {@link Machine}.
@@ -9,6 +10,6 @@ export class ParamKey {
 	key: string;
 
 	constructor(json?: JsonObject) {
-		this.key = json?.key ?? "";
+		this.key = json?.key as string ?? "";
 	}
 }

@@ -1,4 +1,4 @@
-import { int, nothing } from '@trakit/objects';
+import { int, JsonObject, nothing } from '@trakit/objects';
 import { ErrorCode } from "./Errors/ErrorCode";
 import { ErrorDetail } from "./Errors/ErrorDetail";
 
@@ -27,9 +27,9 @@ export class Reply {
 	errorDetails: ErrorDetail | nothing;
 
 	constructor(json: JsonObject) {
-		this.errorCode = json?.errorCode ?? ErrorCode.unknown;
-		this.message = json?.message ?? "Unknown error";
+		this.errorCode = json?.errorCode as ErrorCode ?? ErrorCode.unknown;
+		this.message = json?.message as string ?? "Unknown error";
 		this.errorDetails = ErrorDetail.fromJSON(json?.errorDetails);
-		this.reqId = json?.reqId;
+		this.reqId = json?.reqId as int;
 	}
 }

@@ -1,4 +1,4 @@
-import { nothing, ulong } from "@trakit/objects";
+import { JsonObject, nothing, ulong } from "@trakit/objects";
 import { ContentCode } from "./ContentCode";
 
 /**
