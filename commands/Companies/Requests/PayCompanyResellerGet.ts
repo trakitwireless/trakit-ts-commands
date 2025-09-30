@@ -1,7 +1,8 @@
-import { Reply } from "../../API/Responses/Reply";
-import { PayCompany } from "./PayCompany";
+import { JsonObject } from "@trakit/objects";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
+import { Reply } from "../../API/Responses/Reply";
 import { RepCompanyResellerGet } from "../Responses/RepCompanyResellerGet";
+import { PayCompany } from "./PayCompany";
 
 /**
  * Gets details of the specified {@link CompanyReseller}.

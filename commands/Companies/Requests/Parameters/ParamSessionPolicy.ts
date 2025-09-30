@@ -1,4 +1,4 @@
-import { byte, nothing, SessionMultiUser, ushort } from "@trakit/objects";
+import { byte, ipv4, JsonObject, nothing, SessionMultiUser, ushort } from "@trakit/objects";
 import { ParamMerge } from "../../../API/Requests/Parameters/ParamMerge";
 
 /**
@@ -12,7 +12,7 @@ export class ParamSessionPolicy extends ParamMerge {
 	/**
 	 * Restrict session creation to only the provided IPv4 ranges (using CIDR slash-notation).  Leave blank for Internet access.
 	 **/
-	ipv4Ranges: string[] | nothing;
+	ipv4Ranges: ipv4[] | nothing;
 	/**
 	 * Defines the behaviour of the system when a user creates multiple sessions.
 	 **/
@@ -32,12 +32,12 @@ export class ParamSessionPolicy extends ParamMerge {
 
 	constructor(json?: JsonObject) {
 		super();
-		this.applications = json?.applications;
-		this.ipv4Ranges = json?.ipv4Ranges;
-		this.multiUser = json?.multiUser;
-		this.idleAllowed = json?.idleAllowed;
-		this.expireTimeout = json?.expireTimeout;
-		this.maxSessions = json?.maxSessions;
+		this.applications = json?.applications as string[];
+		this.ipv4Ranges = json?.ipv4Ranges as ipv4[];
+		this.multiUser = json?.multiUser as SessionMultiUser;
+		this.idleAllowed = json?.idleAllowed as boolean;
+		this.expireTimeout = json?.expireTimeout as ushort;
+		this.maxSessions = json?.maxSessions as byte;
 	}
 
 	/**

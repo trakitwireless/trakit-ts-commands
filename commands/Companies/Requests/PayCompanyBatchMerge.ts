@@ -1,5 +1,6 @@
-import { Reply } from "../../API/Responses/Reply";
+import { JsonObject } from "@trakit/objects";
 import { Payload } from "../../API/Requests/Payload";
+import { Reply } from "../../API/Responses/Reply";
 import { RepCompanyBatchMerge } from "../Responses/RepCompanyBatchMerge";
 import { ParamCompanyMerge } from "./Parameters/ParamCompanyMerge";
 

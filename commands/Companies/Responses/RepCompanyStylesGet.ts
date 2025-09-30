@@ -1,4 +1,4 @@
-import { CompanyStyles, nothing } from "@trakit/objects";
+import { CompanyStyles, JsonObject, nothing } from "@trakit/objects";
 import { Reply } from "../../API/Responses/Reply";
 
 /**

@@ -1,4 +1,4 @@
-import { byte, nothing, PasswordExpiryMode } from "@trakit/objects";
+import { byte, JsonObject, nothing, PasswordExpiryMode, utility } from "@trakit/objects";
 import { ParamMerge } from "../../../API/Requests/Parameters/ParamMerge";
 
 /**
@@ -36,13 +36,13 @@ export class ParamPasswordPolicy extends ParamMerge {
 
 	constructor(json?: JsonObject) {
 		super();
-		this.minimumLength = json?.minimumLength;
-		this.includeLetters = !!json?.includeLetters;
-		this.includeNumbers = !!json?.includeNumbers;
-		this.includeUpperLower = !!json?.includeUpperLower;
-		this.includeSpecial = !!json?.includeSpecial;
-		this.expireMode = json?.expireMode;
-		this.expireThreshold = json?.expireThreshold;
+		this.minimumLength = json?.minimumLength as byte;
+		this.includeLetters = json?.includeLetters as boolean;
+		this.includeNumbers = json?.includeNumbers as boolean;
+		this.includeUpperLower = json?.includeUpperLower as boolean;
+		this.includeSpecial = json?.includeSpecial as boolean;
+		this.expireMode = json?.expireMode as PasswordExpiryMode;
+		this.expireThreshold = json?.expireThreshold as byte;
 	}
 
 	/**
@@ -51,10 +51,10 @@ export class ParamPasswordPolicy extends ParamMerge {
 	override toJSON(): any {
 		const json: any = {};
 		if (this.minimumLength) json.minimumLength = this.minimumLength;
-		if (this.includeLetters) json.includeLetters = this.includeLetters;
-		if (this.includeNumbers) json.includeNumbers = this.includeNumbers;
-		if (this.includeUpperLower) json.includeUpperLower = this.includeUpperLower;
-		if (this.includeSpecial) json.includeSpecial = this.includeSpecial;
+		if (!utility.isNothing(this.includeLetters)) json.includeLetters = this.includeLetters;
+		if (!utility.isNothing(this.includeNumbers)) json.includeNumbers = this.includeNumbers;
+		if (!utility.isNothing(this.includeUpperLower)) json.includeUpperLower = this.includeUpperLower;
+		if (!utility.isNothing(this.includeSpecial)) json.includeSpecial = this.includeSpecial;
 		if (this.expireMode) json.expireMode = this.expireMode;
 		if (this.expireThreshold) json.expireThreshold = this.expireThreshold;
 		return json;

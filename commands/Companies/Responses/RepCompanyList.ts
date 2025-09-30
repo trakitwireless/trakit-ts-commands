@@ -1,4 +1,4 @@
-import { Company, nothing, serialization } from "@trakit/objects";
+import { Company, JsonObject, nothing } from "@trakit/objects";
 import { ContentId } from "../../API/Responses/Content/ContentId";
 import { Reply } from "../../API/Responses/Reply";
 
@@ -29,39 +29,5 @@ export class RepCompanyListByCompany extends RepCompanyList {
 	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company as JsonObject);
-	}
-}
-
-/**
- * Contains the {@link Company.id} of the collection.
- **/
-export class RepCompanyListByCompanyAndLabels extends RepCompanyListByCompany {
-	/**
-	 * The labels given as input.
-	 * @see {@link CompanyStyles.labels}
-	 **/
-	labels: codified[] | nothing;
-	
-	constructor(json: JsonObject) {
-		super(json);
-		this.labels = json?.labels as codified[];
-	}
-}
-
-/**
- * Contains the {@link Company.id} of the collection.
- **/
-export class RepCompanyListByCompanyAndRefPairs extends RepCompanyListByCompany {
-	/**
-	 * The parsed references given as input.
-	 * @see {@link CompanyGeneral.references}
-	 **/
-	references: Map<string, string> | nothing;
-
-	constructor(json: JsonObject) {
-		super(json);
-		if (json?.references) {
-			this.references = serialization.toMap(json?.references as object);
-		}
 	}
 }

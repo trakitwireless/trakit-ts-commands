@@ -1,12 +1,10 @@
-import { serialization } from "@trakit/objects";
+import { JsonObject } from "@trakit/objects";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../API/Requests/IPayListByCompany";
-import { IPayListByLabels } from "../../API/Requests/IPayListByLabels";
-import { IPayListByReferences } from "../../API/Requests/IPayListByReferences";
 import { ParamId } from "../../API/Requests/Parameters/ParamId";
 import { Payload } from "../../API/Requests/Payload";
 import { Reply } from "../../API/Responses/Reply";
-import { RepCompanyGeneralListByCompany, RepCompanyGeneralListByCompanyAndLabels, RepCompanyGeneralListByCompanyAndRefPairs } from "../Responses/RepCompanyGeneralList";
+import { RepCompanyGeneralListByCompany } from "../Responses/RepCompanyGeneralList";
 
 /**
  * Gets a list of {@link CompanyGeneral}s.
@@ -39,46 +37,5 @@ export class PayCompanyGeneralListByCompany extends PayCompanyGeneralList implem
 
 	override createReply(json: JsonObject): Reply {
 		return new RepCompanyGeneralListByCompany(json as JsonObject);
-	}
-}
-/**
- * Gets the list of {@link CompanyGeneral}s for the specified {@link Company} only if the {@link CompanyGeneral.labels} matches all of the given {@link CompanyStyles.labels}.
- **/
-export class PayCompanyGeneralListByCompanyAndLabels extends PayCompanyGeneralListByCompany implements IPayListByLabels {
-	/**
-	 * The parsed labels given as input.
-	 * @see {@link CompanyStyles.labels}
-	 **/
-	labels: codified[];
-
-	constructor(json?: JsonObject) {
-		super(json);
-		this.labels = json?.labels as codified[] ?? [];
-	}
-	override createReply(json: JsonObject): Reply {
-		return new RepCompanyGeneralListByCompanyAndLabels(json as JsonObject);
-	}
-}
-/**
- * Gets the list of {@link CompanyGeneral}s for the specified {@link Company} only if one of the specified {@link CompanyGeneral.references} fields match.
- * If no references are specified, it will match any {@link CompanyGeneral} with no references.
- * If a reference value is null, it will match any {@link CompanyGeneral} without that reference key.
- **/
-export class PayCompanyGeneralListByCompanyAndRefPairs extends PayCompanyGeneralListByCompany implements IPayListByReferences {
-	/**
-	 * The parsed references given as input.
-	 * @see {@link CompanyGeneralGeneral.references}
-	 **/
-	references: Map<string, string>;
-
-	constructor(json?: JsonObject) {
-		super(json);
-		this.references = json?.references
-			? serialization.toMap(json?.references as object)
-			: new Map<string, string>();
-	}
-
-	override createReply(json: JsonObject): Reply {
-		return new RepCompanyGeneralListByCompanyAndRefPairs(json as JsonObject);
 	}
 }

@@ -1,8 +1,9 @@
-import { Reply } from "../../API/Responses/Reply";
-import { Payload } from "../../API/Requests/Payload";
+import { JsonObject } from "@trakit/objects";
 import { IPaySingle } from "../../API/Requests/IPaySingle";
-import { ParamCompanyMerge } from "./Parameters/ParamCompanyMerge";
+import { Payload } from "../../API/Requests/Payload";
+import { Reply } from "../../API/Responses/Reply";
 import { RepCompanyMerge } from "../Responses/RepCompanyMerge";
+import { ParamCompanyMerge } from "./Parameters/ParamCompanyMerge";
 
 /**
  * Creates a new or updates an existing {@link Company}.

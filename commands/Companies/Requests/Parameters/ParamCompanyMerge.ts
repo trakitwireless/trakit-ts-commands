@@ -1,7 +1,7 @@
-import { ulong, LabelStyle, serialization, nothing } from "@trakit/objects";
+import { JsonObject, LabelStyle, nothing, serialization, ulong } from "@trakit/objects";
+import { ParamMergeSubscribable } from "../../../API/Requests/Parameters/ParamMergeSubscribable";
 import { ParamPasswordPolicy } from "./ParamPasswordPolicy";
 import { ParamSessionPolicy } from "./ParamSessionPolicy";
-import { ParamMergeSubscribable } from "../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
  * Parameters used to create or update an {@link Company}.
@@ -52,7 +52,7 @@ export class ParamCompanyMerge extends ParamMergeSubscribable {
 	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id as ulong;
-		this.parent = json?.parent;
+		this.parent = json?.parent as ulong;
 		this.name = json?.name as string;
 		this.notes = json?.notes as string;
 		this.references = serialization.toMap(json?.references as object);
@@ -60,10 +60,10 @@ export class ParamCompanyMerge extends ParamMergeSubscribable {
 		this.labels = serialization.toMap(json?.labels as object);
 		this.tags = serialization.toMap(json?.tags as object);
 		this.sessionPolicy = json?.sessionPolicy
-			? new ParamSessionPolicy(json.sessionPolicy)
+			? new ParamSessionPolicy(json.sessionPolicy as JsonObject)
 			: null;
 		this.passwordPolicy = json?.passwordPolicy
-			? new ParamPasswordPolicy(json.passwordPolicy)
+			? new ParamPasswordPolicy(json.passwordPolicy as JsonObject)
 			: null;
 	}
 

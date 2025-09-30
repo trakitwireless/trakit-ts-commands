@@ -1,11 +1,10 @@
-import { serialization } from "@trakit/objects";
+import { JsonObject } from "@trakit/objects";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../API/Requests/IPayListByCompany";
-import { IPayListByReferences } from "../../API/Requests/IPayListByReferences";
 import { ParamId } from "../../API/Requests/Parameters/ParamId";
 import { Payload } from "../../API/Requests/Payload";
 import { Reply } from "../../API/Responses/Reply";
-import { RepCompanyListByCompany, RepCompanyListByCompanyAndLabels, RepCompanyListByCompanyAndRefPairs } from "../Responses/RepCompanyList";
+import { RepCompanyListByCompany } from "../Responses/RepCompanyList";
 
 /**
  * Gets details of the specified {@link company}.
@@ -52,27 +51,6 @@ export class PayCompanyListByCompany extends PayCompanyList implements IPayListB
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepCompanyListByCompanyAndLabels(json as JsonObject);
-	}
-}
-/**
- * Contains the {@link Company.id} of the collection.
- **/
-export class PayCompanyListByCompanyAndRefPairs extends PayCompanyListByCompany implements IPayListByReferences {
-	/**
-	 * Case-insensitive reference pairs used to match {@link Company}s.
-	 * @see {@link CompanyGeneral.references}
-	 **/
-	references: Map<string, string>;
-
-	constructor(json?: JsonObject) {
-		super(json);
-		this.references = json?.references
-			? serialization.toMap(json?.references as object)
-			: new Map<string, string>();
-	}
-
-	override createReply(json: JsonObject): Reply {
-		return new RepCompanyListByCompanyAndRefPairs(json as JsonObject);
+		return new RepCompanyListByCompany(json as JsonObject);
 	}
 }

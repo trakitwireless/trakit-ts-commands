@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { IPaySingle } from "../../API/Requests/IPaySingle";
 import { ParamId } from "../../API/Requests/Parameters/ParamId";
 import { Payload } from "../../API/Requests/Payload";

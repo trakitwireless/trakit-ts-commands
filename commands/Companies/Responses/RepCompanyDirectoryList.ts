@@ -1,4 +1,4 @@
-import { CompanyDirectory, nothing, serialization } from "@trakit/objects";
+import { CompanyDirectory, JsonObject, nothing } from "@trakit/objects";
 import { ContentId } from "../../API/Responses/Content/ContentId";
 import { Reply } from "../../API/Responses/Reply";
 
@@ -29,38 +29,5 @@ export class RepCompanyDirectoryListByCompany extends RepCompanyDirectoryList {
 	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company as JsonObject);
-	}
-}
-
-/**
- * A container owner {@link Company} of the collection.
- **/
-export class RepCompanyDirectoryListByCompanyAndLabels extends RepCompanyDirectoryListByCompany {
-	/**
-	 * The labels given as input.
-	 * @see {@link CompanyDirectory.labels}
-	 **/
-	labels: codified[] | nothing;
-
-	constructor(json: JsonObject) {
-		super(json);
-		this.labels = json?.labels as codified[];
-	}
-}
-/**
- * A container owner {@link Company} of the collection.
- **/
-export class RepCompanyDirectoryListByCompanyAndRefPairs extends RepCompanyDirectoryListByCompany {
-	/**
-	 * The reference string given as input.
-	 * @see {@link CompanyDirectory.references}
-	 **/
-	references: Map<string, string> | nothing;
-
-	constructor(json: JsonObject) {
-		super(json);
-		if (json?.references) {
-			this.references = serialization.toMap(json?.references as object);
-		}
 	}
 }
