@@ -1,7 +1,8 @@
-import { Reply } from "../../../API/Responses/Reply";
-import { PayMachine } from "./PayMachine";
+import { JsonObject } from "@trakit/objects";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
+import { Reply } from "../../../API/Responses/Reply";
 import { RepMachineGet } from "../Responses/RepMachineGet";
+import { PayMachine } from "./PayMachine";
 
 /**
  * Gets details of the specified {@link Machine}.
@@ -14,10 +15,10 @@ export class PayMachineGet extends PayMachine implements IPayDeletable {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.includeDeleted = json?.includeDeleted ?? false;
+		this.includeDeleted = json?.includeDeleted as boolean ?? false;
 	}
 
 	override createReply(json?: JsonObject): Reply {
-		return new RepMachineGet(json);
+		return new RepMachineGet(json as JsonObject);
 	}
 }

@@ -1,6 +1,6 @@
+import { JsonObject, nothing } from "@trakit/objects";
 import { ContentKeyCompany } from "../../../API/Responses/Content/ContentKeyCompany";
 import { Reply } from "../../../API/Responses/Reply";
-import { nothing } from "@trakit/objects";
 
 /**
  * A container for the {@link machine}.
@@ -13,6 +13,6 @@ export class RepMachineMerge extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.machine = ContentKeyCompany.fromJSON(json?.machine);
+		this.machine = ContentKeyCompany.fromJSON(json?.machine as JsonObject);
 	}
 }

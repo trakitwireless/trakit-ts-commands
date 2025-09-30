@@ -1,5 +1,6 @@
-import { ParamKey } from "../../../API/Requests/Parameters/ParamKey";
+import { JsonObject } from "@trakit/objects";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
+import { ParamKey } from "../../../API/Requests/Parameters/ParamKey";
 import { Payload } from "../../../API/Requests/Payload";
 
 /**
@@ -13,7 +14,7 @@ export abstract class PayMachine extends Payload implements IPaySingle {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.machine = new ParamKey(json?.machine);
+		this.machine = new ParamKey(json?.machine as JsonObject);
 	}
 	/**
 	 * 

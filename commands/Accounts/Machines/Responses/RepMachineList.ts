@@ -1,6 +1,6 @@
-import { Machine, nothing } from "@trakit/objects";
-import { Reply } from "../../../API/Responses/Reply";
+import { JsonObject, Machine, nothing } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
+import { Reply } from "../../../API/Responses/Reply";
 
 /**
  * A container for the requested {@link machines}.
@@ -13,7 +13,7 @@ export abstract class RepMachineList extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.machines = json?.machines?.map((m: any) => new Machine(m));
+		this.machines = (json?.machines as JsonObject[])?.map((m: any) => new Machine(m));
 	}
 }
 /**
@@ -27,6 +27,6 @@ export class RepMachineListByCompany extends RepMachineList {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentId.fromJSON(json?.company);
+		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
 }

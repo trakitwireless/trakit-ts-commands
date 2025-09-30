@@ -1,6 +1,6 @@
-import { nothing, serialization, SystemsOfUnits, Timezone, ulong, utility } from "@trakit/objects";
-import { ParamPermission } from "../../../Permissions/ParamPermission";
+import { codified, datetime, ipv4, JsonObject, nothing, serialization, SystemsOfUnits, Timezone, ulong, utility } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
+import { ParamPermission } from "../../../Permissions/ParamPermission";
 
 /**
  * Parameters used to create or update an {@link Machine}.
@@ -113,29 +113,29 @@ export class ParamMachineMerge extends ParamMergeSubscribable {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.key = json?.key;
-		this.secret = json?.secret;
-		this.company = json?.company;
-		this.nickname = json?.nickname;
-		this.notes = json?.notes;
-		this.enabled = json?.enabled;
-		this.notBefore = json?.notBefore ? utility.date(json.notBefore) : undefined;
-		this.notAfter = json?.notAfter ? utility.date(json.notAfter) : undefined;
-		this.timezone = utility.findTimeZoneById(json?.timezone);
-		this.language = json?.language;
-		this.formats = serialization.toMap(json?.formats ?? {});
-		this.measurements = serialization.toMap(json?.measurements ?? {});
-		this.options = serialization.toMap(json?.options ?? {});
-		this.groups = json?.groups;
-		this.permissions = json?.permissions?.map((p: any) => new ParamPermission(p));
-		this.services = json?.services?.map((s: any) => new URL(s));
-		this.referrers = json?.referrers?.map((r: any) => new URL(r));
-		this.ipRanges = json?.ipRanges;
-		this.insecure = json?.insecure;
+		this.key = json?.key as string;
+		this.secret = !!json?.secret;
+		this.company = json?.company as ulong;
+		this.nickname = json?.nickname as string;
+		this.notes = json?.notes as string;
+		this.enabled = !!json?.enabled;
+		this.notBefore = json?.notBefore ? utility.date(json.notBefore as datetime) : null;
+		this.notAfter = json?.notAfter ? utility.date(json.notAfter as datetime) : null;
+		this.timezone = utility.findTimeZoneById(json?.timezone as codified);
+		this.language = json?.language as codified;
+		this.formats = serialization.toMap(json?.formats as object ?? {});
+		this.measurements = serialization.toMap(json?.measurements as object ?? {});
+		this.options = serialization.toMap(json?.options as object ?? {});
+		this.groups = json?.groups as ulong[];
+		this.permissions = (json?.permissions as JsonObject[])?.map((p: any) => new ParamPermission(p));
+		this.services = (json?.services as JsonObject[])?.map((s: any) => new URL(s));
+		this.referrers = (json?.referrers as JsonObject[])?.map((r: any) => new URL(r));
+		this.ipRanges = json?.ipRanges as ipv4[];
+		this.insecure = !!json?.insecure;
 	}
 
 	override toJSON(): any {
-		const json: JsonObject = {};
+		const json: any = {};
 		if (this.key) {
 			json["key"] = this.key;
 			json["v"] = [...this.v];

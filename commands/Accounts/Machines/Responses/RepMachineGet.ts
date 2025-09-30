@@ -1,4 +1,4 @@
-import { Machine, nothing } from "@trakit/objects";
+import { JsonObject, Machine, nothing } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -13,7 +13,7 @@ export class RepMachineGet extends Reply {
 	constructor(json: JsonObject) {
 		super(json);
 		if (json?.machine) {
-			this.machine = new Machine(json.machine);
+			this.machine = new Machine(json.machine as JsonObject);
 		}
 	}
 }

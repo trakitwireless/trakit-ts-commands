@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 import { RepMachineDelete } from "../Responses/RepMachineDelete";
 import { PayMachine } from "./PayMachine";
@@ -7,6 +8,6 @@ import { PayMachine } from "./PayMachine";
  **/
 export class PayMachineDelete extends PayMachine { 
 	override createReply(json?: JsonObject): Reply {
-		return new RepMachineDelete(json);
+		return new RepMachineDelete(json as JsonObject);
 	}
 }
