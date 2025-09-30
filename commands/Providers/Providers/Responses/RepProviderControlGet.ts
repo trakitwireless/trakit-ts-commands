@@ -13,8 +13,8 @@ export class RepProviderControlGet extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.providerControl = json?.providerControl
-			? new ProviderControl(json.providerControl)
-			: null;
+		if (json?.providerControl) {
+			this.providerControl = new ProviderControl(json.providerControl as JsonObject);
+		}
 	}
 }

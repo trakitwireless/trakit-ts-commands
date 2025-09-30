@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 import { RepProviderDelete } from "../Responses/RepProviderDelete";
 import { PayProvider } from "./PayProvider";

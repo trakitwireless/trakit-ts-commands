@@ -1,4 +1,4 @@
-import { nothing, ProviderScriptBlock, ProviderScriptParameter, ProviderType, serialization, ulong, utility } from "@trakit/objects";
+import { codified, colour, JsonObject, nothing, ProviderScriptBlock, ProviderScriptParameter, ProviderType, serialization, ulong, utility } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
@@ -59,8 +59,8 @@ export class ParamProviderScriptMerge extends ParamMergeSubscribable {
 		this.company = json?.company as ulong;
 		this.name = json?.name as string;
 		this.notes = json?.notes as string;
-		this.global  = json?.global as boolean;
-		this.kind = json?.kind;
+		this.global = json?.global as boolean;
+		this.kind = json?.kind as ProviderType;
 		this.fill = json?.fill as colour;
 		this.stroke = json?.stroke as colour;
 		this.graphic = json?.graphic as codified;

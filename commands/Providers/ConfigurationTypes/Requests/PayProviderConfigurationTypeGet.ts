@@ -1,7 +1,8 @@
-import { Reply } from "../../../API/Responses/Reply";
-import { PayProviderConfigurationType } from "./PayProviderConfigurationType";
+import { JsonObject } from "@trakit/objects";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
+import { Reply } from "../../../API/Responses/Reply";
 import { RepProviderConfigurationTypeGet } from "../Responses/RepProviderConfigurationTypeGet";
+import { PayProviderConfigurationType } from "./PayProviderConfigurationType";
 
 /**
  * Gets details of the specified {@link ProviderConfigurationType}.

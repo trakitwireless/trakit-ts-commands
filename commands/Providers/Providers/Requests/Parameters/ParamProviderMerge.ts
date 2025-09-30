@@ -1,4 +1,4 @@
-import { nothing, ProviderType, ulong } from "@trakit/objects";
+import { JsonObject, nothing, phone, ProviderType, ulong } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
@@ -46,15 +46,15 @@ export class ParamProviderMerge extends ParamMergeSubscribable {
 	
 	constructor(json?: JsonObject) {
 		super(json);
-		this.id = json?.id as ulong;
+		this.id = json?.id as string;
 		this.company = json?.company as ulong;
 		this.name = json?.name as string;
 		this.notes = json?.notes as string;
-		this.kind = json?.kind;
-		this.asset = json?.asset;
-		this.config = json?.config;
-		this.phone = json?.phone;
-		this.password = json?.password;
+		this.kind = json?.kind as ProviderType;
+		this.asset = json?.asset as ulong;
+		this.config = json?.config as ulong;
+		this.phone = json?.phone as phone;
+		this.password = json?.password as string;
 	}
 
 	override toJSON(): any {

@@ -1,12 +1,10 @@
-import { JsonObject } from "@trakit/objects";
-import { nothing } from "@trakit/objects";
-import { Reply } from "../../../API/Responses/Reply";
+import { JsonObject, nothing } from "@trakit/objects";
 import { ContentIdendifierDeleted } from "../../../API/Responses/Content/ContentIdendifierDeleted";
+import { Reply } from "../../../API/Responses/Reply";
 
 /**
  * A container for the {@link provider}.
  **/
-import { JsonObject } from "@trakit/objects";
 export class RepProviderBatchDelete extends Reply {
 	/**
 	 * Details about deleting/restoring the requested {@link Provider}.

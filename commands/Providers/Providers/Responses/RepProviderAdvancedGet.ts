@@ -13,8 +13,8 @@ export class RepProviderAdvancedGet extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.providerAdvanced = json?.providerAdvanced
-			? new ProviderAdvanced(json.providerAdvanced)
-			: null;
+		if (json?.providerAdvanced) {
+			this.providerAdvanced = new ProviderAdvanced(json.providerAdvanced as JsonObject)
+		}
 	}
 }

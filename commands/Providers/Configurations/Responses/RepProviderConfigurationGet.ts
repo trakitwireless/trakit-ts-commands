@@ -1,4 +1,4 @@
-import { nothing, ProviderConfiguration } from "@trakit/objects";
+import { JsonObject, nothing, ProviderConfiguration } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -12,8 +12,8 @@ export class RepProviderConfigurationGet extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.providerConfiguration = json?.providerConfiguration
-			? new ProviderConfiguration(json.providerConfiguration)
-			: null;
+		if (json?.providerConfiguration) {
+			this.providerConfiguration = new ProviderConfiguration(json.providerConfiguration as JsonObject);
+		}
 	}
 }

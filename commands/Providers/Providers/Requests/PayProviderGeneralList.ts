@@ -1,7 +1,8 @@
-import { ParamId } from "../../../API/Requests/Parameters/ParamId";
+import { JsonObject } from "@trakit/objects";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { IPaySuspendable } from "../../../API/Requests/IPaySuspendable";
+import { ParamId } from "../../../API/Requests/Parameters/ParamId";
 import { Payload } from "../../../API/Requests/Payload";
 import { Reply } from "../../../API/Responses/Reply";
 import { RepProviderGeneralListByCompany, RepProviderGeneralListByConfig } from "../Responses/RepProviderGeneralList";

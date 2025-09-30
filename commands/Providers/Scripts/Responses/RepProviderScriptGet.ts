@@ -1,5 +1,4 @@
-import { JsonObject } from "@trakit/objects";
-import { nothing, ProviderScript } from "@trakit/objects";
+import { JsonObject, nothing, ProviderScript } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -13,8 +12,8 @@ export class RepProviderScriptGet extends Reply {
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.providerScript = json?.providerScript
-			? new ProviderScript(json.providerScript)
-			: null;
+		if (json?.providerScript) {
+			this.providerScript = new ProviderScript(json.providerScript as JsonObject);
+		}
 	}
 }

@@ -1,4 +1,4 @@
-import { nothing, serialization, ulong } from "@trakit/objects";
+import { JsonObject, nothing, serialization, ulong } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
@@ -42,13 +42,13 @@ export class ParamProviderConfigurationMerge extends ParamMergeSubscribable {
 	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id as ulong;
-		this.type = json?.type;
+		this.type = json?.type as ulong;
 		this.name = json?.name as string;
 		this.notes = json?.notes as string;
 		this.scriptParameters = json?.scriptParameters
 			? serialization.toMap(json?.scriptParameters as object)
 			: null;
-		this.geofences = json?.geofences;
+		this.geofences = json?.geofences as ulong[];
 	}
 	override toJSON(): any {
 		const json: any = {};

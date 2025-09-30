@@ -13,8 +13,8 @@ export class RepProviderRegistrationGet extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.providerRegistration = json?.providerRegistration
-			? new ProviderRegistration(json.providerRegistration)
-			: null;
+		if (json?.providerRegistration) {
+			this.providerRegistration = new ProviderRegistration(json.providerRegistration as JsonObject);
+		}
 	}
 }

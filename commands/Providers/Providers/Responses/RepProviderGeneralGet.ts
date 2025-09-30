@@ -13,8 +13,8 @@ export class RepProviderGeneralGet extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.providerGeneral = json?.providerGeneral
-			? new ProviderGeneral(json.providerGeneral)
-			: null;
+		if (json?.providerGeneral) {
+			this.providerGeneral = new ProviderGeneral(json.providerGeneral as JsonObject);
+		}
 	}
 }

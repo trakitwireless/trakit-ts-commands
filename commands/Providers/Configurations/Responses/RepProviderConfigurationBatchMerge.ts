@@ -1,6 +1,6 @@
+import { JsonObject, nothing } from "@trakit/objects";
 import { ContentIdCompany } from "../../../API/Responses/Content/ContentIdCompany";
 import { Reply } from "../../../API/Responses/Reply";
-import { nothing } from "@trakit/objects";
 
 /**
  * 
@@ -13,6 +13,6 @@ export class RepProviderConfigurationBatchMerge extends Reply {
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.providerConfigurations = (json?.providerConfigurations as JsonObject[])?.map((v: any) => ContentIdCompany.fromJSON(v));
+		this.providerConfigurations = (json?.providerConfigurations as JsonObject[])?.map((v: any) => new ContentIdCompany(v));
 	}
 }
