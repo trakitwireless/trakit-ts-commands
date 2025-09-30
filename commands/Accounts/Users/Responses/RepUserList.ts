@@ -3,7 +3,7 @@ import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
- * A container for the requested {@link users}.
+ * A container for the requested {@link User}s.
  **/
 export abstract class RepUserList extends Reply {
 	/**
@@ -29,5 +29,19 @@ export class RepUserListByCompany extends RepUserList {
 	constructor(json: JsonObject) {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company as JsonObject);
+	}
+}
+/**
+ * Contains the {@link UserGroup.id} of the collection.
+ **/
+export class RepUserListByGroup extends RepUserList {
+	/**
+	 * Identifier of the {@link UserGroup} to which this collection belongs.
+	 **/
+	userGroup: ContentId | nothing;
+
+	constructor(json: JsonObject) {
+		super(json);
+		this.userGroup = ContentId.fromJSON(json?.userGroup as JsonObject);
 	}
 }

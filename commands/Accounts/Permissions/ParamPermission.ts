@@ -34,7 +34,7 @@ export class ParamPermission {
 	 * </values>
 	 * </override>
 	 **/
-	labels: string[] | nothing;
+	labels: codified[] | nothing;
 
 	constructor(json?: JsonObject) {
 		this.company = json?.company as ulong;

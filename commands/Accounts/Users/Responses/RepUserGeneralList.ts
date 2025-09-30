@@ -4,7 +4,7 @@ import { Reply } from "../../../API/Responses/Reply";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 
 /**
- * A container for the requested {@link userGenerals}.
+ * A container for the requested {@link UserGeneral}s.
  **/
 export abstract class RepUserGeneralList extends Reply {
 	/**
@@ -33,32 +33,16 @@ export class RepUserGeneralListByCompany extends RepUserGeneralList {
 	}
 }
 /**
- * A container owner {@link Company} of the collection.
+ * A container owner {@link UserGroup} of the collection.
  **/
-export class RepUserGeneralListByCompanyAndLabels extends RepUserGeneralListByCompany {
+export class RepUserGeneralListByGroup extends RepUserGeneralList {
 	/**
-	 * The labels given as input.
-	 * @see {@link UserGeneral.labels}
+	 * Identifier of the {@link UserGroup} to which this collection belongs.
 	 **/
-	labels: string[];
-	
-	constructor(json: JsonObject) {
-		super(json);
-		this.labels = json?.labels as codified[] ?? [];
-	}
-}
-/**
- * A container owner {@link Company} of the collection.
- **/
-export class RepUserGeneralListByCompanyAndRefPairs extends RepUserGeneralListByCompany {
-	/**
-	 * The reference string given as input.
-	 * @see {@link UserGeneral.references}
-	 **/
-	references: Map<string, string>;
+	userGroup: ContentId | nothing;
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.references = serialization.toMap(json?.references as object ?? {});
+		this.userGroup = ContentId.fromJSON(json?.userGroup as JsonObject);
 	}
 }

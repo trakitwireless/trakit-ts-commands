@@ -15,7 +15,7 @@ export class PayMachineGet extends PayMachine implements IPayDeletable {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.includeDeleted = json?.includeDeleted as boolean ?? false;
+		this.includeDeleted = !!json?.includeDeleted;
 	}
 
 	override createReply(json: JsonObject): Reply {

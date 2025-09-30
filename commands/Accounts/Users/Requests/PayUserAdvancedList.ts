@@ -1,12 +1,10 @@
-import { JsonObject, serialization } from "@trakit/objects";
+import { JsonObject } from "@trakit/objects";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
-import { IPayListByLabels } from "../../../API/Requests/IPayListByLabels";
-import { IPayListByReferences } from "../../../API/Requests/IPayListByReferences";
 import { ParamId } from "../../../API/Requests/Parameters/ParamId";
 import { Payload } from "../../../API/Requests/Payload";
 import { Reply } from "../../../API/Responses/Reply";
-import { RepUserAdvancedListByCompany, RepUserAdvancedListByCompanyAndLabels, RepUserAdvancedListByCompanyAndRefPairs } from "../Responses/RepUserAdvancedList";
+import { RepUserAdvancedListByCompany, RepUserAdvancedListByGroup } from "../Responses/RepUserAdvancedList";
 
 /**
  * Gets a list of {@link UserAdvanced}s.
@@ -42,42 +40,20 @@ export class PayUserAdvancedListByCompany extends PayUserAdvancedList implements
 	}
 }
 /**
- * Gets the list of {@link UserAdvanced}s for the specified {@link Company} only if the {@link UserAdvancedGeneral.labels} matches all of the given {@link Parameters.labels}.
+ * Gets the list of {@link UserAdvanced}s for the specified {@link UserGroup}.
  **/
-export class PayUserAdvancedListByCompanyAndLabels extends PayUserAdvancedListByCompany implements IPayListByLabels {
+export class PayUserAdvancedListByGroup extends PayUserAdvancedListByCompany {
 	/**
-	 * The parsed labels given as input.
-	 * @see {@link UserGeneral.labels}
+	 * Identifier of the {@link Group} to which this collection belongs.
 	 **/
-	labels: string[];
+	group: ParamId;
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.labels = json?.labels as string[] ?? [];
+		this.group = new ParamId(json?.group as JsonObject);
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepUserAdvancedListByCompanyAndLabels(json as JsonObject);
-	}
-}
-/**
- * Gets the list of {@link UserAdvanced}s for the specified {@link Company} only if one of the specified {@link UserAdvancedGeneral.references} fields match.
- * If no references are specified, it will match any {@link UserAdvanced} with no references.
- * If a reference value is null, it will match any {@link UserAdvanced} without that reference key.
- **/
-export class PayUserAdvancedListByCompanyAndRefPairs extends PayUserAdvancedListByCompany implements IPayListByReferences {
-	/**
-	 * The parsed references given as input.
-	 * @see {@link UserAdvancedGeneral.references}
-	 **/
-	references: Map<string, string>;
-
-	constructor(json?: JsonObject) {
-		super(json);
-		this.references = serialization.toMap(json?.references as object ?? {});
-	}
-
-	override createReply(json: JsonObject): Reply {
-		return new RepUserAdvancedListByCompanyAndRefPairs(json as JsonObject);
+		return new RepUserAdvancedListByGroup(json);
 	}
 }

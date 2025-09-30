@@ -1,9 +1,9 @@
-import { codified, JsonObject, nothing, serialization, UserAdvanced } from "@trakit/objects";
+import { JsonObject, nothing, UserAdvanced } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
- * A container for the requested {@link userAdvanceds}.
+ * A container for the requested {@link UserAdvanced}s.
  **/
 export abstract class RepUserAdvancedList extends Reply {
 	/**
@@ -34,30 +34,14 @@ export class RepUserAdvancedListByCompany extends RepUserAdvancedList {
 /**
  * A container owner {@link Company} of the collection.
  **/
-export class RepUserAdvancedListByCompanyAndLabels extends RepUserAdvancedListByCompany {
+export class RepUserAdvancedListByGroup extends RepUserAdvancedList {
 	/**
-	 * The labels given as input.
-	 * @see {@link UserGeneral.labels}
+	 * Identifier of the {@link UserGroup} to which this collection belongs.
 	 **/
-	labels: string[];
+	userGroup: ContentId | nothing;
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.labels = json?.labels as codified[] ?? [];
-	}
-}
-/**
- * A container owner {@link Company} of the collection.
- **/
-export class RepUserAdvancedListByCompanyAndRefPairs extends RepUserAdvancedListByCompany {
-	/**
-	 * The reference string given as input.
-	 * @see {@link UserGeneral.references}
-	 **/
-	references: Map<string, string>;
-
-	constructor(json: JsonObject) {
-		super(json);
-		this.references = serialization.toMap(json?.references as object ?? {});
+		this.userGroup = ContentId.fromJSON(json?.userGroup as JsonObject);
 	}
 }

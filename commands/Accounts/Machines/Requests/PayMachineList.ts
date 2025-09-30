@@ -17,7 +17,7 @@ export abstract class PayMachineList extends Payload implements IPayDeletable {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.includeDeleted = json?.includeDeleted as boolean ?? false;
+		this.includeDeleted = !!json?.includeDeleted;
 	}
 }
 
