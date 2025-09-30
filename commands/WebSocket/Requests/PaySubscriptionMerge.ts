@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { Reply } from "../../API/Responses/Reply";
 import { ParamId } from "../../API/Requests/Parameters/ParamId";
 import { Payload } from "../../API/Requests/Payload";
@@ -23,7 +24,7 @@ export class PaySubscriptionMerge extends Payload {
 	constructor(json?: JsonObject) {
 		super(json);
 		this.company = new ParamId(json?.company as JsonObject);
-		this.subscriptionTypes = json?.subscriptionTypes;
+		this.subscriptionTypes = json?.subscriptionTypes as SubscriptionType[] ?? [];
 	}
 
 	override createReply(json: JsonObject): Reply {

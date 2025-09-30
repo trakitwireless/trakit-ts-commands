@@ -42,7 +42,7 @@ export class PayUserAdvancedListByCompany extends PayUserAdvancedList implements
 /**
  * Gets the list of {@link UserAdvanced}s for the specified {@link UserGroup}.
  **/
-export class PayUserAdvancedListByGroup extends PayUserAdvancedListByCompany {
+export class PayUserAdvancedListByGroup extends PayUserAdvancedList {
 	/**
 	 * Identifier of the {@link Group} to which this collection belongs.
 	 **/

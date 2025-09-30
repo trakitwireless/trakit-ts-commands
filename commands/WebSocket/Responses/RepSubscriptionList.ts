@@ -1,5 +1,4 @@
-import { JsonObject } from "@trakit/objects";
-import { nothing } from "@trakit/objects";
+import { JsonObject, nothing } from "@trakit/objects";
 import { Reply } from "../../API/Responses/Reply";
 import { Subscription } from "./Content/Subscription";
 

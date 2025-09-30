@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { Reply } from "../../API/Responses/Reply";
 import { RepSubscription } from "../Responses/RepSubscription";
 import { PaySubscriptionMerge } from "./PaySubscriptionMerge";
