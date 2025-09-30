@@ -1,4 +1,4 @@
-import { AssetAttribute, AssetType, double, nothing, serialization, ulong, ushort, utility } from "@trakit/objects";
+import { AssetAttribute, AssetType, codified, double, email, JsonObject, nothing, serialization, ulong, ushort, utility } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
@@ -45,7 +45,7 @@ export class ParamAssetMerge extends ParamMergeSubscribable {
 	 * </values>
 	 * </override>
 	 **/
-	labels: string[] | nothing;
+	labels: codified[] | nothing;
 	/**
 	 * Replaces the {@link Asset}'s status tags with the given list of <format id="codified"/> tags.
 	 **/
@@ -142,37 +142,37 @@ export class ParamAssetMerge extends ParamMergeSubscribable {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.id = json?.id;
-		this.company = json?.company;
-		this.kind = json?.kind;
-		this.name = json?.name;
-		this.notes = json?.notes;
-		this.icon = json?.icon;
-		this.labels = json?.labels.slice();
-		this.tags = json?.tags.slice();
+		this.id = json?.id as ulong;
+		this.company = json?.company as ulong;
+		this.kind = json?.kind as AssetType;
+		this.name = json?.name as string;
+		this.notes = json?.notes as string;
+		this.icon = json?.icon as ulong;
+		this.labels = json?.labels as codified[];
+		this.tags = json?.tags as codified[];
 		this.attributes = json?.attributes
-			? serialization.toMapPredicate(json?.attributes, (k, v) => [k, AssetAttribute.fromJSON(v)])
+			? serialization.toMapPredicate(json.attributes as object, (k, v) => [k, AssetAttribute.fromJSON(v)])
 			: null;
-		this.messagingAddress = json?.messagingAddress;
-		this.pictures = json?.pictures.slice();
+		this.messagingAddress = json?.messagingAddress as email;
+		this.pictures = json?.pictures as ulong[];
 		this.references = json?.references
-			? serialization.toMap(json?.references)
+			? serialization.toMap(json?.references as object)
 			: null;
-		this.contact = json?.contact;
-		this.year = json?.year;
-		this.plate = json?.plate;
-		this.make = json?.make;
-		this.model = json?.model;
-		this.colour = json?.colour;
-		this.serial = json?.serial;
-		this.vin = json?.vin;
-		this.odometer = json?.odometer;
-		this.engineHours = json?.engineHours;
-		this.relationships = json?.relationships;
+		this.contact = json?.contact as ulong;
+		this.year = json?.year as ushort;
+		this.plate = json?.plate as string;
+		this.make = json?.make as string;
+		this.model = json?.model as string;
+		this.colour = json?.colour as string;
+		this.serial = json?.serial as string;
+		this.vin = json?.vin as string;
+		this.odometer = json?.odometer as double;
+		this.engineHours = json?.engineHours as double;
+		this.relationships = json?.relationships as ulong[];
 	}
 
 	override toJSON(): any {
-		const json: JsonObject = {};
+		const json: any = {};
 		if (this.id) {
 			json.id = this.id;
 			json["v"] = [...this.v];

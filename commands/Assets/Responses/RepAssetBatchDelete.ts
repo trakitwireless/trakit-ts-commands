@@ -1,6 +1,6 @@
+import { JsonObject, nothing } from "@trakit/objects";
 import { ContentIdDeleted } from "../../API/Responses/Content/ContentIdDeleted";
 import { Reply } from "../../API/Responses/Reply";
-import { nothing } from "@trakit/objects";
 
 /**
  * 
@@ -13,6 +13,6 @@ export class RepAssetBatchDelete extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.assets = json?.assets?.map((a: any) => new ContentIdDeleted(a));
+		this.assets = (json?.assets as JsonObject[])?.map((a: any) => new ContentIdDeleted(a));
 	}
 }

@@ -1,7 +1,8 @@
-import { Reply } from "../../API/Responses/Reply";
+import { JsonObject } from "@trakit/objects";
 import { Payload } from "../../API/Requests/Payload";
-import { ParamAssetMerge } from "./Parameters/ParamAssetMerge";
+import { Reply } from "../../API/Responses/Reply";
 import { RepAssetBatchMerge } from "../Responses/RepAssetBatchMerge";
+import { ParamAssetMerge } from "./Parameters/ParamAssetMerge";
 
 /**
  * 
@@ -14,10 +15,10 @@ export class PayAssetBatchMerge extends Payload {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.assets = json?.assets?.map((a: any) => new ParamAssetMerge(a)) ?? [];
+		this.assets = (json?.assets as JsonObject[])?.map((a: any) => new ParamAssetMerge(a)) ?? [];
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepAssetBatchMerge(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepAssetBatchMerge(json as JsonObject);
 	}
 }

@@ -1,6 +1,6 @@
-import { AssetAdvanced, nothing, serialization, utility } from "@trakit/objects";
-import { Reply } from "../../API/Responses/Reply";
+import { AssetAdvanced, codified, JsonObject, nothing, serialization } from "@trakit/objects";
 import { ContentId } from "../../API/Responses/Content/ContentId";
+import { Reply } from "../../API/Responses/Reply";
 
 /**
  * A container for the requested {@link assetAdvanceds}.
@@ -13,7 +13,7 @@ export abstract class RepAssetAdvancedList extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.assetAdvanceds = json?.assetAdvanceds?.map((el: any) => new AssetAdvanced(el));
+		this.assetAdvanceds = (json?.assetAdvanceds as JsonObject[])?.map((el: any) => new AssetAdvanced(el));
 	}
 }
 
@@ -28,7 +28,7 @@ export class RepAssetAdvancedListByCompany extends RepAssetAdvancedList {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentId.fromJSON(json?.company);
+		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
 }
 /**
@@ -39,11 +39,11 @@ export class RepAssetAdvancedListByCompanyAndLabels extends RepAssetAdvancedList
 	 * The labels given as input.
 	 * @see {@link AssetGeneral.labels}
 	 **/
-	labels: string[] | nothing;
+	labels: codified[] | nothing;
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.labels = json?.labels;
+		this.labels = json?.labels as codified[];
 	}
 }
 /**
@@ -59,7 +59,7 @@ export class RepAssetAdvancedListByCompanyAndRefPairs extends RepAssetAdvancedLi
 	constructor(json: JsonObject) {
 		super(json);
 		if (json?.references) {
-			this.references = serialization.toMap(json.references);
+			this.references = serialization.toMap(json?.references as object);
 		}
 	}
 }

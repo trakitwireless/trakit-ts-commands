@@ -1,11 +1,12 @@
-import { Reply } from "../../API/Responses/Reply";
-import { Payload } from "../../API/Requests/Payload";
+import { codified, JsonObject } from "@trakit/objects";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
-import { IPaySuspendable } from "../../API/Requests/IPaySuspendable";
 import { IPayListByCompany } from "../../API/Requests/IPayListByCompany";
 import { IPayListByLabels } from "../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../API/Requests/IPayListByReferences";
+import { IPaySuspendable } from "../../API/Requests/IPaySuspendable";
 import { ParamId } from "../../API/Requests/Parameters/ParamId";
+import { Payload } from "../../API/Requests/Payload";
+import { Reply } from "../../API/Responses/Reply";
 import { RepAssetAdvancedListByCompany, RepAssetAdvancedListByCompanyAndLabels, RepAssetAdvancedListByCompanyAndRefPairs } from "../Responses/RepAssetAdvancedList";
 
 /**
@@ -31,10 +32,10 @@ export abstract class PayAssetAdvancedList extends Payload implements IPayDeleta
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.includeMessages = json?.includeMessages;
-		this.includeTasks = json?.includeTasks;
-		this.includeSuspended = json?.includeSuspended;
-		this.includeDeleted = json?.includeDeleted;
+		this.includeMessages = !!json?.includeMessages;
+		this.includeTasks = !!json?.includeTasks;
+		this.includeSuspended = json?.includeSuspended as boolean ?? true;
+		this.includeDeleted = !!json?.includeDeleted;
 	}
 }
 
@@ -49,11 +50,11 @@ export class PayAssetAdvancedListByCompany extends PayAssetAdvancedList implemen
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.company = new ParamId(json?.company);
+		this.company = new ParamId(json?.company as JsonObject);
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepAssetAdvancedListByCompany(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepAssetAdvancedListByCompany(json as JsonObject);
 	}
 }
 /**
@@ -64,15 +65,15 @@ export class PayAssetAdvancedListByCompanyAndLabels extends PayAssetAdvancedList
 	 * The parsed labels given as input.
 	 * @see {@link AssetGeneral.labels}
 	 **/
-	labels: string[];
+	labels: codified[];
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.labels = json?.labels ?? [];
+		this.labels = json?.labels as codified[] ?? [];
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepAssetAdvancedListByCompanyAndLabels(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepAssetAdvancedListByCompanyAndLabels(json as JsonObject);
 	}
 }
 /**
@@ -92,7 +93,7 @@ export class PayAssetAdvancedListByCompanyAndRefPairs extends PayAssetAdvancedLi
 		this.references = json?.references ? new Map(Object.entries(json.references)) : new Map();
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepAssetAdvancedListByCompanyAndRefPairs(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepAssetAdvancedListByCompanyAndRefPairs(json as JsonObject);
 	}
 }

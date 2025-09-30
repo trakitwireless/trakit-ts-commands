@@ -1,3 +1,4 @@
+import { codified, JsonObject } from "@trakit/objects";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../API/Requests/IPayListByCompany";
 import { IPayListByLabels } from "../../API/Requests/IPayListByLabels";
@@ -31,10 +32,10 @@ export abstract class PayAssetList extends Payload implements IPayDeletable, IPa
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.includeMessages = json?.includeMessages;
-		this.includeTasks = json?.includeTasks;
-		this.includeSuspended = json?.includeSuspended;
-		this.includeDeleted = json?.includeDeleted;
+		this.includeMessages = !!json?.includeMessages;
+		this.includeTasks = !!json?.includeTasks;
+		this.includeSuspended = json?.includeSuspended as boolean ?? true;
+		this.includeDeleted = !!json?.includeDeleted;
 	}
 }
 
@@ -49,11 +50,11 @@ export class PayAssetListByCompany extends PayAssetList implements IPayListByCom
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.company = new ParamId(json?.company);
+		this.company = new ParamId(json?.company as JsonObject);
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepAssetListByCompany(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepAssetListByCompany(json as JsonObject);
 	}
 }
 
@@ -65,15 +66,15 @@ export class PayAssetListByCompanyAndLabels extends PayAssetListByCompany implem
 	 * The parsed labels given as input.
 	 * @see {@link AssetGeneral.labels}
 	 **/
-	labels: string[];
+	labels: codified[];
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.labels = json?.labels ?? [];
+		this.labels = json?.labels as codified[] ?? [];
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepAssetListByCompanyAndLabels(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepAssetListByCompanyAndLabels(json as JsonObject);
 	}
 }
 
@@ -94,7 +95,7 @@ export class PayAssetListByCompanyAndRefPairs extends PayAssetListByCompany impl
 		this.references = new Map(Object.entries(json?.references ?? {}));
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepAssetListByCompanyAndRefPairs(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepAssetListByCompanyAndRefPairs(json as JsonObject);
 	}
 }

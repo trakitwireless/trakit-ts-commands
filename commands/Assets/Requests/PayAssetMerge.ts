@@ -1,5 +1,6 @@
-import { Reply } from "../../API/Responses/Reply";
+import { JsonObject } from "@trakit/objects";
 import { Payload } from "../../API/Requests/Payload";
+import { Reply } from "../../API/Responses/Reply";
 import { RepAssetMerge } from "../Responses/RepAssetMerge";
 import { ParamAssetMerge } from "./Parameters/ParamAssetMerge";
 
@@ -14,10 +15,10 @@ export class PayAssetMerge extends Payload {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.asset = new ParamAssetMerge(json?.asset);
+		this.asset = new ParamAssetMerge(json?.asset as JsonObject);
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepAssetMerge(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepAssetMerge(json as JsonObject);
 	}
 }

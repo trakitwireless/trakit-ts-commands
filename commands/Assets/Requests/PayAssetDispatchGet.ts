@@ -1,7 +1,8 @@
-import { Reply } from "../../API/Responses/Reply";
-import { PayAsset } from "./PayAsset";
+import { JsonObject } from "@trakit/objects";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
+import { Reply } from "../../API/Responses/Reply";
 import { RepAssetDispatchGet } from "../Responses/RepAssetDispatchGet";
+import { PayAsset } from "./PayAsset";
 
 /**
  * Gets details of the specified {@link AssetDispatch}.
@@ -22,12 +23,12 @@ export class PayAssetDispatchGet extends PayAsset implements IPayDeletable {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.includeDeleted = json?.includeDeleted;
-		this.includeMessages = json?.includeMessages;
-		this.includeTasks = json?.includeTasks;
+		this.includeDeleted = !!json?.includeDeleted;
+		this.includeMessages = !!json?.includeMessages;
+		this.includeTasks = !!json?.includeTasks;
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepAssetDispatchGet(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepAssetDispatchGet(json as JsonObject);
 	}
 }

@@ -1,6 +1,6 @@
+import { JsonObject, nothing } from "@trakit/objects";
 import { ContentIdCompany } from "../../API/Responses/Content/ContentIdCompany";
 import { Reply } from "../../API/Responses/Reply";
-import { nothing } from "@trakit/objects";
 
 /**
  * A container for the {@link assets}.
@@ -13,6 +13,6 @@ export class RepAssetBatchMerge extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.assets = json?.assets?.map((a: any) => new ContentIdCompany(a)) ;
+		this.assets = (json?.assets as JsonObject[])?.map((a: any) => new ContentIdCompany(a)) ;
 	}
 }

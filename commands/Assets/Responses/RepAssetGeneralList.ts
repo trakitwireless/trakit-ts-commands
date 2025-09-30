@@ -1,6 +1,6 @@
-import { AssetGeneral, nothing, serialization } from "@trakit/objects";
-import { Reply } from "../../API/Responses/Reply";
+import { AssetGeneral, codified, JsonObject, nothing, serialization } from "@trakit/objects";
 import { ContentId } from "../../API/Responses/Content/ContentId";
+import { Reply } from "../../API/Responses/Reply";
 
 /**
  * A container for the requested {@link assetGenerals}.
@@ -13,7 +13,7 @@ export abstract class RepAssetGeneralList extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.assetGenerals = json?.assetGenerals?.map((el: any) => new AssetGeneral(el));
+		this.assetGenerals = (json?.assetGenerals as JsonObject[])?.map((el: any) => new AssetGeneral(el));
 	}
 }
 
@@ -28,7 +28,7 @@ export class RepAssetGeneralListByCompany extends RepAssetGeneralList {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentId.fromJSON(json?.company);
+		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
 }
 /**
@@ -39,11 +39,11 @@ export class RepAssetGeneralListByCompanyAndLabels extends RepAssetGeneralListBy
 	 * The labels given as input.
 	 * @see {@link AssetGeneral.labels}
 	 **/
-	labels: string[] | nothing;
+	labels: codified[] | nothing;
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.labels = json?.labels;
+		this.labels = json?.labels as codified[];
 	}
 }
 /**
@@ -59,7 +59,7 @@ export class RepAssetGeneralListByCompanyAndRefPairs extends RepAssetGeneralList
 	constructor(json: JsonObject) {
 		super(json);
 		if (json?.references) {
-			this.references = serialization.toMap(json.references);
+			this.references = serialization.toMap(json?.references as object);
 		}
 	}
 }

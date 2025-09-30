@@ -1,10 +1,12 @@
-import { PayAsset } from "./PayAsset";
+import { JsonObject } from "@trakit/objects";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
-import { RepAssetAdvancedGet } from "../Responses/RepAssetAdvancedGet";
 import { Reply } from "../../API/Responses/Reply";
+import { RepAssetAdvancedGet } from "../Responses/RepAssetAdvancedGet";
+import { PayAsset } from "./PayAsset";
 
 /**
- * Gets details of the specified {@link AssetAdvanced}.
+ * Gets import { codified } from "@trakit/objects";
+details of the specified {@link AssetAdvanced}.
  **/
 export class PayAssetAdvancedGet extends PayAsset implements IPayDeletable {
 	/**
@@ -14,10 +16,10 @@ export class PayAssetAdvancedGet extends PayAsset implements IPayDeletable {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.includeDeleted = json?.includeDeleted;
+		this.includeDeleted = !!json?.includeDeleted;
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepAssetAdvancedGet(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepAssetAdvancedGet(json as JsonObject);
 	}
 }

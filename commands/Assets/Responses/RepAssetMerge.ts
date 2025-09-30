@@ -1,6 +1,6 @@
+import { JsonObject, nothing } from "@trakit/objects";
 import { ContentIdCompany } from "../../API/Responses/Content/ContentIdCompany";
 import { Reply } from "../../API/Responses/Reply";
-import { nothing } from "@trakit/objects";
 
 /**
  * A container for the {@link asset}.
@@ -13,6 +13,6 @@ export class RepAssetMerge extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.asset = ContentIdCompany.fromJSON(json?.asset);
+		this.asset = ContentIdCompany.fromJSON(json?.asset as JsonObject);
 	}
 }
