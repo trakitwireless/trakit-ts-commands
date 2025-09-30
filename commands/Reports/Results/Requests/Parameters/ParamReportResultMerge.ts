@@ -1,3 +1,4 @@
+import { codified, JsonObject } from "@trakit/objects";
 import { nothing, ReportType, Timezone, ulong, utility } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 import { ParamReportOptions } from "../../../Parameters/ParamReportOptions";
@@ -50,14 +51,18 @@ export class ParamReportResultMerge extends ParamMergeSubscribable {
 	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id as ulong;
-		this.template = json?.template;
+		this.template = json?.template as ulong;
 		this.company = json?.company as ulong;
-		this.kind = json?.kind;
+		this.kind = json?.kind as ReportType;
 		this.name = json?.name as string;
 		this.notes = json?.notes as string;
-		this.archive = json?.archive;
-		this.options = ParamReportOptions.fromJSON(json?.options);
-		this.timezone = json?.timezone;
+		this.archive = json?.archive as boolean;
+		this.options = json?.options
+			? ParamReportOptions.fromJSON(json.options as JsonObject)
+			: null;
+		this.timezone = json?.timezone
+			? utility.findTimeZoneById(json.timezone as codified)
+			: null;
 	}
 
 	override toJSON(): any {

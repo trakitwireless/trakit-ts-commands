@@ -1,4 +1,4 @@
-import { ReportRecurrenceType, byte, nothing, utility } from "@trakit/objects";
+import { JsonObject, ReportRecurrenceType, byte, datetime, nothing, utility } from "@trakit/objects";
 import { ParamMerge } from "../../../../API/Requests/Parameters/ParamMerge";
 
 /**
@@ -39,9 +39,9 @@ export class ParamReportRecurrence extends ParamMerge {
 	
 	constructor(json?: JsonObject) {
 		super();
-		this.kind = json?.kind;
-		this.weekdays = json?.weekdays;
-		this.weekday = json?.weekday;
+		this.kind = json?.kind as ReportRecurrenceType;
+		this.weekdays = json?.weekdays ? [...json.weekdays as boolean[]] : null;
+		this.weekday = json?.weekday as byte;
 		this.start = json?.start
 			? utility.date(json.start as datetime)
 			: null;

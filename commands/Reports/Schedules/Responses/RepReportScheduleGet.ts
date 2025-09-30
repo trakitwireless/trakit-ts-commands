@@ -1,4 +1,4 @@
-import { nothing, ReportSchedule } from "@trakit/objects";
+import { JsonObject, nothing, ReportSchedule } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -12,8 +12,8 @@ export class RepReportScheduleGet extends Reply {
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.reportSchedule = json?.reportSchedule
-			? new ReportSchedule(json.reportSchedule)
-			: null;
+		if (json?.reportSchedule) {
+			this.reportSchedule = new ReportSchedule(json.reportSchedule as JsonObject);
+		}
 	}
 }

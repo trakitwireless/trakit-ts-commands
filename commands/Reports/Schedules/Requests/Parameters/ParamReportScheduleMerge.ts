@@ -1,4 +1,4 @@
-import { nothing, ulong, utility } from "@trakit/objects";
+import { email, JsonObject, nothing, ulong, utility } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 import { ParamReportOptions } from "../../../Parameters/ParamReportOptions";
 import { ParamReportNotify } from "./ParamReportNotify";
@@ -50,14 +50,20 @@ export class ParamReportScheduleMerge extends ParamMergeSubscribable {
 	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id as ulong;
-		this.template = json?.template;
+		this.template = json?.template as ulong;
 		this.name = json?.name as string;
 		this.notes = json?.notes as string;
-		this.owner = json?.owner;
-		this.enabled = json?.enabled;
-		this.repetition = ParamReportRecurrence.fromJSON(json?.repetition);
-		this.options = ParamReportOptions.fromJSON(json?.options);
-		this.notify = ParamReportNotify.fromJSON(json?.notify);
+		this.owner = json?.owner as email;
+		this.enabled = json?.enabled as boolean;
+		this.repetition = json?.repetition
+			? ParamReportRecurrence.fromJSON(json.repetition as JsonObject)
+			: null;
+		this.options = json?.options
+			? ParamReportOptions.fromJSON(json?.options as JsonObject)
+			: null;
+		this.notify = json?.notify
+			? ParamReportNotify.fromJSON(json?.notify as JsonObject)
+			: null;
 	}
 
 	override toJSON(): any {

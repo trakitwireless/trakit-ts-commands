@@ -1,4 +1,4 @@
-import { nothing, ReportType, ulong } from "@trakit/objects";
+import { codified, colour, JsonObject, nothing, ReportType, ulong } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 import { ParamReportOptions } from "../../../Parameters/ParamReportOptions";
 
@@ -51,8 +51,10 @@ export class ParamReportTemplateMerge extends ParamMergeSubscribable {
 		this.company = json?.company as ulong;
 		this.name = json?.name as string;
 		this.notes = json?.notes as string;
-		this.kind = json?.kind;
-		this.options = ParamReportOptions.fromJSON(json?.options);
+		this.kind = json?.kind as ReportType;
+		this.options = json?.options
+			? ParamReportOptions.fromJSON(json.options as JsonObject)
+			: null;
 		this.fill = json?.fill as colour;
 		this.stroke = json?.stroke as colour;
 		this.graphic = json?.graphic as codified;

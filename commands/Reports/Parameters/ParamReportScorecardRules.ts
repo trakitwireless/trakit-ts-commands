@@ -1,4 +1,4 @@
-import { double, nothing, ReportScorecardParameter } from "@trakit/objects";
+import { double, JsonObject, nothing, ReportScorecardParameter } from "@trakit/objects";
 import { ParamMerge } from "../../API/Requests/Parameters/ParamMerge";
 
 /**
@@ -16,7 +16,7 @@ export class ParamReportScorecardRules extends ParamMerge {
 	
 	constructor(json?: JsonObject) {
 		super();
-		this.baseScore = json?.baseScore;
+		this.baseScore = json?.baseScore as double;
 		this.parameters = (json?.parameters as JsonObject[])?.map((e: any) => new ReportScorecardParameter(e));
 	}
 

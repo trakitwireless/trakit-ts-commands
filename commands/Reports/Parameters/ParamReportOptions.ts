@@ -1,4 +1,4 @@
-import { nothing, ReportFilterMode, ReportParameter } from "@trakit/objects";
+import { expression, JsonObject, nothing, ReportFilterMode, ReportParameter } from "@trakit/objects";
 import { ParamMerge } from "../../API/Requests/Parameters/ParamMerge";
 import { ParamReportScorecardRules } from "./ParamReportScorecardRules";
 
@@ -45,9 +45,9 @@ export class ParamReportOptions extends ParamMerge {
 		super();
 		this.parameters = (json?.parameters as JsonObject[])?.map((e: any) => new ReportParameter(e));
 		this.targets = json?.targets as string;
-		this.filtering = json?.filtering;
-		this.places = json?.places;
-		this.regions = json?.regions;
+		this.filtering = json?.filtering as ReportFilterMode;
+		this.places = json?.places as expression;
+		this.regions = json?.regions as string[];
 		if (json?.scorecardRules) this.scorecardRules = new ParamReportScorecardRules(json.scorecardRules as JsonObject);
 	}
 

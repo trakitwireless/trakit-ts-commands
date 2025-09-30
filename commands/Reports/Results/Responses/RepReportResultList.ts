@@ -1,7 +1,6 @@
-import { JsonObject } from "@trakit/objects";
+import { JsonObject, nothing, ReportResult } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { Reply } from "../../../API/Responses/Reply";
-import { nothing, ReportResult } from "@trakit/objects";
 /**
  * A container for the requested {@link reportResults}.
  **/

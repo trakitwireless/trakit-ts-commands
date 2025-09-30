@@ -1,5 +1,4 @@
-import { JsonObject } from "@trakit/objects";
-import { nothing, ReportResult } from "@trakit/objects";
+import { JsonObject, nothing, ReportResult } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -13,8 +12,8 @@ export class RepReportResultGet extends Reply {
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.reportResult = json?.reportResult
-			? new ReportResult(json.reportResult)
-			: null;
+		if (json?.reportResult) {
+			this.reportResult = new ReportResult(json.reportResult as JsonObject);
+		}
 	}
 }

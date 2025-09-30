@@ -1,4 +1,4 @@
-import { nothing, utility } from "@trakit/objects";
+import { email, expression, JsonObject, nothing, utility } from "@trakit/objects";
 import { ParamMerge } from "../../../../API/Requests/Parameters/ParamMerge";
 
 /**
@@ -28,8 +28,8 @@ export class ParamReportNotify extends ParamMerge {
 	
 	constructor(json?: JsonObject) {
 		super();
-		this.users = json?.users ? [...json.users] : null;
-		this.assets = json?.assets;
+		this.users = json?.users ? [...json.users as email[]] : null;
+		this.assets = json?.assets as expression
 	}
 
 	override toJSON(): any {

@@ -1,7 +1,7 @@
 import { JsonObject } from "@trakit/objects";
-import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
 import { ParamId } from "../../../API/Requests/Parameters/ParamId";
+import { Payload } from "../../../API/Requests/Payload";
 
 /**
  * A container for the {@link reportResult} object.
