@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 import { RepUserGroupDelete } from "../Responses/RepUserGroupDelete";
 import { PayUserGroup } from "./PayUserGroup";
@@ -7,6 +8,6 @@ import { PayUserGroup } from "./PayUserGroup";
  **/
 export class PayUserGroupDelete extends PayUserGroup { 
 	override createReply(json?: JsonObject): Reply {
-		return new RepUserGroupDelete(json);
+		return new RepUserGroupDelete(json as JsonObject);
 	}
 }

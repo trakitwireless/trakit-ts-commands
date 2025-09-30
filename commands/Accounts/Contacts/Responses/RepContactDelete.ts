@@ -13,6 +13,6 @@ export class RepContactDelete extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.contact = ContentIdDeleted.fromJSON(json?.contact);
+		this.contact = ContentIdDeleted.fromJSON(json?.contact as JsonObject);
 	}
 }

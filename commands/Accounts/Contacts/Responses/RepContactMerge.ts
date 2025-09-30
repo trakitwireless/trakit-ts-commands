@@ -13,6 +13,6 @@ export class RepContactMerge extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.contact = ContentIdCompany.fromJSON(json?.contact);
+		this.contact = ContentIdCompany.fromJSON(json?.contact as JsonObject);
 	}
 }

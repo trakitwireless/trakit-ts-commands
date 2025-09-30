@@ -1,8 +1,9 @@
-import { Reply } from "../../../API/Responses/Reply";
-import { Payload } from "../../../API/Requests/Payload";
+import { JsonObject } from "@trakit/objects";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
-import { ParamUserGroupMerge } from "./Parameters/ParamUserGroupMerge";
+import { Payload } from "../../../API/Requests/Payload";
+import { Reply } from "../../../API/Responses/Reply";
 import { RepUserGroupMerge } from "../Responses/RepUserGroupMerge";
+import { ParamUserGroupMerge } from "./Parameters/ParamUserGroupMerge";
 
 /**
  * Creates a new or updates an existing {@link UserGroup}.
@@ -15,7 +16,7 @@ export class PayUserGroupMerge extends Payload implements IPaySingle {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.userGroup = new ParamUserGroupMerge(json?.userGroup);
+		this.userGroup = new ParamUserGroupMerge(json?.userGroup as JsonObject);
 	}
 
 	/**
@@ -26,6 +27,6 @@ export class PayUserGroupMerge extends Payload implements IPaySingle {
 	}
 
 	override createReply(json?: JsonObject): Reply {
-		return new RepUserGroupMerge(json);
+		return new RepUserGroupMerge(json as JsonObject);
 	}
 }

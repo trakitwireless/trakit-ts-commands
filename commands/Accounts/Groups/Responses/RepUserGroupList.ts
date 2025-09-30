@@ -1,4 +1,4 @@
-import { nothing,UserGroup } from "@trakit/objects";
+import { JsonObject, nothing, UserGroup } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { Reply } from "../../../API/Responses/Reply";
 
@@ -13,7 +13,7 @@ export abstract class RepUserGroupList extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.userGroups = json?.userGroups?.map((ug: any) => new UserGroup(ug));
+		this.userGroups = (json?.userGroups as JsonObject[])?.map((ug: any) => new UserGroup(ug));
 	}
 }
 
@@ -28,6 +28,6 @@ export class RepUserGroupListByCompany extends RepUserGroupList {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentId.fromJSON(json?.company);
+		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
 }

@@ -1,4 +1,4 @@
-import { nothing } from "@trakit/objects";
+import { JsonObject, nothing } from "@trakit/objects";
 import { ContentIdCompany } from "../../../API/Responses/Content/ContentIdCompany";
 import { Reply } from "../../../API/Responses/Reply";
 
@@ -13,6 +13,6 @@ export class RepUserGroupMerge extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.userGroup = ContentIdCompany.fromJSON(json?.userGroup);
+		this.userGroup = ContentIdCompany.fromJSON(json?.userGroup as JsonObject);
 	}
 }

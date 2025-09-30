@@ -28,6 +28,6 @@ export class RepContactListByCompany extends RepContactList {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentId.fromJSON(json?.company);
+		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
 }

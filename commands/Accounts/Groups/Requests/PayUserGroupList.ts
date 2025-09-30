@@ -1,8 +1,9 @@
-import { Reply } from "../../../API/Responses/Reply";
+import { JsonObject } from "@trakit/objects";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { ParamId } from "../../../API/Requests/Parameters/ParamId";
 import { Payload } from "../../../API/Requests/Payload";
+import { Reply } from "../../../API/Responses/Reply";
 import { RepUserGroupListByCompany } from "../Responses/RepUserGroupList";
 
 /**
@@ -16,7 +17,7 @@ export abstract class PayUserGroupList extends Payload implements IPayDeletable 
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.includeDeleted = json?.includeDeleted ?? false;
+		this.includeDeleted = json?.includeDeleted as boolean ?? false;
 	}
 }
 /**
@@ -30,10 +31,10 @@ export class PayUserGroupListByCompany extends PayUserGroupList implements IPayL
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.company = new ParamId(json?.company);
+		this.company = new ParamId(json?.company as JsonObject);
 	}
 
 	override createReply(json?: JsonObject): Reply {
-		return new RepUserGroupListByCompany(json);
+		return new RepUserGroupListByCompany(json as JsonObject);
 	}
 }

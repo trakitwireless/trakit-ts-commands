@@ -1,4 +1,4 @@
-import { nothing } from "@trakit/objects";
+import { JsonObject, nothing } from "@trakit/objects";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
 import { ParamId } from "../../../API/Requests/Parameters/ParamId";
 import { Payload } from "../../../API/Requests/Payload";
@@ -14,7 +14,7 @@ export abstract class PayUserGroup extends Payload implements IPaySingle {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		if (json) this.userGroup = new ParamId(json["userGroup"]);
+		if (json) this.userGroup = new ParamId(json["userGroup"] as JsonObject);
 	}
 
 	/**
