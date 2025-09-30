@@ -4,6 +4,21 @@
  * Last updated on Thu Sept 26 2025 15:28 
  * @copyright Trak-iT Wireless Inc. 2025
  */
+import { ParamContactMerge } from "./commands/Accounts/Contacts/Requests/Parameters/ParamContactMerge";
+import { PayContact } from "./commands/Accounts/Contacts/Requests/PayContact";
+import { PayContactBatchDelete } from "./commands/Accounts/Contacts/Requests/PayContactBatchDelete";
+import { PayContactBatchMerge } from "./commands/Accounts/Contacts/Requests/PayContactBatchMerge";
+import { PayContactDelete } from "./commands/Accounts/Contacts/Requests/PayContactDelete";
+import { PayContactGet } from "./commands/Accounts/Contacts/Requests/PayContactGet";
+import { PayContactList, PayContactListByCompany } from "./commands/Accounts/Contacts/Requests/PayContactList";
+import { PayContactMerge } from "./commands/Accounts/Contacts/Requests/PayContactMerge";
+import { PayContactRestore } from "./commands/Accounts/Contacts/Requests/PayContactRestore";
+import { RepContactBatchDelete } from "./commands/Accounts/Contacts/Responses/RepContactBatchDelete";
+import { RepContactBatchMerge } from "./commands/Accounts/Contacts/Responses/RepContactBatchMerge";
+import { RepContactDelete } from "./commands/Accounts/Contacts/Responses/RepContactDelete";
+import { RepContactGet } from "./commands/Accounts/Contacts/Responses/RepContactGet";
+import { RepContactList, RepContactListByCompany } from "./commands/Accounts/Contacts/Responses/RepContactList";
+import { RepContactMerge } from "./commands/Accounts/Contacts/Responses/RepContactMerge";
 import { ParamUserGroupMerge } from "./commands/Accounts/Groups/Requests/Parameters/ParamUserGroupMerge";
 import { PayUserGroupBatchDelete } from "./commands/Accounts/Groups/Requests/PayUserGroupBatchDelete";
 import { PayUserGroupBatchMerge } from "./commands/Accounts/Groups/Requests/PayUserGroupBatchMerge";
@@ -434,6 +449,14 @@ export const version = 5.05;
  * Command request payloads and parameter classes.
  */
 export {
+	ParamCode,
+	ParamGuid,
+	ParamId,
+	ParamIdentifier,
+	ParamKey,
+	ParamLogin,
+	ParamMerge,
+	ParamMergeSubscribable,
 	Payload,
 	type ActionType,
 	type IParamAsset,
@@ -447,84 +470,54 @@ export {
 	type IPayListByLabels,
 	type IPayListByReferences,
 	type IPayListByUser,
-	type IPaySingle,
-
-	ParamCode,
-	ParamGuid,
-	ParamId,
-	ParamIdentifier,
-	ParamKey,
-	ParamLogin,
-	ParamMerge,
-	ParamMergeSubscribable,
+	type IPaySingle
 };
 /**
  * Command responses and content classes.
  */
-export {
-	Reply,
-	type IRepList,
-	type IRepListByAsset,
-	type IRepListByCompany,
-	type IRepListByDate,
-	type IRepListById,
-	type IRepListByKey,
-	type IRepListByLabels,
-	type IRepListByReferences,
-	type IRepListByUser,
-
-	ContentCode,
-	ContentCodeCompany,
-	ContentCodeDeleted,
-	ContentIdBillingProfile,
-	ContentIdendifierCompany,
-	ContentIdendifierSuspended,
-	ContentIdParent,
-	ContentIdSuspended,
-	ContentKeyCompany,
-	ContentLogin,
-	ContentLoginDeleted,
-	ContentLoginCompany,
-	ContentParentDeleted,
-	ContentKeyDeleted,
-	ContentKey,
-	ContentIdScript,
-	ContentIdendifierAsset,
-	ContentIdendifier,
-	ContentIdendifierDeleted,
-	ContentIdCompanyTemplate,
-	ContentIdCompany,
-	ContentIdAsset,
-	ContentId,
-};
+	export {
+		ContentCode,
+		ContentCodeCompany,
+		ContentCodeDeleted, ContentId, ContentIdAsset, ContentIdBillingProfile, ContentIdCompany, ContentIdCompanyTemplate, ContentIdendifier, ContentIdendifierAsset, ContentIdendifierCompany, ContentIdendifierDeleted, ContentIdendifierSuspended,
+		ContentIdParent, ContentIdScript, ContentIdSuspended, ContentKey, ContentKeyCompany, ContentKeyDeleted, ContentLogin, ContentLoginCompany, ContentLoginDeleted, ContentParentDeleted, Reply,
+		type IRepList,
+		type IRepListByAsset,
+		type IRepListByCompany,
+		type IRepListByDate,
+		type IRepListById,
+		type IRepListByKey,
+		type IRepListByLabels,
+		type IRepListByReferences,
+		type IRepListByUser
+	};
 /**
  * Error messages and details for responses.
  */
-export {
-	ErrorCode,
-	ErrorDetail,
-	ErrorDetailBadIds,
-	ErrorDetailBadIndexes,
-	ErrorDetailBadKeys,
-	ErrorDetailBatch,
-	ErrorDetailContactInUse,
-	ErrorDetailCount,
-	ErrorDetailEnum,
-	ErrorDetailEscalation,
-	ErrorDetailExternals,
-	ErrorDetailFormTemplateInUse,
-	ErrorDetailInput,
-	ErrorDetailLocked,
-	ErrorDetailMinMax,
-	ErrorDetailParent,
-	ErrorDetailParse,
-	ErrorDetailPhone,
-	ErrorDetailSecret,
-	ErrorDetailStack,
-	ErrorDetailThrottled,
-	ErrorDetailType,
-	ErrorDetailUserGroupInUse,
-};
+	export {
+		ErrorCode,
+		ErrorDetail,
+		ErrorDetailBadIds,
+		ErrorDetailBadIndexes,
+		ErrorDetailBadKeys,
+		ErrorDetailBatch,
+		ErrorDetailContactInUse,
+		ErrorDetailCount,
+		ErrorDetailEnum,
+		ErrorDetailEscalation,
+		ErrorDetailExternals,
+		ErrorDetailFormTemplateInUse,
+		ErrorDetailInput,
+		ErrorDetailLocked,
+		ErrorDetailMinMax,
+		ErrorDetailParent,
+		ErrorDetailParse,
+		ErrorDetailPhone,
+		ErrorDetailSecret,
+		ErrorDetailStack,
+		ErrorDetailThrottled,
+		ErrorDetailType,
+		ErrorDetailUserGroupInUse
+	};
 /**
  * Polyline encoding and decoding utilities.
  */
@@ -536,12 +529,22 @@ export const polyline = {
 
 //#region Accounts
 export {
+	ParamContactMerge,
 	ParamHandle,
 	ParamMachineMerge,
 	ParamPermission,
 	ParamSelfContactMerge,
 	ParamUserGroupMerge,
 	ParamUserMerge,
+	PayContact,
+	PayContactBatchDelete,
+	PayContactBatchMerge,
+	PayContactDelete,
+	PayContactGet,
+	PayContactList,
+	PayContactListByCompany,
+	PayContactMerge,
+	PayContactRestore,
 	PayMachineBatchDelete,
 	PayMachineBatchMerge,
 	PayMachineDelete,
@@ -579,7 +582,13 @@ export {
 	PayUserListByCompany,
 	PayUserMerge,
 	PayUserRestore,
-	RepMachineBatchDelete,
+	RepContactBatchDelete,
+	RepContactBatchMerge,
+	RepContactDelete,
+	RepContactGet,
+	RepContactList,
+	RepContactListByCompany,
+	RepContactMerge, RepMachineBatchDelete,
 	RepMachineBatchMerge,
 	RepMachineDelete,
 	RepMachineGet,
@@ -610,455 +619,455 @@ export {
 	RepUserGroupMerge,
 	RepUserListByCompany,
 	RepUserMerge,
-	SessionHandle,
+	SessionHandle
 };
 //#endregion Accounts
 
 //#region Assets
-export {
-	ParamAssetMerge,
-	PayAsset,
-	PayAssetAdvancedGet,
-	PayAssetAdvancedList,
-	PayAssetAdvancedListByCompany,
-	PayAssetAdvancedListByCompanyAndLabels,
-	PayAssetAdvancedListByCompanyAndRefPairs,
-	PayAssetBatchDelete,
-	PayAssetBatchMerge,
-	PayAssetDelete,
-	PayAssetDispatchGet,
-	PayAssetDispatchList,
-	PayAssetDispatchListByCompany,
-	PayAssetDispatchListByCompanyAndLabels,
-	PayAssetDispatchListByCompanyAndRefPairs,
-	PayAssetGeneralGet,
-	PayAssetGeneralList,
-	PayAssetGeneralListByCompany,
-	PayAssetGeneralListByCompanyAndLabels,
-	PayAssetGeneralListByCompanyAndRefPairs,
-	PayAssetGet,
-	PayAssetList,
-	PayAssetListByCompany,
-	PayAssetListByCompanyAndLabels,
-	PayAssetListByCompanyAndRefPairs,
-	PayAssetMerge,
-	PayAssetReactivate,
-	PayAssetRestore,
-	PayAssetSuspend,
-	RepAssetAdvancedGet,
-	RepAssetAdvancedList,
-	RepAssetAdvancedListByCompany,
-	RepAssetAdvancedListByCompanyAndLabels,
-	RepAssetAdvancedListByCompanyAndRefPairs,
-	RepAssetDelete,
-	RepAssetDispatchGet,
-	RepAssetDispatchList,
-	RepAssetDispatchListByCompany,
-	RepAssetDispatchListByCompanyAndLabels,
-	RepAssetDispatchListByCompanyAndRefPairs,
-	RepAssetGeneralGet,
-	RepAssetGeneralList,
-	RepAssetGeneralListByCompany,
-	RepAssetGeneralListByCompanyAndLabels,
-	RepAssetGeneralListByCompanyAndRefPairs,
-	RepAssetGet,
-	RepAssetList,
-	RepAssetListByCompany,
-	RepAssetListByCompanyAndLabels,
-	RepAssetListByCompanyAndRefPairs,
-	RepAssetMerge,
-	RepAssetSuspend,
-};
+	export {
+		ParamAssetMerge,
+		PayAsset,
+		PayAssetAdvancedGet,
+		PayAssetAdvancedList,
+		PayAssetAdvancedListByCompany,
+		PayAssetAdvancedListByCompanyAndLabels,
+		PayAssetAdvancedListByCompanyAndRefPairs,
+		PayAssetBatchDelete,
+		PayAssetBatchMerge,
+		PayAssetDelete,
+		PayAssetDispatchGet,
+		PayAssetDispatchList,
+		PayAssetDispatchListByCompany,
+		PayAssetDispatchListByCompanyAndLabels,
+		PayAssetDispatchListByCompanyAndRefPairs,
+		PayAssetGeneralGet,
+		PayAssetGeneralList,
+		PayAssetGeneralListByCompany,
+		PayAssetGeneralListByCompanyAndLabels,
+		PayAssetGeneralListByCompanyAndRefPairs,
+		PayAssetGet,
+		PayAssetList,
+		PayAssetListByCompany,
+		PayAssetListByCompanyAndLabels,
+		PayAssetListByCompanyAndRefPairs,
+		PayAssetMerge,
+		PayAssetReactivate,
+		PayAssetRestore,
+		PayAssetSuspend,
+		RepAssetAdvancedGet,
+		RepAssetAdvancedList,
+		RepAssetAdvancedListByCompany,
+		RepAssetAdvancedListByCompanyAndLabels,
+		RepAssetAdvancedListByCompanyAndRefPairs,
+		RepAssetDelete,
+		RepAssetDispatchGet,
+		RepAssetDispatchList,
+		RepAssetDispatchListByCompany,
+		RepAssetDispatchListByCompanyAndLabels,
+		RepAssetDispatchListByCompanyAndRefPairs,
+		RepAssetGeneralGet,
+		RepAssetGeneralList,
+		RepAssetGeneralListByCompany,
+		RepAssetGeneralListByCompanyAndLabels,
+		RepAssetGeneralListByCompanyAndRefPairs,
+		RepAssetGet,
+		RepAssetList,
+		RepAssetListByCompany,
+		RepAssetListByCompanyAndLabels,
+		RepAssetListByCompanyAndRefPairs,
+		RepAssetMerge,
+		RepAssetSuspend
+	};
 //#endregion Assets
 
 //#region Behaviours
-export {
-	ParamBehaviourMerge,
-	// Scripts Requests
-	ParamBehaviourScriptMerge,
-	// Behaviours Requests
-	PayBehaviour,
-	PayBehaviourBatchDelete,
-	PayBehaviourBatchMerge,
-	PayBehaviourDelete,
-	PayBehaviourGet,
-	PayBehaviourList,
-	PayBehaviourListByCompany,
-	// Logs Requests
-	PayBehaviourLogBatchDelete,
-	PayBehaviourLogList,
-	PayBehaviourLogListByCompany,
-	PayBehaviourMerge,
-	PayBehaviourRestore,
-	PayBehaviourScript,
-	PayBehaviourScriptBatchDelete,
-	PayBehaviourScriptBatchMerge,
-	PayBehaviourScriptDelete,
-	PayBehaviourScriptGet,
-	PayBehaviourScriptList,
-	PayBehaviourScriptListByCompany,
-	PayBehaviourScriptMerge,
-	PayBehaviourScriptRestore,
-	// Behaviours Responses
-	RepBehaviourBatchDelete,
-	RepBehaviourBatchMerge,
-	RepBehaviourDelete,
-	RepBehaviourGet,
-	RepBehaviourList,
-	RepBehaviourListByCompany,
-	// Logs Responses
-	RepBehaviourLogBatchDelete,
-	RepBehaviourLogList,
-	RepBehaviourLogListByCompany,
-	RepBehaviourMerge,
-	// Scripts Responses
-	RepBehaviourScriptBatchDelete,
-	RepBehaviourScriptBatchMerge,
-	RepBehaviourScriptDelete,
-	RepBehaviourScriptGet,
-	RepBehaviourScriptList,
-	RepBehaviourScriptListByCompany,
-	RepBehaviourScriptMerge,
-};
+	export {
+		ParamBehaviourMerge,
+		// Scripts Requests
+		ParamBehaviourScriptMerge,
+		// Behaviours Requests
+		PayBehaviour,
+		PayBehaviourBatchDelete,
+		PayBehaviourBatchMerge,
+		PayBehaviourDelete,
+		PayBehaviourGet,
+		PayBehaviourList,
+		PayBehaviourListByCompany,
+		// Logs Requests
+		PayBehaviourLogBatchDelete,
+		PayBehaviourLogList,
+		PayBehaviourLogListByCompany,
+		PayBehaviourMerge,
+		PayBehaviourRestore,
+		PayBehaviourScript,
+		PayBehaviourScriptBatchDelete,
+		PayBehaviourScriptBatchMerge,
+		PayBehaviourScriptDelete,
+		PayBehaviourScriptGet,
+		PayBehaviourScriptList,
+		PayBehaviourScriptListByCompany,
+		PayBehaviourScriptMerge,
+		PayBehaviourScriptRestore,
+		// Behaviours Responses
+		RepBehaviourBatchDelete,
+		RepBehaviourBatchMerge,
+		RepBehaviourDelete,
+		RepBehaviourGet,
+		RepBehaviourList,
+		RepBehaviourListByCompany,
+		// Logs Responses
+		RepBehaviourLogBatchDelete,
+		RepBehaviourLogList,
+		RepBehaviourLogListByCompany,
+		RepBehaviourMerge,
+		// Scripts Responses
+		RepBehaviourScriptBatchDelete,
+		RepBehaviourScriptBatchMerge,
+		RepBehaviourScriptDelete,
+		RepBehaviourScriptGet,
+		RepBehaviourScriptList,
+		RepBehaviourScriptListByCompany,
+		RepBehaviourScriptMerge
+	};
 //#endregion Behaviours
 
 //#region Billing
 //#endregion Billing
 
 //#region Company
-export {
-	RepCompanyGeneralGet,
-	RepCompanyGet,
-	RepCompanyList,
-	RepCompanyListByCompany,
-	RepCompanyListByCompanyAndRefPairs,
-	RepCompanyMerge,
-	RepCompanyPoliciesGet,
-	RepCompanyPoliciesList,
-	RepCompanyPoliciesListByCompany,
-	RepCompanyPoliciesListByCompanyAndLabels,
-	RepCompanyPoliciesListByCompanyAndRefPairs,
-	RepCompanyResellerGet,
-	RepCompanyResellerList,
-	RepCompanyResellerListByCompany,
-	RepCompanyResellerListByCompanyAndLabels,
-	RepCompanyResellerListByCompanyAndRefPairs,
-	RepCompanyStylesGet,
-	RepCompanyStylesList,
-	RepCompanyStylesListByCompany,
-	RepCompanyStylesListByCompanyAndLabels,
-	RepCompanyStylesListByCompanyAndRefPairs,
-};
+	export {
+		RepCompanyGeneralGet,
+		RepCompanyGet,
+		RepCompanyList,
+		RepCompanyListByCompany,
+		RepCompanyListByCompanyAndRefPairs,
+		RepCompanyMerge,
+		RepCompanyPoliciesGet,
+		RepCompanyPoliciesList,
+		RepCompanyPoliciesListByCompany,
+		RepCompanyPoliciesListByCompanyAndLabels,
+		RepCompanyPoliciesListByCompanyAndRefPairs,
+		RepCompanyResellerGet,
+		RepCompanyResellerList,
+		RepCompanyResellerListByCompany,
+		RepCompanyResellerListByCompanyAndLabels,
+		RepCompanyResellerListByCompanyAndRefPairs,
+		RepCompanyStylesGet,
+		RepCompanyStylesList,
+		RepCompanyStylesListByCompany,
+		RepCompanyStylesListByCompanyAndLabels,
+		RepCompanyStylesListByCompanyAndRefPairs
+	};
 //#endregion Company
 
 //#region Dispatch
-export {
-	// DispatchJob Requests
-	PayDispatchJob,
-	PayDispatchJobBatchDelete,
-	PayDispatchJobBatchMerge,
-	PayDispatchJobDelete,
-	PayDispatchJobGet,
-	PayDispatchJobMerge,
-	PayDispatchJobRestore,
-	// DispatchTask Requests
-	PayDispatchTask,
-	PayDispatchTaskBatchDelete,
-	PayDispatchTaskBatchMerge,
-	PayDispatchTaskDelete,
-	PayDispatchTaskGet,
-	PayDispatchTaskMerge,
-	PayDispatchTaskRestore,
-	// DispatchJob Responses
-	RepDispatchJobBatchDelete,
-	RepDispatchJobBatchMerge,
-	RepDispatchJobDelete,
-	RepDispatchJobGet,
-	RepDispatchJobMerge,
-	// DispatchTask Responses
-	RepDispatchTaskBatchDelete,
-	RepDispatchTaskBatchMerge,
-	RepDispatchTaskDelete,
-	RepDispatchTaskGet,
-	RepDispatchTaskMerge,
-};
+	export {
+		// DispatchJob Requests
+		PayDispatchJob,
+		PayDispatchJobBatchDelete,
+		PayDispatchJobBatchMerge,
+		PayDispatchJobDelete,
+		PayDispatchJobGet,
+		PayDispatchJobMerge,
+		PayDispatchJobRestore,
+		// DispatchTask Requests
+		PayDispatchTask,
+		PayDispatchTaskBatchDelete,
+		PayDispatchTaskBatchMerge,
+		PayDispatchTaskDelete,
+		PayDispatchTaskGet,
+		PayDispatchTaskMerge,
+		PayDispatchTaskRestore,
+		// DispatchJob Responses
+		RepDispatchJobBatchDelete,
+		RepDispatchJobBatchMerge,
+		RepDispatchJobDelete,
+		RepDispatchJobGet,
+		RepDispatchJobMerge,
+		// DispatchTask Responses
+		RepDispatchTaskBatchDelete,
+		RepDispatchTaskBatchMerge,
+		RepDispatchTaskDelete,
+		RepDispatchTaskGet,
+		RepDispatchTaskMerge
+	};
 //#endregion Dispatch
 
 //#region Hosting
-export {
-	// FormTemplates Parameters
-	ParamFormField,
-	ParamFormTemplateMerge,
-	// FormTemplates Requests
-	PayFormTemplate,
-	PayFormTemplateBatchDelete,
-	PayFormTemplateBatchMerge,
-	PayFormTemplateDelete,
-	PayFormTemplateGet,
-	PayFormTemplateList,
-	PayFormTemplateListByCompany,
-	PayFormTemplateMerge,
-	PayFormTemplateRestore,
-	// FormResults Responses
-	RepFormResultDelete,
-	RepFormResultGet,
-	RepFormResultMerge,
-	// FormTemplates Responses
-	RepFormTemplateBatchDelete,
-	RepFormTemplateBatchMerge,
-	RepFormTemplateDelete,
-	RepFormTemplateGet,
-	RepFormTemplateList,
-	RepFormTemplateListByCompany,
-	RepFormTemplateMerge,
-};
+	export {
+		// FormTemplates Parameters
+		ParamFormField,
+		ParamFormTemplateMerge,
+		// FormTemplates Requests
+		PayFormTemplate,
+		PayFormTemplateBatchDelete,
+		PayFormTemplateBatchMerge,
+		PayFormTemplateDelete,
+		PayFormTemplateGet,
+		PayFormTemplateList,
+		PayFormTemplateListByCompany,
+		PayFormTemplateMerge,
+		PayFormTemplateRestore,
+		// FormResults Responses
+		RepFormResultDelete,
+		RepFormResultGet,
+		RepFormResultMerge,
+		// FormTemplates Responses
+		RepFormTemplateBatchDelete,
+		RepFormTemplateBatchMerge,
+		RepFormTemplateDelete,
+		RepFormTemplateGet,
+		RepFormTemplateList,
+		RepFormTemplateListByCompany,
+		RepFormTemplateMerge
+	};
 //#endregion Hosting
 
 //#region Images
-export {
-	// Pictures Requests
-	PayPicture,
-	PayPictureBatchDelete,
-	PayPictureBatchMerge,
-	PayPictureDelete,
-	PayPictureGet,
-	PayPictureList,
-	PayPictureListByCompany,
-	PayPictureMerge,
-	PayPictureRestore,
-	// Icons Responses
-	RepIconBatchDelete,
-	RepIconBatchMerge,
-	RepIconDelete,
-	RepIconGet,
-	RepIconMerge,
-	// Pictures Responses
-	RepPictureBatchDelete,
-	RepPictureBatchMerge,
-	RepPictureDelete,
-	RepPictureGet,
-	RepPictureList,
-	RepPictureListByCompany,
-	RepPictureMerge,
-};
+	export {
+		// Pictures Requests
+		PayPicture,
+		PayPictureBatchDelete,
+		PayPictureBatchMerge,
+		PayPictureDelete,
+		PayPictureGet,
+		PayPictureList,
+		PayPictureListByCompany,
+		PayPictureMerge,
+		PayPictureRestore,
+		// Icons Responses
+		RepIconBatchDelete,
+		RepIconBatchMerge,
+		RepIconDelete,
+		RepIconGet,
+		RepIconMerge,
+		// Pictures Responses
+		RepPictureBatchDelete,
+		RepPictureBatchMerge,
+		RepPictureDelete,
+		RepPictureGet,
+		RepPictureList,
+		RepPictureListByCompany,
+		RepPictureMerge
+	};
 //#endregion Images
 
 //#region Maintenance
-export {
-	// Jobs Requests
-	PayMaintenanceJob,
-	PayMaintenanceJobBatchDelete,
-	PayMaintenanceJobBatchMerge,
-	PayMaintenanceJobDelete,
-	PayMaintenanceJobGet,
-	PayMaintenanceJobList,
-	PayMaintenanceJobListByCompany,
-	PayMaintenanceJobMerge,
-	PayMaintenanceJobRestore,
-	// Schedules Requests
-	PayMaintenanceSchedule,
-	PayMaintenanceScheduleBatchDelete,
-	PayMaintenanceScheduleBatchMerge,
-	PayMaintenanceScheduleDelete,
-	PayMaintenanceScheduleGet,
-	PayMaintenanceScheduleList,
-	PayMaintenanceScheduleListByCompany,
-	PayMaintenanceScheduleMerge,
-	PayMaintenanceScheduleRestore,
-	// Jobs Responses
-	RepMaintenanceJobBatchDelete,
-	RepMaintenanceJobBatchMerge,
-	RepMaintenanceJobDelete,
-	RepMaintenanceJobGet,
-	RepMaintenanceJobList,
-	RepMaintenanceJobListByCompany,
-	RepMaintenanceJobMerge,
-	// Schedules Responses
-	RepMaintenanceScheduleBatchDelete,
-	RepMaintenanceScheduleBatchMerge,
-	RepMaintenanceScheduleDelete,
-	RepMaintenanceScheduleGet,
-	RepMaintenanceScheduleList,
-	RepMaintenanceScheduleListByCompany,
-	RepMaintenanceScheduleMerge,
-};
+	export {
+		// Jobs Requests
+		PayMaintenanceJob,
+		PayMaintenanceJobBatchDelete,
+		PayMaintenanceJobBatchMerge,
+		PayMaintenanceJobDelete,
+		PayMaintenanceJobGet,
+		PayMaintenanceJobList,
+		PayMaintenanceJobListByCompany,
+		PayMaintenanceJobMerge,
+		PayMaintenanceJobRestore,
+		// Schedules Requests
+		PayMaintenanceSchedule,
+		PayMaintenanceScheduleBatchDelete,
+		PayMaintenanceScheduleBatchMerge,
+		PayMaintenanceScheduleDelete,
+		PayMaintenanceScheduleGet,
+		PayMaintenanceScheduleList,
+		PayMaintenanceScheduleListByCompany,
+		PayMaintenanceScheduleMerge,
+		PayMaintenanceScheduleRestore,
+		// Jobs Responses
+		RepMaintenanceJobBatchDelete,
+		RepMaintenanceJobBatchMerge,
+		RepMaintenanceJobDelete,
+		RepMaintenanceJobGet,
+		RepMaintenanceJobList,
+		RepMaintenanceJobListByCompany,
+		RepMaintenanceJobMerge,
+		// Schedules Responses
+		RepMaintenanceScheduleBatchDelete,
+		RepMaintenanceScheduleBatchMerge,
+		RepMaintenanceScheduleDelete,
+		RepMaintenanceScheduleGet,
+		RepMaintenanceScheduleList,
+		RepMaintenanceScheduleListByCompany,
+		RepMaintenanceScheduleMerge
+	};
 //#endregion Maintenance
 
 //#region Places
-export {
-	// Requests Parameters
-	ParamPlaceMerge,
-	// Requests
-	PayPlace,
-	PayPlaceBatchDelete,
-	PayPlaceBatchMerge,
-	PayPlaceDelete,
-	PayPlaceGet,
-	PayPlaceList,
-	PayPlaceListByCompany,
-	PayPlaceMerge,
-	PayPlaceRestore,
-	// Responses
-	RepPlaceBatchDelete,
-	RepPlaceBatchMerge,
-	RepPlaceDelete,
-	RepPlaceGet,
-	RepPlaceList,
-	RepPlaceListByCompany,
-	RepPlaceMerge,
-};
+	export {
+		// Requests Parameters
+		ParamPlaceMerge,
+		// Requests
+		PayPlace,
+		PayPlaceBatchDelete,
+		PayPlaceBatchMerge,
+		PayPlaceDelete,
+		PayPlaceGet,
+		PayPlaceList,
+		PayPlaceListByCompany,
+		PayPlaceMerge,
+		PayPlaceRestore,
+		// Responses
+		RepPlaceBatchDelete,
+		RepPlaceBatchMerge,
+		RepPlaceDelete,
+		RepPlaceGet,
+		RepPlaceList,
+		RepPlaceListByCompany,
+		RepPlaceMerge
+	};
 //#endregion Places
 
 //#region Providers
-export {
-	// Providers Configs
-	ParamProviderConfigMerge,
-	// Providers Configurations
-	ParamProviderConfigurationMerge,
-	// Scripts Requests Parameters
-	ParamProviderScriptMerge,
-	// Providers PayProvider and related classes
-	PayProvider,
-	PayProviderAdvancedGet,
-	PayProviderAdvancedList,
-	PayProviderAdvancedListByCompany,
-	PayProviderAdvancedListByConfig,
-	PayProviderBatchDelete,
-	PayProviderBatchMerge,
-	PayProviderConfigBatchDelete,
-	PayProviderConfigBatchMerge,
-	PayProviderConfigDelete,
-	PayProviderConfigGet,
-	PayProviderConfigList,
-	PayProviderConfigListByCompany,
-	PayProviderConfigMerge,
-	PayProviderConfigRestore,
-	PayProviderConfigurationBatchDelete,
-	PayProviderConfigurationBatchMerge,
-	PayProviderConfigurationDelete,
-	PayProviderConfigurationGet,
-	PayProviderConfigurationList,
-	PayProviderConfigurationListByCompany,
-	PayProviderConfigurationMerge,
-	PayProviderConfigurationRestore,
-	// Providers ConfigurationTypes
-	PayProviderConfigurationTypeGet,
-	PayProviderConfigurationTypeList,
-	PayProviderConfigurationTypeListByCompany,
-	PayProviderControlGet,
-	PayProviderControlList,
-	PayProviderControlListByCompany,
-	PayProviderControlListByConfig,
-	PayProviderDelete,
-	PayProviderGeneralGet,
-	PayProviderGeneralList,
-	PayProviderGeneralListByCompany,
-	PayProviderGeneralListByConfig,
-	PayProviderGet,
-	PayProviderList,
-	PayProviderListByCompany,
-	PayProviderMerge,
-	PayProviderRestore,
-	// Scripts Requests
-	PayProviderScript,
-	PayProviderScriptBatchDelete,
-	PayProviderScriptBatchMerge,
-	PayProviderScriptDelete,
-	PayProviderScriptGet,
-	PayProviderScriptList,
-	PayProviderScriptListByCompany,
-	PayProviderScriptMerge,
-	PayProviderScriptRestore,
-	RepProviderConfigBatchDelete,
-	RepProviderConfigBatchMerge,
-	RepProviderConfigDelete,
-	RepProviderConfigGet,
-	RepProviderConfigList,
-	RepProviderConfigListByCompany,
-	RepProviderConfigMerge,
-	RepProviderConfigurationBatchDelete,
-	RepProviderConfigurationBatchMerge,
-	RepProviderConfigurationDelete,
-	RepProviderConfigurationGet,
-	RepProviderConfigurationList,
-	RepProviderConfigurationListByCompany,
-	RepProviderConfigurationMerge,
-	RepProviderConfigurationTypeGet,
-	RepProviderConfigurationTypeList,
-	RepProviderConfigurationTypeListByCompany,
-	RepProviderControlListByConfig,
-	RepProviderGeneralListByConfig,
-	// Providers Config/Configuration classes
-	RepProviderListByConfig,
-	// Registrations Requests Parameters (if any)
-	// Registrations Requests (none found in grep)
-	// Registrations Responses
-	// (No BatchDelete, BatchMerge, or Delete found for Registrations Responses)
-	RepProviderRegistrationGet,
-	RepProviderRegistrationList,
-	RepProviderRegistrationListByCompany,
-	RepProviderRegistrationMerge,
-	// Scripts Responses
-	RepProviderScriptBatchDelete,
-	RepProviderScriptBatchMerge,
-	RepProviderScriptDelete,
-	RepProviderScriptGet,
-	RepProviderScriptList,
-	RepProviderScriptListByCompany,
-	RepProviderScriptMerge,
-};
+	export {
+		// Providers Configs
+		ParamProviderConfigMerge,
+		// Providers Configurations
+		ParamProviderConfigurationMerge,
+		// Scripts Requests Parameters
+		ParamProviderScriptMerge,
+		// Providers PayProvider and related classes
+		PayProvider,
+		PayProviderAdvancedGet,
+		PayProviderAdvancedList,
+		PayProviderAdvancedListByCompany,
+		PayProviderAdvancedListByConfig,
+		PayProviderBatchDelete,
+		PayProviderBatchMerge,
+		PayProviderConfigBatchDelete,
+		PayProviderConfigBatchMerge,
+		PayProviderConfigDelete,
+		PayProviderConfigGet,
+		PayProviderConfigList,
+		PayProviderConfigListByCompany,
+		PayProviderConfigMerge,
+		PayProviderConfigRestore,
+		PayProviderConfigurationBatchDelete,
+		PayProviderConfigurationBatchMerge,
+		PayProviderConfigurationDelete,
+		PayProviderConfigurationGet,
+		PayProviderConfigurationList,
+		PayProviderConfigurationListByCompany,
+		PayProviderConfigurationMerge,
+		PayProviderConfigurationRestore,
+		// Providers ConfigurationTypes
+		PayProviderConfigurationTypeGet,
+		PayProviderConfigurationTypeList,
+		PayProviderConfigurationTypeListByCompany,
+		PayProviderControlGet,
+		PayProviderControlList,
+		PayProviderControlListByCompany,
+		PayProviderControlListByConfig,
+		PayProviderDelete,
+		PayProviderGeneralGet,
+		PayProviderGeneralList,
+		PayProviderGeneralListByCompany,
+		PayProviderGeneralListByConfig,
+		PayProviderGet,
+		PayProviderList,
+		PayProviderListByCompany,
+		PayProviderMerge,
+		PayProviderRestore,
+		// Scripts Requests
+		PayProviderScript,
+		PayProviderScriptBatchDelete,
+		PayProviderScriptBatchMerge,
+		PayProviderScriptDelete,
+		PayProviderScriptGet,
+		PayProviderScriptList,
+		PayProviderScriptListByCompany,
+		PayProviderScriptMerge,
+		PayProviderScriptRestore,
+		RepProviderConfigBatchDelete,
+		RepProviderConfigBatchMerge,
+		RepProviderConfigDelete,
+		RepProviderConfigGet,
+		RepProviderConfigList,
+		RepProviderConfigListByCompany,
+		RepProviderConfigMerge,
+		RepProviderConfigurationBatchDelete,
+		RepProviderConfigurationBatchMerge,
+		RepProviderConfigurationDelete,
+		RepProviderConfigurationGet,
+		RepProviderConfigurationList,
+		RepProviderConfigurationListByCompany,
+		RepProviderConfigurationMerge,
+		RepProviderConfigurationTypeGet,
+		RepProviderConfigurationTypeList,
+		RepProviderConfigurationTypeListByCompany,
+		RepProviderControlListByConfig,
+		RepProviderGeneralListByConfig,
+		// Providers Config/Configuration classes
+		RepProviderListByConfig,
+		// Registrations Requests Parameters (if any)
+		// Registrations Requests (none found in grep)
+		// Registrations Responses
+		// (No BatchDelete, BatchMerge, or Delete found for Registrations Responses)
+		RepProviderRegistrationGet,
+		RepProviderRegistrationList,
+		RepProviderRegistrationListByCompany,
+		RepProviderRegistrationMerge,
+		// Scripts Responses
+		RepProviderScriptBatchDelete,
+		RepProviderScriptBatchMerge,
+		RepProviderScriptDelete,
+		RepProviderScriptGet,
+		RepProviderScriptList,
+		RepProviderScriptListByCompany,
+		RepProviderScriptMerge
+	};
 //#endregion Providers
 
 //#region Reports
-export {
-	// Schedules Requests Parameters
-	ParamReportScheduleMerge,
-	// Templates Requests Parameters
-	ParamReportTemplateMerge,
-	// Schedules Requests
-	PayReportScheduleDelete,
-	PayReportScheduleRestore,
-	// Templates Requests
-	PayReportTemplate,
-	PayReportTemplateBatchDelete,
-	PayReportTemplateBatchMerge,
-	PayReportTemplateDelete,
-	PayReportTemplateGet,
-	PayReportTemplateList,
-	PayReportTemplateListByCompany,
-	PayReportTemplateMerge,
-	PayReportTemplateRestore,
-	RepReportScheduleBatchDelete,
-	// Schedules Requests Parameters (if any)
-	// Schedules Requests (none found in grep)
-	// Schedules Responses
-	RepReportScheduleDelete,
-	RepReportScheduleGet,
-	RepReportScheduleList,
-	RepReportScheduleListByCompany,
-	RepReportScheduleMerge,
-	// Templates Responses
-	RepReportTemplateBatchDelete,
-	RepReportTemplateBatchMerge,
-	RepReportTemplateDelete,
-	RepReportTemplateGet,
-	RepReportTemplateList,
-	RepReportTemplateListByCompany,
-	RepReportTemplateMerge,
-};
+	export {
+		// Schedules Requests Parameters
+		ParamReportScheduleMerge,
+		// Templates Requests Parameters
+		ParamReportTemplateMerge,
+		// Schedules Requests
+		PayReportScheduleDelete,
+		PayReportScheduleRestore,
+		// Templates Requests
+		PayReportTemplate,
+		PayReportTemplateBatchDelete,
+		PayReportTemplateBatchMerge,
+		PayReportTemplateDelete,
+		PayReportTemplateGet,
+		PayReportTemplateList,
+		PayReportTemplateListByCompany,
+		PayReportTemplateMerge,
+		PayReportTemplateRestore,
+		RepReportScheduleBatchDelete,
+		// Schedules Requests Parameters (if any)
+		// Schedules Requests (none found in grep)
+		// Schedules Responses
+		RepReportScheduleDelete,
+		RepReportScheduleGet,
+		RepReportScheduleList,
+		RepReportScheduleListByCompany,
+		RepReportScheduleMerge,
+		// Templates Responses
+		RepReportTemplateBatchDelete,
+		RepReportTemplateBatchMerge,
+		RepReportTemplateDelete,
+		RepReportTemplateGet,
+		RepReportTemplateList,
+		RepReportTemplateListByCompany,
+		RepReportTemplateMerge
+	};
 //#endregion Reports
 
 //#region WebSocket
-export {
-	// Requests
-	SubscriptionType,
-	PaySubscriptionList,
-	PaySubscriptionMerge,
-	PaySubscriptionRemove,
-	// Responses
-	RepSubscription,
-	RepSubscriptionList,
-	// Content
-	Subscription,
-};
+	export {
+		PaySubscriptionList,
+		PaySubscriptionMerge,
+		PaySubscriptionRemove,
+		// Responses
+		RepSubscription,
+		RepSubscriptionList,
+		// Content
+		Subscription,
+		// Requests
+		SubscriptionType
+	};
 //#endregion WebSocket
