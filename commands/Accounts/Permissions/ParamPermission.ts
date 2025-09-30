@@ -1,4 +1,4 @@
-import { nothing, PermissionLevel, PermissionMethod, PermissionType, ulong, utility } from "@trakit/objects";
+import { codified, JsonObject, nothing, PermissionLevel, PermissionMethod, PermissionType, ulong, utility } from "@trakit/objects";
 
 /**
  * Similar to the {@link Permission} object, but the {@link company}, {@link level}, {@link method}, and {@link labels} are all optional.
@@ -37,15 +37,15 @@ export class ParamPermission {
 	labels: string[] | nothing;
 
 	constructor(json?: JsonObject) {
-		this.company = json?.company;
-		this.kind = json?.kind ?? json?.type;
-		this.level = json?.level;
-		this.method = json?.method;
-		this.labels = json?.labels;
+		this.company = json?.company as ulong;
+		this.kind = (json?.kind ?? json?.type) as PermissionType;
+		this.level = json?.level as PermissionLevel;
+		this.method = json?.method as PermissionMethod;
+		this.labels = json?.labels as codified[];
 	}
 
-	toJSON(): any {
-		const json: JsonObject = {};
+	toJSON() {
+		const json: any = {};
 		if (utility.isntNaN(this.company as number)) {
 			json["company"] = this.company;
 		}

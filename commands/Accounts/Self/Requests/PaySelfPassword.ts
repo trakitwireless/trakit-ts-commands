@@ -1,6 +1,7 @@
-import { Reply } from "../../../API/Responses/Reply";
+import { JsonObject } from "@trakit/objects";
 import { Payload } from "../../../API/Requests/Payload";
-import { RepSelfPassword as RepSelfPassword } from "../Responses/RepSelfPassword";
+import { Reply } from "../../../API/Responses/Reply";
+import { RepSelfPassword } from "../Responses/RepSelfPassword";
 
 /**
  * Allows a {@link User} to change their own password.
@@ -17,8 +18,8 @@ export class PaySelfPassword extends Payload {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.current = json?.current ?? "";
-		this.password = json?.password ?? "";
+		this.current = json?.current as string ?? "";
+		this.password = json?.password as string ?? "";
 	}
 
 	override getAction(): {
@@ -36,7 +37,7 @@ export class PaySelfPassword extends Payload {
 	}
 
 	override createReply(json?: JsonObject): Reply {
-		return new RepSelfPassword(json);
+		return new RepSelfPassword(json as JsonObject);
 	}
 
 	override toJSON(): any {

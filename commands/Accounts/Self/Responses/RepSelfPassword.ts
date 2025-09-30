@@ -1,4 +1,4 @@
-import { nothing, PasswordPolicy } from "@trakit/objects";
+import { datetime, JsonObject, nothing, PasswordPolicy, utility } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -16,9 +16,9 @@ export class RepSelfPassword extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.expires = new Date(json?.expires);
+		this.expires = utility.date(json?.expires as datetime);
 		this.passwordPolicy = json["passwordPolicy"]
-			? PasswordPolicy.fromJSON(json["passwordPolicy"])
+			? PasswordPolicy.fromJSON(json.passwordPolicy as JsonObject)
 			: null;
 	}
 }

@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { Payload } from "../../../API/Requests/Payload";
 import { Reply } from "../../../API/Responses/Reply";
 import { RepSelfGet } from "../Responses/RepSelfGet";
@@ -20,6 +21,6 @@ export class PaySelfGet extends Payload {
 		};
 	}
 	override createReply(json?: JsonObject): Reply {
-		return new RepSelfGet(json);
+		return new RepSelfGet(json as JsonObject);
 	}
 }

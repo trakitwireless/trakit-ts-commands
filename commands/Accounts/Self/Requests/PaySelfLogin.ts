@@ -1,6 +1,6 @@
-import { email, nothing } from "@trakit/objects";
-import { Reply } from "../../../API/Responses/Reply";
+import { email, JsonObject, nothing } from "@trakit/objects";
 import { Payload } from "../../../API/Requests/Payload";
+import { Reply } from "../../../API/Responses/Reply";
 import { RepSelfGet } from "../Responses/RepSelfGet";
 
 /**
@@ -23,9 +23,9 @@ export class PaySelfLogin extends Payload {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.username = json?.username ?? "";
-		this.password = json?.password ?? "";
-		this.userAgent = json?.userAgent;
+		this.username = json?.username as string ?? "";
+		this.password = json?.password as string ?? "";
+		this.userAgent = json?.userAgent as string;
 	}
 	
 	override getAction(): {
@@ -43,11 +43,11 @@ export class PaySelfLogin extends Payload {
 	}
 
 	override createReply(json?: JsonObject): Reply {
-		return new RepSelfGet(json);
+		return new RepSelfGet(json as JsonObject);
 	}
 
 	override toJSON(): any {
-		const json: JsonObject = {
+		const json: any = {
 			...super.toJSON(),
 			username: this.username,
 			password: this.password,

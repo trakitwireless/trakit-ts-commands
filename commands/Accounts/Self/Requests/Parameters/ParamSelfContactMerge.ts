@@ -1,4 +1,4 @@
-import { nothing, serialization, ulong, utility } from "@trakit/objects";
+import { JsonObject, nothing, serialization, ulong, utility } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
@@ -65,35 +65,35 @@ export class ParamSelfContactMerge extends ParamMergeSubscribable {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.name = json?.name || "";
-		this.notes = json?.notes || "";
+		this.name = json?.name as string ?? "";
+		this.notes = json?.notes as string ?? "";
 		this.otherNames = json?.otherNames
-			? serialization.toMap(json.otherNames)
+			? serialization.toMap(json?.otherNames as object)
 			: null;
 		this.emails = json?.emails
-			? serialization.toMap(json.emails)
+			? serialization.toMap(json?.emails as object)
 			: null;
 		this.phones = json?.phones
-			? serialization.toMap(json.phones)
+			? serialization.toMap(json?.phones as object)
 			: null;
 		this.addresses = json?.addresses
-			? serialization.toMap(json.addresses)
+			? serialization.toMap(json?.addresses as object)
 			: null;
 		this.urls = json?.urls
-			? serialization.toMap(json.urls)
+			? serialization.toMap(json?.urls as object)
 			: null;
 		this.dates = json?.dates
-			? serialization.toMap(json.dates)
+			? serialization.toMap(json?.dates as object)
 			: null;
 		this.options = json?.options
-			? serialization.toMap(json?.options)
+			? serialization.toMap(json?.options as object)
 			: null;
-		this.roles = json?.roles;
-		this.pictures = json?.pictures?.map((v: any) => utility.id(v));
+		this.roles = json?.roles as string[];
+		this.pictures = (json?.pictures as JsonObject[])?.map((v: any) => utility.id(v));
 	}
 
 	override toJSON() {
-		const json: JsonObject = {};
+		const json: any = {};
 		if (this.name) json["name"] = this.name;
 		if (this.notes) json["notes"] = this.notes;
 		if (this.otherNames?.size) json["otherNames"] = serialization.fromMap(this.otherNames);

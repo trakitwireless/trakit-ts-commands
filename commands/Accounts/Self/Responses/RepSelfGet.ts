@@ -1,14 +1,16 @@
 import {
 	Contact,
-	guid,
-	Machine,
+	datetime,
+	email,
+	guid, JsonObject, Machine,
 	nothing,
 	PasswordPolicy,
 	SessionPolicy,
 	storage,
+	ulong,
 	User,
-	utility,
-} from '@trakit/objects';
+	utility
+} from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -48,38 +50,38 @@ export class RepSelfGet extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.serverTime = utility.date(json?.["serverTime"]);
-		this.ghostId = json?.["ghostId"] ?? "";
-		this.expiry = utility.date(json?.["expiry"]);
+		this.serverTime = utility.date(json?.serverTime as datetime);
+		this.ghostId = json?.ghostId as guid ?? "";
+		this.expiry = utility.date(json?.expiry as datetime);
 
-		const jsonUser = json?.["user"],
-			jsonContact = jsonUser?.["contact"],
-			jsonMachine = json?.["machine"];
+		const jsonUser = json?.user as JsonObject,
+			jsonContact = jsonUser?.contact as JsonObject,
+			jsonMachine = json?.machine as JsonObject;
 		if (jsonUser) {
 			if (jsonContact) {
-				jsonUser["contact"] = (
-					storage.contacts.get(jsonContact.id)?.fromJSON(jsonContact)
-					?? storage.contacts.set(jsonContact.id, new Contact(jsonContact))
+				(jsonUser as any).contact = (
+					storage.contacts.get(jsonContact.id as ulong)?.fromJSON(jsonContact)
+					?? storage.contacts.set(jsonContact.id as ulong, new Contact(jsonContact))
 				)
 					&& jsonContact.id;
 			}
-			(this.user = storage.users.get(jsonUser.login))?.fromJSON(jsonUser)
-				?? storage.users.set(jsonUser.login, this.user = new User(jsonUser));
+			(this.user = storage.users.get(jsonUser.login as email))?.fromJSON(jsonUser)
+				?? storage.users.set(jsonUser.login as email, this.user = new User(jsonUser));
 		} else if (jsonMachine) {
-			(this.machine = storage.machines.get(jsonMachine.key))?.fromJSON(jsonMachine)
-				?? storage.machines.set(jsonMachine.key, this.machine = new Machine(jsonMachine));
+			(this.machine = storage.machines.get(jsonMachine.key as string))?.fromJSON(jsonMachine)
+				?? storage.machines.set(jsonMachine.key as string, this.machine = new Machine(jsonMachine));
 		}
 
-		this.sessionPolicy = json?.["sessionPolicy"]
-			? SessionPolicy.fromJSON(json["sessionPolicy"])
+		this.sessionPolicy = json?.sessionPolicy
+			? SessionPolicy.fromJSON(json.sessionPolicy as JsonObject)
 			: null;
-		this.passwordPolicy = json?.["passwordPolicy"]
-			? PasswordPolicy.fromJSON(json["passwordPolicy"])
+		this.passwordPolicy = json?.passwordPolicy
+			? PasswordPolicy.fromJSON(json.passwordPolicy as JsonObject)
 			: null;
 	}
 
 	toJSON(): any {
-		const json: JsonObject = {
+		const json: any = {
 			"errorCode": this.errorCode,
 			"message": this.message,
 			"errorDetails": this.errorDetails,

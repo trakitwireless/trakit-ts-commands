@@ -1,4 +1,4 @@
-import { guid, nothing, utility } from "@trakit/objects";
+import { datetime, guid, JsonObject, nothing, utility } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -16,7 +16,7 @@ export class RepSelfLogout extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.ghostId = json?.ghostId ?? "";
-		this.expiry = utility.date(json?.expiry);
+		this.ghostId = json?.ghostId as string ?? "";
+		this.expiry = utility.date(json?.expiry as datetime);
 	}
 }

@@ -1,7 +1,7 @@
-import { nothing, serialization, SystemsOfUnits, Timezone, UserNotifications, utility } from "@trakit/objects";
+import { codified, JsonObject, nothing, serialization, SystemsOfUnits, Timezone, UserNotifications, utility } from "@trakit/objects";
 import { Payload } from "../../../API/Requests/Payload";
-import { RepSelfPreferences } from "../Responses/RepSelfPreferences";
 import { Reply } from "../../../API/Responses/Reply";
+import { RepSelfPreferences } from "../Responses/RepSelfPreferences";
 
 /**
  * Allows a session {@link User} to change their own preferences.
@@ -39,9 +39,9 @@ export class PaySelfPreferences extends Payload {
 	
 	constructor(json?: JsonObject) {
 		super(json);
-		this.language = json?.language;
-		this.timezone = utility.findTimeZoneById(json?.timezone);
-		this.notify = json?.notify?.map((n: any) => new UserNotifications(n));
+		this.language = json?.language as codified;
+		this.timezone = utility.findTimeZoneById(json?.timezone as codified);
+		this.notify = (json?.notify as JsonObject[])?.map((n: any) => new UserNotifications(n));
 		this.formats = json?.formats ? new Map(Object.entries(json?.formats)) : null;
 		this.measurements = json?.measurements ? new Map(Object.entries(json?.measurements)) : null;
 		this.options = json?.options ? new Map(Object.entries(json?.options)) : null;
@@ -62,11 +62,11 @@ export class PaySelfPreferences extends Payload {
 	}
 
 	override createReply(json?: JsonObject): Reply {
-		return new RepSelfPreferences(json);
+		return new RepSelfPreferences(json as JsonObject);
 	}
 
 	override toJSON(): any {
-		const json: JsonObject = super.toJSON();
+		const json: any = super.toJSON();
 		if (this.language) json.language = this.language;
 		if (this.timezone) json.timezone = this.timezone.code;
 		if (this.notify) json.notify = this.notify.map((n) => n.toJSON());

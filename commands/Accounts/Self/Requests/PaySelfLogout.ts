@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { Reply } from "index";
 import { Payload } from "../../../API/Requests/Payload";
 import { RepSelfLogout } from "../Responses/RepSelfLogout";
@@ -20,6 +21,6 @@ export class PaySelfLogout extends Payload {
 		};
 	}
 	override createReply(json?: JsonObject): Reply {
-		return new RepSelfLogout(json);
+		return new RepSelfLogout(json as JsonObject);
 	}
 }
