@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { RepAssetMessageDelete } from "../Responses/RepAssetMessageDelete";
 import { Reply } from "../../API/Responses/Reply";
 import { PayAssetMessage } from "./PayAssetMessage";

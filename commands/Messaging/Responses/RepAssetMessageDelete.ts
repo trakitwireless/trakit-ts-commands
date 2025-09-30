@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { nothing } from "@trakit/objects";
 import { ContentIdDeleted } from "../../API/Responses/Content/ContentIdDeleted";
 import { Reply } from "../../API/Responses/Reply";

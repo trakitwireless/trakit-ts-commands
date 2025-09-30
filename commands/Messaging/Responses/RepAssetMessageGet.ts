@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { AssetMessage, nothing } from "@trakit/objects";
 import { Reply } from "../../API/Responses/Reply";
 
@@ -12,8 +13,8 @@ export class RepAssetMessageGet extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.assetMessage = json?.assetMessage
-			? new AssetMessage(json.assetMessage)
-			: null;
+		if (json?.assetMessage) {
+			this.assetMessage = new AssetMessage(json.assetMessage as JsonObject);
+		}
 	}
 }

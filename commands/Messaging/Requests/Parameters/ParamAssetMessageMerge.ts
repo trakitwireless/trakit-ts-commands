@@ -1,4 +1,4 @@
-import { MessageFolder, MessageType, nothing, ulong } from "@trakit/objects";
+import { JsonObject, MessageFolder, MessageType, nothing, ulong } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
@@ -49,13 +49,13 @@ export class ParamAssetMessageMerge extends ParamMergeSubscribable {
 	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id as ulong;
-		this.asset = json?.asset;
-		this.kind = json?.kind;
-		this.folder = json?.folder;
-		this.to = json?.to;
-		this.subject = json?.subject;
-		this.body = json?.body;
-		this.read = json?.read;
+		this.asset = json?.asset as ulong;
+		this.kind = json?.kind as MessageType;
+		this.folder = json?.folder as MessageFolder;
+		this.to = json?.to as string;
+		this.subject = json?.subject as string;
+		this.body = json?.body as string;
+		this.read = json?.read as boolean;
 	}
 
 	override toJSON(): any {

@@ -1,4 +1,4 @@
-import { AssetMessage, nothing } from "@trakit/objects";
+import { AssetMessage, JsonObject, nothing } from "@trakit/objects";
 import { ContentId } from "../../API/Responses/Content/ContentId";
 import { IRepListByAsset } from "../../API/Responses/IRepListByAsset";
 import { IRepListByCompany } from "../../API/Responses/IRepListByCompany";
