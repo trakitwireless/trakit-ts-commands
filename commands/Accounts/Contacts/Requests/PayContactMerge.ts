@@ -1,8 +1,9 @@
-import { Reply } from "../../API/Responses/Reply";
-import { Payload } from "../../API/Requests/Payload";
-import { IPaySingle } from "../../API/Requests/IPaySingle";
-import { ParamContactMerge } from "./Parameters/ParamContactMerge";
+import { JsonObject } from "@trakit/objects";
+import { IPaySingle } from "../../../API/Requests/IPaySingle";
+import { Payload } from "../../../API/Requests/Payload";
+import { Reply } from "../../../API/Responses/Reply";
 import { RepContactMerge } from "../Responses/RepContactMerge";
+import { ParamContactMerge } from "./Parameters/ParamContactMerge";
 
 /**
  * Creates a new or updates an existing {@link Contact}.
@@ -16,7 +17,7 @@ export class PayContactMerge extends Payload implements IPaySingle {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.contact = new ParamContactMerge(json?.contact);
+		this.contact = new ParamContactMerge(json?.contact as JsonObject);
 	}
 	/**
 	 * 
@@ -26,6 +27,6 @@ export class PayContactMerge extends Payload implements IPaySingle {
 	}
 
 	override createReply(json?: JsonObject): Reply {
-		return new RepContactMerge(json);
+		return new RepContactMerge(json as JsonObject);
 	}
 }

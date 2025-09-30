@@ -1,6 +1,6 @@
-import { Contact, nothing } from "@trakit/objects";
-import { ContentId } from "../../API/Responses/Content/ContentId";
-import { Reply } from "../../API/Responses/Reply";
+import { Contact, JsonObject, nothing } from "@trakit/objects";
+import { ContentId } from "../../../API/Responses/Content/ContentId";
+import { Reply } from "../../../API/Responses/Reply";
 
 /**
  * A container for the requested {@link contacts}.
@@ -13,7 +13,7 @@ export abstract class RepContactList extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.contacts = json?.contacts?.map((c: any) => new Contact(c)) ?? [];
+		this.contacts = (json?.contacts as JsonObject[])?.map((c: any) => new Contact(c)) ?? [];
 	}
 }
 

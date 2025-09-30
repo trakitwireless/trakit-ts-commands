@@ -1,5 +1,5 @@
-import { nothing, ulong, utility } from "@trakit/objects";
-import { ParamSelfContactMerge } from "../../../Accounts/Self/Requests/Parameters/ParamSelfContactMerge";
+import { JsonObject, nothing, ulong, utility } from "@trakit/objects";
+import { ParamSelfContactMerge } from "../../../../Accounts/Self/Requests/Parameters/ParamSelfContactMerge";
 
 /**
  * Parameters used to create or update an {@link Contact}.
@@ -18,12 +18,12 @@ export class ParamContactMerge extends ParamSelfContactMerge {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.id = json?.id;
-		this.company = json?.company;
+		this.id = json?.id as ulong;
+		this.company = json?.company as ulong;
 	}
 
 	override toJSON(): any {
-		const json: JsonObject = {
+		const json: any = {
 			...super.toJSON(),
 		};
 		if (utility.isntNaN(this.id)) {
