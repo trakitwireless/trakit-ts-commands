@@ -1,4 +1,4 @@
-import { LatLng, nothing, TimeSpan, ulong } from "@trakit/objects";
+import { datetime, JsonObject, LatLng, nothing, timespan, TimeSpan, ulong, utility } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
@@ -44,16 +44,18 @@ export class ParamDispatchStepMerge extends ParamMergeSubscribable {
 		super(json);
 		this.id = json?.id as ulong;
 		this.name = json?.name as string;
-		this.eta = json?.eta;
+		this.eta = json?.eta
+			? utility.date(json.eta as datetime)
+			: null;
 		this.duration = json?.duration
-			? new TimeSpan(json.duration)
+			? new TimeSpan(json.duration as timespan)
 			: null;
-		this.place = json?.place;
-		this.address = json?.address;
+		this.place = json?.place as ulong;
+		this.address = json?.address as string;
 		this.latlng = json?.latlng
-			? LatLng.fromJSON(json.latlng)
+			? LatLng.fromJSON(json.latlng as JsonObject)
 			: null;
-		this.signature = json?.signature;
+		this.signature = json?.signature as boolean;
 	}
 
 	override toJSON(): any {

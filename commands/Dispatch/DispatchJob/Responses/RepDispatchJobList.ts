@@ -1,10 +1,10 @@
-import { DispatchJob, nothing, serialization } from "@trakit/objects";
+import { codified, DispatchJob, JsonObject, nothing, serialization } from "@trakit/objects";
+import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { IRepListByAsset } from "../../../API/Responses/IRepListByAsset";
 import { IRepListByCompany } from "../../../API/Responses/IRepListByCompany";
 import { IRepListByLabels } from "../../../API/Responses/IRepListByLabels";
 import { IRepListByReferences } from "../../../API/Responses/IRepListByReferences";
 import { Reply } from "../../../API/Responses/Reply";
-import { ContentId } from "../../../API/Responses/Content/ContentId";
 
 /**
  * A container for the requested {@link dispatchJobs}.

@@ -1,7 +1,8 @@
-import { Reply } from "../../../API/Responses/Reply";
-import { PayDispatchTask } from "./PayDispatchTask";
+import { JsonObject } from "@trakit/objects";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
+import { Reply } from "../../../API/Responses/Reply";
 import { RepDispatchTaskGet } from "../Responses/RepDispatchTaskGet";
+import { PayDispatchTask } from "./PayDispatchTask";
 
 /**
  * Gets details of the specified {@link DispatchTask}.

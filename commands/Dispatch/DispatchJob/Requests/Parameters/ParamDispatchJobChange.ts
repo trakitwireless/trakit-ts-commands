@@ -1,4 +1,4 @@
-import { ulong } from "@trakit/objects";
+import { codified, JsonObject, ulong } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 import { ParamDispatchStepChange } from "./ParamDispatchStepChange";
 
@@ -27,13 +27,14 @@ export class ParamDispatchJobChange extends ParamMergeSubscribable {
 		super(json);
 		this.id = json?.id as ulong;
 		this.driver = json?.driver as string ?? "";
-		this.tags = json?.tags ?? [];
+		this.tags = json?.tags as codified[] ?? [];
 		this.steps = (json?.steps as JsonObject[])?.map((s: any) => new ParamDispatchStepChange(s)) ?? [];
 	}
 
 	override toJSON(): any {
 		const json: any = {
 			id: this.id,
+			v: [...this.v],
 		};
 		if (this.driver) json.driver = this.driver;
 		if (this.tags?.length) json.tags = [...this.tags];

@@ -1,6 +1,6 @@
+import { JsonObject, nothing } from "@trakit/objects";
 import { ContentIdDeleted } from "../../../API/Responses/Content/ContentIdDeleted";
 import { Reply } from "../../../API/Responses/Reply";
-import { nothing } from "@trakit/objects";
 
 /**
  * A container for the {@link dispatchJob}.
@@ -13,8 +13,6 @@ export class RepDispatchJobDelete extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.dispatchJob = json?.dispatchJob
-			? new ContentIdDeleted(json.dispatchJob)
-			: null;
+		this.dispatchJob = ContentIdDeleted.fromJSON(json?.dispatchJob as JsonObject);
 	}
 }

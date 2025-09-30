@@ -1,4 +1,4 @@
-import { DispatchJobPriority, nothing, serialization, ulong } from "@trakit/objects";
+import { codified, DispatchJobPriority, JsonObject, nothing, serialization, ulong } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 import { ParamDispatchStepMerge } from "./ParamDispatchStepMerge";
 
@@ -59,13 +59,13 @@ export class ParamDispatchJobMerge extends ParamMergeSubscribable {
 		super(json);
 		this.id = json?.id as ulong;
 		this.company = json?.company as ulong;
-		this.asset = json?.asset;
+		this.asset = json?.asset as ulong;
 		this.name = json?.name as string;
-		this.instructions = json?.instructions;
+		this.instructions = json?.instructions as string;
 		if (json?.references) this.references = serialization.toMap(json?.references as object);
-		this.attachments = json?.attachments;
-		this.forms = json?.forms;
-		this.priority = json?.priority;
+		this.attachments = json?.attachments as ulong[];
+		this.forms = json?.forms as ulong[];
+		this.priority = json?.priority as DispatchJobPriority;
 		this.labels = json?.labels as codified[];
 		this.steps = (json?.steps as JsonObject[])?.map((item: any) => new ParamDispatchStepMerge(item));
 	}

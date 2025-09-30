@@ -1,4 +1,4 @@
-import { DispatchTaskStatus, LatLng, nothing, serialization, TimeSpan, ulong } from "@trakit/objects";
+import { datetime, DispatchTaskStatus, JsonObject, LatLng, nothing, serialization, timespan, TimeSpan, ulong, utility } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
@@ -71,18 +71,26 @@ export class ParamDispatchTaskMerge extends ParamMergeSubscribable {
 	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id as ulong;
-		this.asset = json?.asset;
+		this.asset = json?.asset as ulong;
 		this.name = json?.name as string;
 		this.notes = json?.notes as string;
-		this.references = json?.references;
-		this.address = json?.address;
-		this.place = json?.place;
-		this.instructions = json?.instructions;
-		this.attachments = json?.attachments;
-		this.latlng = json?.latlng;
-		this.eta = json?.eta;
-		this.duration = json?.duration;
-		this.status = json?.status;
+		this.references = json?.references
+			? serialization.toMap(json.references as JsonObject)
+			: null;
+		this.address = json?.address as string;
+		this.place = json?.place as ulong;
+		this.instructions = json?.instructions as string;
+		this.attachments = json?.attachments as ulong[];
+		this.latlng = json?.latlng
+			? LatLng.fromJSON(json.latlng as JsonObject)
+			: null;
+		this.eta = json?.eta
+			? utility.date(json.eta as datetime)
+			: null;
+		this.duration = json?.duration
+			? new TimeSpan(json.duration as timespan)
+			: null;
+		this.status = json?.status as DispatchTaskStatus;
 	}
 
 	override toJSON(): any {
@@ -91,14 +99,14 @@ export class ParamDispatchTaskMerge extends ParamMergeSubscribable {
 		if (this.asset) json.asset = this.asset;
 		if (this.name) json.name = this.name;
 		if (this.notes) json.notes = this.notes;
-		if (this.references) json.references = serialization.fromMap(this.references);
+		if (this.references?.size) json.references = serialization.fromMap(this.references);
 		if (this.address) json.address = this.address;
 		if (this.place) json.place = this.place;
 		if (this.instructions) json.instructions = this.instructions;
 		if (this.attachments) json.attachments = this.attachments;
-		if (this.latlng) json.latlng = this.latlng.toJSON();
-		if (this.eta) json.eta = this.eta.toISOString();
-		if (this.duration) json.duration = this.duration.toString();
+		if (this.latlng?.isValid()) json.latlng = this.latlng.toJSON();
+		if (utility.isntNaN(this.eta?.valueOf())) json.eta = this.eta.toISOString();
+		if (utility.isntNaN(this.duration?.valueOf())) json.duration = this.duration.toString();
 		if (this.status) json.status = this.status;
 		return json;
 	}

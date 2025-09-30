@@ -1,4 +1,4 @@
-import { DispatchStepStatus, nothing, ulong } from "@trakit/objects";
+import { DispatchStepStatus, JsonObject, nothing, ulong } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
@@ -28,8 +28,8 @@ export class ParamDispatchStepChange extends ParamMergeSubscribable {
 		super(json);
 		this.id = json?.id as ulong;
 		this.notes = json?.notes as string;
-		this.signatory = json?.signatory;
-		this.status = json?.status;
+		this.signatory = json?.signatory as string;
+		this.status = json?.status as DispatchStepStatus;
 	}
 	override toJSON(): any {
 		const json: any = {

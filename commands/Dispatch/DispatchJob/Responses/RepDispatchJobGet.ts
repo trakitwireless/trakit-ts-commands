@@ -1,4 +1,4 @@
-import { DispatchJob, nothing } from "@trakit/objects";
+import { DispatchJob, JsonObject, nothing } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
@@ -12,8 +12,8 @@ export class RepDispatchJobGet extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.dispatchJob = json?.dispatchJob
-			? new DispatchJob(json.dispatchJob)
-			: null;
+		if (json?.dispatchJob) {
+			this.dispatchJob = new DispatchJob(json.dispatchJob as JsonObject);
+		}
 	}
 }

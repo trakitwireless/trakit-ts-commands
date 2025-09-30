@@ -1,9 +1,9 @@
-import { DispatchTask, nothing, serialization } from "@trakit/objects";
+import { DispatchTask, JsonObject, nothing, serialization } from "@trakit/objects";
+import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { IRepListByAsset } from "../../../API/Responses/IRepListByAsset";
 import { IRepListByCompany } from "../../../API/Responses/IRepListByCompany";
 import { IRepListByReferences } from "../../../API/Responses/IRepListByReferences";
 import { Reply } from "../../../API/Responses/Reply";
-import { ContentId } from "../../../API/Responses/Content/ContentId";
 
 /**
  * A container for the requested {@link dispatchTasks}.

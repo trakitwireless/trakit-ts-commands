@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { ParamId } from "../../../API/Requests/Parameters/ParamId";
 import { Reply } from "../../../API/Responses/Reply";
 import { RepDispatchJobBatchDelete } from "../Responses/RepDispatchJobBatchDelete";
