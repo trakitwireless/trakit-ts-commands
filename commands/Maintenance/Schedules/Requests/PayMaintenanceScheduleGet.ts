@@ -1,7 +1,8 @@
-import { Reply } from "../../../API/Responses/Reply";
-import { PayMaintenanceSchedule } from "./PayMaintenanceSchedule";
+import { JsonObject } from "@trakit/objects";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
+import { Reply } from "../../../API/Responses/Reply";
 import { RepMaintenanceScheduleGet } from "../Responses/RepMaintenanceScheduleGet";
+import { PayMaintenanceSchedule } from "./PayMaintenanceSchedule";
 
 /**
  * Gets details of the specified {@link MaintenanceSchedule}.

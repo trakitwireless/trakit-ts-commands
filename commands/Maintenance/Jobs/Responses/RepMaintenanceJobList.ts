@@ -1,6 +1,6 @@
-import { MaintenanceJob, nothing } from "@trakit/objects";
-import { Reply } from "../../../API/Responses/Reply";
+import { JsonObject, MaintenanceJob, nothing } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
+import { Reply } from "../../../API/Responses/Reply";
 
 /**
  * A container for the requested {@link maintenanceJobs}.

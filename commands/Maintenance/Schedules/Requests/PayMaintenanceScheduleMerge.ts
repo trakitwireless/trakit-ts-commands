@@ -1,8 +1,9 @@
-import { Reply } from "../../../API/Responses/Reply";
-import { Payload } from "../../../API/Requests/Payload";
+import { JsonObject } from "@trakit/objects";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
-import { ParamMaintenanceScheduleMerge } from "./Parameters/ParamMaintenanceScheduleMerge";
+import { Payload } from "../../../API/Requests/Payload";
+import { Reply } from "../../../API/Responses/Reply";
 import { RepMaintenanceScheduleMerge } from "../Responses/RepMaintenanceScheduleMerge";
+import { ParamMaintenanceScheduleMerge } from "./Parameters/ParamMaintenanceScheduleMerge";
 
 /**
  * Creates a new or updates an existing {@link MaintenanceSchedule}.

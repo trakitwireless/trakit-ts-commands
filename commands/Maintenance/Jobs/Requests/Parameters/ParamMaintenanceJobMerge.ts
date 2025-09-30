@@ -1,3 +1,4 @@
+import { datetime, JsonObject, timespan } from "@trakit/objects";
 import { nothing, TimeSpan, ulong, utility } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 import { MaintenanceJobStatus } from "@trakit/objects";
@@ -90,20 +91,26 @@ export class ParamMaintenanceJobMerge extends ParamMergeSubscribable {
 	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id as ulong;
-		this.asset = json?.asset;
-		this.schedule = json?.schedule;
+		this.asset = json?.asset as ulong;
+		this.schedule = json?.schedule as ulong;
 		this.name = json?.name as string;
 		this.notes = json?.notes as string;
-		this.status = json?.status;
-		this.created = utility.date(json?.created as datetime);
-		this.completed = utility.date(json?.completed as datetime);
-		this.odometer = json?.odometer;
-		this.engineHours = json?.engineHours;
-		this.garage = json?.garage;
-		this.duration = json?.duration ? new TimeSpan(json.duration) : null;
-		this.cost = json?.cost;
-		this.reference = json?.reference;
-		this.technician = json?.technician;
+		this.status = json?.status as MaintenanceJobStatus;
+		this.created = json?.created
+			? utility.date(json.created as datetime)
+			: null;
+		this.completed = json?.completed
+			? utility.date(json.completed as datetime)
+			: null;
+		this.odometer = json?.odometer as double;
+		this.engineHours = json?.engineHours as double;
+		this.garage = json?.garage as string;
+		this.duration = json?.duration
+			? new TimeSpan(json.duration as timespan)
+			: null;
+		this.cost = json?.cost as double;
+		this.reference = json?.reference as string;
+		this.technician = json?.technician as string;
 		this.pictures = (json?.pictures as JsonObject[])?.map((v: any) => utility.id(v));
 	}
 

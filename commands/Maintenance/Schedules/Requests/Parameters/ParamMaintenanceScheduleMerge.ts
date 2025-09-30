@@ -1,4 +1,4 @@
-import { MaintenanceInterval, double, nothing, TimeSpan, uint, ulong, serialization, utility } from "@trakit/objects";
+import { codified, colour, double, email, JsonObject, MaintenanceInterval, nothing, serialization, timespan, TimeSpan, uint, ulong, utility } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
@@ -36,7 +36,7 @@ export class ParamMaintenanceScheduleMerge extends ParamMergeSubscribable {
 	/// <override>
 	/// <values format="email" />
 	/// </override>
-	notify: string[] | nothing;
+	notify: email[] | nothing;
 
 	/// <summary>
 	/// The fill/background colour of the icon.  Should be a hex colour in the format #RRGGBB.
@@ -103,23 +103,23 @@ export class ParamMaintenanceScheduleMerge extends ParamMergeSubscribable {
 		this.name = json?.name as string ?? "";
 		this.notes = json?.notes as string ?? "";
 		this.targets = json?.targets as string;
-		this.notify = json?.notify;
+		this.notify = json?.notify as email[];
 		this.fill = json?.fill as colour;
 		this.stroke = json?.stroke as colour;
 		this.graphic = json?.graphic as codified;
-		this.predictionDays = json?.predictionDays;
-		this.recurDays = json?.recurDays;
-		this.recurDistance = json?.recurDistance;
-		this.recurEngineHours = json?.recurEngineHours;
+		this.predictionDays = json?.predictionDays as uint;
+		this.recurDays = json?.recurDays as uint;
+		this.recurDistance = json?.recurDistance as double;
+		this.recurEngineHours = json?.recurEngineHours as double;
 		this.intervals = json?.intervals
 			? serialization.toMapPredicate(json?.intervals as object, (k: string, v: any) => [utility.id(k), MaintenanceInterval.fromJSON(v)])
 			: null;
-		this.garage = json?.garage;
+		this.garage = json?.garage as string;
 		this.duration = json?.duration
-			? new TimeSpan(json?.duration)
+			? new TimeSpan(json?.duration as timespan)
 			: null;
-		this.cost = json?.cost;
-		this.reference = json?.reference;
+		this.cost = json?.cost as double;
+		this.reference = json?.reference as string;
 	}
 
 	override toJSON(): any {
