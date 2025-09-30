@@ -20,7 +20,7 @@ export abstract class PayDispatchJobList extends Payload implements IPayDeletabl
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.includeDeleted = json?.includeDeleted ?? false;
+		this.includeDeleted = !!json?.includeDeleted;
 	}
 }
 /**
@@ -34,11 +34,11 @@ export class PayDispatchJobListByCompany extends PayDispatchJobList implements I
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.company = new ParamId(json?.company);
+		this.company = new ParamId(json?.company as JsonObject);
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepDispatchJobListByCompany(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepDispatchJobListByCompany(json as JsonObject);
 	}
 }
 /**
@@ -48,15 +48,15 @@ export class PayDispatchJobListByCompanyAndLabels extends PayDispatchJobListByCo
 	/**
 	 * Labels used to filter the {@link DispatchJob}s.
 	 **/
-	labels: string[];
+	labels: codified[];
 	
 	constructor(json?: JsonObject) {
 		super(json);
-		this.labels = json?.labels ?? [];
+		this.labels = json?.labels as codified[] ?? [];
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepDispatchJobListByCompanyAndLabels(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepDispatchJobListByCompanyAndLabels(json as JsonObject);
 	}
 }
 /**
@@ -72,12 +72,12 @@ export class PayDispatchJobListByCompanyAndRefPairs extends PayDispatchJobListBy
 	constructor(json?: JsonObject) {
 		super(json);
 		this.references = json?.references
-			? serialization.toMap(json.references)
+			? serialization.toMap(json?.references as object)
 			: new Map<string, string>();
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepDispatchJobListByCompanyAndRefPairs(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepDispatchJobListByCompanyAndRefPairs(json as JsonObject);
 	}
 }
 
@@ -92,11 +92,11 @@ export class PayDispatchJobListByAsset extends PayDispatchJobList implements IPa
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.asset = new ParamId(json?.asset);
+		this.asset = new ParamId(json?.asset as JsonObject);
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepDispatchJobListByAsset(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepDispatchJobListByAsset(json as JsonObject);
 	}
 }
 /**
@@ -106,15 +106,15 @@ export class PayDispatchJobListByAssetAndLabels extends PayDispatchJobListByAsse
 	/**
 	 * Labels used to filter the {@link DispatchJob}s.
 	 **/
-	labels: string[];
+	labels: codified[];
 	
 	constructor(json?: JsonObject) {
 		super(json);
-		this.labels = json?.labels ?? [];
+		this.labels = json?.labels as codified[] ?? [];
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepDispatchJobListByAssetAndLabels(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepDispatchJobListByAssetAndLabels(json as JsonObject);
 	}
 }
 /**
@@ -130,12 +130,12 @@ export class PayDispatchJobListByAssetAndRefPairs extends PayDispatchJobListByAs
 	constructor(json?: JsonObject) {
 		super(json);
 		this.references = json?.references
-			? serialization.toMap(json.references)
+			? serialization.toMap(json?.references as object)
 			: new Map<string, string>();
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepDispatchJobListByAssetAndRefPairs(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepDispatchJobListByAssetAndRefPairs(json as JsonObject);
 	}
 }
 

@@ -13,6 +13,6 @@ export class RepDocumentDelete extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.document = ContentIdDeleted.fromJSON(json?.document);
+		this.document = ContentIdDeleted.fromJSON(json?.document as JsonObject);
 	}
 }

@@ -80,10 +80,10 @@ export class ParamFormField extends ParamMerge {
 
 	constructor(json?: JsonObject) {
 		super();
-		this.id = json?.id;
-		this.name = json?.name;
+		this.id = json?.id as ulong;
+		this.name = json?.name as string;
 		this.kind = json?.kind;
-		this.notes = json?.notes;
+		this.notes = json?.notes as string;
 		this.required = json?.required;
 		this.value = json?.value;
 		this.editable = json?.editable;
@@ -98,7 +98,7 @@ export class ParamFormField extends ParamMerge {
 	}
 
 	override toJSON(): any {
-		const json: JsonObject = {};
+		const json: any = {};
 		if (this.id) json.id = this.id;
 		if (this.name) json.name = this.name;
 		if (this.kind) json.kind = this.kind;

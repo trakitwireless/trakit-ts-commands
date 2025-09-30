@@ -13,6 +13,6 @@ export class RepProviderScriptBatchMerge extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.providerScripts = json?.providerScripts?.map((v: any) => new ContentIdCompany(v));
+		this.providerScripts = (json?.providerScripts as JsonObject[])?.map((v: any) => new ContentIdCompany(v));
 	}
 }

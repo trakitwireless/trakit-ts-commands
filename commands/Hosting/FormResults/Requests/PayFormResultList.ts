@@ -16,7 +16,7 @@ export abstract class PayFormResultList extends Payload implements IPayDeletable
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.includeDeleted = json?.includeDeleted;
+		this.includeDeleted = !!json?.includeDeleted;
 	}
 }
 
@@ -31,10 +31,10 @@ export class PayFormResultListByCompany extends PayFormResultList implements IPa
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.company = new ParamId(json?.company);
+		this.company = new ParamId(json?.company as JsonObject);
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepFormResultListByCompany(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepFormResultListByCompany(json as JsonObject);
 	}
 }

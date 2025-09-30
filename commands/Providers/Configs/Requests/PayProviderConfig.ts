@@ -13,7 +13,7 @@ export abstract class PayProviderConfig extends Payload implements IPaySingle {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.providerConfig = new ParamId(json?.providerConfig);
+		this.providerConfig = new ParamId(json?.providerConfig as JsonObject);
 	}
 	/**
 	 * 

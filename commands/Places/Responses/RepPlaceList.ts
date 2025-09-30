@@ -13,7 +13,7 @@ export abstract class RepPlaceList extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.places = json?.places?.map((item: any) => new Place(item));
+		this.places = (json?.places as JsonObject[])?.map((item: any) => new Place(item));
 	}
 }
 
@@ -28,6 +28,6 @@ export class RepPlaceListByCompany extends RepPlaceList {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentId.fromJSON(json?.company);
+		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
 }

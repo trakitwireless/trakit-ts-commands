@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { ContentIdCompany } from "../../../API/Responses/Content/ContentIdCompany";
 import { Reply } from "../../../API/Responses/Reply";
 import { nothing } from "@trakit/objects";
@@ -13,6 +14,6 @@ export class RepProviderScriptMerge extends Reply {
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.providerScript = ContentIdCompany.fromJSON(json?.providerScript);
+		this.providerScript = ContentIdCompany.fromJSON(json?.providerScript as JsonObject);
 	}
 }

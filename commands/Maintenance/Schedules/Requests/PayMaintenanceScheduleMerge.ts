@@ -15,7 +15,7 @@ export class PayMaintenanceScheduleMerge extends Payload implements IPaySingle {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.maintenanceSchedule = new ParamMaintenanceScheduleMerge(json?.maintenanceSchedule);
+		this.maintenanceSchedule = new ParamMaintenanceScheduleMerge(json?.maintenanceSchedule as JsonObject);
 	}
 	/**
 	 * 
@@ -24,7 +24,7 @@ export class PayMaintenanceScheduleMerge extends Payload implements IPaySingle {
 		return this.maintenanceSchedule?.id?.toString() ?? "";
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepMaintenanceScheduleMerge(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepMaintenanceScheduleMerge(json as JsonObject);
 	}
 }

@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { nothing } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 import { ContentIdendifierDeleted } from "../../../API/Responses/Content/ContentIdendifierDeleted";
@@ -5,6 +6,7 @@ import { ContentIdendifierDeleted } from "../../../API/Responses/Content/Content
 /**
  * A container for the {@link provider}.
  **/
+import { JsonObject } from "@trakit/objects";
 export class RepProviderBatchDelete extends Reply {
 	/**
 	 * Details about deleting/restoring the requested {@link Provider}.
@@ -13,6 +15,6 @@ export class RepProviderBatchDelete extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.providers = json?.providers?.map((v: any) => new ContentIdendifierDeleted(v));
+		this.providers = (json?.providers as JsonObject[])?.map((v: any) => new ContentIdendifierDeleted(v));
 	}
 }

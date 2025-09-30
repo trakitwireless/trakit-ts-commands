@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
@@ -15,7 +16,7 @@ export class PayProviderScriptMerge extends Payload implements IPaySingle {
 
 	constructor(json?: JsonObject) {
 		super();
-		this.providerScript = new ParamProviderScriptMerge(json?.providerScript);
+		this.providerScript = new ParamProviderScriptMerge(json?.providerScript as JsonObject);
 	}
 	/**
 	 * 
@@ -24,7 +25,7 @@ export class PayProviderScriptMerge extends Payload implements IPaySingle {
 		return this.providerScript?.id?.toString() ?? "";
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepProviderScriptMerge(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepProviderScriptMerge(json as JsonObject);
 	}
 }

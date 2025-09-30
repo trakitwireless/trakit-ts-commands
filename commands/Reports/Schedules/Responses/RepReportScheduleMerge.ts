@@ -13,6 +13,6 @@ export class RepReportScheduleMerge extends Reply {
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.reportSchedule = ContentIdCompany.fromJSON(json?.reportSchedule);
+		this.reportSchedule = ContentIdCompany.fromJSON(json?.reportSchedule as JsonObject);
 	}
 }

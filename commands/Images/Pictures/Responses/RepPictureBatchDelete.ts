@@ -12,6 +12,6 @@ export class RepPictureBatchDelete extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.pictures = json?.pictures?.map((p: any) => new ContentIdDeleted(p));
+		this.pictures = (json?.pictures as JsonObject[])?.map((p: any) => new ContentIdDeleted(p));
 	}
 }

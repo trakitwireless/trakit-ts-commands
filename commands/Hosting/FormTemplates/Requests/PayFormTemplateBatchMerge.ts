@@ -14,10 +14,10 @@ export class PayFormTemplateBatchMerge extends Payload {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.formTemplates = json?.formTemplates?.map((item: any) => new ParamFormTemplateMerge(item)) ?? [];
+		this.formTemplates = (json?.formTemplates as JsonObject[])?.map((item: any) => new ParamFormTemplateMerge(item)) ?? [];
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepFormTemplateBatchMerge(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepFormTemplateBatchMerge(json as JsonObject);
 	}
 }

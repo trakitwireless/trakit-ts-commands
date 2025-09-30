@@ -13,7 +13,7 @@ export abstract class RepCompanyResellerList extends Reply {
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.companyResellers = json?.companyResellers?.map((item: any) => new CompanyReseller(item));
+		this.companyResellers = (json?.companyResellers as JsonObject[])?.map((item: any) => new CompanyReseller(item));
 	}
 }
 
@@ -28,7 +28,7 @@ export class RepCompanyResellerListByCompany extends RepCompanyResellerList {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentId.fromJSON(json?.company);
+		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
 }
 
@@ -40,11 +40,11 @@ export class RepCompanyResellerListByCompanyAndLabels extends RepCompanyReseller
 	 * The labels given as input.
 	 * @see {@link CompanyReseller.labels}
 	 **/
-	labels: string[] | nothing;
+	labels: codified[] | nothing;
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.labels = json?.labels;
+		this.labels = json?.labels as codified[];
 	}
 }
 /**
@@ -60,7 +60,7 @@ export class RepCompanyResellerListByCompanyAndRefPairs extends RepCompanyResell
 	constructor(json: JsonObject) {
 		super(json);
 		if (json?.references) {
-			this.references = serialization.toMap(json?.references);
+			this.references = serialization.toMap(json?.references as object);
 		}
 	}
 }

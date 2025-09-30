@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { nothing, TimeSpan, ulong, utility } from "@trakit/objects";
 import { ParamMerge } from "../../../../API/Requests/Parameters/ParamMerge";
 
@@ -51,13 +52,13 @@ export class ParamProviderRegistrationMerge extends ParamMerge {
 		this.lifetime = json?.lifetime
 			? new TimeSpan(json.lifetime)
 			: null;
-		this.name = json?.name;
-		this.notes = json?.notes;
+		this.name = json?.name as string;
+		this.notes = json?.notes as string;
 		this.password = json?.password;
 	}
 
 	override toJSON(): any {
-		const json: JsonObject = {};
+		const json: any = {};
 		if (this.config) json.config = this.config;
 		if (!utility.isNothing(this.asset)) json.asset = this.asset;
 		if (!utility.isNothing(this.identifier)) json.identifier = this.identifier;

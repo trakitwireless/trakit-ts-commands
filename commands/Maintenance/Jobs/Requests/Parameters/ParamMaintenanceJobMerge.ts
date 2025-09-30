@@ -89,14 +89,14 @@ export class ParamMaintenanceJobMerge extends ParamMergeSubscribable {
 	
 	constructor(json?: JsonObject) {
 		super(json);
-		this.id = json?.id;
+		this.id = json?.id as ulong;
 		this.asset = json?.asset;
 		this.schedule = json?.schedule;
-		this.name = json?.name;
-		this.notes = json?.notes;
+		this.name = json?.name as string;
+		this.notes = json?.notes as string;
 		this.status = json?.status;
-		this.created = utility.date(json?.created);
-		this.completed = utility.date(json?.completed);
+		this.created = utility.date(json?.created as datetime);
+		this.completed = utility.date(json?.completed as datetime);
 		this.odometer = json?.odometer;
 		this.engineHours = json?.engineHours;
 		this.garage = json?.garage;
@@ -104,11 +104,11 @@ export class ParamMaintenanceJobMerge extends ParamMergeSubscribable {
 		this.cost = json?.cost;
 		this.reference = json?.reference;
 		this.technician = json?.technician;
-		this.pictures = json?.pictures?.map((v: any) => utility.id(v));
+		this.pictures = (json?.pictures as JsonObject[])?.map((v: any) => utility.id(v));
 	}
 
 	override toJSON(): any {
-		const json: JsonObject = {}
+		const json: any = {}
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];

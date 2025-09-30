@@ -48,7 +48,7 @@ export class ParamPlaceMerge extends ParamMergeSubscribable {
 	/// <seealso cref="LabelStyle.code" />
 	/// </values>
 	/// </override>
-	labels: string[] | nothing;
+	labels: codified[] | nothing;
 	/// <summary>
 	/// The fill colour given to this <see cref="Place"/> for easy visual identification on the map.
 	/// </summary>
@@ -87,10 +87,10 @@ export class ParamPlaceMerge extends ParamMergeSubscribable {
 	
 	constructor(json?: JsonObject) {
 		super(json);
-		this.id = json?.id;
-		this.company = json?.company;
-		this.name = json?.name;
-		this.notes = json?.notes;
+		this.id = json?.id as ulong;
+		this.company = json?.company as ulong;
+		this.name = json?.name as string;
+		this.notes = json?.notes as string;
 		this.kind = json?.kind;
 		this.address = json?.address;
 		this.icon = json?.icon;
@@ -100,13 +100,13 @@ export class ParamPlaceMerge extends ParamMergeSubscribable {
 			? LatLng.fromJSON(json.anchor)
 			: null;
 		this.radius = json?.radius;
-		this.shape = json?.shape?.map((item: any) => LatLng.fromJSON(item));
-		this.pictures = json?.pictures?.map((item: any) => item);
+		this.shape = (json?.shape as JsonObject[])?.map((item: any) => LatLng.fromJSON(item));
+		this.pictures = (json?.pictures as JsonObject[])?.map((item: any) => item);
 		this.reference = json?.reference;
 	}
 
 	override toJSON(): any {
-		const json: JsonObject = {};
+		const json: any = {};
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];

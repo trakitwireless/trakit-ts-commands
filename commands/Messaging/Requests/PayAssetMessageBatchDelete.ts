@@ -14,10 +14,10 @@ export class PayAssetMessageBatchDelete extends Payload {
 
 	constructor(json?: JsonObject) {
 		super();
-		this.assetMessages = json?.assetMessages?.map((e: any) => new ParamId(e)) ?? [];
+		this.assetMessages = (json?.assetMessages as JsonObject[])?.map((e: any) => new ParamId(e)) ?? [];
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepAssetMessageBatchDelete(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepAssetMessageBatchDelete(json as JsonObject);
 	}
 }

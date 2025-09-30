@@ -48,7 +48,7 @@ export class ParamAssetMessageMerge extends ParamMergeSubscribable {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.id = json?.id;
+		this.id = json?.id as ulong;
 		this.asset = json?.asset;
 		this.kind = json?.kind;
 		this.folder = json?.folder;
@@ -59,7 +59,7 @@ export class ParamAssetMessageMerge extends ParamMergeSubscribable {
 	}
 
 	override toJSON(): any {
-		const json: JsonObject = {};
+		const json: any = {};
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];

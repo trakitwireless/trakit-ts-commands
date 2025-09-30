@@ -14,10 +14,10 @@ export class PayAssetMessageBatchMerge extends Payload {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.assetMessages = json?.assetMessages?.map((e: any) => new ParamAssetMessageMerge(e)) ?? [];
+		this.assetMessages = (json?.assetMessages as JsonObject[])?.map((e: any) => new ParamAssetMessageMerge(e)) ?? [];
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepAssetMessageBatchMerge(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepAssetMessageBatchMerge(json as JsonObject);
 	}
 }

@@ -13,6 +13,6 @@ export class RepCompanyBatchDelete extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.companies = json?.companies?.map((c: any) => new ContentIdDeleted(c));
+		this.companies = (json?.companies as JsonObject[])?.map((c: any) => new ContentIdDeleted(c));
 	}
 }

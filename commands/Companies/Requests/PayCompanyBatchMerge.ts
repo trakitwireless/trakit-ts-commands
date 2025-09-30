@@ -14,10 +14,10 @@ export class PayCompanyBatchMerge extends Payload {
 
 	constructor(json?: JsonObject) {
 		super();
-		this.companies = json?.companies?.map((c: any) => new ParamCompanyMerge(c)) ?? [];
+		this.companies = (json?.companies as JsonObject[])?.map((c: any) => new ParamCompanyMerge(c)) ?? [];
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepCompanyBatchMerge(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepCompanyBatchMerge(json as JsonObject);
 	}
 }

@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { nothing } from "@trakit/objects";
 import { Reply } from "../../API/Responses/Reply";
 import { Subscription } from "./Content/Subscription";
@@ -13,6 +14,6 @@ export class RepSubscriptionList extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.subscriptions = json?.subscriptions?.map((v: any) => new Subscription(v));
+		this.subscriptions = (json?.subscriptions as JsonObject[])?.map((v: any) => new Subscription(v));
 	}
 }

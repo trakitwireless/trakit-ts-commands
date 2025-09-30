@@ -13,7 +13,7 @@ export abstract class PayFormTemplate extends Payload implements IPaySingle {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.formTemplate = new ParamId(json?.formTemplate);
+		this.formTemplate = new ParamId(json?.formTemplate as JsonObject);
 	}
 
 	/**

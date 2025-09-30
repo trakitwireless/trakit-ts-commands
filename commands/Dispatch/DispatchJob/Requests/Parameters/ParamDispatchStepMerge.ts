@@ -42,8 +42,8 @@ export class ParamDispatchStepMerge extends ParamMergeSubscribable {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.id = json?.id;
-		this.name = json?.name;
+		this.id = json?.id as ulong;
+		this.name = json?.name as string;
 		this.eta = json?.eta;
 		this.duration = json?.duration
 			? new TimeSpan(json.duration)
@@ -57,7 +57,7 @@ export class ParamDispatchStepMerge extends ParamMergeSubscribable {
 	}
 
 	override toJSON(): any {
-		const json: JsonObject = {};
+		const json: any = {};
 		if (this.id) json.id = this.id;
 		if (this.name) json.name = this.name;
 		if (this.eta) json.eta = this.eta.toISOString();

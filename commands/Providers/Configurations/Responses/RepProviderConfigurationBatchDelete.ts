@@ -13,6 +13,6 @@ export class RepProviderConfigurationBatchDelete extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.providerConfigurations = json?.providerConfigurations?.map((v: any) => new ContentIdDeleted(v));
+		this.providerConfigurations = (json?.providerConfigurations as JsonObject[])?.map((v: any) => new ContentIdDeleted(v));
 	}
 }

@@ -13,7 +13,7 @@ export abstract class RepFormTemplateList extends Reply {
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.formTemplates = json?.formTemplates?.map((item: any) => new FormTemplate(item));
+		this.formTemplates = (json?.formTemplates as JsonObject[])?.map((item: any) => new FormTemplate(item));
 	}
 }
 
@@ -28,6 +28,6 @@ export class RepFormTemplateListByCompany extends RepFormTemplateList {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentId.fromJSON(json?.company);
+		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
 }

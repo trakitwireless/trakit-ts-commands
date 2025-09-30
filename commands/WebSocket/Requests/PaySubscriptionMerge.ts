@@ -22,11 +22,11 @@ export class PaySubscriptionMerge extends Payload {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.company = new ParamId(json?.company);
+		this.company = new ParamId(json?.company as JsonObject);
 		this.subscriptionTypes = json?.subscriptionTypes;
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepSubscription(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepSubscription(json as JsonObject);
 	}
 }

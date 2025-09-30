@@ -43,15 +43,15 @@ export class ParamReportRecurrence extends ParamMerge {
 		this.weekdays = json?.weekdays;
 		this.weekday = json?.weekday;
 		this.start = json?.start
-			? utility.date(json.start)
+			? utility.date(json.start as datetime)
 			: null;
 		this.end = json?.end
-			? utility.date(json.end)
+			? utility.date(json.end as datetime)
 			: null;
 	}
 
 	override toJSON(): any {
-		const json: JsonObject = {};
+		const json: any = {};
 		if (this.kind) json.kind = this.kind;
 		if (this.weekdays?.length) json.weekdays = [...this.weekdays];
 		if (this.weekday) json.weekday = this.weekday;

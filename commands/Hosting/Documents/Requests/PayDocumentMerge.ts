@@ -15,7 +15,7 @@ export class PayDocumentMerge extends Payload implements IPaySingle {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.document = new ParamDocumentMerge(json?.document);
+		this.document = new ParamDocumentMerge(json?.document as JsonObject);
 	}
 
 	/**
@@ -25,7 +25,7 @@ export class PayDocumentMerge extends Payload implements IPaySingle {
 		return this.document?.id?.toString() ?? "";
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepDocumentMerge(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepDocumentMerge(json as JsonObject);
 	}
 }

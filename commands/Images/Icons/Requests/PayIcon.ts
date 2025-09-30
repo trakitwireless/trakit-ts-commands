@@ -13,7 +13,7 @@ export abstract class PayIcon extends Payload implements IPaySingle {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.icon = new ParamId(json?.icon);
+		this.icon = new ParamId(json?.icon as JsonObject);
 	}
 
 	/**

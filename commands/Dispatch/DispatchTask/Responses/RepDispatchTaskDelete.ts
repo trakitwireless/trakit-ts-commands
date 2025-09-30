@@ -13,6 +13,6 @@ export class RepDispatchTaskDelete extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.dispatchTask = ContentIdDeleted.fromJSON(json?.dispatchTask);
+		this.dispatchTask = ContentIdDeleted.fromJSON(json?.dispatchTask as JsonObject);
 	}
 }

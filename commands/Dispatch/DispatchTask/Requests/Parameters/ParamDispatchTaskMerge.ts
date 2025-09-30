@@ -70,10 +70,10 @@ export class ParamDispatchTaskMerge extends ParamMergeSubscribable {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.id = json?.id;
+		this.id = json?.id as ulong;
 		this.asset = json?.asset;
-		this.name = json?.name;
-		this.notes = json?.notes;
+		this.name = json?.name as string;
+		this.notes = json?.notes as string;
 		this.references = json?.references;
 		this.address = json?.address;
 		this.place = json?.place;
@@ -86,7 +86,7 @@ export class ParamDispatchTaskMerge extends ParamMergeSubscribable {
 	}
 
 	override toJSON(): any {
-		const json: JsonObject = {};
+		const json: any = {};
 		if (this.id) json.id = this.id;
 		if (this.asset) json.asset = this.asset;
 		if (this.name) json.name = this.name;

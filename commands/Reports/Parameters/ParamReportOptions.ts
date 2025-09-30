@@ -43,16 +43,16 @@ export class ParamReportOptions extends ParamMerge {
 	
 	constructor(json?: JsonObject) {
 		super();
-		this.parameters = json?.parameters?.map((e: any) => new ReportParameter(e));
-		this.targets = json?.targets;
+		this.parameters = (json?.parameters as JsonObject[])?.map((e: any) => new ReportParameter(e));
+		this.targets = json?.targets as string;
 		this.filtering = json?.filtering;
 		this.places = json?.places;
 		this.regions = json?.regions;
-		if (json?.scorecardRules) this.scorecardRules = new ParamReportScorecardRules(json.scorecardRules);
+		if (json?.scorecardRules) this.scorecardRules = new ParamReportScorecardRules(json.scorecardRules as JsonObject);
 	}
 
 	override toJSON(): any {
-		const json: JsonObject = {};
+		const json: any = {};
 		if (this.parameters?.length) json.parameters = this.parameters.map((e) => e.toJSON());
 		if (this.targets) json.targets = this.targets;
 		if (this.filtering) json.filtering = this.filtering;

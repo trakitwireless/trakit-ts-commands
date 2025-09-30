@@ -13,7 +13,7 @@ export abstract class PayMaintenanceJob extends Payload implements IPaySingle {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.maintenanceJob = new ParamId(json?.maintenanceJob);
+		this.maintenanceJob = new ParamId(json?.maintenanceJob as JsonObject);
 	}
 
 	/**

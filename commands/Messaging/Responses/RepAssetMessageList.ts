@@ -15,7 +15,7 @@ export abstract class RepAssetMessageList extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.assetMessages = json?.assetMessages?.map((v: any) => new AssetMessage(v));
+		this.assetMessages = (json?.assetMessages as JsonObject[])?.map((v: any) => new AssetMessage(v));
 	}
 }
 
@@ -30,7 +30,7 @@ export class RepAssetMessageListByCompany extends RepAssetMessageList implements
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentId.fromJSON(json?.company);
+		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
 }
 /**
@@ -44,6 +44,6 @@ export class RepAssetMessageListByAsset extends RepAssetMessageList implements I
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.asset = ContentId.fromJSON(json?.asset);
+		this.asset = ContentId.fromJSON(json?.asset as JsonObject);
 	}
 }

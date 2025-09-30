@@ -13,7 +13,7 @@ export abstract class RepCompanyDirectoryList extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.companyDirectorys = json?.companyDirectorys?.map((c: any) => new CompanyDirectory(c));
+		this.companyDirectorys = (json?.companyDirectorys as JsonObject[])?.map((c: any) => new CompanyDirectory(c));
 	}
 }
 
@@ -28,7 +28,7 @@ export class RepCompanyDirectoryListByCompany extends RepCompanyDirectoryList {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentId.fromJSON(json?.company);
+		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
 }
 
@@ -40,11 +40,11 @@ export class RepCompanyDirectoryListByCompanyAndLabels extends RepCompanyDirecto
 	 * The labels given as input.
 	 * @see {@link CompanyDirectory.labels}
 	 **/
-	labels: string[] | nothing;
+	labels: codified[] | nothing;
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.labels = json?.labels;
+		this.labels = json?.labels as codified[];
 	}
 }
 /**
@@ -60,7 +60,7 @@ export class RepCompanyDirectoryListByCompanyAndRefPairs extends RepCompanyDirec
 	constructor(json: JsonObject) {
 		super(json);
 		if (json?.references) {
-			this.references = serialization.toMap(json.references);
+			this.references = serialization.toMap(json?.references as object);
 		}
 	}
 }

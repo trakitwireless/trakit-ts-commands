@@ -13,6 +13,6 @@ export class RepReportScheduleDelete extends Reply {
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.reportSchedule = ContentIdDeleted.fromJSON(json?.reportSchedule);
+		this.reportSchedule = ContentIdDeleted.fromJSON(json?.reportSchedule as JsonObject);
 	}
 }

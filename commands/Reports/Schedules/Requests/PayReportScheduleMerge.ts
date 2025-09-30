@@ -15,7 +15,7 @@ export class PayReportScheduleMerge extends Payload implements IPaySingle {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.reportSchedule = new ParamReportScheduleMerge(json?.reportSchedule);
+		this.reportSchedule = new ParamReportScheduleMerge(json?.reportSchedule as JsonObject);
 	}
 	/**
 	 * 
@@ -24,7 +24,7 @@ export class PayReportScheduleMerge extends Payload implements IPaySingle {
 		return this.reportSchedule?.id?.toString() ?? "";
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepReportScheduleMerge(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepReportScheduleMerge(json as JsonObject);
 	}
 }

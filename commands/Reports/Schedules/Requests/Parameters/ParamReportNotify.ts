@@ -33,7 +33,7 @@ export class ParamReportNotify extends ParamMerge {
 	}
 
 	override toJSON(): any {
-		const json: JsonObject = {};
+		const json: any = {};
 		if (this.users?.length) json.users = [...this.users];
 		if (!utility.isNothing(this.assets)) json.assets = this.assets;
 		return json;

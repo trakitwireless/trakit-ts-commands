@@ -13,7 +13,7 @@ export abstract class PayFormResult extends Payload implements IPaySingle {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.formResult = new ParamId(json?.formResult);
+		this.formResult = new ParamId(json?.formResult as JsonObject);
 	}
 	/**
 	 * 

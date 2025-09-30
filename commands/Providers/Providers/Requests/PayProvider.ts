@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
 import { ParamIdentifier } from "../../../API/Requests/Parameters/ParamIdentifier";
@@ -13,7 +14,7 @@ export abstract class PayProvider extends Payload implements IPaySingle {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.provider = new ParamIdentifier(json?.provider);
+		this.provider = new ParamIdentifier(json?.provider as JsonObject);
 	}
 	/**
 	 * 

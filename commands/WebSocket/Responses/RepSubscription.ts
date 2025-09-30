@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { nothing } from "@trakit/objects";
 import { ContentId } from "../../API/Responses/Content/ContentId";
 import { Reply } from "../../API/Responses/Reply";
@@ -29,9 +30,9 @@ export class RepSubscription extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentId.fromJSON(json?.company);
-		this.merged = json?.merged?.map((v: any) => v as SubscriptionType);
-		this.denied = json?.denied?.map((v: any) => v as SubscriptionType);
-		this.invalid = json?.invalid?.map((v: any) => v as string);
+		this.company = ContentId.fromJSON(json?.company as JsonObject);
+		this.merged = (json?.merged as JsonObject[])?.map((v: any) => v as SubscriptionType);
+		this.denied = (json?.denied as JsonObject[])?.map((v: any) => v as SubscriptionType);
+		this.invalid = (json?.invalid as JsonObject[])?.map((v: any) => v as string);
 	}
 }

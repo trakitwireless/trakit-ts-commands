@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { nothing, ProviderRegistration } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 

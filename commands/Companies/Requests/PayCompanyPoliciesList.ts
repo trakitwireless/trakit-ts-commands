@@ -19,7 +19,7 @@ export abstract class PayCompanyPoliciesList extends Payload implements IPayDele
 
 	constructor(json?: JsonObject) {
 		super();
-		this.includeDeleted = json?.includeDeleted ?? false;
+		this.includeDeleted = !!json?.includeDeleted;
 	}
 }
 
@@ -34,11 +34,11 @@ export class PayCompanyPoliciesListByCompany extends PayCompanyPoliciesList impl
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.company = new ParamId(json?.company);
+		this.company = new ParamId(json?.company as JsonObject);
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepCompanyPoliciesListByCompany(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepCompanyPoliciesListByCompany(json as JsonObject);
 	}
 }
 /**
@@ -49,15 +49,15 @@ export class PayCompanyPoliciesListByCompanyAndLabels extends PayCompanyPolicies
 	 * The parsed labels given as input.
 	 * @see {@link CompanyPolicies.labels}
 	 **/
-	labels: string[];
+	labels: codified[];
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.labels = json?.labels ?? [];
+		this.labels = json?.labels as codified[] ?? [];
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepCompanyPoliciesListByCompanyAndLabels(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepCompanyPoliciesListByCompanyAndLabels(json as JsonObject);
 	}
 }
 /**
@@ -75,11 +75,11 @@ export class PayCompanyPoliciesListByCompanyAndRefPairs extends PayCompanyPolici
 	constructor(json?: JsonObject) {
 		super(json);
 		this.references = json?.references
-			? serialization.toMap(json.references)
+			? serialization.toMap(json?.references as object)
 			: new Map<string, string>();
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepCompanyPoliciesListByCompanyAndRefPairs(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepCompanyPoliciesListByCompanyAndRefPairs(json as JsonObject);
 	}
 }

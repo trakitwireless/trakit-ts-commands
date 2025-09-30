@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { nothing, ReportTemplate } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 

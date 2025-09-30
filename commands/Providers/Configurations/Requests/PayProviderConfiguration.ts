@@ -13,7 +13,7 @@ export abstract class PayProviderConfiguration extends Payload implements IPaySi
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.providerConfiguration = new ParamId(json?.providerConfiguration);
+		this.providerConfiguration = new ParamId(json?.providerConfiguration as JsonObject);
 	}
 
 	/**

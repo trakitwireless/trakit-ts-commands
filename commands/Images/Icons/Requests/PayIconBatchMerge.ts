@@ -14,10 +14,10 @@ export class PayIconBatchMerge extends Payload {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.icons = json?.icons?.map((i: any) => new ParamIconMerge(i)) ?? [];
+		this.icons = (json?.icons as JsonObject[])?.map((i: any) => new ParamIconMerge(i)) ?? [];
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepIconBatchMerge(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepIconBatchMerge(json as JsonObject);
 	}
 }

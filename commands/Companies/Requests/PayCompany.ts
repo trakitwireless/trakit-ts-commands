@@ -13,7 +13,7 @@ export abstract class PayCompany extends Payload implements IPaySingle {
 
 	constructor(json?: JsonObject) {
 		super();
-		this.company = new ParamId(json?.company);
+		this.company = new ParamId(json?.company as JsonObject);
 	}
 
 	/**

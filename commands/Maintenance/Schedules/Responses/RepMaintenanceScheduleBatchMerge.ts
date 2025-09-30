@@ -13,6 +13,6 @@ export class RepMaintenanceScheduleBatchMerge extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.maintenanceSchedules = json?.maintenanceSchedules?.map((item: any) => new ContentIdCompany(item)) ;
+		this.maintenanceSchedules = (json?.maintenanceSchedules as JsonObject[])?.map((item: any) => new ContentIdCompany(item)) ;
 	}
 }

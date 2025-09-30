@@ -13,7 +13,7 @@ export abstract class RepMaintenanceScheduleList extends Reply {
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.maintenanceSchedules = json?.maintenanceSchedules?.map((item: any) => new MaintenanceSchedule(item));
+		this.maintenanceSchedules = (json?.maintenanceSchedules as JsonObject[])?.map((item: any) => new MaintenanceSchedule(item));
 	}
 }
 
@@ -28,6 +28,6 @@ export class RepMaintenanceScheduleListByCompany extends RepMaintenanceScheduleL
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentId.fromJSON(json?.company);
+		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
 }

@@ -16,7 +16,7 @@ export abstract class PayProviderConfigurationTypeList extends Payload implement
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.includeDeleted = json?.includeDeleted ?? false;
+		this.includeDeleted = !!json?.includeDeleted;
 	}
 }
 
@@ -31,10 +31,10 @@ export class PayProviderConfigurationTypeListByCompany extends PayProviderConfig
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.company = new ParamId(json?.company);
+		this.company = new ParamId(json?.company as JsonObject);
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepProviderConfigurationTypeListByCompany(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepProviderConfigurationTypeListByCompany(json as JsonObject);
 	}
 }

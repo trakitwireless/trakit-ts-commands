@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { ParamId } from "../../../API/Requests/Parameters/ParamId";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
@@ -20,8 +21,8 @@ export abstract class PayProviderList extends Payload implements IPayDeletable {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.includeSuspended = json?.includeSuspended ?? true;
-		this.includeDeleted = json?.includeDeleted ?? false;
+		this.includeSuspended = json?.includeSuspended as boolean ?? true;
+		this.includeDeleted = !!json?.includeDeleted;
 	}
 }
 
@@ -36,11 +37,11 @@ export class PayProviderListByCompany extends PayProviderList implements IPayLis
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.company = new ParamId(json?.company);
+		this.company = new ParamId(json?.company as JsonObject);
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepProviderListByCompany(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepProviderListByCompany(json as JsonObject);
 	}
 }
 /**
@@ -54,10 +55,10 @@ export class PayProviderListByConfig extends PayProviderList {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.config = new ParamId(json?.config);
+		this.config = new ParamId(json?.config as JsonObject);
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepProviderListByConfig(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepProviderListByConfig(json as JsonObject);
 	}
 }

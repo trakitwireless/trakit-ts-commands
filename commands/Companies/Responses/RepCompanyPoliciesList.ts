@@ -13,7 +13,7 @@ export abstract class RepCompanyPoliciesList extends Reply {
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.companyPolicies = json?.companyPolicies?.map((policy: any) => new CompanyPolicies(policy));
+		this.companyPolicies = (json?.companyPolicies as JsonObject[])?.map((policy: any) => new CompanyPolicies(policy));
 	}
 }
 
@@ -28,7 +28,7 @@ export class RepCompanyPoliciesListByCompany extends RepCompanyPoliciesList {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentId.fromJSON(json?.company);
+		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
 }
 
@@ -40,11 +40,11 @@ export class RepCompanyPoliciesListByCompanyAndLabels extends RepCompanyPolicies
 	 * The labels given as input.
 	 * @see {@link CompanyPolicies.labels}
 	 **/
-	labels: string[] | nothing;
+	labels: codified[] | nothing;
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.labels = json?.labels;
+		this.labels = json?.labels as codified[];
 	}
 }
 /**
@@ -60,7 +60,7 @@ export class RepCompanyPoliciesListByCompanyAndRefPairs extends RepCompanyPolici
 	constructor(json: JsonObject) {
 		super(json);
 		if (json?.references) {
-			this.references = serialization.toMap(json.references);
+			this.references = serialization.toMap(json?.references as object);
 		}
 	}
 }

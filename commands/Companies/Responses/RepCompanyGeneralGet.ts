@@ -13,7 +13,7 @@ export class RepCompanyGeneralGet extends Reply {
 	constructor(json: JsonObject) {
 		super(json);
 		if (json?.companyGeneral) {
-			this.companyGeneral = new CompanyGeneral(json.companyGeneral);
+			this.companyGeneral = new CompanyGeneral(json.companyGeneral as JsonObject);
 		}
 	}
 }

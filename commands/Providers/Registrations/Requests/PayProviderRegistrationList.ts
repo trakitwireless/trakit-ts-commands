@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
@@ -16,7 +17,7 @@ export abstract class PayProviderRegistrationList extends Payload implements IPa
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.includeDeleted = json?.includeDeleted ?? false;
+		this.includeDeleted = !!json?.includeDeleted;
 	}
 }
 
@@ -31,10 +32,10 @@ export class PayProviderRegistrationListByCompany extends PayProviderRegistratio
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.company = new ParamId(json?.company);
+		this.company = new ParamId(json?.company as JsonObject);
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepProviderRegistrationListByCompany(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepProviderRegistrationListByCompany(json as JsonObject);
 	}
 }

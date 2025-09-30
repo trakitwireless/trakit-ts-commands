@@ -21,8 +21,8 @@ export abstract class PayProviderGeneralList extends Payload implements IPayDele
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.includeSuspended = json?.includeSuspended ?? true;
-		this.includeDeleted = json?.includeDeleted ?? false;
+		this.includeSuspended = json?.includeSuspended as boolean ?? true;
+		this.includeDeleted = !!json?.includeDeleted;
 	}
 }
 
@@ -37,11 +37,11 @@ export class PayProviderGeneralListByCompany extends PayProviderGeneralList impl
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.company = new ParamId(json?.company);
+		this.company = new ParamId(json?.company as JsonObject);
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepProviderGeneralListByCompany(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepProviderGeneralListByCompany(json as JsonObject);
 	}
 }
 /**
@@ -55,10 +55,10 @@ export class PayProviderGeneralListByConfig extends PayProviderGeneralList {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.config = new ParamId(json?.config);
+		this.config = new ParamId(json?.config as JsonObject);
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepProviderGeneralListByConfig(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepProviderGeneralListByConfig(json as JsonObject);
 	}
 }

@@ -14,10 +14,10 @@ export class PayReportScheduleBatchDelete extends Payload {
 
 	constructor(json?: JsonObject) {
 		super();
-		this.reportSchedules = json?.reportSchedules?.map((e: any) => new ParamId(e)) ?? [];
+		this.reportSchedules = (json?.reportSchedules as JsonObject[])?.map((e: any) => new ParamId(e)) ?? [];
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepReportScheduleBatchDelete(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepReportScheduleBatchDelete(json as JsonObject);
 	}
 }

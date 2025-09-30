@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { RepReportResultDelete } from "../Responses/RepReportResultDelete";
 import { Reply } from "../../../API/Responses/Reply";
 import { PayReportResult } from "./PayReportResult";
@@ -6,7 +7,7 @@ import { PayReportResult } from "./PayReportResult";
  * Deletes an existing {@link ReportResult}.
  **/
 export class PayReportResultDelete extends PayReportResult { 
-	override createReply(json?: JsonObject): Reply {
-		return new RepReportResultDelete(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepReportResultDelete(json as JsonObject);
 	}
 }

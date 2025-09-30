@@ -13,6 +13,6 @@ export class RepPictureDelete extends Reply {
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.picture = ContentIdDeleted.fromJSON(json?.picture);
+		this.picture = ContentIdDeleted.fromJSON(json?.picture as JsonObject);
 	}
 }

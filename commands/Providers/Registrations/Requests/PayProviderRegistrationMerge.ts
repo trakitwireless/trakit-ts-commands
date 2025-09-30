@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
@@ -15,10 +16,10 @@ export class PayProviderRegistrationMerge extends Payload {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.providerRegistration = new ParamProviderRegistrationMerge(json?.providerRegistration);
+		this.providerRegistration = new ParamProviderRegistrationMerge(json?.providerRegistration as JsonObject);
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepProviderRegistrationMerge(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepProviderRegistrationMerge(json as JsonObject);
 	}
 }

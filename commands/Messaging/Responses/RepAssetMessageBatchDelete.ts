@@ -13,6 +13,6 @@ export class RepAssetMessageBatchDelete extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.assetMessages = json?.assetMessages?.map((v: any) => ContentIdDeleted.fromJSON(v));
+		this.assetMessages = (json?.assetMessages as JsonObject[])?.map((v: any) => ContentIdDeleted.fromJSON(v));
 	}
 }

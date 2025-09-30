@@ -25,14 +25,14 @@ export class ParamDispatchJobChange extends ParamMergeSubscribable {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.id = json?.id;
-		this.driver = json?.driver ?? "";
+		this.id = json?.id as ulong;
+		this.driver = json?.driver as string ?? "";
 		this.tags = json?.tags ?? [];
-		this.steps = json?.steps?.map((s: any) => new ParamDispatchStepChange(s)) ?? [];
+		this.steps = (json?.steps as JsonObject[])?.map((s: any) => new ParamDispatchStepChange(s)) ?? [];
 	}
 
 	override toJSON(): any {
-		const json: JsonObject = {
+		const json: any = {
 			id: this.id,
 		};
 		if (this.driver) json.driver = this.driver;

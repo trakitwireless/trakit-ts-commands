@@ -14,10 +14,10 @@ export class PayPictureGet extends PayPicture implements IPayDeletable {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.includeDeleted = json?.includeDeleted ?? false;
+		this.includeDeleted = !!json?.includeDeleted;
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepPictureGet(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepPictureGet(json as JsonObject);
 	}
 }

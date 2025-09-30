@@ -13,6 +13,6 @@ export class RepReportScheduleBatchDelete extends Reply {
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.reportSchedules = json?.reportSchedules?.map((e: any) => new ContentIdDeleted(e));
+		this.reportSchedules = (json?.reportSchedules as JsonObject[])?.map((e: any) => new ContentIdDeleted(e));
 	}
 }

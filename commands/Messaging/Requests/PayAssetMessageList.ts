@@ -17,7 +17,7 @@ export abstract class PayAssetMessageList extends Payload implements IPayDeletab
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.includeDeleted = json?.includeDeleted ?? false;
+		this.includeDeleted = !!json?.includeDeleted;
 	}
 }
 
@@ -32,11 +32,11 @@ export class PayAssetMessageListByCompany extends PayAssetMessageList implements
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.company = new ParamId(json?.company);
+		this.company = new ParamId(json?.company as JsonObject);
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepAssetMessageListByCompany(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepAssetMessageListByCompany(json as JsonObject);
 	}
 }
 /**
@@ -50,10 +50,10 @@ export class PayAssetMessageListByAsset extends PayAssetMessageList implements I
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.asset = new ParamId(json?.asset);
+		this.asset = new ParamId(json?.asset as JsonObject);
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepAssetMessageListByAsset(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepAssetMessageListByAsset(json as JsonObject);
 	}
 }

@@ -6,7 +6,7 @@ import { PayProviderConfiguration } from "./PayProviderConfiguration";
  * Deletes an existing {@link ProviderConfiguration}.
  **/
 export class PayProviderConfigurationDelete extends PayProviderConfiguration { 
-	override createReply(json?: JsonObject): Reply {
-		return new RepProviderConfigurationDelete(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepProviderConfigurationDelete(json as JsonObject);
 	}
 }

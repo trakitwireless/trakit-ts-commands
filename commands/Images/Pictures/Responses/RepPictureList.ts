@@ -13,7 +13,7 @@ export abstract class RepPictureList extends Reply {
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.pictures = json?.pictures?.map((i: any) => new Picture(i));
+		this.pictures = (json?.pictures as JsonObject[])?.map((i: any) => new Picture(i));
 	}
 }
 
@@ -28,6 +28,6 @@ export class RepPictureListByCompany extends RepPictureList {
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentId.fromJSON(json?.company);
+		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
 }

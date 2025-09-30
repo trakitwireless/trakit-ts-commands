@@ -13,6 +13,6 @@ export class RepProviderMerge extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.provider = ContentIdendifierCompany.fromJSON(json?.provider);
+		this.provider = ContentIdendifierCompany.fromJSON(json?.provider as JsonObject);
 	}
 }

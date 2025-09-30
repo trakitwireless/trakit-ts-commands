@@ -12,7 +12,7 @@ export abstract class RepDashcamList extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.dashcams = json?.dashcams?.map((d: any) => new Dashcam(d));
+		this.dashcams = (json?.dashcams as JsonObject[])?.map((d: any) => new Dashcam(d));
 	}
 }
 
@@ -27,6 +27,6 @@ export class RepDashcamListByCompany extends RepDashcamList {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentId.fromJSON(json?.company);
+		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
 }

@@ -14,10 +14,10 @@ export class PayDispatchJobBatchMerge extends PayDispatchJobSpecial {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.dispatchJobs = json?.dispatchJobs?.map((dj: any) => new ParamDispatchJobMerge(dj)) ?? [];
+		this.dispatchJobs = (json?.dispatchJobs as JsonObject[])?.map((dj: any) => new ParamDispatchJobMerge(dj)) ?? [];
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepDispatchJobBatchMerge(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepDispatchJobBatchMerge(json as JsonObject);
 	}
 }

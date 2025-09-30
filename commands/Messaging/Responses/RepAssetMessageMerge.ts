@@ -13,6 +13,6 @@ export class RepAssetMessageMerge extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.assetMessage = ContentIdCompany.fromJSON(json?.assetMessage);
+		this.assetMessage = ContentIdCompany.fromJSON(json?.assetMessage as JsonObject);
 	}
 }

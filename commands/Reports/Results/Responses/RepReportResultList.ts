@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { Reply } from "../../../API/Responses/Reply";
 import { nothing, ReportResult } from "@trakit/objects";
@@ -12,7 +13,7 @@ export abstract class RepReportResultList extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.reportResults = json?.reportResults?.map((e: any) => new ReportResult(e));
+		this.reportResults = (json?.reportResults as JsonObject[])?.map((e: any) => new ReportResult(e));
 	}
 }
 
@@ -27,6 +28,6 @@ export class RepReportResultListByCompany extends RepReportResultList {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentId.fromJSON(json?.company);
+		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
 }

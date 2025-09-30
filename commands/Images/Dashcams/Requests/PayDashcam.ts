@@ -13,7 +13,7 @@ export abstract class PayDashcam extends Payload implements IPaySingle {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.dashcam = new ParamId(json?.dashcam);
+		this.dashcam = new ParamId(json?.dashcam as JsonObject);
 	}
 
 	/**

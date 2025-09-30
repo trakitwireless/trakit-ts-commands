@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { nothing, ReportTemplate } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
@@ -13,7 +14,7 @@ export abstract class RepReportTemplateList extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.reportTemplates = json?.reportTemplates?.map((e: any) => new ReportTemplate(e));
+		this.reportTemplates = (json?.reportTemplates as JsonObject[])?.map((e: any) => new ReportTemplate(e));
 	}
 }
 
@@ -28,6 +29,6 @@ export class RepReportTemplateListByCompany extends RepReportTemplateList {
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentId.fromJSON(json?.company);
+		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
 }

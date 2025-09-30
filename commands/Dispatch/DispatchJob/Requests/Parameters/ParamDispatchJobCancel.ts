@@ -22,13 +22,13 @@ export class ParamDispatchJobCancel extends ParamMergeSubscribable {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.id = json?.id;
+		this.id = json?.id as ulong;
 		this.reason = json?.reason;
 		this.tags = json?.tags;
 	}
 
 	override toJSON(): any {
-		const json: JsonObject = {
+		const json: any = {
 			id: this.id,
 		};
 		if (this.reason) json.reason = this.reason;

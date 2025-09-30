@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { ContentIdDeleted } from "../../../API/Responses/Content/ContentIdDeleted";
 import { Reply } from "../../../API/Responses/Reply";
 import { nothing } from "@trakit/objects";
@@ -13,6 +14,6 @@ export class RepReportResultDelete extends Reply {
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.reportResult = ContentIdDeleted.fromJSON(json?.reportResult);
+		this.reportResult = ContentIdDeleted.fromJSON(json?.reportResult as JsonObject);
 	}
 }

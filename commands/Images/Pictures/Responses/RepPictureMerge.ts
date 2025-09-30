@@ -13,6 +13,6 @@ export class RepPictureMerge extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.picture = ContentIdCompany.fromJSON(json?.picture);
+		this.picture = ContentIdCompany.fromJSON(json?.picture as JsonObject);
 	}
 }

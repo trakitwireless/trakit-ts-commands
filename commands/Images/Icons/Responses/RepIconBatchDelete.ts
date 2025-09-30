@@ -13,6 +13,6 @@ export class RepIconBatchDelete extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.icons = json?.icons?.map((i: any) => new ContentIdDeleted(i));
+		this.icons = (json?.icons as JsonObject[])?.map((i: any) => new ContentIdDeleted(i));
 	}
 }

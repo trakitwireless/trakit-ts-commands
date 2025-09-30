@@ -14,7 +14,7 @@ export abstract class RepReportScheduleList extends Reply {
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.reportSchedules = json?.reportSchedules?.map((e: any) => new ReportSchedule(e));
+		this.reportSchedules = (json?.reportSchedules as JsonObject[])?.map((e: any) => new ReportSchedule(e));
 	}
 }
 
@@ -29,6 +29,6 @@ export class RepReportScheduleListByCompany extends RepReportScheduleList {
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentId.fromJSON(json?.company);
+		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
 }

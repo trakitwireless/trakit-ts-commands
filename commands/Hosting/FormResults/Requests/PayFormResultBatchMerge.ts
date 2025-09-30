@@ -14,10 +14,10 @@ export class PayFormResultBatchMerge extends Payload {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.formResults = json?.formResults?.map((item: any) => new ParamFormResultMerge(item)) ?? [];
+		this.formResults = (json?.formResults as JsonObject[])?.map((item: any) => new ParamFormResultMerge(item)) ?? [];
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepFormResultBatchMerge(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepFormResultBatchMerge(json as JsonObject);
 	}
 }

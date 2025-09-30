@@ -13,6 +13,6 @@ export class RepDocumentMerge extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.document = ContentIdCompany.fromJSON(json?.document);
+		this.document = ContentIdCompany.fromJSON(json?.document as JsonObject);
 	}
 }

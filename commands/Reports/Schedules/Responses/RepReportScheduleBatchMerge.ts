@@ -13,6 +13,6 @@ export class RepReportScheduleBatchMerge extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.reportSchedules = json?.reportSchedules?.map((e: any) => new ContentIdCompany(e));
+		this.reportSchedules = (json?.reportSchedules as JsonObject[])?.map((e: any) => new ContentIdCompany(e));
 	}
 }

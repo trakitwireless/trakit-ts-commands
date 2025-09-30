@@ -13,7 +13,7 @@ export abstract class RepCompanyGeneralList extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.companyGenerals = json?.companyGenerals?.map((c: any) => new CompanyGeneral(c));
+		this.companyGenerals = (json?.companyGenerals as JsonObject[])?.map((c: any) => new CompanyGeneral(c));
 	}
 }
 
@@ -28,7 +28,7 @@ export class RepCompanyGeneralListByCompany extends RepCompanyGeneralList {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentId.fromJSON(json?.company);
+		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
 }
 /**
@@ -39,11 +39,11 @@ export class RepCompanyGeneralListByCompanyAndLabels extends RepCompanyGeneralLi
 	 * The labels given as input.
 	 * @see {@link CompanyGeneral.labels}
 	 **/
-	labels: string[] | nothing;
+	labels: codified[] | nothing;
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.labels = json?.labels;
+		this.labels = json?.labels as codified[];
 	}
 }
 /**
@@ -59,7 +59,7 @@ export class RepCompanyGeneralListByCompanyAndRefPairs extends RepCompanyGeneral
 	constructor(json: JsonObject) {
 		super(json);
 		if (json?.references) {
-			this.references = serialization.toMap(json.references);
+			this.references = serialization.toMap(json?.references as object);
 		}
 	}
 }

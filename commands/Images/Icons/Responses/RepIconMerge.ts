@@ -13,6 +13,6 @@ export class RepIconMerge extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.icon = ContentIdCompany.fromJSON(json?.icon);
+		this.icon = ContentIdCompany.fromJSON(json?.icon as JsonObject);
 	}
 }

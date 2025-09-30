@@ -17,7 +17,7 @@ export abstract class RepDispatchJobList extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.dispatchJobs = json?.dispatchJobs?.map((dj: any) => new DispatchJob(dj));
+		this.dispatchJobs = (json?.dispatchJobs as JsonObject[])?.map((dj: any) => new DispatchJob(dj));
 	}
 }
 /**
@@ -31,7 +31,7 @@ export class RepDispatchJobListByCompany extends RepDispatchJobList implements I
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentId.fromJSON(json?.company);
+		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
 }
 /**
@@ -42,11 +42,11 @@ export class RepDispatchJobListByCompanyAndLabels extends RepDispatchJobListByCo
 	 * A list of {@link LabelStyle.code|label codes} used to match {@link DispatchJob}s.
 	 * All labels must match to include a {@link DispatchJob} in the result.
 	 **/
-	labels: string[] | nothing;
+	labels: codified[] | nothing;
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.labels = json?.labels;
+		this.labels = json?.labels as codified[];
 	}
 }
 /**
@@ -62,7 +62,7 @@ export class RepDispatchJobListByCompanyAndRefPairs extends RepDispatchJobListBy
 	constructor(json: JsonObject) {
 		super(json);
 		this.references = json?.references
-			? serialization.toMap(json.references)
+			? serialization.toMap(json?.references as object)
 			: null;
 	}
 }
@@ -78,7 +78,7 @@ export class RepDispatchJobListByAsset extends RepDispatchJobList implements IRe
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.asset = ContentId.fromJSON(json?.asset);
+		this.asset = ContentId.fromJSON(json?.asset as JsonObject);
 	}
 }
 /**
@@ -89,11 +89,11 @@ export class RepDispatchJobListByAssetAndLabels extends RepDispatchJobListByAsse
 	 * A list of {@link LabelStyle.code|label codes} used to match {@link DispatchJob}s.
 	 * All labels must match to include a {@link DispatchJob} in the result.
 	 **/
-	labels: string[] | nothing;
+	labels: codified[] | nothing;
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.labels = json?.labels;
+		this.labels = json?.labels as codified[];
 	}
 }
 /**
@@ -109,7 +109,7 @@ export class RepDispatchJobListByAssetAndRefPairs extends RepDispatchJobListByAs
 	constructor(json: JsonObject) {
 		super(json);
 		this.references = json?.references
-			? serialization.toMap(json.references)
+			? serialization.toMap(json?.references as object)
 			: null;
 	}
 }

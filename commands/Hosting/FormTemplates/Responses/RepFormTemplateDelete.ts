@@ -13,6 +13,6 @@ export class RepFormTemplateDelete extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.formTemplate = ContentIdDeleted.fromJSON(json?.formTemplate);
+		this.formTemplate = ContentIdDeleted.fromJSON(json?.formTemplate as JsonObject);
 	}
 }

@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 import { PayProvider } from "./PayProvider";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
@@ -14,10 +15,10 @@ export class PayProviderControlGet extends PayProvider implements IPayDeletable 
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.includeDeleted = json?.includeDeleted ?? false;
+		this.includeDeleted = !!json?.includeDeleted;
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepProviderControlGet(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepProviderControlGet(json as JsonObject);
 	}
 }

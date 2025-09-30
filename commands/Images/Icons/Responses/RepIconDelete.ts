@@ -13,6 +13,6 @@ export class RepIconDelete extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.icon = ContentIdDeleted.fromJSON(json?.icon);
+		this.icon = ContentIdDeleted.fromJSON(json?.icon as JsonObject);
 	}
 }

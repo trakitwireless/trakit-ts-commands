@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 import { ParamId } from "../../../API/Requests/Parameters/ParamId";
 import { Payload } from "../../../API/Requests/Payload";
@@ -14,10 +15,10 @@ export class PayProviderScriptBatchDelete extends Payload {
 
 	constructor(json?: JsonObject) {
 		super();
-		this.providerScripts = json?.providerScripts?.map((e: any) => new ParamId(e)) ?? [];
+		this.providerScripts = (json?.providerScripts as JsonObject[])?.map((e: any) => new ParamId(e)) ?? [];
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepProviderScriptBatchDelete(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepProviderScriptBatchDelete(json as JsonObject);
 	}
 }

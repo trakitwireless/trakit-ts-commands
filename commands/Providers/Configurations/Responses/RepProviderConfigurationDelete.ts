@@ -13,6 +13,6 @@ export class RepProviderConfigurationDelete extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.providerConfiguration = ContentIdDeleted.fromJSON(json?.providerConfiguration);
+		this.providerConfiguration = ContentIdDeleted.fromJSON(json?.providerConfiguration as JsonObject);
 	}
 }

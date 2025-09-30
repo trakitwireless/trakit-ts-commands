@@ -13,6 +13,6 @@ export class RepCompanyMerge extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentIdParent.fromJSON(json?.company);
+		this.company = ContentIdParent.fromJSON(json?.company as JsonObject);
 	}
 }

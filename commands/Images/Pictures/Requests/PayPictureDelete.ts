@@ -6,7 +6,7 @@ import { PayPicture } from "./PayPicture";
  * Deletes an existing {@link Picture}.
  **/
 export class PayPictureDelete extends PayPicture { 
-	override createReply(json?: JsonObject): Reply {
-		return new RepPictureDelete(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepPictureDelete(json as JsonObject);
 	}
 }

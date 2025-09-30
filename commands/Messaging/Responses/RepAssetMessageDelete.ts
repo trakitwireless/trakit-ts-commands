@@ -13,6 +13,6 @@ export class RepAssetMessageDelete extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.assetMessage = ContentIdDeleted.fromJSON(json?.assetMessage);
+		this.assetMessage = ContentIdDeleted.fromJSON(json?.assetMessage as JsonObject);
 	}
 }

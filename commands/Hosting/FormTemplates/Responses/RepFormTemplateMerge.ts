@@ -13,6 +13,6 @@ export class RepFormTemplateMerge extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.formTemplate = ContentIdCompany.fromJSON(json?.formTemplate);
+		this.formTemplate = ContentIdCompany.fromJSON(json?.formTemplate as JsonObject);
 	}
 }

@@ -51,12 +51,12 @@ export class ParamIconMerge extends ParamMergeSubscribable {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.id = json?.id;
-		this.company = json?.company;
-		this.name = json?.name;
-		this.notes = json?.notes;
+		this.id = json?.id as ulong;
+		this.company = json?.company as ulong;
+		this.name = json?.name as string;
+		this.notes = json?.notes as string;
 		this.category = json?.category;
-		this.global = json?.global;
+		this.global  = json?.global as boolean;
 		this.usage = json?.usage;
 		this.label = json?.label
 			? IconLabel.fromJSON(json?.label)
@@ -64,11 +64,11 @@ export class ParamIconMerge extends ParamMergeSubscribable {
 		this.badge = json?.badge
 			? IconLabel.fromJSON(json?.badge)
 			: null;
-		this.glyphs = json?.glyphs?.map((glyph: any) => IconGlyph.fromJSON(glyph));
+		this.glyphs = (json?.glyphs as JsonObject[])?.map((glyph: any) => IconGlyph.fromJSON(glyph));
 	}
 
 	override toJSON(): any {
-		const json: JsonObject = {};
+		const json: any = {};
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];

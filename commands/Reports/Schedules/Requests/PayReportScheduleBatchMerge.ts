@@ -14,10 +14,10 @@ export class PayReportScheduleBatchMerge extends Payload {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.reportSchedules = json?.reportSchedules?.map((e: any) => new ParamReportScheduleMerge(e)) ?? [];
+		this.reportSchedules = (json?.reportSchedules as JsonObject[])?.map((e: any) => new ParamReportScheduleMerge(e)) ?? [];
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepReportScheduleBatchMerge(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepReportScheduleBatchMerge(json as JsonObject);
 	}
 }

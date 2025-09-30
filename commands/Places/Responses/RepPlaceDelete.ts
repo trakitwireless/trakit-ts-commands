@@ -13,6 +13,6 @@ export class RepPlaceDelete extends Reply {
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.place = ContentIdDeleted.fromJSON(json?.place);
+		this.place = ContentIdDeleted.fromJSON(json?.place as JsonObject);
 	}
 }

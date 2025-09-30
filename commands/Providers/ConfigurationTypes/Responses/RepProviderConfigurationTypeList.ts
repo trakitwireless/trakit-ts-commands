@@ -13,7 +13,7 @@ export abstract class RepProviderConfigurationTypeList extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.providerConfigurationTypes = json?.providerConfigurationTypes?.map((v: any) => new ProviderConfigurationType(v));
+		this.providerConfigurationTypes = (json?.providerConfigurationTypes as JsonObject[])?.map((v: any) => new ProviderConfigurationType(v));
 	}
 }
 
@@ -28,6 +28,6 @@ export class RepProviderConfigurationTypeListByCompany extends RepProviderConfig
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentId.fromJSON(json?.company);
+		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
 }

@@ -13,6 +13,6 @@ export class RepFormResultDelete extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.formResult = ContentIdDeleted.fromJSON(json?.formResult);
+		this.formResult = ContentIdDeleted.fromJSON(json?.formResult as JsonObject);
 	}
 }

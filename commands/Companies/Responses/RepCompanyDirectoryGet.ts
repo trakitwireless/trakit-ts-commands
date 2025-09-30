@@ -13,7 +13,7 @@ export class RepCompanyDirectoryGet extends Reply {
 	constructor(json: JsonObject) {
 		super(json);
 		if (json?.companyDirectory) {
-			this.companyDirectory = new CompanyDirectory(json.companyDirectory);
+			this.companyDirectory = new CompanyDirectory(json.companyDirectory as JsonObject);
 		}
 	}
 }

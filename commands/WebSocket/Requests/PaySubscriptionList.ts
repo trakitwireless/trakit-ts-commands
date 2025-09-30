@@ -7,7 +7,7 @@ import { RepSubscriptionList } from "../Responses/RepSubscriptionList";
  * Each type has a different synchronization messages and objects.
  **/
 export class PaySubscriptionList extends Payload { 
-	override createReply(json?: JsonObject): Reply {
-		return new RepSubscriptionList(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepSubscriptionList(json as JsonObject);
 	}
 }

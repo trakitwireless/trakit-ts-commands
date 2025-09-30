@@ -13,6 +13,6 @@ export class RepFormTemplateBatchMerge extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.formTemplates = json?.formTemplates?.map((item: any) => new ContentIdCompany(item));
+		this.formTemplates = (json?.formTemplates as JsonObject[])?.map((item: any) => new ContentIdCompany(item));
 	}
 }

@@ -12,7 +12,7 @@ export abstract class RepProviderList extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.providers = json?.providers?.map((v: any) => new Provider(v));
+		this.providers = (json?.providers as JsonObject[])?.map((v: any) => new Provider(v));
 	}
 }
 
@@ -27,7 +27,7 @@ export class RepProviderListByCompany extends RepProviderList {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentId.fromJSON(json?.company);
+		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
 }
 /**
@@ -41,6 +41,6 @@ export class RepProviderListByConfig extends RepProviderList {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.config = ContentId.fromJSON(json?.config);
+		this.config = ContentId.fromJSON(json?.config as JsonObject);
 	}
 }

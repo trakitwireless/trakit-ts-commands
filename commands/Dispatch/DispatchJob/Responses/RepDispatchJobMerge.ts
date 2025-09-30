@@ -13,6 +13,6 @@ export class RepDispatchJobMerge extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.dispatchJob = ContentIdCompany.fromJSON(json?.dispatchJob);
+		this.dispatchJob = ContentIdCompany.fromJSON(json?.dispatchJob as JsonObject);
 	}
 }

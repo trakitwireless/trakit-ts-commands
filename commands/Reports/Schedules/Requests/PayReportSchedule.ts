@@ -13,7 +13,7 @@ export abstract class PayReportSchedule extends Payload implements IPaySingle {
 
 	constructor(json?: JsonObject) {
 		super();
-		this.reportSchedule = new ParamId(json?.reportSchedule);
+		this.reportSchedule = new ParamId(json?.reportSchedule as JsonObject);
 	}
 	/**
 	 * 

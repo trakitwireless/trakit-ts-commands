@@ -49,19 +49,19 @@ export class ParamReportResultMerge extends ParamMergeSubscribable {
 	
 	constructor(json?: JsonObject) {
 		super(json);
-		this.id = json?.id;
+		this.id = json?.id as ulong;
 		this.template = json?.template;
-		this.company = json?.company;
+		this.company = json?.company as ulong;
 		this.kind = json?.kind;
-		this.name = json?.name;
-		this.notes = json?.notes;
+		this.name = json?.name as string;
+		this.notes = json?.notes as string;
 		this.archive = json?.archive;
 		this.options = ParamReportOptions.fromJSON(json?.options);
 		this.timezone = json?.timezone;
 	}
 
 	override toJSON(): any {
-		const json: JsonObject = {};
+		const json: any = {};
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];

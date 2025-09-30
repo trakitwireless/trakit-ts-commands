@@ -14,10 +14,10 @@ export class PayReportScheduleGet extends PayReportSchedule implements IPayDelet
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.includeDeleted = json?.includeDeleted ?? false;
+		this.includeDeleted = !!json?.includeDeleted;
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepReportScheduleGet(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepReportScheduleGet(json as JsonObject);
 	}
 }

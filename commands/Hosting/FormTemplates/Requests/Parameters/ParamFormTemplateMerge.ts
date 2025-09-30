@@ -26,7 +26,7 @@ export class ParamFormTemplateMerge extends ParamMergeSubscribable {
 	/// <summary>
 	/// Codified label names used to relate forms to <see cref="Asset"/>s.
 	/// </summary>
-	labels: string[] | nothing;
+	labels: codified[] | nothing;
 	/// <summary>
 	/// A collection of all the <see cref="FormTemplate.fields"/>.
 	/// Any field not given in the collection will be removed.
@@ -47,18 +47,18 @@ export class ParamFormTemplateMerge extends ParamMergeSubscribable {
 	
 	constructor(json?: JsonObject) {
 		super(json);
-		this.id = json?.id;
-		this.company = json?.company;
-		this.name = json?.name;
-		this.notes = json?.notes;
-		this.labels = json?.labels;
-		this.fields = json?.fields?.map((f: any) => new ParamFormField(f));
-		this.fill = json?.fill;
-		this.stroke = json?.stroke;
-		this.graphic = json?.graphic;
+		this.id = json?.id as ulong;
+		this.company = json?.company as ulong;
+		this.name = json?.name as string;
+		this.notes = json?.notes as string;
+		this.labels = json?.labels as codified[];
+		this.fields = (json?.fields as JsonObject[])?.map((f: any) => new ParamFormField(f));
+		this.fill = json?.fill as colour;
+		this.stroke = json?.stroke as colour;
+		this.graphic = json?.graphic as codified;
 	}
 	override toJSON(): any {
-		const json: JsonObject = {};
+		const json: any = {};
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];

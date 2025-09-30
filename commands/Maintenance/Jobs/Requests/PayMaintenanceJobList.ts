@@ -16,7 +16,7 @@ export abstract class PayMaintenanceJobList extends Payload implements IPayDelet
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.includeDeleted = json?.includeDeleted;
+		this.includeDeleted = !!json?.includeDeleted;
 	}
 }
 
@@ -31,10 +31,10 @@ export class PayMaintenanceJobListByCompany extends PayMaintenanceJobList implem
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.company = new ParamId(json?.company);
+		this.company = new ParamId(json?.company as JsonObject);
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepMaintenanceJobListByCompany(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepMaintenanceJobListByCompany(json as JsonObject);
 	}
 }

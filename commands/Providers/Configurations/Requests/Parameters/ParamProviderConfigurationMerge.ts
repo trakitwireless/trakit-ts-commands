@@ -41,17 +41,17 @@ export class ParamProviderConfigurationMerge extends ParamMergeSubscribable {
 	
 	constructor(json?: JsonObject) {
 		super(json);
-		this.id = json?.id;
+		this.id = json?.id as ulong;
 		this.type = json?.type;
-		this.name = json?.name;
-		this.notes = json?.notes;
+		this.name = json?.name as string;
+		this.notes = json?.notes as string;
 		this.scriptParameters = json?.scriptParameters
-			? serialization.toMap(json.scriptParameters)
+			? serialization.toMap(json?.scriptParameters as object)
 			: null;
 		this.geofences = json?.geofences;
 	}
 	override toJSON(): any {
-		const json: JsonObject = {};
+		const json: any = {};
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];

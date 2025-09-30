@@ -15,7 +15,7 @@ export class PayDispatchJobCancel extends PayDispatchJobSpecial implements IPayS
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.dispatchJob = new ParamDispatchJobCancel(json?.dispatchJob);
+		this.dispatchJob = new ParamDispatchJobCancel(json?.dispatchJob as JsonObject);
 	}
 
 	/**
@@ -25,7 +25,7 @@ export class PayDispatchJobCancel extends PayDispatchJobSpecial implements IPayS
 		return this.dispatchJob.id.toString() ?? "";
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepDispatchJobMerge(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepDispatchJobMerge(json as JsonObject);
 	}
 }

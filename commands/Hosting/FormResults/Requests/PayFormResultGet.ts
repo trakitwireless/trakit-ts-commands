@@ -14,10 +14,10 @@ export class PayFormResultGet extends PayFormResult implements IPayDeletable {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.includeDeleted = json?.includeDeleted;
+		this.includeDeleted = !!json?.includeDeleted;
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepFormResultGet(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepFormResultGet(json as JsonObject);
 	}
 }

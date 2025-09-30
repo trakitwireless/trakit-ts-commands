@@ -14,10 +14,10 @@ export class PayFormTemplateBatchDelete extends Payload {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.formTemplates = json?.formTemplates?.map((item: any) => new ParamId(item)) ?? [];
+		this.formTemplates = (json?.formTemplates as JsonObject[])?.map((item: any) => new ParamId(item)) ?? [];
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepFormTemplateBatchDelete(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepFormTemplateBatchDelete(json as JsonObject);
 	}
 }

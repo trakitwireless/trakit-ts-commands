@@ -30,15 +30,15 @@ export class ParamPictureMerge extends ParamMergeSubscribable {
 	
 	constructor(json?: JsonObject) {
 		super(json);
-		this.id = json?.id;
-		this.company = json?.company;
-		this.name = json?.name;
-		this.notes = json?.notes;
-		this.focals = json?.focals?.map((focal: any) => Rectangle.fromJSON(focal));
+		this.id = json?.id as ulong;
+		this.company = json?.company as ulong;
+		this.name = json?.name as string;
+		this.notes = json?.notes as string;
+		this.focals = (json?.focals as JsonObject[])?.map((focal: any) => Rectangle.fromJSON(focal));
 	}
 
 	override toJSON(): any {
-		const json: JsonObject = {}
+		const json: any = {}
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];

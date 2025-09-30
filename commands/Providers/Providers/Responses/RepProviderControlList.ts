@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { Reply } from "../../../API/Responses/Reply";
 import { nothing, ProviderControl } from "@trakit/objects";
@@ -12,7 +13,7 @@ export abstract class RepProviderControlList extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.providerControls = json?.providerControls?.map((v: any) => new ProviderControl(v));
+		this.providerControls = (json?.providerControls as JsonObject[])?.map((v: any) => new ProviderControl(v));
 	}
 }
 
@@ -27,7 +28,7 @@ export class RepProviderControlListByCompany extends RepProviderControlList {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentId.fromJSON(json?.company);
+		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
 }
 
@@ -42,6 +43,6 @@ export class RepProviderControlListByConfig extends RepProviderControlList {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.config = ContentId.fromJSON(json?.config);
+		this.config = ContentId.fromJSON(json?.config as JsonObject);
 	}
 }

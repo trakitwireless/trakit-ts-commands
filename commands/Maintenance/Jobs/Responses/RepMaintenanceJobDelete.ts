@@ -13,6 +13,6 @@ export class RepMaintenanceJobDelete extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.maintenanceJob = ContentIdDeleted.fromJSON(json?.maintenanceJob);
+		this.maintenanceJob = ContentIdDeleted.fromJSON(json?.maintenanceJob as JsonObject);
 	}
 }

@@ -13,7 +13,7 @@ export abstract class PayAssetMessage extends Payload implements IPaySingle {
 
 	constructor(json?: JsonObject) {
 		super();
-		this.assetMessage = new ParamId(json?.assetMessage);
+		this.assetMessage = new ParamId(json?.assetMessage as JsonObject);
 	}
 	/**
 	 * 

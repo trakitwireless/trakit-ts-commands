@@ -15,7 +15,7 @@ export class PayCompanyMerge extends Payload implements IPaySingle {
 
 	constructor(json?: JsonObject) {
 		super();
-		this.company = new ParamCompanyMerge(json?.company);
+		this.company = new ParamCompanyMerge(json?.company as JsonObject);
 	}
 
 	/**
@@ -25,7 +25,7 @@ export class PayCompanyMerge extends Payload implements IPaySingle {
 		return this.company?.id?.toString() ?? "";
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepCompanyMerge(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepCompanyMerge(json as JsonObject);
 	}
 }

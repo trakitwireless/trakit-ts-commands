@@ -49,10 +49,10 @@ export class ParamReportScheduleMerge extends ParamMergeSubscribable {
 	
 	constructor(json?: JsonObject) {
 		super(json);
-		this.id = json?.id;
+		this.id = json?.id as ulong;
 		this.template = json?.template;
-		this.name = json?.name;
-		this.notes = json?.notes;
+		this.name = json?.name as string;
+		this.notes = json?.notes as string;
 		this.owner = json?.owner;
 		this.enabled = json?.enabled;
 		this.repetition = ParamReportRecurrence.fromJSON(json?.repetition);
@@ -61,7 +61,7 @@ export class ParamReportScheduleMerge extends ParamMergeSubscribable {
 	}
 
 	override toJSON(): any {
-		const json: JsonObject = {};
+		const json: any = {};
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];

@@ -14,10 +14,10 @@ export class PayMaintenanceScheduleGet extends PayMaintenanceSchedule implements
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.includeDeleted = json?.includeDeleted;
+		this.includeDeleted = !!json?.includeDeleted;
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepMaintenanceScheduleGet(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepMaintenanceScheduleGet(json as JsonObject);
 	}
 }

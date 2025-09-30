@@ -16,7 +16,7 @@ export abstract class RepDispatchTaskList extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.dispatchTasks = json?.dispatchTasks?.map((dt: any) => new DispatchTask(dt));
+		this.dispatchTasks = (json?.dispatchTasks as JsonObject[])?.map((dt: any) => new DispatchTask(dt));
 	}
 }
 
@@ -31,7 +31,7 @@ export class RepDispatchTaskListByAsset extends RepDispatchTaskList implements I
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.asset = ContentId.fromJSON(json?.asset);
+		this.asset = ContentId.fromJSON(json?.asset as JsonObject);
 	}
 }
 /**
@@ -47,7 +47,7 @@ export class RepDispatchTaskListByAssetAndRefPairs extends RepDispatchTaskListBy
 	constructor(json: JsonObject) {
 		super(json);
 		this.references = json?.references
-			? serialization.toMap(json.references)
+			? serialization.toMap(json?.references as object)
 			: null;
 	}
 }
@@ -62,7 +62,7 @@ export class RepDispatchTaskListByCompany extends RepDispatchTaskList implements
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentId.fromJSON(json?.company);
+		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
 }
 /**
@@ -78,7 +78,7 @@ export class RepDispatchTaskListByCompanyAndRefPairs extends RepDispatchTaskList
 	constructor(json: JsonObject) {
 		super(json);
 		this.references = json?.references
-			? serialization.toMap(json.references)
+			? serialization.toMap(json?.references as object)
 			: null;
 	}
 }

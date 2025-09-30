@@ -14,10 +14,10 @@ export class PayCompanyBatchDelete extends Payload {
 
 	constructor(json?: JsonObject) {
 		super();
-		this.companies = json?.companies?.map((c: any) => new ParamId(c)) ?? [];
+		this.companies = (json?.companies as JsonObject[])?.map((c: any) => new ParamId(c)) ?? [];
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepCompanyBatchDelete(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepCompanyBatchDelete(json as JsonObject);
 	}
 }

@@ -14,10 +14,10 @@ export class PayPictureBatchMerge extends Payload {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.pictures = json?.pictures?.map((i: any) => new ParamPictureMerge(i)) ?? [];
+		this.pictures = (json?.pictures as JsonObject[])?.map((i: any) => new ParamPictureMerge(i)) ?? [];
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepPictureBatchMerge(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepPictureBatchMerge(json as JsonObject);
 	}
 }

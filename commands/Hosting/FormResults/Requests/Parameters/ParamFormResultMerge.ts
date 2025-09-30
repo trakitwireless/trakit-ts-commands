@@ -28,7 +28,7 @@ export class ParamFormResultMerge extends ParamMergeSubscribable {
 	/**
 	 * Codified label names used to relate forms to {@link Asset}s.
 	 */
-	labels: string[] | nothing;
+	labels: codified[] | nothing;
 	/**
 	 * A collection of values for the {@link FormResult.fields}.
 	 * You can update parts of the collection, the {@link FormResult} must have a value for all fields in order to complete it.
@@ -45,23 +45,23 @@ export class ParamFormResultMerge extends ParamMergeSubscribable {
 	
 	constructor(json?: JsonObject) {
 		super(json);
-		this.id = json?.id;
+		this.id = json?.id as ulong;
 		this.asset = json?.asset;
 		this.template = json?.template;
-		this.name = json?.name;
-		this.notes = json?.notes;
-		this.labels = json?.labels;
+		this.name = json?.name as string;
+		this.notes = json?.notes as string;
+		this.labels = json?.labels as codified[];
 		this.fields = json?.fields
-			? serialization.toMap(json.fields)
+			? serialization.toMap(json?.fields as object)
 			: null;
-		this.completed = utility.date(json?.completed);
+		this.completed = utility.date(json?.completed as datetime);
 		this.latlng = json?.latlng
 			? LatLng.fromJSON(json.latlng)
 			: null;
 	}
 
 	override toJSON(): any {
-		const json: JsonObject = {};
+		const json: any = {};
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];

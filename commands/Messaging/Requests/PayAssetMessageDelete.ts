@@ -6,7 +6,7 @@ import { PayAssetMessage } from "./PayAssetMessage";
  * Deletes an existing {@link AssetMessage}.
  **/
 export class PayAssetMessageDelete extends PayAssetMessage { 
-	override createReply(json?: JsonObject): Reply {
-		return new RepAssetMessageDelete(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepAssetMessageDelete(json as JsonObject);
 	}
 }

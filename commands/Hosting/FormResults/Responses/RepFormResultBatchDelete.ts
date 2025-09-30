@@ -13,6 +13,6 @@ export class RepFormResultBatchDelete extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.formResults = json?.formResults?.map((item: any) => new ContentIdDeleted(item));
+		this.formResults = (json?.formResults as JsonObject[])?.map((item: any) => new ContentIdDeleted(item));
 	}
 }

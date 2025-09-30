@@ -13,6 +13,6 @@ export class RepPictureBatchMerge extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.pictures = json?.pictures?.map((p: any) => new ContentIdCompany(p));
+		this.pictures = (json?.pictures as JsonObject[])?.map((p: any) => new ContentIdCompany(p));
 	}
 }

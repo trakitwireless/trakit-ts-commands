@@ -49,7 +49,7 @@ export class ParamDispatchJobMerge extends ParamMergeSubscribable {
 	/**
 	 * A list of codified {@link CompanyLabels.labels|label} names used to relate (unassigned) {@link DispatchJob}s to {@link Asset}s.
 	 **/
-	labels: string[] | nothing;
+	labels: codified[] | nothing;
 	/**
 	 * A list of coordinates to visit in order to carry out the work for the {@link DispatchJob}.
 	 **/
@@ -57,21 +57,21 @@ export class ParamDispatchJobMerge extends ParamMergeSubscribable {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.id = json?.id;
-		this.company = json?.company;
+		this.id = json?.id as ulong;
+		this.company = json?.company as ulong;
 		this.asset = json?.asset;
-		this.name = json?.name;
+		this.name = json?.name as string;
 		this.instructions = json?.instructions;
-		if (json?.references) this.references = serialization.toMap(json.references);
+		if (json?.references) this.references = serialization.toMap(json?.references as object);
 		this.attachments = json?.attachments;
 		this.forms = json?.forms;
 		this.priority = json?.priority;
-		this.labels = json?.labels;
-		this.steps = json?.steps?.map((item: any) => new ParamDispatchStepMerge(item));
+		this.labels = json?.labels as codified[];
+		this.steps = (json?.steps as JsonObject[])?.map((item: any) => new ParamDispatchStepMerge(item));
 	}
 
 	override toJSON(): any {
-		const json: JsonObject = {};
+		const json: any = {};
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];

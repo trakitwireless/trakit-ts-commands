@@ -51,14 +51,14 @@ export class ParamCompanyMerge extends ParamMergeSubscribable {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.id = json?.id;
+		this.id = json?.id as ulong;
 		this.parent = json?.parent;
-		this.name = json?.name;
-		this.notes = json?.notes;
-		this.references = serialization.toMap(json?.references);
-		this.directory = serialization.toMap(json?.directory);
-		this.labels = serialization.toMap(json?.labels);
-		this.tags = serialization.toMap(json?.tags);
+		this.name = json?.name as string;
+		this.notes = json?.notes as string;
+		this.references = serialization.toMap(json?.references as object);
+		this.directory = serialization.toMap(json?.directory as object);
+		this.labels = serialization.toMap(json?.labels as object);
+		this.tags = serialization.toMap(json?.tags as object);
 		this.sessionPolicy = json?.sessionPolicy
 			? new ParamSessionPolicy(json.sessionPolicy)
 			: null;
@@ -68,7 +68,7 @@ export class ParamCompanyMerge extends ParamMergeSubscribable {
 	}
 
 	override toJSON(): any {
-		const json: JsonObject = {}
+		const json: any = {}
 		if (json.id) {
 			json.id = this.id;
 			json.v = [...this.v];

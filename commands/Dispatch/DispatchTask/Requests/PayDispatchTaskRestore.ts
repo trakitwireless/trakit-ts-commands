@@ -6,7 +6,7 @@ import { PayDispatchTask } from "./PayDispatchTask";
  * Restores a deleted {@link DispatchTask}.
  **/
 export class PayDispatchTaskRestore extends PayDispatchTask { 
-	override createReply(json?: JsonObject): Reply {
-		return new RepDispatchTaskDelete(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepDispatchTaskDelete(json as JsonObject);
 	}
 }

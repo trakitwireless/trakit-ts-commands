@@ -14,10 +14,10 @@ export class PayFormTemplateGet extends PayFormTemplate implements IPayDeletable
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.includeDeleted = json?.includeDeleted;
+		this.includeDeleted = !!json?.includeDeleted;
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepFormTemplateGet(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepFormTemplateGet(json as JsonObject);
 	}
 }

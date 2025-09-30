@@ -6,7 +6,7 @@ import { PayFormResult } from "./PayFormResult";
  * Deletes an existing {@link FormResult}.
  */
 export class PayFormResultDelete extends PayFormResult { 
-	override createReply(json?: JsonObject): Reply {
-		return new RepFormResultDelete(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepFormResultDelete(json as JsonObject);
 	}
 }

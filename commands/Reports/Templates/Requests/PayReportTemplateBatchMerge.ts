@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
 import { RepReportTemplateBatchMerge } from "../Responses/RepReportTemplateBatchMerge";
@@ -14,10 +15,10 @@ export class PayReportTemplateBatchMerge extends Payload {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.reportTemplates = json?.reportTemplates?.map((e: any) => new ParamReportTemplateMerge(e)) ?? [];
+		this.reportTemplates = (json?.reportTemplates as JsonObject[])?.map((e: any) => new ParamReportTemplateMerge(e)) ?? [];
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepReportTemplateBatchMerge(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepReportTemplateBatchMerge(json as JsonObject);
 	}
 }

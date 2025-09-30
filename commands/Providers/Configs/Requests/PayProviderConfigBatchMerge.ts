@@ -14,10 +14,10 @@ export class PayProviderConfigBatchMerge extends Payload {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.providerConfigs = json?.providerConfigs?.map((e: any) => new ParamProviderConfigMerge(e)) ?? [];
+		this.providerConfigs = (json?.providerConfigs as JsonObject[])?.map((e: any) => new ParamProviderConfigMerge(e)) ?? [];
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepProviderConfigBatchMerge(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepProviderConfigBatchMerge(json as JsonObject);
 	}
 }

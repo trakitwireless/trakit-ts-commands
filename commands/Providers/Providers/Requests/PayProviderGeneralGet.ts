@@ -14,10 +14,10 @@ export class PayProviderGeneralGet extends PayProvider implements IPayDeletable 
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.includeDeleted = json?.includeDeleted ?? false;
+		this.includeDeleted = !!json?.includeDeleted;
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepProviderGeneralGet(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepProviderGeneralGet(json as JsonObject);
 	}
 }
