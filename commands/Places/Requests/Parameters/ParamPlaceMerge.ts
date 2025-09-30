@@ -1,4 +1,4 @@
-import { double, LatLng, nothing, PlaceType, ulong, utility } from "@trakit/objects";
+import { codified, colour, double, JsonObject, LatLng, nothing, PlaceType, serialization, ulong, utility } from "@trakit/objects";
 import { ParamMergeSubscribable } from "../../../API/Requests/Parameters/ParamMergeSubscribable";
 
 /**
@@ -91,18 +91,18 @@ export class ParamPlaceMerge extends ParamMergeSubscribable {
 		this.company = json?.company as ulong;
 		this.name = json?.name as string;
 		this.notes = json?.notes as string;
-		this.kind = json?.kind;
-		this.address = json?.address;
-		this.icon = json?.icon;
-		this.labels = json?.labels ?? null;
-		this.colour = json?.colour;
+		this.kind = json?.kind as PlaceType;
+		this.address = json?.address as string;
+		this.icon = json?.icon as ulong;
+		this.labels = json?.labels as codified[];
+		this.colour = json?.colour as colour;
 		this.anchor = json?.anchor
-			? LatLng.fromJSON(json.anchor)
+			? LatLng.fromJSON(json.anchor as JsonObject)
 			: null;
-		this.radius = json?.radius;
+		this.radius = json?.radius as double;
 		this.shape = (json?.shape as JsonObject[])?.map((item: any) => LatLng.fromJSON(item));
 		this.pictures = (json?.pictures as JsonObject[])?.map((item: any) => item);
-		this.reference = json?.reference;
+		this.reference = json?.reference as string;
 	}
 
 	override toJSON(): any {

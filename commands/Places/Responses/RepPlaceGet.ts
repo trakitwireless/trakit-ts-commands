@@ -1,4 +1,4 @@
-import { nothing, Place } from "@trakit/objects";
+import { JsonObject, nothing, Place } from "@trakit/objects";
 import { Reply } from "../../API/Responses/Reply";
 
 /**
@@ -12,8 +12,8 @@ export class RepPlaceGet extends Reply {
 	
 	constructor(json: JsonObject) {
 		super(json);
-		this.place = json?.place
-			? new Place(json.place)
-			: null;
+		if (json?.place) {
+			this.place = new Place(json.place as JsonObject);
+		}
 	}
 }
