@@ -1,4 +1,4 @@
-import { nothing, ulong, utility } from "@trakit/objects";
+import { datetime, JsonObject, nothing, ulong, utility } from "@trakit/objects";
 
 /**
  * A container class used to house the "handle" identifying a {@link Session}.
@@ -24,9 +24,9 @@ export class SessionHandle {
 	expiry: Date;
 
 	constructor(json: JsonObject) {
-		this.handle = json?.handle ?? "";
-		this.company = json?.company;
-		this.login = json?.login ?? "";
-		this.expiry = utility.date(json?.expiry);
+		this.handle = json?.handle as string ?? "";
+		this.company = json?.company as ulong;
+		this.login = json?.login as string ?? "";
+		this.expiry = utility.date(json?.expiry as datetime);
 	}
 }

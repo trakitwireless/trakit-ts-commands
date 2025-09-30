@@ -34,7 +34,7 @@ export class PayUserGroupListByCompany extends PayUserGroupList implements IPayL
 		this.company = new ParamId(json?.company as JsonObject);
 	}
 
-	override createReply(json?: JsonObject): Reply {
+	override createReply(json: JsonObject): Reply {
 		return new RepUserGroupListByCompany(json as JsonObject);
 	}
 }

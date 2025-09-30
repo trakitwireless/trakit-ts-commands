@@ -18,7 +18,7 @@ export class PayContactBatchDelete extends Payload {
 		this.contacts = (json?.contacts as JsonObject[])?.map((c: any) => new ParamId(c)) ?? [];
 	}
 
-	override createReply(json?: JsonObject): Reply {
+	override createReply(json: JsonObject): Reply {
 		return new RepContactBatchDelete(json as JsonObject);
 	}
 }

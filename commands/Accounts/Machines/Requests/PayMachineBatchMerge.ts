@@ -18,7 +18,7 @@ export class PayMachineBatchMerge extends Payload {
 		this.machines = (json?.machines as JsonObject[])?.map((m: any) => new ParamMachineMerge(m)) ?? [];
 	}
 
-	override createReply(json?: JsonObject): Reply {
+	override createReply(json: JsonObject): Reply {
 		return new RepMachineBatchMerge(json as JsonObject);
 	}
 }

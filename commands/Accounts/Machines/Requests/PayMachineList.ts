@@ -35,7 +35,7 @@ export class PayMachineListByCompany extends PayMachineList implements IPayListB
 		this.company = new ParamId(json?.company as JsonObject);
 	}
 
-	override createReply(json?: JsonObject): Reply {
+	override createReply(json: JsonObject): Reply {
 		return new RepMachineListByCompany(json as JsonObject);
 	}
 }

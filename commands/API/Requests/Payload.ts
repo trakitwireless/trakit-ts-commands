@@ -54,7 +54,7 @@ export abstract class Payload {
 	 * @param json 
 	 * @returns 
 	 */
-	abstract createReply(json?: JsonObject): Reply;
+	abstract createReply(json: JsonObject): Reply;
 
 	/**
 	 * Payloads are serialized conditionally before being sent to the server.

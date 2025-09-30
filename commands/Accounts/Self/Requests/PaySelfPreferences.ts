@@ -61,7 +61,7 @@ export class PaySelfPreferences extends Payload {
 		};
 	}
 
-	override createReply(json?: JsonObject): Reply {
+	override createReply(json: JsonObject): Reply {
 		return new RepSelfPreferences(json as JsonObject);
 	}
 

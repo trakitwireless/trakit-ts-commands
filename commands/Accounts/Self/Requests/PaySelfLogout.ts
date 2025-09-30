@@ -20,7 +20,7 @@ export class PaySelfLogout extends Payload {
 			batch: false,
 		};
 	}
-	override createReply(json?: JsonObject): Reply {
+	override createReply(json: JsonObject): Reply {
 		return new RepSelfLogout(json as JsonObject);
 	}
 }

@@ -18,7 +18,7 @@ export class PayUserGroupBatchMerge extends Payload {
 		this.userGroups = (json?.userGroups as JsonObject[]).map((ug: any) => new ParamUserGroupMerge(ug)) ?? [];
 	}
 
-	override createReply(json?: JsonObject): Reply {
+	override createReply(json: JsonObject): Reply {
 		return new RepUserGroupBatchMerge(json as JsonObject);
 	}
 }

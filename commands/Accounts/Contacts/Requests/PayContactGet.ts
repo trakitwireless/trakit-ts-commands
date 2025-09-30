@@ -18,7 +18,7 @@ export class PayContactGet extends PayContact implements IPayDeletable {
 		this.includeDeleted = json?.includeDeleted as boolean ?? false;
 	}
 
-	override createReply(json?: JsonObject): Reply {
+	override createReply(json: JsonObject): Reply {
 		return new RepContactGet(json as JsonObject);
 	}
 }

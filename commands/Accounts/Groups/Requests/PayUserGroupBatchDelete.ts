@@ -18,7 +18,7 @@ export class PayUserGroupBatchDelete extends Payload {
 		this.userGroups = (json?.userGroups as JsonObject[]).map((ug: any) => new ParamId(ug)) ?? [];
 	}
 	
-	override createReply(json?: JsonObject): Reply {
+	override createReply(json: JsonObject): Reply {
 		return new RepUserGroupBatchDelete(json as JsonObject);
 	}
 }

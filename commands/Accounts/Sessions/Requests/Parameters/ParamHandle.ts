@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 
 /**
  * A container class used to house the "handle" identifying a session.
@@ -9,6 +10,6 @@ export class ParamHandle {
 	handle: string;
 
 	constructor(json?: JsonObject) {
-		this.handle = json?.handle ?? "";
+		this.handle = json?.handle as string ?? "";
 	}
 }

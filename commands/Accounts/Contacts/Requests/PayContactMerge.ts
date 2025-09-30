@@ -26,7 +26,7 @@ export class PayContactMerge extends Payload implements IPaySingle {
 		return this.contact?.id?.toString() ?? "";
 	}
 
-	override createReply(json?: JsonObject): Reply {
+	override createReply(json: JsonObject): Reply {
 		return new RepContactMerge(json as JsonObject);
 	}
 }

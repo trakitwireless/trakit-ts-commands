@@ -1,7 +1,7 @@
-import { Session } from "@trakit/objects";
-import { Reply } from "../../../API/Responses/Reply";
+import { JsonObject, Session } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { ContentLoginCompany } from "../../../API/Responses/Content/ContentLoginCompany";
+import { Reply } from "../../../API/Responses/Reply";
 
 /**
  * A container for the requested {@link sessions}.
@@ -14,7 +14,7 @@ export abstract class RepSessionList extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.sessions = json?.sessions.map((s: any) => new Session(s)) ?? [];
+		this.sessions = (json?.sessions as JsonObject[])?.map((s: any) => new Session(s)) ?? [];
 	}
 }
 /**
@@ -28,7 +28,7 @@ export class RepSessionListByCompany extends RepSessionList {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = new ContentId(json?.company);
+		this.company = new ContentId(json?.company as JsonObject);
 	}
 }
 /**
@@ -42,6 +42,6 @@ export class RepSessionListByUser extends RepSessionList {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.user = new ContentLoginCompany(json?.user);
+		this.user = new ContentLoginCompany(json?.user as JsonObject);
 	}
 }

@@ -1,3 +1,4 @@
+import { JsonObject } from "@trakit/objects";
 import { Session } from "@trakit/objects";
 import { Reply } from "../../../API/Responses/Reply";
 
@@ -12,6 +13,6 @@ export class RepSessionGet extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.session = new Session(json?.session);
+		this.session = Session.fromJSON(json?.session as JsonObject);
 	}
 }

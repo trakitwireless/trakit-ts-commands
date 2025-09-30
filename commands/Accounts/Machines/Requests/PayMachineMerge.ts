@@ -26,7 +26,7 @@ export class PayMachineMerge extends Payload implements IPaySingle {
 		return this.machine?.key ?? "";
 	}
 
-	override createReply(json?: JsonObject): Reply {
+	override createReply(json: JsonObject): Reply {
 		return new RepMachineMerge(json as JsonObject);
 	}
 }

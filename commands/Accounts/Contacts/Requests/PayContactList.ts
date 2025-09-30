@@ -35,7 +35,7 @@ export class PayContactListByCompany extends PayContactList implements IPayListB
 		this.company = new ParamId(json?.company as JsonObject);
 	}
 
-	override createReply(json?: JsonObject): Reply {
+	override createReply(json: JsonObject): Reply {
 		return new RepContactListByCompany(json as JsonObject);
 	}
 }

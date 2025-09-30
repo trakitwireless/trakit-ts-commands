@@ -18,7 +18,7 @@ export class PayUserGroupGet extends PayUserGroup implements IPayDeletable {
 		this.includeDeleted = json?.includeDeleted as boolean ?? false;
 	}
 
-	override createReply(json?: JsonObject): Reply {
+	override createReply(json: JsonObject): Reply {
 		return new RepUserGroupGet(json as JsonObject);
 	}
 }

@@ -1,7 +1,8 @@
-import { ParamId } from "../../../API/Requests/Parameters/ParamId";
-import { ParamLogin } from "../../../API/Requests/Parameters/ParamLogin";
+import { JsonObject } from "@trakit/objects";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { IPayListByUser } from "../../../API/Requests/IPayListByUser";
+import { ParamId } from "../../../API/Requests/Parameters/ParamId";
+import { ParamLogin } from "../../../API/Requests/Parameters/ParamLogin";
 import { Payload } from "../../../API/Requests/Payload";
 import { Reply } from "../../../API/Responses/Reply";
 import { RepSessionListByCompany, RepSessionListByUser } from "../Responses/RepSessionList";
@@ -17,11 +18,11 @@ export class PaySessionListByCompany extends Payload implements IPayListByCompan
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.company = new ParamId(json?.company);
+		this.company = new ParamId(json?.company as JsonObject);
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepSessionListByCompany(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepSessionListByCompany(json as JsonObject);
 	}
 }
 
@@ -36,10 +37,10 @@ export class PaySessionListByUser extends Payload implements IPayListByUser {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.user = new ParamLogin(json?.user);
+		this.user = new ParamLogin(json?.user as JsonObject);
 	}
 
-	override createReply(json?: JsonObject): Reply {
-		return new RepSessionListByUser(json);
+	override createReply(json: JsonObject): Reply {
+		return new RepSessionListByUser(json as JsonObject);
 	}
 }

@@ -18,7 +18,7 @@ export class PayMachineBatchDelete extends Payload {
 		this.machines = (json?.machines as JsonObject[])?.map((m: any) => new ParamKey(m)) ?? [];
 	}
 
-	override createReply(json?: JsonObject): Reply {
+	override createReply(json: JsonObject): Reply {
 		return new RepMachineBatchDelete(json as JsonObject);
 	}
 }

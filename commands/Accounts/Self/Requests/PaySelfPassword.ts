@@ -36,7 +36,7 @@ export class PaySelfPassword extends Payload {
 		};
 	}
 
-	override createReply(json?: JsonObject): Reply {
+	override createReply(json: JsonObject): Reply {
 		return new RepSelfPassword(json as JsonObject);
 	}
 

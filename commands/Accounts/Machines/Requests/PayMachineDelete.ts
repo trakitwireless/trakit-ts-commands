@@ -7,7 +7,7 @@ import { PayMachine } from "./PayMachine";
  * Deletes an existing {@link Machine}.
  **/
 export class PayMachineDelete extends PayMachine { 
-	override createReply(json?: JsonObject): Reply {
+	override createReply(json: JsonObject): Reply {
 		return new RepMachineDelete(json as JsonObject);
 	}
 }
