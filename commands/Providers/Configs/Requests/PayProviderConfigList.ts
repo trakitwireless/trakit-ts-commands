@@ -4,7 +4,7 @@ import { ParamId } from "../../../API/Requests/Parameters/ParamId";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { Payload } from "../../../API/Requests/Payload";
-import { RepProviderConfigListByCompany } from "../Responses/RepProviderConfigList";
+import { RepProviderConfigListByCompany, RepProviderConfigListByProviderScript } from "../Responses/RepProviderConfigList";
 
 /**
  * Gets details of the specified {@link providerConfig}.
@@ -37,5 +37,23 @@ export class PayProviderConfigListByCompany extends PayProviderConfigList implem
 
 	override createReply(json: JsonObject): Reply {
 		return new RepProviderConfigListByCompany(json as JsonObject);
+	}
+}
+/**
+ * Contains the {@link ProviderScript.id} of the collection.
+ **/
+export class PayProviderConfigListByProviderScript extends PayProviderConfigList {
+	/**
+	 * Identifier of the {@link ProviderScript} to which this collection belongs.
+	 **/
+	providerScript: ParamId;
+
+	constructor(json?: JsonObject) {
+		super(json);
+		this.providerScript = new ParamId(json?.providerScript as JsonObject);
+	}
+
+	override createReply(json: JsonObject): Reply {
+		return new RepProviderConfigListByProviderScript(json as JsonObject);
 	}
 }
