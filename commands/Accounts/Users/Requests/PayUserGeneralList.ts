@@ -4,7 +4,7 @@ import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { ParamId } from "../../../API/Requests/Parameters/ParamId";
 import { Payload } from "../../../API/Requests/Payload";
 import { Reply } from "../../../API/Responses/Reply";
-import { RepUserGeneralListByCompany, RepUserGeneralListByGroup } from "../Responses/RepUserGeneralList";
+import { RepUserGeneralListByCompany, RepUserGeneralListByUserGroup } from "../Responses/RepUserGeneralList";
 
 /**
  * Gets a list of {@link UserGeneral}s.
@@ -42,7 +42,7 @@ export class PayUserGeneralListByCompany extends PayUserGeneralList implements I
 /**
  * Gets the list of {@link UserGeneral}s for the specified {@link Company}.
  **/
-export class PayUserGeneralListByGroup extends PayUserGeneralList {
+export class PayUserGeneralListByUserGroup extends PayUserGeneralList {
 	/**
 	 * Identifier of the {@link UserGroup} to which this collection belongs.
 	 **/
@@ -54,6 +54,6 @@ export class PayUserGeneralListByGroup extends PayUserGeneralList {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepUserGeneralListByGroup(json);
+		return new RepUserGeneralListByUserGroup(json);
 	}
 }

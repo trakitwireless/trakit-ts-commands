@@ -34,7 +34,7 @@ export class RepUserGeneralListByCompany extends RepUserGeneralList {
 /**
  * A container owner {@link UserGroup} of the collection.
  **/
-export class RepUserGeneralListByGroup extends RepUserGeneralList {
+export class RepUserGeneralListByUserGroup extends RepUserGeneralList {
 	/**
 	 * Identifier of the {@link UserGroup} to which this collection belongs.
 	 **/
