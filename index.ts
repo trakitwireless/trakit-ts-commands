@@ -87,6 +87,7 @@ import { RepUserListByCompany } from "./commands/Accounts/Users/Responses/RepUse
 import { RepUserMerge } from "./commands/Accounts/Users/Responses/RepUserMerge";
 import { ROUTE_DECODE, ROUTE_ENCODE } from "./commands/API/Geography/Polyline";
 import { IPayListByAsset } from "./commands/API/Requests/IPayListByAsset";
+import { IPayListByBillingProfile } from "./commands/API/Requests/IPayListByBillingProfile";
 import { IPayListByCompany } from "./commands/API/Requests/IPayListByCompany";
 import { IPayListByDate } from "./commands/API/Requests/IPayListByDate";
 import { IPayListById } from "./commands/API/Requests/IPayListById";
@@ -463,6 +464,7 @@ export {
 	type IParamBillingProfile,
 	type IParamCompany,
 	type IPayListByAsset,
+	type IPayListByBillingProfile,
 	type IPayListByCompany,
 	type IPayListByDate,
 	type IPayListById,
