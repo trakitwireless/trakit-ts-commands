@@ -432,9 +432,9 @@ import { RepReportTemplateGet } from "./commands/Reports/Templates/Responses/Rep
 import { RepReportTemplateList, RepReportTemplateListByCompany } from "./commands/Reports/Templates/Responses/RepReportTemplateList";
 import { RepReportTemplateMerge } from "./commands/Reports/Templates/Responses/RepReportTemplateMerge";
 import { SubscriptionType } from "./commands/WebSocket/Requests/Parameters/SubscriptionType";
+import { PaySubscriptionDelete } from "./commands/WebSocket/Requests/PaySubscriptionDelete";
 import { PaySubscriptionList } from "./commands/WebSocket/Requests/PaySubscriptionList";
 import { PaySubscriptionMerge } from "./commands/WebSocket/Requests/PaySubscriptionMerge";
-import { PaySubscriptionRemove } from "./commands/WebSocket/Requests/PaySubscriptionRemove";
 import { Subscription } from "./commands/WebSocket/Responses/Content/Subscription";
 import { RepSubscription } from "./commands/WebSocket/Responses/RepSubscription";
 import { RepSubscriptionList } from "./commands/WebSocket/Responses/RepSubscriptionList";
@@ -1050,9 +1050,8 @@ export {
 
 //#region WebSocket
 	export {
-		PaySubscriptionList,
+		PaySubscriptionDelete, PaySubscriptionList,
 		PaySubscriptionMerge,
-		PaySubscriptionRemove,
 		// Responses
 		RepSubscription,
 		RepSubscriptionList,
