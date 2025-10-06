@@ -34,7 +34,7 @@ export class RepUserAdvancedListByCompany extends RepUserAdvancedList {
 /**
  * A container owner {@link Company} of the collection.
  **/
-export class RepUserAdvancedListByGroup extends RepUserAdvancedList {
+export class RepUserAdvancedListByUserGroup extends RepUserAdvancedList {
 	/**
 	 * Identifier of the {@link UserGroup} to which this collection belongs.
 	 **/

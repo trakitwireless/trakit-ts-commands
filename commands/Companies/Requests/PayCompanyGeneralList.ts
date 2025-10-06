@@ -11,12 +11,23 @@ import { RepCompanyGeneralListByCompany } from "../Responses/RepCompanyGeneralLi
  **/
 export abstract class PayCompanyGeneralList extends Payload implements IPayDeletable {
 	/**
+	 * When set to true, the full tree of {@link Company|companies} is returned.
+	 * Otherwise, only the first-level child-{@link Company|companies} are included.
+	 **/
+	tree: boolean;
+	/**
+	 * When set to true, the parent {@link Company} is included in the results.
+	 **/
+	includeParent: boolean;
+	/**
 	 * When true, the command will also return a deleted {@link CompanyGeneral} (if it exists).
 	 **/
 	includeDeleted: boolean;
 
 	constructor(json?: JsonObject) {
 		super();
+		this.tree = json?.tree as boolean ?? true;
+		this.includeParent = json?.includeParent as boolean ?? true;
 		this.includeDeleted = !!json?.includeDeleted;
 	}
 }

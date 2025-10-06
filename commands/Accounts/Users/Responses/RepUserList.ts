@@ -34,7 +34,7 @@ export class RepUserListByCompany extends RepUserList {
 /**
  * Contains the {@link UserGroup.id} of the collection.
  **/
-export class RepUserListByGroup extends RepUserList {
+export class RepUserListByUserGroup extends RepUserList {
 	/**
 	 * Identifier of the {@link UserGroup} to which this collection belongs.
 	 **/

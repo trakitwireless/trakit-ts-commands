@@ -66,27 +66,28 @@ import { PaySessionListByCompany, PaySessionListByUser } from "./commands/Accoun
 import { SessionHandle } from "./commands/Accounts/Sessions/Responses/Content/SessionHandle";
 import { ParamUserMerge } from "./commands/Accounts/Users/Requests/Parameters/ParamUserMerge";
 import { PayUserAdvancedGet } from "./commands/Accounts/Users/Requests/PayUserAdvancedGet";
-import { PayUserAdvancedListByCompany, PayUserAdvancedListByGroup } from "./commands/Accounts/Users/Requests/PayUserAdvancedList";
+import { PayUserAdvancedListByCompany, PayUserAdvancedListByUserGroup } from "./commands/Accounts/Users/Requests/PayUserAdvancedList";
 import { PayUserBatchDelete } from "./commands/Accounts/Users/Requests/PayUserBatchDelete";
 import { PayUserBatchMerge } from "./commands/Accounts/Users/Requests/PayUserBatchMerge";
 import { PayUserDelete } from "./commands/Accounts/Users/Requests/PayUserDelete";
 import { PayUserGeneralGet } from "./commands/Accounts/Users/Requests/PayUserGeneralGet";
-import { PayUserGeneralListByCompany, PayUserGeneralListByGroup } from "./commands/Accounts/Users/Requests/PayUserGeneralList";
+import { PayUserGeneralListByCompany, PayUserGeneralListByUserGroup } from "./commands/Accounts/Users/Requests/PayUserGeneralList";
 import { PayUserListByCompany } from "./commands/Accounts/Users/Requests/PayUserList";
 import { PayUserMerge } from "./commands/Accounts/Users/Requests/PayUserMerge";
 import { PayUserRestore } from "./commands/Accounts/Users/Requests/PayUserRestore";
 import { RepUserAdvancedGet } from "./commands/Accounts/Users/Responses/RepUserAdvancedGet";
-import { RepUserAdvancedListByCompany, RepUserAdvancedListByGroup } from "./commands/Accounts/Users/Responses/RepUserAdvancedList";
+import { RepUserAdvancedListByCompany, RepUserAdvancedListByUserGroup } from "./commands/Accounts/Users/Responses/RepUserAdvancedList";
 import { RepUserBatchDelete } from "./commands/Accounts/Users/Responses/RepUserBatchDelete";
 import { RepUserBatchMerge } from "./commands/Accounts/Users/Responses/RepUserBatchMerge";
 import { RepUserDelete } from "./commands/Accounts/Users/Responses/RepUserDelete";
 import { RepUserGeneralGet } from "./commands/Accounts/Users/Responses/RepUserGeneralGet";
-import { RepUserGeneralListByCompany, RepUserGeneralListByGroup } from "./commands/Accounts/Users/Responses/RepUserGeneralList";
+import { RepUserGeneralListByCompany, RepUserGeneralListByUserGroup } from "./commands/Accounts/Users/Responses/RepUserGeneralList";
 import { RepUserGet } from "./commands/Accounts/Users/Responses/RepUserGet";
 import { RepUserListByCompany } from "./commands/Accounts/Users/Responses/RepUserList";
 import { RepUserMerge } from "./commands/Accounts/Users/Responses/RepUserMerge";
 import { ROUTE_DECODE, ROUTE_ENCODE } from "./commands/API/Geography/Polyline";
 import { IPayListByAsset } from "./commands/API/Requests/IPayListByAsset";
+import { IPayListByBillingProfile } from "./commands/API/Requests/IPayListByBillingProfile";
 import { IPayListByCompany } from "./commands/API/Requests/IPayListByCompany";
 import { IPayListByDate } from "./commands/API/Requests/IPayListByDate";
 import { IPayListById } from "./commands/API/Requests/IPayListById";
@@ -431,9 +432,9 @@ import { RepReportTemplateGet } from "./commands/Reports/Templates/Responses/Rep
 import { RepReportTemplateList, RepReportTemplateListByCompany } from "./commands/Reports/Templates/Responses/RepReportTemplateList";
 import { RepReportTemplateMerge } from "./commands/Reports/Templates/Responses/RepReportTemplateMerge";
 import { SubscriptionType } from "./commands/WebSocket/Requests/Parameters/SubscriptionType";
+import { PaySubscriptionDelete } from "./commands/WebSocket/Requests/PaySubscriptionDelete";
 import { PaySubscriptionList } from "./commands/WebSocket/Requests/PaySubscriptionList";
 import { PaySubscriptionMerge } from "./commands/WebSocket/Requests/PaySubscriptionMerge";
-import { PaySubscriptionRemove } from "./commands/WebSocket/Requests/PaySubscriptionRemove";
 import { Subscription } from "./commands/WebSocket/Responses/Content/Subscription";
 import { RepSubscription } from "./commands/WebSocket/Responses/RepSubscription";
 import { RepSubscriptionList } from "./commands/WebSocket/Responses/RepSubscriptionList";
@@ -463,6 +464,7 @@ export {
 	type IParamBillingProfile,
 	type IParamCompany,
 	type IPayListByAsset,
+	type IPayListByBillingProfile,
 	type IPayListByCompany,
 	type IPayListByDate,
 	type IPayListById,
@@ -563,13 +565,13 @@ export {
 	PaySessionListByUser,
 	PayUserAdvancedGet,
 	PayUserAdvancedListByCompany,
-	PayUserAdvancedListByGroup,
+	PayUserAdvancedListByUserGroup,
 	PayUserBatchDelete,
 	PayUserBatchMerge,
 	PayUserDelete,
 	PayUserGeneralGet,
 	PayUserGeneralListByCompany,
-	PayUserGeneralListByGroup,
+	PayUserGeneralListByUserGroup,
 	PayUserGroupBatchDelete,
 	PayUserGroupBatchMerge,
 	PayUserGroupDelete,
@@ -599,13 +601,13 @@ export {
 	RepSelfPreferences,
 	RepUserAdvancedGet,
 	RepUserAdvancedListByCompany,
-	RepUserAdvancedListByGroup,
+	RepUserAdvancedListByUserGroup,
 	RepUserBatchDelete,
 	RepUserBatchMerge,
 	RepUserDelete,
 	RepUserGeneralGet,
 	RepUserGeneralListByCompany,
-	RepUserGeneralListByGroup,
+	RepUserGeneralListByUserGroup,
 	RepUserGet,
 	RepUserGroupBatchDelete,
 	RepUserGroupBatchMerge,
@@ -1048,9 +1050,8 @@ export {
 
 //#region WebSocket
 	export {
-		PaySubscriptionList,
+		PaySubscriptionDelete, PaySubscriptionList,
 		PaySubscriptionMerge,
-		PaySubscriptionRemove,
 		// Responses
 		RepSubscription,
 		RepSubscriptionList,

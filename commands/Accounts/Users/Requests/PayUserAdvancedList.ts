@@ -4,7 +4,7 @@ import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { ParamId } from "../../../API/Requests/Parameters/ParamId";
 import { Payload } from "../../../API/Requests/Payload";
 import { Reply } from "../../../API/Responses/Reply";
-import { RepUserAdvancedListByCompany, RepUserAdvancedListByGroup } from "../Responses/RepUserAdvancedList";
+import { RepUserAdvancedListByCompany, RepUserAdvancedListByUserGroup } from "../Responses/RepUserAdvancedList";
 
 /**
  * Gets a list of {@link UserAdvanced}s.
@@ -42,7 +42,7 @@ export class PayUserAdvancedListByCompany extends PayUserAdvancedList implements
 /**
  * Gets the list of {@link UserAdvanced}s for the specified {@link UserGroup}.
  **/
-export class PayUserAdvancedListByGroup extends PayUserAdvancedList {
+export class PayUserAdvancedListByUserGroup extends PayUserAdvancedList {
 	/**
 	 * Identifier of the {@link Group} to which this collection belongs.
 	 **/
@@ -54,6 +54,6 @@ export class PayUserAdvancedListByGroup extends PayUserAdvancedList {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepUserAdvancedListByGroup(json);
+		return new RepUserAdvancedListByUserGroup(json);
 	}
 }
