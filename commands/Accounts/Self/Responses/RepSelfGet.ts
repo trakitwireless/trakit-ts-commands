@@ -48,8 +48,8 @@ export class RepSelfGet extends Reply {
 	 **/
 	serverTime: Date;
 
-	constructor(json: JsonObject) {
-		super(json);
+	constructor(json?: JsonObject) {
+		super(json as JsonObject);
 		this.serverTime = utility.date(json?.serverTime as datetime);
 		this.ghostId = json?.ghostId as guid ?? "";
 		this.expiry = utility.date(json?.expiry as datetime);
