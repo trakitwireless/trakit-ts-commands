@@ -60,9 +60,9 @@ export abstract class Payload {
 	 * Payloads are serialized conditionally before being sent to the server.
 	 * @returns 
 	 */
-	toJSON(): any {
-		return utility.isNaN(this.reqId)
-			? {}
-			: { reqId: this.reqId };
+	toJSON(): JsonObject {
+		return utility.isntNaN(this.reqId)
+			? { reqId: this.reqId }
+			: {};
 	}
 }
