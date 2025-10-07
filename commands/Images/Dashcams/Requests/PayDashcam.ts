@@ -1,6 +1,6 @@
 import { JsonObject } from "@trakit/objects";
+import { ParamGuid } from "commands/API/Requests/Parameters/ParamGuid";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
-import { ParamId } from "../../../API/Requests/Parameters/ParamId";
 import { Payload } from "../../../API/Requests/Payload";
 
 /**
@@ -10,11 +10,11 @@ export abstract class PayDashcam extends Payload implements IPaySingle {
 	/**
 	 * An object to contain the "id" of the {@link Dashcam}.
 	 **/
-	dashcam: ParamId;
+	dashcam: ParamGuid;
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.dashcam = new ParamId(json?.dashcam as JsonObject);
+		this.dashcam = new ParamGuid(json?.dashcam as JsonObject);
 	}
 
 	/**

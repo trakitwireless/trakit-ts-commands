@@ -1,23 +1,28 @@
-import { JsonObject } from "@trakit/objects";
+import { DashcamMediaType, JsonObject, nothing } from "@trakit/objects";
+import { PayListByDate } from "commands/API/Requests/PayListByDate";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { ParamId } from "../../../API/Requests/Parameters/ParamId";
-import { Payload } from "../../../API/Requests/Payload";
 import { Reply } from "../../../API/Responses/Reply";
 import { RepDashcamListByCompany } from "../Responses/RepDashcamList";
 
 /**
  * Gets details of the specified {@link dashcam}.
  **/
-export abstract class PayDashcamList extends Payload implements IPayDeletable {
+export abstract class PayDashcamList extends PayListByDate implements IPayDeletable {
 	/**
 	 * When true, the command will also return  deleted {@link Dashcam}s.
 	 **/
 	includeDeleted: boolean;
+	/**
+	 * The type of dashcam data to include.
+	 */
+	kind: DashcamMediaType | nothing;
 
 	constructor(json?: JsonObject) {
 		super(json);
 		this.includeDeleted = !!json?.includeDeleted;
+		this.kind = DashcamMediaType[json?.kind as DashcamMediaType];
 	}
 }
 /**
