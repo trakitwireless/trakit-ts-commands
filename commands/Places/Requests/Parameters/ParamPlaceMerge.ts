@@ -121,7 +121,7 @@ export class ParamPlaceMerge extends ParamMergeSubscribable {
 		if (this.labels?.length) json.labels = [...this.labels];
 		if (this.colour) json.colour = this.colour;
 		if (this.anchor?.isValid()) json.anchor = this.anchor.toJSON();
-		if (!utility.isNaN(this.radius)) json.radius = this.radius;
+		if (utility.isntNaN(this.radius)) json.radius = this.radius;
 		if (this.shape?.length) json.shape = this.shape.map((item: LatLng) => item.toJSON());
 		if (this.pictures?.length) json.pictures = [...this.pictures];
 		if (this.reference) json.reference = this.reference;
@@ -143,6 +143,6 @@ export class ParamPlaceMerge extends ParamMergeSubscribable {
 	/// </summary>
 	validRadius(): boolean {
 		return this.kind === PlaceType.radial
-			&& !utility.isNaN(this.radius);
+			&& utility.isntNaN(this.radius);
 	}
 }
