@@ -1,4 +1,4 @@
-import { JsonObject } from "@trakit/objects";
+import { JsonObject, JsonValue, nothing } from "@trakit/objects";
 import { ErrorDetail } from "./ErrorDetail";
 import { ErrorDetailType } from "./ErrorDetailType";
 
@@ -18,10 +18,15 @@ export class ErrorDetailStack extends ErrorDetail {
 	 * The full stack trace if available.
 	 **/
 	stack: string;
+	/**
+	 * The value associated with the error, if any.
+	 */
+	value: any;
 
 	constructor(json: JsonObject) {
 		super();
 		this.message = json?.message as string ?? "";
 		this.stack = json?.stack as string ?? "";
+		this.value = json?.value;
 	}
 }
