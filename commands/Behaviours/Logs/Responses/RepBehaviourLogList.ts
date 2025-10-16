@@ -10,6 +10,7 @@ export abstract class RepBehaviourLogList extends Reply {
 	 * The list of requested {@link BehaviourLog}s.
 	 **/
 	behaviourLogs: BehaviourLog[] | nothing;
+	
 	constructor(json: JsonObject) {
 		super(json);
 		this.behaviourLogs = (json?.behaviourLogs as JsonObject[])?.map((item: any) => new BehaviourLog(item));
@@ -19,14 +20,42 @@ export abstract class RepBehaviourLogList extends Reply {
 /**
  * Contains the {@link Company.id} of the collection.
  **/
-export class RepBehaviourLogListByCompany extends RepBehaviourLogList {
+export class RepBehaviourLogListByAsset extends RepBehaviourLogList {
 	/**
-	 * Identifier of the {@link Company} to which this collection belongs.
+	 * Identifier of the {@link Asset} to which this collection belongs.
 	 **/
-	company: ContentId | nothing;
+	asset: ContentId | nothing;
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.company = ContentId.fromJSON(json?.company as JsonObject);
+		this.asset = ContentId.fromJSON(json?.asset as JsonObject);
+	}
+}
+/**
+ * Contains the {@link Company.id} of the collection.
+ **/
+export class RepBehaviourLogListByBehaviour extends RepBehaviourLogList {
+	/**
+	 * Identifier of the {@link Behaviour} to which this collection belongs.
+	 **/
+	behaviour: ContentId | nothing;
+
+	constructor(json: JsonObject) {
+		super(json);
+		this.behaviour = ContentId.fromJSON(json?.behaviour as JsonObject);
+	}
+}
+/**
+ * Contains the {@link Company.id} of the collection.
+ **/
+export class RepBehaviourLogListByScript extends RepBehaviourLogList {
+	/**
+	 * Identifier of the {@link BehaviourScript} to which this collection belongs.
+	 **/
+	behaviourScript: ContentId | nothing;
+
+	constructor(json: JsonObject) {
+		super(json);
+		this.behaviourScript = ContentId.fromJSON(json?.behaviourScript as JsonObject);
 	}
 }

@@ -1,18 +1,46 @@
 import { JsonObject, nothing } from "@trakit/objects";
-import { ContentIdDeleted } from "../../../API/Responses/Content/ContentIdDeleted";
+import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { Reply } from "../../../API/Responses/Reply";
 
 /**
  * A container for the {@link behaviourLog}.
  **/
-export class RepBehaviourLogBatchDelete extends Reply {
+export class RepBehaviourLogBatchDeleteByAsset extends Reply {
 	/**
-	 * Details about deleting/restoring the requested {@link BehaviourLog}.
+	 * Identifier of the {@link Asset} to which this collection belongs.
 	 **/
-	behaviourLogs: ContentIdDeleted[] | nothing;
+	asset: ContentId | nothing;
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.behaviourLogs = (json?.behaviourLogs as JsonObject[])?.map((item: any) => new ContentIdDeleted(item));
+		this.asset = ContentId.fromJSON(json?.asset as JsonObject);
+	}
+}
+/**
+ * A container for the {@link behaviourLog}.
+ **/
+export class RepBehaviourLogBatchDeleteByBehaviour extends Reply {
+	/**
+	 * Identifier of the {@link Behaviour} to which this collection belongs.
+	 **/
+	behaviour: ContentId | nothing;
+
+	constructor(json: JsonObject) {
+		super(json);
+		this.behaviour = ContentId.fromJSON(json?.behaviour as JsonObject);
+	}
+}
+/**
+ * A container for the {@link behaviourLog}.
+ **/
+export class RepBehaviourLogBatchDeleteByScript extends Reply {
+	/**
+	 * Identifier of the {@link BehaviourScript} to which this collection belongs.
+	 **/
+	behaviourScript: ContentId | nothing;
+
+	constructor(json: JsonObject) {
+		super(json);
+		this.behaviourScript = ContentId.fromJSON(json?.behaviourScript as JsonObject);
 	}
 }

@@ -213,10 +213,10 @@ import { RepBehaviourDelete } from "./commands/Behaviours/Behaviours/Responses/R
 import { RepBehaviourGet } from "./commands/Behaviours/Behaviours/Responses/RepBehaviourGet";
 import { RepBehaviourListByCompany } from "./commands/Behaviours/Behaviours/Responses/RepBehaviourList";
 import { RepBehaviourMerge } from "./commands/Behaviours/Behaviours/Responses/RepBehaviourMerge";
-import { PayBehaviourLogBatchDelete } from "./commands/Behaviours/Logs/Requests/PayBehaviourLogBatchDelete";
-import { PayBehaviourLogListByCompany } from "./commands/Behaviours/Logs/Requests/PayBehaviourLogList";
-import { RepBehaviourLogBatchDelete } from "./commands/Behaviours/Logs/Responses/RepBehaviourLogBatchDelete";
-import { RepBehaviourLogListByCompany } from "./commands/Behaviours/Logs/Responses/RepBehaviourLogList";
+import { PayBehaviourLogBatchDeleteByAsset, PayBehaviourLogBatchDeleteByBehaviour, PayBehaviourLogBatchDeleteByScript } from "./commands/Behaviours/Logs/Requests/PayBehaviourLogBatchDelete";
+import { PayBehaviourLogListByAsset, PayBehaviourLogListByBehaviour, PayBehaviourLogListByScript } from "./commands/Behaviours/Logs/Requests/PayBehaviourLogList";
+import { RepBehaviourLogBatchDeleteByAsset, RepBehaviourLogBatchDeleteByBehaviour, RepBehaviourLogBatchDeleteByScript } from "./commands/Behaviours/Logs/Responses/RepBehaviourLogBatchDelete";
+import { RepBehaviourLogListByAsset, RepBehaviourLogListByBehaviour, RepBehaviourLogListByScript } from "./commands/Behaviours/Logs/Responses/RepBehaviourLogList";
 import { ParamBehaviourScriptMerge } from "./commands/Behaviours/Scripts/Requests/Parameters/ParamBehaviourScriptMerge";
 import { PayBehaviourScript } from "./commands/Behaviours/Scripts/Requests/PayBehaviourScript";
 import { PayBehaviourScriptBatchDelete } from "./commands/Behaviours/Scripts/Requests/PayBehaviourScriptBatchDelete";
@@ -713,10 +713,14 @@ export {
 		PayBehaviourBatchMerge,
 		PayBehaviourDelete,
 		PayBehaviourGet,
-		PayBehaviourListByCompany,
+		PayBehaviourListByCompany, PayBehaviourLogBatchDeleteByAsset,
+		PayBehaviourLogBatchDeleteByBehaviour,
+		PayBehaviourLogBatchDeleteByScript,
+		// Requests
+		PayBehaviourLogListByAsset,
+		PayBehaviourLogListByBehaviour,
+		PayBehaviourLogListByScript,
 		// Logs Requests
-		PayBehaviourLogBatchDelete,
-		PayBehaviourLogListByCompany,
 		PayBehaviourMerge,
 		PayBehaviourRestore,
 		PayBehaviourScript,
@@ -732,10 +736,14 @@ export {
 		RepBehaviourBatchMerge,
 		RepBehaviourDelete,
 		RepBehaviourGet,
-		RepBehaviourListByCompany,
+		RepBehaviourListByCompany, RepBehaviourLogBatchDeleteByAsset,
+		RepBehaviourLogBatchDeleteByBehaviour,
+		RepBehaviourLogBatchDeleteByScript,
+		// Responses
+		RepBehaviourLogListByAsset,
+		RepBehaviourLogListByBehaviour,
+		RepBehaviourLogListByScript,
 		// Logs Responses
-		RepBehaviourLogBatchDelete,
-		RepBehaviourLogListByCompany,
 		RepBehaviourMerge,
 		// Scripts Responses
 		RepBehaviourScriptBatchDelete,
