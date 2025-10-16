@@ -191,6 +191,7 @@ import { PayAssetRestore } from "./commands/Assets/Requests/PayAssetRestore";
 import { PayAssetSuspend } from "./commands/Assets/Requests/PayAssetSuspend";
 import { RepAssetAdvancedGet } from "./commands/Assets/Responses/RepAssetAdvancedGet";
 import { RepAssetAdvancedListByCompany, RepAssetAdvancedListByCompanyAndLabels, RepAssetAdvancedListByCompanyAndRefPairs } from "./commands/Assets/Responses/RepAssetAdvancedList";
+import { RepAssetBatchMerge } from "./commands/Assets/Responses/RepAssetBatchMerge";
 import { RepAssetDelete } from "./commands/Assets/Responses/RepAssetDelete";
 import { RepAssetDispatchGet } from "./commands/Assets/Responses/RepAssetDispatchGet";
 import { RepAssetDispatchListByCompany, RepAssetDispatchListByCompanyAndLabels, RepAssetDispatchListByCompanyAndRefPairs } from "./commands/Assets/Responses/RepAssetDispatchList";
@@ -266,32 +267,63 @@ import { RepCompanyResellerGet } from "./commands/Companies/Responses/RepCompany
 import { RepCompanyResellerList, RepCompanyResellerListByCompany } from "./commands/Companies/Responses/RepCompanyResellerList";
 import { RepCompanyStylesGet } from "./commands/Companies/Responses/RepCompanyStylesGet";
 import { RepCompanyStylesList, RepCompanyStylesListByCompany } from "./commands/Companies/Responses/RepCompanyStylesList";
+import { ParamDispatchJobCancel } from "./commands/Dispatch/DispatchJob/Requests/Parameters/ParamDispatchJobCancel";
+import { ParamDispatchJobChange } from "./commands/Dispatch/DispatchJob/Requests/Parameters/ParamDispatchJobChange";
+import { ParamDispatchJobMerge } from "./commands/Dispatch/DispatchJob/Requests/Parameters/ParamDispatchJobMerge";
+import { ParamDispatchStepChange } from "./commands/Dispatch/DispatchJob/Requests/Parameters/ParamDispatchStepChange";
+import { ParamDispatchStepMerge } from "./commands/Dispatch/DispatchJob/Requests/Parameters/ParamDispatchStepMerge";
 import { PayDispatchJob } from "./commands/Dispatch/DispatchJob/Requests/PayDispatchJob";
+import { PayDispatchJobBatchCancel } from "./commands/Dispatch/DispatchJob/Requests/PayDispatchJobBatchCancel";
+import { PayDispatchJobBatchChange } from "./commands/Dispatch/DispatchJob/Requests/PayDispatchJobBatchChange";
 import { PayDispatchJobBatchDelete } from "./commands/Dispatch/DispatchJob/Requests/PayDispatchJobBatchDelete";
 import { PayDispatchJobBatchMerge } from "./commands/Dispatch/DispatchJob/Requests/PayDispatchJobBatchMerge";
+import { PayDispatchJobCancel } from "./commands/Dispatch/DispatchJob/Requests/PayDispatchJobCancel";
+import { PayDispatchJobChange } from "./commands/Dispatch/DispatchJob/Requests/PayDispatchJobChange";
 import { PayDispatchJobDelete } from "./commands/Dispatch/DispatchJob/Requests/PayDispatchJobDelete";
 import { PayDispatchJobGet } from "./commands/Dispatch/DispatchJob/Requests/PayDispatchJobGet";
+import { PayDispatchJobListByAsset, PayDispatchJobListByAssetAndLabels, PayDispatchJobListByAssetAndRefPairs, PayDispatchJobListByCompany, PayDispatchJobListByCompanyAndLabels, PayDispatchJobListByCompanyAndRefPairs, PayDispatchJobListByUnassigned, PayDispatchJobListByUnassignedAndLabels, PayDispatchJobListByUnassignedAndRefPairs } from "./commands/Dispatch/DispatchJob/Requests/PayDispatchJobList";
 import { PayDispatchJobMerge } from "./commands/Dispatch/DispatchJob/Requests/PayDispatchJobMerge";
 import { PayDispatchJobRestore } from "./commands/Dispatch/DispatchJob/Requests/PayDispatchJobRestore";
 import { RepDispatchJobBatchDelete } from "./commands/Dispatch/DispatchJob/Responses/RepDispatchJobBatchDelete";
 import { RepDispatchJobBatchMerge } from "./commands/Dispatch/DispatchJob/Responses/RepDispatchJobBatchMerge";
 import { RepDispatchJobDelete } from "./commands/Dispatch/DispatchJob/Responses/RepDispatchJobDelete";
 import { RepDispatchJobGet } from "./commands/Dispatch/DispatchJob/Responses/RepDispatchJobGet";
+import { RepDispatchJobListByAsset, RepDispatchJobListByAssetAndLabels, RepDispatchJobListByAssetAndRefPairs, RepDispatchJobListByCompany, RepDispatchJobListByCompanyAndLabels, RepDispatchJobListByCompanyAndRefPairs } from "./commands/Dispatch/DispatchJob/Responses/RepDispatchJobList";
 import { RepDispatchJobMerge } from "./commands/Dispatch/DispatchJob/Responses/RepDispatchJobMerge";
+import { ParamDispatchTaskMerge } from "./commands/Dispatch/DispatchTask/Requests/Parameters/ParamDispatchTaskMerge";
 import { PayDispatchTask } from "./commands/Dispatch/DispatchTask/Requests/PayDispatchTask";
 import { PayDispatchTaskBatchDelete } from "./commands/Dispatch/DispatchTask/Requests/PayDispatchTaskBatchDelete";
 import { PayDispatchTaskBatchMerge } from "./commands/Dispatch/DispatchTask/Requests/PayDispatchTaskBatchMerge";
 import { PayDispatchTaskDelete } from "./commands/Dispatch/DispatchTask/Requests/PayDispatchTaskDelete";
 import { PayDispatchTaskGet } from "./commands/Dispatch/DispatchTask/Requests/PayDispatchTaskGet";
+import { PayDispatchTaskList, PayDispatchTaskListByAsset, PayDispatchTaskListByAssetAndRefPairs, PayDispatchTaskListByCompany, PayDispatchTaskListByCompanyAndRefPairs } from "./commands/Dispatch/DispatchTask/Requests/PayDispatchTaskList";
 import { PayDispatchTaskMerge } from "./commands/Dispatch/DispatchTask/Requests/PayDispatchTaskMerge";
 import { PayDispatchTaskRestore } from "./commands/Dispatch/DispatchTask/Requests/PayDispatchTaskRestore";
 import { RepDispatchTaskBatchDelete } from "./commands/Dispatch/DispatchTask/Responses/RepDispatchTaskBatchDelete";
 import { RepDispatchTaskBatchMerge } from "./commands/Dispatch/DispatchTask/Responses/RepDispatchTaskBatchMerge";
 import { RepDispatchTaskDelete } from "./commands/Dispatch/DispatchTask/Responses/RepDispatchTaskDelete";
 import { RepDispatchTaskGet } from "./commands/Dispatch/DispatchTask/Responses/RepDispatchTaskGet";
+import { RepDispatchTaskList, RepDispatchTaskListByAsset, RepDispatchTaskListByAssetAndRefPairs, RepDispatchTaskListByCompany, RepDispatchTaskListByCompanyAndRefPairs } from "./commands/Dispatch/DispatchTask/Responses/RepDispatchTaskList";
 import { RepDispatchTaskMerge } from "./commands/Dispatch/DispatchTask/Responses/RepDispatchTaskMerge";
+import { PayDocumentDelete } from "./commands/Hosting/Documents/Requests/PayDocumentDelete";
+import { PayDocumentGet } from "./commands/Hosting/Documents/Requests/PayDocumentGet";
+import { PayDocumentListByCompany } from "./commands/Hosting/Documents/Requests/PayDocumentList";
+import { PayDocumentMerge } from "./commands/Hosting/Documents/Requests/PayDocumentMerge";
+import { PayDocumentRestore } from "./commands/Hosting/Documents/Requests/PayDocumentRestore";
+import { RepDocumentDelete } from "./commands/Hosting/Documents/Responses/RepDocumentDelete";
+import { RepDocumentGet } from "./commands/Hosting/Documents/Responses/RepDocumentGet";
+import { RepDocumentListByCompany } from "./commands/Hosting/Documents/Responses/RepDocumentList";
+import { RepDocumentMerge } from "./commands/Hosting/Documents/Responses/RepDocumentMerge";
+import { PayFormResultBatchMerge } from "./commands/Hosting/FormResults/Requests/PayFormResultBatchMerge";
+import { PayFormResultDelete } from "./commands/Hosting/FormResults/Requests/PayFormResultDelete";
+import { PayFormResultGet } from "./commands/Hosting/FormResults/Requests/PayFormResultGet";
+import { PayFormResultListByCompany } from "./commands/Hosting/FormResults/Requests/PayFormResultList";
+import { PayFormResultMerge } from "./commands/Hosting/FormResults/Requests/PayFormResultMerge";
+import { PayFormResultRestore } from "./commands/Hosting/FormResults/Requests/PayFormResultRestore";
+import { RepFormResultBatchMerge } from "./commands/Hosting/FormResults/Responses/RepFormResultBatchMerge";
 import { RepFormResultDelete } from "./commands/Hosting/FormResults/Responses/RepFormResultDelete";
 import { RepFormResultGet } from "./commands/Hosting/FormResults/Responses/RepFormResultGet";
+import { RepFormResultListByCompany } from "./commands/Hosting/FormResults/Responses/RepFormResultList";
 import { RepFormResultMerge } from "./commands/Hosting/FormResults/Responses/RepFormResultMerge";
 import { ParamFormField } from "./commands/Hosting/FormTemplates/Requests/Parameters/ParamFormField";
 import { ParamFormTemplateMerge } from "./commands/Hosting/FormTemplates/Requests/Parameters/ParamFormTemplateMerge";
@@ -697,8 +729,7 @@ export {
 		PayAssetDispatchGet,
 		PayAssetDispatchListByCompany,
 		PayAssetDispatchListByCompanyAndLabels,
-		PayAssetDispatchListByCompanyAndRefPairs,
-		PayAssetGeneralGet,
+		PayAssetDispatchListByCompanyAndRefPairs, PayAssetDispatchMerge, PayAssetGeneralGet,
 		PayAssetGeneralListByCompany,
 		PayAssetGeneralListByCompanyAndLabels,
 		PayAssetGeneralListByCompanyAndRefPairs,
@@ -713,13 +744,11 @@ export {
 		RepAssetAdvancedGet,
 		RepAssetAdvancedListByCompany,
 		RepAssetAdvancedListByCompanyAndLabels,
-		RepAssetAdvancedListByCompanyAndRefPairs,
-		RepAssetDelete,
+		RepAssetAdvancedListByCompanyAndRefPairs, RepAssetBatchMerge, RepAssetDelete,
 		RepAssetDispatchGet,
 		RepAssetDispatchListByCompany,
 		RepAssetDispatchListByCompanyAndLabels,
-		RepAssetDispatchListByCompanyAndRefPairs,
-		RepAssetGeneralGet,
+		RepAssetDispatchListByCompanyAndRefPairs, RepAssetDispatchMerge, RepAssetGeneralGet,
 		RepAssetGeneralListByCompany,
 		RepAssetGeneralListByCompanyAndLabels,
 		RepAssetGeneralListByCompanyAndRefPairs,
@@ -805,11 +834,10 @@ export {
 		PayCompanyMerge,
 		PayCompanyPoliciesGet,
 		PayCompanyPoliciesList,
-		PayCompanyPoliciesListByCompany,
-		PayCompanyResellerGet,
+		PayCompanyPoliciesListByCompany, PayCompanyResellerDelete, PayCompanyResellerGet,
 		PayCompanyResellerList,
-		PayCompanyResellerListByCompany,
-		PayCompanyRestore,
+		PayCompanyResellerListByCompany, PayCompanyResellerMerge,
+		PayCompanyResellerRestore, PayCompanyRestore,
 		PayCompanyStylesGet,
 		PayCompanyStylesList,
 		PayCompanyStylesListByCompany,
@@ -827,11 +855,10 @@ export {
 		RepCompanyMerge,
 		RepCompanyPoliciesGet,
 		RepCompanyPoliciesList,
-		RepCompanyPoliciesListByCompany,
-		RepCompanyResellerGet,
+		RepCompanyPoliciesListByCompany, RepCompanyResellerDelete, RepCompanyResellerGet,
 		RepCompanyResellerList,
-		RepCompanyResellerListByCompany,
-		RepCompanyStylesGet,
+		RepCompanyResellerListByCompany, RepCompanyResellerMerge,
+		RepCompanyResellerRestore, RepCompanyStylesGet,
 		RepCompanyStylesList,
 		RepCompanyStylesListByCompany
 	};
@@ -839,35 +866,42 @@ export {
 
 //#region Dispatch
 	export {
-		// DispatchJob Requests
-		PayDispatchJob,
-		PayDispatchJobBatchDelete,
-		PayDispatchJobBatchMerge,
-		PayDispatchJobDelete,
-		PayDispatchJobGet,
-		PayDispatchJobMerge,
+		ParamDispatchJobCancel, ParamDispatchJobChange, ParamDispatchJobMerge, ParamDispatchStepChange, ParamDispatchStepMerge,
+		ParamDispatchTaskMerge,
+		PayDispatchJob, PayDispatchJobBatchCancel, PayDispatchJobBatchChange, PayDispatchJobBatchDelete, PayDispatchJobBatchMerge, PayDispatchJobCancel, PayDispatchJobChange, PayDispatchJobDelete, PayDispatchJobGet, PayDispatchJobListByAsset,
+		PayDispatchJobListByAssetAndLabels,
+		PayDispatchJobListByAssetAndRefPairs, PayDispatchJobListByCompany,
+		PayDispatchJobListByCompanyAndLabels,
+		PayDispatchJobListByCompanyAndRefPairs, PayDispatchJobListByUnassigned,
+		PayDispatchJobListByUnassignedAndLabels,
+		PayDispatchJobListByUnassignedAndRefPairs, PayDispatchJobMerge,
 		PayDispatchJobRestore,
-		// DispatchTask Requests
 		PayDispatchTask,
-		PayDispatchTaskBatchDelete,
-		PayDispatchTaskBatchMerge,
-		PayDispatchTaskDelete,
+		PayDispatchTaskBatchDelete, PayDispatchTaskBatchMerge, PayDispatchTaskDelete,
 		PayDispatchTaskGet,
-		PayDispatchTaskMerge,
-		PayDispatchTaskRestore,
-		// DispatchJob Responses
-		RepDispatchJobBatchDelete,
-		RepDispatchJobBatchMerge,
-		RepDispatchJobDelete,
-		RepDispatchJobGet,
-		RepDispatchJobMerge,
-		// DispatchTask Responses
+		PayDispatchTaskList,
+		PayDispatchTaskListByAsset,
+		PayDispatchTaskListByAssetAndRefPairs,
+		PayDispatchTaskListByCompany,
+		PayDispatchTaskListByCompanyAndRefPairs, PayDispatchTaskMerge,
+		PayDispatchTaskRestore, RepDispatchJobBatchDelete, RepDispatchJobBatchMerge, RepDispatchJobCancel, RepDispatchJobCancel,
+		RepDispatchJobChange, RepDispatchJobDelete, RepDispatchJobGet, RepDispatchJobListByAsset,
+		RepDispatchJobListByAssetAndLabels,
+		RepDispatchJobListByAssetAndRefPairs, RepDispatchJobListByCompany,
+		RepDispatchJobListByCompanyAndLabels,
+		RepDispatchJobListByCompanyAndRefPairs, RepDispatchJobListByUnassigned,
+		RepDispatchJobListByUnassignedAndLabels,
+		RepDispatchJobListByUnassignedAndRefPairs, RepDispatchJobMerge,
 		RepDispatchTaskBatchDelete,
 		RepDispatchTaskBatchMerge,
 		RepDispatchTaskDelete,
-		RepDispatchTaskGet,
-		RepDispatchTaskMerge
+		RepDispatchTaskGet, RepDispatchTaskList,
+		RepDispatchTaskListByAsset,
+		RepDispatchTaskListByAssetAndRefPairs,
+		RepDispatchTaskListByCompany, RepDispatchTaskListByCompanyAndLabels,
+		RepDispatchTaskListByCompanyAndRefPairs, RepDispatchTaskMerge
 	};
+
 //#endregion Dispatch
 
 //#region Messaging
@@ -880,7 +914,17 @@ export {
 	export {
 		// FormTemplates Parameters
 		ParamFormField,
-		ParamFormTemplateMerge,
+		ParamFormTemplateMerge, PayDocumentDelete,
+		PayDocumentGet,
+		PayDocumentListByCompany,
+		PayDocumentMerge,
+		PayDocumentRestore,
+		PayFormResultBatchMerge,
+		PayFormResultDelete,
+		PayFormResultGet,
+		PayFormResultListByCompany,
+		PayFormResultMerge,
+		PayFormResultRestore,
 		// FormTemplates Requests
 		PayFormTemplate,
 		PayFormTemplateBatchDelete,
@@ -889,11 +933,13 @@ export {
 		PayFormTemplateGet,
 		PayFormTemplateListByCompany,
 		PayFormTemplateMerge,
-		PayFormTemplateRestore,
+		PayFormTemplateRestore, RepDocumentDelete,
+		RepDocumentGet,
+		RepDocumentListByCompany,
+		RepDocumentMerge, RepFormResultBatchMerge,
 		// FormResults Responses
 		RepFormResultDelete,
-		RepFormResultGet,
-		RepFormResultMerge,
+		RepFormResultGet, RepFormResultListByCompany, RepFormResultMerge,
 		// FormTemplates Responses
 		RepFormTemplateBatchDelete,
 		RepFormTemplateBatchMerge,
@@ -909,7 +955,9 @@ export {
 		// Requests
 		ParamIconMerge,
 		// Pictures Requests
-		ParamPictureMerge, PayIcon,
+		ParamPictureMerge, PayDashcamDataGet,
+		PayDashcamDataListByCompany,
+		PayDashcamLiveListByCompany, PayIcon,
 		PayIconBatchDelete,
 		PayIconBatchMerge,
 		PayIconDelete,
@@ -925,7 +973,9 @@ export {
 		PayPictureList,
 		PayPictureListByCompany,
 		PayPictureMerge,
-		PayPictureRestore,
+		PayPictureRestore, RepDashcamDataGet,
+		RepDashcamDataListByCompany,
+		RepDashcamLiveListByCompany,
 		// Responses
 		RepIconBatchDelete,
 		RepIconBatchMerge,
