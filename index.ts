@@ -1,9 +1,10 @@
 /**
  * Command definitions that work with our various APIs.
  * {@link https://github.com/trakitwireless/trakit-ts-commands|TypeScript documentation.}
- * Last updated on Thu Sept 26 2025 15:28 
+ * Last updated on Oct 16 2025 9:38 
  * @copyright Trak-iT Wireless Inc. 2025
  */
+
 import { ParamContactMerge } from "./commands/Accounts/Contacts/Requests/Parameters/ParamContactMerge";
 import { PayContact } from "./commands/Accounts/Contacts/Requests/PayContact";
 import { PayContactBatchDelete } from "./commands/Accounts/Contacts/Requests/PayContactBatchDelete";
@@ -62,8 +63,12 @@ import { RepSelfPassword } from "./commands/Accounts/Self/Responses/RepSelfPassw
 import { RepSelfPreferences } from "./commands/Accounts/Self/Responses/RepSelfPreferences";
 import { ParamHandle } from "./commands/Accounts/Sessions/Requests/Parameters/ParamHandle";
 import { PaySessionDelete } from "./commands/Accounts/Sessions/Requests/PaySessionDelete";
+import { PaySessionGet } from "./commands/Accounts/Sessions/Requests/PaySessionGet";
 import { PaySessionListByCompany, PaySessionListByUser } from "./commands/Accounts/Sessions/Requests/PaySessionList";
 import { SessionHandle } from "./commands/Accounts/Sessions/Responses/Content/SessionHandle";
+import { RepSessionDelete } from "./commands/Accounts/Sessions/Responses/RepSessionDelete";
+import { RepSessionGet } from "./commands/Accounts/Sessions/Responses/RepSessionGet";
+import { RepSessionListByCompany, RepSessionListByUser } from "./commands/Accounts/Sessions/Responses/RepSessionList";
 import { ParamUserMerge } from "./commands/Accounts/Users/Requests/Parameters/ParamUserMerge";
 import { PayUserAdvancedGet } from "./commands/Accounts/Users/Requests/PayUserAdvancedGet";
 import { PayUserAdvancedListByCompany, PayUserAdvancedListByUserGroup } from "./commands/Accounts/Users/Requests/PayUserAdvancedList";
@@ -72,6 +77,7 @@ import { PayUserBatchMerge } from "./commands/Accounts/Users/Requests/PayUserBat
 import { PayUserDelete } from "./commands/Accounts/Users/Requests/PayUserDelete";
 import { PayUserGeneralGet } from "./commands/Accounts/Users/Requests/PayUserGeneralGet";
 import { PayUserGeneralListByCompany, PayUserGeneralListByUserGroup } from "./commands/Accounts/Users/Requests/PayUserGeneralList";
+import { PayUserGet } from "./commands/Accounts/Users/Requests/PayUserGet";
 import { PayUserListByCompany } from "./commands/Accounts/Users/Requests/PayUserList";
 import { PayUserMerge } from "./commands/Accounts/Users/Requests/PayUserMerge";
 import { PayUserRestore } from "./commands/Accounts/Users/Requests/PayUserRestore";
@@ -226,15 +232,38 @@ import { RepBehaviourScriptDelete } from "./commands/Behaviours/Scripts/Response
 import { RepBehaviourScriptGet } from "./commands/Behaviours/Scripts/Responses/RepBehaviourScriptGet";
 import { RepBehaviourScriptListByCompany } from "./commands/Behaviours/Scripts/Responses/RepBehaviourScriptList";
 import { RepBehaviourScriptMerge } from "./commands/Behaviours/Scripts/Responses/RepBehaviourScriptMerge";
+import { PayCompany } from "./commands/Companies/Requests/PayCompany";
+import { PayCompanyBatchDelete } from "./commands/Companies/Requests/PayCompanyBatchDelete";
+import { PayCompanyBatchMerge } from "./commands/Companies/Requests/PayCompanyBatchMerge";
+import { PayCompanyDelete } from "./commands/Companies/Requests/PayCompanyDelete";
+import { PayCompanyDirectoryGet } from "./commands/Companies/Requests/PayCompanyDirectoryGet";
+import { PayCompanyDirectoryList, PayCompanyDirectoryListByCompany } from "./commands/Companies/Requests/PayCompanyDirectoryList";
+import { PayCompanyGeneralGet } from "./commands/Companies/Requests/PayCompanyGeneralGet";
+import { PayCompanyGeneralList, PayCompanyGeneralListByCompany } from "./commands/Companies/Requests/PayCompanyGeneralList";
+import { PayCompanyGet } from "./commands/Companies/Requests/PayCompanyGet";
+import { PayCompanyMerge } from "./commands/Companies/Requests/PayCompanyMerge";
+import { PayCompanyPoliciesGet } from "./commands/Companies/Requests/PayCompanyPoliciesGet";
+import { PayCompanyPoliciesList, PayCompanyPoliciesListByCompany } from "./commands/Companies/Requests/PayCompanyPoliciesList";
+import { PayCompanyResellerGet } from "./commands/Companies/Requests/PayCompanyResellerGet";
+import { PayCompanyResellerList, PayCompanyResellerListByCompany } from "./commands/Companies/Requests/PayCompanyResellerList";
+import { PayCompanyRestore } from "./commands/Companies/Requests/PayCompanyRestore";
+import { PayCompanyStylesGet } from "./commands/Companies/Requests/PayCompanyStylesGet";
+import { PayCompanyStylesList, PayCompanyStylesListByCompany } from "./commands/Companies/Requests/PayCompanyStylesList";
+import { RepCompanyBatchDelete } from "./commands/Companies/Responses/RepCompanyBatchDelete";
+import { RepCompanyBatchMerge } from "./commands/Companies/Responses/RepCompanyBatchMerge";
+import { RepCompanyDelete } from "./commands/Companies/Responses/RepCompanyDelete";
+import { RepCompanyDirectoryGet } from "./commands/Companies/Responses/RepCompanyDirectoryGet";
+import { RepCompanyDirectoryList, RepCompanyDirectoryListByCompany } from "./commands/Companies/Responses/RepCompanyDirectoryList";
 import { RepCompanyGeneralGet } from "./commands/Companies/Responses/RepCompanyGeneralGet";
+import { RepCompanyGeneralList, RepCompanyGeneralListByCompany } from "./commands/Companies/Responses/RepCompanyGeneralList";
 import { RepCompanyGet } from "./commands/Companies/Responses/RepCompanyGet";
 import { RepCompanyMerge } from "./commands/Companies/Responses/RepCompanyMerge";
 import { RepCompanyPoliciesGet } from "./commands/Companies/Responses/RepCompanyPoliciesGet";
-import { RepCompanyPoliciesListByCompany } from "./commands/Companies/Responses/RepCompanyPoliciesList";
+import { RepCompanyPoliciesList, RepCompanyPoliciesListByCompany } from "./commands/Companies/Responses/RepCompanyPoliciesList";
 import { RepCompanyResellerGet } from "./commands/Companies/Responses/RepCompanyResellerGet";
-import { RepCompanyResellerListByCompany } from "./commands/Companies/Responses/RepCompanyResellerList";
+import { RepCompanyResellerList, RepCompanyResellerListByCompany } from "./commands/Companies/Responses/RepCompanyResellerList";
 import { RepCompanyStylesGet } from "./commands/Companies/Responses/RepCompanyStylesGet";
-import { RepCompanyStylesListByCompany } from "./commands/Companies/Responses/RepCompanyStylesList";
+import { RepCompanyStylesList, RepCompanyStylesListByCompany } from "./commands/Companies/Responses/RepCompanyStylesList";
 import { PayDispatchJob } from "./commands/Dispatch/DispatchJob/Requests/PayDispatchJob";
 import { PayDispatchJobBatchDelete } from "./commands/Dispatch/DispatchJob/Requests/PayDispatchJobBatchDelete";
 import { PayDispatchJobBatchMerge } from "./commands/Dispatch/DispatchJob/Requests/PayDispatchJobBatchMerge";
@@ -278,24 +307,35 @@ import { RepFormTemplateDelete } from "./commands/Hosting/FormTemplates/Response
 import { RepFormTemplateGet } from "./commands/Hosting/FormTemplates/Responses/RepFormTemplateGet";
 import { RepFormTemplateListByCompany } from "./commands/Hosting/FormTemplates/Responses/RepFormTemplateList";
 import { RepFormTemplateMerge } from "./commands/Hosting/FormTemplates/Responses/RepFormTemplateMerge";
+import { ParamIconMerge } from "./commands/Images/Icons/Requests/Parameters/ParamIconMerge";
+import { PayIcon } from "./commands/Images/Icons/Requests/PayIcon";
+import { PayIconBatchDelete } from "./commands/Images/Icons/Requests/PayIconBatchDelete";
+import { PayIconBatchMerge } from "./commands/Images/Icons/Requests/PayIconBatchMerge";
+import { PayIconDelete } from "./commands/Images/Icons/Requests/PayIconDelete";
+import { PayIconGet } from "./commands/Images/Icons/Requests/PayIconGet";
+import { PayIconList, PayIconListByCompany } from "./commands/Images/Icons/Requests/PayIconList";
+import { PayIconMerge } from "./commands/Images/Icons/Requests/PayIconMerge";
+import { PayIconRestore } from "./commands/Images/Icons/Requests/PayIconRestore";
 import { RepIconBatchDelete } from "./commands/Images/Icons/Responses/RepIconBatchDelete";
 import { RepIconBatchMerge } from "./commands/Images/Icons/Responses/RepIconBatchMerge";
 import { RepIconDelete } from "./commands/Images/Icons/Responses/RepIconDelete";
 import { RepIconGet } from "./commands/Images/Icons/Responses/RepIconGet";
+import { RepIconList, RepIconListByCompany } from "./commands/Images/Icons/Responses/RepIconList";
 import { RepIconMerge } from "./commands/Images/Icons/Responses/RepIconMerge";
+import { ParamPictureMerge } from "./commands/Images/Pictures/Requests/Parameters/ParamPictureMerge";
 import { PayPicture } from "./commands/Images/Pictures/Requests/PayPicture";
 import { PayPictureBatchDelete } from "./commands/Images/Pictures/Requests/PayPictureBatchDelete";
 import { PayPictureBatchMerge } from "./commands/Images/Pictures/Requests/PayPictureBatchMerge";
 import { PayPictureDelete } from "./commands/Images/Pictures/Requests/PayPictureDelete";
 import { PayPictureGet } from "./commands/Images/Pictures/Requests/PayPictureGet";
-import { PayPictureListByCompany } from "./commands/Images/Pictures/Requests/PayPictureList";
+import { PayPictureList, PayPictureListByCompany } from "./commands/Images/Pictures/Requests/PayPictureList";
 import { PayPictureMerge } from "./commands/Images/Pictures/Requests/PayPictureMerge";
 import { PayPictureRestore } from "./commands/Images/Pictures/Requests/PayPictureRestore";
 import { RepPictureBatchDelete } from "./commands/Images/Pictures/Responses/RepPictureBatchDelete";
 import { RepPictureBatchMerge } from "./commands/Images/Pictures/Responses/RepPictureBatchMerge";
 import { RepPictureDelete } from "./commands/Images/Pictures/Responses/RepPictureDelete";
 import { RepPictureGet } from "./commands/Images/Pictures/Responses/RepPictureGet";
-import { RepPictureListByCompany } from "./commands/Images/Pictures/Responses/RepPictureList";
+import { RepPictureList, RepPictureListByCompany } from "./commands/Images/Pictures/Responses/RepPictureList";
 import { RepPictureMerge } from "./commands/Images/Pictures/Responses/RepPictureMerge";
 import { PayMaintenanceJob } from "./commands/Maintenance/Jobs/Requests/PayMaintenanceJob";
 import { PayMaintenanceJobBatchDelete } from "./commands/Maintenance/Jobs/Requests/PayMaintenanceJobBatchDelete";
@@ -555,19 +595,15 @@ export {
 	PaySelfLogout,
 	PaySelfPassword,
 	PaySelfPreferences,
-	PaySessionDelete,
-	PaySessionListByCompany,
-	PaySessionListByUser,
-	PayUserAdvancedGet,
-	PayUserAdvancedListByCompany,
+	PaySessionDelete, PaySessionGet, PaySessionListByCompany,
+	PaySessionListByUser, PayUserAdvancedGet, PayUserAdvancedListByCompany,
 	PayUserAdvancedListByUserGroup,
 	PayUserBatchDelete,
 	PayUserBatchMerge,
 	PayUserDelete,
 	PayUserGeneralGet,
 	PayUserGeneralListByCompany,
-	PayUserGeneralListByUserGroup,
-	PayUserGroupBatchDelete,
+	PayUserGeneralListByUserGroup, PayUserGet, PayUserGroupBatchDelete,
 	PayUserGroupBatchMerge,
 	PayUserGroupDelete,
 	PayUserGroupGet,
@@ -592,8 +628,10 @@ export {
 	RepSelfGet,
 	RepSelfLogout,
 	RepSelfPassword,
-	RepSelfPreferences,
-	RepUserAdvancedGet,
+	RepSelfPreferences, RepSessionDelete,
+	RepSessionGet,
+	RepSessionListByCompany,
+	RepSessionListByUser, RepUserAdvancedGet,
 	RepUserAdvancedListByCompany,
 	RepUserAdvancedListByUserGroup,
 	RepUserBatchDelete,
@@ -714,14 +752,49 @@ export {
 
 //#region Company
 	export {
+		// Requests
+		PayCompany,
+		PayCompanyBatchDelete,
+		PayCompanyBatchMerge,
+		PayCompanyDelete,
+		PayCompanyDirectoryGet,
+		PayCompanyDirectoryList,
+		PayCompanyDirectoryListByCompany,
+		PayCompanyGeneralGet,
+		PayCompanyGeneralList,
+		PayCompanyGeneralListByCompany,
+		PayCompanyGet,
+		PayCompanyMerge,
+		PayCompanyPoliciesGet,
+		PayCompanyPoliciesList,
+		PayCompanyPoliciesListByCompany,
+		PayCompanyResellerGet,
+		PayCompanyResellerList,
+		PayCompanyResellerListByCompany,
+		PayCompanyRestore,
+		PayCompanyStylesGet,
+		PayCompanyStylesList,
+		PayCompanyStylesListByCompany,
+		// Responses
+		RepCompanyBatchDelete,
+		RepCompanyBatchMerge,
+		RepCompanyDelete,
+		RepCompanyDirectoryGet,
+		RepCompanyDirectoryList,
+		RepCompanyDirectoryListByCompany,
 		RepCompanyGeneralGet,
+		RepCompanyGeneralList,
+		RepCompanyGeneralListByCompany,
 		RepCompanyGet,
 		RepCompanyMerge,
 		RepCompanyPoliciesGet,
+		RepCompanyPoliciesList,
 		RepCompanyPoliciesListByCompany,
 		RepCompanyResellerGet,
+		RepCompanyResellerList,
 		RepCompanyResellerListByCompany,
 		RepCompanyStylesGet,
+		RepCompanyStylesList,
 		RepCompanyStylesListByCompany
 	};
 //#endregion Company
@@ -789,26 +862,41 @@ export {
 
 //#region Images
 	export {
+		// Requests
+		ParamIconMerge,
 		// Pictures Requests
-		PayPicture,
+		ParamPictureMerge, PayIcon,
+		PayIconBatchDelete,
+		PayIconBatchMerge,
+		PayIconDelete,
+		PayIconGet,
+		PayIconList,
+		PayIconListByCompany,
+		PayIconMerge,
+		PayIconRestore, PayPicture,
 		PayPictureBatchDelete,
 		PayPictureBatchMerge,
 		PayPictureDelete,
 		PayPictureGet,
+		PayPictureList,
 		PayPictureListByCompany,
 		PayPictureMerge,
 		PayPictureRestore,
-		// Icons Responses
+		// Responses
 		RepIconBatchDelete,
 		RepIconBatchMerge,
 		RepIconDelete,
 		RepIconGet,
+		RepIconList,
+		RepIconListByCompany,
 		RepIconMerge,
+		// Icons Responses (see Icons region)
 		// Pictures Responses
 		RepPictureBatchDelete,
 		RepPictureBatchMerge,
 		RepPictureDelete,
 		RepPictureGet,
+		RepPictureList,
 		RepPictureListByCompany,
 		RepPictureMerge
 	};
