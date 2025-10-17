@@ -1,7 +1,7 @@
-import { byte, DashcamMediaType, JsonObject, nothing } from "@trakit/objects";
-import { IPayListByAsset } from "commands/API/Requests/IPayListByAsset";
-import { ParamIdentifier } from "commands/API/Requests/Parameters/ParamIdentifier";
-import { PayListByDate } from "commands/API/Requests/PayListByDate";
+import { byte, DashcamMediaType, JsonObject, nothing, utility } from "@trakit/objects";
+import { IPayListByAsset } from "../../../API/Requests/IPayListByAsset";
+import { ParamIdentifier } from "../../../API/Requests/Parameters/ParamIdentifier";
+import { PayListByDate } from "../../../API/Requests/PayListByDate";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { ParamId } from "../../../API/Requests/Parameters/ParamId";
@@ -43,7 +43,7 @@ export class PayDashcamListByCompany extends PayDashcamList implements IPayListB
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepDashcamListByCompany(json as JsonObject);
+		return new RepDashcamListByCompany(json);
 	}
 }
 /**
@@ -61,7 +61,7 @@ export class PayDashcamListByAsset extends PayDashcamList implements IPayListByA
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepDashcamListByAsset(json as JsonObject);
+		return new RepDashcamListByAsset(json);
 	}
 }
 /**
@@ -79,7 +79,7 @@ export class PayDashcamListByProvider extends PayDashcamList {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepDashcamListByProvider(json as JsonObject);
+		return new RepDashcamListByProvider(json);
 	}
 }
 
@@ -101,6 +101,12 @@ export abstract class PayDashcamLiveList extends PayListByDate implements IPayDe
 		this.includeDeleted = !!json?.includeDeleted;
 		this.camera = json?.camera as byte;
 	}
+
+	override toJSON(): JsonObject {
+		const json = super.toJSON();
+		if (utility.isntNaN(this.camera)) json.camera = this.camera;
+		return json;
+	}
 }
 
 /**
@@ -118,7 +124,7 @@ export class PayDashcamLiveListByCompany extends PayDashcamLiveList implements I
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepDashcamLiveListByCompany(json as JsonObject);
+		return new RepDashcamLiveListByCompany(json);
 	}
 }
 /**
@@ -136,7 +142,7 @@ export class PayDashcamLiveListByAsset extends PayDashcamLiveList implements IPa
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepDashcamLiveListByAsset(json as JsonObject);
+		return new RepDashcamLiveListByAsset(json);
 	}
 }
 /**
@@ -154,6 +160,6 @@ export class PayDashcamLiveListByProvider extends PayDashcamLiveList {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepDashcamLiveListByProvider(json as JsonObject);
+		return new RepDashcamLiveListByProvider(json);
 	}
 }
