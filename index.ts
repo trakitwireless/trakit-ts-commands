@@ -247,8 +247,11 @@ import { PayCompanyGet } from "./commands/Companies/Requests/PayCompanyGet";
 import { PayCompanyMerge } from "./commands/Companies/Requests/PayCompanyMerge";
 import { PayCompanyPoliciesGet } from "./commands/Companies/Requests/PayCompanyPoliciesGet";
 import { PayCompanyPoliciesList, PayCompanyPoliciesListByCompany } from "./commands/Companies/Requests/PayCompanyPoliciesList";
+import { PayCompanyResellerDelete } from "./commands/Companies/Requests/PayCompanyResellerDelete";
 import { PayCompanyResellerGet } from "./commands/Companies/Requests/PayCompanyResellerGet";
 import { PayCompanyResellerList, PayCompanyResellerListByCompany } from "./commands/Companies/Requests/PayCompanyResellerList";
+import { PayCompanyResellerMerge } from "./commands/Companies/Requests/PayCompanyResellerMerge";
+import { PayCompanyResellerRestore } from "./commands/Companies/Requests/PayCompanyResellerRestore";
 import { PayCompanyRestore } from "./commands/Companies/Requests/PayCompanyRestore";
 import { PayCompanyStylesGet } from "./commands/Companies/Requests/PayCompanyStylesGet";
 import { PayCompanyStylesList, PayCompanyStylesListByCompany } from "./commands/Companies/Requests/PayCompanyStylesList";
@@ -263,8 +266,10 @@ import { RepCompanyGet } from "./commands/Companies/Responses/RepCompanyGet";
 import { RepCompanyMerge } from "./commands/Companies/Responses/RepCompanyMerge";
 import { RepCompanyPoliciesGet } from "./commands/Companies/Responses/RepCompanyPoliciesGet";
 import { RepCompanyPoliciesList, RepCompanyPoliciesListByCompany } from "./commands/Companies/Responses/RepCompanyPoliciesList";
+import { RepCompanyResellerDelete } from "./commands/Companies/Responses/RepCompanyResellerDelete";
 import { RepCompanyResellerGet } from "./commands/Companies/Responses/RepCompanyResellerGet";
 import { RepCompanyResellerList, RepCompanyResellerListByCompany } from "./commands/Companies/Responses/RepCompanyResellerList";
+import { RepCompanyResellerMerge } from "./commands/Companies/Responses/RepCompanyResellerMerge";
 import { RepCompanyStylesGet } from "./commands/Companies/Responses/RepCompanyStylesGet";
 import { RepCompanyStylesList, RepCompanyStylesListByCompany } from "./commands/Companies/Responses/RepCompanyStylesList";
 import { ParamDispatchJobCancel } from "./commands/Dispatch/DispatchJob/Requests/Parameters/ParamDispatchJobCancel";
@@ -819,7 +824,6 @@ export {
 
 //#region Company
 	export {
-		// Requests
 		PayCompany,
 		PayCompanyBatchDelete,
 		PayCompanyBatchMerge,
@@ -836,12 +840,10 @@ export {
 		PayCompanyPoliciesList,
 		PayCompanyPoliciesListByCompany, PayCompanyResellerDelete, PayCompanyResellerGet,
 		PayCompanyResellerList,
-		PayCompanyResellerListByCompany, PayCompanyResellerMerge,
-		PayCompanyResellerRestore, PayCompanyRestore,
+		PayCompanyResellerListByCompany, PayCompanyResellerMerge, PayCompanyResellerRestore, PayCompanyRestore,
 		PayCompanyStylesGet,
 		PayCompanyStylesList,
 		PayCompanyStylesListByCompany,
-		// Responses
 		RepCompanyBatchDelete,
 		RepCompanyBatchMerge,
 		RepCompanyDelete,
@@ -857,8 +859,7 @@ export {
 		RepCompanyPoliciesList,
 		RepCompanyPoliciesListByCompany, RepCompanyResellerDelete, RepCompanyResellerGet,
 		RepCompanyResellerList,
-		RepCompanyResellerListByCompany, RepCompanyResellerMerge,
-		RepCompanyResellerRestore, RepCompanyStylesGet,
+		RepCompanyResellerListByCompany, RepCompanyResellerMerge, RepCompanyStylesGet,
 		RepCompanyStylesList,
 		RepCompanyStylesListByCompany
 	};
@@ -884,24 +885,22 @@ export {
 		PayDispatchTaskListByAssetAndRefPairs,
 		PayDispatchTaskListByCompany,
 		PayDispatchTaskListByCompanyAndRefPairs, PayDispatchTaskMerge,
-		PayDispatchTaskRestore, RepDispatchJobBatchDelete, RepDispatchJobBatchMerge, RepDispatchJobCancel, RepDispatchJobCancel,
-		RepDispatchJobChange, RepDispatchJobDelete, RepDispatchJobGet, RepDispatchJobListByAsset,
+		PayDispatchTaskRestore, RepDispatchJobBatchDelete, RepDispatchJobBatchMerge,
+		RepDispatchJobDelete, RepDispatchJobGet, RepDispatchJobListByAsset,
 		RepDispatchJobListByAssetAndLabels,
 		RepDispatchJobListByAssetAndRefPairs, RepDispatchJobListByCompany,
 		RepDispatchJobListByCompanyAndLabels,
-		RepDispatchJobListByCompanyAndRefPairs, RepDispatchJobListByUnassigned,
-		RepDispatchJobListByUnassignedAndLabels,
-		RepDispatchJobListByUnassignedAndRefPairs, RepDispatchJobMerge,
+		RepDispatchJobListByCompanyAndRefPairs,
+		RepDispatchJobMerge,
 		RepDispatchTaskBatchDelete,
 		RepDispatchTaskBatchMerge,
 		RepDispatchTaskDelete,
 		RepDispatchTaskGet, RepDispatchTaskList,
 		RepDispatchTaskListByAsset,
 		RepDispatchTaskListByAssetAndRefPairs,
-		RepDispatchTaskListByCompany, RepDispatchTaskListByCompanyAndLabels,
+		RepDispatchTaskListByCompany,
 		RepDispatchTaskListByCompanyAndRefPairs, RepDispatchTaskMerge
 	};
-
 //#endregion Dispatch
 
 //#region Messaging
