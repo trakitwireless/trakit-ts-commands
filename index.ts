@@ -181,6 +181,7 @@ import { PayAssetBatchMerge } from "./commands/Assets/Requests/PayAssetBatchMerg
 import { PayAssetDelete } from "./commands/Assets/Requests/PayAssetDelete";
 import { PayAssetDispatchGet } from "./commands/Assets/Requests/PayAssetDispatchGet";
 import { PayAssetDispatchListByCompany, PayAssetDispatchListByCompanyAndLabels, PayAssetDispatchListByCompanyAndRefPairs } from "./commands/Assets/Requests/PayAssetDispatchList";
+import { PayAssetDispatchMerge } from "./commands/Assets/Requests/PayAssetDispatchMerge";
 import { PayAssetGeneralGet } from "./commands/Assets/Requests/PayAssetGeneralGet";
 import { PayAssetGeneralListByCompany, PayAssetGeneralListByCompanyAndLabels, PayAssetGeneralListByCompanyAndRefPairs } from "./commands/Assets/Requests/PayAssetGeneralList";
 import { PayAssetGet } from "./commands/Assets/Requests/PayAssetGet";
@@ -195,6 +196,7 @@ import { RepAssetBatchMerge } from "./commands/Assets/Responses/RepAssetBatchMer
 import { RepAssetDelete } from "./commands/Assets/Responses/RepAssetDelete";
 import { RepAssetDispatchGet } from "./commands/Assets/Responses/RepAssetDispatchGet";
 import { RepAssetDispatchListByCompany, RepAssetDispatchListByCompanyAndLabels, RepAssetDispatchListByCompanyAndRefPairs } from "./commands/Assets/Responses/RepAssetDispatchList";
+import { RepAssetDispatchMerge } from "./commands/Assets/Responses/RepAssetDispatchMerge";
 import { RepAssetGeneralGet } from "./commands/Assets/Responses/RepAssetGeneralGet";
 import { RepAssetGeneralListByCompany, RepAssetGeneralListByCompanyAndLabels, RepAssetGeneralListByCompanyAndRefPairs } from "./commands/Assets/Responses/RepAssetGeneralList";
 import { RepAssetGet } from "./commands/Assets/Responses/RepAssetGet";
