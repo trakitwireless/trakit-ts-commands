@@ -3,7 +3,7 @@ import { IPaySingle } from "../../API/Requests/IPaySingle";
 import { Payload } from "../../API/Requests/Payload";
 import { Reply } from "../../API/Responses/Reply";
 import { ParamCompanyResellerMerge } from "./Parameters/ParamCompanyResellerMerge";
-import { RepCompanyResellerMerge } from "./Responses/RepCompanyResellerMerge";
+import { RepCompanyResellerMerge } from "../Responses/RepCompanyResellerMerge";
 
 /**
  * Creates a new or updates an existing {@link Company}.

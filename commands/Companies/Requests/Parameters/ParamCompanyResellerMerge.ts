@@ -10,7 +10,7 @@ export class ParamCompanyResellerMerge extends ParamMergeSubscribable {
 	/**
 	 * The unique identifier of the company you want to update.
 	 **/
-	id: ulong | nothing;
+	id: ulong;
 	/**
 	 * The name of the branded service being provided to the seller's customers.
 	 **/
