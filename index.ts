@@ -346,6 +346,10 @@ import { RepFormTemplateDelete } from "./commands/Hosting/FormTemplates/Response
 import { RepFormTemplateGet } from "./commands/Hosting/FormTemplates/Responses/RepFormTemplateGet";
 import { RepFormTemplateListByCompany } from "./commands/Hosting/FormTemplates/Responses/RepFormTemplateList";
 import { RepFormTemplateMerge } from "./commands/Hosting/FormTemplates/Responses/RepFormTemplateMerge";
+import { PayDashcamGet } from "./commands/Images/Dashcams/Requests/PayDashcamGet";
+import { PayDashcamListByCompany, PayDashcamLiveListByCompany } from "./commands/Images/Dashcams/Requests/PayDashcamList";
+import { RepDashcamGet } from "./commands/Images/Dashcams/Responses/RepDashcamGet";
+import { RepDashcamListByCompany, RepDashcamLiveListByCompany } from "./commands/Images/Dashcams/Responses/RepDashcamList";
 import { ParamIconMerge } from "./commands/Images/Icons/Requests/Parameters/ParamIconMerge";
 import { PayIcon } from "./commands/Images/Icons/Requests/PayIcon";
 import { PayIconBatchDelete } from "./commands/Images/Icons/Requests/PayIconBatchDelete";
@@ -769,9 +773,7 @@ export {
 //#region Behaviours
 	export {
 		ParamBehaviourMerge,
-		// Scripts Requests
 		ParamBehaviourScriptMerge,
-		// Behaviours Requests
 		PayBehaviour,
 		PayBehaviourBatchDelete,
 		PayBehaviourBatchMerge,
@@ -780,11 +782,9 @@ export {
 		PayBehaviourListByCompany, PayBehaviourLogBatchDeleteByAsset,
 		PayBehaviourLogBatchDeleteByBehaviour,
 		PayBehaviourLogBatchDeleteByScript,
-		// Requests
 		PayBehaviourLogListByAsset,
 		PayBehaviourLogListByBehaviour,
 		PayBehaviourLogListByScript,
-		// Logs Requests
 		PayBehaviourMerge,
 		PayBehaviourRestore,
 		PayBehaviourScript,
@@ -795,7 +795,6 @@ export {
 		PayBehaviourScriptListByCompany,
 		PayBehaviourScriptMerge,
 		PayBehaviourScriptRestore,
-		// Behaviours Responses
 		RepBehaviourBatchDelete,
 		RepBehaviourBatchMerge,
 		RepBehaviourDelete,
@@ -803,13 +802,10 @@ export {
 		RepBehaviourListByCompany, RepBehaviourLogBatchDeleteByAsset,
 		RepBehaviourLogBatchDeleteByBehaviour,
 		RepBehaviourLogBatchDeleteByScript,
-		// Responses
 		RepBehaviourLogListByAsset,
 		RepBehaviourLogListByBehaviour,
 		RepBehaviourLogListByScript,
-		// Logs Responses
 		RepBehaviourMerge,
-		// Scripts Responses
 		RepBehaviourScriptBatchDelete,
 		RepBehaviourScriptBatchMerge,
 		RepBehaviourScriptDelete,
@@ -911,7 +907,6 @@ export {
 	
 //#region Hosting
 	export {
-		// FormTemplates Parameters
 		ParamFormField,
 		ParamFormTemplateMerge, PayDocumentDelete,
 		PayDocumentGet,
@@ -924,7 +919,6 @@ export {
 		PayFormResultListByCompany,
 		PayFormResultMerge,
 		PayFormResultRestore,
-		// FormTemplates Requests
 		PayFormTemplate,
 		PayFormTemplateBatchDelete,
 		PayFormTemplateBatchMerge,
@@ -936,10 +930,8 @@ export {
 		RepDocumentGet,
 		RepDocumentListByCompany,
 		RepDocumentMerge, RepFormResultBatchMerge,
-		// FormResults Responses
 		RepFormResultDelete,
 		RepFormResultGet, RepFormResultListByCompany, RepFormResultMerge,
-		// FormTemplates Responses
 		RepFormTemplateBatchDelete,
 		RepFormTemplateBatchMerge,
 		RepFormTemplateDelete,
@@ -951,11 +943,9 @@ export {
 
 //#region Images
 	export {
-		// Requests
 		ParamIconMerge,
-		// Pictures Requests
-		ParamPictureMerge, PayDashcamDataGet,
-		PayDashcamDataListByCompany,
+		ParamPictureMerge, PayDashcamGet,
+		PayDashcamListByCompany,
 		PayDashcamLiveListByCompany, PayIcon,
 		PayIconBatchDelete,
 		PayIconBatchMerge,
@@ -972,10 +962,9 @@ export {
 		PayPictureList,
 		PayPictureListByCompany,
 		PayPictureMerge,
-		PayPictureRestore, RepDashcamDataGet,
-		RepDashcamDataListByCompany,
+		PayPictureRestore, RepDashcamGet,
+		RepDashcamListByCompany,
 		RepDashcamLiveListByCompany,
-		// Responses
 		RepIconBatchDelete,
 		RepIconBatchMerge,
 		RepIconDelete,
@@ -983,8 +972,6 @@ export {
 		RepIconList,
 		RepIconListByCompany,
 		RepIconMerge,
-		// Icons Responses (see Icons region)
-		// Pictures Responses
 		RepPictureBatchDelete,
 		RepPictureBatchMerge,
 		RepPictureDelete,
@@ -997,7 +984,6 @@ export {
 
 //#region Maintenance
 	export {
-		// Jobs Requests
 		PayMaintenanceJob,
 		PayMaintenanceJobBatchDelete,
 		PayMaintenanceJobBatchMerge,
@@ -1006,7 +992,6 @@ export {
 		PayMaintenanceJobListByCompany,
 		PayMaintenanceJobMerge,
 		PayMaintenanceJobRestore,
-		// Schedules Requests
 		PayMaintenanceSchedule,
 		PayMaintenanceScheduleBatchDelete,
 		PayMaintenanceScheduleBatchMerge,
@@ -1015,14 +1000,12 @@ export {
 		PayMaintenanceScheduleListByCompany,
 		PayMaintenanceScheduleMerge,
 		PayMaintenanceScheduleRestore,
-		// Jobs Responses
 		RepMaintenanceJobBatchDelete,
 		RepMaintenanceJobBatchMerge,
 		RepMaintenanceJobDelete,
 		RepMaintenanceJobGet,
 		RepMaintenanceJobListByCompany,
 		RepMaintenanceJobMerge,
-		// Schedules Responses
 		RepMaintenanceScheduleBatchDelete,
 		RepMaintenanceScheduleBatchMerge,
 		RepMaintenanceScheduleDelete,
@@ -1034,9 +1017,8 @@ export {
 
 //#region Places
 	export {
-		// Requests Parameters
+
 		ParamPlaceMerge,
-		// Requests
 		PayPlace,
 		PayPlaceBatchDelete,
 		PayPlaceBatchMerge,
@@ -1045,7 +1027,6 @@ export {
 		PayPlaceListByCompany,
 		PayPlaceMerge,
 		PayPlaceRestore,
-		// Responses
 		RepPlaceBatchDelete,
 		RepPlaceBatchMerge,
 		RepPlaceDelete,
@@ -1148,12 +1129,9 @@ export {
 	export {
 		PaySubscriptionDelete, PaySubscriptionList,
 		PaySubscriptionMerge,
-		// Responses
 		RepSubscription,
 		RepSubscriptionList,
-		// Content
 		Subscription,
-		// Requests
 		SubscriptionType
 	};
 //#endregion WebSocket
