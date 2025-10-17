@@ -20,6 +20,6 @@ export class PayProviderRegistrationMerge extends Payload {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepProviderRegistrationMerge(json as JsonObject);
+		return new RepProviderRegistrationMerge(json);
 	}
 }

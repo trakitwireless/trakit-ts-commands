@@ -36,6 +36,6 @@ export class PayIconListByCompany extends PayIconList implements IPayListByCompa
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepIconListByCompany(json as JsonObject);
+		return new RepIconListByCompany(json);
 	}
 }

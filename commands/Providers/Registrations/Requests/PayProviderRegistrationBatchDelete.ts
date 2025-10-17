@@ -19,6 +19,6 @@ export class PayProviderRegistrationBatchDelete extends Payload {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepProviderRegistrationBatchDelete(json as JsonObject);
+		return new RepProviderRegistrationBatchDelete(json);
 	}
 }

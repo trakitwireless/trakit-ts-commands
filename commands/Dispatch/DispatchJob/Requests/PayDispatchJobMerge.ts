@@ -27,6 +27,6 @@ export class PayDispatchJobMerge extends Payload implements IPaySingle {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepDispatchJobMerge(json as JsonObject);
+		return new RepDispatchJobMerge(json);
 	}
 }

@@ -19,6 +19,6 @@ export class PayMaintenanceJobGet extends PayMaintenanceJob implements IPayDelet
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepMaintenanceJobGet(json as JsonObject);
+		return new RepMaintenanceJobGet(json);
 	}
 }

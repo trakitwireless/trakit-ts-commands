@@ -8,6 +8,6 @@ import { PayProviderConfig } from "./PayProviderConfig";
  **/
 export class PayProviderConfigDelete extends PayProviderConfig { 
 	override createReply(json: JsonObject): Reply {
-		return new RepProviderConfigDelete(json as JsonObject);
+		return new RepProviderConfigDelete(json);
 	}
 }

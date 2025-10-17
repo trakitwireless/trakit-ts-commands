@@ -27,6 +27,6 @@ export class PayDispatchJobCancel extends PayDispatchJobSpecial implements IPayS
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepDispatchJobMerge(json as JsonObject);
+		return new RepDispatchJobMerge(json);
 	}
 }

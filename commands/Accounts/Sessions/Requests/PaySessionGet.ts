@@ -19,6 +19,6 @@ export class PaySessionGet extends Payload {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepSessionGet(json as JsonObject);
+		return new RepSessionGet(json);
 	}
 }

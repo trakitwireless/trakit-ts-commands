@@ -19,6 +19,6 @@ export class PayCompanyStylesGet extends PayCompany implements IPayDeletable {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepCompanyStylesGet(json as JsonObject);
+		return new RepCompanyStylesGet(json);
 	}
 }

@@ -9,6 +9,6 @@ import { RepSubscriptionList } from "../Responses/RepSubscriptionList";
  **/
 export class PaySubscriptionList extends Payload { 
 	override createReply(json: JsonObject): Reply {
-		return new RepSubscriptionList(json as JsonObject);
+		return new RepSubscriptionList(json);
 	}
 }

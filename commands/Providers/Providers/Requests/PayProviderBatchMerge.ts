@@ -19,6 +19,6 @@ export class PayProviderBatchMerge extends Payload {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepProviderBatchMerge(json as JsonObject);
+		return new RepProviderBatchMerge(json);
 	}
 }

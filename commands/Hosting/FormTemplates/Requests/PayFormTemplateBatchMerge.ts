@@ -19,6 +19,6 @@ export class PayFormTemplateBatchMerge extends Payload {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepFormTemplateBatchMerge(json as JsonObject);
+		return new RepFormTemplateBatchMerge(json);
 	}
 }

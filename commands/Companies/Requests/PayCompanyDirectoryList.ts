@@ -36,6 +36,6 @@ export class PayCompanyDirectoryListByCompany extends PayCompanyDirectoryList im
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepCompanyDirectoryListByCompany(json as JsonObject);
+		return new RepCompanyDirectoryListByCompany(json);
 	}
 }

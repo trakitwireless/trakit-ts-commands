@@ -26,6 +26,6 @@ export class PayMaintenanceScheduleMerge extends Payload implements IPaySingle {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepMaintenanceScheduleMerge(json as JsonObject);
+		return new RepMaintenanceScheduleMerge(json);
 	}
 }

@@ -27,6 +27,6 @@ export class PayPlaceMerge extends Payload implements IPaySingle {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepPlaceMerge(json as JsonObject);
+		return new RepPlaceMerge(json);
 	}
 }

@@ -36,6 +36,6 @@ export class PayProviderConfigurationTypeListByCompany extends PayProviderConfig
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepProviderConfigurationTypeListByCompany(json as JsonObject);
+		return new RepProviderConfigurationTypeListByCompany(json);
 	}
 }

@@ -42,7 +42,7 @@ export class PayProviderControlListByCompany extends PayProviderControlList impl
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepProviderControlListByCompany(json as JsonObject);
+		return new RepProviderControlListByCompany(json);
 	}
 }
 /**
@@ -60,6 +60,6 @@ export class PayProviderControlListByConfig extends PayProviderControlList {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepProviderControlListByConfig(json as JsonObject);
+		return new RepProviderControlListByConfig(json);
 	}
 }

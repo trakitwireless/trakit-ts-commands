@@ -36,6 +36,6 @@ export class PayBehaviourScriptListByCompany extends PayBehaviourScriptList impl
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepBehaviourScriptListByCompany(json as JsonObject);
+		return new RepBehaviourScriptListByCompany(json);
 	}
 }

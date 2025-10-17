@@ -38,7 +38,7 @@ export class PayDispatchJobListByCompany extends PayDispatchJobList implements I
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepDispatchJobListByCompany(json as JsonObject);
+		return new RepDispatchJobListByCompany(json);
 	}
 }
 /**
@@ -56,7 +56,7 @@ export class PayDispatchJobListByCompanyAndLabels extends PayDispatchJobListByCo
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepDispatchJobListByCompanyAndLabels(json as JsonObject);
+		return new RepDispatchJobListByCompanyAndLabels(json);
 	}
 }
 /**
@@ -77,7 +77,7 @@ export class PayDispatchJobListByCompanyAndRefPairs extends PayDispatchJobListBy
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepDispatchJobListByCompanyAndRefPairs(json as JsonObject);
+		return new RepDispatchJobListByCompanyAndRefPairs(json);
 	}
 }
 
@@ -96,7 +96,7 @@ export class PayDispatchJobListByAsset extends PayDispatchJobList implements IPa
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepDispatchJobListByAsset(json as JsonObject);
+		return new RepDispatchJobListByAsset(json);
 	}
 }
 /**
@@ -114,7 +114,7 @@ export class PayDispatchJobListByAssetAndLabels extends PayDispatchJobListByAsse
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepDispatchJobListByAssetAndLabels(json as JsonObject);
+		return new RepDispatchJobListByAssetAndLabels(json);
 	}
 }
 /**
@@ -135,7 +135,7 @@ export class PayDispatchJobListByAssetAndRefPairs extends PayDispatchJobListByAs
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepDispatchJobListByAssetAndRefPairs(json as JsonObject);
+		return new RepDispatchJobListByAssetAndRefPairs(json);
 	}
 }
 

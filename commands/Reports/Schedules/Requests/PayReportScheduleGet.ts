@@ -19,6 +19,6 @@ export class PayReportScheduleGet extends PayReportSchedule implements IPayDelet
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepReportScheduleGet(json as JsonObject);
+		return new RepReportScheduleGet(json);
 	}
 }

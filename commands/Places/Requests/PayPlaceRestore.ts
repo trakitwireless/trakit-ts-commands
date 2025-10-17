@@ -8,6 +8,6 @@ import { PayPlace } from "./PayPlace";
  */
 export class PayPlaceRestore extends PayPlace { 
 	override createReply(json: JsonObject): Reply {
-		return new RepPlaceDelete(json as JsonObject);
+		return new RepPlaceDelete(json);
 	}
 }

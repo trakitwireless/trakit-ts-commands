@@ -37,7 +37,7 @@ export class PayAssetMessageListByCompany extends PayAssetMessageList implements
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepAssetMessageListByCompany(json as JsonObject);
+		return new RepAssetMessageListByCompany(json);
 	}
 }
 /**
@@ -55,6 +55,6 @@ export class PayAssetMessageListByAsset extends PayAssetMessageList implements I
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepAssetMessageListByAsset(json as JsonObject);
+		return new RepAssetMessageListByAsset(json);
 	}
 }

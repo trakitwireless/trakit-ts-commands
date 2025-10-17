@@ -8,6 +8,6 @@ import { PayProviderScript } from "./PayProviderScript";
  **/
 export class PayProviderScriptRestore extends PayProviderScript { 
 	override createReply(json: JsonObject): Reply {
-		return new RepProviderScriptDelete(json as JsonObject);
+		return new RepProviderScriptDelete(json);
 	}
 }

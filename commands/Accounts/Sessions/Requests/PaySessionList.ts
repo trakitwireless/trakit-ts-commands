@@ -22,7 +22,7 @@ export class PaySessionListByCompany extends Payload implements IPayListByCompan
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepSessionListByCompany(json as JsonObject);
+		return new RepSessionListByCompany(json);
 	}
 }
 
@@ -41,6 +41,6 @@ export class PaySessionListByUser extends Payload implements IPayListByUser {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepSessionListByUser(json as JsonObject);
+		return new RepSessionListByUser(json);
 	}
 }

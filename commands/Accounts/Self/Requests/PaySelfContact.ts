@@ -33,7 +33,7 @@ export class PaySelfContact extends Payload {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepSelfContact(json as JsonObject);
+		return new RepSelfContact(json);
 	}
 
 	override toJSON(): any {

@@ -8,6 +8,6 @@ import { PayBehaviourScript } from "./PayBehaviourScript";
  **/
 export class PayBehaviourScriptRestore extends PayBehaviourScript { 
 	override createReply(json: JsonObject): Reply {
-		return new RepBehaviourScriptDelete(json as JsonObject);
+		return new RepBehaviourScriptDelete(json);
 	}
 }

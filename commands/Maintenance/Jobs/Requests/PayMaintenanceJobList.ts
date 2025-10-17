@@ -36,6 +36,6 @@ export class PayMaintenanceJobListByCompany extends PayMaintenanceJobList implem
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepMaintenanceJobListByCompany(json as JsonObject);
+		return new RepMaintenanceJobListByCompany(json);
 	}
 }

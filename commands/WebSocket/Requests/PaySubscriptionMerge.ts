@@ -28,6 +28,6 @@ export class PaySubscriptionMerge extends Payload {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepSubscription(json as JsonObject);
+		return new RepSubscription(json);
 	}
 }

@@ -36,6 +36,6 @@ export class PayProviderScriptListByCompany extends PayProviderScriptList implem
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepProviderScriptListByCompany(json as JsonObject);
+		return new RepProviderScriptListByCompany(json);
 	}
 }

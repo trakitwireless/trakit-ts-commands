@@ -19,7 +19,7 @@ export class PayBehaviourLogBatchDeleteByAsset extends Payload {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepBehaviourLogBatchDeleteByAsset(json as JsonObject);
+		return new RepBehaviourLogBatchDeleteByAsset(json);
 	}
 }
 /**
@@ -37,7 +37,7 @@ export class PayBehaviourLogBatchDeleteByBehaviour extends Payload {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepBehaviourLogBatchDeleteByBehaviour(json as JsonObject);
+		return new RepBehaviourLogBatchDeleteByBehaviour(json);
 	}
 }
 /**
@@ -55,6 +55,6 @@ export class PayBehaviourLogBatchDeleteByScript extends Payload {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepBehaviourLogBatchDeleteByScript(json as JsonObject);
+		return new RepBehaviourLogBatchDeleteByScript(json);
 	}
 }

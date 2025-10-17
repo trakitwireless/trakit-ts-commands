@@ -19,6 +19,6 @@ export class PayProviderConfigurationGet extends PayProviderConfiguration implem
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepProviderConfigurationGet(json as JsonObject);
+		return new RepProviderConfigurationGet(json);
 	}
 }

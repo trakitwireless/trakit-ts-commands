@@ -35,6 +35,6 @@ export class PayMaintenanceScheduleListByCompany extends PayMaintenanceScheduleL
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepMaintenanceScheduleListByCompany(json as JsonObject);
+		return new RepMaintenanceScheduleListByCompany(json);
 	}
 }

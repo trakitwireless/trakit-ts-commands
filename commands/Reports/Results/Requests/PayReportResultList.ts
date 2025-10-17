@@ -36,6 +36,6 @@ export class PayReportResultListByCompany extends PayReportResultList implements
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepReportResultListByCompany(json as JsonObject);
+		return new RepReportResultListByCompany(json);
 	}
 }

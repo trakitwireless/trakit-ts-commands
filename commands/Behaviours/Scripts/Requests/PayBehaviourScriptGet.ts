@@ -19,6 +19,6 @@ export class PayBehaviourScriptGet extends PayBehaviourScript implements IPayDel
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepBehaviourScriptGet(json as JsonObject);
+		return new RepBehaviourScriptGet(json);
 	}
 }

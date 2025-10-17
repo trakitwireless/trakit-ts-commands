@@ -9,6 +9,6 @@ import { PaySubscriptionMerge } from "./PaySubscriptionMerge";
  **/
 export class PaySubscriptionDelete extends PaySubscriptionMerge { 
 	override createReply(json: JsonObject): Reply {
-		return new RepSubscription(json as JsonObject);
+		return new RepSubscription(json);
 	}
 }

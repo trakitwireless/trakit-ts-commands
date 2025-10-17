@@ -1,4 +1,4 @@
-import { byte, Dashcam, DashcamLive, JsonObject, nothing } from "@trakit/objects";
+import { Dashcam, DashcamLive, JsonObject, nothing } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { Reply } from "../../../API/Responses/Reply";
 

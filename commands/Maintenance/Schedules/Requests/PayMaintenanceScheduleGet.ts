@@ -19,6 +19,6 @@ export class PayMaintenanceScheduleGet extends PayMaintenanceSchedule implements
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepMaintenanceScheduleGet(json as JsonObject);
+		return new RepMaintenanceScheduleGet(json);
 	}
 }

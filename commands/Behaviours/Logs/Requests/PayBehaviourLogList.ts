@@ -36,7 +36,7 @@ export class PayBehaviourLogListByAsset extends PayBehaviourLogList implements I
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepBehaviourLogListByAsset(json as JsonObject);
+		return new RepBehaviourLogListByAsset(json);
 	}
 }
 /**
@@ -54,7 +54,7 @@ export class PayBehaviourLogListByBehaviour extends PayBehaviourLogList {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepBehaviourLogListByBehaviour(json as JsonObject);
+		return new RepBehaviourLogListByBehaviour(json);
 	}
 }
 /**
@@ -72,6 +72,6 @@ export class PayBehaviourLogListByScript extends PayBehaviourLogList {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepBehaviourLogListByScript(json as JsonObject);
+		return new RepBehaviourLogListByScript(json);
 	}
 }

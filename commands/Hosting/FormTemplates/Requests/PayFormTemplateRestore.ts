@@ -8,6 +8,6 @@ import { PayFormTemplate } from "./PayFormTemplate";
  */
 export class PayFormTemplateRestore extends PayFormTemplate { 
 	override createReply(json: JsonObject): Reply {
-		return new RepFormTemplateDelete(json as JsonObject);
+		return new RepFormTemplateDelete(json);
 	}
 }

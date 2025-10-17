@@ -19,6 +19,6 @@ export class PayProviderScriptGet extends PayProviderScript implements IPayDelet
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepProviderScriptGet(json as JsonObject);
+		return new RepProviderScriptGet(json);
 	}
 }

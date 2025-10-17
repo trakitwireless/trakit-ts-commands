@@ -19,6 +19,6 @@ export class PayDispatchJobGet extends PayDispatchJob implements IPayDeletable {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepDispatchJobGet(json as JsonObject);
+		return new RepDispatchJobGet(json);
 	}
 }

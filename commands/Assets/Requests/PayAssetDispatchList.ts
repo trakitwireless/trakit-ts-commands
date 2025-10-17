@@ -54,7 +54,7 @@ export class PayAssetDispatchListByCompany extends PayAssetDispatchList implemen
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepAssetDispatchListByCompany(json as JsonObject);
+		return new RepAssetDispatchListByCompany(json);
 	}
 }
 
@@ -74,7 +74,7 @@ export class PayAssetDispatchListByCompanyAndLabels extends PayAssetDispatchList
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepAssetDispatchListByCompanyAndLabels(json as JsonObject);
+		return new RepAssetDispatchListByCompanyAndLabels(json);
 	}
 }
 
@@ -96,6 +96,6 @@ export class PayAssetDispatchListByCompanyAndRefPairs extends PayAssetDispatchLi
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepAssetDispatchListByCompanyAndRefPairs(json as JsonObject);
+		return new RepAssetDispatchListByCompanyAndRefPairs(json);
 	}
 }

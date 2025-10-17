@@ -54,7 +54,7 @@ export class PayAssetAdvancedListByCompany extends PayAssetAdvancedList implemen
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepAssetAdvancedListByCompany(json as JsonObject);
+		return new RepAssetAdvancedListByCompany(json);
 	}
 }
 /**
@@ -73,7 +73,7 @@ export class PayAssetAdvancedListByCompanyAndLabels extends PayAssetAdvancedList
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepAssetAdvancedListByCompanyAndLabels(json as JsonObject);
+		return new RepAssetAdvancedListByCompanyAndLabels(json);
 	}
 }
 /**
@@ -94,6 +94,6 @@ export class PayAssetAdvancedListByCompanyAndRefPairs extends PayAssetAdvancedLi
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepAssetAdvancedListByCompanyAndRefPairs(json as JsonObject);
+		return new RepAssetAdvancedListByCompanyAndRefPairs(json);
 	}
 }

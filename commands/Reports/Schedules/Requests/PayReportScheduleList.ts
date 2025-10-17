@@ -36,6 +36,6 @@ export class PayReportScheduleListByCompany extends PayReportScheduleList implem
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepReportScheduleListByCompany(json as JsonObject);
+		return new RepReportScheduleListByCompany(json);
 	}
 }

@@ -8,6 +8,6 @@ import { PayFormResult } from "./PayFormResult";
  */
 export class PayFormResultDelete extends PayFormResult { 
 	override createReply(json: JsonObject): Reply {
-		return new RepFormResultDelete(json as JsonObject);
+		return new RepFormResultDelete(json);
 	}
 }

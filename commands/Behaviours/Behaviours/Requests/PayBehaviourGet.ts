@@ -19,6 +19,6 @@ export class PayBehaviourGet extends PayBehaviour implements IPayDeletable {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepBehaviourGet(json as JsonObject);
+		return new RepBehaviourGet(json);
 	}
 }

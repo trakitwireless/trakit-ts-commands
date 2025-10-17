@@ -36,7 +36,7 @@ export class PayUserListByCompany extends PayUserList implements IPayListByCompa
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepUserListByCompany(json as JsonObject);
+		return new RepUserListByCompany(json);
 	}
 }
 /**
@@ -54,6 +54,6 @@ export class PayUserListByUserGroup extends PayUserList {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepUserListByUserGroup(json as JsonObject);
+		return new RepUserListByUserGroup(json);
 	}
 }

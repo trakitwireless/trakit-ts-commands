@@ -19,6 +19,6 @@ export class PayReportTemplateGet extends PayReportTemplate implements IPayDelet
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepReportTemplateGet(json as JsonObject);
+		return new RepReportTemplateGet(json);
 	}
 }

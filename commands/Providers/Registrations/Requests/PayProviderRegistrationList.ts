@@ -36,6 +36,6 @@ export class PayProviderRegistrationListByCompany extends PayProviderRegistratio
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepProviderRegistrationListByCompany(json as JsonObject);
+		return new RepProviderRegistrationListByCompany(json);
 	}
 }

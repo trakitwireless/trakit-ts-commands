@@ -19,6 +19,6 @@ export class PayProviderScriptBatchDelete extends Payload {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepProviderScriptBatchDelete(json as JsonObject);
+		return new RepProviderScriptBatchDelete(json);
 	}
 }

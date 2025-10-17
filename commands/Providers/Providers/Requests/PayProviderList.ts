@@ -41,7 +41,7 @@ export class PayProviderListByCompany extends PayProviderList implements IPayLis
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepProviderListByCompany(json as JsonObject);
+		return new RepProviderListByCompany(json);
 	}
 }
 /**
@@ -59,6 +59,6 @@ export class PayProviderListByConfig extends PayProviderList {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepProviderListByConfig(json as JsonObject);
+		return new RepProviderListByConfig(json);
 	}
 }

@@ -8,6 +8,6 @@ import { PayUserGroup } from "./PayUserGroup";
  **/
 export class PayUserGroupRestore extends PayUserGroup { 
 	override createReply(json: JsonObject): Reply {
-		return new RepUserGroupDelete(json as JsonObject);
+		return new RepUserGroupDelete(json);
 	}
 }

@@ -36,7 +36,7 @@ export class PayUserAdvancedListByCompany extends PayUserAdvancedList implements
 	}
 	
 	override createReply(json: JsonObject): Reply {
-		return new RepUserAdvancedListByCompany(json as JsonObject);
+		return new RepUserAdvancedListByCompany(json);
 	}
 }
 /**

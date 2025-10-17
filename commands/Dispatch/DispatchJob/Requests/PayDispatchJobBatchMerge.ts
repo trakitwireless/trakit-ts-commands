@@ -19,6 +19,6 @@ export class PayDispatchJobBatchMerge extends PayDispatchJobSpecial {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepDispatchJobBatchMerge(json as JsonObject);
+		return new RepDispatchJobBatchMerge(json);
 	}
 }

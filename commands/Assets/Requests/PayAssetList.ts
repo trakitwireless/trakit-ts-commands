@@ -54,7 +54,7 @@ export class PayAssetListByCompany extends PayAssetList implements IPayListByCom
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepAssetListByCompany(json as JsonObject);
+		return new RepAssetListByCompany(json);
 	}
 }
 
@@ -74,7 +74,7 @@ export class PayAssetListByCompanyAndLabels extends PayAssetListByCompany implem
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepAssetListByCompanyAndLabels(json as JsonObject);
+		return new RepAssetListByCompanyAndLabels(json);
 	}
 }
 
@@ -96,6 +96,6 @@ export class PayAssetListByCompanyAndRefPairs extends PayAssetListByCompany impl
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepAssetListByCompanyAndRefPairs(json as JsonObject);
+		return new RepAssetListByCompanyAndRefPairs(json);
 	}
 }

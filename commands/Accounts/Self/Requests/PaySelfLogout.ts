@@ -21,6 +21,6 @@ export class PaySelfLogout extends Payload {
 		};
 	}
 	override createReply(json: JsonObject): Reply {
-		return new RepSelfLogout(json as JsonObject);
+		return new RepSelfLogout(json);
 	}
 }

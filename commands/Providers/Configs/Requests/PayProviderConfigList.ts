@@ -36,7 +36,7 @@ export class PayProviderConfigListByCompany extends PayProviderConfigList implem
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepProviderConfigListByCompany(json as JsonObject);
+		return new RepProviderConfigListByCompany(json);
 	}
 }
 /**
@@ -54,6 +54,6 @@ export class PayProviderConfigListByProviderScript extends PayProviderConfigList
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepProviderConfigListByProviderScript(json as JsonObject);
+		return new RepProviderConfigListByProviderScript(json);
 	}
 }

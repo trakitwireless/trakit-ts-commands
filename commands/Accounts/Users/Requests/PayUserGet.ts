@@ -19,6 +19,6 @@ export class PayUserGet extends PayUser implements IPayDeletable {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepUserGet(json as JsonObject);
+		return new RepUserGet(json);
 	}
 }

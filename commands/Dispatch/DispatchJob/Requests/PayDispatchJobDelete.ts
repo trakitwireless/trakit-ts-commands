@@ -8,6 +8,6 @@ import { PayDispatchJob } from "./PayDispatchJob";
  **/
 export class PayDispatchJobDelete extends PayDispatchJob { 
 	override createReply(json: JsonObject): Reply {
-		return new RepDispatchJobDelete(json as JsonObject);
+		return new RepDispatchJobDelete(json);
 	}
 }

@@ -8,6 +8,6 @@ import { PayAsset } from "./PayAsset";
  **/
 export class PayAssetDelete extends PayAsset { 
 	override createReply(json: JsonObject): Reply {
-		return new RepAssetDelete(json as JsonObject);
+		return new RepAssetDelete(json);
 	}
 }

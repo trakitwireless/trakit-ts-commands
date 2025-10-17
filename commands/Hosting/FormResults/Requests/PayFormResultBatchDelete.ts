@@ -19,6 +19,6 @@ export class PayFormResultBatchDelete extends Payload {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepFormResultBatchDelete(json as JsonObject);
+		return new RepFormResultBatchDelete(json);
 	}
 }

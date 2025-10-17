@@ -19,6 +19,6 @@ export class PayMaintenanceScheduleBatchMerge extends Payload {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepMaintenanceScheduleBatchMerge(json as JsonObject);
+		return new RepMaintenanceScheduleBatchMerge(json);
 	}
 }

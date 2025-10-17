@@ -19,6 +19,6 @@ export class PayDispatchJobBatchDelete extends PayDispatchJobSpecial {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepDispatchJobBatchDelete(json as JsonObject);
+		return new RepDispatchJobBatchDelete(json);
 	}
 }

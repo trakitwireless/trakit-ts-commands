@@ -36,6 +36,6 @@ export class PayFormTemplateListByCompany extends PayFormTemplateList implements
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepFormTemplateListByCompany(json as JsonObject);
+		return new RepFormTemplateListByCompany(json);
 	}
 }

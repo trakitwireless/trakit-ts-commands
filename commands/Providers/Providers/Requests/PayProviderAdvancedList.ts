@@ -42,7 +42,7 @@ export class PayProviderAdvancedListByCompany extends PayProviderAdvancedList im
 	}
 	
 	override createReply(json: JsonObject): Reply {
-		return new RepProviderAdvancedListByCompany(json as JsonObject);
+		return new RepProviderAdvancedListByCompany(json);
 	}
 }
 /**
@@ -60,6 +60,6 @@ export class PayProviderAdvancedListByConfig extends PayProviderAdvancedList {
 	}
 	
 	override createReply(json: JsonObject): Reply {
-		return new RepProviderAdvancedListByConfig(json as JsonObject);
+		return new RepProviderAdvancedListByConfig(json);
 	}
 }

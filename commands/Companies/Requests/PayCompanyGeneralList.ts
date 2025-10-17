@@ -47,6 +47,6 @@ export class PayCompanyGeneralListByCompany extends PayCompanyGeneralList implem
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepCompanyGeneralListByCompany(json as JsonObject);
+		return new RepCompanyGeneralListByCompany(json);
 	}
 }

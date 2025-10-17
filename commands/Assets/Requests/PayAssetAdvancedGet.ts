@@ -20,6 +20,6 @@ export class PayAssetAdvancedGet extends PayAsset implements IPayDeletable {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepAssetAdvancedGet(json as JsonObject);
+		return new RepAssetAdvancedGet(json);
 	}
 }

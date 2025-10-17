@@ -19,6 +19,6 @@ export class PayDocumentGet extends PayDocument implements IPayDeletable {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepDocumentGet(json as JsonObject);
+		return new RepDocumentGet(json);
 	}
 }

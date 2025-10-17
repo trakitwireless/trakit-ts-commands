@@ -36,6 +36,6 @@ export class PayContactListByCompany extends PayContactList implements IPayListB
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepContactListByCompany(json as JsonObject);
+		return new RepContactListByCompany(json);
 	}
 }

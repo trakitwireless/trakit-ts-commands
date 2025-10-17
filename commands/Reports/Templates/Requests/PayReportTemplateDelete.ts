@@ -8,6 +8,6 @@ import { PayReportTemplate } from "./PayReportTemplate";
  **/
 export class PayReportTemplateDelete extends PayReportTemplate { 
 	override createReply(json: JsonObject): Reply {
-		return new RepReportTemplateDelete(json as JsonObject);
+		return new RepReportTemplateDelete(json);
 	}
 }

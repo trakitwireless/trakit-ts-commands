@@ -8,6 +8,6 @@ import { PayDispatchTask } from "./PayDispatchTask";
  **/
 export class PayDispatchTaskRestore extends PayDispatchTask { 
 	override createReply(json: JsonObject): Reply {
-		return new RepDispatchTaskDelete(json as JsonObject);
+		return new RepDispatchTaskDelete(json);
 	}
 }

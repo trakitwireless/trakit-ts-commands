@@ -36,6 +36,6 @@ export class PayFormResultListByCompany extends PayFormResultList implements IPa
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepFormResultListByCompany(json as JsonObject);
+		return new RepFormResultListByCompany(json);
 	}
 }

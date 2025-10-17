@@ -43,7 +43,7 @@ export class PaySelfLogin extends Payload {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepSelfGet(json as JsonObject);
+		return new RepSelfGet(json);
 	}
 
 	override toJSON(): any {

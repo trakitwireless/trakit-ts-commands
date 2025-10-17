@@ -36,6 +36,6 @@ export class PayReportTemplateListByCompany extends PayReportTemplateList implem
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepReportTemplateListByCompany(json as JsonObject);
+		return new RepReportTemplateListByCompany(json);
 	}
 }

@@ -19,6 +19,6 @@ export class PayCompanyDirectoryGet extends PayCompany implements IPayDeletable 
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepCompanyDirectoryGet(json as JsonObject);
+		return new RepCompanyDirectoryGet(json);
 	}
 }

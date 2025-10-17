@@ -36,6 +36,6 @@ export class PayMachineListByCompany extends PayMachineList implements IPayListB
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepMachineListByCompany(json as JsonObject);
+		return new RepMachineListByCompany(json);
 	}
 }

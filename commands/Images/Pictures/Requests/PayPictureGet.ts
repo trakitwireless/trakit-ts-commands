@@ -19,6 +19,6 @@ export class PayPictureGet extends PayPicture implements IPayDeletable {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepPictureGet(json as JsonObject);
+		return new RepPictureGet(json);
 	}
 }

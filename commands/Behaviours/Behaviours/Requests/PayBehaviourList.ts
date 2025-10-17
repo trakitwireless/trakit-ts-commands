@@ -35,6 +35,6 @@ export class PayBehaviourListByCompany extends PayBehaviourList implements IPayL
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepBehaviourListByCompany(json as JsonObject);
+		return new RepBehaviourListByCompany(json);
 	}
 }

@@ -19,6 +19,6 @@ export class PayMaintenanceJobBatchDelete extends Payload {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepMaintenanceJobBatchDelete(json as JsonObject);
+		return new RepMaintenanceJobBatchDelete(json);
 	}
 }

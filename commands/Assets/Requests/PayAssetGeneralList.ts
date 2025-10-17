@@ -54,7 +54,7 @@ export class PayAssetGeneralListByCompany extends PayAssetGeneralList implements
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepAssetGeneralListByCompany(json as JsonObject);
+		return new RepAssetGeneralListByCompany(json);
 	}
 }
 /**
@@ -73,7 +73,7 @@ export class PayAssetGeneralListByCompanyAndLabels extends PayAssetGeneralListBy
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepAssetGeneralListByCompanyAndLabels(json as JsonObject);
+		return new RepAssetGeneralListByCompanyAndLabels(json);
 	}
 }
 /**
@@ -94,6 +94,6 @@ export class PayAssetGeneralListByCompanyAndRefPairs extends PayAssetGeneralList
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepAssetGeneralListByCompanyAndRefPairs(json as JsonObject);
+		return new RepAssetGeneralListByCompanyAndRefPairs(json);
 	}
 }

@@ -8,6 +8,6 @@ import { PaySessionGet } from "./PaySessionGet";
  **/
 export class PaySessionDelete extends PaySessionGet { 
 	override createReply(json: JsonObject): Reply {
-		return new RepSessionDelete(json as JsonObject);
+		return new RepSessionDelete(json);
 	}
 }

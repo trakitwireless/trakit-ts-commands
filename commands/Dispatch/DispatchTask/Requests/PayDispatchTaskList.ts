@@ -38,7 +38,7 @@ export class PayDispatchTaskListByAsset extends PayDispatchTaskList implements I
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepDispatchTaskListByAsset(json as JsonObject);
+		return new RepDispatchTaskListByAsset(json);
 	}
 }
 /**
@@ -61,7 +61,7 @@ export class PayDispatchTaskListByAssetAndRefPairs extends PayDispatchTaskListBy
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepDispatchTaskListByAssetAndRefPairs(json as JsonObject);
+		return new RepDispatchTaskListByAssetAndRefPairs(json);
 	}
 }
 /**
@@ -79,7 +79,7 @@ export class PayDispatchTaskListByCompany extends PayDispatchTaskList implements
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepDispatchTaskListByCompany(json as JsonObject);
+		return new RepDispatchTaskListByCompany(json);
 	}
 }
 /**
@@ -102,6 +102,6 @@ export class PayDispatchTaskListByCompanyAndRefPairs extends PayDispatchTaskList
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepDispatchTaskListByCompanyAndRefPairs(json as JsonObject);
+		return new RepDispatchTaskListByCompanyAndRefPairs(json);
 	}
 }

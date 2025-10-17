@@ -36,6 +36,6 @@ export class PayDocumentListByCompany extends PayDocumentList implements IPayLis
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepDocumentListByCompany(json as JsonObject);
+		return new RepDocumentListByCompany(json);
 	}
 }
