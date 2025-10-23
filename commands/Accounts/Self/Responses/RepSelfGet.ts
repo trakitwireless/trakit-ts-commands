@@ -29,12 +29,20 @@ export class RepSelfGet extends Reply {
 	 * This session's {@link User} details (if the service is being used by a {@link User}).
 	 * If this value is not present, then the session is not yet authenticated.
 	 **/
-	user: User | nothing;
+	get user(): User | nothing { return storage.users.get(this.userLogin as email); }
+	/**
+	 * 
+	 */
+	userLogin: email | nothing;
 	/**
 	 * This {@link Machine}'s details (if the service is being used by a {@link Machine}).
 	 * If this value is not present, then the session is not a machine account.
 	 **/
-	machine: Machine | nothing;
+	get machine(): Machine | nothing { return storage.machines.get(this.machineKey as string); }
+	/**
+	 * 
+	 */
+	machineKey: string | nothing;
 	/**
 	 * This {@link User}'s {@link CompanyPolicies.sessionPolicy}.
 	 **/
@@ -53,25 +61,8 @@ export class RepSelfGet extends Reply {
 		this.serverTime = utility.date(json?.serverTime as datetime);
 		this.ghostId = json?.ghostId as guid ?? "";
 		this.expiry = utility.date(json?.expiry as datetime);
-
-		const jsonUser = json?.user as JsonObject,
-			jsonContact = jsonUser?.contact as JsonObject,
-			jsonMachine = json?.machine as JsonObject;
-		if (jsonUser) {
-			if (jsonContact) {
-				(jsonUser as any).contact = (
-					storage.contacts.get(jsonContact.id as ulong)?.fromJSON(jsonContact)
-					?? storage.contacts.set(jsonContact.id as ulong, new Contact(jsonContact))
-				)
-					&& jsonContact.id;
-			}
-			(this.user = storage.users.get(jsonUser.login as email))?.fromJSON(jsonUser)
-				?? storage.users.set(jsonUser.login as email, this.user = new User(jsonUser));
-		} else if (jsonMachine) {
-			(this.machine = storage.machines.get(jsonMachine.key as string))?.fromJSON(jsonMachine)
-				?? storage.machines.set(jsonMachine.key as string, this.machine = new Machine(jsonMachine));
-		}
-
+		this.userLogin = (json?.user as JsonObject)?.login as email;
+		this.machineKey = (json?.machine as JsonObject)?.key as string;
 		this.sessionPolicy = json?.sessionPolicy
 			? SessionPolicy.fromJSON(json.sessionPolicy as JsonObject)
 			: null;
@@ -89,14 +80,17 @@ export class RepSelfGet extends Reply {
 			"expiry": utility.isntNaN(this.expiry.valueOf()) ? this.expiry.toISOString() : null,
 			"serverTime": utility.isntNaN(this.serverTime.valueOf()) ? this.serverTime.toISOString() : null,
 		};
-		if (this.user) {
-			json["user"] = this.user.toJSON();
-			if (this.user.contact) {
-				json["user"]["contact"] = this.user.contact.toJSON();
-			}
+		if (this.userLogin) {
+			const user = this.user,
+				contact = user?.contact; 
+			json["user"] = {
+				...user?.toJSON(),
+				"login": this.userLogin,
+				"contact": contact?.toJSON() ?? null,
+			};
 		}
-		if (this.machine) {
-			json["machine"] = this.machine.toJSON();
+		if (this.machineKey) {
+			json["machine"] = this.machine?.toJSON() ?? { "key": this.machineKey };
 		}
 		if (this.sessionPolicy) {
 			json["sessionPolicy"] = this.sessionPolicy.toJSON();
