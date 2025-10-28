@@ -43,4 +43,16 @@ export class ErrorDetailThrottled extends ErrorDetail {
 		this.count = json?.count as int ?? 0;
 		this.timeout = new TimeSpan(json.timeout as timespan);
 	}
+
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			"ghostId": this.ghostId,
+			"login": this.login,
+			"ip": this.ip,
+			"command": this.command,
+			"count": this.count,
+			"timeout": this.timeout.toJSON(),
+		};
+	}
 }

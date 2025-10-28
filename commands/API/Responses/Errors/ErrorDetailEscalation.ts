@@ -16,4 +16,11 @@ export class ErrorDetailEscalation extends ErrorDetail {
 		super();
 		this.escalations = (json?.escalations as JsonObject[])?.map((e: any) => PermissionEscalation.fromJSON(e)) ?? [];
 	}
+
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			"escalations": this.escalations.map(e => e.toJSON()),
+		};
+	}
 }

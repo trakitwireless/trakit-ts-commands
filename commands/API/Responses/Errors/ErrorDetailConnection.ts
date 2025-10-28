@@ -42,4 +42,16 @@ export class ErrorDetailConnection extends ErrorDetail {
 		this.reconnect = json?.reconnect as boolean;
 		this.retry = json?.retry as number;
 	}
+
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			"state": this.state,
+			"code": this.code ?? null,
+			"reason": this.reason ?? null,
+			"wasClean": this.wasClean ?? null,
+			"reconnect": this.reconnect ?? null,
+			"retry": this.retry ?? null,
+		};
+	}
 }

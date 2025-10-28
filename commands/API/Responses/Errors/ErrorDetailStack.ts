@@ -29,4 +29,13 @@ export class ErrorDetailStack extends ErrorDetail {
 		this.stack = json?.stack as string ?? "";
 		this.value = json?.value;
 	}
+
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			"message": this.message,
+			"stack": this.stack,
+			"value": this.value ?? null,
+		};
+	}
 }

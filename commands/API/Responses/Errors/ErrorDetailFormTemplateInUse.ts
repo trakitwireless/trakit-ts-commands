@@ -16,4 +16,11 @@ export class ErrorDetailFormTemplateInUse extends ErrorDetail {
 		super();
 		this.formResults = json?.formResults as ulong[] ?? [];
 	}
+
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			"formResults": [...this.formResults],
+		};
+	}
 }

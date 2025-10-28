@@ -16,4 +16,11 @@ export class ErrorDetailEnum extends ErrorDetailInput {
 		super(json);
 		this.valid = json?.valid as string[] ?? [];
 	}
+
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			"valid": [...this.valid],
+		};
+	}
 }

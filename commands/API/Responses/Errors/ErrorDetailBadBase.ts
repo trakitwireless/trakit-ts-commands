@@ -14,4 +14,11 @@ export abstract class ErrorDetailBadBase<T> extends ErrorDetail {
 		super();
 		this.invalid = json?.invalid as T[] ?? [];
 	}
+	
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			"invalid": [...this.invalid] as any[],
+		};
+	}
 }

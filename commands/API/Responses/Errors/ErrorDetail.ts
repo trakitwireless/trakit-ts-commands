@@ -1,4 +1,4 @@
-import { JsonObject } from "@trakit/objects";
+import { ISerializable, JsonObject } from "@trakit/objects";
 import { ErrorDetailBadIds } from "./ErrorDetailBadIds";
 import { ErrorDetailBadIndexes } from "./ErrorDetailBadIndexes";
 import { ErrorDetailBadKeys } from "./ErrorDetailBadKeys";
@@ -29,7 +29,7 @@ import { ErrorDetailUserGroupInUse } from "./ErrorDetailUserGroupInUse";
  * This class exists to create an inheritance chain.
  * </remarks>
  **/
-export abstract class ErrorDetail {
+export abstract class ErrorDetail implements ISerializable {
 	/**
 	 * Creates an instance of an ErrorDetail subclass based on the "kind" property in the JSON.
 	 * @param json	The JSON to parse.
@@ -66,4 +66,14 @@ export abstract class ErrorDetail {
 	 * A hint for deserializing the error's details.
 	 **/
 	abstract get kind(): ErrorDetailType;
+
+	/**
+	 * Serializes the error detail to a JSON object.
+	 * @returns The JSON object representing the error detail.
+	 */
+	toJSON(): JsonObject {
+		return {
+			"kind": this.kind,
+		};
+	}
 }

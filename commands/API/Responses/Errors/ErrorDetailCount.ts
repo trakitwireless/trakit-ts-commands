@@ -17,4 +17,11 @@ export class ErrorDetailCount extends ErrorDetail {
 		super();
 		this.count = json?.count as int ?? 0;
 	}
+
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			"count": this.count,
+		};
+	}
 }

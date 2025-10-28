@@ -21,4 +21,12 @@ export class ErrorDetailPhone extends ErrorDetailInput {
 		this.number = json?.number as ulong;
 		this.usable = json?.usable as string;
 	}
+
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			"number": this.number ?? null,
+			"usable": this.usable ?? null,
+		};
+	}
 }

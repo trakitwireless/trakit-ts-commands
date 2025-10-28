@@ -30,4 +30,19 @@ export class ErrorDetailMinMax extends ErrorDetail {
 				? date
 				: null;
 	}
+
+	override toJSON(): JsonObject {
+		const json: JsonObject = super.toJSON();
+		if (this.min instanceof Date) {
+			json["min"] = this.min.toISOString();
+		} else if (!isNaN(this.min as double)) {
+			json["min"] = this.min as double;
+		}
+		if (this.max instanceof Date) {
+			json["max"] = this.max.toISOString();
+		} else if (!isNaN(this.max as double)) {
+			json["max"] = this.max as double;
+		}
+		return json;
+	}
 }

@@ -21,4 +21,12 @@ export class ErrorDetailParent extends ErrorDetail {
 		this.parent = json?.parent as ulong;
 		this.descendant = json?.descendant as ulong;
 	}
+
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			"parent": this.parent ?? null,
+			"descendant": this.descendant ?? null,
+		};
+	}
 }

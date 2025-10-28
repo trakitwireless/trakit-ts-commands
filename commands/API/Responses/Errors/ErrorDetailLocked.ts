@@ -21,4 +21,15 @@ export class ErrorDetailLocked extends ErrorDetail {
 		this.timeout = new TimeSpan(json?.timeout as timespan);
 		this.until = utility.date(json?.until as datetime);
 	}
+
+	override toJSON(): JsonObject {
+		const json: JsonObject = super.toJSON();
+		if (!isNaN(this.timeout.valueOf())) {
+			json["timeout"] = this.timeout.toString();
+		}
+		if (!isNaN(this.until.valueOf())) {
+			json["until"] = this.until.toISOString();
+		}
+		return json;
+	}
 }

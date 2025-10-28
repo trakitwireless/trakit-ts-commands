@@ -26,4 +26,13 @@ export class ErrorDetailParse extends ErrorDetail {
 		this.column = json?.column as int;
 		this.after = json?.after as string;
 	}
+
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			"line": this.line ?? null,
+			"column": this.column ?? null,
+			"after": this.after ?? null,
+		};
+	}
 }

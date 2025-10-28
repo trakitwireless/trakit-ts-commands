@@ -21,4 +21,12 @@ export class ErrorDetailUserGroupInUse extends ErrorDetail {
 		this.users = json?.users as email[];
 		this.machines = json?.machines as string[];
 	}
+
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			"users": this.users?.slice() ?? null,
+			"machines": this.machines?.slice() ?? null,
+		};
+	}
 }

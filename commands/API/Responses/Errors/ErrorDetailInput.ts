@@ -16,4 +16,11 @@ export class ErrorDetailInput extends ErrorDetail {
 		super();
 		this.input = json?.input as string ?? "";
 	}
+
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			"input": this.input,
+		};
+	}
 }

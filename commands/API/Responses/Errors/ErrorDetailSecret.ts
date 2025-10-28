@@ -66,4 +66,20 @@ export class ErrorDetailSecret extends ErrorDetail {
 		this.input = json?.input as string;
 		this.output = json?.output as string;
 	}
+
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			"headers": serialization.fromMap(this.headers),
+			"accepted": this.accepted.toISOString(),
+			"key": this.key,
+			"signature": this.signature,
+			"date": this.date,
+			"method": this.method,
+			"uri": this.uri,
+			"length": this.length ?? null,
+			"input": this.input,
+			"output": this.output,
+		};
+	}
 }

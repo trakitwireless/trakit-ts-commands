@@ -14,4 +14,11 @@ export class ErrorDetailContactInUse extends ErrorDetailUserGroupInUse {
 		super(json);
 		this.assets = json?.assets as ulong[];
 	}
+
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			"assets": this.assets?.slice() ?? null,
+		};
+	}
 }

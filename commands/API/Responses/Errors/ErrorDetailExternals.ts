@@ -26,4 +26,13 @@ export class ErrorDetailExternals extends ErrorDetail {
 		this.warnings = json?.warnings as string[] ?? [];
 		this.messages = json?.messages as string[] ?? [];
 	}
+
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			"errors": [...this.errors],
+			"warnings": [...this.warnings],
+			"messages": [...this.messages],
+		};
+	}
 }
