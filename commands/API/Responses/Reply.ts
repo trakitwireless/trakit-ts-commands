@@ -1,4 +1,4 @@
-import { int, JsonObject, nothing } from '@trakit/objects';
+import { int, ISerializable, JsonObject, nothing, utility } from '@trakit/objects';
 import { ErrorCode } from "./Errors/ErrorCode";
 import { ErrorDetail } from "./Errors/ErrorDetail";
 
@@ -6,7 +6,7 @@ import { ErrorDetail } from "./Errors/ErrorDetail";
  * Base class for all responses from commands.
  * All command response classes use this as the base.
  **/
-export class Reply {
+export class Reply implements ISerializable {
 	/**
 	 * Identifier used by external system to correlate requests to responses.
 	 * This is only used with the Trak-iT WebSocket API service.
@@ -31,5 +31,17 @@ export class Reply {
 		this.message = json?.message as string ?? "Unknown error";
 		this.errorDetails = ErrorDetail.fromJSON(json?.errorDetails as JsonObject);
 		this.reqId = json?.reqId as int;
+	}
+	
+	toJSON(): JsonObject {
+		const json: JsonObject = {
+			"errorCode": this.errorCode,
+			"message": this.message,
+			"errorDetails": this.errorDetails?.toJSON() ?? null,
+		};
+		if (utility.isntNaN(this.reqId)) {
+			json.reqId = this.reqId;
+		}
+		return json;
 	}
 }
