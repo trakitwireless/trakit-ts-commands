@@ -1,10 +1,10 @@
-import { Contact, JsonObject, nothing } from "@trakit/objects";
-import { Reply } from "../../../API/Responses/Reply";
+import { classes, Contact, JsonObject, nothing } from "@trakit/objects";
+import { ReplyGet } from "commands/API/Responses/ReplyGet";
 
 /**
  * A container for the {@link contact}.
  **/
-export class RepContactGet extends Reply {
+export class RepContactGet extends ReplyGet<Contact> {
 	/**
 	 * The requested {@link Contact}.
 	 **/
@@ -16,4 +16,7 @@ export class RepContactGet extends Reply {
 			this.contact = new Contact(json.contact as JsonObject);
 		}
 	}
+	
+	override getObject(): Contact { return this.contact as Contact; }
+	protected override _getTypeName(): classes { return "Contact"; }
 }
