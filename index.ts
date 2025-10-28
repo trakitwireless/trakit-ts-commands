@@ -91,7 +91,6 @@ import { RepUserGeneralListByCompany, RepUserGeneralListByUserGroup } from "./co
 import { RepUserGet } from "./commands/Accounts/Users/Responses/RepUserGet";
 import { RepUserListByCompany } from "./commands/Accounts/Users/Responses/RepUserList";
 import { RepUserMerge } from "./commands/Accounts/Users/Responses/RepUserMerge";
-import { ROUTE_DECODE, ROUTE_ENCODE } from "./commands/API/Geography/Polyline";
 import { IPayDeletable } from "./commands/API/Requests/IPayDeletable";
 import { IPayListByAsset } from "./commands/API/Requests/IPayListByAsset";
 import { IPayListByBillingProfile } from "./commands/API/Requests/IPayListByBillingProfile";
@@ -629,13 +628,6 @@ export {
 		ErrorDetailType,
 		ErrorDetailUserGroupInUse
 	};
-/**
- * Polyline encoding and decoding utilities.
- */
-export const polyline = {
-	encode: ROUTE_ENCODE,
-	decode: ROUTE_DECODE,
-};
 //#endregion API
 
 //#region Accounts
