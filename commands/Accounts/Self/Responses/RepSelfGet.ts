@@ -71,11 +71,11 @@ export class RepSelfGet extends Reply {
 			: null;
 	}
 
-	toJSON(): any {
-		const json: any = {
+	override toJSON(): JsonObject {
+		const json: JsonObject = {
 			"errorCode": this.errorCode,
 			"message": this.message,
-			"errorDetails": this.errorDetails,
+			"errorDetails": this.errorDetails?.toJSON() ?? null,
 			"ghostId": this.ghostId,
 			"expiry": utility.isntNaN(this.expiry.valueOf()) ? this.expiry.toISOString() : null,
 			"serverTime": utility.isntNaN(this.serverTime.valueOf()) ? this.serverTime.toISOString() : null,
