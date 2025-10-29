@@ -1,11 +1,11 @@
-import { Contact, JsonObject, nothing } from "@trakit/objects";
+import { Contact, JsonObject, nothing, storage, ulong } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
-import { Reply } from "../../../API/Responses/Reply";
+import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link contacts}.
  **/
-export abstract class RepContactList extends Reply {
+export abstract class RepContactList extends ReplySyncList<Contact> {
 	/**
 	 * The list of requested {@link Contact}s.
 	 **/
@@ -15,6 +15,9 @@ export abstract class RepContactList extends Reply {
 		super(json);
 		this.contacts = (json?.contacts as JsonObject[])?.map((c: any) => new Contact(c)) ?? [];
 	}
+
+	override getCollection() { return this.contacts as Contact[]; }
+	protected override _getStorage() { return storage.Contact as Map<ulong, Contact>; }
 }
 
 /**

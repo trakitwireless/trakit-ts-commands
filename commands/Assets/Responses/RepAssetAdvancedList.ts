@@ -1,11 +1,11 @@
-import { AssetAdvanced, codified, JsonObject, nothing, serialization } from "@trakit/objects";
+import { AssetAdvanced, codified, JsonObject, nothing, serialization, storage } from "@trakit/objects";
+import { ReplySyncList } from "../../API/Responses/ReplySyncList";
 import { ContentId } from "../../API/Responses/Content/ContentId";
-import { Reply } from "../../API/Responses/Reply";
 
 /**
  * A container for the requested {@link assetAdvanceds}.
  **/
-export abstract class RepAssetAdvancedList extends Reply {
+export abstract class RepAssetAdvancedList extends ReplySyncList<AssetAdvanced> {
 	/**
 	 * The list of requested {@link AssetAdvanced}s.
 	 **/
@@ -15,6 +15,9 @@ export abstract class RepAssetAdvancedList extends Reply {
 		super(json);
 		this.assetAdvanceds = (json?.assetAdvanceds as JsonObject[])?.map((el: any) => new AssetAdvanced(el));
 	}
+
+	override getCollection() { return this.assetAdvanceds as AssetAdvanced[]; }
+	protected override _getStorage() { return storage.Asset; }
 }
 
 /**

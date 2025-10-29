@@ -1,11 +1,11 @@
-import { JsonObject, nothing } from "@trakit/objects";
+import { Contact, JsonObject, nothing, storage, ulong } from "@trakit/objects";
 import { ContentIdDeleted } from "../../../API/Responses/Content/ContentIdDeleted";
-import { Reply } from "../../../API/Responses/Reply";
+import { ReplySyncDelete } from "../../../API/Responses/ReplySyncDelete";
 
 /**
  * A container for the {@link contact}.
  **/
-export class RepContactDelete extends Reply {
+export class RepContactDelete extends ReplySyncDelete {
 	/**
 	 * Details about deleting/restoring the requested {@link Contact}.
 	 **/
@@ -15,4 +15,7 @@ export class RepContactDelete extends Reply {
 		super(json);
 		this.contact = ContentIdDeleted.fromJSON(json?.contact as JsonObject);
 	}
+
+	protected override _getKey() { return this.contact?.id as ulong; }
+	protected override _getStorage() { return storage.Contact as Map<ulong, Contact>; }
 }

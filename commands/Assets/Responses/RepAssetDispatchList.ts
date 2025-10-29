@@ -1,11 +1,11 @@
-import { AssetDispatch, codified, JsonObject, nothing, serialization } from "@trakit/objects";
+import { Asset, AssetDispatch, codified, JsonObject, nothing, serialization, storage, ulong } from "@trakit/objects";
 import { ContentId } from "../../API/Responses/Content/ContentId";
-import { Reply } from "../../API/Responses/Reply";
+import { ReplySyncList } from "../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link assetDispatches}.
  **/
-export abstract class RepAssetDispatchList extends Reply {
+export abstract class RepAssetDispatchList extends ReplySyncList<AssetDispatch> {
 	/**
 	 * The list of requested {@link AssetDispatch}es.
 	 **/
@@ -15,6 +15,9 @@ export abstract class RepAssetDispatchList extends Reply {
 		super(json);
 		this.assetDispatches = (json?.assetDispatches as JsonObject[])?.map((el: any) => new AssetDispatch(el));
 	}
+
+	override getCollection() { return this.assetDispatches as AssetDispatch[]; }
+	protected override _getStorage() { return storage.Asset as Map<ulong, Asset>; }
 }
 
 /**
