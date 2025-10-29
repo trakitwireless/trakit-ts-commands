@@ -1,0 +1,21 @@
+import { email, guid, ulong } from '@trakit/objects';
+import { ReplySync } from './ReplySync';
+
+/**
+ * Base class for all responses from commands.
+ * All command response classes use this as the base.
+ **/
+export abstract class ReplySyncDelete extends ReplySync {
+	/**
+	 * Returns the constructed object.
+	 */
+	protected abstract _getKey(): string | guid | email | ulong;
+	/**
+	 * Adds or updates the constructed object to storage (and maybe IndexedDB).
+	 */
+	override store(): void {
+		const map = this._getStorage(),
+			key = this._getKey();
+		map.delete(key);
+	}
+}
