@@ -1,5 +1,5 @@
 import { JsonObject } from "@trakit/objects";
-import { Reply } from "index";
+import { Reply } from "../../../API/Responses/Reply";
 import { Payload } from "../../../API/Requests/Payload";
 import { RepSelfLogout } from "../Responses/RepSelfLogout";
 

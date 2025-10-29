@@ -1,5 +1,5 @@
 import { classes, Contact, JsonObject, nothing } from "@trakit/objects";
-import { ReplyGet } from "commands/API/Responses/ReplyGet";
+import { ReplyGet } from "../../../API/Responses/ReplyGet";
 
 /**
  * A container for the {@link contact}.
