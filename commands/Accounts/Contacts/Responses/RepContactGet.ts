@@ -1,10 +1,10 @@
 import { classes, Contact, JsonObject, nothing } from "@trakit/objects";
-import { ReplyGet } from "commands/API/Responses/ReplyGet";
+import { ReplySyncGet } from "commands/API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link contact}.
  **/
-export class RepContactGet extends ReplyGet<Contact> {
+export class RepContactGet extends ReplySyncGet<Contact> {
 	/**
 	 * The requested {@link Contact}.
 	 **/

@@ -1,10 +1,10 @@
 import { Asset, AssetGeneral, classes, JsonObject, nothing, storage } from "@trakit/objects";
-import { ReplyGet } from "../../API/Responses/ReplyGet";
+import { ReplySyncGet } from "../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link assetGeneral}.
  **/
-export class RepAssetGeneralGet extends ReplyGet<AssetGeneral> {
+export class RepAssetGeneralGet extends ReplySyncGet<AssetGeneral> {
 	
 	/**
 	 * The requested {@link Asset}.

@@ -1,10 +1,10 @@
 import { Asset, AssetAdvanced, AssetType, classes, int, JsonObject, nothing, storage, VehicleAdvanced } from "@trakit/objects";
-import { ReplyGet } from "../../API/Responses/ReplyGet";
+import { ReplySyncGet } from "../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link assetAdvanced}.
  **/
-export class RepAssetAdvancedGet extends ReplyGet<AssetAdvanced> {
+export class RepAssetAdvancedGet extends ReplySyncGet<AssetAdvanced> {
 	/**
 	 * The requested {@link AssetAdvanced}.
 	 **/
@@ -30,11 +30,10 @@ export class RepAssetAdvancedGet extends ReplyGet<AssetAdvanced> {
 		} else {
 			if (stored.kind !== AssetType.vehicle && !isNaN((obj as VehicleAdvanced).engineHours)) {
 				//kind has changed, we need to replace the object
-				const asset = stored.toJSON();
 				map.set(key, new VehicleAdvanced({
-					...asset,
+					...stored.toJSON(),
 					...this._json,
-					"v": [asset.v[0], (this._json["v"] as int[])[0], asset.v[2]]
+					"v": [stored.v[0], (this._json["v"] as int[])[0], stored.v[2]]
 				}));
 			} else {
 				stored.fromJSON(this._json);
