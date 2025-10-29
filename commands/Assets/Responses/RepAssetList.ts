@@ -1,6 +1,6 @@
-import { Asset, codified, JsonObject, nothing, serialization, storage } from "@trakit/objects";
-import { ReplySyncList } from "commands/API/Responses/ReplySyncList";
+import { Asset, classes, codified, JsonObject, nothing, serialization } from "@trakit/objects";
 import { ContentId } from "../../API/Responses/Content/ContentId";
+import { ReplySyncList } from "../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link assets}.
@@ -16,7 +16,7 @@ export abstract class RepAssetList extends ReplySyncList<Asset> {
 		this.assets = (json?.assets as JsonObject[])?.map((el: any) => new Asset(el));
 	}
 	override getCollection() { return this.assets as Asset[]; }
-	protected override _getStorage() { return storage.Asset; }
+	protected override _getTypeName(): classes { return "Asset"; }
 }
 
 /**

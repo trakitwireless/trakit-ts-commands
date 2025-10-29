@@ -1,11 +1,11 @@
-import { JsonObject, nothing } from "@trakit/objects";
+import { classes, JsonObject, nothing, ulong } from "@trakit/objects";
 import { ContentIdDeleted } from "../../API/Responses/Content/ContentIdDeleted";
-import { Reply } from "../../API/Responses/Reply";
+import { ReplySyncDelete } from "../../API/Responses/ReplySyncDelete";
 
 /**
  * For delete/restore commands, this contains the {@link Asset.id}, owning {@link Company.id}, and deleted state.
  **/
-export class RepAssetDelete extends Reply {
+export class RepAssetDelete extends ReplySyncDelete {
 	/**
 	 * 
 	 **/
@@ -15,4 +15,7 @@ export class RepAssetDelete extends Reply {
 		super(json);
 		this.asset = ContentIdDeleted.fromJSON(json?.asset as JsonObject);
 	}
+
+	protected override _getKey() { return this.asset?.id as ulong; }
+	protected override _getTypeName(): classes { return "Asset"; }
 }

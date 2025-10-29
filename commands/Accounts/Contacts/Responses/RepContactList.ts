@@ -1,4 +1,4 @@
-import { Contact, JsonObject, nothing, storage, ulong } from "@trakit/objects";
+import { classes, Contact, JsonObject, nothing } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
@@ -17,7 +17,7 @@ export abstract class RepContactList extends ReplySyncList<Contact> {
 	}
 
 	override getCollection() { return this.contacts as Contact[]; }
-	protected override _getStorage() { return storage.Contact as Map<ulong, Contact>; }
+	protected override _getTypeName(): classes { return "Contact"; }
 }
 
 /**

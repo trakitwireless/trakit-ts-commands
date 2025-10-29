@@ -1,10 +1,10 @@
-import { Asset, AssetAdvanced, JsonObject, nothing, storage, ulong } from "@trakit/objects";
-import { ReplySyncGet } from "../../API/Responses/ReplySyncGet";
+import { Asset, AssetAdvanced, BaseCompound, classes, JsonObject, nothing } from "@trakit/objects";
+import { ReplySyncGetPiece } from "../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link assetAdvanced}.
  **/
-export class RepAssetAdvancedGet extends ReplySyncGet<AssetAdvanced> {
+export class RepAssetAdvancedGet extends ReplySyncGetPiece<AssetAdvanced> {
 	/**
 	 * The requested {@link AssetAdvanced}.
 	 **/
@@ -18,14 +18,7 @@ export class RepAssetAdvancedGet extends ReplySyncGet<AssetAdvanced> {
 	}
 
 	override getObject() { return this.assetAdvanced as AssetAdvanced; }
-	protected override _getStorage() { return storage.Asset as Map<ulong, Asset>; }
-
-	override store(): void {
-		const map = this._getStorage(),
-			obj = this.getObject(),
-			key = obj.getKey(),
-			stored = map.get(key) as Asset || new Asset;
-		stored.pieces[1].fromJSON(obj.toJSON());
-		map.set(key, stored);
-	}
+	protected override _getTypeName(): classes { return "AssetAdvanced"; }
+	protected override _getPieceIndex(): number { return 1; }
+	protected override _createBlank() { return new Asset(); }
 }

@@ -1,4 +1,4 @@
-import { email, guid, IRequestable, ulong } from '@trakit/objects';
+import { BaseCompound, classes } from '@trakit/objects';
 import { Reply } from './Reply';
 
 /**
@@ -9,7 +9,7 @@ export abstract class ReplySync extends Reply {
 	/**
 	 * Returns the type name of the object so we know how to construct it.
 	 */
-	protected abstract _getStorage(): Map<string | guid | email | ulong, IRequestable>;
+	protected abstract _getTypeName(): classes;
 	/**
 	 * Adds or updates the constructed object to storage (and maybe IndexedDB).
 	 */

@@ -1,4 +1,4 @@
-import { email, guid, ulong } from '@trakit/objects';
+import { email, guid, storage, ulong } from '@trakit/objects';
 import { ReplySync } from './ReplySync';
 
 /**
@@ -14,7 +14,7 @@ export abstract class ReplySyncDelete extends ReplySync {
 	 * Adds or updates the constructed object to storage (and maybe IndexedDB).
 	 */
 	override store(): void {
-		const map = this._getStorage(),
+		const map = storage[this._getTypeName()],
 			key = this._getKey();
 		map.delete(key);
 	}

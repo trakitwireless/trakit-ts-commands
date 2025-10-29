@@ -1,11 +1,11 @@
-import { AssetGeneral, codified, JsonObject, nothing, serialization } from "@trakit/objects";
+import { Asset, AssetGeneral, classes, codified, JsonObject, nothing, serialization } from "@trakit/objects";
 import { ContentId } from "../../API/Responses/Content/ContentId";
-import { Reply } from "../../API/Responses/Reply";
+import { ReplySyncListPiece } from "../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link assetGenerals}.
  **/
-export abstract class RepAssetGeneralList extends Reply {
+export abstract class RepAssetGeneralList extends ReplySyncListPiece<AssetGeneral> {
 	/**
 	 * The list of requested {@link AssetGeneral}s.
 	 **/
@@ -15,6 +15,11 @@ export abstract class RepAssetGeneralList extends Reply {
 		super(json);
 		this.assetGenerals = (json?.assetGenerals as JsonObject[])?.map((el: any) => new AssetGeneral(el));
 	}
+
+	override getCollection() { return this.assetGenerals as AssetGeneral[]; }
+	protected override _getTypeName(): classes { return "AssetGeneral"; }
+	protected override _createBlank() { return new Asset(); }
+	protected override _getPieceIndex() { return 0; }
 }
 
 /**

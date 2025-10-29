@@ -1,4 +1,4 @@
-import { Contact, JsonObject, nothing, storage, ulong } from "@trakit/objects";
+import { classes, Contact, JsonObject, nothing, ulong } from "@trakit/objects";
 import { ContentIdDeleted } from "../../../API/Responses/Content/ContentIdDeleted";
 import { ReplySyncDelete } from "../../../API/Responses/ReplySyncDelete";
 
@@ -17,5 +17,5 @@ export class RepContactDelete extends ReplySyncDelete {
 	}
 
 	protected override _getKey() { return this.contact?.id as ulong; }
-	protected override _getStorage() { return storage.Contact as Map<ulong, Contact>; }
+	protected override _getTypeName(): classes { return "Contact"; }
 }

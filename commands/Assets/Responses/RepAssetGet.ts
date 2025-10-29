@@ -17,5 +17,5 @@ export class RepAssetGet extends ReplySyncGet<Asset> {
 		}
 	}
 	override getObject() { return this.asset as Asset; }
-	protected override _getStorage() { return storage.Asset; }
+	protected override _getTypeName(): classes { return "Asset"; }
 }
