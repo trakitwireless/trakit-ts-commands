@@ -22,7 +22,6 @@ export class RepAssetGeneralGet extends ReplySyncGetPiece<AssetGeneral> {
 			this.assetGeneral = new AssetGeneral(json.assetGeneral as JsonObject);
 		}
 	}
-
 	override getObject() { return this.assetGeneral as AssetGeneral; }
 	protected override _createBlank() { return new Asset(); }
 }

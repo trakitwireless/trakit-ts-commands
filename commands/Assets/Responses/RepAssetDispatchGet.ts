@@ -1,9 +1,4 @@
-import {
-	Asset,
-	AssetDispatch,
-	JsonObject,
-	nothing
-} from "@trakit/objects";
+import { Asset, AssetDispatch, JsonObject, nothing } from "@trakit/objects";
 import { ReplySyncGetPiece } from "../../API/Responses/ReplySyncGet";
 
 /**

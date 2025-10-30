@@ -16,7 +16,6 @@ export class RepAssetAdvancedGet extends ReplySyncGetPiece<AssetAdvanced> {
 			this.assetAdvanced = new AssetAdvanced(json.assetAdvanced as JsonObject);
 		}
 	}
-
 	override getObject() { return this.assetAdvanced as AssetAdvanced; }
 	protected override _createBlank() { return new Asset(); }
 }
