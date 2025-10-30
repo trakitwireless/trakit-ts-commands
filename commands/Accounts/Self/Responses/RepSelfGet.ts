@@ -1,5 +1,4 @@
 import {
-	Contact,
 	datetime,
 	email,
 	guid, JsonObject, Machine,
@@ -7,16 +6,15 @@ import {
 	PasswordPolicy,
 	SessionPolicy,
 	storage,
-	ulong,
 	User,
 	utility
 } from "@trakit/objects";
-import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
+import { Reply } from "../../../API/Responses/Reply";
 
 /**
  * A container for the {@link User} or {@link Machine} of the current session.
  **/
-export class RepSelfGet extends ReplySyncGet<Self> {
+export class RepSelfGet extends Reply {
 	/**
 	 * Your session identifier.
 	 **/
