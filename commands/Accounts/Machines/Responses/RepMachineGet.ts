@@ -11,9 +11,10 @@ export class RepMachineGet extends ReplySyncGet<Machine> {
 	machine: Machine | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "Machine");
 		if (json?.machine) {
 			this.machine = new Machine(json.machine as JsonObject);
 		}
 	}
+	override getObject(): Machine { return this.machine as Machine; }
 }

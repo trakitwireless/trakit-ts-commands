@@ -1,6 +1,6 @@
 import { JsonObject, nothing } from "@trakit/objects";
 import { ContentIdendifierDeleted } from "../../../API/Responses/Content/ContentIdendifierDeleted";
-import { ReplySyncDelete } from "../../../API/Responses/ReplySyncDelete";
+import { ReplySyncBatchDelete } from "../../../API/Responses/ReplySyncBatchDelete";
 
 /**
  * A container for the {@link provider}.

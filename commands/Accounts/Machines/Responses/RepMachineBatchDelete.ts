@@ -1,6 +1,6 @@
 import { JsonObject, nothing } from "@trakit/objects";
 import { ContentKeyDeleted } from "../../../API/Responses/Content/ContentKeyDeleted";
-import { ReplySyncDelete } from "../../../API/Responses/ReplySyncDelete";
+import { ReplySyncBatchDelete } from "../../../API/Responses/ReplySyncBatchDelete";
 
 /**
  * A container for the {@link machine}.

@@ -1,6 +1,6 @@
 import { JsonObject } from "@trakit/objects";
 import { ContentIdDeleted } from "../../../API/Responses/Content/ContentIdDeleted";
-import { ReplySyncDelete } from "../../../API/Responses/ReplySyncDelete";
+import { ReplySyncBatchDelete } from "../../../API/Responses/ReplySyncBatchDelete";
 import { nothing } from "@trakit/objects";
 
 /**
