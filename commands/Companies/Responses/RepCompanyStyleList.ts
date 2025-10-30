@@ -1,26 +1,27 @@
-import { CompanyStyles, JsonObject, nothing } from "@trakit/objects";
+import { CompanyStyle, JsonObject, nothing } from "@trakit/objects";
 import { ContentId } from "../../API/Responses/Content/ContentId";
 import { ReplySyncList } from "../../API/Responses/ReplySyncList";
 
 /**
- * A container for the requested {@link companyStyless}.
+ * A container for the requested {@link companyStyles}.
  **/
-export abstract class RepCompanyStylesList extends ReplySyncList<CompanyStyles> {
+export abstract class RepCompanyStyleList extends ReplySyncList<CompanyStyle> {
 	/**
 	 * The list of requested {@link CompanyStyles}s.
 	 **/
-	companyStyless: CompanyStyles[] | nothing;
+	companyStyles: CompanyStyle[] | nothing;
 	
 	constructor(json: JsonObject) {
-		super(json);
-		this.companyStyless = (json?.companyStyless as JsonObject[])?.map((item: any) => new CompanyStyles(item));
+		super(json, "CompanyStyle");
+		this.companyStyles = (json?.companyStyles as JsonObject[])?.map((item: any) => new CompanyStyle(item));
 	}
+	override getCollection() { return this.companyStyles as CompanyStyle[]; }
 }
 
 /**
  * A container owner {@link Company} of the collection.
  **/
-export class RepCompanyStylesListByCompany extends RepCompanyStylesList {
+export class RepCompanyStyleListByCompany extends RepCompanyStyleList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/

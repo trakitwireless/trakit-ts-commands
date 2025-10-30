@@ -4,12 +4,12 @@ import { IPayListByCompany } from "../../API/Requests/IPayListByCompany";
 import { ParamId } from "../../API/Requests/Parameters/ParamId";
 import { Payload } from "../../API/Requests/Payload";
 import { Reply } from "../../API/Responses/Reply";
-import { RepCompanyStylesListByCompany } from "../Responses/RepCompanyStylesList";
+import { RepCompanyStyleListByCompany } from "../Responses/RepCompanyStyleList";
 
 /**
  * Gets a list of {@link CompanyStyles}s.
  **/
-export abstract class PayCompanyStylesList extends Payload implements IPayDeletable {
+export abstract class PayCompanyStyleList extends Payload implements IPayDeletable {
 	/**
 	 * When true, the command will also return a deleted {@link CompanyStyles} (if it exists).
 	 **/
@@ -24,7 +24,7 @@ export abstract class PayCompanyStylesList extends Payload implements IPayDeleta
 /**
  * Gets the list of {@link CompanyStyles}s for the specified {@link Company}.
  **/
-export class PayCompanyStylesListByCompany extends PayCompanyStylesList implements IPayListByCompany {
+export class PayCompanyStyleListByCompany extends PayCompanyStyleList implements IPayListByCompany {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/
@@ -36,6 +36,6 @@ export class PayCompanyStylesListByCompany extends PayCompanyStylesList implemen
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepCompanyStylesListByCompany(json);
+		return new RepCompanyStyleListByCompany(json);
 	}
 }

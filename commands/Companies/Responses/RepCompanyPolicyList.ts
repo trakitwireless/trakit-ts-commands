@@ -1,26 +1,27 @@
-import { CompanyPolicies, JsonObject, nothing } from "@trakit/objects";
+import { CompanyPolicy, JsonObject, nothing } from "@trakit/objects";
 import { ContentId } from "../../API/Responses/Content/ContentId";
 import { ReplySyncList } from "../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link companyPolicies}.
  **/
-export abstract class RepCompanyPoliciesList extends ReplySyncList<CompanyPolicies> {
+export abstract class RepCompanyPolicyList extends ReplySyncList<CompanyPolicy> {
 	/**
-	 * The list of requested {@link CompanyPolicies}s.
+	 * The list of requested {@link CompanyPolicy}s.
 	 **/
-	companyPolicies: CompanyPolicies[] | nothing;
+	companyPolicies: CompanyPolicy[] | nothing;
 	
 	constructor(json: JsonObject) {
-		super(json);
-		this.companyPolicies = (json?.companyPolicies as JsonObject[])?.map((policy: any) => new CompanyPolicies(policy));
+		super(json, "CompanyPolicy");
+		this.companyPolicies = (json?.companyPolicies as JsonObject[])?.map((policy: any) => new CompanyPolicy(policy));
 	}
+	override getCollection() { return this.companyPolicies as CompanyPolicy[]; }
 }
 
 /**
  * A container owner {@link Company} of the collection.
  **/
-export class RepCompanyPoliciesListByCompany extends RepCompanyPoliciesList {
+export class RepCompanyPolicyListByCompany extends RepCompanyPolicyList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 **/

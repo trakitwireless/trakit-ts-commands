@@ -9,12 +9,13 @@ export abstract class RepCompanyDirectoryList extends ReplySyncList<CompanyDirec
 	/**
 	 * The list of requested {@link CompanyDirectory}s.
 	 **/
-	companyDirectorys: CompanyDirectory[] | nothing;
+	companyDirectories: CompanyDirectory[] | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
-		this.companyDirectorys = (json?.companyDirectorys as JsonObject[])?.map((c: any) => new CompanyDirectory(c));
+		super(json, "CompanyDirectory");
+		this.companyDirectories = (json?.companyDirectories as JsonObject[])?.map((c: any) => new CompanyDirectory(c));
 	}
+	override getCollection() { return this.companyDirectories as CompanyDirectory[]; }
 }
 
 /**

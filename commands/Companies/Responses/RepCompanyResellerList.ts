@@ -12,9 +12,10 @@ export abstract class RepCompanyResellerList extends ReplySyncList<CompanyResell
 	companyResellers: CompanyReseller[] | nothing;
 	
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "CompanyReseller");
 		this.companyResellers = (json?.companyResellers as JsonObject[])?.map((item: any) => new CompanyReseller(item));
 	}
+	override getCollection() { return this.companyResellers as CompanyReseller[]; }
 }
 
 /**

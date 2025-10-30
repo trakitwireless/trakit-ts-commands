@@ -1,15 +1,15 @@
 import { JsonObject } from "@trakit/objects";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
 import { Reply } from "../../API/Responses/Reply";
-import { RepCompanyStylesGet } from "../Responses/RepCompanyStylesGet";
+import { RepCompanyPolicyGet } from "../Responses/RepCompanyPolicyGet";
 import { PayCompany } from "./PayCompany";
 
 /**
- * Gets details of the specified {@link CompanyStyles}.
+ * Gets details of the specified {@link CompanyPolicies}.
  **/
-export class PayCompanyStylesGet extends PayCompany implements IPayDeletable {
+export class PayCompanyPolicyGet extends PayCompany implements IPayDeletable {
 	/**
-	 * When true, the command will also return  deleted {@link CompanyStyles}s.
+	 * When true, the command will also return a deleted {@link CompanyPolicies} (if it exists).
 	 **/
 	includeDeleted: boolean;
 
@@ -19,6 +19,6 @@ export class PayCompanyStylesGet extends PayCompany implements IPayDeletable {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepCompanyStylesGet(json);
+		return new RepCompanyPolicyGet(json);
 	}
 }
