@@ -1,11 +1,11 @@
 import { Dashcam, DashcamLive, JsonObject, nothing } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
-import { Reply } from "../../../API/Responses/Reply";
+import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link dashcams}.
  **/
-export abstract class RepDashcamList extends Reply {
+export abstract class RepDashcamList extends ReplySyncList<Dashcam> {
 	/**
 	 * The list of requested {@link Dashcam}s.
 	 **/
@@ -63,7 +63,7 @@ export class RepDashcamListByProvider extends RepDashcamList {
 /**
  * A container for the requested {@link dashcams}.
  **/
-export abstract class RepDashcamLiveList extends Reply {
+export abstract class RepDashcamLiveList extends ReplySyncList<DashcamLive> {
 	/**
 	 * The list of requested {@link Dashcam}s.
 	 **/

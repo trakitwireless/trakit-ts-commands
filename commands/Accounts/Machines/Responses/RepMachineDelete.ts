@@ -1,11 +1,11 @@
 import { JsonObject, nothing } from "@trakit/objects";
 import { ContentKeyDeleted } from "../../../API/Responses/Content/ContentKeyDeleted";
-import { Reply } from "../../../API/Responses/Reply";
+import { ReplySyncDelete } from "../../../API/Responses/ReplySyncDelete";
 
 /**
  * A container for the {@link machine}.
  **/
-export class RepMachineDelete extends Reply {
+export class RepMachineDelete extends ReplySyncDelete {
 	/**
 	 * Details about deleting/restoring the requested {@link Machine}.
 	 **/

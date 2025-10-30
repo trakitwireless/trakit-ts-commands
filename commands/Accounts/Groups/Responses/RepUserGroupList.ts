@@ -1,20 +1,21 @@
 import { JsonObject, nothing, UserGroup } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
-import { Reply } from "../../../API/Responses/Reply";
+import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link userGroups}.
  **/
-export abstract class RepUserGroupList extends Reply {
+export abstract class RepUserGroupList extends ReplySyncList<UserGroup> {
 	/**
 	 * The list of requested {@link UserGroup}s.
 	 **/
 	userGroups: UserGroup[] | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "UserGroup");
 		this.userGroups = (json?.userGroups as JsonObject[])?.map((ug: any) => new UserGroup(ug));
 	}
+	override getCollection() { return this.userGroups as UserGroup[]; }
 }
 
 /**

@@ -1,10 +1,10 @@
 import { JsonObject, MaintenanceSchedule, nothing } from "@trakit/objects";
-import { Reply } from "../../../API/Responses/Reply";
+import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link maintenanceSchedule}.
  **/
-export class RepMaintenanceScheduleGet extends Reply {
+export class RepMaintenanceScheduleGet extends ReplySyncGet<MaintenanceSchedule> {
 	/**
 	 * The requested {@link MaintenanceSchedule}.
 	 **/

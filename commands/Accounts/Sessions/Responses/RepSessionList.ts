@@ -1,12 +1,12 @@
 import { JsonObject, Session } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { ContentLoginCompany } from "../../../API/Responses/Content/ContentLoginCompany";
-import { Reply } from "../../../API/Responses/Reply";
+import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link sessions}.
  **/
-export abstract class RepSessionList extends Reply {
+export abstract class RepSessionList extends ReplySyncList<Session> {
 	/**
 	 * The list of requested {@link Session}.
 	 **/

@@ -2,12 +2,12 @@ import { AssetMessage, JsonObject, nothing } from "@trakit/objects";
 import { ContentId } from "../../API/Responses/Content/ContentId";
 import { IRepListByAsset } from "../../API/Responses/IRepListByAsset";
 import { IRepListByCompany } from "../../API/Responses/IRepListByCompany";
-import { Reply } from "../../API/Responses/Reply";
+import { ReplySyncList } from "../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link assetMessages}.
  **/
-export abstract class RepAssetMessageList extends Reply {
+export abstract class RepAssetMessageList extends ReplySyncList<AssetMessage> {
 	/**
 	 * The list of requested {@link AssetMessage}s.
 	 **/

@@ -1,10 +1,10 @@
 import { Document, JsonObject, nothing } from "@trakit/objects";
-import { Reply } from "../../../API/Responses/Reply";
+import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link document}.
  **/
-export class RepDocumentGet extends Reply {
+export class RepDocumentGet extends ReplySyncGet<Document> {
 	/**
 	 * The requested {@link Document}.
 	 **/

@@ -1,12 +1,12 @@
 import { JsonObject } from "@trakit/objects";
 import { nothing } from "@trakit/objects";
 import { ContentIdDeleted } from "../../API/Responses/Content/ContentIdDeleted";
-import { Reply } from "../../API/Responses/Reply";
+import { ReplySyncDelete } from "../../API/Responses/ReplySyncDelete";
 
 /**
  * A container for the {@link assetMessage}.
  **/
-export class RepAssetMessageDelete extends Reply {
+export class RepAssetMessageDelete extends ReplySyncDelete {
 	/**
 	 * Details about deleting/restoring the requested {@link AssetMessage}.
 	 **/

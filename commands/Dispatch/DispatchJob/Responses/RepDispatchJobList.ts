@@ -4,12 +4,12 @@ import { IRepListByAsset } from "../../../API/Responses/IRepListByAsset";
 import { IRepListByCompany } from "../../../API/Responses/IRepListByCompany";
 import { IRepListByLabels } from "../../../API/Responses/IRepListByLabels";
 import { IRepListByReferences } from "../../../API/Responses/IRepListByReferences";
-import { Reply } from "../../../API/Responses/Reply";
+import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link dispatchJobs}.
  **/
-export abstract class RepDispatchJobList extends Reply {
+export abstract class RepDispatchJobList extends ReplySyncList<DispatchJob> {
 	/**
 	 * The list of requested {@link DispatchJob}s.
 	 **/

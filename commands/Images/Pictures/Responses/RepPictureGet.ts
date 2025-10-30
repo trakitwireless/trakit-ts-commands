@@ -1,10 +1,10 @@
 import { JsonObject, nothing, Picture } from "@trakit/objects";
-import { Reply } from "../../../API/Responses/Reply";
+import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link picture}.
  **/
-export class RepPictureGet extends Reply {
+export class RepPictureGet extends ReplySyncGet<Picture> {
 	/**
 	 * The requested {@link Picture}.
 	 **/

@@ -1,11 +1,11 @@
 import { JsonObject, nothing } from "@trakit/objects";
 import { ContentIdDeleted } from "../../../API/Responses/Content/ContentIdDeleted";
-import { Reply } from "../../../API/Responses/Reply";
+import { ReplySyncDelete } from "../../../API/Responses/ReplySyncDelete";
 
 /**
  * A container for the {@link behaviourScript}.
  **/
-export class RepBehaviourScriptDelete extends Reply {
+export class RepBehaviourScriptDelete extends ReplySyncDelete {
 	/**
 	 * Details about deleting/restoring the requested {@link BehaviourScript}.
 	 **/

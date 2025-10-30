@@ -1,12 +1,12 @@
 import { JsonObject, nothing, ReportSchedule } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
-import { Reply } from "../../../API/Responses/Reply";
+import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
 
 /**
  * A container for the requested {@link reportSchedules}.
  **/
-export abstract class RepReportScheduleList extends Reply {
+export abstract class RepReportScheduleList extends ReplySyncList<ReportSchedule> {
 	/**
 	 * The list of requested {@link ReportSchedule}s.
 	 **/

@@ -1,10 +1,10 @@
 import { FormTemplate, JsonObject, nothing } from "@trakit/objects";
-import { Reply } from "../../../API/Responses/Reply";
+import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link formTemplate}.
  */
-export class RepFormTemplateGet extends Reply {
+export class RepFormTemplateGet extends ReplySyncGet<FormTemplate> {
 	/**
 	 * The requested {@link FormTemplate}.
 	 */

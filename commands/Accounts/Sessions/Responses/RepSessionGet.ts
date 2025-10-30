@@ -1,11 +1,11 @@
 import { JsonObject } from "@trakit/objects";
 import { Session } from "@trakit/objects";
-import { Reply } from "../../../API/Responses/Reply";
+import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link User} of the current session.
  **/
-export class RepSessionGet extends Reply {
+export class RepSessionGet extends ReplySyncGet<Session> {
 	/**
 	 * The requested {@link Session} details.
 	 **/

@@ -1,10 +1,10 @@
 import { JsonObject, nothing, ProviderScript } from "@trakit/objects";
-import { Reply } from "../../../API/Responses/Reply";
+import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link providerScript}.
  **/
-export class RepProviderScriptGet extends Reply {
+export class RepProviderScriptGet extends ReplySyncGet<ProviderScript> {
 	/**
 	 * The requested {@link ProviderScript}.
 	 **/

@@ -1,10 +1,10 @@
 import { JsonObject, Machine, nothing } from "@trakit/objects";
-import { Reply } from "../../../API/Responses/Reply";
+import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link machine}.
  **/
-export class RepMachineGet extends Reply {
+export class RepMachineGet extends ReplySyncGet<Machine> {
 	/**
 	 * The requested {@link Machine}.
 	 **/

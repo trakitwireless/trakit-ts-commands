@@ -1,11 +1,11 @@
 import { JsonObject } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
-import { Reply } from "../../../API/Responses/Reply";
+import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 import { nothing, ProviderControl } from "@trakit/objects";
 /**
  * A container for the requested {@link providerControls}.
  **/
-export abstract class RepProviderControlList extends Reply {
+export abstract class RepProviderControlList extends ReplySyncList<ProviderControl> {
 	/**
 	 * The list of requested {@link ProviderControl}s.
 	 **/

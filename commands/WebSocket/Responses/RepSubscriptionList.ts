@@ -1,11 +1,11 @@
 import { JsonObject, nothing } from "@trakit/objects";
-import { Reply } from "../../API/Responses/Reply";
+import { ReplySyncList } from "../../API/Responses/ReplySyncList";
 import { Subscription } from "./Content/Subscription";
 
 /**
  * Gets the list of current subscriptions for your current session.
  **/
-export class RepSubscriptionList extends Reply {
+export class RepSubscriptionList extends ReplySyncList<Subscription> {
 	/**
 	 * The list of your current subscription types.
 	 **/

@@ -1,10 +1,10 @@
 import { DispatchJob, JsonObject, nothing } from "@trakit/objects";
-import { Reply } from "../../../API/Responses/Reply";
+import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link dispatchJob}.
  **/
-export class RepDispatchJobGet extends Reply {
+export class RepDispatchJobGet extends ReplySyncGet<DispatchJob> {
 	/**
 	 * The requested {@link DispatchJob}.
 	 **/

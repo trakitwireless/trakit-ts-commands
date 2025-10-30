@@ -1,11 +1,11 @@
 import { JsonObject } from "@trakit/objects";
-import { Reply } from "../../../API/Responses/Reply";
+import { ReplySyncDelete } from "../../../API/Responses/ReplySyncDelete";
 import { SessionHandle } from "./Content/SessionHandle";
 
 /**
  * A container for the {@link User} of the current session.
  **/
-export class RepSessionDelete extends Reply {
+export class RepSessionDelete extends ReplySyncDelete {
 	/**
 	 * An object which contains the {@link Session.handle}, related {@link User.login}, and owning {@link User.company} id.
 	 **/

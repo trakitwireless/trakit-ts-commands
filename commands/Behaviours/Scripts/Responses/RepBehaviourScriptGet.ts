@@ -1,10 +1,10 @@
 import { BehaviourScript, JsonObject, nothing } from "@trakit/objects";
-import { Reply } from "../../../API/Responses/Reply";
+import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link behaviourScript}.
  **/
-export class RepBehaviourScriptGet extends Reply {
+export class RepBehaviourScriptGet extends ReplySyncGet<BehaviourScript> {
 	/**
 	 * The requested {@link BehaviourScript}.
 	 **/

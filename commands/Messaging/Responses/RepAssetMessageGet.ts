@@ -1,11 +1,11 @@
 import { JsonObject } from "@trakit/objects";
 import { AssetMessage, nothing } from "@trakit/objects";
-import { Reply } from "../../API/Responses/Reply";
+import { ReplySyncGet } from "../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link assetMessage}.
  **/
-export class RepAssetMessageGet extends Reply {
+export class RepAssetMessageGet extends ReplySyncGet<AssetMessage> {
 	/**
 	 * The requested {@link AssetMessage}.
 	 **/

@@ -11,12 +11,12 @@ import {
 	User,
 	utility
 } from "@trakit/objects";
-import { Reply } from "../../../API/Responses/Reply";
+import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link User} or {@link Machine} of the current session.
  **/
-export class RepSelfGet extends Reply {
+export class RepSelfGet extends ReplySyncGet<Self> {
 	/**
 	 * Your session identifier.
 	 **/

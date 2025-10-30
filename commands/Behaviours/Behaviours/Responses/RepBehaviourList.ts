@@ -1,11 +1,11 @@
 import { Behaviour, JsonObject, nothing } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
-import { Reply } from "../../../API/Responses/Reply";
+import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link behaviours}.
  **/
-export abstract class RepBehaviourList extends Reply {
+export abstract class RepBehaviourList extends ReplySyncList<Behaviour> {
 	/**
 	 * The list of requested {@link Behaviour}s.
 	 **/

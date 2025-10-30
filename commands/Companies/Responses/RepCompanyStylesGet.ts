@@ -1,10 +1,10 @@
 import { CompanyStyles, JsonObject, nothing } from "@trakit/objects";
-import { Reply } from "../../API/Responses/Reply";
+import { ReplySyncGet } from "../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link companyStyles}.
  **/
-export class RepCompanyStylesGet extends Reply {
+export class RepCompanyStylesGet extends ReplySyncGet<CompanyStyles> {
 	/**
 	 * The requested {@link CompanyStyles}.
 	 **/

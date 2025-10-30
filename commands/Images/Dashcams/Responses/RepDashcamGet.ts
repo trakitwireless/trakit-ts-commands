@@ -1,10 +1,10 @@
 import { Dashcam, JsonObject, nothing } from "@trakit/objects";
-import { Reply } from "../../../API/Responses/Reply";
+import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link dashcam}.
  **/
-export class RepDashcamGet extends Reply {
+export class RepDashcamGet extends ReplySyncGet<Dashcam> {
 	/**
 	 * The requested {@link Dashcam}.
 	 **/

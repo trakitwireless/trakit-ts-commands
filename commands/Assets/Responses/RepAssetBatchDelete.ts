@@ -1,11 +1,11 @@
 import { JsonObject, nothing } from "@trakit/objects";
 import { ContentIdDeleted } from "../../API/Responses/Content/ContentIdDeleted";
-import { Reply } from "../../API/Responses/Reply";
+import { ReplySyncDelete } from "../../API/Responses/ReplySyncDelete";
 
 /**
  * 
  **/
-export class RepAssetBatchDelete extends Reply {
+export class RepAssetBatchDelete extends ReplySyncBatchDelete {
 	/**
 	 * 
 	 **/

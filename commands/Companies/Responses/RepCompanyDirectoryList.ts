@@ -1,11 +1,11 @@
 import { CompanyDirectory, JsonObject, nothing } from "@trakit/objects";
 import { ContentId } from "../../API/Responses/Content/ContentId";
-import { Reply } from "../../API/Responses/Reply";
+import { ReplySyncList } from "../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link companyDirectorys}.
  **/
-export abstract class RepCompanyDirectoryList extends Reply {
+export abstract class RepCompanyDirectoryList extends ReplySyncList<CompanyDirectory> {
 	/**
 	 * The list of requested {@link CompanyDirectory}s.
 	 **/

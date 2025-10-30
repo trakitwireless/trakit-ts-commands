@@ -1,11 +1,11 @@
 import { JsonObject, nothing, UserGeneral } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
-import { Reply } from "../../../API/Responses/Reply";
+import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link UserGeneral}s.
  **/
-export abstract class RepUserGeneralList extends Reply {
+export abstract class RepUserGeneralList extends ReplySyncList<UserGeneral> {
 	/**
 	 * The list of requested {@link UserGeneral}s.
 	 **/

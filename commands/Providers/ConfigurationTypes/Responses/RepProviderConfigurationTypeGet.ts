@@ -1,10 +1,10 @@
 import { JsonObject, nothing, ProviderConfigurationType } from "@trakit/objects";
-import { Reply } from "../../../API/Responses/Reply";
+import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link providerConfigurationType}.
  **/
-export class RepProviderConfigurationTypeGet extends Reply {
+export class RepProviderConfigurationTypeGet extends ReplySyncGet<ProviderConfigurationType> {
 	/**
 	 * The requested {@link ProviderConfigurationType}.
 	 **/

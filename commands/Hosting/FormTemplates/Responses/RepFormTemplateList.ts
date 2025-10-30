@@ -1,11 +1,11 @@
 import { FormTemplate, JsonObject, nothing } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
-import { Reply } from "../../../API/Responses/Reply";
+import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link formTemplates}.
  */
-export abstract class RepFormTemplateList extends Reply {
+export abstract class RepFormTemplateList extends ReplySyncList<FormTemplate> {
 	/**
 	 * The list of requested {@link FormTemplate}s.
 	 */

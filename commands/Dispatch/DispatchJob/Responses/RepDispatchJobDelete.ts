@@ -1,11 +1,11 @@
 import { JsonObject, nothing } from "@trakit/objects";
 import { ContentIdDeleted } from "../../../API/Responses/Content/ContentIdDeleted";
-import { Reply } from "../../../API/Responses/Reply";
+import { ReplySyncDelete } from "../../../API/Responses/ReplySyncDelete";
 
 /**
  * A container for the {@link dispatchJob}.
  **/
-export class RepDispatchJobDelete extends Reply {
+export class RepDispatchJobDelete extends ReplySyncDelete {
 	/**
 	 * Details about deleting/restoring the requested {@link DispatchJob}.
 	 **/

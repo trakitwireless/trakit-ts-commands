@@ -1,11 +1,11 @@
 import { Icon, JsonObject, nothing } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
-import { Reply } from "../../../API/Responses/Reply";
+import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link icons}.
  **/
-export abstract class RepIconList extends Reply {
+export abstract class RepIconList extends ReplySyncList<Icon> {
 	/**
 	 * The list of requested {@link Icon}s.
 	 **/

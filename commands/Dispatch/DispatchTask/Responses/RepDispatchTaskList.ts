@@ -3,12 +3,12 @@ import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { IRepListByAsset } from "../../../API/Responses/IRepListByAsset";
 import { IRepListByCompany } from "../../../API/Responses/IRepListByCompany";
 import { IRepListByReferences } from "../../../API/Responses/IRepListByReferences";
-import { Reply } from "../../../API/Responses/Reply";
+import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link dispatchTasks}.
  **/
-export abstract class RepDispatchTaskList extends Reply {
+export abstract class RepDispatchTaskList extends ReplySyncList<DispatchTask> {
 	/**
 	 * The list of requested {@link DispatchTask}s.
 	 **/
