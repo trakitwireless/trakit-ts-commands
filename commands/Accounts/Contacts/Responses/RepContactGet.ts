@@ -1,4 +1,4 @@
-import { classes, Contact, JsonObject, nothing, storage, ulong } from "@trakit/objects";
+import { Contact, JsonObject, nothing } from "@trakit/objects";
 import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
@@ -11,12 +11,11 @@ export class RepContactGet extends ReplySyncGet<Contact> {
 	contact: Contact | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "Contact");
 		if (json?.contact) {
 			this.contact = new Contact(json.contact as JsonObject);
 		}
 	}
 	
 	override getObject(): Contact { return this.contact as Contact; }
-	protected override _getTypeName(): classes { return "Contact"; }
 }

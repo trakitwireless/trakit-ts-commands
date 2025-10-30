@@ -1,4 +1,4 @@
-import { Asset, classes, JsonObject, nothing, storage } from "@trakit/objects";
+import { Asset, JsonObject, nothing } from "@trakit/objects";
 import { ReplySyncGet } from "../../API/Responses/ReplySyncGet";
 
 /**
@@ -11,11 +11,10 @@ export class RepAssetGet extends ReplySyncGet<Asset> {
 	asset: Asset | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "Asset");
 		if (json?.asset) {
 			this.asset = new Asset(json.asset as JsonObject);
 		}
 	}
 	override getObject() { return this.asset as Asset; }
-	protected override _getTypeName(): classes { return "Asset"; }
 }

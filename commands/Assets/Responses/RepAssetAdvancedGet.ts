@@ -1,4 +1,4 @@
-import { Asset, AssetAdvanced, BaseCompound, classes, JsonObject, nothing } from "@trakit/objects";
+import { Asset, AssetAdvanced, JsonObject, nothing } from "@trakit/objects";
 import { ReplySyncGetPiece } from "../../API/Responses/ReplySyncGet";
 
 /**
@@ -11,14 +11,12 @@ export class RepAssetAdvancedGet extends ReplySyncGetPiece<AssetAdvanced> {
 	assetAdvanced: AssetAdvanced | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "AssetAdvanced", 1);
 		if (json?.assetAdvanced) {
 			this.assetAdvanced = new AssetAdvanced(json.assetAdvanced as JsonObject);
 		}
 	}
 
 	override getObject() { return this.assetAdvanced as AssetAdvanced; }
-	protected override _getTypeName(): classes { return "AssetAdvanced"; }
-	protected override _getPieceIndex(): number { return 1; }
 	protected override _createBlank() { return new Asset(); }
 }

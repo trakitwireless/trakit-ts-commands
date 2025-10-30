@@ -1,4 +1,16 @@
-import { BaseComponent, BaseCompound, email, guid, IDeserializable, IRequestable, ISerializable, objects, storage, ulong } from '@trakit/objects';
+import {
+	BaseComponent,
+	BaseCompound,
+	classes,
+	email,
+	guid,
+	IDeserializable,
+	IRequestable,
+	ISerializable,
+	JsonObject,
+	storage,
+	ulong
+} from '@trakit/objects';
 import { ReplySync } from './ReplySync';
 
 /**
@@ -14,7 +26,7 @@ export abstract class ReplySyncGet<TRequestable extends IRequestable> extends Re
 	 * Adds or updates the constructed object to storage (and maybe IndexedDB).
 	 */
 	override store(): void {
-		const map = storage[this._getTypeName()] as Map<string | guid | email | ulong, IRequestable>,
+		const map = storage[this._typeName] as Map<string | guid | email | ulong, IRequestable>,
 			obj = this.getObject() as unknown as IRequestable & ISerializable,
 			key = obj.getKey(),
 			stored = map.get(key) as unknown as IDeserializable;
@@ -27,23 +39,28 @@ export abstract class ReplySyncGet<TRequestable extends IRequestable> extends Re
  */
 export abstract class ReplySyncGetPiece<TRequestable extends BaseComponent> extends ReplySyncGet<TRequestable> {
 	/**
+	 * Returns the index of the piece in the {@link BaseCompound} to sync.
+	 */
+	readonly _pieceIndex: number;
+
+	constructor(json: JsonObject, type: classes, index: number) {
+		super(json, type);
+		this._pieceIndex = index;
+	}
+
+	/**
 	 * Creates a blank instance of the compound object.
 	 */
 	protected abstract _createBlank(): BaseCompound;
 	/**
-	 * Returns the index of the piece in the {@link BaseCompound} to sync.
-	 */
-	protected abstract _getPieceIndex(): number;
-	/**
 	 * Adds or updates the constructed object to storage (and maybe IndexedDB).
 	 */
 	override store(): void {
-		const type = this._getTypeName(),
-			map = storage[type] as Map<string | guid | email | ulong, BaseCompound>,
+		const map = storage[this._typeName] as Map<string | guid | email | ulong, BaseCompound>,
 			obj = this.getObject() as unknown as BaseCompound,
 			key = obj.getKey();
 		let stored = map.get(key) as unknown as BaseCompound;
 		if (!stored) map.set(key, stored = this._createBlank());
-		stored.pieces[this._getPieceIndex()].fromJSON(obj.toJSON());
+		stored.pieces[this._pieceIndex].fromJSON(obj.toJSON());
 	}
 }

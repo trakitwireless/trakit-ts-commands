@@ -1,4 +1,9 @@
-import { Asset, AssetDispatch, classes, JsonObject, nothing } from "@trakit/objects";
+import {
+	Asset,
+	AssetDispatch,
+	JsonObject,
+	nothing
+} from "@trakit/objects";
 import { ReplySyncGetPiece } from "../../API/Responses/ReplySyncGet";
 
 /**
@@ -11,13 +16,11 @@ export class RepAssetDispatchGet extends ReplySyncGetPiece<AssetDispatch> {
 	assetDispatch: AssetDispatch | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "AssetDispatch", 2);
 		if (json?.assetDispatch) {
 			this.assetDispatch = new AssetDispatch(json.assetDispatch as JsonObject);
 		}
 	}
 	override getObject() { return this.assetDispatch as AssetDispatch; }
-	protected override _getTypeName(): classes { return "AssetDispatch"; }
-	protected override _getPieceIndex() { return 2; }
 	protected override _createBlank() { return new Asset(); }
 }

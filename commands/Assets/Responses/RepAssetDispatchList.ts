@@ -1,4 +1,11 @@
-import { Asset, AssetDispatch, BaseCompound, classes, codified, JsonObject, nothing, objects, serialization, storage, ulong } from "@trakit/objects";
+import {
+	Asset,
+	AssetDispatch,
+	codified,
+	JsonObject,
+	nothing,
+	serialization
+} from "@trakit/objects";
 import { ContentId } from "../../API/Responses/Content/ContentId";
 import { ReplySyncListPiece } from "../../API/Responses/ReplySyncList";
 
@@ -12,13 +19,11 @@ export abstract class RepAssetDispatchList extends ReplySyncListPiece<AssetDispa
 	assetDispatches: AssetDispatch[] | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "AssetDispatch", 2);
 		this.assetDispatches = (json?.assetDispatches as JsonObject[])?.map((el: any) => new AssetDispatch(el));
 	}
 
 	override getCollection() { return this.assetDispatches as AssetDispatch[]; }
-	protected override _getTypeName(): classes { return "AssetDispatch"; }
-	protected override _getPieceIndex() { return 2; }
 	protected override _createBlank() { return new Asset(); }
 }
 
