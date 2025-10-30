@@ -1,4 +1,4 @@
-import { JsonObject } from "@trakit/objects";
+import { JsonObject, ulong } from "@trakit/objects";
 import { nothing } from "@trakit/objects";
 import { ReplySyncDelete } from "../../../API/Responses/ReplySyncDelete";
 import { ContentIdDeleted } from "../../../API/Responses/Content/ContentIdDeleted";
@@ -13,7 +13,8 @@ export class RepFormTemplateDelete extends ReplySyncDelete {
 	formTemplate: ContentIdDeleted | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "FormTemplate");
 		this.formTemplate = ContentIdDeleted.fromJSON(json?.formTemplate as JsonObject);
 	}
+	protected override _getKey() { return this.formTemplate?.id as ulong; }
 }

@@ -1,4 +1,4 @@
-import { JsonObject } from "@trakit/objects";
+import { JsonObject, ulong } from "@trakit/objects";
 import { nothing } from "@trakit/objects";
 import { ReplySyncDelete } from "../../API/Responses/ReplySyncDelete";
 import { ContentIdDeleted } from "../../API/Responses/Content/ContentIdDeleted";
@@ -13,7 +13,8 @@ export class RepPlaceDelete extends ReplySyncDelete {
 	place: ContentIdDeleted | nothing;
 	
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "Place");
 		this.place = ContentIdDeleted.fromJSON(json?.place as JsonObject);
 	}
+	protected override _getKey() { return this.place?.id as ulong; }
 }

@@ -1,7 +1,6 @@
-import { JsonObject } from "@trakit/objects";
-import { nothing } from "@trakit/objects";
+import { JsonObject, nothing } from "@trakit/objects";
+import { ContentCodeDeleted } from "../../../API/Responses/Content/ContentCodeDeleted";
 import { ReplySyncDelete } from "../../../API/Responses/ReplySyncDelete";
-import { ContentIdDeleted } from "../../../API/Responses/Content/ContentIdDeleted";
 
 /**
  * A container for the {@link providerRegistration}.
@@ -10,10 +9,11 @@ export class RepProviderRegistrationDelete extends ReplySyncDelete {
 	/**
 	 * Details about deleting/restoring the requested {@link ProviderRegistration}.
 	 **/
-	providerRegistration: ContentIdDeleted | nothing;
+	providerRegistration: ContentCodeDeleted | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
-		this.providerRegistration = ContentIdDeleted.fromJSON(json?.providerRegistration as JsonObject);
+		super(json, "ProviderRegistration");
+		this.providerRegistration = ContentCodeDeleted.fromJSON(json?.providerRegistration as JsonObject);
 	}
+	protected override _getKey() { return this.providerRegistration?.code as string; }
 }

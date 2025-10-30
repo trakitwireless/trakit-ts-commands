@@ -1,11 +1,13 @@
 import { JsonObject, nothing } from "@trakit/objects";
 import { ContentIdDeleted } from "../../API/Responses/Content/ContentIdDeleted";
-import { ReplySyncDelete } from "../../API/Responses/ReplySyncDelete";
+import { Reply } from "../../API/Responses/Reply";
 
 /**
  * A container for the {@link companyReseller}.
  **/
-export class RepCompanyResellerDelete extends ReplySyncDelete {
+export class RepCompanyResellerDelete extends Reply {
+	// does not implement ReplySyncDelete because a reseller is simply a part of a company.
+
 	/**
 	 * Details about deleting/restoring the requested {@link Company}.
 	 **/

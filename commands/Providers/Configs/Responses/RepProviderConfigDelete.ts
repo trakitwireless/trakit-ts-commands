@@ -1,4 +1,4 @@
-import { JsonObject, nothing } from "@trakit/objects";
+import { JsonObject, nothing, ulong } from "@trakit/objects";
 import { ContentIdDeleted } from "../../../API/Responses/Content/ContentIdDeleted";
 import { ReplySyncDelete } from "../../../API/Responses/ReplySyncDelete";
 
@@ -12,7 +12,8 @@ export class RepProviderConfigDelete extends ReplySyncDelete {
 	providerConfig: ContentIdDeleted | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "ProviderConfig");
 		this.providerConfig = ContentIdDeleted.fromJSON(json?.providerConfig as JsonObject);
 	}
+	protected override _getKey() { return this.providerConfig?.id as ulong; }
 }

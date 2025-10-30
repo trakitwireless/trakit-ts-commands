@@ -12,7 +12,8 @@ export class RepSessionDelete extends ReplySyncDelete {
 	session: SessionHandle;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "Session");
 		this.session = new SessionHandle(json?.session as JsonObject);
 	}
+	protected override _getKey() { return this.session?.handle as string; }
 }

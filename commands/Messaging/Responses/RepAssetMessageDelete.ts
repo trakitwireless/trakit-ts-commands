@@ -1,4 +1,4 @@
-import { JsonObject } from "@trakit/objects";
+import { JsonObject, ulong } from "@trakit/objects";
 import { nothing } from "@trakit/objects";
 import { ContentIdDeleted } from "../../API/Responses/Content/ContentIdDeleted";
 import { ReplySyncDelete } from "../../API/Responses/ReplySyncDelete";
@@ -13,7 +13,8 @@ export class RepAssetMessageDelete extends ReplySyncDelete {
 	assetMessage: ContentIdDeleted | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "AssetMessage");
 		this.assetMessage = ContentIdDeleted.fromJSON(json?.assetMessage as JsonObject);
 	}
+	protected override _getKey() { return this.assetMessage?.id as ulong; }
 }
