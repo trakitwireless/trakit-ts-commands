@@ -15,5 +15,5 @@ export class RepAssetMessageBatchDelete extends ReplySyncBatchDelete {
 		super(json, "AssetMessage");
 		this.assetMessages = (json?.assetMessages as JsonObject[])?.map((v: any) => new ContentIdDeleted(v));
 	}
-	protected override _getKeys() { return this.assetMessages?.map((e) => e.id) as ulong[]; }
+	protected override _getKeys() { return this.assetMessages?.map(a => a.id) as ulong[]; }
 }

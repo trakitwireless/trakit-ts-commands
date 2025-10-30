@@ -15,5 +15,5 @@ export class RepReportTemplateBatchDelete extends ReplySyncBatchDelete {
 		super(json, "ReportTemplate");
 		this.reportTemplates = (json?.reportTemplates as JsonObject[])?.map((e: any) => new ContentIdDeleted(e));
 	}
-	protected override _getKeys() { return this.reportTemplates?.map((e) => e.id) as ulong[]; }
+	protected override _getKeys() { return this.reportTemplates?.map(r => r.id) as ulong[]; }
 }

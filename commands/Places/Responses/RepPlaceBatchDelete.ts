@@ -16,5 +16,5 @@ export class RepPlaceBatchDelete extends ReplySyncBatchDelete {
 		super(json, "Place");
 		this.places = (json?.places as JsonObject[])?.map((item: any) => new ContentIdDeleted(item));
 	}
-	protected override _getKeys() { return this.places?.map((e) => e.id) as ulong[]; }
+	protected override _getKeys() { return this.places?.map(p => p.id) as ulong[]; }
 }

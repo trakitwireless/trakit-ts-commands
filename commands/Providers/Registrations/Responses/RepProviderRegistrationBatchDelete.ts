@@ -15,5 +15,5 @@ export class RepProviderRegistrationBatchDelete extends ReplySyncBatchDelete {
 		super(json, "ProviderRegistration");
 		this.providerRegistrations = (json?.providerRegistrations as JsonObject[])?.map((v: any) => new ContentCodeDeleted(v));
 	}
-	protected override _getKeys() { return this.providerRegistrations?.map((e) => e.code) as string[]; }
+	protected override _getKeys() { return this.providerRegistrations?.map(p => p.code) as string[]; }
 }

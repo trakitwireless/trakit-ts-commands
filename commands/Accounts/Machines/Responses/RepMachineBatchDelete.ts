@@ -15,5 +15,5 @@ export class RepMachineBatchDelete extends ReplySyncBatchDelete {
 		super(json, "Machine");
 		this.machines = (json?.machines as JsonObject[])?.map((m: any) => new ContentKeyDeleted(m));
 	}
-	protected override _getKeys() { return this.machines?.map((e) => e.key) as string[]; }
+	protected override _getKeys() { return this.machines?.map(m => m.key) as string[]; }
 }

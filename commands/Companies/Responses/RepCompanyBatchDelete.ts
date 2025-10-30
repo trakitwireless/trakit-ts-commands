@@ -15,5 +15,5 @@ export class RepCompanyBatchDelete extends ReplySyncBatchDelete {
 		super(json, "Company");
 		this.companies = (json?.companies as JsonObject[])?.map((c: any) => new ContentIdDeleted(c));
 	}
-	protected override _getKeys() { return this.companies?.map((e) => e.id) as ulong[]; }
+	protected override _getKeys() { return this.companies?.map(c => c.id) as ulong[]; }
 }

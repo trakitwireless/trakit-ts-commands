@@ -15,5 +15,5 @@ export class RepPictureBatchDelete extends ReplySyncBatchDelete {
 		super(json, "Picture");
 		this.pictures = (json?.pictures as JsonObject[])?.map((p: any) => new ContentIdDeleted(p));
 	}
-	protected override _getKeys() { return this.pictures?.map((e) => e.id) as ulong[]; }
+	protected override _getKeys() { return this.pictures?.map(p => p.id) as ulong[]; }
 }
