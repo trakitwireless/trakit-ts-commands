@@ -12,9 +12,10 @@ export abstract class RepIconList extends ReplySyncList<Icon> {
 	icons: Icon[] | nothing;
 	
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "Icon");
 		this.icons = (json?.icons as JsonObject[])?.map((i: any) => new Icon(i));
 	}
+	override getCollection() { return this.icons as Icon[]; }
 }
 
 /**

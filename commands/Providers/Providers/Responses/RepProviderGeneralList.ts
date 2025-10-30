@@ -1,7 +1,6 @@
-import { JsonObject } from "@trakit/objects";
-import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
-import { nothing, ProviderGeneral } from "@trakit/objects";
+import { JsonObject, nothing, ProviderGeneral } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
+import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 /**
  * A container for the requested {@link providerGenerals}.
  **/
@@ -12,9 +11,10 @@ export abstract class RepProviderGeneralList extends ReplySyncList<ProviderGener
 	providerGenerals: ProviderGeneral[] | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "ProviderGeneral");
 		this.providerGenerals = (json?.providerGenerals as JsonObject[])?.map((v: any) => new ProviderGeneral(v));
 	}
+	override getCollection() { return this.providerGenerals as ProviderGeneral[]; }
 }
 
 /**

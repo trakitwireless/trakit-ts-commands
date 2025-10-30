@@ -14,9 +14,10 @@ export abstract class RepAssetMessageList extends ReplySyncList<AssetMessage> {
 	assetMessages: AssetMessage[] | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "AssetMessage");
 		this.assetMessages = (json?.assetMessages as JsonObject[])?.map((v: any) => new AssetMessage(v));
 	}
+	override getCollection() { return this.assetMessages as AssetMessage[]; }
 }
 
 /**

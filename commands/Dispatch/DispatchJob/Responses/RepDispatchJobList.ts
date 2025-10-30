@@ -16,9 +16,10 @@ export abstract class RepDispatchJobList extends ReplySyncList<DispatchJob> {
 	dispatchJobs: DispatchJob[] | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "DispatchJob");
 		this.dispatchJobs = (json?.dispatchJobs as JsonObject[])?.map((dj: any) => new DispatchJob(dj));
 	}
+	override getCollection() { return this.dispatchJobs as DispatchJob[]; }
 }
 /**
  * 

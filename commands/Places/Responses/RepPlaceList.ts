@@ -12,9 +12,10 @@ export abstract class RepPlaceList extends ReplySyncList<Place> {
 	places: Place[] | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "Place");
 		this.places = (json?.places as JsonObject[])?.map((item: any) => new Place(item));
 	}
+	override getCollection() { return this.places as Place[]; }
 }
 
 /**

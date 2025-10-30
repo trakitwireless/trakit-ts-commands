@@ -12,9 +12,10 @@ export abstract class RepMaintenanceJobList extends ReplySyncList<MaintenanceJob
 	maintenanceJobs: MaintenanceJob[] | nothing;
 	
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "MaintenanceJob");
 		this.maintenanceJobs = (json?.maintenanceJobs as JsonObject[])?.map((item: any) => new MaintenanceJob(item));
 	}
+	override getCollection() { return this.maintenanceJobs as MaintenanceJob[]; }
 }
 
 /**

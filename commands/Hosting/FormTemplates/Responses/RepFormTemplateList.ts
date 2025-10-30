@@ -12,9 +12,10 @@ export abstract class RepFormTemplateList extends ReplySyncList<FormTemplate> {
 	formTemplates: FormTemplate[] | nothing;
 	
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "FormTemplate");
 		this.formTemplates = (json?.formTemplates as JsonObject[])?.map((item: any) => new FormTemplate(item));
 	}
+	override getCollection() { return this.formTemplates as FormTemplate[]; }
 }
 
 /**

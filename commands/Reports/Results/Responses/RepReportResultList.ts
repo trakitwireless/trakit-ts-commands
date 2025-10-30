@@ -11,9 +11,10 @@ export abstract class RepReportResultList extends ReplySyncList<ReportResult> {
 	reportResults: ReportResult[] | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "ReportResult");
 		this.reportResults = (json?.reportResults as JsonObject[])?.map((e: any) => new ReportResult(e));
 	}
+	override getCollection() { return this.reportResults as ReportResult[]; }
 }
 
 /**

@@ -1,7 +1,6 @@
-import { JsonObject } from "@trakit/objects";
+import { JsonObject, nothing, ProviderScript } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
-import { nothing, ProviderScript } from "@trakit/objects";
 
 /**
  * A container for the requested {@link providerScripts}.
@@ -13,9 +12,10 @@ export abstract class RepProviderScriptList extends ReplySyncList<ProviderScript
 	providerScripts: ProviderScript[] | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "ProviderScript");
 		this.providerScripts = (json?.providerScripts as JsonObject[])?.map((v: any) => new ProviderScript(v));
 	}
+	override getCollection() { return this.providerScripts as ProviderScript[]; }
 }
 
 /**

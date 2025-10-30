@@ -12,9 +12,10 @@ export abstract class RepFormResultList extends ReplySyncList<FormResult> {
 	formResults: FormResult[] | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "FormResult");
 		this.formResults = (json?.formResults as JsonObject[])?.map((item: any) => new FormResult(item));
 	}
+	override getCollection() { return this.formResults as FormResult[]; }
 }
 
 /**

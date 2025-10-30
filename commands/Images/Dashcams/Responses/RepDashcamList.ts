@@ -1,5 +1,6 @@
 import { Dashcam, DashcamLive, JsonObject, nothing } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
+import { Reply } from "../../../API/Responses/Reply";
 import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
 /**
@@ -12,9 +13,10 @@ export abstract class RepDashcamList extends ReplySyncList<Dashcam> {
 	dashcams: Dashcam[] | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "Dashcam");
 		this.dashcams = (json?.dashcams as JsonObject[])?.map((d: any) => new Dashcam(d));
 	}
+	override getCollection() { return this.dashcams as Dashcam[]; }
 }
 
 /**
@@ -63,7 +65,7 @@ export class RepDashcamListByProvider extends RepDashcamList {
 /**
  * A container for the requested {@link dashcams}.
  **/
-export abstract class RepDashcamLiveList extends ReplySyncList<DashcamLive> {
+export abstract class RepDashcamLiveList extends Reply {
 	/**
 	 * The list of requested {@link Dashcam}s.
 	 **/

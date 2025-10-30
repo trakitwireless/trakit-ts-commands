@@ -12,9 +12,10 @@ export abstract class RepPictureList extends ReplySyncList<Picture> {
 	pictures: Picture[] | nothing;
 	
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "Picture");
 		this.pictures = (json?.pictures as JsonObject[])?.map((i: any) => new Picture(i));
 	}
+	override getCollection() { return this.pictures as Picture[]; }
 }
 
 /**

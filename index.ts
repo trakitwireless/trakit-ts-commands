@@ -249,16 +249,16 @@ import { PayCompanyGeneralGet } from "./commands/Companies/Requests/PayCompanyGe
 import { PayCompanyGeneralList, PayCompanyGeneralListByCompany } from "./commands/Companies/Requests/PayCompanyGeneralList";
 import { PayCompanyGet } from "./commands/Companies/Requests/PayCompanyGet";
 import { PayCompanyMerge } from "./commands/Companies/Requests/PayCompanyMerge";
-import { PayCompanyPoliciesGet } from "./commands/Companies/Requests/PayCompanyPoliciesGet";
-import { PayCompanyPoliciesList, PayCompanyPoliciesListByCompany } from "./commands/Companies/Requests/PayCompanyPoliciesList";
+import { PayCompanyPolicyGet } from "./commands/Companies/Requests/PayCompanyPolicyGet";
+import { PayCompanyPolicyList, PayCompanyPolicyListByCompany } from "./commands/Companies/Requests/PayCompanyPolicyList";
 import { PayCompanyResellerDelete } from "./commands/Companies/Requests/PayCompanyResellerDelete";
 import { PayCompanyResellerGet } from "./commands/Companies/Requests/PayCompanyResellerGet";
 import { PayCompanyResellerList, PayCompanyResellerListByCompany } from "./commands/Companies/Requests/PayCompanyResellerList";
 import { PayCompanyResellerMerge } from "./commands/Companies/Requests/PayCompanyResellerMerge";
 import { PayCompanyResellerRestore } from "./commands/Companies/Requests/PayCompanyResellerRestore";
 import { PayCompanyRestore } from "./commands/Companies/Requests/PayCompanyRestore";
-import { PayCompanyStylesGet } from "./commands/Companies/Requests/PayCompanyStylesGet";
-import { PayCompanyStylesList, PayCompanyStylesListByCompany } from "./commands/Companies/Requests/PayCompanyStylesList";
+import { PayCompanyStyleGet } from "./commands/Companies/Requests/PayCompanyStyleGet";
+import { PayCompanyStyleList, PayCompanyStyleListByCompany } from "./commands/Companies/Requests/PayCompanyStyleList";
 import { RepCompanyBatchDelete } from "./commands/Companies/Responses/RepCompanyBatchDelete";
 import { RepCompanyBatchMerge } from "./commands/Companies/Responses/RepCompanyBatchMerge";
 import { RepCompanyDelete } from "./commands/Companies/Responses/RepCompanyDelete";
@@ -268,14 +268,14 @@ import { RepCompanyGeneralGet } from "./commands/Companies/Responses/RepCompanyG
 import { RepCompanyGeneralList, RepCompanyGeneralListByCompany } from "./commands/Companies/Responses/RepCompanyGeneralList";
 import { RepCompanyGet } from "./commands/Companies/Responses/RepCompanyGet";
 import { RepCompanyMerge } from "./commands/Companies/Responses/RepCompanyMerge";
-import { RepCompanyPoliciesGet } from "./commands/Companies/Responses/RepCompanyPoliciesGet";
-import { RepCompanyPoliciesList, RepCompanyPoliciesListByCompany } from "./commands/Companies/Responses/RepCompanyPoliciesList";
+import { RepCompanyPolicyGet } from "./commands/Companies/Responses/RepCompanyPolicyGet";
+import { RepCompanyPolicyList, RepCompanyPolicyListByCompany } from "./commands/Companies/Responses/RepCompanyPolicyList";
 import { RepCompanyResellerDelete } from "./commands/Companies/Responses/RepCompanyResellerDelete";
 import { RepCompanyResellerGet } from "./commands/Companies/Responses/RepCompanyResellerGet";
 import { RepCompanyResellerList, RepCompanyResellerListByCompany } from "./commands/Companies/Responses/RepCompanyResellerList";
 import { RepCompanyResellerMerge } from "./commands/Companies/Responses/RepCompanyResellerMerge";
-import { RepCompanyStylesGet } from "./commands/Companies/Responses/RepCompanyStylesGet";
-import { RepCompanyStylesList, RepCompanyStylesListByCompany } from "./commands/Companies/Responses/RepCompanyStylesList";
+import { RepCompanyStyleGet } from "./commands/Companies/Responses/RepCompanyStyleGet";
+import { RepCompanyStyleList, RepCompanyStyleListByCompany } from "./commands/Companies/Responses/RepCompanyStyleList";
 import { ParamDispatchJobCancel } from "./commands/Dispatch/DispatchJob/Requests/Parameters/ParamDispatchJobCancel";
 import { ParamDispatchJobChange } from "./commands/Dispatch/DispatchJob/Requests/Parameters/ParamDispatchJobChange";
 import { ParamDispatchJobMerge } from "./commands/Dispatch/DispatchJob/Requests/Parameters/ParamDispatchJobMerge";
@@ -831,14 +831,14 @@ export {
 		PayCompanyGeneralListByCompany,
 		PayCompanyGet,
 		PayCompanyMerge,
-		PayCompanyPoliciesGet,
-		PayCompanyPoliciesList,
-		PayCompanyPoliciesListByCompany, PayCompanyResellerDelete, PayCompanyResellerGet,
+		PayCompanyPolicyGet as PayCompanyPoliciesGet,
+		PayCompanyPolicyList as PayCompanyPoliciesList,
+		PayCompanyPolicyListByCompany as PayCompanyPoliciesListByCompany, PayCompanyResellerDelete, PayCompanyResellerGet,
 		PayCompanyResellerList,
 		PayCompanyResellerListByCompany, PayCompanyResellerMerge, PayCompanyResellerRestore, PayCompanyRestore,
-		PayCompanyStylesGet,
-		PayCompanyStylesList,
-		PayCompanyStylesListByCompany,
+		PayCompanyStyleGet as PayCompanyStylesGet,
+		PayCompanyStyleList as PayCompanyStylesList,
+		PayCompanyStyleListByCompany as PayCompanyStylesListByCompany,
 		RepCompanyBatchDelete,
 		RepCompanyBatchMerge,
 		RepCompanyDelete,
@@ -850,13 +850,13 @@ export {
 		RepCompanyGeneralListByCompany,
 		RepCompanyGet,
 		RepCompanyMerge,
-		RepCompanyPoliciesGet,
-		RepCompanyPoliciesList,
-		RepCompanyPoliciesListByCompany, RepCompanyResellerDelete, RepCompanyResellerGet,
+		RepCompanyPolicyGet as RepCompanyPoliciesGet,
+		RepCompanyPolicyList as RepCompanyPoliciesList,
+		RepCompanyPolicyListByCompany as RepCompanyPoliciesListByCompany, RepCompanyResellerDelete, RepCompanyResellerGet,
 		RepCompanyResellerList,
-		RepCompanyResellerListByCompany, RepCompanyResellerMerge, RepCompanyStylesGet,
-		RepCompanyStylesList,
-		RepCompanyStylesListByCompany
+		RepCompanyResellerListByCompany, RepCompanyResellerMerge, RepCompanyStyleGet as RepCompanyStylesGet,
+		RepCompanyStyleList as RepCompanyStylesList,
+		RepCompanyStyleListByCompany as RepCompanyStylesListByCompany
 	};
 //#endregion Company
 

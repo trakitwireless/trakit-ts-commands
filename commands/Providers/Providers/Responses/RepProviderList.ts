@@ -1,4 +1,4 @@
-import { JsonObject, nothing, Provider } from "@trakit/objects";
+import { JsonObject, nothing, Provider, ReportTemplate } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 /**
@@ -11,9 +11,10 @@ export abstract class RepProviderList extends ReplySyncList<Provider> {
 	providers: Provider[] | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "Provider");
 		this.providers = (json?.providers as JsonObject[])?.map((v: any) => new Provider(v));
 	}
+	override getCollection() { return this.providers as Provider[]; }
 }
 
 /**

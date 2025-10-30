@@ -12,9 +12,10 @@ export abstract class RepUserAdvancedList extends ReplySyncList<UserAdvanced> {
 	userAdvanceds: UserAdvanced[];
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "UserAdvanced");
 		this.userAdvanceds = (json?.userAdvanceds as JsonObject[])?.map((u: any) => new UserAdvanced(u)) ?? [];
 	}
+	override getCollection() { return this.userAdvanceds as UserAdvanced[]; }
 }
 
 /**

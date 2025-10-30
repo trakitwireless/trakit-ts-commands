@@ -11,9 +11,10 @@ export abstract class RepMaintenanceScheduleList extends ReplySyncList<Maintenan
 	maintenanceSchedules: MaintenanceSchedule[] | nothing;
 	
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "MaintenanceSchedule");
 		this.maintenanceSchedules = (json?.maintenanceSchedules as JsonObject[])?.map((item: any) => new MaintenanceSchedule(item));
 	}
+	override getCollection() { return this.maintenanceSchedules as MaintenanceSchedule[]; }
 }
 
 /**

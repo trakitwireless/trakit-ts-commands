@@ -22,7 +22,6 @@ export abstract class RepAssetAdvancedList extends ReplySyncListPiece<AssetAdvan
 		super(json, "AssetAdvanced", 1);
 		this.assetAdvanceds = (json?.assetAdvanceds as JsonObject[])?.map((el: any) => new AssetAdvanced(el));
 	}
-
 	override getCollection() { return this.assetAdvanceds as AssetAdvanced[]; }
 	protected override _createBlank() { return new Asset(); }
 }

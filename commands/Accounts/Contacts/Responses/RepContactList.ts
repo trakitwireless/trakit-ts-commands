@@ -15,7 +15,6 @@ export abstract class RepContactList extends ReplySyncList<Contact> {
 		super(json, "Contact");
 		this.contacts = (json?.contacts as JsonObject[])?.map((c: any) => new Contact(c)) ?? [];
 	}
-
 	override getCollection() { return this.contacts as Contact[]; }
 }
 

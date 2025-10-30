@@ -12,9 +12,10 @@ export abstract class RepUserGeneralList extends ReplySyncList<UserGeneral> {
 	userGenerals: UserGeneral[];
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "UserGeneral");
 		this.userGenerals = (json?.userGenerals as JsonObject[])?.map((u: any) => new UserGeneral(u)) ?? [];
 	}
+	override getCollection() { return this.userGenerals as UserGeneral[]; }
 }
 
 /**

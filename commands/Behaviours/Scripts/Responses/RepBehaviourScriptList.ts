@@ -12,9 +12,10 @@ export abstract class RepBehaviourScriptList extends ReplySyncList<BehaviourScri
 	behaviourScripts: BehaviourScript[] | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "BehaviourScript");
 		this.behaviourScripts = (json?.behaviourScripts as JsonObject[])?.map((x: any) => new BehaviourScript(x));
 	}
+	override getCollection() { return this.behaviourScripts as BehaviourScript[]; }
 }
 
 /**

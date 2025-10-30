@@ -26,11 +26,9 @@ export abstract class ReplySyncList<TRequestable extends IRequestable> extends R
 	 * Adds or updates the constructed objects to storage (and maybe IndexedDB).
 	 */
 	override store(): void {
-		const map = storage[this._typeName] as Map<string | guid | email | ulong, IRequestable>,
-			collection = this.getCollection();
-		for (let i = 0; i < collection.length; i++) {
-			const obj = collection[i] as unknown as IRequestable & ISerializable,
-				key = obj.getKey(),
+		const map = storage[this._typeName] as Map<string | guid | email | ulong, IRequestable>;
+		for (const obj of this.getCollection() as unknown as (IRequestable & ISerializable)[]) {
+			const key = obj.getKey(),
 				stored = map.get(key) as unknown as IDeserializable;
 			if (!stored) map.set(key, obj);
 			else stored.fromJSON(obj.toJSON());

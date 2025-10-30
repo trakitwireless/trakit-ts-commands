@@ -22,7 +22,6 @@ export abstract class RepAssetDispatchList extends ReplySyncListPiece<AssetDispa
 		super(json, "AssetDispatch", 2);
 		this.assetDispatches = (json?.assetDispatches as JsonObject[])?.map((el: any) => new AssetDispatch(el));
 	}
-
 	override getCollection() { return this.assetDispatches as AssetDispatch[]; }
 	protected override _createBlank() { return new Asset(); }
 }

@@ -1,7 +1,6 @@
-import { JsonObject } from "@trakit/objects";
-import { nothing, ProviderRegistration } from "@trakit/objects";
-import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
+import { JsonObject, nothing, ProviderRegistration } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
+import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link providerRegistrations}.
@@ -13,9 +12,10 @@ export abstract class RepProviderRegistrationList extends ReplySyncList<Provider
 	providerRegistrations: ProviderRegistration[] | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "ProviderRegistration");
 		this.providerRegistrations = (json?.providerRegistrations as JsonObject[])?.map((v: any) => new ProviderRegistration(v));
 	}
+	override getCollection() { return this.providerRegistrations as ProviderRegistration[]; }
 }
 
 /**

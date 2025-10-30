@@ -12,9 +12,10 @@ export abstract class RepProviderConfigurationList extends ReplySyncList<Provide
 	providerConfigurations: ProviderConfiguration[] | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "ProviderConfiguration");
 		this.providerConfigurations = (json?.providerConfigurations as JsonObject[])?.map((v: any) => new ProviderConfiguration(v));
 	}
+	override getCollection() { return this.providerConfigurations as ProviderConfiguration[]; }
 }
 
 /**
