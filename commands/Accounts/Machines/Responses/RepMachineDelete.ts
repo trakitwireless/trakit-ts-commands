@@ -12,7 +12,9 @@ export class RepMachineDelete extends ReplySyncDelete {
 	machine: ContentKeyDeleted | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "Machine");
 		this.machine = ContentKeyDeleted.fromJSON(json?.machine as JsonObject);
 	}
+
+	protected override _getKey() { return this.machine?.key as string; }
 }
