@@ -1,4 +1,4 @@
-import { JsonObject, nothing } from "@trakit/objects";
+import { JsonObject, nothing, ulong } from "@trakit/objects";
 import { ContentIdDeleted } from "../../../API/Responses/Content/ContentIdDeleted";
 import { ReplySyncBatchDelete } from "../../../API/Responses/ReplySyncBatchDelete";
 
@@ -12,7 +12,8 @@ export class RepPictureBatchDelete extends ReplySyncBatchDelete {
 	pictures: ContentIdDeleted[] | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "Picture");
 		this.pictures = (json?.pictures as JsonObject[])?.map((p: any) => new ContentIdDeleted(p));
 	}
+	protected override _getKeys() { return this.pictures?.map((e) => e.id) as ulong[]; }
 }

@@ -15,6 +15,5 @@ export class RepUserGroupBatchDelete extends ReplySyncBatchDelete {
 		super(json, "UserGroup");
 		this.userGroups = (json.userGroups as JsonObject[])?.map((ug: any) => new ContentIdDeleted(ug));
 	}
-
 	protected override _getKeys() { return this.userGroups?.map(ug => ug.id) as ulong[]; }
 }

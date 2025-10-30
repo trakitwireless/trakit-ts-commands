@@ -1,6 +1,6 @@
-import { JsonObject, nothing } from "@trakit/objects";
+import { JsonObject, nothing, ulong } from "@trakit/objects";
 import { ContentIdDeleted } from "../../API/Responses/Content/ContentIdDeleted";
-import { ReplySyncDelete } from "../../API/Responses/ReplySyncDelete";
+import { ReplySyncBatchDelete } from "../../API/Responses/ReplySyncBatchDelete";
 
 /**
  * A container for the {@link assetMessage}.
@@ -12,7 +12,8 @@ export class RepAssetMessageBatchDelete extends ReplySyncBatchDelete {
 	assetMessages: ContentIdDeleted[] | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "AssetMessage");
 		this.assetMessages = (json?.assetMessages as JsonObject[])?.map((v: any) => new ContentIdDeleted(v));
 	}
+	protected override _getKeys() { return this.assetMessages?.map((e) => e.id) as ulong[]; }
 }
