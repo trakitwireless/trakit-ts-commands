@@ -11,9 +11,10 @@ export class RepReportResultGet extends ReplySyncGet<ReportResult> {
 	reportResult: ReportResult | nothing;
 	
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "ReportResult");
 		if (json?.reportResult) {
 			this.reportResult = new ReportResult(json.reportResult as JsonObject);
 		}
 	}
+	override getObject() { return this.reportResult as ReportResult; }
 }

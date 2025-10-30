@@ -12,7 +12,8 @@ export class RepSessionGet extends ReplySyncGet<Session> {
 	session: Session;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "Session");
 		this.session = Session.fromJSON(json?.session as JsonObject);
 	}
+	override getObject() { return this.session as Session; }
 }

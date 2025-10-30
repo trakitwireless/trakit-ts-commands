@@ -11,9 +11,10 @@ export class RepProviderScriptGet extends ReplySyncGet<ProviderScript> {
 	providerScript: ProviderScript | nothing;
 	
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "ProviderScript");
 		if (json?.providerScript) {
 			this.providerScript = new ProviderScript(json.providerScript as JsonObject);
 		}
 	}
+	override getObject() { return this.providerScript as ProviderScript; }
 }

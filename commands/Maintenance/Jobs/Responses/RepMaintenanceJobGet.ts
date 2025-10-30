@@ -11,9 +11,10 @@ export class RepMaintenanceJobGet extends ReplySyncGet<MaintenanceJob> {
 	maintenanceJob: MaintenanceJob | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "MaintenanceJob");
 		if (json?.maintenanceJob) {
 			this.maintenanceJob = new MaintenanceJob(json.maintenanceJob as JsonObject);
 		}
 	}
+	override getObject() { return this.maintenanceJob as MaintenanceJob; }
 }

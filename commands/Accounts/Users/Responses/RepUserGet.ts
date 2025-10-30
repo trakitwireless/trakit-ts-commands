@@ -12,9 +12,10 @@ export class RepUserGet extends ReplySyncGet<User> {
 	user: User | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "User");
 		if (json?.user) {
 			this.user = new User(json.user as JsonObject);
 		}
 	}
+	override getObject() { return this.user as User; }
 }

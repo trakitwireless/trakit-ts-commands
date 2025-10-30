@@ -12,9 +12,10 @@ export class RepProviderGet extends ReplySyncGet<Provider> {
 	provider: Provider | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "Provider");
 		if (json?.provider) {
 			this.provider = new Provider(json.provider as JsonObject);
 		}
 	}
+	override getObject() { return this.provider as Provider; }
 }

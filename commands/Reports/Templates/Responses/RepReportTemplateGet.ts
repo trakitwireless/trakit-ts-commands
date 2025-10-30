@@ -11,9 +11,10 @@ export class RepReportTemplateGet extends ReplySyncGet<ReportTemplate> {
 	reportTemplate: ReportTemplate | nothing;
 	
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "ReportTemplate");
 		if (json?.reportTemplate) {
 			this.reportTemplate = new ReportTemplate(json.reportTemplate as JsonObject);
 		}
 	}
+	override getObject() { return this.reportTemplate as ReportTemplate; }
 }

@@ -12,9 +12,10 @@ export class RepIconGet extends ReplySyncGet<Icon> {
 	icon: Icon | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "Icon");
 		if (json?.icon) {
 			this.icon = new Icon(json.icon as JsonObject);
 		}
 	}
+	override getObject() { return this.icon as Icon; }
 }

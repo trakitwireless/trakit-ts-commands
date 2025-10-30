@@ -11,9 +11,10 @@ export class RepFormTemplateGet extends ReplySyncGet<FormTemplate> {
 	formTemplate: FormTemplate | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "FormTemplate");
 		if (json?.formTemplate) {
 			this.formTemplate = new FormTemplate(json.formTemplate as JsonObject);
 		}
 	}
+	override getObject() { return this.formTemplate as FormTemplate; }
 }

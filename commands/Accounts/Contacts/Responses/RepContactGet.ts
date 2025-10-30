@@ -16,6 +16,5 @@ export class RepContactGet extends ReplySyncGet<Contact> {
 			this.contact = new Contact(json.contact as JsonObject);
 		}
 	}
-	
 	override getObject(): Contact { return this.contact as Contact; }
 }

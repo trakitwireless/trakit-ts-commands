@@ -11,9 +11,10 @@ export class RepPictureGet extends ReplySyncGet<Picture> {
 	picture: Picture | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "Picture");
 		if (json?.picture) {
 			this.picture = new Picture(json.picture as JsonObject);
 		}
 	}
+	override getObject() { return this.picture as Picture; }
 }

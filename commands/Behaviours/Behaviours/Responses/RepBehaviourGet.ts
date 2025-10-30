@@ -11,9 +11,10 @@ export class RepBehaviourGet extends ReplySyncGet<Behaviour> {
 	behaviour: Behaviour | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "Behaviour");
 		if (json?.behaviour) {
 			this.behaviour = new Behaviour(json.behaviour as JsonObject);
 		}
 	}
+	override getObject() { return this.behaviour as Behaviour; }
 }

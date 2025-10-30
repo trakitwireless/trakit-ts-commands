@@ -11,9 +11,10 @@ export class RepDashcamGet extends ReplySyncGet<Dashcam> {
 	dashcam: Dashcam | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "Dashcam");
 		if (json?.dashcam) {
 			this.dashcam = Dashcam.fromJSON(json.dashcam as JsonObject);
 		}
 	}
+	override getObject() { return this.dashcam as Dashcam; }
 }

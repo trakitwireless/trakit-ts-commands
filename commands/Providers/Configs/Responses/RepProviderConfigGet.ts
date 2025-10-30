@@ -11,9 +11,10 @@ export class RepProviderConfigGet extends ReplySyncGet<ProviderConfig> {
 	providerConfig: ProviderConfig | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "ProviderConfig");
 		if (json?.providerConfig) {
 			this.providerConfig = new ProviderConfig(json.providerConfig as JsonObject);
 		}
 	}
+	override getObject() { return this.providerConfig as ProviderConfig; }
 }

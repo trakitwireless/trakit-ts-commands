@@ -12,9 +12,10 @@ export class RepAssetMessageGet extends ReplySyncGet<AssetMessage> {
 	assetMessage: AssetMessage | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "AssetMessage");
 		if (json?.assetMessage) {
 			this.assetMessage = new AssetMessage(json.assetMessage as JsonObject);
 		}
 	}
+	override getObject() { return this.assetMessage as AssetMessage; }
 }

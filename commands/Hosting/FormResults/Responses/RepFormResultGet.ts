@@ -12,9 +12,10 @@ export class RepFormResultGet extends ReplySyncGet<FormResult> {
 	formResult: FormResult | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "FormResult");
 		if (json?.formResult) {
 			this.formResult = new FormResult(json.formResult as JsonObject);
 		}
 	}
+	override getObject() { return this.formResult as FormResult; }
 }

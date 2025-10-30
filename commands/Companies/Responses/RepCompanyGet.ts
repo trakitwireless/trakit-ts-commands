@@ -11,9 +11,10 @@ export class RepCompanyGet extends ReplySyncGet<Company> {
 	company: Company | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "Company");
 		if (json?.company) {
 			this.company = new Company(json.company as JsonObject);
 		}
 	}
+	override getObject() { return this.company as Company; }
 }

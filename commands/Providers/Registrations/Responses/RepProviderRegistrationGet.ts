@@ -12,9 +12,10 @@ export class RepProviderRegistrationGet extends ReplySyncGet<ProviderRegistratio
 	providerRegistration: ProviderRegistration | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "ProviderRegistration");
 		if (json?.providerRegistration) {
 			this.providerRegistration = new ProviderRegistration(json.providerRegistration as JsonObject);
 		}
 	}
+	override getObject() { return this.providerRegistration as ProviderRegistration; }
 }

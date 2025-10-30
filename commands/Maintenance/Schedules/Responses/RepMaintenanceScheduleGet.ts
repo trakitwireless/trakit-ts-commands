@@ -11,9 +11,10 @@ export class RepMaintenanceScheduleGet extends ReplySyncGet<MaintenanceSchedule>
 	maintenanceSchedule: MaintenanceSchedule | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "MaintenanceSchedule");
 		if (json?.maintenanceSchedule) {
 			this.maintenanceSchedule = new MaintenanceSchedule(json.maintenanceSchedule as JsonObject);
 		}
 	}
+	override getObject() { return this.maintenanceSchedule as MaintenanceSchedule; }
 }
