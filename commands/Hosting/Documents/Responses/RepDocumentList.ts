@@ -12,9 +12,10 @@ export abstract class RepDocumentList extends ReplySyncList<Document> {
 	documents: Document[] | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "Document");
 		this.documents = (json?.documents as JsonObject[])?.map((item: any) => new Document(item));
 	}
+	override getCollection() { return this.documents as Document[]; }
 }
 
 /**

@@ -12,9 +12,10 @@ export abstract class RepProviderConfigurationTypeList extends ReplySyncList<Pro
 	providerConfigurationTypes: ProviderConfigurationType[] | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "ProviderConfigurationType");
 		this.providerConfigurationTypes = (json?.providerConfigurationTypes as JsonObject[])?.map((v: any) => new ProviderConfigurationType(v));
 	}
+	override getCollection() { return this.providerConfigurationTypes as ProviderConfigurationType[]; }
 }
 
 /**

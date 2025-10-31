@@ -11,9 +11,10 @@ export class RepDocumentGet extends ReplySyncGet<Document> {
 	document: Document | nothing;
 
 	constructor(json: JsonObject) {
-		super(json);
+		super(json, "Document");
 		if (json?.document) {
 			this.document = new Document(json.document as JsonObject);
 		}
 	}
+	override getObject() { return this.document as Document; }
 }
