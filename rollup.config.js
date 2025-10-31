@@ -3,20 +3,22 @@ import terser from '@rollup/plugin-terser';
 
 const obfuscate = {
 	ecma: 2020,
-	// compress: {
-	//   drop_console: true,
-	//   drop_debugger: true,
-	//   hoist_funs: true,
-	//   join_vars: true,
-	//   module: true,
-	//   toplevel: true,
-	// },
-	// sourceMap: {
-	//   filename: '../_publish/trakit-commands.min.js',
-	// },
+	compress: {
+		drop_console: true,
+		drop_debugger: true,
+		hoist_funs: true,
+		module: true,
+		toplevel: true,
+	},
 	mangle: {
 		keep_classnames: /^(Pay|Rep)/,
+		properties: {
+			regex: /^[#_]/,
+		}
 	},
+	//format: {
+	//	semicolons: false,
+	//},
 };
 
 export default [
