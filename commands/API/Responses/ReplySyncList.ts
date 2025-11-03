@@ -23,15 +23,49 @@ export abstract class ReplySyncList<TRequestable extends IRequestable> extends R
 	 */
 	abstract getCollection(): TRequestable[];
 	/**
+	 * Filters the existing stored collection to determine which objects are a part of this synchronization operation.
+	 * For listing commands, this will filter out only those objects that match the company or asset to which these objects belong.
+	 * @param pair 
+	 * @param index 
+	 */
+	abstract _filterCollection(pair: [string | guid | email | ulong, TRequestable], index: number): boolean;
+	/**
+	 * Returns the key for the given pair.
+	 */
+	_keyCollection(pair: [string | guid | email | ulong, TRequestable], index: number) { return pair[0]; }
+	/**
+	 * Adds or updates the constructed objects to storage (and maybe IndexedDB).
+	 * @param map 
+	 * @param key 
+	 * @param obj 
+	 */
+	_store(
+		map: Map<string | guid | email | ulong, TRequestable>,
+		obj: TRequestable
+	): string | guid | email | ulong {
+		const key = obj.getKey(),
+			stored = map.get(key) as unknown as IDeserializable;
+		if (!stored) map.set(key, obj);
+		else stored.fromJSON((obj as unknown as ISerializable).toJSON());
+		return key;
+	}
+	
+	/**
 	 * Adds or updates the constructed objects to storage (and maybe IndexedDB).
 	 */
 	override store(): void {
-		const map = storage[this._typeName] as Map<string | guid | email | ulong, IRequestable>;
-		for (const obj of this.getCollection() as unknown as (IRequestable & ISerializable)[]) {
-			const key = obj.getKey(),
-				stored = map.get(key) as unknown as IDeserializable;
-			if (!stored) map.set(key, obj);
-			else stored.fromJSON(obj.toJSON());
+		const map = storage[this._typeName] as Map<string | guid | email | ulong, TRequestable>,
+			existing: Set<string | guid | email | ulong> = new Set(
+				map.entries()
+					.filter(this._filterCollection)
+					.map(this._keyCollection)
+			);
+		for (const obj of this.getCollection()) {
+			const key = this._store(map, obj);
+			existing.delete(key);
+		}
+		for (const key of existing) {
+			map.delete(key);
 		}
 	}
 }
@@ -52,17 +86,18 @@ export abstract class ReplySyncListPiece<TRequestable extends BaseComponent> ext
 	/**
 	 * Creates a blank instance of the compound object.
 	 */
-	protected abstract _createBlank(): BaseCompound;
+	protected abstract _createBlank(): TRequestable;
 	/**
-	 * Adds or updates the constructed objects to storage (and maybe IndexedDB).
+	 * This override synchronizes only the piece of the compound object, and creates a blank object if it does not exist.
 	 */
-	override store(): void {
-		const map = storage[this._typeName] as Map<string | guid | email | ulong, BaseCompound>;
-		for (const obj of this.getCollection()) {
-			const key = obj.getKey();
-			let stored = map.get(key) as unknown as BaseCompound;
-			if (!stored) map.set(key, stored = this._createBlank());
-			stored.pieces[this._pieceIndex].fromJSON(obj.toJSON());
-		}
+	override _store(
+		map: Map<string | guid | email | ulong, TRequestable>,
+		obj: TRequestable
+	): string | guid | email | ulong {
+		const key = obj.getKey();
+		let stored = map.get(key) as unknown as BaseCompound;
+		if (!stored) map.set(key, stored = this._createBlank() as TRequestable & BaseCompound);
+		stored.pieces[this._pieceIndex].fromJSON(obj.toJSON());
+		return key;
 	}
 }
