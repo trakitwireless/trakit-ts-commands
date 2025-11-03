@@ -1,4 +1,4 @@
-import { DispatchTask, JsonObject, nothing, serialization } from "@trakit/objects";
+import { DispatchJob, DispatchTask, email, guid, JsonObject, nothing, serialization, ulong } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { IRepListByAsset } from "../../../API/Responses/IRepListByAsset";
 import { IRepListByCompany } from "../../../API/Responses/IRepListByCompany";
@@ -24,6 +24,44 @@ export abstract class RepDispatchTaskList extends ReplySyncList<DispatchTask> {
 /**
  * 
  **/
+export class RepDispatchTaskListByCompany extends RepDispatchTaskList implements IRepListByCompany {
+	/**
+	 * Identifier of the {@link Company} to which this collection belongs.
+	 **/
+	company: ContentId | nothing;
+
+	constructor(json: JsonObject) {
+		super(json);
+		this.company = ContentId.fromJSON(json?.company as JsonObject);
+	}
+	override _filterCollection(pair: [string | guid | email | ulong, DispatchTask], index: number): boolean {
+		return pair[1].companyId === (this.company as ContentId).id;
+	}
+}
+/**
+ * 
+ **/
+export class RepDispatchTaskListByCompanyAndRefPairs extends RepDispatchTaskListByCompany implements IRepListByReferences {
+	/**
+	 * Case-insensitive reference pairs used to match jobs.
+	 * @see {@link DispatchTask.references}
+	 **/
+	references: Map<string, string> | nothing;
+
+	constructor(json: JsonObject) {
+		super(json);
+		this.references = json?.references
+			? serialization.toMap(json?.references as object)
+			: null;
+	}
+	override _filterCollection(pair: [string | guid | email | ulong, DispatchTask], index: number): boolean {
+		return false; // Filtering by references does not guarantee that the other tasks should be purged.
+	}
+}
+
+/**
+ * 
+ **/
 export class RepDispatchTaskListByAsset extends RepDispatchTaskList implements IRepListByAsset {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
@@ -33,6 +71,9 @@ export class RepDispatchTaskListByAsset extends RepDispatchTaskList implements I
 	constructor(json: JsonObject) {
 		super(json);
 		this.asset = ContentId.fromJSON(json?.asset as JsonObject);
+	}
+	override _filterCollection(pair: [string | guid | email | ulong, DispatchTask], index: number): boolean {
+		return pair[1].assetId === (this.asset as ContentId).id;
 	}
 }
 /**
@@ -51,35 +92,7 @@ export class RepDispatchTaskListByAssetAndRefPairs extends RepDispatchTaskListBy
 			? serialization.toMap(json?.references as object)
 			: null;
 	}
-}
-/**
- * 
- **/
-export class RepDispatchTaskListByCompany extends RepDispatchTaskList implements IRepListByCompany {
-	/**
-	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
-	company: ContentId | nothing;
-
-	constructor(json: JsonObject) {
-		super(json);
-		this.company = ContentId.fromJSON(json?.company as JsonObject);
-	}
-}
-/**
- * 
- **/
-export class RepDispatchTaskListByCompanyAndRefPairs extends RepDispatchTaskListByCompany implements IRepListByReferences {
-	/**
-	 * Case-insensitive reference pairs used to match jobs.
-	 * @see {@link DispatchTask.references}
-	 **/
-	references: Map<string, string> | nothing;
-
-	constructor(json: JsonObject) {
-		super(json);
-		this.references = json?.references
-			? serialization.toMap(json?.references as object)
-			: null;
+	override _filterCollection(pair: [string | guid | email | ulong, DispatchTask], index: number): boolean {
+		return false; // Filtering by references does not guarantee that the other tasks should be purged.
 	}
 }
