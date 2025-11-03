@@ -1,4 +1,4 @@
-import { JsonObject, nothing, UserGeneral } from "@trakit/objects";
+import { email, guid, JsonObject, nothing, storage, ulong, User, UserGeneral } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
@@ -31,6 +31,9 @@ export class RepUserGeneralListByCompany extends RepUserGeneralList {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
+	override _filterCollection(pair: [string | guid | email | ulong, UserGeneral], index: number): boolean {
+		return pair[1].companyId === (this.company as ContentId).id;
+	}
 }
 /**
  * A container owner {@link UserGroup} of the collection.
@@ -44,5 +47,9 @@ export class RepUserGeneralListByUserGroup extends RepUserGeneralList {
 	constructor(json: JsonObject) {
 		super(json);
 		this.userGroup = ContentId.fromJSON(json?.userGroup as JsonObject);
+	}
+	override _filterCollection(pair: [string | guid | email | ulong, UserGeneral], index: number): boolean {
+		const user = storage.User.get(pair[0]) as User;
+		return user?.groupIds.includes((this.userGroup as ContentId).id as ulong);
 	}
 }

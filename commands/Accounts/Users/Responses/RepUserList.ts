@@ -49,6 +49,6 @@ export class RepUserListByUserGroup extends RepUserList {
 		this.userGroup = ContentId.fromJSON(json?.userGroup as JsonObject);
 	}
 	override _filterCollection(pair: [string | guid | email | ulong, User], index: number): boolean {
-		return pair[1].groupIds.includes((this.userGroup as ContentId).id as number);
+		return pair[1].groupIds.includes((this.userGroup as ContentId).id as ulong);
 	}
 }
