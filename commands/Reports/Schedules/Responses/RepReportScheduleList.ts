@@ -1,4 +1,4 @@
-import { email, guid, JsonObject, nothing, ReportResult, ReportSchedule, ulong } from "@trakit/objects";
+import { email, guid, JsonObject, nothing, ReportSchedule, ulong } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
