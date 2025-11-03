@@ -86,7 +86,7 @@ export abstract class ReplySyncListPiece<TRequestable extends BaseComponent> ext
 	/**
 	 * Creates a blank instance of the compound object.
 	 */
-	protected abstract _createBlank(): TRequestable;
+	protected abstract _createBlank(): BaseCompound;
 	/**
 	 * This override synchronizes only the piece of the compound object, and creates a blank object if it does not exist.
 	 */
