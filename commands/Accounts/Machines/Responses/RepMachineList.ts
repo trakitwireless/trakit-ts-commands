@@ -34,3 +34,20 @@ export class RepMachineListByCompany extends RepMachineList {
 		return pair[1].companyId === (this.company as ContentId).id;
 	}
 }
+/**
+ * Contains the {@link UserGroup.id} of the collection.
+ **/
+export class RepMachineListByUserGroup extends RepMachineList {
+	/**
+	 * Identifier of the {@link UserGroup} to which this collection belongs.
+	 **/
+	userGroup: ContentId | nothing;
+
+	constructor(json: JsonObject) {
+		super(json);
+		this.userGroup = ContentId.fromJSON(json?.userGroup as JsonObject);
+	}
+	override _filterCollection(pair: [string | guid | email | ulong, Machine], index: number): boolean {
+		return pair[1].groupIds.includes((this.userGroup as ContentId).id as ulong);
+	}
+}
