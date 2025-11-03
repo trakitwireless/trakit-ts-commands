@@ -1,4 +1,4 @@
-import { Asset, codified, JsonObject, nothing, serialization } from "@trakit/objects";
+import { Asset, codified, email, guid, JsonObject, nothing, serialization, ulong } from "@trakit/objects";
 import { ContentId } from "../../API/Responses/Content/ContentId";
 import { ReplySyncList } from "../../API/Responses/ReplySyncList";
 
@@ -31,6 +31,9 @@ export class RepAssetListByCompany extends RepAssetList {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
+	override _filterCollection(pair: [string | guid | email | ulong, Asset], index: number): boolean {
+		return pair[1].companyId === (this.company as ContentId).id;
+	}
 }
 /**
  * Contains the codified {@link Company.labels} keys used to filter the collection.
@@ -45,6 +48,9 @@ export class RepAssetListByCompanyAndLabels extends RepAssetListByCompany {
 	constructor(json: JsonObject) {
 		super(json);
 		this.labels = json?.labels as codified[];
+	}
+	override _filterCollection(pair: [string | guid | email | ulong, Asset], index: number): boolean {
+		return false; // Filtering by labels does not guarantee that the other assets should be purged.
 	}
 }
 /**
@@ -62,5 +68,8 @@ export class RepAssetListByCompanyAndRefPairs extends RepAssetListByCompany {
 		if (json?.references) {
 			this.references = serialization.toMap(json?.references as object);
 		}
+	}
+	override _filterCollection(pair: [string | guid | email | ulong, Asset], index: number): boolean {
+		return false; // Filtering by references does not guarantee that the other assets should be purged.
 	}
 }

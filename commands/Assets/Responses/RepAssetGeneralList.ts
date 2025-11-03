@@ -2,9 +2,12 @@ import {
 	Asset,
 	AssetGeneral,
 	codified,
+	email,
+	guid,
 	JsonObject,
 	nothing,
 	serialization,
+	ulong
 } from "@trakit/objects";
 import { ContentId } from "../../API/Responses/Content/ContentId";
 import { ReplySyncListPiece } from "../../API/Responses/ReplySyncList";
@@ -39,6 +42,9 @@ export class RepAssetGeneralListByCompany extends RepAssetGeneralList {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
+	override _filterCollection(pair: [string | guid | email | ulong, AssetGeneral], index: number): boolean {
+		return pair[1].companyId === (this.company as ContentId).id;
+	}
 }
 /**
  * A container owner {@link Company} of the collection.
@@ -53,6 +59,9 @@ export class RepAssetGeneralListByCompanyAndLabels extends RepAssetGeneralListBy
 	constructor(json: JsonObject) {
 		super(json);
 		this.labels = json?.labels as codified[];
+	}
+	override _filterCollection(pair: [string | guid | email | ulong, AssetGeneral], index: number): boolean {
+		return false; // Filtering by labels does not guarantee that the other assets should be purged.
 	}
 }
 /**
@@ -70,5 +79,8 @@ export class RepAssetGeneralListByCompanyAndRefPairs extends RepAssetGeneralList
 		if (json?.references) {
 			this.references = serialization.toMap(json?.references as object);
 		}
+	}
+	override _filterCollection(pair: [string | guid | email | ulong, AssetGeneral], index: number): boolean {
+		return false; // Filtering by references does not guarantee that the other assets should be purged.
 	}
 }

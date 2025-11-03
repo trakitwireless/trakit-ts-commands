@@ -1,10 +1,14 @@
 import {
 	Asset,
 	AssetDispatch,
+	AssetGeneral,
 	codified,
+	email,
+	guid,
 	JsonObject,
 	nothing,
-	serialization
+	serialization,
+	ulong
 } from "@trakit/objects";
 import { ContentId } from "../../API/Responses/Content/ContentId";
 import { ReplySyncListPiece } from "../../API/Responses/ReplySyncList";
@@ -39,6 +43,9 @@ export class RepAssetDispatchListByCompany extends RepAssetDispatchList {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
+	override _filterCollection(pair: [string | guid | email | ulong, AssetDispatch], index: number): boolean {
+		return pair[1].companyId === (this.company as ContentId).id;
+	}
 }
 /**
  * A container owner {@link Company} of the collection.
@@ -53,6 +60,9 @@ export class RepAssetDispatchListByCompanyAndLabels extends RepAssetDispatchList
 	constructor(json: JsonObject) {
 		super(json);
 		this.labels = json?.labels as codified[];
+	}
+	override _filterCollection(pair: [string | guid | email | ulong, AssetDispatch], index: number): boolean {
+		return false; // Filtering by labels does not guarantee that the other assets should be purged.
 	}
 }
 /**
@@ -70,5 +80,8 @@ export class RepAssetDispatchListByCompanyAndRefPairs extends RepAssetDispatchLi
 		if (json?.references) {
 			this.references = serialization.toMap(json?.references as object);
 		}
+	}
+	override _filterCollection(pair: [string | guid | email | ulong, AssetDispatch], index: number): boolean {
+		return false; // Filtering by references does not guarantee that the other assets should be purged.
 	}
 }
