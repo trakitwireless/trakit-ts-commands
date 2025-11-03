@@ -46,7 +46,7 @@ import { RepMachineBatchDelete } from "./commands/Accounts/Machines/Responses/Re
 import { RepMachineBatchMerge } from "./commands/Accounts/Machines/Responses/RepMachineBatchMerge";
 import { RepMachineDelete } from "./commands/Accounts/Machines/Responses/RepMachineDelete";
 import { RepMachineGet } from "./commands/Accounts/Machines/Responses/RepMachineGet";
-import { RepMachineListByCompany } from "./commands/Accounts/Machines/Responses/RepMachineList";
+import { RepMachineListByCompany, RepMachineListByUserGroup } from "./commands/Accounts/Machines/Responses/RepMachineList";
 import { RepMachineMerge } from "./commands/Accounts/Machines/Responses/RepMachineMerge";
 import { ParamPermission } from "./commands/Accounts/Permissions/ParamPermission";
 import { ParamSelfContactMerge } from "./commands/Accounts/Self/Requests/Parameters/ParamSelfContactMerge";
@@ -693,6 +693,7 @@ export {
 		RepMachineDelete,
 		RepMachineGet,
 		RepMachineListByCompany,
+		RepMachineListByUserGroup,
 		RepMachineMerge,
 		RepSelfContact,
 		RepSelfGet,
