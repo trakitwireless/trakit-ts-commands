@@ -1,7 +1,8 @@
-import { Dashcam, DashcamLive, JsonObject, nothing } from "@trakit/objects";
+import { Dashcam, DashcamLive, DispatchTask, email, guid, JsonObject, nothing, ulong } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { Reply } from "../../../API/Responses/Reply";
 import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
+import { ContentIdendifier } from "../../../API/Responses/Content/ContentIdendifier";
 
 /**
  * A container for the requested {@link dashcams}.
@@ -32,6 +33,9 @@ export class RepDashcamListByCompany extends RepDashcamList {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
+	override _filterCollection(pair: [string | guid | email | ulong, Dashcam], index: number): boolean {
+		return pair[1].companyId === (this.company as ContentId).id;
+	}
 }
 /**
  * Contains the {@link Company.id} of the collection.
@@ -46,6 +50,9 @@ export class RepDashcamListByAsset extends RepDashcamList {
 		super(json);
 		this.asset = ContentId.fromJSON(json?.asset as JsonObject);
 	}
+	override _filterCollection(pair: [string | guid | email | ulong, Dashcam], index: number): boolean {
+		return pair[1].assetId === (this.asset as ContentId).id;
+	}
 }
 /**
  * Contains the {@link Company.id} of the collection.
@@ -54,11 +61,14 @@ export class RepDashcamListByProvider extends RepDashcamList {
 	/**
 	 * Identifier of the {@link Provider} to which this collection belongs.
 	 **/
-	provider: ContentId | nothing;
+	provider: ContentIdendifier | nothing;
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.provider = ContentId.fromJSON(json?.provider as JsonObject);
+		this.provider = ContentIdendifier.fromJSON(json?.provider as JsonObject);
+	}
+	override _filterCollection(pair: [string | guid | email | ulong, Dashcam], index: number): boolean {
+		return pair[1].providerId === (this.provider as ContentIdendifier).id;
 	}
 }
 
@@ -112,10 +122,10 @@ export class RepDashcamLiveListByProvider extends RepDashcamLiveList {
 	/**
 	 * Identifier of the {@link Provider} to which this collection belongs.
 	 **/
-	provider: ContentId | nothing;
+	provider: ContentIdendifier | nothing;
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.provider = ContentId.fromJSON(json?.provider as JsonObject);
+		this.provider = ContentIdendifier.fromJSON(json?.provider as JsonObject);
 	}
 }
