@@ -12,8 +12,11 @@ export class RepCompanyStyleGet extends ReplySyncGetPiece<CompanyStyle> {
 
 	constructor(json: JsonObject) {
 		super(json, "CompanyStyle", 3);
-		if (json?.companyStyles) {
-			this.companyStyle = new CompanyStyle(json.companyStyles as JsonObject);
+		if (json?.companyStyle || json?.companyLabels) {
+			this.companyStyle = new CompanyStyle(
+				json.companyStyle as JsonObject
+				?? json.companyLabels as JsonObject
+			);
 		}
 	}
 	override getObject() { return this.companyStyle as CompanyStyle; }

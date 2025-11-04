@@ -13,7 +13,7 @@ export abstract class RepCompanyStyleList extends ReplySyncList<CompanyStyle> {
 	
 	constructor(json: JsonObject) {
 		super(json, "CompanyStyle");
-		this.companyStyles = (json?.companyStyles as JsonObject[])?.map((item: any) => new CompanyStyle(item));
+		this.companyStyles = ((json?.companyStyles ?? json?.companyLabels) as JsonObject[])?.map((item: any) => new CompanyStyle(item));
 	}
 	override getCollection() { return this.companyStyles as CompanyStyle[]; }
 }
