@@ -24,7 +24,8 @@
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.4",
     "rollup": "^4.36.0",
-    "rollup-plugin-typescript2": "^0.36.0"
+    "rollup-plugin-typescript2": "^0.36.0",
+    "vitest": "^4.0.7"
   },
   "dependencies": {
     "@trakit/objects": "file://d:/Hebra/trakit-ts-objects/_publish/trakit-ts-objects.min.js"
