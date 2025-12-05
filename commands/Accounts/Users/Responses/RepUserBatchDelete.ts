@@ -1,5 +1,5 @@
 import { email, JsonObject } from "@trakit/objects";
-import { ContentLoginDeleted } from "commands/API/Responses/Content/ContentLoginDeleted";
+import { ContentLoginDeleted } from "../../../API/Responses/Content/ContentLoginDeleted";
 import { ReplySyncBatchDelete } from "../../../API/Responses/ReplySyncBatchDelete";
 
 /**
