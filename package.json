@@ -2,8 +2,8 @@
   "name": "@trakit/commands",
   "type": "module",
   "version": "0.0.2",
-  "main": "_publish/trakit-ts-commands.min.js",
-  "types": "commands.ts",
+  "main": "_publish/trakit-commands.min.js",
+  "types": "_publish/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -28,6 +28,6 @@
     "vitest": "^4.0.7"
   },
   "dependencies": {
-    "@trakit/objects": "file://d:/Hebra/trakit-ts-objects/_publish/trakit-ts-objects.min.js"
+    "@trakit/objects": "file://../trakit-ts-objects"
   }
 }
