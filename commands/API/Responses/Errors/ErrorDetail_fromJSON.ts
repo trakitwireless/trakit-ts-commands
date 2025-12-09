@@ -24,9 +24,9 @@ import { ErrorDetailType } from "./ErrorDetailType";
 import { ErrorDetailUserGroupInUse } from "./ErrorDetailUserGroupInUse";
 
 /**
- * Creates an instance of an ErrorDetail subclass based on the "kind" property in the JSON.
+ * Creates an instance of an {@link ErrorDetail} subclass based on the `kind` property in the JSON.
  * @param json	The JSON to parse.
- * @returns		An instance of an ErrorDetail subclass, or null if the JSON is null or does not contain a recognized "kind" property.
+ * @returns		An instance of an {@link ErrorDetail} subclass, or null if the JSON is null or does not contain a recognized `kind` property.
  */
 ErrorDetail.fromJSON = function (json: JsonObject): ErrorDetail | null {
 	switch (json?.kind) {
