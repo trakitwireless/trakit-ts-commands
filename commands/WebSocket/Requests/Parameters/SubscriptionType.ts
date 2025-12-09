@@ -7,15 +7,11 @@ export enum SubscriptionType {
 	/**
 	 * Assets' {@link AssetGeneral|general properties} such as name, icon, and labels.
 	 * @see {@link AssetGeneral}
-	 * @see {@link PersonGeneral}
-	 * @see {@link VehicleGeneral}
-	 * @see {@link TrailerGeneral}
 	 **/
 	assetGeneral = "assetGeneral",
 	/**
 	 * Assets' {@link AssetAdvanced|advanced properties} such as position, attributes, and status tags.
 	 * @see {@link AssetAdvanced}
-	 * @see {@link VehicleAdvanced}
 	 **/
 	assetAdvanced = "assetAdvanced",
 	/**
