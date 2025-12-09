@@ -140,6 +140,7 @@ import { ContentLoginDeleted } from "./commands/API/Responses/Content/ContentLog
 import { ContentParentDeleted } from "./commands/API/Responses/Content/ContentParentDeleted";
 import { ErrorCode } from "./commands/API/Responses/Errors/ErrorCode";
 import { ErrorDetail } from "./commands/API/Responses/Errors/ErrorDetail";
+import "./commands/API/Responses/Errors/ErrorDetail_fromJSON";
 import { ErrorDetailBadIds } from "./commands/API/Responses/Errors/ErrorDetailBadIds";
 import { ErrorDetailBadIndexes } from "./commands/API/Responses/Errors/ErrorDetailBadIndexes";
 import { ErrorDetailBadKeys } from "./commands/API/Responses/Errors/ErrorDetailBadKeys";
