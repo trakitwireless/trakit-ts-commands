@@ -1,7 +1,7 @@
 import {
 	BaseComponent,
 	BaseCompound,
-	classes,
+	SyncName,
 	email,
 	guid,
 	IDeserializable,
@@ -78,7 +78,7 @@ export abstract class ReplySyncListPiece<TRequestable extends BaseComponent> ext
 	 */
 	readonly _pieceIndex: number;
 
-	constructor(json: JsonObject, type: classes, index: number) {
+	constructor(json: JsonObject, type: SyncName, index: number) {
 		super(json, type);
 		this._pieceIndex = index;
 	}
