@@ -25,4 +25,10 @@ export class ContentLoginCompany extends ContentLogin {
 		super(json);
 		this.company = json?.company as ulong;
 	}
+	override toJSON() {
+		return {
+			...super.toJSON(),
+			company: this.company ?? null,
+		};
+	}
 }

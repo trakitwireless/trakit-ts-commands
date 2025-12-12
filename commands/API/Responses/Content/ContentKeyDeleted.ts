@@ -30,4 +30,12 @@ export class ContentKeyDeleted extends ContentKeyCompany {
 		this.deleted = !!(json?.deleted);
 		this.v = json?.v as uint[] ?? [];
 	}
+
+	override toJSON() {
+		return {
+			...super.toJSON(),
+			deleted: !!this.deleted,
+			v: [...this.v],
+		};
+	}
 }

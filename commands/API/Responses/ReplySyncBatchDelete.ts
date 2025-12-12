@@ -1,5 +1,7 @@
 import { codified, email, guid, storage, ulong } from '@trakit/objects';
 import { ReplySync } from './ReplySync';
+import { IContent } from './Content/IContent';
+import { IContentCompany } from './Content/IContentCompany';
 
 /**
  * Base class for all responses from commands.
@@ -10,9 +12,10 @@ export abstract class ReplySyncBatchDelete extends ReplySync {
 	 * Returns the constructed object.
 	 */
 	protected abstract _getKeys(): string[] | guid[] | email[] | codified[] | ulong[];
-
-	abstract getResults(): any[];
-
+	/**
+	 * Returns the results of the batch delete.
+	 */
+	abstract getResults(): (IContent & IContentCompany)[];
 
 	/**
 	 * Adds or updates the constructed object to storage (and maybe IndexedDB).

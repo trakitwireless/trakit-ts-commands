@@ -1,9 +1,10 @@
-import { JsonObject, nothing } from "@trakit/objects";
+import { ISerializable, JsonObject, nothing } from "@trakit/objects";
+import { IContent } from "./IContent";
 
 /**
  * A container for the id of the {@link ProviderRegistration} requested/created.
  **/
-export class ContentCode {
+export class ContentCode implements IContent, ISerializable {
 	/**
 	 * Creates a {@link ContentCode} from a JSON object.
 	 * @param json - JSON object to create the {@link ContentCode} from.
@@ -22,5 +23,12 @@ export class ContentCode {
 
 	constructor(json: JsonObject) {
 		this.code = json?.code as string ?? "";
+	}
+
+	getKey() { return this.code; }
+	toJSON(): JsonObject {
+		return {
+			code: this.code,
+		};
 	}
 }

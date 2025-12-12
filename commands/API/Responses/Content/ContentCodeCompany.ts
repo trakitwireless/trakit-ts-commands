@@ -1,10 +1,13 @@
 import { JsonObject, nothing, ulong } from "@trakit/objects";
 import { ContentCode } from "./ContentCode";
+import { IContentCompany } from "./IContentCompany";
 
 /**
  * A container for the id and owning {@link Company} of the {@link ProviderRegistration} requested/created.
  **/
-export class ContentCodeCompany extends ContentCode {
+export class ContentCodeCompany
+	extends ContentCode
+	implements IContentCompany {
 	/**
 	 * Creates a {@link ContentCodeCompany} from a JSON object.
 	 * @param json - JSON object to create the {@link ContentCodeCompany} from.
@@ -24,5 +27,12 @@ export class ContentCodeCompany extends ContentCode {
 	constructor(json: JsonObject) {
 		super(json);
 		this.company = json?.company as ulong;
+	}
+	getCompanyId() { return this.company as ulong; }
+	override toJSON() {
+		return {
+			...super.toJSON(),
+			company: this.company ?? null,
+		};
 	}
 }

@@ -1,4 +1,4 @@
-import { JsonObject, nothing, ProviderRegistration } from "@trakit/objects";
+import { JsonObject, nothing, ProviderRegistration, ulong } from "@trakit/objects";
 import { ContentCodeCompany } from "./ContentCodeCompany";
 
 /**
@@ -25,5 +25,11 @@ export class ContentCodeDeleted extends ContentCodeCompany {
 	constructor(json: JsonObject) {
 		super(json);
 		this.deleted = !!(json?.deleted);
+	}
+	override toJSON() {
+		return {
+			...super.toJSON(),
+			deleted: !!this.deleted,
+		};
 	}
 }

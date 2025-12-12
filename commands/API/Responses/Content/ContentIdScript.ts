@@ -25,4 +25,10 @@ export class ContentIdScript extends ContentIdCompany {
 		super(json);
 		this.script = json?.script as ulong;
 	}
+	override toJSON() {
+		return {
+			...super.toJSON(),
+			script: this.script ?? null,
+		};
+	}
 }

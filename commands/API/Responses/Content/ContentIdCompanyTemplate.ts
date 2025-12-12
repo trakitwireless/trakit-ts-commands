@@ -25,4 +25,11 @@ export class ContentIdCompanyTemplate extends ContentIdCompany {
 		super(json);
 		this.template = json?.template as ulong;
 	}
+
+	override toJSON() {
+		return {
+			...super.toJSON(),
+			template: this.template ?? null,
+		};
+	}
 }

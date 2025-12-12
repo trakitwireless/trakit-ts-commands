@@ -30,4 +30,12 @@ export class ContentIdSuspended extends ContentIdCompany {
 		this.suspended = !!(json?.suspended);
 		this.v = json?.v as uint[] ?? [];
 	}
+
+	override toJSON() {
+		return {
+			...super.toJSON(),
+			suspended: !!this.suspended,
+			v: [...this.v],
+		};
+	}
 }

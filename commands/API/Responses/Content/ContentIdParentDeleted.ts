@@ -1,25 +1,22 @@
 import { JsonObject, nothing, uint, ulong } from "@trakit/objects";
 import { ContentId } from "./ContentId";
+import { ContentIdParent } from "./ContentIdParent";
 
 /**
  * For delete/restore commands, this contains the id, owning {@link Company.parent}, and deleted state.
  **/
-export class ContentParentDeleted extends ContentId {
+export class ContentIdParentDeleted extends ContentIdParent {
 	/**
-	 * Creates a {@link ContentParentDeleted} from a JSON object.
-	 * @param json - JSON object to create the {@link ContentParentDeleted} from.
-	 * @returns A {@link ContentParentDeleted} instance or nothing.
+	 * Creates a {@link ContentIdParentDeleted} from a JSON object.
+	 * @param json - JSON object to create the {@link ContentIdParentDeleted} from.
+	 * @returns A {@link ContentIdParentDeleted} instance or nothing.
 	 */
-	static override fromJSON(json: JsonObject): ContentParentDeleted | nothing {
+	static override fromJSON(json: JsonObject): ContentIdParentDeleted | nothing {
 		return json
-			? new ContentParentDeleted(json)
+			? new ContentIdParentDeleted(json)
 			: null;
 	}
 
-	/**
-	 * Identifier of the {@link Company|parent} to which the {@link Company} is a child.
-	 **/
-	parent: ulong;
 	/**
 	 * Flag showing if the object is deleted.
 	 **/
@@ -34,5 +31,13 @@ export class ContentParentDeleted extends ContentId {
 		this.parent = json?.parent as ulong;
 		this.deleted = !!(json?.deleted);
 		this.v = json?.v as uint[] ?? [];
+	}
+
+	override toJSON() {
+		return {
+			...super.toJSON(),
+			deleted: !!this.deleted,
+			v: [...this.v],
+		};
 	}
 }

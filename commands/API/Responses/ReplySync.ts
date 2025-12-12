@@ -1,11 +1,12 @@
-import { SyncName, JsonObject, ulong, Company } from '@trakit/objects';
+import { Company, JsonObject, SyncName, ulong } from '@trakit/objects';
+import { IContentCompany } from './Content/IContentCompany';
 import { Reply } from './Reply';
 
 /**
  * Base class for all responses from commands.
  * All command response classes use this as the base.
  **/
-export abstract class ReplySync extends Reply {
+export abstract class ReplySync extends Reply implements IContentCompany {
 	/**
 	 * Returns the type name of the object so we know how to construct it.
 	 */

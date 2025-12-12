@@ -29,4 +29,10 @@ export class ContentIdendifierAsset extends ContentIdendifierCompany {
 		super(json);
 		this.asset = json?.asset as ulong;
 	}
+	override toJSON() {
+		return {
+			...super.toJSON(),
+			asset: this.asset ?? null,
+		};
+	}
 }

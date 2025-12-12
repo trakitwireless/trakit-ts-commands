@@ -1,9 +1,10 @@
-import { JsonObject, nothing } from "@trakit/objects";
+import { ISerializable, JsonObject, nothing } from "@trakit/objects";
+import { IContent } from "./IContent";
 
 /**
  * A container for the key of the {@link Machine} requested/created.
  **/
-export class ContentKey {
+export class ContentKey implements IContent, ISerializable {
 	/**
 	 * Creates a {@link ContentId} from a JSON object.
 	 * @param json - JSON object to create the {@link ContentId} from.
@@ -18,9 +19,16 @@ export class ContentKey {
 	/**
 	 * The {@link Machine}'s key.
 	 **/
-	key: string;
+	key: string | nothing;
 
 	constructor(json: JsonObject) {
-		this.key = json?.key as string ?? "";
+		this.key = json?.key as string;
+	}
+
+	getKey() { return this.key as string; }
+	toJSON(): JsonObject {
+		return {
+			key: this.key ?? null,
+		};
 	}
 }

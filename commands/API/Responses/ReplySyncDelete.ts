@@ -9,13 +9,13 @@ export abstract class ReplySyncDelete extends ReplySync {
 	/**
 	 * Returns the constructed object.
 	 */
-	protected abstract _getKey(): string | guid | email | codified | ulong;
+	abstract getKey(): string | guid | email | codified | ulong;
 	/**
 	 * Adds or updates the constructed object to storage (and maybe IndexedDB).
 	 */
 	override store(): boolean {
 		const map = storage[this._typeName],
-			key = this._getKey();
+			key = this.getKey();
 		return map.delete(key);
 	}
 }

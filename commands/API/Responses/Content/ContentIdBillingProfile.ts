@@ -25,4 +25,11 @@ export class ContentIdBillingProfile extends ContentIdCompany {
 		super(json);
 		this.profile = json?.profile as ulong;
 	}
+
+	override toJSON() {
+		return {
+			...super.toJSON(),
+			profile: this.profile ?? null,
+		};
+	}
 }
