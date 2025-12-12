@@ -16,4 +16,6 @@ export class RepDocumentBatchDelete extends ReplySyncBatchDelete {
 		this.documents = (json?.documents as JsonObject[])?.map((item: any) => new ContentIdDeleted(item));
 	}
 	protected override _getKeys() { return this.documents?.map(d => d.id) as ulong[]; }
+	override getCompanyId() { return this.documents?.[0]?.company as ulong; }
+	override getResults() { return this.documents as ContentIdDeleted[]; }
 }

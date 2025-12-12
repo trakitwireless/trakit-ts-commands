@@ -16,4 +16,6 @@ export class RepFormResultBatchDelete extends ReplySyncBatchDelete {
 		this.formResults = (json?.formResults as JsonObject[])?.map((item: any) => new ContentIdDeleted(item));
 	}
 	protected override _getKeys() { return this.formResults?.map(f => f.id) as ulong[]; }
+	override getCompanyId() { return this.formResults?.[0]?.company as ulong; }
+	override getResults() { return this.formResults as ContentIdDeleted[]; }
 }

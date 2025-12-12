@@ -1,4 +1,4 @@
-import { FormTemplate, JsonObject, nothing } from "@trakit/objects";
+import { FormTemplate, JsonObject, nothing, ulong } from "@trakit/objects";
 import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
@@ -17,4 +17,5 @@ export class RepFormTemplateGet extends ReplySyncGet<FormTemplate> {
 		}
 	}
 	override getObject() { return this.formTemplate as FormTemplate; }
+	override getCompanyId() { return this.formTemplate?.companyId as ulong; }
 }

@@ -1,4 +1,4 @@
-import { Document, JsonObject, nothing } from "@trakit/objects";
+import { Document, JsonObject, nothing, ulong } from "@trakit/objects";
 import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
@@ -17,4 +17,5 @@ export class RepDocumentGet extends ReplySyncGet<Document> {
 		}
 	}
 	override getObject() { return this.document as Document; }
+	override getCompanyId() { return this.document?.companyId as ulong; }
 }
