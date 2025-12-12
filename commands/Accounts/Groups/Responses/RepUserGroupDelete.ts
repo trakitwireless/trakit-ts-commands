@@ -16,5 +16,6 @@ export class RepUserGroupDelete extends ReplySyncDelete {
 		this.userGroup = ContentIdDeleted.fromJSON(json?.userGroups as JsonObject);
 	}
 
-	protected override _getKey() { return this.userGroup?.id as ulong; }
+	override getKey() { return this.userGroup?.id as ulong; }
+	override getCompanyId() { return this.userGroup?.company as ulong; }
 }

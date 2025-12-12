@@ -15,5 +15,6 @@ export class RepUserDelete extends ReplySyncDelete {
 		super(json, "User");
 		this.user = ContentIdDeleted.fromJSON(json?.user as JsonObject);
 	}
-	protected override _getKey() { return this.user?.id as ulong; }
+	override getKey() { return this.user?.id as ulong; }
+	override getCompanyId() { return this.user?.company as ulong; }
 }

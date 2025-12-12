@@ -1,4 +1,4 @@
-import { JsonObject, nothing, User, UserAdvanced } from "@trakit/objects";
+import { JsonObject, nothing, ulong, User, UserAdvanced } from "@trakit/objects";
 import { ReplySyncGetPiece } from "../../../API/Responses/ReplySyncGet";
 
 /**
@@ -16,6 +16,7 @@ export class RepUserAdvancedGet extends ReplySyncGetPiece<UserAdvanced> {
 			this.userAdvanced = new UserAdvanced(json.userAdvanced as JsonObject);
 		}
 	}
-	override getObject() { return this.userAdvanced as UserAdvanced; }
 	protected override _createBlank() { return new User(); }
+	override getObject() { return this.userAdvanced as UserAdvanced; }
+	override getCompanyId() { return this.userAdvanced?.companyId as ulong; }
 }

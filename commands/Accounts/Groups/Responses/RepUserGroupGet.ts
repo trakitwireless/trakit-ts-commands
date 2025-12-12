@@ -1,4 +1,4 @@
-import { JsonObject, nothing, UserGroup } from "@trakit/objects";
+import { JsonObject, nothing, ulong, UserGroup } from "@trakit/objects";
 import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
@@ -17,4 +17,5 @@ export class RepUserGroupGet extends ReplySyncGet<UserGroup> {
 		}
 	}
 	override getObject(): UserGroup { return this.userGroup as UserGroup; }
+	override getCompanyId() { return this.userGroup?.companyId as ulong; }
 }

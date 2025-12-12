@@ -34,6 +34,7 @@ export class RepSessionListByCompany extends RepSessionList {
 	override _filterCollection(pair: [ulong | guid | email | codified | string, Session], index: number): boolean {
 		return pair[1].companyId === (this.company as ContentId).id;
 	}
+	override getCompanyId() { return this.company?.id as ulong; }
 }
 /**
  * Contains the {@link User.login} of the collection.
@@ -51,4 +52,5 @@ export class RepSessionListByUser extends RepSessionList {
 	override _filterCollection(pair: [ulong | guid | email | codified | string, Session], index: number): boolean {
 		return pair[1].login === (this.user as ContentLoginCompany).login;
 	}
+	override getCompanyId() { return this.user?.company as ulong; }
 }

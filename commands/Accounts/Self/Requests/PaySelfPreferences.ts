@@ -1,4 +1,4 @@
-import { codified, JsonObject, nothing, serialization, SystemsOfUnits, Timezone, UserNotifications, utility } from "@trakit/objects";
+import { codified, JsonObject, nothing, serialization, SyncName, SystemsOfUnits, Timezone, UserNotifications, utility } from "@trakit/objects";
 import { Payload } from "../../../API/Requests/Payload";
 import { Reply } from "../../../API/Responses/Reply";
 import { RepSelfPreferences } from "../Responses/RepSelfPreferences";
@@ -49,13 +49,13 @@ export class PaySelfPreferences extends Payload {
 
 	override getAction(): {
 		kind: "Merge",
-		object: "Self",
+		object: SyncName,
 		filter: "Preferences",
 		batch: false,
 	} {
 		return {
 			kind: "Merge",
-			object: "Self",
+			object: "Self" as SyncName,
 			filter: "Preferences",
 			batch: false,
 		};

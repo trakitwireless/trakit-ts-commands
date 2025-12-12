@@ -1,5 +1,6 @@
 import { codified, email, guid, JsonObject, nothing, ulong, UserAdvanced } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
+import { ContentIdCompany } from "../../../API/Responses/Content/ContentIdCompany";
 import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
 /**
@@ -34,6 +35,7 @@ export class RepUserAdvancedListByCompany extends RepUserAdvancedList {
 	override _filterCollection(pair: [ulong | guid | email | codified | string, UserAdvanced], index: number): boolean {
 		return pair[1].companyId === (this.company as ContentId).id;
 	}
+	override getCompanyId() { return this.company?.id as ulong; }
 }
 /**
  * A container owner {@link Company} of the collection.
@@ -42,13 +44,14 @@ export class RepUserAdvancedListByUserGroup extends RepUserAdvancedList {
 	/**
 	 * Identifier of the {@link UserGroup} to which this collection belongs.
 	 **/
-	userGroup: ContentId | nothing;
+	userGroup: ContentIdCompany | nothing;
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.userGroup = ContentId.fromJSON(json?.userGroup as JsonObject);
+		this.userGroup = ContentIdCompany.fromJSON(json?.userGroup as JsonObject);
 	}
 	override _filterCollection(pair: [ulong | guid | email | codified | string, UserAdvanced], index: number): boolean {
-		return pair[1].groupIds.includes((this.userGroup as ContentId).id as ulong);
+		return pair[1].groupIds.includes((this.userGroup as ContentIdCompany).id as ulong);
 	}
+	override getCompanyId() { return this.userGroup?.company as ulong; }
 }

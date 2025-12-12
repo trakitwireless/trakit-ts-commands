@@ -1,4 +1,4 @@
-import { Contact, JsonObject, nothing } from "@trakit/objects";
+import { Contact, JsonObject, nothing, ulong } from "@trakit/objects";
 import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
@@ -17,4 +17,5 @@ export class RepContactGet extends ReplySyncGet<Contact> {
 		}
 	}
 	override getObject(): Contact { return this.contact as Contact; }
+	override getCompanyId() { return this.contact?.companyId as ulong; }
 }

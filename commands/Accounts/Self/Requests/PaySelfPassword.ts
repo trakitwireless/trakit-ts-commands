@@ -1,4 +1,4 @@
-import { JsonObject } from "@trakit/objects";
+import { JsonObject, SyncName } from "@trakit/objects";
 import { Payload } from "../../../API/Requests/Payload";
 import { Reply } from "../../../API/Responses/Reply";
 import { RepSelfPassword } from "../Responses/RepSelfPassword";
@@ -24,13 +24,13 @@ export class PaySelfPassword extends Payload {
 
 	override getAction(): {
 		kind: "Merge",
-		object: "Self",
+		object: SyncName,
 		filter: "Password",
 		batch: false,
 	} {
 		return {
 			kind: "Merge",
-			object: "Self",
+			object: "Self" as SyncName,
 			filter: "Password",
 			batch: false,
 		};

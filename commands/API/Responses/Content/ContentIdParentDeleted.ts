@@ -1,5 +1,4 @@
 import { JsonObject, nothing, uint, ulong } from "@trakit/objects";
-import { ContentId } from "./ContentId";
 import { ContentIdParent } from "./ContentIdParent";
 
 /**

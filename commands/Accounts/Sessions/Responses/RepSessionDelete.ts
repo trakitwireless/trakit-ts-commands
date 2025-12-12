@@ -1,4 +1,4 @@
-import { JsonObject } from "@trakit/objects";
+import { JsonObject, ulong } from "@trakit/objects";
 import { ReplySyncDelete } from "../../../API/Responses/ReplySyncDelete";
 import { SessionHandle } from "./Content/SessionHandle";
 
@@ -15,5 +15,6 @@ export class RepSessionDelete extends ReplySyncDelete {
 		super(json, "Session");
 		this.session = new SessionHandle(json?.session as JsonObject);
 	}
-	protected override _getKey() { return this.session?.handle as string; }
+	override getKey() { return this.session?.handle as string; }
+	override getCompanyId() { return this.session?.company as ulong; }
 }

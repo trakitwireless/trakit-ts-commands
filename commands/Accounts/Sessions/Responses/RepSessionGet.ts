@@ -1,5 +1,4 @@
-import { JsonObject } from "@trakit/objects";
-import { Session } from "@trakit/objects";
+import { JsonObject, Session, ulong } from "@trakit/objects";
 import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
@@ -13,7 +12,8 @@ export class RepSessionGet extends ReplySyncGet<Session> {
 
 	constructor(json: JsonObject) {
 		super(json, "Session");
-		this.session = Session.fromJSON(json?.session as JsonObject);
+		this.session = new Session(json?.session as JsonObject);
 	}
 	override getObject() { return this.session as Session; }
+	override getCompanyId() { return this.session?.companyId as ulong; }
 }

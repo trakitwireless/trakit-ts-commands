@@ -16,5 +16,6 @@ export class RepContactDelete extends ReplySyncDelete {
 		this.contact = ContentIdDeleted.fromJSON(json?.contact as JsonObject);
 	}
 
-	protected override _getKey() { return this.contact?.id as ulong; }
+	override getKey() { return this.contact?.id as ulong; }
+	override getCompanyId() { return this.contact?.company as ulong; }
 }
