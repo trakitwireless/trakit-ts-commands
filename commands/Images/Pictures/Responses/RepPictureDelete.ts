@@ -15,5 +15,5 @@ export class RepPictureDelete extends ReplySyncDelete {
 		super(json, "Picture");
 		this.picture = ContentIdDeleted.fromJSON(json?.picture as JsonObject);
 	}
-	protected override _getKey() { return this.picture?.id as ulong; }
+	override getKey() { return this.picture?.id as ulong; }
 }

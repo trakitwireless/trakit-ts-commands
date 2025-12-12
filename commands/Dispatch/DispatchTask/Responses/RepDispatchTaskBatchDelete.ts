@@ -16,4 +16,6 @@ export class RepDispatchTaskBatchDelete extends ReplySyncBatchDelete {
 		this.dispatchTasks = (json?.dispatchTasks as JsonObject[])?.map((dt: any) => new ContentIdDeleted(dt)) ?? [];
 	}
 	protected override _getKeys() { return this.dispatchTasks?.map(d => d.id) as ulong[]; }
+	override getCompanyId() { return this.dispatchTasks?.[0]?.company as ulong; }
+	override getResults() { return this.dispatchTasks as ContentIdDeleted[]; }
 }

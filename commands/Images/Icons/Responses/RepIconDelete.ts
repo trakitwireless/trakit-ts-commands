@@ -15,5 +15,5 @@ export class RepIconDelete extends ReplySyncDelete {
 		super(json, "Icon");
 		this.icon = ContentIdDeleted.fromJSON(json?.icon as JsonObject);
 	}
-	protected override _getKey() { return this.icon?.id as ulong; }
+	override getKey() { return this.icon?.id as ulong; }
 }

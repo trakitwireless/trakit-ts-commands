@@ -15,5 +15,5 @@ export class RepReportResultDelete extends ReplySyncDelete {
 		super(json, "ReportResult");
 		this.reportResult = ContentIdDeleted.fromJSON(json?.reportResult as JsonObject);
 	}
-	protected override _getKey() { return this.reportResult?.id as ulong; }
+	override getKey() { return this.reportResult?.id as ulong; }
 }

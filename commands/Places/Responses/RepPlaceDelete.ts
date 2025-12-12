@@ -16,5 +16,5 @@ export class RepPlaceDelete extends ReplySyncDelete {
 		super(json, "Place");
 		this.place = ContentIdDeleted.fromJSON(json?.place as JsonObject);
 	}
-	protected override _getKey() { return this.place?.id as ulong; }
+	override getKey() { return this.place?.id as ulong; }
 }

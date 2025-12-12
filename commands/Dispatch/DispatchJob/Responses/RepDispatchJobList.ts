@@ -5,6 +5,7 @@ import { IRepListByCompany } from "../../../API/Responses/IRepListByCompany";
 import { IRepListByLabels } from "../../../API/Responses/IRepListByLabels";
 import { IRepListByReferences } from "../../../API/Responses/IRepListByReferences";
 import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
+import { ContentIdCompany } from "../../../API/Responses/Content/ContentIdCompany";
 
 /**
  * A container for the requested {@link dispatchJobs}.
@@ -37,6 +38,7 @@ export class RepDispatchJobListByCompany extends RepDispatchJobList implements I
 	override _filterCollection(pair: [ulong | guid | email | codified | string, DispatchJob], index: number): boolean {
 		return pair[1].companyId === (this.company as ContentId).id;
 	}
+	override getCompanyId() { return this.company?.id as ulong; }
 }
 /**
  * 
@@ -84,15 +86,16 @@ export class RepDispatchJobListByAsset extends RepDispatchJobList implements IRe
 	/**
 	 * Identifier of the {@link Asset} to which this collection belongs.
 	 **/
-	asset: ContentId | nothing;
+	asset: ContentIdCompany | nothing;
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.asset = ContentId.fromJSON(json?.asset as JsonObject);
+		this.asset = ContentIdCompany.fromJSON(json?.asset as JsonObject);
 	}
 	override _filterCollection(pair: [ulong | guid | email | codified | string, DispatchJob], index: number): boolean {
-		return pair[1].assetId === (this.asset as ContentId).id;
+		return pair[1].assetId === (this.asset as ContentIdCompany).id;
 	}
+	override getCompanyId() { return this.asset?.company as ulong; }
 }
 /**
  * 

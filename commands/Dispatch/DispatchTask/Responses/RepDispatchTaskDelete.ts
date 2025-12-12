@@ -15,5 +15,6 @@ export class RepDispatchTaskDelete extends ReplySyncDelete {
 		super(json, "DispatchTask");
 		this.dispatchTask = ContentIdDeleted.fromJSON(json?.dispatchTask as JsonObject);
 	}
-	protected override _getKey() { return this.dispatchTask?.id as ulong; }
+	override getKey() { return this.dispatchTask?.id as ulong; }
+	override getCompanyId() { return this.dispatchTask?.company as ulong; }
 }

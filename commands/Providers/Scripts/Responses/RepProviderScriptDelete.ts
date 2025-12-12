@@ -16,5 +16,5 @@ export class RepProviderScriptDelete extends ReplySyncDelete {
 		super(json, "ProviderScript");
 		this.providerScript = ContentIdDeleted.fromJSON(json?.providerScript as JsonObject);
 	}
-	protected override _getKey() { return this.providerScript?.id as ulong; }
+	override getKey() { return this.providerScript?.id as ulong; }
 }

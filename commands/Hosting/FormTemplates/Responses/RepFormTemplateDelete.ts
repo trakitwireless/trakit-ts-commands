@@ -16,5 +16,5 @@ export class RepFormTemplateDelete extends ReplySyncDelete {
 		super(json, "FormTemplate");
 		this.formTemplate = ContentIdDeleted.fromJSON(json?.formTemplate as JsonObject);
 	}
-	protected override _getKey() { return this.formTemplate?.id as ulong; }
+	override getKey() { return this.formTemplate?.id as ulong; }
 }

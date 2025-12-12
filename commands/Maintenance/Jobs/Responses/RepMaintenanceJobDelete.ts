@@ -16,5 +16,5 @@ export class RepMaintenanceJobDelete extends ReplySyncDelete {
 		super(json, "MaintenanceJob");
 		this.maintenanceJob = ContentIdDeleted.fromJSON(json?.maintenanceJob as JsonObject);
 	}
-	protected override _getKey() { return this.maintenanceJob?.id as ulong; }
+	override getKey() { return this.maintenanceJob?.id as ulong; }
 }

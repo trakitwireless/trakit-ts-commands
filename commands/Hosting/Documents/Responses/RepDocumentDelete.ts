@@ -15,5 +15,5 @@ export class RepDocumentDelete extends ReplySyncDelete {
 		super(json, "Document");
 		this.document = ContentIdDeleted.fromJSON(json?.document as JsonObject);
 	}
-	protected override _getKey() { return this.document?.id as ulong; }
+	override getKey() { return this.document?.id as ulong; }
 }

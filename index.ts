@@ -137,7 +137,7 @@ import { ContentKeyDeleted } from "./commands/API/Responses/Content/ContentKeyDe
 import { ContentLogin } from "./commands/API/Responses/Content/ContentLogin";
 import { ContentLoginCompany } from "./commands/API/Responses/Content/ContentLoginCompany";
 import { ContentLoginDeleted } from "./commands/API/Responses/Content/ContentLoginDeleted";
-import { ContentParentDeleted } from "./commands/API/Responses/Content/ContentParentDeleted";
+import { ContentIdParentDeleted } from "./commands/API/Responses/Content/ContentIdParentDeleted";
 import { ErrorCode } from "./commands/API/Responses/Errors/ErrorCode";
 import { ErrorDetail } from "./commands/API/Responses/Errors/ErrorDetail";
 import "./commands/API/Responses/Errors/ErrorDetail_fromJSON";
@@ -600,7 +600,7 @@ export {
 	ContentCode,
 	ContentCodeCompany,
 	ContentCodeDeleted, ContentId, ContentIdAsset, ContentIdBillingProfile, ContentIdCompany, ContentIdCompanyTemplate, ContentIdendifier, ContentIdendifierAsset, ContentIdendifierCompany, ContentIdendifierDeleted, ContentIdendifierSuspended,
-	ContentIdParent, ContentIdScript, ContentIdSuspended, ContentKey, ContentKeyCompany, ContentKeyDeleted, ContentLogin, ContentLoginCompany, ContentLoginDeleted, ContentParentDeleted,
+	ContentIdParent, ContentIdScript, ContentIdSuspended, ContentKey, ContentKeyCompany, ContentKeyDeleted, ContentLogin, ContentLoginCompany, ContentLoginDeleted, ContentIdParentDeleted as ContentParentDeleted,
 	Reply,
 	ReplySync, ReplySyncBatchDelete, ReplySyncDelete, ReplySyncGet,
 	ReplySyncList, type IRepListByAsset, type IRepListByCompany, type IRepListByDate,

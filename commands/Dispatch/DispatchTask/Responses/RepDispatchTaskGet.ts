@@ -1,4 +1,4 @@
-import { DispatchTask, JsonObject, nothing } from "@trakit/objects";
+import { DispatchTask, JsonObject, nothing, ulong } from "@trakit/objects";
 import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
@@ -17,4 +17,5 @@ export class RepDispatchTaskGet extends ReplySyncGet<DispatchTask> {
 		}
 	}
 	override getObject() { return this.dispatchTask as DispatchTask; }
+	override getCompanyId() { return this.dispatchTask?.companyId as ulong; }
 }

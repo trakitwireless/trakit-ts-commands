@@ -15,5 +15,5 @@ export class RepProviderRegistrationDelete extends ReplySyncDelete {
 		super(json, "ProviderRegistration");
 		this.providerRegistration = ContentCodeDeleted.fromJSON(json?.providerRegistration as JsonObject);
 	}
-	protected override _getKey() { return this.providerRegistration?.code as string; }
+	override getKey() { return this.providerRegistration?.code as string; }
 }
