@@ -2,7 +2,8 @@ import {
 	Asset,
 	AssetGeneral,
 	JsonObject,
-	nothing
+	nothing,
+	ulong
 } from "@trakit/objects";
 import { ReplySyncGetPiece } from "../../API/Responses/ReplySyncGet";
 
@@ -22,6 +23,7 @@ export class RepAssetGeneralGet extends ReplySyncGetPiece<AssetGeneral> {
 			this.assetGeneral = new AssetGeneral(json.assetGeneral as JsonObject);
 		}
 	}
-	override getObject() { return this.assetGeneral as AssetGeneral; }
 	protected override _createBlank() { return new Asset(); }
+	override getObject() { return this.assetGeneral as AssetGeneral; }
+	override getCompanyId() { return this.assetGeneral?.companyId as ulong; }
 }

@@ -1,4 +1,4 @@
-import { Asset, AssetDispatch, JsonObject, nothing } from "@trakit/objects";
+import { Asset, AssetDispatch, JsonObject, nothing, ulong } from "@trakit/objects";
 import { ReplySyncGetPiece } from "../../API/Responses/ReplySyncGet";
 
 /**
@@ -16,6 +16,7 @@ export class RepAssetDispatchGet extends ReplySyncGetPiece<AssetDispatch> {
 			this.assetDispatch = new AssetDispatch(json.assetDispatch as JsonObject);
 		}
 	}
-	override getObject() { return this.assetDispatch as AssetDispatch; }
 	protected override _createBlank() { return new Asset(); }
+	override getObject() { return this.assetDispatch as AssetDispatch; }
+	override getCompanyId() { return this.assetDispatch?.companyId as ulong; }
 }

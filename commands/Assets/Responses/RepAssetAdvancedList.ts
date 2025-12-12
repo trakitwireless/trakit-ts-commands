@@ -46,6 +46,7 @@ export class RepAssetAdvancedListByCompany extends RepAssetAdvancedList {
 	override _filterCollection(pair: [ulong | guid | email | codified | string, AssetAdvanced], index: number): boolean {
 		return pair[1].companyId === (this.company as ContentId).id;
 	}
+	override getCompanyId() { return this.company?.id as ulong; }
 }
 /**
  * A container owner {@link Company} of the collection.

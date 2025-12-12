@@ -34,6 +34,7 @@ export class RepAssetListByCompany extends RepAssetList {
 	override _filterCollection(pair: [ulong | guid | email | codified | string, Asset], index: number): boolean {
 		return pair[1].companyId === (this.company as ContentId).id;
 	}
+	override getCompanyId() { return this.company?.id as ulong; }
 }
 /**
  * Contains the codified {@link Company.labels} keys used to filter the collection.
