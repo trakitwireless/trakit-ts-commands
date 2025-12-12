@@ -1,4 +1,4 @@
-import { JsonObject } from "@trakit/objects";
+import { JsonObject, SyncName } from "@trakit/objects";
 import { IPaySingle } from "../../../API/Requests/IPaySingle";
 import { ParamId } from "../../../API/Requests/Parameters/ParamId";
 import { ActionType, Payload } from "../../../API/Requests/Payload";
@@ -35,7 +35,7 @@ export abstract class PayDispatchJobSpecial extends Payload {
 	 */
 	override getAction(): {
 		kind: ActionType,
-		object: string,
+		object: SyncName,
 		filter: string,
 		batch: boolean,
 	} {

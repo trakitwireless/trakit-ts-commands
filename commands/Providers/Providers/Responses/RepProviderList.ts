@@ -1,7 +1,8 @@
 import { codified, email, guid, JsonObject, nothing, Provider, ProviderConfig, ulong } from "@trakit/objects";
-import { ContentIdCompany } from "../../../../_publish";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
+import { ContentIdCompany } from "../../../API/Responses/Content/ContentIdCompany";
 import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
+
 /**
  * A container for the requested {@link providers}.
  **/

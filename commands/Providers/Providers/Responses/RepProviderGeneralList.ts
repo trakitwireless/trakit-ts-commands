@@ -1,6 +1,6 @@
 import { codified, email, guid, JsonObject, nothing, Provider, ProviderGeneral, ulong } from "@trakit/objects";
-import { ContentIdCompany } from "../../../..";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
+import { ContentIdCompany } from "../../../API/Responses/Content/ContentIdCompany";
 import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 /**
  * A container for the requested {@link providerGenerals}.
