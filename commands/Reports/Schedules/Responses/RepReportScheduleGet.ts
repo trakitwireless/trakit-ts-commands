@@ -1,4 +1,4 @@
-import { JsonObject, nothing, ReportSchedule } from "@trakit/objects";
+import { JsonObject, nothing, ReportSchedule, ulong } from "@trakit/objects";
 import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
@@ -17,4 +17,5 @@ export class RepReportScheduleGet extends ReplySyncGet<ReportSchedule> {
 		}
 	}
 	override getObject() { return this.reportSchedule as ReportSchedule; }
+	override getCompanyId() { return this.reportSchedule?.companyId as ulong; }
 }

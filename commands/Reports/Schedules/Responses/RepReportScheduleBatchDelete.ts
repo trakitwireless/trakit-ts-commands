@@ -16,4 +16,6 @@ export class RepReportScheduleBatchDelete extends ReplySyncBatchDelete {
 		this.reportSchedules = (json?.reportSchedules as JsonObject[])?.map((e: any) => new ContentIdDeleted(e));
 	}
 	protected override _getKeys() { return this.reportSchedules?.map(r => r.id) as ulong[]; }
+	override getCompanyId() { return this.reportSchedules?.[0]?.company as ulong; }
+	override getResults() { return this.reportSchedules as ContentIdDeleted[]; }
 }

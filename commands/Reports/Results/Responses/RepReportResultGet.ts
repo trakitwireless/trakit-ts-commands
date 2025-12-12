@@ -1,4 +1,4 @@
-import { JsonObject, nothing, ReportResult } from "@trakit/objects";
+import { JsonObject, nothing, ReportResult, ulong } from "@trakit/objects";
 import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
@@ -17,4 +17,5 @@ export class RepReportResultGet extends ReplySyncGet<ReportResult> {
 		}
 	}
 	override getObject() { return this.reportResult as ReportResult; }
+	override getCompanyId() { return this.reportResult?.companyId as ulong; }
 }
