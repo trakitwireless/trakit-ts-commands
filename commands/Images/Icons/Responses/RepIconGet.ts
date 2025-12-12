@@ -1,4 +1,4 @@
-import { JsonObject } from "@trakit/objects";
+import { JsonObject, ulong } from "@trakit/objects";
 import { Icon, nothing } from "@trakit/objects";
 import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
@@ -18,4 +18,5 @@ export class RepIconGet extends ReplySyncGet<Icon> {
 		}
 	}
 	override getObject() { return this.icon as Icon; }
+	override getCompanyId() { return this.icon?.companyId as ulong; }
 }

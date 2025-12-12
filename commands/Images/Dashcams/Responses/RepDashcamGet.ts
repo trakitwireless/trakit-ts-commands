@@ -1,4 +1,4 @@
-import { Dashcam, JsonObject, nothing } from "@trakit/objects";
+import { Dashcam, JsonObject, nothing, ulong } from "@trakit/objects";
 import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
@@ -17,4 +17,5 @@ export class RepDashcamGet extends ReplySyncGet<Dashcam> {
 		}
 	}
 	override getObject() { return this.dashcam as Dashcam; }
+	override getCompanyId() { return this.dashcam?.companyId as ulong; }
 }

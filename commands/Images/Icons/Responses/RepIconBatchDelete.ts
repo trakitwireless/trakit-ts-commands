@@ -16,4 +16,6 @@ export class RepIconBatchDelete extends ReplySyncBatchDelete {
 		this.icons = (json?.icons as JsonObject[])?.map((i: any) => new ContentIdDeleted(i));
 	}
 	protected override _getKeys() { return this.icons?.map(i => i.id) as ulong[]; }
+	override getCompanyId() { return this.icons?.[0]?.company as ulong; }
+	override getResults() { return this.icons as ContentIdDeleted[]; }
 }
