@@ -1,4 +1,4 @@
-import { JsonObject, nothing, ProviderScript } from "@trakit/objects";
+import { JsonObject, nothing, ProviderScript, ulong } from "@trakit/objects";
 import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
@@ -17,4 +17,5 @@ export class RepProviderScriptGet extends ReplySyncGet<ProviderScript> {
 		}
 	}
 	override getObject() { return this.providerScript as ProviderScript; }
+	override getCompanyId() { return this.providerScript?.companyId as ulong; }
 }

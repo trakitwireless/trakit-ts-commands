@@ -1,4 +1,5 @@
 import { codified, email, guid, JsonObject, nothing, Provider, ProviderGeneral, ulong } from "@trakit/objects";
+import { ContentIdCompany } from "../../../..";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 /**
@@ -33,6 +34,7 @@ export class RepProviderGeneralListByCompany extends RepProviderGeneralList {
 	override _filterCollection(pair: [ulong | guid | email | codified | string, ProviderGeneral], index: number): boolean {
 		return pair[1].companyId === (this.company as ContentId).id;
 	}
+	override getCompanyId() { return this.company?.id as ulong; }
 }
 /**
  * A container owner {@link Company} of the collection.
@@ -41,13 +43,14 @@ export class RepProviderGeneralListByConfig extends RepProviderGeneralList {
 	/**
 	 * Identifier of the {@link ProviderConfig} (or {@link ProviderConfiguration}) to which this collection belongs.
 	 **/
-	config: ContentId | nothing;
+	config: ContentIdCompany | nothing;
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.config = ContentId.fromJSON(json?.config as JsonObject);
+		this.config = ContentIdCompany.fromJSON(json?.config as JsonObject);
 	}
 	override _filterCollection(pair: [ulong | guid | email | codified | string, Provider], index: number): boolean {
-		return pair[1].configurationId === (this.config as ContentId).id;
+		return pair[1].configurationId === (this.config as ContentIdCompany).id;
 	}
+	override getCompanyId() { return this.config?.company as ulong; }
 }

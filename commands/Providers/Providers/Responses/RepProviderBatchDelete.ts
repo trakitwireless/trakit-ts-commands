@@ -1,4 +1,4 @@
-import { JsonObject, nothing } from "@trakit/objects";
+import { JsonObject, nothing, ulong } from "@trakit/objects";
 import { ContentIdendifierDeleted } from "../../../API/Responses/Content/ContentIdendifierDeleted";
 import { ReplySyncBatchDelete } from "../../../API/Responses/ReplySyncBatchDelete";
 
@@ -16,4 +16,6 @@ export class RepProviderBatchDelete extends ReplySyncBatchDelete {
 		this.providers = (json?.providers as JsonObject[])?.map((v: any) => new ContentIdendifierDeleted(v));
 	}
 	protected override _getKeys() { return this.providers?.map(p => p.id) as string[]; }
+	override getCompanyId() { return this.providers?.[0]?.company as ulong; }
+	override getResults() { return this.providers as ContentIdendifierDeleted[]; }
 }

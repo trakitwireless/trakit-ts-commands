@@ -16,4 +16,5 @@ export class RepProviderConfigurationDelete extends ReplySyncDelete {
 		this.providerConfiguration = ContentIdDeleted.fromJSON(json?.providerConfiguration as JsonObject);
 	}
 	override getKey() { return this.providerConfiguration?.id as ulong; }
+	override getCompanyId() { return this.providerConfiguration?.company as ulong; }
 }

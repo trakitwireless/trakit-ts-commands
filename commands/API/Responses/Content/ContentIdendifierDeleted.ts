@@ -1,5 +1,4 @@
-import { JsonObject } from "@trakit/objects";
-import { nothing, uint } from "@trakit/objects";
+import { JsonObject, nothing, Provider, uint } from "@trakit/objects";
 import { ContentIdendifierCompany } from "./ContentIdendifierCompany";
 
 /**

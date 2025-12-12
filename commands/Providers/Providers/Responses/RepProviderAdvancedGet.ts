@@ -1,4 +1,4 @@
-import { JsonObject, nothing, Provider, ProviderAdvanced } from "@trakit/objects";
+import { JsonObject, nothing, Provider, ProviderAdvanced, ulong } from "@trakit/objects";
 import { ReplySyncGetPiece } from "../../../API/Responses/ReplySyncGet";
 
 /**
@@ -16,6 +16,7 @@ export class RepProviderAdvancedGet extends ReplySyncGetPiece<ProviderAdvanced> 
 			this.providerAdvanced = new ProviderAdvanced(json.providerAdvanced as JsonObject)
 		}
 	}
-	override getObject() { return this.providerAdvanced as ProviderAdvanced; }
 	protected override _createBlank() { return new Provider(); }
+	override getObject() { return this.providerAdvanced as ProviderAdvanced; }
+	override getCompanyId() { return this.providerAdvanced?.companyId as ulong; }
 }

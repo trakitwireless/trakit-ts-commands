@@ -16,4 +16,6 @@ export class RepProviderScriptBatchDelete extends ReplySyncBatchDelete {
 		this.providerScripts = (json?.providerScripts as JsonObject[])?.map((v: any) => new ContentIdDeleted(v));
 	}
 	protected override _getKeys() { return this.providerScripts?.map(p => p.id) as ulong[]; }
+	override getCompanyId() { return this.providerScripts?.[0]?.company as ulong; }
+	override getResults() { return this.providerScripts as ContentIdDeleted[]; }
 }

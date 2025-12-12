@@ -1,5 +1,4 @@
-import { JsonObject } from "@trakit/objects";
-import { nothing, Provider } from "@trakit/objects";
+import { JsonObject, nothing, Provider, ulong } from "@trakit/objects";
 import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
@@ -18,4 +17,5 @@ export class RepProviderGet extends ReplySyncGet<Provider> {
 		}
 	}
 	override getObject() { return this.provider as Provider; }
+	override getCompanyId() { return this.provider?.companyId as ulong; }
 }

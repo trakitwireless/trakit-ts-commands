@@ -1,4 +1,4 @@
-import { JsonObject, nothing } from "@trakit/objects";
+import { JsonObject, nothing, ulong } from "@trakit/objects";
 import { ContentIdendifierDeleted } from "../../../API/Responses/Content/ContentIdendifierDeleted";
 import { ReplySyncDelete } from "../../../API/Responses/ReplySyncDelete";
 
@@ -16,4 +16,5 @@ export class RepProviderDelete extends ReplySyncDelete {
 		this.provider = ContentIdendifierDeleted.fromJSON(json?.provider as JsonObject);
 	}
 	override getKey() { return this.provider?.id as string; }
+	override getCompanyId() { return this.provider?.company as ulong; }
 }
