@@ -1,4 +1,4 @@
-import { Company, CompanyDirectory, JsonObject, nothing } from "@trakit/objects";
+import { Company, CompanyDirectory, JsonObject, nothing, ulong } from "@trakit/objects";
 import { ReplySyncGetPiece } from "../../API/Responses/ReplySyncGet";
 
 /**
@@ -16,6 +16,7 @@ export class RepCompanyDirectoryGet extends ReplySyncGetPiece<CompanyDirectory> 
 			this.companyDirectory = new CompanyDirectory(json.companyDirectory as JsonObject);
 		}
 	}
-	override getObject() { return this.companyDirectory as CompanyDirectory; }
 	protected override _createBlank() { return new Company(); }
+	override getObject() { return this.companyDirectory as CompanyDirectory; }
+	override getCompanyId() { return this.companyDirectory?.parentId as ulong; }
 }

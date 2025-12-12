@@ -1,5 +1,5 @@
 import { JsonObject, nothing, ulong } from "@trakit/objects";
-import { ContentIdDeleted } from "../../API/Responses/Content/ContentIdDeleted";
+import { ContentIdParentDeleted } from "../../API/Responses/Content/ContentIdParentDeleted";
 import { ReplySyncDelete } from "../../API/Responses/ReplySyncDelete";
 
 /**
@@ -9,11 +9,12 @@ export class RepCompanyDelete extends ReplySyncDelete {
 	/**
 	 * Details about deleting/restoring the requested {@link Company}.
 	 **/
-	company: ContentIdDeleted | nothing;
+	company: ContentIdParentDeleted | nothing;
 
 	constructor(json: JsonObject) {
 		super(json, "Company");
-		this.company = ContentIdDeleted.fromJSON(json?.company as JsonObject);
+		this.company = ContentIdParentDeleted.fromJSON(json?.company as JsonObject);
 	}
-	protected override _getKey() { return this.company?.id as ulong; }
+	override getKey() { return this.company?.id as ulong; }
+	override getCompanyId() { return this.company?.parent as ulong; }
 }
