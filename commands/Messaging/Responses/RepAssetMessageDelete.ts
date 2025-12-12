@@ -17,4 +17,5 @@ export class RepAssetMessageDelete extends ReplySyncDelete {
 		this.assetMessage = ContentIdDeleted.fromJSON(json?.assetMessage as JsonObject);
 	}
 	override getKey() { return this.assetMessage?.id as ulong; }
+	override getCompanyId() { return this.assetMessage?.company as ulong; }
 }
