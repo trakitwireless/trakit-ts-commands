@@ -16,4 +16,6 @@ export class RepBehaviourScriptBatchDelete extends ReplySyncBatchDelete {
 		this.behaviourScripts = (json?.behaviourScripts as JsonObject[])?.map((x: any) => new ContentIdDeleted(x));
 	}
 	protected override _getKeys() { return this.behaviourScripts?.map(b => b.id) as ulong[]; }
+	override getCompanyId() { return this.behaviourScripts?.[0]?.company as ulong; }
+	override getResults() { return this.behaviourScripts as ContentIdDeleted[]; }
 }

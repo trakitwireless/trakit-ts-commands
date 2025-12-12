@@ -1,5 +1,6 @@
 import { BehaviourLog, JsonObject, nothing, storage, ulong } from "@trakit/objects";
-import { ContentId } from "../../../API/Responses/Content/ContentId";
+import { ContentIdCompany } from "../../../API/Responses/Content/ContentIdCompany";
+import { ContentIdScript } from "../../../API/Responses/Content/ContentIdScript";
 import { ReplySyncBatchDelete } from "../../../API/Responses/ReplySyncBatchDelete";
 
 /**
@@ -32,12 +33,14 @@ export class RepBehaviourLogBatchDeleteByAsset extends RepBehaviourLogBatchDelet
 	/**
 	 * Identifier of the {@link Asset} to which this collection belongs.
 	 **/
-	asset: ContentId | nothing;
+	asset: ContentIdCompany | nothing;
 
 	constructor(json: JsonObject) {
 		super(json, (log) => log.assetId === this.asset?.id);
-		this.asset = ContentId.fromJSON(json?.asset as JsonObject);
+		this.asset = ContentIdCompany.fromJSON(json?.asset as JsonObject);
 	}
+	override getResults() { return [] as ContentIdCompany[]; }
+	override getCompanyId() { return this.asset?.company as ulong; }
 }
 /**
  * A container for the {@link behaviourLog}.
@@ -46,12 +49,14 @@ export class RepBehaviourLogBatchDeleteByBehaviour extends RepBehaviourLogBatchD
 	/**
 	 * Identifier of the {@link Behaviour} to which this collection belongs.
 	 **/
-	behaviour: ContentId | nothing;
+	behaviour: ContentIdScript | nothing;
 
 	constructor(json: JsonObject) {
 		super(json, (log) => log.behaviourId === this.behaviour?.id);
-		this.behaviour = ContentId.fromJSON(json?.behaviour as JsonObject);
+		this.behaviour = ContentIdScript.fromJSON(json?.behaviour as JsonObject);
 	}
+	override getResults() { return [] as ContentIdScript[]; }
+	override getCompanyId() { return this.behaviour?.company as ulong; }
 }
 /**
  * A container for the {@link behaviourLog}.
@@ -60,10 +65,12 @@ export class RepBehaviourLogBatchDeleteByScript extends RepBehaviourLogBatchDele
 	/**
 	 * Identifier of the {@link BehaviourScript} to which this collection belongs.
 	 **/
-	behaviourScript: ContentId | nothing;
+	behaviourScript: ContentIdCompany | nothing;
 
 	constructor(json: JsonObject) {
 		super(json, (log) => log.behaviour?.scriptId === this.behaviourScript?.id);
-		this.behaviourScript = ContentId.fromJSON(json?.behaviourScript as JsonObject);
+		this.behaviourScript = ContentIdCompany.fromJSON(json?.behaviourScript as JsonObject);
 	}
+	override getResults() { return [] as ContentIdCompany[]; }
+	override getCompanyId() { return this.behaviourScript?.company as ulong; }
 }

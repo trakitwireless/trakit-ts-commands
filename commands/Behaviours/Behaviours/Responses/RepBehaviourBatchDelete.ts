@@ -16,4 +16,6 @@ export class RepBehaviourBatchDelete extends ReplySyncBatchDelete {
 		this.behaviours = (json?.behaviours as JsonObject[])?.map((item: any) => new ContentIdDeleted(item));
 	}
 	protected override _getKeys() { return this.behaviours?.map(b => b.id) as ulong[]; }
+	override getCompanyId() { return this.behaviours?.[0]?.company as ulong; }
+	override getResults() { return this.behaviours as ContentIdDeleted[]; }
 }

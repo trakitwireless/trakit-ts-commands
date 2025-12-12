@@ -34,4 +34,5 @@ export class RepBehaviourListByCompany extends RepBehaviourList {
 	override _filterCollection(pair: [ulong | guid | email | codified | string, Behaviour], index: number): boolean {
 		return pair[1].companyId === (this.company as ContentId).id;
 	}
+	override getCompanyId() { return this.company?.id as ulong; }
 }

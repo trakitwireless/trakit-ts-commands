@@ -15,5 +15,6 @@ export class RepBehaviourDelete extends ReplySyncDelete {
 		super(json, "Behaviour");
 		this.behaviour = ContentIdDeleted.fromJSON(json?.behaviour as JsonObject);
 	}
-	protected override _getKey() { return this.behaviour?.id as ulong; }
+	override getKey() { return this.behaviour?.id as ulong; }
+	override getCompanyId() { return this.behaviour?.company as ulong; }
 }

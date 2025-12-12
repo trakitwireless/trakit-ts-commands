@@ -15,5 +15,6 @@ export class RepBehaviourScriptDelete extends ReplySyncDelete {
 		super(json, "BehaviourScript");
 		this.behaviourScript = ContentIdDeleted.fromJSON(json?.behaviourScript as JsonObject);
 	}
-	protected override _getKey() { return this.behaviourScript?.id as ulong; }
+	override getKey() { return this.behaviourScript?.id as ulong; }
+	override getCompanyId() { return this.behaviourScript?.company as ulong; }
 }
