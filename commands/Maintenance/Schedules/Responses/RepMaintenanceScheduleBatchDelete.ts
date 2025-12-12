@@ -16,4 +16,6 @@ export class RepMaintenanceScheduleBatchDelete extends ReplySyncBatchDelete {
 		this.maintenanceSchedules = (json?.maintenanceSchedules as JsonObject[])?.map((item: any) => new ContentIdDeleted(item)) ;
 	}
 	protected override _getKeys() { return this.maintenanceSchedules?.map(m => m.id) as ulong[]; }
+	override getCompanyId() { return this.maintenanceSchedules?.[0]?.company as ulong; }
+	override getResults() { return this.maintenanceSchedules as ContentIdDeleted[]; }
 }

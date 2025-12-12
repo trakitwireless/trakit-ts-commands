@@ -33,4 +33,5 @@ export class RepMaintenanceScheduleListByCompany extends RepMaintenanceScheduleL
 	override _filterCollection(pair: [ulong | guid | email | codified | string, MaintenanceSchedule], index: number): boolean {
 		return pair[1].companyId === (this.company as ContentId).id;
 	}
+	override getCompanyId() { return this.company?.id as ulong; }
 }

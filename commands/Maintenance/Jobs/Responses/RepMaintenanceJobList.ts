@@ -34,4 +34,5 @@ export class RepMaintenanceJobListByCompany extends RepMaintenanceJobList {
 	override _filterCollection(pair: [ulong | guid | email | codified | string, MaintenanceJob], index: number): boolean {
 		return pair[1].companyId === (this.company as ContentId).id;
 	}
+	override getCompanyId() { return this.company?.id as ulong; }
 }
