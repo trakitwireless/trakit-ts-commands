@@ -1,4 +1,4 @@
-import { BehaviourLog, email, guid, JsonObject, nothing, ulong } from "@trakit/objects";
+import { BehaviourLog, codified, email, guid, JsonObject, nothing, ulong } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
@@ -31,7 +31,7 @@ export class RepBehaviourLogListByAsset extends RepBehaviourLogList {
 		super(json);
 		this.asset = ContentId.fromJSON(json?.asset as JsonObject);
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, BehaviourLog], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, BehaviourLog], index: number): boolean {
 		return pair[1].assetId === (this.asset as ContentId).id;
 	}
 }
@@ -48,7 +48,7 @@ export class RepBehaviourLogListByBehaviour extends RepBehaviourLogList {
 		super(json);
 		this.behaviour = ContentId.fromJSON(json?.behaviour as JsonObject);
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, BehaviourLog], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, BehaviourLog], index: number): boolean {
 		return pair[1].behaviourId === (this.behaviour as ContentId).id;
 	}
 }
@@ -65,7 +65,7 @@ export class RepBehaviourLogListByScript extends RepBehaviourLogList {
 		super(json);
 		this.behaviourScript = ContentId.fromJSON(json?.behaviourScript as JsonObject);
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, BehaviourLog], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, BehaviourLog], index: number): boolean {
 		return pair[1].scriptId === (this.behaviourScript as ContentId).id;
 	}
 }

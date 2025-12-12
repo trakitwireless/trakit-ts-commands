@@ -1,4 +1,4 @@
-import { email, guid, JsonObject, nothing, ReportSchedule, ulong } from "@trakit/objects";
+import { codified, email, guid, JsonObject, nothing, ReportSchedule, ulong } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
@@ -32,7 +32,7 @@ export class RepReportScheduleListByCompany extends RepReportScheduleList {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, ReportSchedule], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, ReportSchedule], index: number): boolean {
 		return pair[1].companyId === (this.company as ContentId).id;
 	}
 }

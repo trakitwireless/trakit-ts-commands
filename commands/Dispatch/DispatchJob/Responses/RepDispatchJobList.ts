@@ -34,7 +34,7 @@ export class RepDispatchJobListByCompany extends RepDispatchJobList implements I
 		super(json);
 		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, DispatchJob], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, DispatchJob], index: number): boolean {
 		return pair[1].companyId === (this.company as ContentId).id;
 	}
 }
@@ -52,7 +52,7 @@ export class RepDispatchJobListByCompanyAndLabels extends RepDispatchJobListByCo
 		super(json);
 		this.labels = json?.labels as codified[];
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, DispatchJob], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, DispatchJob], index: number): boolean {
 		return false; // 
 	}
 }
@@ -72,7 +72,7 @@ export class RepDispatchJobListByCompanyAndRefPairs extends RepDispatchJobListBy
 			? serialization.toMap(json?.references as object)
 			: null;
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, DispatchJob], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, DispatchJob], index: number): boolean {
 		return false; // Filtering by labels does not guarantee that the other jobs should be purged.
 	}
 }
@@ -90,7 +90,7 @@ export class RepDispatchJobListByAsset extends RepDispatchJobList implements IRe
 		super(json);
 		this.asset = ContentId.fromJSON(json?.asset as JsonObject);
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, DispatchJob], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, DispatchJob], index: number): boolean {
 		return pair[1].assetId === (this.asset as ContentId).id;
 	}
 }
@@ -108,7 +108,7 @@ export class RepDispatchJobListByAssetAndLabels extends RepDispatchJobListByAsse
 		super(json);
 		this.labels = json?.labels as codified[];
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, DispatchJob], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, DispatchJob], index: number): boolean {
 		return false; // Filtering by labels does not guarantee that the other jobs should be purged.
 	}
 }
@@ -128,7 +128,7 @@ export class RepDispatchJobListByAssetAndRefPairs extends RepDispatchJobListByAs
 			? serialization.toMap(json?.references as object)
 			: null;
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, DispatchJob], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, DispatchJob], index: number): boolean {
 		return false; // Filtering by references does not guarantee that the other jobs should be purged.
 	}
 }

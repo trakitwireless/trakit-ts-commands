@@ -1,4 +1,4 @@
-import { email, guid, JsonObject, nothing, Picture, ulong } from "@trakit/objects";
+import { codified, email, guid, JsonObject, nothing, Picture, ulong } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
@@ -31,7 +31,7 @@ export class RepPictureListByCompany extends RepPictureList {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, Picture], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, Picture], index: number): boolean {
 		return pair[1].companyId === (this.company as ContentId).id;
 	}
 }

@@ -1,4 +1,4 @@
-import { email, guid, storage, ulong } from '@trakit/objects';
+import { codified, email, guid, storage, ulong } from '@trakit/objects';
 import { ReplySync } from './ReplySync';
 
 /**
@@ -9,7 +9,7 @@ export abstract class ReplySyncBatchDelete extends ReplySync {
 	/**
 	 * Returns the constructed object.
 	 */
-	protected abstract _getKeys(): string[] | guid[] | email[] | ulong[];
+	protected abstract _getKeys(): string[] | guid[] | email[] | codified[] | ulong[];
 	/**
 	 * Adds or updates the constructed object to storage (and maybe IndexedDB).
 	 */

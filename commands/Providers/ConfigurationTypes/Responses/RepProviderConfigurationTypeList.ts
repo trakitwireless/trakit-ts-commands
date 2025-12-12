@@ -1,4 +1,4 @@
-import { email, guid, JsonObject, nothing, ProviderConfigurationType, ulong } from "@trakit/objects";
+import { codified, email, guid, JsonObject, nothing, ProviderConfigurationType, ulong } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
@@ -31,7 +31,7 @@ export class RepProviderConfigurationTypeListByCompany extends RepProviderConfig
 		super(json);
 		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, ProviderConfigurationType], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, ProviderConfigurationType], index: number): boolean {
 		return true; // Filtering by config type means all types should be purged when a new list is loaded.
 	}
 }

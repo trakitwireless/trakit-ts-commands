@@ -1,4 +1,4 @@
-import { BehaviourScript, email, guid, JsonObject, nothing, ulong } from "@trakit/objects";
+import { BehaviourScript, codified, email, guid, JsonObject, nothing, ulong } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
@@ -31,7 +31,7 @@ export class RepBehaviourScriptListByCompany extends RepBehaviourScriptList {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, BehaviourScript], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, BehaviourScript], index: number): boolean {
 		return pair[1].companyId === (this.company as ContentId).id;
 	}
 }

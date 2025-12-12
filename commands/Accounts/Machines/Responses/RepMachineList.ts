@@ -1,4 +1,4 @@
-import { email, guid, JsonObject, Machine, nothing, ulong } from "@trakit/objects";
+import { codified, email, guid, JsonObject, Machine, nothing, ulong } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
@@ -30,7 +30,7 @@ export class RepMachineListByCompany extends RepMachineList {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, Machine], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, Machine], index: number): boolean {
 		return pair[1].companyId === (this.company as ContentId).id;
 	}
 }
@@ -47,7 +47,7 @@ export class RepMachineListByUserGroup extends RepMachineList {
 		super(json);
 		this.userGroup = ContentId.fromJSON(json?.userGroup as JsonObject);
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, Machine], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, Machine], index: number): boolean {
 		return pair[1].groupIds.includes((this.userGroup as ContentId).id as ulong);
 	}
 }

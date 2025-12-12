@@ -1,4 +1,4 @@
-import { Dashcam, DashcamLive, DispatchTask, email, guid, JsonObject, nothing, ulong } from "@trakit/objects";
+import { codified, Dashcam, DashcamLive, DispatchTask, email, guid, JsonObject, nothing, ulong } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { Reply } from "../../../API/Responses/Reply";
 import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
@@ -33,7 +33,7 @@ export class RepDashcamListByCompany extends RepDashcamList {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, Dashcam], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, Dashcam], index: number): boolean {
 		return pair[1].companyId === (this.company as ContentId).id;
 	}
 }
@@ -50,7 +50,7 @@ export class RepDashcamListByAsset extends RepDashcamList {
 		super(json);
 		this.asset = ContentId.fromJSON(json?.asset as JsonObject);
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, Dashcam], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, Dashcam], index: number): boolean {
 		return pair[1].assetId === (this.asset as ContentId).id;
 	}
 }
@@ -67,7 +67,7 @@ export class RepDashcamListByProvider extends RepDashcamList {
 		super(json);
 		this.provider = ContentIdendifier.fromJSON(json?.provider as JsonObject);
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, Dashcam], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, Dashcam], index: number): boolean {
 		return pair[1].providerId === (this.provider as ContentIdendifier).id;
 	}
 }

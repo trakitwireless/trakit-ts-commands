@@ -1,7 +1,7 @@
 import {
 	BaseComponent,
 	BaseCompound,
-	SyncName,
+	codified,
 	email,
 	guid,
 	IDeserializable,
@@ -9,6 +9,7 @@ import {
 	ISerializable,
 	JsonObject,
 	storage,
+	SyncName,
 	ulong
 } from '@trakit/objects';
 import { ReplySync } from './ReplySync';
@@ -26,7 +27,7 @@ export abstract class ReplySyncGet<TRequestable extends IRequestable> extends Re
 	 * Adds or updates the constructed object to storage (and maybe IndexedDB).
 	 */
 	override store(): void {
-		const map = storage[this._typeName] as Map<string | guid | email | ulong, IRequestable>,
+		const map = storage[this._typeName] as Map<ulong | guid | email | codified | string, IRequestable>,
 			obj = this.getObject() as unknown as IRequestable & ISerializable,
 			key = obj.getKey(),
 			stored = map.get(key) as unknown as IDeserializable;
@@ -56,7 +57,7 @@ export abstract class ReplySyncGetPiece<TRequestable extends BaseComponent> exte
 	 * Adds or updates the constructed object to storage (and maybe IndexedDB).
 	 */
 	override store(): void {
-		const map = storage[this._typeName] as Map<string | guid | email | ulong, BaseCompound>,
+		const map = storage[this._typeName] as Map<ulong | guid | email | codified | string, BaseCompound>,
 			obj = this.getObject() as unknown as BaseCompound,
 			key = obj.getKey();
 		let stored = map.get(key) as unknown as BaseCompound;

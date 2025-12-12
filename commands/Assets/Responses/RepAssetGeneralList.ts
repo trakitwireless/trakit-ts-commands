@@ -42,7 +42,7 @@ export class RepAssetGeneralListByCompany extends RepAssetGeneralList {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, AssetGeneral], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, AssetGeneral], index: number): boolean {
 		return pair[1].companyId === (this.company as ContentId).id;
 	}
 }
@@ -60,7 +60,7 @@ export class RepAssetGeneralListByCompanyAndLabels extends RepAssetGeneralListBy
 		super(json);
 		this.labels = json?.labels as codified[];
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, AssetGeneral], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, AssetGeneral], index: number): boolean {
 		return false; // Filtering by labels does not guarantee that the other assets should be purged.
 	}
 }
@@ -80,7 +80,7 @@ export class RepAssetGeneralListByCompanyAndRefPairs extends RepAssetGeneralList
 			this.references = serialization.toMap(json?.references as object);
 		}
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, AssetGeneral], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, AssetGeneral], index: number): boolean {
 		return false; // Filtering by references does not guarantee that the other assets should be purged.
 	}
 }

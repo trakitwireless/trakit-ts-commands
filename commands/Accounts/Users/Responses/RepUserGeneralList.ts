@@ -1,4 +1,4 @@
-import { email, guid, JsonObject, nothing, storage, ulong, User, UserGeneral } from "@trakit/objects";
+import { codified, email, guid, JsonObject, nothing, storage, ulong, User, UserGeneral } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
@@ -31,7 +31,7 @@ export class RepUserGeneralListByCompany extends RepUserGeneralList {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, UserGeneral], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, UserGeneral], index: number): boolean {
 		return pair[1].companyId === (this.company as ContentId).id;
 	}
 }
@@ -48,7 +48,7 @@ export class RepUserGeneralListByUserGroup extends RepUserGeneralList {
 		super(json);
 		this.userGroup = ContentId.fromJSON(json?.userGroup as JsonObject);
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, UserGeneral], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, UserGeneral], index: number): boolean {
 		const user = storage.User.get(pair[0]) as User;
 		return user?.groupIds.includes((this.userGroup as ContentId).id as ulong);
 	}

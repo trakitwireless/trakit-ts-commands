@@ -1,4 +1,4 @@
-import { DispatchJob, DispatchTask, email, guid, JsonObject, nothing, serialization, ulong } from "@trakit/objects";
+import { codified, DispatchJob, DispatchTask, email, guid, JsonObject, nothing, serialization, ulong } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { IRepListByAsset } from "../../../API/Responses/IRepListByAsset";
 import { IRepListByCompany } from "../../../API/Responses/IRepListByCompany";
@@ -34,7 +34,7 @@ export class RepDispatchTaskListByCompany extends RepDispatchTaskList implements
 		super(json);
 		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, DispatchTask], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, DispatchTask], index: number): boolean {
 		return pair[1].companyId === (this.company as ContentId).id;
 	}
 }
@@ -54,7 +54,7 @@ export class RepDispatchTaskListByCompanyAndRefPairs extends RepDispatchTaskList
 			? serialization.toMap(json?.references as object)
 			: null;
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, DispatchTask], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, DispatchTask], index: number): boolean {
 		return false; // Filtering by references does not guarantee that the other tasks should be purged.
 	}
 }
@@ -72,7 +72,7 @@ export class RepDispatchTaskListByAsset extends RepDispatchTaskList implements I
 		super(json);
 		this.asset = ContentId.fromJSON(json?.asset as JsonObject);
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, DispatchTask], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, DispatchTask], index: number): boolean {
 		return pair[1].assetId === (this.asset as ContentId).id;
 	}
 }
@@ -92,7 +92,7 @@ export class RepDispatchTaskListByAssetAndRefPairs extends RepDispatchTaskListBy
 			? serialization.toMap(json?.references as object)
 			: null;
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, DispatchTask], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, DispatchTask], index: number): boolean {
 		return false; // Filtering by references does not guarantee that the other tasks should be purged.
 	}
 }

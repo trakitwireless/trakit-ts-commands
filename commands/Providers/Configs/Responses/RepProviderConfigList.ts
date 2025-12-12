@@ -1,4 +1,4 @@
-import { email, guid, JsonObject, nothing, ProviderConfig, ulong } from "@trakit/objects";
+import { codified, email, guid, JsonObject, nothing, ProviderConfig, ulong } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
@@ -31,7 +31,7 @@ export class RepProviderConfigListByCompany extends RepProviderConfigList {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, ProviderConfig], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, ProviderConfig], index: number): boolean {
 		return pair[1].companyId === (this.company as ContentId).id;
 	}
 }
@@ -48,7 +48,7 @@ export class RepProviderConfigListByProviderScript extends RepProviderConfigList
 		super(json);
 		this.providerScript = ContentId.fromJSON(json?.providerScript as JsonObject);
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, ProviderConfig], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, ProviderConfig], index: number): boolean {
 		return pair[1].scriptId === (this.providerScript as ContentId).id;
 	}
 }

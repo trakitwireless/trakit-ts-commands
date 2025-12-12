@@ -1,4 +1,4 @@
-import { email, guid, JsonObject, Session, ulong } from "@trakit/objects";
+import { codified, email, guid, JsonObject, Session, ulong } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { ContentLoginCompany } from "../../../API/Responses/Content/ContentLoginCompany";
 import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
@@ -31,7 +31,7 @@ export class RepSessionListByCompany extends RepSessionList {
 		super(json);
 		this.company = new ContentId(json?.company as JsonObject);
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, Session], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, Session], index: number): boolean {
 		return pair[1].companyId === (this.company as ContentId).id;
 	}
 }
@@ -48,7 +48,7 @@ export class RepSessionListByUser extends RepSessionList {
 		super(json);
 		this.user = new ContentLoginCompany(json?.user as JsonObject);
 	}
-	override _filterCollection(pair: [string | guid | email | ulong, Session], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, Session], index: number): boolean {
 		return pair[1].login === (this.user as ContentLoginCompany).login;
 	}
 }

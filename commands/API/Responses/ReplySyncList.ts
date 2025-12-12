@@ -1,7 +1,7 @@
 import {
 	BaseComponent,
 	BaseCompound,
-	SyncName,
+	codified,
 	email,
 	guid,
 	IDeserializable,
@@ -9,6 +9,7 @@ import {
 	ISerializable,
 	JsonObject,
 	storage,
+	SyncName,
 	ulong,
 } from '@trakit/objects';
 import { ReplySync } from './ReplySync';
@@ -28,11 +29,11 @@ export abstract class ReplySyncList<TRequestable extends IRequestable> extends R
 	 * @param pair 
 	 * @param index 
 	 */
-	abstract _filterCollection(pair: [string | guid | email | ulong, TRequestable], index: number): boolean;
+	abstract _filterCollection(pair: [ulong | guid | email | codified | string, TRequestable], index: number): boolean;
 	/**
 	 * Returns the key for the given pair.
 	 */
-	_keyCollection(pair: [string | guid | email | ulong, TRequestable], index: number) { return pair[0]; }
+	_keyCollection(pair: [ulong | guid | email | codified | string, TRequestable], index: number) { return pair[0]; }
 	/**
 	 * Adds or updates the constructed objects to storage (and maybe IndexedDB).
 	 * @param map 
@@ -40,9 +41,9 @@ export abstract class ReplySyncList<TRequestable extends IRequestable> extends R
 	 * @param obj 
 	 */
 	_store(
-		map: Map<string | guid | email | ulong, TRequestable>,
+		map: Map<ulong | guid | email | codified | string, TRequestable>,
 		obj: TRequestable
-	): string | guid | email | ulong {
+	): ulong | guid | email | codified | string {
 		const key = obj.getKey(),
 			stored = map.get(key) as unknown as IDeserializable;
 		if (!stored) map.set(key, obj);
@@ -54,8 +55,8 @@ export abstract class ReplySyncList<TRequestable extends IRequestable> extends R
 	 * Adds or updates the constructed objects to storage (and maybe IndexedDB).
 	 */
 	override store(): void {
-		const map = storage[this._typeName] as Map<string | guid | email | ulong, TRequestable>,
-			existing: Set<string | guid | email | ulong> = new Set(
+		const map = storage[this._typeName] as Map<ulong | guid | email | codified | string, TRequestable>,
+			existing: Set<ulong | guid | email | codified | string> = new Set(
 				map.entries()
 					.filter(this._filterCollection)
 					.map(this._keyCollection)
@@ -91,9 +92,9 @@ export abstract class ReplySyncListPiece<TRequestable extends BaseComponent> ext
 	 * This override synchronizes only the piece of the compound object, and creates a blank object if it does not exist.
 	 */
 	override _store(
-		map: Map<string | guid | email | ulong, TRequestable>,
+		map: Map<ulong | guid | email | codified | string, TRequestable>,
 		obj: TRequestable
-	): string | guid | email | ulong {
+	): ulong | guid | email | codified | string {
 		const key = obj.getKey();
 		let stored = map.get(key) as unknown as BaseCompound;
 		if (!stored) map.set(key, stored = this._createBlank() as TRequestable & BaseCompound);
