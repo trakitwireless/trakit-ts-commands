@@ -18,7 +18,7 @@ import { ReplySync } from './ReplySync';
  * Base class for all responses from commands.
  * All command response classes use this as the base.
  **/
-export abstract class ReplySyncList<TRequestable extends IRequestable> extends ReplySync {
+export abstract class ReplySyncList<TRequestable extends IRequestable & ISerializable & IDeserializable> extends ReplySync {
 	/**
 	 * Returns the constructed collection of objects.
 	 */
@@ -43,18 +43,20 @@ export abstract class ReplySyncList<TRequestable extends IRequestable> extends R
 	_store(
 		map: Map<ulong | guid | email | codified | string, TRequestable>,
 		obj: TRequestable
-	): ulong | guid | email | codified | string {
+	): [boolean, ulong | guid | email | codified | string] {
+		let modified: boolean;
 		const key = obj.getKey(),
-			stored = map.get(key) as unknown as IDeserializable;
-		if (!stored) map.set(key, obj);
-		else stored.fromJSON((obj as unknown as ISerializable).toJSON());
-		return key;
+			stored = map.get(key);
+		if (!stored) modified = !!map.set(key, obj);
+		else modified = stored.fromJSON(obj.toJSON());
+		return [modified, key];
 	}
 	
 	/**
 	 * Adds or updates the constructed objects to storage (and maybe IndexedDB).
 	 */
-	override store(): void {
+	override store(): boolean {
+		let modified = false;
 		const map = storage[this._typeName] as Map<ulong | guid | email | codified | string, TRequestable>,
 			existing: Set<ulong | guid | email | codified | string> = new Set(
 				map.entries()
@@ -62,12 +64,14 @@ export abstract class ReplySyncList<TRequestable extends IRequestable> extends R
 					.map(this._keyCollection)
 			);
 		for (const obj of this.getCollection()) {
-			const key = this._store(map, obj);
+			const [mod, key] = this._store(map, obj);
 			existing.delete(key);
+			modified = mod || modified;
 		}
 		for (const key of existing) {
-			map.delete(key);
+			modified = map.delete(key) || modified;
 		}
+		return modified;
 	}
 }
 /**
@@ -94,11 +98,12 @@ export abstract class ReplySyncListPiece<TRequestable extends BaseComponent> ext
 	override _store(
 		map: Map<ulong | guid | email | codified | string, TRequestable>,
 		obj: TRequestable
-	): ulong | guid | email | codified | string {
+	): [boolean, ulong | guid | email | codified | string] {
 		const key = obj.getKey();
-		let stored = map.get(key) as unknown as BaseCompound;
+		let stored = map.get(key) as unknown as BaseCompound,
+			modified = !stored;
 		if (!stored) map.set(key, stored = this._createBlank() as TRequestable & BaseCompound);
-		stored.pieces[this._pieceIndex].fromJSON(obj.toJSON());
-		return key;
+		modified = stored.pieces[this._pieceIndex].fromJSON(obj.toJSON()) || modified;
+		return [modified, key];
 	}
 }

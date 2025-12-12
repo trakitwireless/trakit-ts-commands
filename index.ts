@@ -172,6 +172,7 @@ import { IRepListByReferences } from "./commands/API/Responses/IRepListByReferen
 import { IRepListByUser } from "./commands/API/Responses/IRepListByUser";
 import { Reply } from "./commands/API/Responses/Reply";
 import { ReplySync } from "./commands/API/Responses/ReplySync";
+import { ReplySyncBatchDelete } from "./commands/API/Responses/ReplySyncBatchDelete";
 import { ReplySyncDelete } from "./commands/API/Responses/ReplySyncDelete";
 import { ReplySyncGet } from "./commands/API/Responses/ReplySyncGet";
 import { ReplySyncList } from "./commands/API/Responses/ReplySyncList";
@@ -595,17 +596,17 @@ export {
 /**
  * Command responses and content classes.
  */
-	export {
-		ContentCode,
-		ContentCodeCompany,
-		ContentCodeDeleted, ContentId, ContentIdAsset, ContentIdBillingProfile, ContentIdCompany, ContentIdCompanyTemplate, ContentIdendifier, ContentIdendifierAsset, ContentIdendifierCompany, ContentIdendifierDeleted, ContentIdendifierSuspended,
-		ContentIdParent, ContentIdScript, ContentIdSuspended, ContentKey, ContentKeyCompany, ContentKeyDeleted, ContentLogin, ContentLoginCompany, ContentLoginDeleted, ContentParentDeleted,
-		Reply,
-		ReplySync, ReplySyncDelete, ReplySyncGet,
-		ReplySyncList, type IRepListByAsset, type IRepListByCompany, type IRepListByDate,
-		type IRepListById, type IRepListByKey, type IRepListByLabels, type IRepListByReferences,
-		type IRepListByUser
-	};
+export {
+	ContentCode,
+	ContentCodeCompany,
+	ContentCodeDeleted, ContentId, ContentIdAsset, ContentIdBillingProfile, ContentIdCompany, ContentIdCompanyTemplate, ContentIdendifier, ContentIdendifierAsset, ContentIdendifierCompany, ContentIdendifierDeleted, ContentIdendifierSuspended,
+	ContentIdParent, ContentIdScript, ContentIdSuspended, ContentKey, ContentKeyCompany, ContentKeyDeleted, ContentLogin, ContentLoginCompany, ContentLoginDeleted, ContentParentDeleted,
+	Reply,
+	ReplySync, ReplySyncBatchDelete, ReplySyncDelete, ReplySyncGet,
+	ReplySyncList, type IRepListByAsset, type IRepListByCompany, type IRepListByDate,
+	type IRepListById, type IRepListByKey, type IRepListByLabels, type IRepListByReferences,
+	type IRepListByUser
+};
 /**
  * Error messages and details for responses.
  */

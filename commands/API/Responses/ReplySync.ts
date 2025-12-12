@@ -1,4 +1,4 @@
-import { SyncName, JsonObject } from '@trakit/objects';
+import { SyncName, JsonObject, ulong, Company } from '@trakit/objects';
 import { Reply } from './Reply';
 
 /**
@@ -18,6 +18,11 @@ export abstract class ReplySync extends Reply {
 
 	/**
 	 * Adds or updates the constructed object to storage (and maybe IndexedDB).
+	 * @returns True if the storage was modified, false otherwise.
 	 */
-	abstract store(): void;
+	abstract store(): boolean;
+	/**
+	 * Returns the {@link Company.id} associated with this response.
+	 */
+	abstract getCompanyId(): ulong;
 }

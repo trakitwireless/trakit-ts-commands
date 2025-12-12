@@ -26,13 +26,15 @@ export abstract class ReplySyncGet<TRequestable extends IRequestable> extends Re
 	/**
 	 * Adds or updates the constructed object to storage (and maybe IndexedDB).
 	 */
-	override store(): void {
+	override store(): boolean {
 		const map = storage[this._typeName] as Map<ulong | guid | email | codified | string, IRequestable>,
 			obj = this.getObject() as unknown as IRequestable & ISerializable,
 			key = obj.getKey(),
 			stored = map.get(key) as unknown as IDeserializable;
+		let modified = !stored;
 		if (!stored) map.set(key, obj);
-		else stored.fromJSON(obj.toJSON());
+		else modified = stored.fromJSON(obj.toJSON());
+		return modified;
 	}
 }
 /**
@@ -56,12 +58,14 @@ export abstract class ReplySyncGetPiece<TRequestable extends BaseComponent> exte
 	/**
 	 * Adds or updates the constructed object to storage (and maybe IndexedDB).
 	 */
-	override store(): void {
+	override store(): boolean {
 		const map = storage[this._typeName] as Map<ulong | guid | email | codified | string, BaseCompound>,
 			obj = this.getObject() as unknown as BaseCompound,
 			key = obj.getKey();
-		let stored = map.get(key) as unknown as BaseCompound;
+		let stored = map.get(key) as unknown as BaseCompound,
+			modified = !stored;
 		if (!stored) map.set(key, stored = this._createBlank());
-		stored.pieces[this._pieceIndex].fromJSON(obj.toJSON());
+		modified = stored.pieces[this._pieceIndex].fromJSON(obj.toJSON()) || modified;
+		return modified;
 	}
 }

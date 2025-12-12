@@ -1,4 +1,4 @@
-import { int, JsonObject, nothing, utility } from '@trakit/objects';
+import { int, JsonObject, nothing, SyncName, utility } from '@trakit/objects';
 import { Reply } from '../Responses/Reply';
 
 // Used to split the Payload class name into pieces to help create commands
@@ -35,14 +35,14 @@ export abstract class Payload {
 	 */
 	getAction(): {
 		kind: ActionType,
-		object: string,
+		object: SyncName,
 		filter: string,
 		batch: boolean,
 	} {
 		const matches = [...this.constructor.name.match(Payload_SPLITTER) as string[]];
 		return {
 			kind: (matches[3] ?? "Get") as ActionType,
-			object: matches[1] ?? "",
+			object: matches[1] as SyncName,
 			filter: matches[4] ?? "",
 			batch: matches[2] === "Batch",
 		};
