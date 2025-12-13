@@ -35,7 +35,14 @@ export default [
 				plugins: [terser(obfuscate)]
 			}
 		],
-		plugins: [typescript()],
+		plugins: [typescript({
+			tsconfig: './tsconfig.json',
+			tsconfigOverride: {
+				compilerOptions: {
+					declaration: false,
+				}
+			}
+		})],
 		external: ['@trakit/objects']
 	}
 ];

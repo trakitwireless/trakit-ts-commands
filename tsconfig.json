@@ -3,12 +3,10 @@
 		"target": "ESNext",
 		"module": "ESNext",
 		"moduleResolution": "bundler",
-		"composite": true,
 		"declaration": true, // Optionally generate types
 		"esModuleInterop": true,
 		"allowSyntheticDefaultImports": true,
 		"isolatedModules": true,
-		"rootDir": ".",
 		"outDir": "./_publish", // Output directory
 		"sourceMap": true,
 		"strict": true,
@@ -16,10 +14,14 @@
 		"noImplicitOverride": true,
 		"noImplicitUseStrict": false,
 		"strictNullChecks": true,
+		"skipLibCheck": true,
 		"paths": {
 			"@trakit/objects": [
-				"../trakit-ts-objects/_publish/index.d.ts"
+				"../trakit-ts-objects/objects/index.ts"
 			],
 		},
-	}
+	},
+	"include": [
+		"./index.ts"
+	]
 }
