@@ -495,7 +495,7 @@ import { RepProviderControlListByConfig } from "./commands/Providers/Providers/R
 import { RepProviderDelete } from "./commands/Providers/Providers/Responses/RepProviderDelete";
 import { RepProviderGeneralListByConfig } from "./commands/Providers/Providers/Responses/RepProviderGeneralList";
 import { RepProviderGet } from "./commands/Providers/Providers/Responses/RepProviderGet";
-import { RepProviderListByConfig } from "./commands/Providers/Providers/Responses/RepProviderList";
+import { RepProviderListByCompany, RepProviderListByConfig } from "./commands/Providers/Providers/Responses/RepProviderList";
 import { RepProviderMerge } from "./commands/Providers/Providers/Responses/RepProviderMerge";
 import { PayProviderRegistrationDelete } from "./commands/Providers/Registrations/Requests/PayProviderRegistrationDelete";
 import { PayProviderRegistrationGet } from "./commands/Providers/Registrations/Requests/PayProviderRegistrationGet";
@@ -597,15 +597,15 @@ export {
 /**
  * Command responses and content classes.
  */
-export {
-	ContentCode,
-	ContentCodeCompany,
-	ContentCodeDeleted, ContentId, ContentIdAsset, ContentIdBillingProfile, ContentIdCompany, ContentIdCompanyTemplate, ContentIdendifier, ContentIdendifierAsset, ContentIdendifierCompany, ContentIdendifierDeleted, ContentIdendifierSuspended,
-	ContentIdParent, ContentIdParentDeleted, ContentIdScript, ContentIdSuspended, ContentKey, ContentKeyCompany, ContentKeyDeleted, ContentLogin, ContentLoginCompany, ContentLoginDeleted,
-	Reply, ReplySync, ReplySyncBatchDelete, ReplySyncBatchSuspend, ReplySyncDelete, ReplySyncGet, ReplySyncList, type IRepListByAsset, type IRepListByCompany, type IRepListByDate,
-	type IRepListById, type IRepListByKey, type IRepListByLabels, type IRepListByReferences,
-	type IRepListByUser
-};
+	export {
+		ContentCode,
+		ContentCodeCompany,
+		ContentCodeDeleted, ContentId, ContentIdAsset, ContentIdBillingProfile, ContentIdCompany, ContentIdCompanyTemplate, ContentIdendifier, ContentIdendifierAsset, ContentIdendifierCompany, ContentIdendifierDeleted, ContentIdendifierSuspended,
+		ContentIdParent, ContentIdParentDeleted, ContentIdScript, ContentIdSuspended, ContentKey, ContentKeyCompany, ContentKeyDeleted, ContentLogin, ContentLoginCompany, ContentLoginDeleted,
+		Reply, ReplySync, ReplySyncBatchDelete, ReplySyncBatchSuspend, ReplySyncDelete, ReplySyncGet, ReplySyncList, type IRepListByAsset, type IRepListByCompany, type IRepListByDate,
+		type IRepListById, type IRepListByKey, type IRepListByLabels, type IRepListByReferences,
+		type IRepListByUser
+	};
 /**
  * Error messages and details for responses.
  */
@@ -1088,7 +1088,7 @@ export {
 		RepProviderConfigListByCompany,
 		RepProviderConfigMerge, RepProviderConfigurationBatchDelete, RepProviderConfigurationBatchMerge, RepProviderConfigurationDelete, RepProviderConfigurationGet, RepProviderConfigurationListByCompany, //RepProviderSuspend,
 		RepProviderConfigurationMerge, //PayProviderReactivate,
-		RepProviderConfigurationTypeGet, RepProviderConfigurationTypeListByCompany, RepProviderControlListByConfig, RepProviderDelete, RepProviderGeneralListByConfig, RepProviderGet, RepProviderListByConfig, RepProviderMerge, RepProviderRegistrationDelete, RepProviderRegistrationGet,
+		RepProviderConfigurationTypeGet, RepProviderConfigurationTypeListByCompany, RepProviderControlListByConfig, RepProviderDelete, RepProviderGeneralListByConfig, RepProviderGet, RepProviderListByCompany, RepProviderListByConfig, RepProviderMerge, RepProviderRegistrationDelete, RepProviderRegistrationGet,
 		RepProviderRegistrationListByCompany,
 		RepProviderRegistrationMerge,
 		RepProviderScriptBatchDelete,
