@@ -15,7 +15,7 @@ export abstract class RepCompanyPolicyList extends ReplySyncList<CompanyPolicy> 
 		super(json, "CompanyPolicy");
 		this.companyPolicies = (json?.companyPolicies as JsonObject[])?.map((policy: any) => new CompanyPolicy(policy));
 	}
-	override getCollection() { return this.companyPolicies as CompanyPolicy[]; }
+	override getList() { return this.companyPolicies as CompanyPolicy[]; }
 }
 
 /**

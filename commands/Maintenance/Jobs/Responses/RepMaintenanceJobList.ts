@@ -15,7 +15,7 @@ export abstract class RepMaintenanceJobList extends ReplySyncList<MaintenanceJob
 		super(json, "MaintenanceJob");
 		this.maintenanceJobs = (json?.maintenanceJobs as JsonObject[])?.map((item: any) => new MaintenanceJob(item));
 	}
-	override getCollection() { return this.maintenanceJobs as MaintenanceJob[]; }
+	override getList() { return this.maintenanceJobs as MaintenanceJob[]; }
 }
 
 /**

@@ -15,7 +15,7 @@ export abstract class RepBehaviourList extends ReplySyncList<Behaviour> {
 		super(json, "Behaviour");
 		this.behaviours = (json?.behaviours as JsonObject[])?.map((item: any) => new Behaviour(item));
 	}
-	override getCollection() { return this.behaviours as Behaviour[]; }
+	override getList() { return this.behaviours as Behaviour[]; }
 }
 
 /**

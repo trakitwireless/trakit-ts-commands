@@ -15,7 +15,7 @@ export abstract class RepProviderScriptList extends ReplySyncList<ProviderScript
 		super(json, "ProviderScript");
 		this.providerScripts = (json?.providerScripts as JsonObject[])?.map((v: any) => new ProviderScript(v));
 	}
-	override getCollection() { return this.providerScripts as ProviderScript[]; }
+	override getList() { return this.providerScripts as ProviderScript[]; }
 }
 
 /**

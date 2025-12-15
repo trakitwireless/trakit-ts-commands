@@ -15,7 +15,7 @@ export abstract class RepBehaviourScriptList extends ReplySyncList<BehaviourScri
 		super(json, "BehaviourScript");
 		this.behaviourScripts = (json?.behaviourScripts as JsonObject[])?.map((x: any) => new BehaviourScript(x));
 	}
-	override getCollection() { return this.behaviourScripts as BehaviourScript[]; }
+	override getList() { return this.behaviourScripts as BehaviourScript[]; }
 }
 
 /**

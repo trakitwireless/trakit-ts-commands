@@ -22,7 +22,7 @@ export abstract class ReplySyncList<TRequestable extends IRequestable & ISeriali
 	/**
 	 * Returns the constructed collection of objects.
 	 */
-	abstract getCollection(): TRequestable[];
+	abstract getList(): TRequestable[];
 	/**
 	 * Filters the existing stored collection to determine which objects are a part of this synchronization operation.
 	 * For listing commands, this will filter out only those objects that match the company or asset to which these objects belong.
@@ -63,7 +63,7 @@ export abstract class ReplySyncList<TRequestable extends IRequestable & ISeriali
 					.filter(this._filterCollection)
 					.map(this._keyCollection)
 			);
-		for (const obj of this.getCollection()) {
+		for (const obj of this.getList()) {
 			const [mod, key] = this._store(map, obj);
 			existing.delete(key);
 			modified = mod || modified;

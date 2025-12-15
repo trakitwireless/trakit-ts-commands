@@ -15,7 +15,7 @@ export abstract class RepFormTemplateList extends ReplySyncList<FormTemplate> {
 		super(json, "FormTemplate");
 		this.formTemplates = (json?.formTemplates as JsonObject[])?.map((item: any) => new FormTemplate(item));
 	}
-	override getCollection() { return this.formTemplates as FormTemplate[]; }
+	override getList() { return this.formTemplates as FormTemplate[]; }
 }
 
 /**

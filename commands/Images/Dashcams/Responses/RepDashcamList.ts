@@ -18,7 +18,7 @@ export abstract class RepDashcamList extends ReplySyncList<Dashcam> {
 		super(json, "Dashcam");
 		this.dashcams = (json?.dashcams as JsonObject[])?.map((d: any) => new Dashcam(d));
 	}
-	override getCollection() { return this.dashcams as Dashcam[]; }
+	override getList() { return this.dashcams as Dashcam[]; }
 }
 
 /**

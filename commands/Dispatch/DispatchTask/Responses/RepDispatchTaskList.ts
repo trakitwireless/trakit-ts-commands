@@ -19,7 +19,7 @@ export abstract class RepDispatchTaskList extends ReplySyncList<DispatchTask> {
 		super(json, "DispatchTask");
 		this.dispatchTasks = (json?.dispatchTasks as JsonObject[])?.map((dt: any) => new DispatchTask(dt));
 	}
-	override getCollection() { return this.dispatchTasks as DispatchTask[]; }
+	override getList() { return this.dispatchTasks as DispatchTask[]; }
 }
 
 /**

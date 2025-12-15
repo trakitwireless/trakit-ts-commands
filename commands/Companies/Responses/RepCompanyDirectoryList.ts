@@ -15,7 +15,7 @@ export abstract class RepCompanyDirectoryList extends ReplySyncList<CompanyDirec
 		super(json, "CompanyDirectory");
 		this.companyDirectories = (json?.companyDirectories as JsonObject[])?.map((c: any) => new CompanyDirectory(c));
 	}
-	override getCollection() { return this.companyDirectories as CompanyDirectory[]; }
+	override getList() { return this.companyDirectories as CompanyDirectory[]; }
 }
 
 /**

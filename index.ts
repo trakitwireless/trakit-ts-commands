@@ -129,6 +129,7 @@ import { ContentIdendifierCompany } from "./commands/API/Responses/Content/Conte
 import { ContentIdendifierDeleted } from "./commands/API/Responses/Content/ContentIdendifierDeleted";
 import { ContentIdendifierSuspended } from "./commands/API/Responses/Content/ContentIdendifierSuspended";
 import { ContentIdParent } from "./commands/API/Responses/Content/ContentIdParent";
+import { ContentIdParentDeleted } from "./commands/API/Responses/Content/ContentIdParentDeleted";
 import { ContentIdScript } from "./commands/API/Responses/Content/ContentIdScript";
 import { ContentIdSuspended } from "./commands/API/Responses/Content/ContentIdSuspended";
 import { ContentKey } from "./commands/API/Responses/Content/ContentKey";
@@ -137,7 +138,6 @@ import { ContentKeyDeleted } from "./commands/API/Responses/Content/ContentKeyDe
 import { ContentLogin } from "./commands/API/Responses/Content/ContentLogin";
 import { ContentLoginCompany } from "./commands/API/Responses/Content/ContentLoginCompany";
 import { ContentLoginDeleted } from "./commands/API/Responses/Content/ContentLoginDeleted";
-import { ContentIdParentDeleted } from "./commands/API/Responses/Content/ContentIdParentDeleted";
 import { ErrorCode } from "./commands/API/Responses/Errors/ErrorCode";
 import { ErrorDetail } from "./commands/API/Responses/Errors/ErrorDetail";
 import "./commands/API/Responses/Errors/ErrorDetail_fromJSON";
@@ -173,6 +173,7 @@ import { IRepListByUser } from "./commands/API/Responses/IRepListByUser";
 import { Reply } from "./commands/API/Responses/Reply";
 import { ReplySync } from "./commands/API/Responses/ReplySync";
 import { ReplySyncBatchDelete } from "./commands/API/Responses/ReplySyncBatchDelete";
+import { ReplySyncBatchSuspend } from "./commands/API/Responses/ReplySyncBatchSuspend";
 import { ReplySyncDelete } from "./commands/API/Responses/ReplySyncDelete";
 import { ReplySyncGet } from "./commands/API/Responses/ReplySyncGet";
 import { ReplySyncList } from "./commands/API/Responses/ReplySyncList";
@@ -600,10 +601,8 @@ export {
 	ContentCode,
 	ContentCodeCompany,
 	ContentCodeDeleted, ContentId, ContentIdAsset, ContentIdBillingProfile, ContentIdCompany, ContentIdCompanyTemplate, ContentIdendifier, ContentIdendifierAsset, ContentIdendifierCompany, ContentIdendifierDeleted, ContentIdendifierSuspended,
-	ContentIdParent, ContentIdScript, ContentIdSuspended, ContentKey, ContentKeyCompany, ContentKeyDeleted, ContentLogin, ContentLoginCompany, ContentLoginDeleted, ContentIdParentDeleted as ContentParentDeleted,
-	Reply,
-	ReplySync, ReplySyncBatchDelete, ReplySyncDelete, ReplySyncGet,
-	ReplySyncList, type IRepListByAsset, type IRepListByCompany, type IRepListByDate,
+	ContentIdParent, ContentIdParentDeleted, ContentIdScript, ContentIdSuspended, ContentKey, ContentKeyCompany, ContentKeyDeleted, ContentLogin, ContentLoginCompany, ContentLoginDeleted,
+	Reply, ReplySync, ReplySyncBatchDelete, ReplySyncBatchSuspend, ReplySyncDelete, ReplySyncGet, ReplySyncList, type IRepListByAsset, type IRepListByCompany, type IRepListByDate,
 	type IRepListById, type IRepListByKey, type IRepListByLabels, type IRepListByReferences,
 	type IRepListByUser
 };

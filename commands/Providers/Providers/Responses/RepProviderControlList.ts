@@ -15,7 +15,7 @@ export abstract class RepProviderControlList extends ReplySyncList<ProviderContr
 		super(json, "ProviderControl");
 		this.providerControls = (json?.providerControls as JsonObject[])?.map((v: any) => new ProviderControl(v));
 	}
-	override getCollection() { return this.providerControls as ProviderControl[]; }
+	override getList() { return this.providerControls as ProviderControl[]; }
 }
 
 /**

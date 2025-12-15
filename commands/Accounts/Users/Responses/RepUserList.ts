@@ -16,7 +16,7 @@ export abstract class RepUserList extends ReplySyncList<User> {
 		super(json, "User");
 		this.users = (json?.users as JsonObject[])?.map((u: any) => new User(u));
 	}
-	override getCollection() { return this.users as User[]; }
+	override getList() { return this.users as User[]; }
 }
 
 /**

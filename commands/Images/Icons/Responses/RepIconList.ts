@@ -15,7 +15,7 @@ export abstract class RepIconList extends ReplySyncList<Icon> {
 		super(json, "Icon");
 		this.icons = (json?.icons as JsonObject[])?.map((i: any) => new Icon(i));
 	}
-	override getCollection() { return this.icons as Icon[]; }
+	override getList() { return this.icons as Icon[]; }
 }
 
 /**

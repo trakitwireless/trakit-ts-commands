@@ -15,7 +15,7 @@ export abstract class RepProviderGeneralList extends ReplySyncList<ProviderGener
 		super(json, "ProviderGeneral");
 		this.providerGenerals = (json?.providerGenerals as JsonObject[])?.map((v: any) => new ProviderGeneral(v));
 	}
-	override getCollection() { return this.providerGenerals as ProviderGeneral[]; }
+	override getList() { return this.providerGenerals as ProviderGeneral[]; }
 }
 
 /**

@@ -14,7 +14,7 @@ export abstract class RepReportResultList extends ReplySyncList<ReportResult> {
 		super(json, "ReportResult");
 		this.reportResults = (json?.reportResults as JsonObject[])?.map((e: any) => new ReportResult(e));
 	}
-	override getCollection() { return this.reportResults as ReportResult[]; }
+	override getList() { return this.reportResults as ReportResult[]; }
 }
 
 /**

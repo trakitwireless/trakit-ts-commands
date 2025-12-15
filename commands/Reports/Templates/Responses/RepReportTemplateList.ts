@@ -15,7 +15,7 @@ export abstract class RepReportTemplateList extends ReplySyncList<ReportTemplate
 		super(json, "ReportTemplate");
 		this.reportTemplates = (json?.reportTemplates as JsonObject[])?.map((e: any) => new ReportTemplate(e));
 	}
-	override getCollection() { return this.reportTemplates as ReportTemplate[]; }
+	override getList() { return this.reportTemplates as ReportTemplate[]; }
 }
 
 /**

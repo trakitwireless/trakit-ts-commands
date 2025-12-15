@@ -17,7 +17,7 @@ export abstract class RepBehaviourLogList extends ReplySyncList<BehaviourLog> {
 		super(json, "BehaviourLog");
 		this.behaviourLogs = (json?.behaviourLogs as JsonObject[])?.map((item: any) => new BehaviourLog(item));
 	}
-	override getCollection() { return this.behaviourLogs as BehaviourLog[]; }
+	override getList() { return this.behaviourLogs as BehaviourLog[]; }
 }
 
 /**

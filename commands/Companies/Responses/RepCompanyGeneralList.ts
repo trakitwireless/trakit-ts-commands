@@ -15,7 +15,7 @@ export abstract class RepCompanyGeneralList extends ReplySyncList<CompanyGeneral
 		super(json, "CompanyGeneral");
 		this.companyGenerals = (json?.companyGenerals as JsonObject[])?.map((c: any) => new CompanyGeneral(c));
 	}
-	override getCollection() { return this.companyGenerals as CompanyGeneral[]; }
+	override getList() { return this.companyGenerals as CompanyGeneral[]; }
 }
 
 /**

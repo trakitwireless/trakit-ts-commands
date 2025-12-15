@@ -15,7 +15,7 @@ export abstract class RepPlaceList extends ReplySyncList<Place> {
 		super(json, "Place");
 		this.places = (json?.places as JsonObject[])?.map((item: any) => new Place(item));
 	}
-	override getCollection() { return this.places as Place[]; }
+	override getList() { return this.places as Place[]; }
 }
 
 /**

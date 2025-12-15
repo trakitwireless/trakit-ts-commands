@@ -16,7 +16,7 @@ export abstract class RepMachineList extends ReplySyncList<Machine> {
 		super(json, "Machine");
 		this.machines = (json?.machines as JsonObject[])?.map((m: any) => new Machine(m));
 	}
-	override getCollection() { return this.machines as Machine[]; }
+	override getList() { return this.machines as Machine[]; }
 }
 /**
  * Contains the {@link Company.id} of the collection.

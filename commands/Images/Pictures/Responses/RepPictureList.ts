@@ -15,7 +15,7 @@ export abstract class RepPictureList extends ReplySyncList<Picture> {
 		super(json, "Picture");
 		this.pictures = (json?.pictures as JsonObject[])?.map((i: any) => new Picture(i));
 	}
-	override getCollection() { return this.pictures as Picture[]; }
+	override getList() { return this.pictures as Picture[]; }
 }
 
 /**

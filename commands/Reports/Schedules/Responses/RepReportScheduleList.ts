@@ -16,7 +16,7 @@ export abstract class RepReportScheduleList extends ReplySyncList<ReportSchedule
 		super(json, "ReportSchedule");
 		this.reportSchedules = (json?.reportSchedules as JsonObject[])?.map((e: any) => new ReportSchedule(e));
 	}
-	override getCollection() { return this.reportSchedules as ReportSchedule[]; }
+	override getList() { return this.reportSchedules as ReportSchedule[]; }
 }
 
 /**

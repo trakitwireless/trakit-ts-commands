@@ -25,7 +25,7 @@ export abstract class RepAssetGeneralList extends ReplySyncListPiece<AssetGenera
 		super(json, "AssetGeneral", 0);
 		this.assetGenerals = (json?.assetGenerals as JsonObject[])?.map((el: any) => new AssetGeneral(el));
 	}
-	override getCollection() { return this.assetGenerals as AssetGeneral[]; }
+	override getList() { return this.assetGenerals as AssetGeneral[]; }
 	protected override _createBlank() { return new Asset(); }
 }
 

@@ -16,7 +16,7 @@ export abstract class RepSessionList extends ReplySyncList<Session> {
 		super(json, "Session");
 		this.sessions = (json?.sessions as JsonObject[])?.map((s: any) => new Session(s)) ?? [];
 	}
-	override getCollection() { return this.sessions as Session[]; }
+	override getList() { return this.sessions as Session[]; }
 }
 /**
  * Contains the {@link Company.id} of the collection.

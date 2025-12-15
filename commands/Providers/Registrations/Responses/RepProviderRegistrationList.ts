@@ -15,7 +15,7 @@ export abstract class RepProviderRegistrationList extends ReplySyncList<Provider
 		super(json, "ProviderRegistration");
 		this.providerRegistrations = (json?.providerRegistrations as JsonObject[])?.map((v: any) => new ProviderRegistration(v));
 	}
-	override getCollection() { return this.providerRegistrations as ProviderRegistration[]; }
+	override getList() { return this.providerRegistrations as ProviderRegistration[]; }
 }
 
 /**

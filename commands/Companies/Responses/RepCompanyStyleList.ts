@@ -15,7 +15,7 @@ export abstract class RepCompanyStyleList extends ReplySyncList<CompanyStyle> {
 		super(json, "CompanyStyle");
 		this.companyStyles = ((json?.companyStyles ?? json?.companyLabels) as JsonObject[])?.map((item: any) => new CompanyStyle(item));
 	}
-	override getCollection() { return this.companyStyles as CompanyStyle[]; }
+	override getList() { return this.companyStyles as CompanyStyle[]; }
 }
 
 /**
