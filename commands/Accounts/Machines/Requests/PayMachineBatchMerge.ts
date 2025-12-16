@@ -6,11 +6,11 @@ import { ParamMachineMerge } from "./Parameters/ParamMachineMerge";
 
 /**
  * 
- **/
+ */
 export class PayMachineBatchMerge extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	machines: ParamMachineMerge[];
 
 	constructor(json?: JsonObject) {

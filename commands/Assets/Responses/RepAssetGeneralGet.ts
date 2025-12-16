@@ -9,12 +9,12 @@ import { ReplySyncGetPiece } from "../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link assetGeneral}.
- **/
+ */
 export class RepAssetGeneralGet extends ReplySyncGetPiece<AssetGeneral> {
 	
 	/**
 	 * The requested {@link Asset}.
-	 **/
+	 */
 	assetGeneral: AssetGeneral | nothing;
 
 	constructor(json: JsonObject) {

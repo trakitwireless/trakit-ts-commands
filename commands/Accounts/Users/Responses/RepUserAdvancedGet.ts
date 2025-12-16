@@ -3,11 +3,11 @@ import { ReplySyncGetPiece } from "../../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link userAdvanced}.
- **/
+ */
 export class RepUserAdvancedGet extends ReplySyncGetPiece<UserAdvanced> {
 	/**
 	 * The requested {@link UserAdvanced}.
-	 **/
+	 */
 	userAdvanced: UserAdvanced | nothing;
 
 	constructor(json: JsonObject) {

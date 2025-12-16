@@ -4,7 +4,7 @@ import { ParamMerge } from "../../../../API/Requests/Parameters/ParamMerge";
 
 /**
  * Parameters used to create or update an {@link ProviderRegistration}.
- **/
+ */
 export class ParamProviderRegistrationMerge extends ParamMerge {
 	/// <summary>
 	/// The identifier of the <see cref="ProviderConfig"/>/<see cref="ProviderConfiguration"/> that will be loaded onto the new <see cref="Provider"/>.

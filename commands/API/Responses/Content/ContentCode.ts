@@ -3,7 +3,7 @@ import { IContent } from "./IContent";
 
 /**
  * A container for the id of the {@link ProviderRegistration} requested/created.
- **/
+ */
 export class ContentCode implements IContent, ISerializable {
 	/**
 	 * Creates a {@link ContentCode} from a JSON object.
@@ -18,7 +18,7 @@ export class ContentCode implements IContent, ISerializable {
 
 	/**
 	 * Identifier given as input for the command.
-	 **/
+	 */
 	code: string;
 
 	constructor(json: JsonObject) {

@@ -3,11 +3,11 @@ import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link maintenanceJob}.
- **/
+ */
 export class RepMaintenanceJobGet extends ReplySyncGet<MaintenanceJob> {
 	/**
 	 * The requested {@link MaintenanceJob}.
-	 **/
+	 */
 	maintenanceJob: MaintenanceJob | nothing;
 
 	constructor(json: JsonObject) {

@@ -4,11 +4,11 @@ import { ReplySyncBatchDelete } from "../../../API/Responses/ReplySyncBatchDelet
 
 /**
  * A container for the {@link icon}.
- **/
+ */
 export class RepIconBatchDelete extends ReplySyncBatchDelete {
 	/**
 	 * Details about deleting/restoring the requested {@link Icon}.
-	 **/
+	 */
 	icons: ContentIdDeleted[] | nothing;
 
 	constructor(json: JsonObject) {

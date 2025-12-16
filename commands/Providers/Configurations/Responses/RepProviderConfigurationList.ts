@@ -4,11 +4,11 @@ import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link providerConfigurations}.
- **/
+ */
 export abstract class RepProviderConfigurationList extends ReplySyncList<ProviderConfiguration> {
 	/**
 	 * The list of requested {@link ProviderConfiguration}s.
-	 **/
+	 */
 	providerConfigurations: ProviderConfiguration[] | nothing;
 
 	constructor(json: JsonObject) {
@@ -20,11 +20,11 @@ export abstract class RepProviderConfigurationList extends ReplySyncList<Provide
 
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class RepProviderConfigurationListByCompany extends RepProviderConfigurationList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ContentId | nothing;
 
 	constructor(json: JsonObject) {

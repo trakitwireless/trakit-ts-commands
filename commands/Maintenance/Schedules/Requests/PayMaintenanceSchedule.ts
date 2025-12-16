@@ -5,11 +5,11 @@ import { ParamId } from "../../../API/Requests/Parameters/ParamId";
 
 /**
  * A container for the {@link maintenanceSchedule} object.
- **/
+ */
 export abstract class PayMaintenanceSchedule extends Payload implements IPaySingle {
 	/**
 	 * An object to contain the "id" of the {@link MaintenanceSchedule}.
-	 **/
+	 */
 	maintenanceSchedule: ParamId;
 
 	constructor(json?: JsonObject) {
@@ -19,7 +19,7 @@ export abstract class PayMaintenanceSchedule extends Payload implements IPaySing
 
 	/**
 	 * 
-	 **/
+	 */
 	getKey(): string {
 		return this.maintenanceSchedule?.id?.toString() ?? "";
 	}

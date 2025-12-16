@@ -6,11 +6,11 @@ import { RepProviderConfigurationGet } from "../Responses/RepProviderConfigurati
 
 /**
  * Gets details of the specified {@link ProviderConfiguration}.
- **/
+ */
 export class PayProviderConfigurationGet extends PayProviderConfiguration implements IPayDeletable {
 	/**
 	 * When true, the command will also return a deleted {@link ProviderConfiguration} (if it exists).
-	 **/
+	 */
 	includeDeleted: boolean;
 
 	constructor(json?: JsonObject) {

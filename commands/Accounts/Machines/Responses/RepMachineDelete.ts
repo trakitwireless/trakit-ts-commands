@@ -4,11 +4,11 @@ import { ReplySyncDelete } from "../../../API/Responses/ReplySyncDelete";
 
 /**
  * A container for the {@link machine}.
- **/
+ */
 export class RepMachineDelete extends ReplySyncDelete {
 	/**
 	 * Details about deleting/restoring the requested {@link Machine}.
-	 **/
+	 */
 	machine: ContentKeyDeleted | nothing;
 
 	constructor(json: JsonObject) {

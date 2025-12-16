@@ -3,7 +3,7 @@ import { ContentIdParent } from "./ContentIdParent";
 
 /**
  * For delete/restore commands, this contains the id, owning {@link Company.parent}, and deleted state.
- **/
+ */
 export class ContentIdParentDeleted extends ContentIdParent {
 	/**
 	 * Creates a {@link ContentIdParentDeleted} from a JSON object.
@@ -18,11 +18,11 @@ export class ContentIdParentDeleted extends ContentIdParent {
 
 	/**
 	 * Flag showing if the object is deleted.
-	 **/
+	 */
 	deleted: boolean;
 	/**
 	 * Object version keys used to validate synchronization for all object properties.
-	 **/
+	 */
 	v: uint[];
 
 	constructor(json: JsonObject) {

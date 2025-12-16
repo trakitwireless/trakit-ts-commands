@@ -10,11 +10,11 @@ import { RepDashcamListByAsset, RepDashcamListByCompany, RepDashcamListByProvide
 
 /**
  * Gets details of the specified {@link dashcam}.
- **/
+ */
 export abstract class PayDashcamList extends PayListByDate implements IPayDeletable {
 	/**
 	 * When true, the command will also return  deleted {@link Dashcam}s.
-	 **/
+	 */
 	includeDeleted: boolean;
 	/**
 	 * The type of dashcam data to include.
@@ -30,11 +30,11 @@ export abstract class PayDashcamList extends PayListByDate implements IPayDeleta
 
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class PayDashcamListByCompany extends PayDashcamList implements IPayListByCompany {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ParamId;
 
 	constructor(json?: JsonObject) {
@@ -48,11 +48,11 @@ export class PayDashcamListByCompany extends PayDashcamList implements IPayListB
 }
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class PayDashcamListByAsset extends PayDashcamList implements IPayListByAsset {
 	/**
 	 * Identifier of the {@link Asset} to which this collection belongs.
-	 **/
+	 */
 	asset: ParamId;
 
 	constructor(json?: JsonObject) {
@@ -66,11 +66,11 @@ export class PayDashcamListByAsset extends PayDashcamList implements IPayListByA
 }
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class PayDashcamListByProvider extends PayDashcamList {
 	/**
 	 * Identifier of the {@link Provider} to which this collection belongs.
-	 **/
+	 */
 	provider: ParamIdentifier;
 
 	constructor(json?: JsonObject) {
@@ -85,11 +85,11 @@ export class PayDashcamListByProvider extends PayDashcamList {
 
 /**
  * Gets details of the specified {@link dashcam}.
- **/
+ */
 export abstract class PayDashcamLiveList extends PayListByDate implements IPayDeletable {
 	/**
 	 * When true, the command will also return  deleted {@link DashcamLive}s.
-	 **/
+	 */
 	includeDeleted: boolean;
 	/**
 	 * Number assigned to the camera that took the image/video.
@@ -111,11 +111,11 @@ export abstract class PayDashcamLiveList extends PayListByDate implements IPayDe
 
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class PayDashcamLiveListByCompany extends PayDashcamLiveList implements IPayListByCompany {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ParamId;
 
 	constructor(json?: JsonObject) {
@@ -129,11 +129,11 @@ export class PayDashcamLiveListByCompany extends PayDashcamLiveList implements I
 }
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class PayDashcamLiveListByAsset extends PayDashcamLiveList implements IPayListByAsset {
 	/**
 	 * Identifier of the {@link Asset} to which this collection belongs.
-	 **/
+	 */
 	asset: ParamId;
 
 	constructor(json?: JsonObject) {
@@ -147,11 +147,11 @@ export class PayDashcamLiveListByAsset extends PayDashcamLiveList implements IPa
 }
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class PayDashcamLiveListByProvider extends PayDashcamLiveList {
 	/**
 	 * Identifier of the {@link Provider} to which this collection belongs.
-	 **/
+	 */
 	provider: ParamIdentifier;
 
 	constructor(json?: JsonObject) {

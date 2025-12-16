@@ -5,15 +5,15 @@ import { ParamSmsServer } from "./ParamSmsServer";
 
 /**
  * Parameters used to create or update an {@link Company}.
- **/
+ */
 export class ParamCompanyResellerMerge extends ParamMergeSubscribable {
 	/**
 	 * The unique identifier of the company you want to update.
-	 **/
+	 */
 	id: ulong;
 	/**
 	 * The name of the branded service being provided to the seller's customers.
-	 **/
+	 */
 	serviceName: string | nothing;
 	/**
 	 * A list of Contacts for company specific things like Technical Support, Billing, etc...
@@ -22,25 +22,25 @@ export class ParamCompanyResellerMerge extends ParamMergeSubscribable {
 
 	/**
 	 * The name of the image uploaded as the logo (used for regular view).
-	 **/
+	 */
 	logo: string | nothing;
 	/**
 	 * The name of the image uploaded as the logo (used for collapsed/mobile view).
-	 **/
+	 */
 	icon: string | nothing;
 	/**
 	 * The name of the icon file used for browser bookmarks.
-	 **/
+	 */
 	favourite: string | nothing;
 	/**
 	 * The URN and path to the instance of v4.
 	 * It does not contain the protocol because all instances are required to be HTTPS.
-	 **/
+	 */
 	domain: string | nothing;
 
 	/**
 	 * The list of supported languages for your customers.
-	 **/
+	 */
 	languages: string[] | nothing;
 	/**
 	 * Themed colours used in the web-based UI.

@@ -27,7 +27,7 @@ export abstract class PayFormResultList extends Payload implements IPayDeletable
 export class PayFormResultListByCompany extends PayFormResultList implements IPayListByCompany {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ParamId;
 
 	constructor(json?: JsonObject) {

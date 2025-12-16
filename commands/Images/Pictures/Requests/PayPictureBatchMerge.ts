@@ -6,11 +6,11 @@ import { ParamPictureMerge } from "./Parameters/ParamPictureMerge";
 
 /**
  * 
- **/
+ */
 export class PayPictureBatchMerge extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	pictures: ParamPictureMerge[];
 
 	constructor(json?: JsonObject) {

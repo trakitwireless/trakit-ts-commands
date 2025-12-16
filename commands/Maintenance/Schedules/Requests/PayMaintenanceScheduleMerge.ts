@@ -7,11 +7,11 @@ import { ParamMaintenanceScheduleMerge } from "./Parameters/ParamMaintenanceSche
 
 /**
  * Creates a new or updates an existing {@link MaintenanceSchedule}.
- **/
+ */
 export class PayMaintenanceScheduleMerge extends Payload implements IPaySingle {
 	/**
 	 * Parameters given to create or update a {@link MaintenanceSchedule}.
-	 **/
+	 */
 	maintenanceSchedule: ParamMaintenanceScheduleMerge;
 
 	constructor(json?: JsonObject) {
@@ -20,7 +20,7 @@ export class PayMaintenanceScheduleMerge extends Payload implements IPaySingle {
 	}
 	/**
 	 * 
-	 **/
+	 */
 	getKey(): string {
 		return this.maintenanceSchedule?.id?.toString() ?? "";
 	}

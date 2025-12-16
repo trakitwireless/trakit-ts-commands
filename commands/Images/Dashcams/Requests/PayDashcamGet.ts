@@ -6,11 +6,11 @@ import { PayDashcam } from "./PayDashcam";
 
 /**
  * Gets details of the specified {@link Dashcam}.
- **/
+ */
 export class PayDashcamGet extends PayDashcam implements IPayDeletable {
 	/**
 	 * When true, the command will also return a deleted {@link Dashcam} (if it exists).
-	 **/
+	 */
 	includeDeleted: boolean;
 
 	constructor(json?: JsonObject) {

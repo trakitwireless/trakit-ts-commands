@@ -4,11 +4,11 @@ import { ReplySyncList } from "../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link companyDirectorys}.
- **/
+ */
 export abstract class RepCompanyDirectoryList extends ReplySyncList<CompanyDirectory> {
 	/**
 	 * The list of requested {@link CompanyDirectory}s.
-	 **/
+	 */
 	companyDirectories: CompanyDirectory[] | nothing;
 
 	constructor(json: JsonObject) {
@@ -20,11 +20,11 @@ export abstract class RepCompanyDirectoryList extends ReplySyncList<CompanyDirec
 
 /**
  * A container owner {@link Company} of the collection.
- **/
+ */
 export class RepCompanyDirectoryListByCompany extends RepCompanyDirectoryList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ContentIdParent | nothing;
 
 	constructor(json: JsonObject) {

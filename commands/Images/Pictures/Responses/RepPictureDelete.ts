@@ -4,11 +4,11 @@ import { ReplySyncDelete } from "../../../API/Responses/ReplySyncDelete";
 
 /**
  * A container for the {@link picture}.
- **/
+ */
 export class RepPictureDelete extends ReplySyncDelete {
 	/**
 	 * Details about deleting/restoring the requested {@link Picture}.
-	 **/
+	 */
 	picture: ContentIdDeleted | nothing;
 	
 	constructor(json: JsonObject) {

@@ -3,11 +3,11 @@ import { ReplySyncGetPiece } from "../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link companyPolicy}.
- **/
+ */
 export class RepCompanyPolicyGet extends ReplySyncGetPiece<CompanyPolicy> {
 	/**
 	 * The requested {@link CompanyPolicy}.
-	 **/
+	 */
 	companyPolicy: CompanyPolicy | nothing;
 
 	constructor(json: JsonObject) {

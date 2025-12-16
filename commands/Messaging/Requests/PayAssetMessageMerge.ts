@@ -7,11 +7,11 @@ import { RepAssetMessageMerge } from "../Responses/RepAssetMessageMerge";
 
 /**
  * Creates a new or updates an existing {@link AssetMessage}.
- **/
+ */
 export class PayAssetMessageMerge extends Payload implements IPaySingle {
 	/**
 	 * Parameters given to create or update a {@link AssetMessage}.
-	 **/
+	 */
 	assetMessage: ParamAssetMessageMerge;
 
 	constructor(json?: JsonObject) {
@@ -20,7 +20,7 @@ export class PayAssetMessageMerge extends Payload implements IPaySingle {
 	}
 	/**
 	 * 
-	 **/
+	 */
 	getKey(): string {
 		return this.assetMessage?.id?.toString() ?? "";
 	}

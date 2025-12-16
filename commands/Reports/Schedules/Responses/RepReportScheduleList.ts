@@ -5,11 +5,11 @@ import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link reportSchedules}.
- **/
+ */
 export abstract class RepReportScheduleList extends ReplySyncList<ReportSchedule> {
 	/**
 	 * The list of requested {@link ReportSchedule}s.
-	 **/
+	 */
 	reportSchedules: ReportSchedule[] | nothing;
 	
 	constructor(json: JsonObject) {
@@ -21,11 +21,11 @@ export abstract class RepReportScheduleList extends ReplySyncList<ReportSchedule
 
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class RepReportScheduleListByCompany extends RepReportScheduleList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ContentId | nothing;
 	
 	constructor(json: JsonObject) {

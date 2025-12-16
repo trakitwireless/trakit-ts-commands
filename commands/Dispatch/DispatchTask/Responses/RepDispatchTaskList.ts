@@ -8,11 +8,11 @@ import { ContentIdCompany } from "../../../API/Responses/Content/ContentIdCompan
 
 /**
  * A container for the requested {@link dispatchTasks}.
- **/
+ */
 export abstract class RepDispatchTaskList extends ReplySyncList<DispatchTask> {
 	/**
 	 * The list of requested {@link DispatchTask}s.
-	 **/
+	 */
 	dispatchTasks: DispatchTask[] | nothing;
 
 	constructor(json: JsonObject) {
@@ -24,11 +24,11 @@ export abstract class RepDispatchTaskList extends ReplySyncList<DispatchTask> {
 
 /**
  * 
- **/
+ */
 export class RepDispatchTaskListByCompany extends RepDispatchTaskList implements IRepListByCompany {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ContentId | nothing;
 
 	constructor(json: JsonObject) {
@@ -42,12 +42,12 @@ export class RepDispatchTaskListByCompany extends RepDispatchTaskList implements
 }
 /**
  * 
- **/
+ */
 export class RepDispatchTaskListByCompanyAndRefPairs extends RepDispatchTaskListByCompany implements IRepListByReferences {
 	/**
 	 * Case-insensitive reference pairs used to match jobs.
 	 * @see {@link DispatchTask.references}
-	 **/
+	 */
 	references: Map<string, string> | nothing;
 
 	constructor(json: JsonObject) {
@@ -63,11 +63,11 @@ export class RepDispatchTaskListByCompanyAndRefPairs extends RepDispatchTaskList
 
 /**
  * 
- **/
+ */
 export class RepDispatchTaskListByAsset extends RepDispatchTaskList implements IRepListByAsset {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	asset: ContentIdCompany | nothing;
 
 	constructor(json: JsonObject) {
@@ -81,12 +81,12 @@ export class RepDispatchTaskListByAsset extends RepDispatchTaskList implements I
 }
 /**
  * 
- **/
+ */
 export class RepDispatchTaskListByAssetAndRefPairs extends RepDispatchTaskListByAsset {
 	/**
 	 * Case-insensitive reference pairs used to match jobs.
 	 * @see {@link DispatchTask.references}
-	 **/
+	 */
 	references: Map<string, string> | nothing;
 	
 	constructor(json: JsonObject) {

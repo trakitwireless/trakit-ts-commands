@@ -5,11 +5,11 @@ import { ContentIdCompany } from "../../../API/Responses/Content/ContentIdCompan
 
 /**
  * 
- **/
+ */
 export class RepMaintenanceJobBatchMerge extends Reply {
 	/**
 	 * 
-	 **/
+	 */
 	maintenanceJobs: ContentIdCompany[] | nothing;
 
 	constructor(json: JsonObject) {

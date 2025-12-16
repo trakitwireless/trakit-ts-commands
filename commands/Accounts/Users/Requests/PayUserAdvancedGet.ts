@@ -6,11 +6,11 @@ import { PayUser } from "./PayUser";
 
 /**
  * Gets details of the specified {@link UserAdvanced}.
- **/
+ */
 export class PayUserAdvancedGet extends PayUser implements IPayDeletable {
 	/**
 	 * When true, the command will also return a deleted {@link UserAdvanced} (if it exists).
-	 **/
+	 */
 	includeDeleted: boolean;
 
 	constructor(json?: JsonObject) {

@@ -5,11 +5,11 @@ import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link machines}.
- **/
+ */
 export abstract class RepMachineList extends ReplySyncList<Machine> {
 	/**
 	 * The list of requested {@link Machine}s.
-	 **/
+	 */
 	machines: Machine[] | nothing;
 
 	constructor(json: JsonObject) {
@@ -20,11 +20,11 @@ export abstract class RepMachineList extends ReplySyncList<Machine> {
 }
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class RepMachineListByCompany extends RepMachineList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ContentId | nothing;
 
 	constructor(json: JsonObject) {
@@ -38,11 +38,11 @@ export class RepMachineListByCompany extends RepMachineList {
 }
 /**
  * Contains the {@link UserGroup.id} of the collection.
- **/
+ */
 export class RepMachineListByUserGroup extends RepMachineList {
 	/**
 	 * Identifier of the {@link UserGroup} to which this collection belongs.
-	 **/
+	 */
 	userGroup: ContentIdCompany | nothing;
 
 	constructor(json: JsonObject) {

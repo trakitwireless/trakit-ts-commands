@@ -3,11 +3,11 @@ import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link User} of the current session.
- **/
+ */
 export class RepSessionGet extends ReplySyncGet<Session> {
 	/**
 	 * The requested {@link Session} details.
-	 **/
+	 */
 	session: Session;
 
 	constructor(json: JsonObject) {

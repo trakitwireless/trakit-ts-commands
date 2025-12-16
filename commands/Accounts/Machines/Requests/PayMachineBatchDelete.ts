@@ -6,11 +6,11 @@ import { RepMachineBatchDelete } from "../Responses/RepMachineBatchDelete";
 
 /**
  * 
- **/
+ */
 export class PayMachineBatchDelete extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	machines: ParamKey[];
 
 	constructor(json?: JsonObject) {

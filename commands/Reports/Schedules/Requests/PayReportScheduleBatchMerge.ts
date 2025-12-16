@@ -6,11 +6,11 @@ import { ParamReportScheduleMerge } from "./Parameters/ParamReportScheduleMerge"
 
 /**
  * 
- **/
+ */
 export class PayReportScheduleBatchMerge extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	reportSchedules: ParamReportScheduleMerge[];
 
 	constructor(json?: JsonObject) {

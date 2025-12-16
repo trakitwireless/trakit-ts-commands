@@ -6,11 +6,11 @@ import { ParamAssetDispatchMerge } from "./Parameters/ParamAssetDispatchMerge";
 
 /**
  * Container for the command to creates a new, or updates an existing {@link Asset}.
- **/
+ */
 export class PayAssetDispatchMerge extends Payload {
 	/**
 	 * Parameters given to update an {@link AssetDispatch}.
-	 **/
+	 */
 	asset: ParamAssetDispatchMerge;
 
 	constructor(json?: JsonObject) {

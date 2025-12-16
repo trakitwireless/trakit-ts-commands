@@ -4,11 +4,11 @@ import { ReplySyncDelete } from "../../../API/Responses/ReplySyncDelete";
 
 /**
  * A container for the {@link behaviourScript}.
- **/
+ */
 export class RepBehaviourScriptDelete extends ReplySyncDelete {
 	/**
 	 * Details about deleting/restoring the requested {@link BehaviourScript}.
-	 **/
+	 */
 	behaviourScript: ContentIdDeleted | nothing;
 
 	constructor(json: JsonObject) {

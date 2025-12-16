@@ -3,7 +3,7 @@ import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/Para
 
 /**
  * Parameters used to create or update an {@link ProviderScript}.
- **/
+ */
 export class ParamProviderScriptMerge extends ParamMergeSubscribable {
 	/// <summary>
 	/// The unique identifier of the <see cref="ProviderScript"/> you want to update.

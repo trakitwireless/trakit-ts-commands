@@ -3,25 +3,25 @@ import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/Para
 
 /**
  * Parameters used to create or update an {@link MaintenanceSchedule}.
- **/
+ */
 export class ParamMaintenanceScheduleMerge extends ParamMergeSubscribable {
 	/**
 	 * The unique identifier of the {@link MaintenanceSchedule} you want to update.
 	 * Leave this as `null` when creating a new {@link MaintenanceSchedule}.
-	 **/
+	 */
 	id: ulong | undefined;
 	/**
 	 * The {@link Company} to which this {@link MaintenanceSchedule} belongs.
 	 * After creation, this value is read-only.
-	 **/
+	 */
 	company: ulong | undefined;
 	/**
 	 * Name for the {@link MaintenanceSchedule}.
-	 **/
+	 */
 	name: string;
 	/**
 	 * Notes for the {@link MaintenanceSchedule}.
-	 **/
+	 */
 	notes: string;
 
 	/// <summary>

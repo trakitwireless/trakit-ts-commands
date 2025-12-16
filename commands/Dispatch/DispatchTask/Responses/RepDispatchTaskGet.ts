@@ -3,11 +3,11 @@ import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link dispatchTask}.
- **/
+ */
 export class RepDispatchTaskGet extends ReplySyncGet<DispatchTask> {
 	/**
 	 * The requested {@link DispatchTask}.
-	 **/
+	 */
 	dispatchTask: DispatchTask | nothing;
 
 	constructor(json: JsonObject) {

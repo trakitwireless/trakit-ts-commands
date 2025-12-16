@@ -3,25 +3,25 @@ import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/Para
 
 /**
  * Parameters used to create or update an {@link Icon}.
- **/
+ */
 export class ParamIconMerge extends ParamMergeSubscribable {
 	/**
 	 * The unique identifier of the {@link Icon} you want to update.
 	 * Leave this as `null` when creating a new {@link Icon}.
-	 **/
+	 */
 	id: ulong | nothing;
 	/**
 	 * The {@link Company} to which this {@link Icon} belongs.
 	 * After creation, this value is read-only.
-	 **/
+	 */
 	company: ulong | nothing;
 	/**
 	 * Name for the {@link Icon}.
-	 **/
+	 */
 	name: string | nothing;
 	/**
 	 * Notes for the {@link Icon}.
-	 **/
+	 */
 	notes: string | nothing;
 	/// <summary>
 	/// A noun to describe the type of thing represented.  Like Truck, Car, Trailer, Hot-Air Balloon, etc...

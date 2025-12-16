@@ -7,11 +7,11 @@ import { RepCompanyResellerMerge } from "../Responses/RepCompanyResellerMerge";
 
 /**
  * Creates a new or updates an existing {@link Company}.
- **/
+ */
 export class PayCompanyResellerMerge extends Payload implements IPaySingle {
 	/**
 	 * Parameters given to create or update a {@link Company}.
-	 **/
+	 */
 	companyReseller: ParamCompanyResellerMerge;
 
 	constructor(json?: JsonObject) {
@@ -21,7 +21,7 @@ export class PayCompanyResellerMerge extends Payload implements IPaySingle {
 
 	/**
 	 * 
-	 **/
+	 */
 	getKey(): string {
 		return this.companyReseller?.id?.toString() ?? "";
 	}

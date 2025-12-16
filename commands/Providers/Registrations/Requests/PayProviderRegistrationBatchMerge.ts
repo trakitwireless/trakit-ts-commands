@@ -6,11 +6,11 @@ import { ParamProviderRegistrationMerge } from "./Parameters/ParamProviderRegist
 
 /**
  * 
- **/
+ */
 export class PayProviderRegistrationBatchMerge extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	providerRegistrations: ParamProviderRegistrationMerge[];
 
 	constructor(json?: JsonObject) {

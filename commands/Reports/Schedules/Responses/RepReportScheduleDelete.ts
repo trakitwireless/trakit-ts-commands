@@ -4,11 +4,11 @@ import { ReplySyncDelete } from "../../../API/Responses/ReplySyncDelete";
 
 /**
  * A container for the {@link reportSchedule}.
- **/
+ */
 export class RepReportScheduleDelete extends ReplySyncDelete {
 	/**
 	 * Details about deleting/restoring the requested {@link ReportSchedule}.
-	 **/
+	 */
 	reportSchedule: ContentIdDeleted | nothing;
 	
 	constructor(json: JsonObject) {

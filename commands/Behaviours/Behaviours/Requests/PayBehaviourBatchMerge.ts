@@ -6,11 +6,11 @@ import { ParamBehaviourMerge } from "./Parameters/ParamBehaviourMerge";
 
 /**
  * 
- **/
+ */
 export class PayBehaviourBatchMerge extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	behaviours: ParamBehaviourMerge[] | nothing;
 
 	constructor(json?: JsonObject) {

@@ -17,7 +17,7 @@ import { ReplySync } from './ReplySync';
 /**
  * Base class for all responses from commands.
  * All command response classes use this as the base.
- **/
+ */
 export abstract class ReplySyncList<TRequestable extends IRequestable & ISerializable & IDeserializable> extends ReplySync {
 	/**
 	 * Returns the constructed collection of objects.

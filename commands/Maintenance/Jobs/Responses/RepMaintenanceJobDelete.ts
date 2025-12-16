@@ -5,11 +5,11 @@ import { nothing } from "@trakit/objects";
 
 /**
  * A container for the {@link maintenanceJob}.
- **/
+ */
 export class RepMaintenanceJobDelete extends ReplySyncDelete {
 	/**
 	 * Details about deleting/restoring the requested {@link MaintenanceJob}.
-	 **/
+	 */
 	maintenanceJob: ContentIdDeleted | nothing;
 
 	constructor(json: JsonObject) {

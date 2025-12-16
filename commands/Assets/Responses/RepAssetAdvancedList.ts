@@ -15,11 +15,11 @@ import { ReplySyncListPiece } from "../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link assetAdvanceds}.
- **/
+ */
 export abstract class RepAssetAdvancedList extends ReplySyncListPiece<AssetAdvanced> {
 	/**
 	 * The list of requested {@link AssetAdvanced}s.
-	 **/
+	 */
 	assetAdvanceds: AssetAdvanced[] | nothing;
 
 	constructor(json: JsonObject) {
@@ -32,11 +32,11 @@ export abstract class RepAssetAdvancedList extends ReplySyncListPiece<AssetAdvan
 
 /**
  * A container owner {@link Company} of the collection.
- **/
+ */
 export class RepAssetAdvancedListByCompany extends RepAssetAdvancedList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ContentId | nothing;
 
 	constructor(json: JsonObject) {
@@ -50,12 +50,12 @@ export class RepAssetAdvancedListByCompany extends RepAssetAdvancedList {
 }
 /**
  * A container owner {@link Company} of the collection.
- **/
+ */
 export class RepAssetAdvancedListByCompanyAndLabels extends RepAssetAdvancedListByCompany {
 	/**
 	 * The labels given as input.
 	 * @see {@link AssetGeneral.labels}
-	 **/
+	 */
 	labels: codified[] | nothing;
 
 	constructor(json: JsonObject) {
@@ -68,12 +68,12 @@ export class RepAssetAdvancedListByCompanyAndLabels extends RepAssetAdvancedList
 }
 /**
  * A container owner {@link Company} of the collection.
- **/
+ */
 export class RepAssetAdvancedListByCompanyAndRefPairs extends RepAssetAdvancedListByCompany {
 	/**
 	 * The reference string given as input.
 	 * @see {@link AssetGeneral.references}
-	 **/
+	 */
 	references: Map<string, string> | nothing;
 
 	constructor(json: JsonObject) {

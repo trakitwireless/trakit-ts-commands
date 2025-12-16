@@ -8,11 +8,11 @@ import { RepBehaviourLogListByAsset, RepBehaviourLogListByBehaviour, RepBehaviou
 
 /**
  * Gets details of the specified {@link behaviourLog}.
- **/
+ */
 export abstract class PayBehaviourLogList extends Payload implements IPayDeletable {
 	/**
 	 * When true, the command will also return  deleted {@link BehaviourLog}s.
-	 **/
+	 */
 	includeDeleted: boolean;
 
 	constructor(json?: JsonObject) {
@@ -23,11 +23,11 @@ export abstract class PayBehaviourLogList extends Payload implements IPayDeletab
 
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class PayBehaviourLogListByAsset extends PayBehaviourLogList implements IPayListByAsset {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	asset: ParamId;
 
 	constructor(json?: JsonObject) {
@@ -41,11 +41,11 @@ export class PayBehaviourLogListByAsset extends PayBehaviourLogList implements I
 }
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class PayBehaviourLogListByBehaviour extends PayBehaviourLogList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	behaviour: ParamId;
 
 	constructor(json?: JsonObject) {
@@ -59,11 +59,11 @@ export class PayBehaviourLogListByBehaviour extends PayBehaviourLogList {
 }
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class PayBehaviourLogListByScript extends PayBehaviourLogList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	behaviourScript: ParamId;
 
 	constructor(json?: JsonObject) {

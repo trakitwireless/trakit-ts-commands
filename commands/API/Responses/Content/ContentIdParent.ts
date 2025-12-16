@@ -4,7 +4,7 @@ import { IContentCompany } from "./IContentCompany";
 
 /**
  * A container for the id and the requested/created {@link Company.parent}.
- **/
+ */
 export class ContentIdParent extends ContentId implements IContentCompany, ISerializable {
 	/**
 	 * Creates a {@link ContentIdParent} from a JSON object.
@@ -19,7 +19,7 @@ export class ContentIdParent extends ContentId implements IContentCompany, ISeri
 
 	/**
 	 * Identifier of the parent to which this company belongs
-	 **/
+	 */
 	parent: ulong | nothing;
 
 	constructor(json: JsonObject) {

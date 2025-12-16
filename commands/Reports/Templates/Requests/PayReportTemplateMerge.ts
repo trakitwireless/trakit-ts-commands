@@ -7,11 +7,11 @@ import { RepReportTemplateMerge } from "../Responses/RepReportTemplateMerge";
 
 /**
  * Creates a new or updates an existing {@link ReportTemplate}.
- **/
+ */
 export class PayReportTemplateMerge extends Payload implements IPaySingle {
 	/**
 	 * Parameters given to create or update a {@link ReportTemplate}.
-	 **/
+	 */
 	reportTemplate: ParamReportTemplateMerge;
 
 	constructor(json?: JsonObject) {
@@ -20,7 +20,7 @@ export class PayReportTemplateMerge extends Payload implements IPaySingle {
 	}
 	/**
 	 * 
-	 **/
+	 */
 	getKey(): string {
 		return this.reportTemplate?.id?.toString() ?? "";
 	}

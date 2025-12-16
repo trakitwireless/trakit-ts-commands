@@ -7,11 +7,11 @@ import { ReplySyncList } from "../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link assetMessages}.
- **/
+ */
 export abstract class RepAssetMessageList extends ReplySyncList<AssetMessage> {
 	/**
 	 * The list of requested {@link AssetMessage}s.
-	 **/
+	 */
 	assetMessages: AssetMessage[] | nothing;
 
 	constructor(json: JsonObject) {
@@ -23,11 +23,11 @@ export abstract class RepAssetMessageList extends ReplySyncList<AssetMessage> {
 
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class RepAssetMessageListByCompany extends RepAssetMessageList implements IRepListByCompany {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ContentId | nothing;
 
 	constructor(json: JsonObject) {
@@ -41,11 +41,11 @@ export class RepAssetMessageListByCompany extends RepAssetMessageList implements
 }
 /**
  * Contains the {@link Asset.id} of the collection.
- **/
+ */
 export class RepAssetMessageListByAsset extends RepAssetMessageList implements IRepListByAsset {
 	/**
 	 * Identifier of the {@link Asset} to which this collection belongs.
-	 **/
+	 */
 	asset: ContentIdCompany | nothing;
 
 	constructor(json: JsonObject) {

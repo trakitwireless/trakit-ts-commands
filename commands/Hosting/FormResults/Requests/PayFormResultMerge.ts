@@ -21,7 +21,7 @@ export class PayFormResultMerge extends Payload implements IPaySingle {
 
 	/**
 	 * 
-	 **/
+	 */
 	getKey(): string {
 		return this.formResult?.id?.toString() ?? "";
 	}

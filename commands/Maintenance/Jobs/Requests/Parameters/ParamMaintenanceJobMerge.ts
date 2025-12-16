@@ -6,12 +6,12 @@ import { double } from "@trakit/objects";
 
 /**
  * Parameters used to create or update an {@link MaintenanceJob}.
- **/
+ */
 export class ParamMaintenanceJobMerge extends ParamMergeSubscribable {
 	/**
 	 * The unique identifier of the {@link MaintenanceJob} you want to update.
 	 * Leave this as `null` when creating a new {@link MaintenanceJob}.
-	 **/
+	 */
 	id: ulong | undefined;
 	/// <summary>
 	/// The identifier of the <see cref="Asset"/> to which this <see cref="MaintenanceJob"/> is assigned.

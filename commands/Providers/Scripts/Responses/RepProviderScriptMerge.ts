@@ -5,11 +5,11 @@ import { nothing } from "@trakit/objects";
 
 /**
  * A container for the {@link providerScript}.
- **/
+ */
 export class RepProviderScriptMerge extends Reply {
 	/**
 	 * An object which contains the `id` and `company` keys when there is no error.
-	 **/
+	 */
 	providerScript: ContentIdCompany | nothing;
 	
 	constructor(json: JsonObject) {

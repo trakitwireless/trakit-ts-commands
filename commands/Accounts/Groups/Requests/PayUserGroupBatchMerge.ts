@@ -6,11 +6,11 @@ import { ParamUserGroupMerge } from "./Parameters/ParamUserGroupMerge";
 
 /**
  * 
- **/
+ */
 export class PayUserGroupBatchMerge extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	userGroups: ParamUserGroupMerge[];
 
 	constructor(json?: JsonObject) {

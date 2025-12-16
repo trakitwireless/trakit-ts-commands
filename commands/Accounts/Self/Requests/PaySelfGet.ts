@@ -5,7 +5,7 @@ import { RepSelfGet } from "../Responses/RepSelfGet";
 
 /**
  * 
- **/
+ */
 export class PaySelfGet extends Payload {
 	override getAction(): {
 		kind: "Get",

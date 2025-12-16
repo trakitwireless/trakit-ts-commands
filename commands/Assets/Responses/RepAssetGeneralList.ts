@@ -14,11 +14,11 @@ import { ReplySyncListPiece } from "../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link assetGenerals}.
- **/
+ */
 export abstract class RepAssetGeneralList extends ReplySyncListPiece<AssetGeneral> {
 	/**
 	 * The list of requested {@link AssetGeneral}s.
-	 **/
+	 */
 	assetGenerals: AssetGeneral[] | nothing;
 
 	constructor(json: JsonObject) {
@@ -31,11 +31,11 @@ export abstract class RepAssetGeneralList extends ReplySyncListPiece<AssetGenera
 
 /**
  * A container owner {@link Company} of the collection.
- **/
+ */
 export class RepAssetGeneralListByCompany extends RepAssetGeneralList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ContentId | nothing;
 
 	constructor(json: JsonObject) {
@@ -49,12 +49,12 @@ export class RepAssetGeneralListByCompany extends RepAssetGeneralList {
 }
 /**
  * A container owner {@link Company} of the collection.
- **/
+ */
 export class RepAssetGeneralListByCompanyAndLabels extends RepAssetGeneralListByCompany {
 	/**
 	 * The labels given as input.
 	 * @see {@link AssetGeneral.labels}
-	 **/
+	 */
 	labels: codified[] | nothing;
 
 	constructor(json: JsonObject) {
@@ -67,12 +67,12 @@ export class RepAssetGeneralListByCompanyAndLabels extends RepAssetGeneralListBy
 }
 /**
  * A container owner {@link Company} of the collection.
- **/
+ */
 export class RepAssetGeneralListByCompanyAndRefPairs extends RepAssetGeneralListByCompany {
 	/**
 	 * The reference string given as input.
 	 * @see {@link AssetGeneral.references}
-	 **/
+	 */
 	references: Map<string, string> | nothing;
 
 	constructor(json: JsonObject) {

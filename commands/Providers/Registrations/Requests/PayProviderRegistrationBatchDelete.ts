@@ -6,11 +6,11 @@ import { RepProviderRegistrationBatchDelete } from "../Responses/RepProviderRegi
 
 /**
  * 
- **/
+ */
 export class PayProviderRegistrationBatchDelete extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	providerRegistrations: ParamCode[];
 
 	constructor(json?: JsonObject) {

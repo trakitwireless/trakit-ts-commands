@@ -6,11 +6,11 @@ import { RepBehaviourLogBatchDeleteByAsset, RepBehaviourLogBatchDeleteByBehaviou
 
 /**
  * 
- **/
+ */
 export class PayBehaviourLogBatchDeleteByAsset extends Payload {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	asset: ParamId;
 
 	constructor(json?: JsonObject) {
@@ -24,11 +24,11 @@ export class PayBehaviourLogBatchDeleteByAsset extends Payload {
 }
 /**
  * 
- **/
+ */
 export class PayBehaviourLogBatchDeleteByBehaviour extends Payload {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	behaviour: ParamId;
 
 	constructor(json?: JsonObject) {
@@ -42,11 +42,11 @@ export class PayBehaviourLogBatchDeleteByBehaviour extends Payload {
 }
 /**
  * 
- **/
+ */
 export class PayBehaviourLogBatchDeleteByScript extends Payload {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	behaviourScript: ParamId;
 
 	constructor(json?: JsonObject) {

@@ -7,11 +7,11 @@ import { PayListBy } from "./PayListBy";
 export abstract class PayListById extends PayListBy {
 	/**
 	 * The lowest ID in the range.
-	 **/
+	 */
 	lowest: ulong | nothing;
 	/**
 	 * The highest ID in the range.
-	 **/
+	 */
 	highest: ulong | nothing;
 
 	constructor(json?: JsonObject) {

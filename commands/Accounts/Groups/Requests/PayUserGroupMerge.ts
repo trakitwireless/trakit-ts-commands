@@ -7,11 +7,11 @@ import { ParamUserGroupMerge } from "./Parameters/ParamUserGroupMerge";
 
 /**
  * Creates a new or updates an existing {@link UserGroup}.
- **/
+ */
 export class PayUserGroupMerge extends Payload implements IPaySingle {
 	/**
 	 * Parameters given to create or update a {@link UserGroup}.
-	 **/
+	 */
 	userGroup: ParamUserGroupMerge;
 
 	constructor(json?: JsonObject) {
@@ -21,7 +21,7 @@ export class PayUserGroupMerge extends Payload implements IPaySingle {
 
 	/**
 	 * 
-	 **/
+	 */
 	getKey(): string {
 		return this.userGroup?.id?.toString() ?? "";
 	}

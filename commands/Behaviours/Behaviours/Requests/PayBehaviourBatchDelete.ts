@@ -6,11 +6,11 @@ import { RepBehaviourBatchDelete } from "../Responses/RepBehaviourBatchDelete";
 
 /**
  * 
- **/
+ */
 export class PayBehaviourBatchDelete extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	behaviours: ParamId[] | nothing;
 
 	constructor(json?: JsonObject) {

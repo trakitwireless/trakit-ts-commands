@@ -9,15 +9,15 @@ import { RepProviderAdvancedListByCompany, RepProviderAdvancedListByConfig } fro
 
 /**
  * Gets a list of {@link ProviderAdvanced}s.
- **/
+ */
 export abstract class PayProviderAdvancedList extends Payload implements IPayDeletable, IPaySuspendable {
 	/**
 	 * When true, the command will also return suspended {@link ProviderAdvanced}s.
-	 **/
+	 */
 	includeSuspended: boolean;
 	/**
 	 * When true, the command will also return a deleted {@link ProviderAdvanced} (if it exists).
-	 **/
+	 */
 	includeDeleted: boolean;
 
 	constructor(json?: JsonObject) {
@@ -29,11 +29,11 @@ export abstract class PayProviderAdvancedList extends Payload implements IPayDel
 
 /**
  * Gets the list of {@link ProviderAdvanced}s for the specified {@link Company}.
- **/
+ */
 export class PayProviderAdvancedListByCompany extends PayProviderAdvancedList implements IPayListByCompany {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ParamId;
 
 	constructor(json?: JsonObject) {
@@ -47,11 +47,11 @@ export class PayProviderAdvancedListByCompany extends PayProviderAdvancedList im
 }
 /**
  * Gets the list of {@link ProviderAdvanced}s for the specified {@link Company}.
- **/
+ */
 export class PayProviderAdvancedListByConfig extends PayProviderAdvancedList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	config: ParamId;
 
 	constructor(json?: JsonObject) {

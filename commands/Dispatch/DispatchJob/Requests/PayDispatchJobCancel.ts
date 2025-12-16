@@ -7,11 +7,11 @@ import { PayDispatchJobSpecial } from "./PayDispatchJob";
 
 /**
  * Cancels a {@link DispatchJob}, removing it from the dispatcher's and driver's views.
- **/
+ */
 export class PayDispatchJobCancel extends PayDispatchJobSpecial implements IPaySingle {
 	/**
 	 * Parameters given to cancel a {@link DispatchJob}.
-	 **/
+	 */
 	dispatchJob: ParamDispatchJobCancel;
 
 	constructor(json?: JsonObject) {
@@ -21,7 +21,7 @@ export class PayDispatchJobCancel extends PayDispatchJobSpecial implements IPayS
 
 	/**
 	 * 
-	 **/
+	 */
 	getKey(): string {
 		return this.dispatchJob.id.toString() ?? "";
 	}

@@ -4,11 +4,11 @@ import { Reply } from "../../../API/Responses/Reply";
 
 /**
  * A container for the {@link behaviourScript}.
- **/
+ */
 export class RepBehaviourScriptMerge extends Reply {
 	/**
 	 * An object which contains the `id` and `company` keys when there is no error.
-	 **/
+	 */
 	behaviourScript: ContentIdCompany | nothing;
 
 	constructor(json: JsonObject) {

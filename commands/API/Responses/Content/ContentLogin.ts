@@ -3,7 +3,7 @@ import { IContent } from "./IContent";
 
 /**
  * A container for the login of the {@link User} requested/created.
- **/
+ */
 export class ContentLogin implements IContent, ISerializable {
 	/**
 	 * Creates a {@link ContentLogin} from a JSON object.
@@ -18,7 +18,7 @@ export class ContentLogin implements IContent, ISerializable {
 
 	/**
 	 * The {@link User}'s login.
-	 **/
+	 */
 	login: email | nothing;
 
 	constructor(json: JsonObject) {

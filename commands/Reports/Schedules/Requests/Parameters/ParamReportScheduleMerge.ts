@@ -6,7 +6,7 @@ import { ParamReportRecurrence } from "./ParamReportRecurrence";
 
 /**
  * Parameters used to create or update an {@link ReportSchedule}.
- **/
+ */
 export class ParamReportScheduleMerge extends ParamMergeSubscribable {
 	/// <summary>
 	/// The unique identifier of the <see cref="ReportSchedule"/> you want to update.

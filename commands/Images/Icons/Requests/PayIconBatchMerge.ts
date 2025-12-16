@@ -6,11 +6,11 @@ import { ParamIconMerge } from "./Parameters/ParamIconMerge";
 
 /**
  * 
- **/
+ */
 export class PayIconBatchMerge extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	icons: ParamIconMerge[];
 
 	constructor(json?: JsonObject) {

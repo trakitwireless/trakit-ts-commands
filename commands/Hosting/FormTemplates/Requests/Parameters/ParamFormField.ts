@@ -3,7 +3,7 @@ import { ParamMerge } from "../../../../API/Requests/Parameters/ParamMerge";
 
 /**
  * Parameters used to create or update an {@link FormTemplate}.
- **/
+ */
 export class ParamFormField extends ParamMerge {
 	/**
 	 * The identifier of the field.

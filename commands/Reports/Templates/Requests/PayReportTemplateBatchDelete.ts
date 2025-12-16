@@ -6,11 +6,11 @@ import { RepReportTemplateBatchDelete } from "../Responses/RepReportTemplateBatc
 
 /**
  * 
- **/
+ */
 export class PayReportTemplateBatchDelete extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	reportTemplates: ParamId[];
 
 	constructor(json?: JsonObject) {

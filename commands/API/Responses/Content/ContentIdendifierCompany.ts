@@ -4,7 +4,7 @@ import { IContentCompany } from "./IContentCompany";
 
 /**
  * A container for the id and owning {@link Company} of the {@link Provider} requested/created.
- **/
+ */
 export class ContentIdendifierCompany
 	extends ContentIdendifier
 	implements IContentCompany {
@@ -21,7 +21,7 @@ export class ContentIdendifierCompany
 
 	/**
 	 * Identifier of the {@link Company} to which this object belongs.
-	 **/
+	 */
 	company: ulong | nothing;
 	
 	constructor(json: JsonObject) {

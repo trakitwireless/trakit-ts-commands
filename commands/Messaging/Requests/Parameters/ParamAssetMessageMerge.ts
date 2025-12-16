@@ -3,12 +3,12 @@ import { ParamMergeSubscribable } from "../../../API/Requests/Parameters/ParamMe
 
 /**
  * Parameters used to create or update an {@link AssetMessage}.
- **/
+ */
 export class ParamAssetMessageMerge extends ParamMergeSubscribable {
 	/**
 	 * The unique identifier of the {@link AssetMessage} you want to update.
 	 * Leave this as `null` when creating a new {@link AssetMessage}.
-	 **/
+	 */
 	id: ulong | nothing;
 	/// <summary>
 	/// The <see cref="Asset"/> that this <see cref="Message"/> was sent from or to.

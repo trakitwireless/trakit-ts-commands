@@ -3,11 +3,11 @@ import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link providerScript}.
- **/
+ */
 export class RepProviderScriptGet extends ReplySyncGet<ProviderScript> {
 	/**
 	 * The requested {@link ProviderScript}.
-	 **/
+	 */
 	providerScript: ProviderScript | nothing;
 	
 	constructor(json: JsonObject) {

@@ -3,15 +3,15 @@ import { ParamMerge } from "../../../API/Requests/Parameters/ParamMerge";
 
 /**
  * Parameter values for creating a new or updating an existing {@link SessionPolicy}.
- **/
+ */
 export class ParamSmsServer extends ParamMerge {
 	/**
 	 * The list of applications users are allowed to use to create sessions.
-	 **/
+	 */
 	notifyLimit: ushort | nothing;
 	/**
 	 * Restrict session creation to only the provided IPv4 ranges (using CIDR slash-notation).  Leave blank for Internet access.
-	 **/
+	 */
 	phoneNumbers: Map<string, phone[]> | nothing;
 
 	constructor(json?: JsonObject) {
@@ -24,7 +24,7 @@ export class ParamSmsServer extends ParamMerge {
 
 	/**
 	 * Converts the parameter values to a JSON-compatible format.
-	 **/
+	 */
 	override toJSON(): any {
 		const json: any = {};
 		if (utility.isntNaN(this.notifyLimit)) json.notifyLimit = this.notifyLimit;

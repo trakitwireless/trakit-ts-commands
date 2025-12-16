@@ -3,7 +3,7 @@ import { ParamMerge } from "../../API/Requests/Parameters/ParamMerge";
 
 /**
  * Parameters used to create or update an {@link ReportResult}.
- **/
+ */
 export class ParamReportScorecardRules extends ParamMerge {
 	/// <summary>
 	/// Base score for the <see cref="ReportDataScorecard"/>.

@@ -3,12 +3,12 @@ import { ParamMergeSubscribable } from "../../../API/Requests/Parameters/ParamMe
 
 /**
  * Parameters used to create or update an {@link Asset}.
- **/
+ */
 export class ParamAssetDispatchMerge extends ParamMergeSubscribable {
 	/**
 	 * The unique identifier of the {@link Asset} you want to update.
 	 * <override required="update" />
-	 **/
+	 */
 	id: ulong;
 	/**
 	 * The list of {@link DispatchJob}s to be assigned to this asset.

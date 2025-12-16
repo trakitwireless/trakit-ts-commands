@@ -6,11 +6,11 @@ import { RepReportScheduleBatchDelete } from "../Responses/RepReportScheduleBatc
 
 /**
  * 
- **/
+ */
 export class PayReportScheduleBatchDelete extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	reportSchedules: ParamId[];
 
 	constructor(json?: JsonObject) {

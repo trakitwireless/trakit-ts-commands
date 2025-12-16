@@ -4,7 +4,7 @@ import { ParamMerge } from "../../../API/Requests/Parameters/ParamMerge";
 
 /**
  * Parameter values for creating a new or updating an existing {@link SessionPolicy}.
- **/
+ */
 export class ParamEmailServer extends ParamMerge {
 	/**
 	 * The type of incoming protocol to use (IMAP or POP3).
@@ -80,7 +80,7 @@ export class ParamEmailServer extends ParamMerge {
 
 	/**
 	 * Converts the parameter values to a JSON-compatible format.
-	 **/
+	 */
 	override toJSON(): any {
 		const json: any = {};
 		if (this.incomingType) json.incomingType = this.incomingType;

@@ -7,11 +7,11 @@ import { RepProviderConfigMerge } from "../Responses/RepProviderConfigMerge";
 
 /**
  * Creates a new or updates an existing {@link ProviderConfig}.
- **/
+ */
 export class PayProviderConfigMerge extends Payload implements IPaySingle {
 	/**
 	 * Parameters given to create or update a {@link ProviderConfig}.
-	 **/
+	 */
 	providerConfig: ParamProviderConfigMerge;
 
 	constructor(json?: JsonObject) {
@@ -20,7 +20,7 @@ export class PayProviderConfigMerge extends Payload implements IPaySingle {
 	}
 	/**
 	 * 
-	 **/
+	 */
 	getKey(): string {
 		return this.providerConfig?.id?.toString() ?? "";
 	}

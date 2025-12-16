@@ -4,7 +4,7 @@ import { ParamFormField } from "./ParamFormField";
 
 /**
  * Parameters used to create or update an {@link FormTemplate}.
- **/
+ */
 export class ParamFormTemplateMerge extends ParamMergeSubscribable {
 	/// <summary>
 	/// The unique identifier of the <see cref="FormTemplate"/> you want to update.

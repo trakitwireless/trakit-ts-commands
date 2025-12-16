@@ -9,15 +9,15 @@ import { RepProviderGeneralListByCompany, RepProviderGeneralListByConfig } from 
 
 /**
  * Gets a list of {@link ProviderGeneral}s.
- **/
+ */
 export abstract class PayProviderGeneralList extends Payload implements IPayDeletable, IPaySuspendable {
 	/**
 	 * When true, the command will also return a deleted {@link ProviderGeneral} (if it exists).
-	 **/
+	 */
 	includeDeleted: boolean;
 	/**
 	 * When true, the command will also return suspended {@link ProviderGeneral}s.
-	 **/
+	 */
 	includeSuspended: boolean;
 
 	constructor(json?: JsonObject) {
@@ -29,11 +29,11 @@ export abstract class PayProviderGeneralList extends Payload implements IPayDele
 
 /**
  * Gets the list of {@link ProviderGeneral}s for the specified {@link Company}.
- **/
+ */
 export class PayProviderGeneralListByCompany extends PayProviderGeneralList implements IPayListByCompany {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ParamId;
 
 	constructor(json?: JsonObject) {
@@ -47,11 +47,11 @@ export class PayProviderGeneralListByCompany extends PayProviderGeneralList impl
 }
 /**
  * Gets the list of {@link ProviderGeneral}s for the specified {@link Company}.
- **/
+ */
 export class PayProviderGeneralListByConfig extends PayProviderGeneralList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	config: ParamId;
 
 	constructor(json?: JsonObject) {

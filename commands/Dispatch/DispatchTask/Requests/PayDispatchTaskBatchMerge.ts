@@ -6,11 +6,11 @@ import { ParamDispatchTaskMerge } from "./Parameters/ParamDispatchTaskMerge";
 
 /**
  * Creates multiple new, or updates multiple existing {@link DispatchTask}s.
- **/
+ */
 export class PayDispatchTaskBatchMerge extends Payload {
 	/**
 	 * List of {@link DispatchTask}s to update or create.
-	 **/
+	 */
 	dispatchTasks: ParamDispatchTaskMerge[];
 
 	constructor(json?: JsonObject) {

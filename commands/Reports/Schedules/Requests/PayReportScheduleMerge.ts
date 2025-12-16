@@ -7,11 +7,11 @@ import { RepReportScheduleMerge } from "../Responses/RepReportScheduleMerge";
 
 /**
  * Creates a new or updates an existing {@link ReportSchedule}.
- **/
+ */
 export class PayReportScheduleMerge extends Payload implements IPaySingle {
 	/**
 	 * Parameters given to create or update a {@link ReportSchedule}.
-	 **/
+	 */
 	reportSchedule: ParamReportScheduleMerge;
 
 	constructor(json?: JsonObject) {
@@ -20,7 +20,7 @@ export class PayReportScheduleMerge extends Payload implements IPaySingle {
 	}
 	/**
 	 * 
-	 **/
+	 */
 	getKey(): string {
 		return this.reportSchedule?.id?.toString() ?? "";
 	}

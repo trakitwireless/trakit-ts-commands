@@ -3,11 +3,11 @@ import { ReplySyncGetPiece } from "../../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link userGeneral}.
- **/
+ */
 export class RepUserGeneralGet extends ReplySyncGetPiece<UserGeneral> {
 	/**
 	 * The requested {@link User}.
-	 **/
+	 */
 	userGeneral: UserGeneral | nothing;
 
 	constructor(json: JsonObject) {

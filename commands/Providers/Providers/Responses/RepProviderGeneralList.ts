@@ -4,11 +4,11 @@ import { ContentIdCompany } from "../../../API/Responses/Content/ContentIdCompan
 import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 /**
  * A container for the requested {@link providerGenerals}.
- **/
+ */
 export abstract class RepProviderGeneralList extends ReplySyncList<ProviderGeneral> {
 	/**
 	 * The list of requested {@link ProviderGeneral}s.
-	 **/
+	 */
 	providerGenerals: ProviderGeneral[] | nothing;
 
 	constructor(json: JsonObject) {
@@ -20,11 +20,11 @@ export abstract class RepProviderGeneralList extends ReplySyncList<ProviderGener
 
 /**
  * A container owner {@link Company} of the collection.
- **/
+ */
 export class RepProviderGeneralListByCompany extends RepProviderGeneralList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ContentId | nothing;
 
 	constructor(json: JsonObject) {
@@ -38,11 +38,11 @@ export class RepProviderGeneralListByCompany extends RepProviderGeneralList {
 }
 /**
  * A container owner {@link Company} of the collection.
- **/
+ */
 export class RepProviderGeneralListByConfig extends RepProviderGeneralList {
 	/**
 	 * Identifier of the {@link ProviderConfig} (or {@link ProviderConfiguration}) to which this collection belongs.
-	 **/
+	 */
 	config: ContentIdCompany | nothing;
 
 	constructor(json: JsonObject) {

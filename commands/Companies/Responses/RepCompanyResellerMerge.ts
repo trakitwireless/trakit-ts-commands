@@ -4,11 +4,11 @@ import { Reply } from "../../API/Responses/Reply";
 
 /**
  * A container for the {@link company}.
- **/
+ */
 export class RepCompanyResellerMerge extends Reply {
 	/**
 	 * An object which contains the `id` and `company` keys when there is no error.
-	 **/
+	 */
 	companyReseller: ContentIdParent | nothing;
 
 	constructor(json: JsonObject) {

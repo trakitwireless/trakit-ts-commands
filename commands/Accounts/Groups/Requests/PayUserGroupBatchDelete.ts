@@ -6,11 +6,11 @@ import { RepUserGroupBatchDelete } from "../Responses/RepUserGroupBatchDelete";
 
 /**
  * 
- **/
+ */
 export class PayUserGroupBatchDelete extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	userGroups: ParamId[];
 
 	constructor(json?: JsonObject) {

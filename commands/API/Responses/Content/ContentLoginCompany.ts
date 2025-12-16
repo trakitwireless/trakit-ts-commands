@@ -4,7 +4,7 @@ import { IContentCompany } from "./IContentCompany";
 
 /**
  * A container for the {@link User} login and owning {@link Company.id} of the user requested/created.
- **/
+ */
 export class ContentLoginCompany extends ContentLogin implements IContentCompany {
 	/**
 	 * Creates a {@link ContentLoginCompany} from a JSON object.
@@ -19,7 +19,7 @@ export class ContentLoginCompany extends ContentLogin implements IContentCompany
 
 	/**
 	 * Identifier of the {@link Company} to which the {@link User} belongs.
-	 **/
+	 */
 	company: ulong | nothing;
 
 	constructor(json: JsonObject) {

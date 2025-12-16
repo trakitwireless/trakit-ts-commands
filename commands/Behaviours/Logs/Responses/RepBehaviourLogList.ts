@@ -6,11 +6,11 @@ import { ContentIdScript } from "../../../API/Responses/Content/ContentIdScript"
 
 /**
  * A container for the requested {@link behaviourLogs}.
- **/
+ */
 export abstract class RepBehaviourLogList extends ReplySyncList<BehaviourLog> {
 	/**
 	 * The list of requested {@link BehaviourLog}s.
-	 **/
+	 */
 	behaviourLogs: BehaviourLog[] | nothing;
 	
 	constructor(json: JsonObject) {
@@ -22,11 +22,11 @@ export abstract class RepBehaviourLogList extends ReplySyncList<BehaviourLog> {
 
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class RepBehaviourLogListByAsset extends RepBehaviourLogList {
 	/**
 	 * Identifier of the {@link Asset} to which this collection belongs.
-	 **/
+	 */
 	asset: ContentIdCompany | nothing;
 
 	constructor(json: JsonObject) {
@@ -40,11 +40,11 @@ export class RepBehaviourLogListByAsset extends RepBehaviourLogList {
 }
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class RepBehaviourLogListByBehaviour extends RepBehaviourLogList {
 	/**
 	 * Identifier of the {@link Behaviour} to which this collection belongs.
-	 **/
+	 */
 	behaviour: ContentIdScript | nothing;
 
 	constructor(json: JsonObject) {
@@ -58,11 +58,11 @@ export class RepBehaviourLogListByBehaviour extends RepBehaviourLogList {
 }
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class RepBehaviourLogListByScript extends RepBehaviourLogList {
 	/**
 	 * Identifier of the {@link BehaviourScript} to which this collection belongs.
-	 **/
+	 */
 	behaviourScript: ContentIdCompany | nothing;
 
 	constructor(json: JsonObject) {

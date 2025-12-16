@@ -7,11 +7,11 @@ import { RepAssetBatchDelete } from "../Responses/RepAssetBatchDelete";
 /**
  * import { codified } from "@trakit/objects";
 
- **/
+ */
 export class PayAssetBatchDelete extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	assets: ParamId[];
 	
 	constructor(json?: JsonObject) {

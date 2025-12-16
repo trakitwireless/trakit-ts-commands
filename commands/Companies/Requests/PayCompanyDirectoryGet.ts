@@ -6,11 +6,11 @@ import { PayCompany } from "./PayCompany";
 
 /**
  * Gets details of the specified {@link CompanyDirectory}.
- **/
+ */
 export class PayCompanyDirectoryGet extends PayCompany implements IPayDeletable {
 	/**
 	 * When true, the command will also return a deleted {@link CompanyDirectory} (if it exists).
-	 **/
+	 */
 	includeDeleted: boolean;
 
 	constructor(json?: JsonObject) {

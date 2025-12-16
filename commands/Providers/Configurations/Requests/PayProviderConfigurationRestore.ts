@@ -5,7 +5,7 @@ import { PayProviderConfiguration } from "./PayProviderConfiguration";
 
 /**
  * Restores a deleted {@link ProviderConfiguration}.
- **/
+ */
 export class PayProviderConfigurationRestore extends PayProviderConfiguration { 
 	override createReply(json: JsonObject): Reply {
 		return new RepProviderConfigurationDelete(json);

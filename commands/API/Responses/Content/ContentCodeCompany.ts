@@ -4,7 +4,7 @@ import { IContentCompany } from "./IContentCompany";
 
 /**
  * A container for the id and owning {@link Company} of the {@link ProviderRegistration} requested/created.
- **/
+ */
 export class ContentCodeCompany
 	extends ContentCode
 	implements IContentCompany {
@@ -21,7 +21,7 @@ export class ContentCodeCompany
 
 	/**
 	 * Identifier of the {@link Company} to which this object belongs.
-	 **/
+	 */
 	company: ulong | nothing;
 
 	constructor(json: JsonObject) {

@@ -3,11 +3,11 @@ import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link behaviourScript}.
- **/
+ */
 export class RepBehaviourScriptGet extends ReplySyncGet<BehaviourScript> {
 	/**
 	 * The requested {@link BehaviourScript}.
-	 **/
+	 */
 	behaviourScript: BehaviourScript | nothing;
 
 	constructor(json: JsonObject) {

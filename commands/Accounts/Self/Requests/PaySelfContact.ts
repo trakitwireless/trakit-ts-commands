@@ -6,11 +6,11 @@ import { ParamSelfContactMerge } from "./Parameters/ParamSelfContactMerge";
 
 /**
  * 
- **/
+ */
 export class PaySelfContact extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	contact: ParamSelfContactMerge;
 
 	constructor(json?: JsonObject) {

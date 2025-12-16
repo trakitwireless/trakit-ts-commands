@@ -6,11 +6,11 @@ import { RepAssetMessageBatchDelete } from "../Responses/RepAssetMessageBatchDel
 
 /**
  * 
- **/
+ */
 export class PayAssetMessageBatchDelete extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	assetMessages: ParamId[];
 
 	constructor(json?: JsonObject) {

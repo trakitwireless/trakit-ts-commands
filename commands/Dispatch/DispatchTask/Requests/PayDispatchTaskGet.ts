@@ -6,11 +6,11 @@ import { PayDispatchTask } from "./PayDispatchTask";
 
 /**
  * Gets details of the specified {@link DispatchTask}.
- **/
+ */
 export class PayDispatchTaskGet extends PayDispatchTask implements IPayDeletable {
 	/**
 	 * When true, the command will also return a deleted {@link DispatchTask} (if it exists).
-	 **/
+	 */
 	includeDeleted: boolean;
 
 	constructor(json?: JsonObject) {

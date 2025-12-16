@@ -6,11 +6,11 @@ import { ParamMaintenanceScheduleMerge } from "./Parameters/ParamMaintenanceSche
 
 /**
  * 
- **/
+ */
 export class PayMaintenanceScheduleBatchMerge extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	maintenanceSchedules: ParamMaintenanceScheduleMerge[];
 
 	constructor(json?: JsonObject) {

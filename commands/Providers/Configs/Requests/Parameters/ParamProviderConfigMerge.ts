@@ -3,17 +3,17 @@ import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/Para
 
 /**
  * Parameters used to create or update an {@link ProviderConfig}.
- **/
+ */
 export class ParamProviderConfigMerge extends ParamMergeSubscribable {
 	/**
 	 * The unique identifier of the {@link ProviderConfig} you want to update.
 	 * Leave this as `null` when creating a new {@link ProviderConfig}.
-	 **/
+	 */
 	id: ulong | nothing;
 	/**
 	 * The {@link Company} to which this {@link ProviderConfig} belongs.
 	 * After creation, this value is read-only.
-	 **/
+	 */
 	company: ulong | nothing;
 	/// <summary>
 	/// The <see cref="ProviderScript"/> to the <see cref="ProviderConfig"/> implements.

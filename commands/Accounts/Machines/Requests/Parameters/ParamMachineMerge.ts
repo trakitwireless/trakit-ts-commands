@@ -4,72 +4,72 @@ import { ParamPermission } from "../../../Permissions/ParamPermission";
 
 /**
  * Parameters used to create or update an {@link Machine}.
- **/
+ */
 export class ParamMachineMerge extends ParamMergeSubscribable {
 	/**
 	 * The unique identifier of the {@link Machine} you want to update.
 	 * <override required="update" />
-	 **/
+	 */
 	key: string | nothing;
 	/**
 	 * A flag to either remove, or generate a new {@link Machine.secret}.
-	 **/
+	 */
 	secret: boolean | nothing;
 	/**
 	 * The company to which this {@link Machine} belongs.
 	 * After creation, this value is read-only.
 	 * <override required="create" />
-	 **/
+	 */
 	company: ulong | nothing;
 	/**
 	 * Human friendly name for this {@link Machine}.
 	 * <override max-length="100" />
-	 **/
+	 */
 	nickname: string;
 	/**
 	 * Notes about this {@link Machine}.
 	 * <override max-length="8000" />
-	 **/
+	 */
 	notes: string | nothing;
 	/**
 	 * Indicates whether system access is disable.
-	 **/
+	 */
 	enabled: boolean | nothing;
 	/**
 	 * An optional timestamp that restricts this {@link Machine} from being used before the given date.
-	 **/
+	 */
 	notBefore: Date | nothing;
 	/**
 	 * An optional timestamp that restricts this {@link Machine} from being used after the given date.
-	 **/
+	 */
 	notAfter: Date | nothing;
 
 	/**
 	 * The {@link Machine}'s local timezone.
 	 * @see {@link Timezone.code}
 	 * <override type="System.String" format="codified" />
-	 **/
+	 */
 	timezone: Timezone | nothing;
 	/**
 	 * Preferred region/language for the UI and notifications.
 	 * Valid formats use &lt;ISO 639-1&gt;&lt;dash&gt;&lt;ISO 3166-2&gt; such as "fr-CA" or "en-US".
 	 * <override min-length="2" max-length="5" />
-	 **/
+	 */
 	language: string;
 	/**
 	 * The format strings defining the preferred way to display ambiguous values.
 	 * <override keys="codified" max-values-length="20" />
-	 **/
+	 */
 	formats: Map<string, string>;
 	/**
 	 * Preferred way of displaying ambiguous numbers in the context of measurements.
 	 * <override keys="codified" />
-	 **/
+	 */
 	measurements: Map<string, SystemsOfUnits | nothing>;
 	/**
 	 * Additional options which do not fit in with the formats or measurements preferences.
 	 * <override keys="codified" max-values-length="20" />
-	 **/
+	 */
 	options: Map<string, string | nothing>;
 
 	/**
@@ -79,36 +79,36 @@ export class ParamMachineMerge extends ParamMergeSubscribable {
 	 * @see {@link MachineGroup.id}
 	 * </values>
 	 * </override>
-	 **/
+	 */
 	groups: ulong[];
 	/**
 	 * Individual permission rules which override the {@link MachineGroup} rules.
-	 **/
+	 */
 	permissions: ParamPermission[];
 	/**
 	 * List of Fleet Freedom service URIs that this {@link Machine} is permitted to access.
 	 * <override>
 	 * <values type="System.String" max-length="254" format="url" />
 	 * </override>
-	 **/
+	 */
 	services: URL[];
 	/**
 	 * Optional list of your managed domains from which this {@link Machine} can be used.
 	 * <override>
 	 * <values type="System.String" max-length="254" format="url" />
 	 * </override>
-	 **/
+	 */
 	referrers: URL[];
 	/**
 	 * Restrict {@link Machine} access to only the provided IPv4 ranges (using CIDR slash-notation).
 	 * <override>
 	 * <values max-length="19" format="ipv4" />
 	 * </override>
-	 **/
+	 */
 	ipRanges: string[];
 	/**
 	 * Indicates whether completely insecure/unrestricted system access is allowed.
-	 **/
+	 */
 	insecure: boolean | nothing;
 
 	constructor(json?: JsonObject) {

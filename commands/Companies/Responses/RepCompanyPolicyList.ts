@@ -4,11 +4,11 @@ import { ReplySyncList } from "../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link companyPolicies}.
- **/
+ */
 export abstract class RepCompanyPolicyList extends ReplySyncList<CompanyPolicy> {
 	/**
 	 * The list of requested {@link CompanyPolicy}s.
-	 **/
+	 */
 	companyPolicies: CompanyPolicy[] | nothing;
 	
 	constructor(json: JsonObject) {
@@ -20,11 +20,11 @@ export abstract class RepCompanyPolicyList extends ReplySyncList<CompanyPolicy> 
 
 /**
  * A container owner {@link Company} of the collection.
- **/
+ */
 export class RepCompanyPolicyListByCompany extends RepCompanyPolicyList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ContentIdParent | nothing;
 
 	constructor(json: JsonObject) {

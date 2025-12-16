@@ -4,11 +4,11 @@ import { ReplySyncList } from "../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link companyStyles}.
- **/
+ */
 export abstract class RepCompanyStyleList extends ReplySyncList<CompanyStyle> {
 	/**
 	 * The list of requested {@link CompanyStyles}s.
-	 **/
+	 */
 	companyStyles: CompanyStyle[] | nothing;
 	
 	constructor(json: JsonObject) {
@@ -20,11 +20,11 @@ export abstract class RepCompanyStyleList extends ReplySyncList<CompanyStyle> {
 
 /**
  * A container owner {@link Company} of the collection.
- **/
+ */
 export class RepCompanyStyleListByCompany extends RepCompanyStyleList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ContentIdParent | nothing;
 	
 	constructor(json: JsonObject) {

@@ -4,11 +4,11 @@ import { ReplySync } from "../../API/Responses/ReplySync";
 
 /**
  * 
- **/
+ */
 export class RepAssetSuspend extends ReplySync {
 	/**
 	 * 
-	 **/
+	 */
 	asset: ContentIdSuspended | nothing;
 
 	constructor(json: JsonObject) {

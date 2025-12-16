@@ -6,11 +6,11 @@ import { ParamUserMerge } from "./Parameters/ParamUserMerge";
 
 /**
  * 
- **/
+ */
 export class PayUserBatchMerge extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	users: ParamUserMerge[];
 
 	constructor(json?: JsonObject) {

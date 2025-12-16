@@ -3,11 +3,11 @@ import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 /**
  * A container for the requested {@link reportResults}.
- **/
+ */
 export abstract class RepReportResultList extends ReplySyncList<ReportResult> {
 	/**
 	 * The list of requested {@link ReportResult}s.
-	 **/
+	 */
 	reportResults: ReportResult[] | nothing;
 
 	constructor(json: JsonObject) {
@@ -19,11 +19,11 @@ export abstract class RepReportResultList extends ReplySyncList<ReportResult> {
 
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class RepReportResultListByCompany extends RepReportResultList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ContentId | nothing;
 
 	constructor(json: JsonObject) {

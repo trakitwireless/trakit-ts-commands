@@ -5,11 +5,11 @@ import { ParamId } from "../../../API/Requests/Parameters/ParamId";
 
 /**
  * A container for the {@link providerScript} object.
- **/
+ */
 export abstract class PayProviderScript extends Payload implements IPaySingle {
 	/**
 	 * An object to contain the "id" of the {@link ProviderScript}.
-	 **/
+	 */
 	providerScript: ParamId;
 
 	constructor(json?: JsonObject) {
@@ -18,7 +18,7 @@ export abstract class PayProviderScript extends Payload implements IPaySingle {
 	}
 	/**
 	 * 
-	 **/
+	 */
 	getKey(): string {
 		return this.providerScript?.id?.toString() ?? "";
 	}

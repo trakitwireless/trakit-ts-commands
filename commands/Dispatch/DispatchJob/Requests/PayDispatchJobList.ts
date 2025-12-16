@@ -11,11 +11,11 @@ import { RepDispatchJobListByAsset, RepDispatchJobListByAssetAndLabels, RepDispa
 
 /**
  * 
- **/
+ */
 export abstract class PayDispatchJobList extends Payload implements IPayDeletable {
 	/**
 	 * When true, the command will also return  deleted {@link DispatchJob}s.
-	 **/
+	 */
 	includeDeleted: boolean;
 
 	constructor(json?: JsonObject) {
@@ -25,7 +25,7 @@ export abstract class PayDispatchJobList extends Payload implements IPayDeletabl
 }
 /**
  * Gets the list of {@link DispatchJob}s for the specified {@link Asset}.
- **/
+ */
 export class PayDispatchJobListByCompany extends PayDispatchJobList implements IPayListByCompany {
 	/**
 	 * 
@@ -43,11 +43,11 @@ export class PayDispatchJobListByCompany extends PayDispatchJobList implements I
 }
 /**
  * Gets the list of {@link DispatchJob}s for the specified {@link Asset}.
- **/
+ */
 export class PayDispatchJobListByCompanyAndLabels extends PayDispatchJobListByCompany implements IPayListByLabels {
 	/**
 	 * Labels used to filter the {@link DispatchJob}s.
-	 **/
+	 */
 	labels: codified[];
 	
 	constructor(json?: JsonObject) {
@@ -61,12 +61,12 @@ export class PayDispatchJobListByCompanyAndLabels extends PayDispatchJobListByCo
 }
 /**
  * Gets the list of {@link DispatchJob}s for the specified {@link Asset}.
- **/
+ */
 export class PayDispatchJobListByCompanyAndRefPairs extends PayDispatchJobListByCompany implements IPayListByReferences{
 	/**
 	 * Case-insensitive reference pairs used to match {@link Company}s.
 	 * @see {@link CompanyGeneral.references}
-	 **/
+	 */
 	references: Map<string, string>;
 	
 	constructor(json?: JsonObject) {
@@ -83,7 +83,7 @@ export class PayDispatchJobListByCompanyAndRefPairs extends PayDispatchJobListBy
 
 /**
  * Gets the list of {@link DispatchJob}s for the specified {@link Asset}.
- **/
+ */
 export class PayDispatchJobListByAsset extends PayDispatchJobList implements IPayListByAsset {
 	/**
 	 * 
@@ -101,11 +101,11 @@ export class PayDispatchJobListByAsset extends PayDispatchJobList implements IPa
 }
 /**
  * Gets the list of {@link DispatchJob}s for the specified {@link Asset}.
- **/
+ */
 export class PayDispatchJobListByAssetAndLabels extends PayDispatchJobListByAsset implements IPayListByLabels {
 	/**
 	 * Labels used to filter the {@link DispatchJob}s.
-	 **/
+	 */
 	labels: codified[];
 	
 	constructor(json?: JsonObject) {
@@ -119,12 +119,12 @@ export class PayDispatchJobListByAssetAndLabels extends PayDispatchJobListByAsse
 }
 /**
  * Gets the list of {@link DispatchJob}s for the specified {@link Asset}.
- **/
+ */
 export class PayDispatchJobListByAssetAndRefPairs extends PayDispatchJobListByAsset implements IPayListByReferences{
 	/**
 	 * Case-insensitive reference pairs used to match {@link Asset}s.
 	 * @see {@link AssetGeneral.references}
-	 **/
+	 */
 	references: Map<string, string>;
 	
 	constructor(json?: JsonObject) {
@@ -141,13 +141,13 @@ export class PayDispatchJobListByAssetAndRefPairs extends PayDispatchJobListByAs
 
 /**
  * Gets the list of {@link DispatchJob}s for the specified {@link Asset}.
- **/
+ */
 export class PayDispatchJobListByUnassigned extends PayDispatchJobListByCompany { }
 /**
  * Gets the list of {@link DispatchJob}s for the specified {@link Asset}.
- **/
+ */
 export class PayDispatchJobListByUnassignedAndLabels extends PayDispatchJobListByCompanyAndLabels { }
 /**
  * Gets the list of {@link DispatchJob}s for the specified {@link Asset}.
- **/
+ */
 export class PayDispatchJobListByUnassignedAndRefPairs extends PayDispatchJobListByCompanyAndRefPairs { }

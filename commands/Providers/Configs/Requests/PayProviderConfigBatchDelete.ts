@@ -6,11 +6,11 @@ import { RepProviderConfigBatchDelete } from "../Responses/RepProviderConfigBatc
 
 /**
  * 
- **/
+ */
 export class PayProviderConfigBatchDelete extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	providerConfigs: ParamId[];
 
 	constructor(json?: JsonObject) {

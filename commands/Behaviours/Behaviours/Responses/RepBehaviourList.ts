@@ -4,11 +4,11 @@ import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link behaviours}.
- **/
+ */
 export abstract class RepBehaviourList extends ReplySyncList<Behaviour> {
 	/**
 	 * The list of requested {@link Behaviour}s.
-	 **/
+	 */
 	behaviours: Behaviour[] | nothing;
 
 	constructor(json: JsonObject) {
@@ -20,11 +20,11 @@ export abstract class RepBehaviourList extends ReplySyncList<Behaviour> {
 
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class RepBehaviourListByCompany extends RepBehaviourList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ContentId | nothing;
 
 	constructor(json: JsonObject) {

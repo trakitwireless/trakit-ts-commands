@@ -6,11 +6,11 @@ import { RepIconBatchDelete } from "../Responses/RepIconBatchDelete";
 
 /**
  * 
- **/
+ */
 export class PayIconBatchDelete extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	icons: ParamId[];
 
 	constructor(json?: JsonObject) {

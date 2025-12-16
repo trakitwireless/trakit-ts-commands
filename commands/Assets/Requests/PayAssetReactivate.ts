@@ -5,7 +5,7 @@ import { PayAsset } from "./PayAsset";
 
 /**
  * Reactivates a suspended {@link Asset}.
- **/
+ */
 export class PayAssetReactivate extends PayAsset { 
 	override createReply(json: JsonObject): Reply {
 		return new RepAssetSuspend(json);

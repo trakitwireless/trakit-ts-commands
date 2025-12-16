@@ -5,11 +5,11 @@ import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link UserAdvanced}s.
- **/
+ */
 export abstract class RepUserAdvancedList extends ReplySyncList<UserAdvanced> {
 	/**
 	 * The list of requested {@link UserAdvanced}s.
-	 **/
+	 */
 	userAdvanceds: UserAdvanced[];
 
 	constructor(json: JsonObject) {
@@ -21,11 +21,11 @@ export abstract class RepUserAdvancedList extends ReplySyncList<UserAdvanced> {
 
 /**
  * A container owner {@link Company} of the collection.
- **/
+ */
 export class RepUserAdvancedListByCompany extends RepUserAdvancedList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ContentId | nothing;
 
 	constructor(json: JsonObject) {
@@ -39,11 +39,11 @@ export class RepUserAdvancedListByCompany extends RepUserAdvancedList {
 }
 /**
  * A container owner {@link Company} of the collection.
- **/
+ */
 export class RepUserAdvancedListByUserGroup extends RepUserAdvancedList {
 	/**
 	 * Identifier of the {@link UserGroup} to which this collection belongs.
-	 **/
+	 */
 	userGroup: ContentIdCompany | nothing;
 
 	constructor(json: JsonObject) {

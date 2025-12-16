@@ -4,11 +4,11 @@ import { ReplySyncDelete } from "../../../API/Responses/ReplySyncDelete";
 
 /**
  * A container for the {@link provider}.
- **/
+ */
 export class RepProviderDelete extends ReplySyncDelete {
 	/**
 	 * Details about deleting/restoring the requested {@link Provider}.
-	 **/
+	 */
 	provider: ContentIdendifierDeleted | nothing;
 
 	constructor(json: JsonObject) {

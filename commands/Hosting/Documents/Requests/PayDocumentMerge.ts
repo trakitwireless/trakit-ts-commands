@@ -7,11 +7,11 @@ import { ParamDocumentMerge } from "./Parameters/ParamDocumentMerge";
 
 /**
  * Creates a new or updates an existing {@link Document}.
- **/
+ */
 export class PayDocumentMerge extends Payload implements IPaySingle {
 	/**
 	 * Parameters given to create or update a {@link Document}.
-	 **/
+	 */
 	document: ParamDocumentMerge;
 
 	constructor(json?: JsonObject) {
@@ -21,7 +21,7 @@ export class PayDocumentMerge extends Payload implements IPaySingle {
 
 	/**
 	 * 
-	 **/
+	 */
 	getKey(): string {
 		return this.document?.id?.toString() ?? "";
 	}

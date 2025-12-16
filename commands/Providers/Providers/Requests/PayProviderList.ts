@@ -8,15 +8,15 @@ import { RepProviderListByCompany, RepProviderListByConfig } from "../Responses/
 
 /**
  * Gets details of the specified {@link provider}.
- **/
+ */
 export abstract class PayProviderList extends Payload implements IPayDeletable {
 	/**
 	 * When true, the command will also return suspended {@link ProviderControl}s.
-	 **/
+	 */
 	includeSuspended: boolean;
 	/**
 	 * When true, the command will also return a deleted {@link ProviderControl} (if it exists).
-	 **/
+	 */
 	includeDeleted: boolean;
 
 	constructor(json?: JsonObject) {
@@ -28,11 +28,11 @@ export abstract class PayProviderList extends Payload implements IPayDeletable {
 
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class PayProviderListByCompany extends PayProviderList implements IPayListByCompany {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ParamId;
 
 	constructor(json?: JsonObject) {
@@ -46,11 +46,11 @@ export class PayProviderListByCompany extends PayProviderList implements IPayLis
 }
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class PayProviderListByConfig extends PayProviderList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	config: ParamId;
 
 	constructor(json?: JsonObject) {

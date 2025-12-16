@@ -9,15 +9,15 @@ import { RepProviderControlListByCompany, RepProviderControlListByConfig } from 
 
 /**
  * Gets a list of {@link ProviderControl}s.
- **/
+ */
 export abstract class PayProviderControlList extends Payload implements IPayDeletable, IPaySuspendable {
 	/**
 	 * When true, the command will also return suspended {@link ProviderControl}s.
-	 **/
+	 */
 	includeSuspended: boolean;
 	/**
 	 * When true, the command will also return a deleted {@link ProviderControl} (if it exists).
-	 **/
+	 */
 	includeDeleted: boolean;
 
 	constructor(json?: JsonObject) {
@@ -29,11 +29,11 @@ export abstract class PayProviderControlList extends Payload implements IPayDele
 
 /**
  * Gets the list of {@link ProviderControl}s for the specified {@link Company}.
- **/
+ */
 export class PayProviderControlListByCompany extends PayProviderControlList implements IPayListByCompany {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ParamId;
 
 	constructor(json?: JsonObject) {
@@ -47,11 +47,11 @@ export class PayProviderControlListByCompany extends PayProviderControlList impl
 }
 /**
  * Gets the list of {@link ProviderControl}s for the specified {@link Company}.
- **/
+ */
 export class PayProviderControlListByConfig extends PayProviderControlList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	config: ParamId;
 
 	constructor(json?: JsonObject) {

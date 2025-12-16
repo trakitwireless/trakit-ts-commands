@@ -4,11 +4,11 @@ import { Reply } from "../../../API/Responses/Reply";
 
 /**
  * 
- **/
+ */
 export class RepProviderConfigBatchMerge extends Reply {
 	/**
 	 * 
-	 **/
+	 */
 	providerConfigs: ContentIdCompany[] | nothing;
 
 	constructor(json: JsonObject) {

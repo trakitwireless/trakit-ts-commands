@@ -4,11 +4,11 @@ import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link maintenanceJobs}.
- **/
+ */
 export abstract class RepMaintenanceJobList extends ReplySyncList<MaintenanceJob> {
 	/**
 	 * The list of requested {@link MaintenanceJob}s.
-	 **/
+	 */
 	maintenanceJobs: MaintenanceJob[] | nothing;
 	
 	constructor(json: JsonObject) {
@@ -20,11 +20,11 @@ export abstract class RepMaintenanceJobList extends ReplySyncList<MaintenanceJob
 
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class RepMaintenanceJobListByCompany extends RepMaintenanceJobList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ContentId | nothing;
 
 	constructor(json: JsonObject) {

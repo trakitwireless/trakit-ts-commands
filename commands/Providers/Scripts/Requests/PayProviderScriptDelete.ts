@@ -5,7 +5,7 @@ import { PayProviderScript } from "./PayProviderScript";
 
 /**
  * Deletes an existing {@link ProviderScript}.
- **/
+ */
 export class PayProviderScriptDelete extends PayProviderScript { 
 	override createReply(json: JsonObject): Reply {
 		return new RepProviderScriptDelete(json);

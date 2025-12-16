@@ -6,11 +6,11 @@ import { RepProviderControlGet } from "../Responses/RepProviderControlGet";
 
 /**
  * Gets details of the specified {@link ProviderControl}.
- **/
+ */
 export class PayProviderControlGet extends PayProvider implements IPayDeletable {
 	/**
 	 * When true, the command will also return a deleted {@link ProviderControl} (if it exists).
-	 **/
+	 */
 	includeDeleted: boolean;
 
 	constructor(json?: JsonObject) {

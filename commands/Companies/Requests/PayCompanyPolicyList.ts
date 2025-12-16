@@ -8,11 +8,11 @@ import { RepCompanyPolicyListByCompany } from "../Responses/RepCompanyPolicyList
 
 /**
  * Gets a list of {@link CompanyPolicies}s.
- **/
+ */
 export abstract class PayCompanyPolicyList extends Payload implements IPayDeletable {
 	/**
 	 * When true, the command will also return a deleted {@link CompanyPolicies} (if it exists).
-	 **/
+	 */
 	includeDeleted: boolean;
 
 	constructor(json?: JsonObject) {
@@ -23,11 +23,11 @@ export abstract class PayCompanyPolicyList extends Payload implements IPayDeleta
 
 /**
  * Gets the list of {@link CompanyPolicies}s for the specified {@link Company}.
- **/
+ */
 export class PayCompanyPolicyListByCompany extends PayCompanyPolicyList implements IPayListByCompany {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ParamId;
 
 	constructor(json?: JsonObject) {

@@ -8,7 +8,7 @@ import { ReplySyncBatchDelete } from "../../../API/Responses/ReplySyncBatchDelet
 export class RepFormResultBatchDelete extends ReplySyncBatchDelete {
 	/**
 	 * Details about deleting/restoring the requested {@link FormResult}.
-	 **/
+	 */
 	formResults: ContentIdDeleted[] | nothing;
 
 	constructor(json: JsonObject) {

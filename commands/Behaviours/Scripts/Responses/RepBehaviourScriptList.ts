@@ -4,11 +4,11 @@ import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link behaviourScripts}.
- **/
+ */
 export abstract class RepBehaviourScriptList extends ReplySyncList<BehaviourScript> {
 	/**
 	 * The list of requested {@link BehaviourScript}s.
-	 **/
+	 */
 	behaviourScripts: BehaviourScript[] | nothing;
 
 	constructor(json: JsonObject) {
@@ -20,11 +20,11 @@ export abstract class RepBehaviourScriptList extends ReplySyncList<BehaviourScri
 
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class RepBehaviourScriptListByCompany extends RepBehaviourScriptList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ContentId | nothing;
 
 	constructor(json: JsonObject) {

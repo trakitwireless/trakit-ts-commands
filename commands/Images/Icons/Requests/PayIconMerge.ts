@@ -7,11 +7,11 @@ import { RepIconMerge } from "../Responses/RepIconMerge";
 
 /**
  * Creates a new or updates an existing {@link Icon}.
- **/
+ */
 export class PayIconMerge extends Payload implements IPaySingle {
 	/**
 	 * Parameters given to create or update a {@link Icon}.
-	 **/
+	 */
 	icon: ParamIconMerge;
 
 	constructor(json?: JsonObject) {
@@ -21,7 +21,7 @@ export class PayIconMerge extends Payload implements IPaySingle {
 
 	/**
 	 * 
-	 **/
+	 */
 	getKey(): string {
 		return this.icon?.id?.toString() ?? "";
 	}

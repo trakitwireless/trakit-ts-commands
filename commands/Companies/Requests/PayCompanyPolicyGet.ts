@@ -6,11 +6,11 @@ import { PayCompany } from "./PayCompany";
 
 /**
  * Gets details of the specified {@link CompanyPolicies}.
- **/
+ */
 export class PayCompanyPolicyGet extends PayCompany implements IPayDeletable {
 	/**
 	 * When true, the command will also return a deleted {@link CompanyPolicies} (if it exists).
-	 **/
+	 */
 	includeDeleted: boolean;
 
 	constructor(json?: JsonObject) {

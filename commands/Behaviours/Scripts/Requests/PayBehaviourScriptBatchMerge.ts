@@ -6,11 +6,11 @@ import { ParamBehaviourScriptMerge } from "./Parameters/ParamBehaviourScriptMerg
 
 /**
  * 
- **/
+ */
 export class PayBehaviourScriptBatchMerge extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	behaviourScripts: ParamBehaviourScriptMerge[];
 
 	constructor(json?: JsonObject) {

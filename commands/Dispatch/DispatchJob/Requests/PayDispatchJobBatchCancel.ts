@@ -6,11 +6,11 @@ import { PayDispatchJobSpecial } from "./PayDispatchJob";
 
 /**
  * Cancels multiple existing {@link DispatchJob}s, removing them from the dispatcher's and driver's views.
- **/
+ */
 export class PayDispatchJobBatchCancel extends PayDispatchJobSpecial {
 	/**
 	 * List of {@link DispatchJob}s to update or create.
-	 **/
+	 */
 	dispatchJobs: ParamDispatchJobCancel[];
 
 	constructor(json?: JsonObject) {

@@ -16,7 +16,7 @@ export abstract class ErrorDetail implements ISerializable {
 
 	/**
 	 * A hint for deserializing the error's details.
-	 **/
+	 */
 	abstract get kind(): ErrorDetailType;
 
 	/**

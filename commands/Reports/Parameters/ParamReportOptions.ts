@@ -4,7 +4,7 @@ import { ParamReportScorecardRules } from "./ParamReportScorecardRules";
 
 /**
  * Parameters used to create or update an {@link ReportResult}.
- **/
+ */
 export class ParamReportOptions extends ParamMerge {
 	/**
 	 * Creates a new instance of ParamReportOptions from the provided JSON.

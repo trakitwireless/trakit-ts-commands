@@ -14,7 +14,7 @@ export type ActionType = "Get" | "List" | "Merge" | "Delete" | "Restore" | "Susp
  * This class exists solely to create an inheritance chain.
  * Child classes should contain members required to execute a command.
  * </remarks>
- **/
+ */
 export abstract class Payload {
 	/**
 	 * Identifier used by external system to correlate requests to responses.

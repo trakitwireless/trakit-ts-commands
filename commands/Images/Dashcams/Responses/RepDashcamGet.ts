@@ -3,11 +3,11 @@ import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link dashcam}.
- **/
+ */
 export class RepDashcamGet extends ReplySyncGet<Dashcam> {
 	/**
 	 * The requested {@link Dashcam}.
-	 **/
+	 */
 	dashcam: Dashcam | nothing;
 
 	constructor(json: JsonObject) {

@@ -6,11 +6,11 @@ import { PayDispatchJobSpecial } from "./PayDispatchJob";
 
 /**
  * Deletes multiple {@link DispatchJob}s.
- **/
+ */
 export class PayDispatchJobBatchDelete extends PayDispatchJobSpecial {
 	/**
 	 * List of {@link DispatchJob.id}s to delete.
-	 **/
+	 */
 	dispatchJobs: ParamId[];
 
 	constructor(json?: JsonObject) {

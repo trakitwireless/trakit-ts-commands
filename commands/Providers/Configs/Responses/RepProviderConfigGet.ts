@@ -3,11 +3,11 @@ import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link providerConfig}.
- **/
+ */
 export class RepProviderConfigGet extends ReplySyncGet<ProviderConfig> {
 	/**
 	 * The requested {@link ProviderConfig}.
-	 **/
+	 */
 	providerConfig: ProviderConfig | nothing;
 
 	constructor(json: JsonObject) {

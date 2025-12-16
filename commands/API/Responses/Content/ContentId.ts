@@ -3,7 +3,7 @@ import { IContent } from "./IContent";
 
 /**
  * A container for the id of the object requested.
- **/
+ */
 export class ContentId implements IContent, ISerializable {
 	/**
 	 * Creates a {@link ContentId} from a JSON object.
@@ -18,7 +18,7 @@ export class ContentId implements IContent, ISerializable {
 
 	/**
 	 * Identifier given as input for the command.
-	 **/
+	 */
 	id: ulong | nothing;
 
 	constructor(json: JsonObject) {

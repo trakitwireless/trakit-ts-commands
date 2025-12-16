@@ -3,28 +3,28 @@ import { codified, JsonObject, nothing, PermissionLevel, PermissionMethod, Permi
 /**
  * Similar to the {@link Permission} object, but the {@link company}, {@link level}, {@link method}, and {@link labels} are all optional.
  * <category>Users and Map</category>
- **/
+ */
 export class ParamPermission {
 	/**
 	 * The {@link Company} that this permission targets.
 	 * If not given, will default to the {@link UserAdvanced.company}, {@link UserGroup.company} or {@link Machine.company} to which it belongs.
 	 * @see {@link Company.id}
-	 **/
+	 */
 	company: ulong | nothing;
 	/**
 	 * The kind of {@link PermissionType}.
 	 * <override required="always" />
-	 **/
+	 */
 	kind: PermissionType | nothing;
 	/**
 	 * The level of access being defined.
 	 * <override value="read"/>
-	 **/
+	 */
 	level: PermissionLevel | nothing;
 	/**
 	 * The way the access is used.
 	 * <override value="grant"/>
-	 **/
+	 */
 	method: PermissionMethod | nothing;
 	/**
 	 * Codified names of {@link CompanyLabels.labels}.  If list is empty, this permission applies for all labels.
@@ -33,7 +33,7 @@ export class ParamPermission {
 	 * @see {@link LabelStyle.code}
 	 * </values>
 	 * </override>
-	 **/
+	 */
 	labels: codified[] | nothing;
 
 	constructor(json?: JsonObject) {

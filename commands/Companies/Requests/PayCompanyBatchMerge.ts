@@ -6,11 +6,11 @@ import { ParamCompanyMerge } from "./Parameters/ParamCompanyMerge";
 
 /**
  * 
- **/
+ */
 export class PayCompanyBatchMerge extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	companies: ParamCompanyMerge[];
 
 	constructor(json?: JsonObject) {

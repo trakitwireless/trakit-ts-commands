@@ -7,16 +7,16 @@ import { ErrorDetailType } from "./ErrorDetailType";
  * <remarks>
  * Only available for some of the beta services.
  * </remarks>
- **/
+ */
 export class ErrorDetailStack extends ErrorDetail {
 	override get kind() { return ErrorDetailType.stack; }
 	/**
 	 * Exception message.
-	 **/
+	 */
 	message: string;
 	/**
 	 * The full stack trace if available.
-	 **/
+	 */
 	stack: string;
 	/**
 	 * The value associated with the error, if any.

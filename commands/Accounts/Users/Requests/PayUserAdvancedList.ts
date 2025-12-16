@@ -8,11 +8,11 @@ import { RepUserAdvancedListByCompany, RepUserAdvancedListByUserGroup } from "..
 
 /**
  * Gets a list of {@link UserAdvanced}s.
- **/
+ */
 export abstract class PayUserAdvancedList extends Payload implements IPayDeletable {
 	/**
 	 * When true, the command will also return a deleted {@link UserAdvanced} (if it exists).
-	 **/
+	 */
 	includeDeleted: boolean;
 
 	constructor(json?: JsonObject) {
@@ -23,11 +23,11 @@ export abstract class PayUserAdvancedList extends Payload implements IPayDeletab
 
 /**
  * Gets the list of {@link UserAdvanced}s for the specified {@link Company}.
- **/
+ */
 export class PayUserAdvancedListByCompany extends PayUserAdvancedList implements IPayListByCompany {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ParamId;
 
 	constructor(json?: JsonObject) {
@@ -41,11 +41,11 @@ export class PayUserAdvancedListByCompany extends PayUserAdvancedList implements
 }
 /**
  * Gets the list of {@link UserAdvanced}s for the specified {@link UserGroup}.
- **/
+ */
 export class PayUserAdvancedListByUserGroup extends PayUserAdvancedList {
 	/**
 	 * Identifier of the {@link Group} to which this collection belongs.
-	 **/
+	 */
 	group: ParamId;
 
 	constructor(json?: JsonObject) {

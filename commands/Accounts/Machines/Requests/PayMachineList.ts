@@ -8,11 +8,11 @@ import { RepMachineListByCompany } from "../Responses/RepMachineList";
 
 /**
  * Gets details of the specified {@link machine}.
- **/
+ */
 export abstract class PayMachineList extends Payload implements IPayDeletable {
 	/**
 	 * When true, the command will also return  deleted {@link Machine}s.
-	 **/
+	 */
 	includeDeleted: boolean;
 
 	constructor(json?: JsonObject) {
@@ -23,11 +23,11 @@ export abstract class PayMachineList extends Payload implements IPayDeletable {
 
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class PayMachineListByCompany extends PayMachineList implements IPayListByCompany {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ParamId;
 
 	constructor(json?: JsonObject) {

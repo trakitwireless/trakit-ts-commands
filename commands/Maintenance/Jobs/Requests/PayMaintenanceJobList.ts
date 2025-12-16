@@ -8,11 +8,11 @@ import { RepMaintenanceJobListByCompany } from "../Responses/RepMaintenanceJobLi
 
 /**
  * Gets details of the specified {@link maintenanceJob}.
- **/
+ */
 export abstract class PayMaintenanceJobList extends Payload implements IPayDeletable {
 	/**
 	 * When true, the command will also return  deleted {@link MaintenanceJob}s.
-	 **/
+	 */
 	includeDeleted: boolean;
 
 	constructor(json?: JsonObject) {
@@ -23,11 +23,11 @@ export abstract class PayMaintenanceJobList extends Payload implements IPayDelet
 
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class PayMaintenanceJobListByCompany extends PayMaintenanceJobList implements IPayListByCompany {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ParamId;
 
 	constructor(json?: JsonObject) {

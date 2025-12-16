@@ -6,11 +6,11 @@ import { ParamDocumentMerge } from "./Parameters/ParamDocumentMerge";
 
 /**
  * 
- **/
+ */
 export class PayDocumentBatchMerge extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	documents: ParamDocumentMerge[];
 
 	constructor(json?: JsonObject) {

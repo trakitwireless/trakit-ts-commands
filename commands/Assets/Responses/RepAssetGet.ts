@@ -3,11 +3,11 @@ import { ReplySyncGet } from "../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link asset}.
- **/
+ */
 export class RepAssetGet extends ReplySyncGet<Asset> {
 	/**
 	 * The requested {@link Asset}.
-	 **/
+	 */
 	asset: Asset | nothing;
 
 	constructor(json: JsonObject) {

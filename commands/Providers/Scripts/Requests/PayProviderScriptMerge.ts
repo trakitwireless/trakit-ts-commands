@@ -7,11 +7,11 @@ import { RepProviderScriptMerge } from "../Responses/RepProviderScriptMerge";
 
 /**
  * Creates a new or updates an existing {@link ProviderScript}.
- **/
+ */
 export class PayProviderScriptMerge extends Payload implements IPaySingle {
 	/**
 	 * Parameters given to create or update a {@link ProviderScript}.
-	 **/
+	 */
 	providerScript: ParamProviderScriptMerge;
 
 	constructor(json?: JsonObject) {
@@ -20,7 +20,7 @@ export class PayProviderScriptMerge extends Payload implements IPaySingle {
 	}
 	/**
 	 * 
-	 **/
+	 */
 	getKey(): string {
 		return this.providerScript?.id?.toString() ?? "";
 	}

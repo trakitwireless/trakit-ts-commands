@@ -4,11 +4,11 @@ import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link user}.
- **/
+ */
 export class RepUserGet extends ReplySyncGet<User> {
 	/**
 	 * The requested {@link User}.
-	 **/
+	 */
 	user: User | nothing;
 
 	constructor(json: JsonObject) {

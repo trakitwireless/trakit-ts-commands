@@ -6,11 +6,11 @@ import { ParamAssetMessageMerge } from "./Parameters/ParamAssetMessageMerge";
 
 /**
  * 
- **/
+ */
 export class PayAssetMessageBatchMerge extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	assetMessages: ParamAssetMessageMerge[];
 
 	constructor(json?: JsonObject) {

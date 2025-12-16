@@ -5,11 +5,11 @@ import { ContentIdCompany } from "../../../API/Responses/Content/ContentIdCompan
 
 /**
  * A container for the requested {@link User}s.
- **/
+ */
 export abstract class RepUserList extends ReplySyncList<User> {
 	/**
 	 * The list of requested {@link User}s.
-	 **/
+	 */
 	users: User[] | nothing;
 
 	constructor(json: JsonObject) {
@@ -21,11 +21,11 @@ export abstract class RepUserList extends ReplySyncList<User> {
 
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class RepUserListByCompany extends RepUserList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ContentId | nothing;
 
 	constructor(json: JsonObject) {
@@ -39,11 +39,11 @@ export class RepUserListByCompany extends RepUserList {
 }
 /**
  * Contains the {@link UserGroup.id} of the collection.
- **/
+ */
 export class RepUserListByUserGroup extends RepUserList {
 	/**
 	 * Identifier of the {@link UserGroup} to which this collection belongs.
-	 **/
+	 */
 	userGroup: ContentIdCompany | nothing;
 
 	constructor(json: JsonObject) {

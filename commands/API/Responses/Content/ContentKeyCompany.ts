@@ -4,7 +4,7 @@ import { IContentCompany } from "./IContentCompany";
 
 /**
  * A container for the {@link Machine.key} and owning {@link Company.id} of the {@link Machine} requested/created.
- **/
+ */
 export class ContentKeyCompany extends ContentKey implements IContentCompany {
 	/**
 	 * Creates a {@link ContentKeyCompany} from a JSON object.
@@ -19,7 +19,7 @@ export class ContentKeyCompany extends ContentKey implements IContentCompany {
 
 	/**
 	 * Identifier of the {@link Company} to which the {@link Machine} belongs.
-	 **/
+	 */
 	company: ulong | nothing;
 
 	constructor(json: JsonObject) {

@@ -4,11 +4,11 @@ import { ReplySyncBatchDelete } from "../../../API/Responses/ReplySyncBatchDelet
 
 /**
  * A container for the {@link dispatchJob}.
- **/
+ */
 export class RepDispatchJobBatchDelete extends ReplySyncBatchDelete {
 	/**
 	 * Details about deleting/restoring the requested {@link DispatchJob}.
-	 **/
+	 */
 	dispatchJobs: ContentIdDeleted[] | nothing;
 
 	constructor(json: JsonObject) {

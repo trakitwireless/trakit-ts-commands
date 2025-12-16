@@ -6,11 +6,11 @@ import { RepDocumentBatchDelete } from "../Responses/RepDocumentBatchDelete";
 
 /**
  * 
- **/
+ */
 export class PayDocumentBatchDelete extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	documents: ParamId[];
 
 	constructor(json?: JsonObject) {

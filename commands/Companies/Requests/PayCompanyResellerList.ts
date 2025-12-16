@@ -8,11 +8,11 @@ import { RepCompanyResellerListByCompany } from "../Responses/RepCompanyReseller
 
 /**
  * Gets a list of {@link CompanyReseller}s.
- **/
+ */
 export abstract class PayCompanyResellerList extends Payload implements IPayDeletable {
 	/**
 	 * When true, the command will also return a deleted {@link CompanyReseller} (if it exists).
-	 **/
+	 */
 	includeDeleted: boolean;
 
 	constructor(json?: JsonObject) {
@@ -23,11 +23,11 @@ export abstract class PayCompanyResellerList extends Payload implements IPayDele
 
 /**
  * Gets the list of {@link CompanyReseller}s for the specified {@link Company}.
- **/
+ */
 export class PayCompanyResellerListByCompany extends PayCompanyResellerList implements IPayListByCompany {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ParamId;
 
 	constructor(json?: JsonObject) {

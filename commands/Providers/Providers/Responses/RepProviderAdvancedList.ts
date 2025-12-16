@@ -5,11 +5,11 @@ import { ContentIdCompany } from "../../../API/Responses/Content/ContentIdCompan
 
 /**
  * A container for the requested {@link providerAdvanceds}.
- **/
+ */
 export abstract class RepProviderAdvancedList extends ReplySyncList<ProviderAdvanced> {
 	/**
 	 * The list of requested {@link ProviderAdvanced}s.
-	 **/
+	 */
 	providerAdvanceds: ProviderAdvanced[] | nothing;
 
 	constructor(json: JsonObject) {
@@ -21,11 +21,11 @@ export abstract class RepProviderAdvancedList extends ReplySyncList<ProviderAdva
 
 /**
  * A container owner {@link Company} of the collection.
- **/
+ */
 export class RepProviderAdvancedListByCompany extends RepProviderAdvancedList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ContentId| nothing;
 
 	constructor(json: JsonObject) {
@@ -39,11 +39,11 @@ export class RepProviderAdvancedListByCompany extends RepProviderAdvancedList {
 }
 /**
  * A container owner {@link Company} of the collection.
- **/
+ */
 export class RepProviderAdvancedListByConfig extends RepProviderAdvancedList {
 	/**
 	 * Identifier of the {@link ProviderConfig} (or {@link ProviderConfiguration}) to which this collection belongs.
-	 **/
+	 */
 	config: ContentIdCompany | nothing;
 
 	constructor(json: JsonObject) {

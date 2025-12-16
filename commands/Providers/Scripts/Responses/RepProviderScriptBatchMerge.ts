@@ -4,11 +4,11 @@ import { Reply } from "../../../API/Responses/Reply";
 
 /**
  * 
- **/
+ */
 export class RepProviderScriptBatchMerge extends Reply {
 	/**
 	 * 
-	 **/
+	 */
 	providerScripts: ContentIdCompany[] | nothing;
 
 	constructor(json: JsonObject) {

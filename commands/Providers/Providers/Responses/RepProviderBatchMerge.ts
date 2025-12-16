@@ -5,11 +5,11 @@ import { ContentIdCompany } from "../../../API/Responses/Content/ContentIdCompan
 
 /**
  * 
- **/
+ */
 export class RepProviderBatchMerge extends Reply {
 	/**
 	 * 
-	 **/
+	 */
 	providers: ContentIdCompany[] | nothing;
 
 	constructor(json: JsonObject) {

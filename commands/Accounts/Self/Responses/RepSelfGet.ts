@@ -13,20 +13,20 @@ import { Reply } from "../../../API/Responses/Reply";
 
 /**
  * A container for the {@link User} or {@link Machine} of the current session.
- **/
+ */
 export class RepSelfGet extends Reply {
 	/**
 	 * Your session identifier.
-	 **/
+	 */
 	ghostId: guid;
 	/**
 	 * The timestamp of when this session expires.
-	 **/
+	 */
 	expiry: Date;
 	/**
 	 * This session's {@link User} details (if the service is being used by a {@link User}).
 	 * If this value is not present, then the session is not yet authenticated.
-	 **/
+	 */
 	get user(): User | nothing { return storage.User.get(this.userLogin as email) as User; }
 	/**
 	 * 
@@ -35,7 +35,7 @@ export class RepSelfGet extends Reply {
 	/**
 	 * This {@link Machine}'s details (if the service is being used by a {@link Machine}).
 	 * If this value is not present, then the session is not a machine account.
-	 **/
+	 */
 	get machine(): Machine | nothing { return storage.Machine.get(this.machineKey as string) as Machine; }
 	/**
 	 * 
@@ -43,15 +43,15 @@ export class RepSelfGet extends Reply {
 	machineKey: string | nothing;
 	/**
 	 * This {@link User}'s {@link CompanyPolicies.sessionPolicy}.
-	 **/
+	 */
 	sessionPolicy: SessionPolicy | nothing;
 	/**
 	 * This {@link User}'s {@link CompanyPolicies.passwordPolicy}.
-	 **/
+	 */
 	passwordPolicy: PasswordPolicy | nothing;
 	/**
 	 * The UTC date/time of the server hosting the connection.
-	 **/
+	 */
 	serverTime: Date;
 
 	constructor(json?: JsonObject) {

@@ -6,11 +6,11 @@ import { ParamReportTemplateMerge } from "./Parameters/ParamReportTemplateMerge"
 
 /**
  * 
- **/
+ */
 export class PayReportTemplateBatchMerge extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	reportTemplates: ParamReportTemplateMerge[];
 
 	constructor(json?: JsonObject) {

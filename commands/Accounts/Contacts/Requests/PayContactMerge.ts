@@ -7,11 +7,11 @@ import { ParamContactMerge } from "./Parameters/ParamContactMerge";
 
 /**
  * Creates a new or updates an existing {@link Contact}.
- **/
+ */
 export class PayContactMerge extends Payload implements IPaySingle {
 	/**
 	 * Parameters given to create or update a {@link Contact}.
-	 **/
+	 */
 	contact: ParamContactMerge;
 
 
@@ -21,7 +21,7 @@ export class PayContactMerge extends Payload implements IPaySingle {
 	}
 	/**
 	 * 
-	 **/
+	 */
 	getKey(): string {
 		return this.contact?.id?.toString() ?? "";
 	}

@@ -3,25 +3,25 @@ import { ParamMergeSubscribable } from "../../../../API/Requests/Parameters/Para
 
 /**
  * Parameters used to create or update an {@link BehaviourScript}.
- **/
+ */
 export class ParamBehaviourScriptMerge extends ParamMergeSubscribable {
 	/**
 	 * The unique identifier of the {@link BehaviourScript} you want to update.
 	 * Leave this as `null` when creating a new {@link BehaviourScript}.
-	 **/
+	 */
 	id: ulong | nothing;
 	/**
 	 * The {@link Company} to which this {@link BehaviourScript} belongs.
 	 * After creation, this value is read-only.
-	 **/
+	 */
 	company: ulong | nothing;
 	/**
 	 * Name for the {@link BehaviourScript}.
-	 **/
+	 */
 	name: string | nothing;
 	/**
 	 * Notes for the {@link BehaviourScript}.
-	 **/
+	 */
 	notes: string | nothing;
 	/**
 	 * The name of the symbol shown in the UI.

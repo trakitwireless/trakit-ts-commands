@@ -3,11 +3,11 @@ import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link maintenanceSchedule}.
- **/
+ */
 export class RepMaintenanceScheduleGet extends ReplySyncGet<MaintenanceSchedule> {
 	/**
 	 * The requested {@link MaintenanceSchedule}.
-	 **/
+	 */
 	maintenanceSchedule: MaintenanceSchedule | nothing;
 
 	constructor(json: JsonObject) {

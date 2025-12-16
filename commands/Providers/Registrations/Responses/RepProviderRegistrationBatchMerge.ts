@@ -5,11 +5,11 @@ import { ContentCode } from "../../../API/Responses/Content/ContentCode";
 
 /**
  * 
- **/
+ */
 export class RepProviderRegistrationBatchMerge extends Reply {
 	/**
 	 * 
-	 **/
+	 */
 	providerRegistrations: ContentCode[] | nothing;
 	
 	constructor(json: JsonObject) {

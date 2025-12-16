@@ -3,11 +3,11 @@ import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link machine}.
- **/
+ */
 export class RepMachineGet extends ReplySyncGet<Machine> {
 	/**
 	 * The requested {@link Machine}.
-	 **/
+	 */
 	machine: Machine | nothing;
 
 	constructor(json: JsonObject) {

@@ -8,11 +8,11 @@ import { PayDispatchJobSpecial } from "./PayDispatchJob";
 /**
  * Completes or modifies an existing {@link DispatchJob} from a driver's perspective.
  * This can be used by dispatchers to accomodate thrid-party delivery systems, or correcting errors from drivers.
- **/
+ */
 export class PayDispatchJobChange extends PayDispatchJobSpecial implements IPaySingle {
 	/**
 	 * Parameters given to create or update a {@link DispatchJob}.
-	 **/
+	 */
 	dispatchJob: ParamDispatchJobChange;
 
 	constructor(json?: JsonObject) {
@@ -22,7 +22,7 @@ export class PayDispatchJobChange extends PayDispatchJobSpecial implements IPayS
 
 	/**
 	 * 
-	 **/
+	 */
 	getKey(): string {
 		return this.dispatchJob?.id?.toString() ?? "";
 	}

@@ -3,7 +3,7 @@ import { ParamMerge } from "../../../../API/Requests/Parameters/ParamMerge";
 
 /**
  * Parameters used to create or update an {@link ReportSchedule}.
- **/
+ */
 export class ParamReportNotify extends ParamMerge {
 	/**
 	 * Creates a new instance of ParamReportNotify from JSON.

@@ -6,11 +6,11 @@ import { RepContactBatchDelete } from "../Responses/RepContactBatchDelete";
 
 /**
  * 
- **/
+ */
 export class PayContactBatchDelete extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	contacts: ParamId[];
 
 	constructor(json?: JsonObject) {

@@ -4,11 +4,11 @@ import { ReplySyncBatchDelete } from "../../../API/Responses/ReplySyncBatchDelet
 
 /**
  * A container for the {@link userGroup}.
- **/
+ */
 export class RepUserGroupBatchDelete extends ReplySyncBatchDelete {
 	/**
 	 * Details about deleting/restoring the requested {@link UserGroup}.
-	 **/
+	 */
 	userGroups: ContentIdDeleted[] | nothing;
 
 	constructor(json: JsonObject) {

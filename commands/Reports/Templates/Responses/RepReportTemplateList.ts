@@ -4,11 +4,11 @@ import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link reportTemplates}.
- **/
+ */
 export abstract class RepReportTemplateList extends ReplySyncList<ReportTemplate> {
 	/**
 	 * The list of requested {@link ReportTemplate}s.
-	 **/
+	 */
 	reportTemplates: ReportTemplate[] | nothing;
 
 	constructor(json: JsonObject) {
@@ -20,11 +20,11 @@ export abstract class RepReportTemplateList extends ReplySyncList<ReportTemplate
 
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class RepReportTemplateListByCompany extends RepReportTemplateList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ContentId | nothing;
 	
 	constructor(json: JsonObject) {

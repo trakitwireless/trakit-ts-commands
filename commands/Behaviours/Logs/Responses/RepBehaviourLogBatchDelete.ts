@@ -28,11 +28,11 @@ abstract class RepBehaviourLogBatchDelete extends ReplySyncBatchDelete {
 
 /**
  * A container for the {@link behaviourLog}.
- **/
+ */
 export class RepBehaviourLogBatchDeleteByAsset extends RepBehaviourLogBatchDelete {
 	/**
 	 * Identifier of the {@link Asset} to which this collection belongs.
-	 **/
+	 */
 	asset: ContentIdCompany | nothing;
 
 	constructor(json: JsonObject) {
@@ -44,11 +44,11 @@ export class RepBehaviourLogBatchDeleteByAsset extends RepBehaviourLogBatchDelet
 }
 /**
  * A container for the {@link behaviourLog}.
- **/
+ */
 export class RepBehaviourLogBatchDeleteByBehaviour extends RepBehaviourLogBatchDelete {
 	/**
 	 * Identifier of the {@link Behaviour} to which this collection belongs.
-	 **/
+	 */
 	behaviour: ContentIdScript | nothing;
 
 	constructor(json: JsonObject) {
@@ -60,11 +60,11 @@ export class RepBehaviourLogBatchDeleteByBehaviour extends RepBehaviourLogBatchD
 }
 /**
  * A container for the {@link behaviourLog}.
- **/
+ */
 export class RepBehaviourLogBatchDeleteByScript extends RepBehaviourLogBatchDelete {
 	/**
 	 * Identifier of the {@link BehaviourScript} to which this collection belongs.
-	 **/
+	 */
 	behaviourScript: ContentIdCompany | nothing;
 
 	constructor(json: JsonObject) {

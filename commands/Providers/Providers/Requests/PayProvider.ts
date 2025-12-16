@@ -5,11 +5,11 @@ import { Payload } from "../../../API/Requests/Payload";
 
 /**
  * A container for the {@link provider} object.
- **/
+ */
 export abstract class PayProvider extends Payload implements IPaySingle {
 	/**
 	 * An object to contain the "id" of the {@link Provider}.
-	 **/
+	 */
 	provider: ParamIdentifier;
 
 	constructor(json?: JsonObject) {
@@ -18,7 +18,7 @@ export abstract class PayProvider extends Payload implements IPaySingle {
 	}
 	/**
 	 * 
-	 **/
+	 */
 	getKey(): string {
 		return this.provider?.id ?? "";
 	}

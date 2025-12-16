@@ -4,11 +4,11 @@ import { ReplySyncBatchDelete } from "../../API/Responses/ReplySyncBatchDelete";
 
 /**
  * A container for the {@link assetMessage}.
- **/
+ */
 export class RepAssetMessageBatchDelete extends ReplySyncBatchDelete {
 	/**
 	 * Details about deleting/restoring the requested {@link AssetMessage}.
-	 **/
+	 */
 	assetMessages: ContentIdDeleted[] | nothing;
 
 	constructor(json: JsonObject) {

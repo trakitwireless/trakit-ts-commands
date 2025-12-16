@@ -4,11 +4,11 @@ import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link documents}.
- **/
+ */
 export abstract class RepDocumentList extends ReplySyncList<Document> {
 	/**
 	 * The list of requested {@link Document}s.
-	 **/
+	 */
 	documents: Document[] | nothing;
 
 	constructor(json: JsonObject) {
@@ -20,11 +20,11 @@ export abstract class RepDocumentList extends ReplySyncList<Document> {
 
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class RepDocumentListByCompany extends RepDocumentList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ContentId | nothing;
 	
 	constructor(json: JsonObject) {

@@ -5,11 +5,11 @@ import { ContentIdDeleted } from "../../../API/Responses/Content/ContentIdDelete
 
 /**
  * A container for the {@link providerScript}.
- **/
+ */
 export class RepProviderScriptDelete extends ReplySyncDelete {
 	/**
 	 * Details about deleting/restoring the requested {@link ProviderScript}.
-	 **/
+	 */
 	providerScript: ContentIdDeleted | nothing;
 
 	constructor(json: JsonObject) {

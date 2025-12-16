@@ -4,11 +4,11 @@ import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link icons}.
- **/
+ */
 export abstract class RepIconList extends ReplySyncList<Icon> {
 	/**
 	 * The list of requested {@link Icon}s.
-	 **/
+	 */
 	icons: Icon[] | nothing;
 	
 	constructor(json: JsonObject) {
@@ -20,11 +20,11 @@ export abstract class RepIconList extends ReplySyncList<Icon> {
 
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class RepIconListByCompany extends RepIconList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ContentId | nothing;
 	
 	constructor(json: JsonObject) {

@@ -4,11 +4,11 @@ import { ReplySyncGet } from "../../../API/Responses/ReplySyncGet";
 
 /**
  * A container for the {@link icon}.
- **/
+ */
 export class RepIconGet extends ReplySyncGet<Icon> {
 	/**
 	 * The requested {@link Icon}.
-	 **/
+	 */
 	icon: Icon | nothing;
 
 	constructor(json: JsonObject) {

@@ -8,11 +8,11 @@ import { RepProviderConfigurationListByCompany } from "../Responses/RepProviderC
 
 /**
  * Gets details of the specified {@link providerConfiguration}.
- **/
+ */
 export abstract class PayProviderConfigurationList extends Payload implements IPayDeletable {
 	/**
 	 * When true, the command will also return  deleted {@link ProviderConfiguration}s.
-	 **/
+	 */
 	includeDeleted: boolean;
 
 	constructor(json?: JsonObject) {
@@ -22,11 +22,11 @@ export abstract class PayProviderConfigurationList extends Payload implements IP
 }
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class PayProviderConfigurationListByCompany extends PayProviderConfigurationList implements IPayListByCompany {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ParamId;
 
 	constructor(json?: JsonObject) {

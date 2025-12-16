@@ -8,7 +8,7 @@ export abstract class PayListBy extends Payload {
 	/**
 	 * The maximum number of items to return.
 	 * If not specified, the server will return all.
-	 **/
+	 */
 	limit?: ulong;
 
 	constructor(json?: JsonObject) {

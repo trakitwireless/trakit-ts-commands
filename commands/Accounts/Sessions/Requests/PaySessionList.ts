@@ -9,11 +9,11 @@ import { RepSessionListByCompany, RepSessionListByUser } from "../Responses/RepS
 
 /**
  * Gets the list of {@link Session} for the specified {@link Company}.
- **/
+ */
 export class PaySessionListByCompany extends Payload implements IPayListByCompany {
 	/**
 	 * An object to contain the "id" of the {@link Company}.
-	 **/
+	 */
 	company: ParamId;
 
 	constructor(json?: JsonObject) {
@@ -28,11 +28,11 @@ export class PaySessionListByCompany extends Payload implements IPayListByCompan
 
 /**
  * Gets the list of {@link Session}s for the specified {@link User}.
- **/
+ */
 export class PaySessionListByUser extends Payload implements IPayListByUser {
 	/**
 	 * An object to contain the "login" of the {@link User}.
-	 **/
+	 */
 	user: ParamLogin;
 
 	constructor(json?: JsonObject) {

@@ -4,11 +4,11 @@ import { ReplySyncBatchDelete } from "../../../API/Responses/ReplySyncBatchDelet
 
 /**
  * A container for the {@link providerConfiguration}.
- **/
+ */
 export class RepProviderConfigurationBatchDelete extends ReplySyncBatchDelete {
 	/**
 	 * Details about deleting/restoring the requested {@link ProviderConfiguration}.
-	 **/
+	 */
 	providerConfigurations: ContentIdDeleted[] | nothing;
 
 	constructor(json: JsonObject) {

@@ -6,11 +6,11 @@ import { RepUserBatchDelete } from "../Responses/RepUserBatchDelete";
 
 /**
  * 
- **/
+ */
 export class PayUserBatchDelete extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	users: ParamLogin[];
 
 	constructor(json?: JsonObject) {

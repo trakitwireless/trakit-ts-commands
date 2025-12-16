@@ -6,11 +6,11 @@ import { PayDispatchJobSpecial } from "./PayDispatchJob";
 
 /**
  * Creates multiple new, or updates multiple existing {@link DispatchJob}s.
- **/
+ */
 export class PayDispatchJobBatchMerge extends PayDispatchJobSpecial {
 	/**
 	 * List of {@link DispatchJob}s to update or create.
-	 **/
+	 */
 	dispatchJobs: ParamDispatchJobMerge[];
 
 	constructor(json?: JsonObject) {

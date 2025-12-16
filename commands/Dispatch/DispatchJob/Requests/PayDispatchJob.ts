@@ -5,11 +5,11 @@ import { ActionType, Payload } from "../../../API/Requests/Payload";
 
 /**
  * A container for the {@link dispatchJob} object.
- **/
+ */
 export abstract class PayDispatchJob extends Payload implements IPaySingle {
 	/**
 	 * An object to contain the "id" of the {@link DispatchJob}.
-	 **/
+	 */
 	dispatchJob: ParamId;
 
 	constructor(json?: JsonObject) {
@@ -19,7 +19,7 @@ export abstract class PayDispatchJob extends Payload implements IPaySingle {
 
 	/**
 	 * 
-	 **/
+	 */
 	getKey(): string {
 		return this.dispatchJob?.id?.toString() ?? "";
 	}
@@ -27,7 +27,7 @@ export abstract class PayDispatchJob extends Payload implements IPaySingle {
 
 /**
  * 
- **/
+ */
 export abstract class PayDispatchJobSpecial extends Payload {
 	/**
 	 * 

@@ -3,7 +3,7 @@ import { IContent } from "./IContent";
 
 /**
  * A container for the key of the {@link Machine} requested/created.
- **/
+ */
 export class ContentKey implements IContent, ISerializable {
 	/**
 	 * Creates a {@link ContentId} from a JSON object.
@@ -18,7 +18,7 @@ export class ContentKey implements IContent, ISerializable {
 
 	/**
 	 * The {@link Machine}'s key.
-	 **/
+	 */
 	key: string | nothing;
 
 	constructor(json: JsonObject) {

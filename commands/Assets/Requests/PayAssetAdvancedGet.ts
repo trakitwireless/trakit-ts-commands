@@ -7,11 +7,11 @@ import { PayAsset } from "./PayAsset";
 /**
  * Gets import { codified } from "@trakit/objects";
 details of the specified {@link AssetAdvanced}.
- **/
+ */
 export class PayAssetAdvancedGet extends PayAsset implements IPayDeletable {
 	/**
 	 * When true, the command will also return a deleted {@link AssetAdvanced} (if it exists).
-	 **/
+	 */
 	includeDeleted: boolean;
 
 	constructor(json?: JsonObject) {

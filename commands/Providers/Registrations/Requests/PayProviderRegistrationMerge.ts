@@ -7,11 +7,11 @@ import { RepProviderRegistrationMerge } from "../Responses/RepProviderRegistrati
 
 /**
  * Creates a new or updates an existing {@link ProviderRegistration}.
- **/
+ */
 export class PayProviderRegistrationMerge extends Payload {
 	/**
 	 * Parameters given to create or update a {@link ProviderRegistration}.
-	 **/
+	 */
 	providerRegistration: ParamProviderRegistrationMerge;
 
 	constructor(json?: JsonObject) {

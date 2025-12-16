@@ -7,11 +7,11 @@ import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link dashcams}.
- **/
+ */
 export abstract class RepDashcamList extends ReplySyncList<Dashcam> {
 	/**
 	 * The list of requested {@link Dashcam}s.
-	 **/
+	 */
 	dashcams: Dashcam[] | nothing;
 
 	constructor(json: JsonObject) {
@@ -23,11 +23,11 @@ export abstract class RepDashcamList extends ReplySyncList<Dashcam> {
 
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class RepDashcamListByCompany extends RepDashcamList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ContentId | nothing;
 
 	constructor(json: JsonObject) {
@@ -41,11 +41,11 @@ export class RepDashcamListByCompany extends RepDashcamList {
 }
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class RepDashcamListByAsset extends RepDashcamList {
 	/**
 	 * Identifier of the {@link Asset} to which this collection belongs.
-	 **/
+	 */
 	asset: ContentIdCompany | nothing;
 
 	constructor(json: JsonObject) {
@@ -59,11 +59,11 @@ export class RepDashcamListByAsset extends RepDashcamList {
 }
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class RepDashcamListByProvider extends RepDashcamList {
 	/**
 	 * Identifier of the {@link Provider} to which this collection belongs.
-	 **/
+	 */
 	provider: ContentIdendifierCompany | nothing;
 
 	constructor(json: JsonObject) {
@@ -78,11 +78,11 @@ export class RepDashcamListByProvider extends RepDashcamList {
 
 /**
  * A container for the requested {@link dashcams}.
- **/
+ */
 export abstract class RepDashcamLiveList extends Reply {
 	/**
 	 * The list of requested {@link Dashcam}s.
-	 **/
+	 */
 	dashcams: DashcamLive[] | nothing;
 
 	constructor(json: JsonObject) {
@@ -93,11 +93,11 @@ export abstract class RepDashcamLiveList extends Reply {
 
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class RepDashcamLiveListByCompany extends RepDashcamLiveList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ContentId | nothing;
 
 	constructor(json: JsonObject) {
@@ -107,11 +107,11 @@ export class RepDashcamLiveListByCompany extends RepDashcamLiveList {
 }
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class RepDashcamLiveListByAsset extends RepDashcamLiveList {
 	/**
 	 * Identifier of the {@link Asset} to which this collection belongs.
-	 **/
+	 */
 	asset: ContentIdCompany | nothing;
 
 	constructor(json: JsonObject) {
@@ -121,11 +121,11 @@ export class RepDashcamLiveListByAsset extends RepDashcamLiveList {
 }
 /**
  * Contains the {@link Company.id} of the collection.
- **/
+ */
 export class RepDashcamLiveListByProvider extends RepDashcamLiveList {
 	/**
 	 * Identifier of the {@link Provider} to which this collection belongs.
-	 **/
+	 */
 	provider: ContentIdendifierCompany | nothing;
 
 	constructor(json: JsonObject) {

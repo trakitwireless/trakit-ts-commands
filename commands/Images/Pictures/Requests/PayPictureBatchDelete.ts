@@ -6,11 +6,11 @@ import { RepPictureBatchDelete } from "../Responses/RepPictureBatchDelete";
 
 /**
  * 
- **/
+ */
 export class PayPictureBatchDelete extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	pictures: ParamId[];
 
 	constructor(json?: JsonObject) {

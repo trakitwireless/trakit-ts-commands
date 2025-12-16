@@ -6,11 +6,11 @@ import { ParamContactMerge } from "./Parameters/ParamContactMerge";
 
 /**
  * 
- **/
+ */
 export class PayContactBatchMerge extends Payload {
 	/**
 	 * 
-	 **/
+	 */
 	contacts: ParamContactMerge[];
 
 	constructor(json?: JsonObject) {

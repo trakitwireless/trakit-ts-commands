@@ -4,7 +4,7 @@ import { ParamReportOptions } from "../../../Parameters/ParamReportOptions";
 
 /**
  * Parameters used to create or update an {@link ReportTemplate}.
- **/
+ */
 export class ParamReportTemplateMerge extends ParamMergeSubscribable {
 	/// <summary>
 	/// The unique identifier of the <see cref="ReportTemplate"/> you want to update.

@@ -5,7 +5,7 @@ import { ParamReportOptions } from "../../../Parameters/ParamReportOptions";
 
 /**
  * Parameters used to create or update an {@link ReportResult}.
- **/
+ */
 export class ParamReportResultMerge extends ParamMergeSubscribable {
 	/// <summary>
 	/// The unique identifier of the <see cref="ReportResult"/> you want to update.

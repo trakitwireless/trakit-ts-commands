@@ -4,7 +4,7 @@ import { ContentIdendifierCompany } from "./ContentIdendifierCompany";
 
 /**
  * A container for the id, {@link Asset} id, and owning {@link Company.id} of the {@link Provider} requested/created.
- **/
+ */
 export class ContentIdendifierAsset extends ContentIdendifierCompany {
 	/**
 	 * Creates a {@link ContentIdendifierAsset} from a JSON object.
@@ -22,7 +22,7 @@ export class ContentIdendifierAsset extends ContentIdendifierCompany {
 	 * <remarks>
 	 * This value must remain nullable because Providers can have a null value for their asset member.
 	 * </remarks>
-	 **/
+	 */
 	asset: ulong | nothing;
 
 	constructor(json: JsonObject) {

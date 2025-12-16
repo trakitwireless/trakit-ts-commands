@@ -5,7 +5,7 @@ import { PayCompany } from "./PayCompany";
 
 /**
  * Deletes an existing {@link Company}.
- **/
+ */
 export class PayCompanyResellerRestore extends PayCompany { 
 	override createReply(json: JsonObject): Reply {
 		return new RepCompanyResellerDelete(json);

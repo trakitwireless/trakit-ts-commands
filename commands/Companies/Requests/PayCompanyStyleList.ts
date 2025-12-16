@@ -8,11 +8,11 @@ import { RepCompanyStyleListByCompany } from "../Responses/RepCompanyStyleList";
 
 /**
  * Gets a list of {@link CompanyStyles}s.
- **/
+ */
 export abstract class PayCompanyStyleList extends Payload implements IPayDeletable {
 	/**
 	 * When true, the command will also return a deleted {@link CompanyStyles} (if it exists).
-	 **/
+	 */
 	includeDeleted: boolean;
 
 	constructor(json?: JsonObject) {
@@ -23,11 +23,11 @@ export abstract class PayCompanyStyleList extends Payload implements IPayDeletab
 
 /**
  * Gets the list of {@link CompanyStyles}s for the specified {@link Company}.
- **/
+ */
 export class PayCompanyStyleListByCompany extends PayCompanyStyleList implements IPayListByCompany {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
-	 **/
+	 */
 	company: ParamId;
 
 	constructor(json?: JsonObject) {

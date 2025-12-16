@@ -4,11 +4,11 @@ import { Reply } from "../../../API/Responses/Reply";
 
 /**
  * 
- **/
+ */
 export class RepDispatchTaskBatchMerge extends Reply {
 	/**
 	 * 
-	 **/
+	 */
 	dispatchTasks: ContentIdCompany[];
 
 	constructor(json: JsonObject) {

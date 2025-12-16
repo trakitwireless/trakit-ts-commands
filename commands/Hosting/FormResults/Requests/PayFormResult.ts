@@ -5,7 +5,7 @@ import { Payload } from "../../../API/Requests/Payload";
 
 /**
  * A container for the {@link FormResult} object.
- **/
+ */
 export abstract class PayFormResult extends Payload implements IPaySingle {
 	/**
 	 * An object to contain the "id" of the {@link FormResult}.

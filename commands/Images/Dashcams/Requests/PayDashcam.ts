@@ -5,11 +5,11 @@ import { Payload } from "../../../API/Requests/Payload";
 
 /**
  * A container for the {@link dashcam} object.
- **/
+ */
 export abstract class PayDashcam extends Payload implements IPaySingle {
 	/**
 	 * An object to contain the "id" of the {@link Dashcam}.
-	 **/
+	 */
 	dashcam: ParamGuid;
 
 	constructor(json?: JsonObject) {
@@ -19,7 +19,7 @@ export abstract class PayDashcam extends Payload implements IPaySingle {
 
 	/**
 	 * 
-	 **/
+	 */
 	getKey(): string {
 		return this.dashcam?.guid ?? "";
 	}

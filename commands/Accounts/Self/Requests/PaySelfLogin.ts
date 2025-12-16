@@ -6,19 +6,19 @@ import { RepSelfGet } from "../Responses/RepSelfGet";
 /**
  * A container class used to house the login identifying a {@link User}.
  * Used specifically to get session details.
- **/
+ */
 export class PaySelfLogin extends Payload {
 	/**
 	 * The {@link User}'s login.
-	 **/
+	 */
 	username: email;
 	/**
 	 * The {@link User}'s password.
-	 **/
+	 */
 	password: string;
 	/**
 	 * A string to identify the User-Agent of the login request.
-	 **/
+	 */
 	userAgent: string | nothing;
 
 	constructor(json?: JsonObject) {

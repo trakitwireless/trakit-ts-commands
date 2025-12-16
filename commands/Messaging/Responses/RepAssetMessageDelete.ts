@@ -5,11 +5,11 @@ import { ReplySyncDelete } from "../../API/Responses/ReplySyncDelete";
 
 /**
  * A container for the {@link assetMessage}.
- **/
+ */
 export class RepAssetMessageDelete extends ReplySyncDelete {
 	/**
 	 * Details about deleting/restoring the requested {@link AssetMessage}.
-	 **/
+	 */
 	assetMessage: ContentIdDeleted | nothing;
 
 	constructor(json: JsonObject) {
