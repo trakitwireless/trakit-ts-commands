@@ -489,11 +489,15 @@ import { PayProviderGet } from "./commands/Providers/Providers/Requests/PayProvi
 import { PayProviderListByCompany } from "./commands/Providers/Providers/Requests/PayProviderList";
 import { PayProviderMerge } from "./commands/Providers/Providers/Requests/PayProviderMerge";
 import { PayProviderRestore } from "./commands/Providers/Providers/Requests/PayProviderRestore";
+import { RepProviderAdvancedGet } from "./commands/Providers/Providers/Responses/RepProviderAdvancedGet";
+import { RepProviderAdvancedListByCompany } from "./commands/Providers/Providers/Responses/RepProviderAdvancedList";
 import { RepProviderBatchDelete } from "./commands/Providers/Providers/Responses/RepProviderBatchDelete";
 import { RepProviderBatchMerge } from "./commands/Providers/Providers/Responses/RepProviderBatchMerge";
-import { RepProviderControlListByConfig } from "./commands/Providers/Providers/Responses/RepProviderControlList";
+import { RepProviderControlGet } from "./commands/Providers/Providers/Responses/RepProviderControlGet";
+import { RepProviderControlListByCompany, RepProviderControlListByConfig } from "./commands/Providers/Providers/Responses/RepProviderControlList";
 import { RepProviderDelete } from "./commands/Providers/Providers/Responses/RepProviderDelete";
-import { RepProviderGeneralListByConfig } from "./commands/Providers/Providers/Responses/RepProviderGeneralList";
+import { RepProviderGeneralGet } from "./commands/Providers/Providers/Responses/RepProviderGeneralGet";
+import { RepProviderGeneralListByCompany, RepProviderGeneralListByConfig } from "./commands/Providers/Providers/Responses/RepProviderGeneralList";
 import { RepProviderGet } from "./commands/Providers/Providers/Responses/RepProviderGet";
 import { RepProviderListByCompany, RepProviderListByConfig } from "./commands/Providers/Providers/Responses/RepProviderList";
 import { RepProviderMerge } from "./commands/Providers/Providers/Responses/RepProviderMerge";
@@ -821,8 +825,7 @@ export {
 
 //#region Company
 	export {
-		PayCompany,
-		PayCompanyBatchDelete,
+		PayCompany, PayCompanyBatchDelete,
 		PayCompanyBatchMerge,
 		PayCompanyDelete,
 		PayCompanyDirectoryGet,
@@ -832,15 +835,11 @@ export {
 		PayCompanyGeneralList,
 		PayCompanyGeneralListByCompany,
 		PayCompanyGet,
-		PayCompanyMerge,
-		PayCompanyPolicyGet as PayCompanyPoliciesGet,
-		PayCompanyPolicyList as PayCompanyPoliciesList,
-		PayCompanyPolicyListByCompany as PayCompanyPoliciesListByCompany, PayCompanyResellerDelete, PayCompanyResellerGet,
+		PayCompanyMerge, PayCompanyPolicyGet,
+		PayCompanyPolicyList, PayCompanyPolicyListByCompany, PayCompanyResellerDelete, PayCompanyResellerGet,
 		PayCompanyResellerList,
-		PayCompanyResellerListByCompany, PayCompanyResellerMerge, PayCompanyResellerRestore, PayCompanyRestore,
-		PayCompanyStyleGet as PayCompanyStylesGet,
-		PayCompanyStyleList as PayCompanyStylesList,
-		PayCompanyStyleListByCompany as PayCompanyStylesListByCompany,
+		PayCompanyResellerListByCompany, PayCompanyResellerMerge, PayCompanyResellerRestore, PayCompanyRestore, PayCompanyStyleGet,
+		PayCompanyStyleList, PayCompanyStyleListByCompany,
 		RepCompanyBatchDelete,
 		RepCompanyBatchMerge,
 		RepCompanyDelete,
@@ -852,13 +851,11 @@ export {
 		RepCompanyGeneralListByCompany,
 		RepCompanyGet,
 		RepCompanyMerge,
-		RepCompanyPolicyGet as RepCompanyPoliciesGet,
-		RepCompanyPolicyList as RepCompanyPoliciesList,
-		RepCompanyPolicyListByCompany as RepCompanyPoliciesListByCompany, RepCompanyResellerDelete, RepCompanyResellerGet,
+		RepCompanyPolicyGet, RepCompanyPolicyList,
+		RepCompanyPolicyListByCompany, RepCompanyResellerDelete, RepCompanyResellerGet,
 		RepCompanyResellerList,
-		RepCompanyResellerListByCompany, RepCompanyResellerMerge, RepCompanyStyleGet as RepCompanyStylesGet,
-		RepCompanyStyleList as RepCompanyStylesList,
-		RepCompanyStyleListByCompany as RepCompanyStylesListByCompany
+		RepCompanyResellerListByCompany, RepCompanyResellerMerge, RepCompanyStyleGet,
+		RepCompanyStyleList, RepCompanyStyleListByCompany
 	};
 //#endregion Company
 
@@ -1081,14 +1078,16 @@ export {
 		PayProviderScriptGet,
 		PayProviderScriptListByCompany,
 		PayProviderScriptMerge,
-		PayProviderScriptRestore, RepProviderBatchDelete, RepProviderBatchMerge, RepProviderConfigBatchDelete,
+		PayProviderScriptRestore, RepProviderAdvancedGet,
+		RepProviderAdvancedListByCompany, RepProviderBatchDelete, RepProviderBatchMerge, RepProviderConfigBatchDelete,
 		RepProviderConfigBatchMerge,
 		RepProviderConfigDelete,
 		RepProviderConfigGet,
 		RepProviderConfigListByCompany,
 		RepProviderConfigMerge, RepProviderConfigurationBatchDelete, RepProviderConfigurationBatchMerge, RepProviderConfigurationDelete, RepProviderConfigurationGet, RepProviderConfigurationListByCompany, //RepProviderSuspend,
 		RepProviderConfigurationMerge, //PayProviderReactivate,
-		RepProviderConfigurationTypeGet, RepProviderConfigurationTypeListByCompany, RepProviderControlListByConfig, RepProviderDelete, RepProviderGeneralListByConfig, RepProviderGet, RepProviderListByCompany, RepProviderListByConfig, RepProviderMerge, RepProviderRegistrationDelete, RepProviderRegistrationGet,
+		RepProviderConfigurationTypeGet, RepProviderConfigurationTypeListByCompany, RepProviderControlGet,
+		RepProviderControlListByCompany, RepProviderControlListByConfig, RepProviderDelete, RepProviderGeneralGet, RepProviderGeneralListByCompany, RepProviderGeneralListByConfig, RepProviderGet, RepProviderListByCompany, RepProviderListByConfig, RepProviderMerge, RepProviderRegistrationDelete, RepProviderRegistrationGet,
 		RepProviderRegistrationListByCompany,
 		RepProviderRegistrationMerge,
 		RepProviderScriptBatchDelete,

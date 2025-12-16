@@ -1,4 +1,4 @@
-import { JsonObject } from "@trakit/objects";
+import { Company, JsonObject } from "@trakit/objects";
 import { IPaySingle } from "../../API/Requests/IPaySingle";
 import { Payload } from "../../API/Requests/Payload";
 import { Reply } from "../../API/Responses/Reply";
