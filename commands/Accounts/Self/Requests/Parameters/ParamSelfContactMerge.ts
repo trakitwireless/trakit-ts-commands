@@ -18,42 +18,42 @@ export class ParamSelfContactMerge extends ParamMergeSubscribable {
 	 * Use the object key like a name identifier.
 	 * Example keys: Initials, Nickname, Maiden Name, etc.
 	 **/
-	otherNames: Map<string, string | nothing>| nothing;
+	otherNames: Map<string, string | nothing> | nothing;
 	/**
 	 * Email addresses
 	 * Use the object key like a name of the address.
 	 * Example keys: Home, Work, Support, Old, etc.
 	 **/
-	emails: Map<string, string | nothing>| nothing;
+	emails: Map<string, string | nothing> | nothing;
 	/**
 	 * Phone numbers.
 	 * Use the object key like a name of the phone number.
 	 * Example keys: Mobile, Fax, Home, Office, etc.
 	 **/
-	phones: Map<string, ulong | nothing>| nothing;
+	phones: Map<string, ulong | nothing> | nothing;
 	/**
 	 * Mailing addresses
 	 * Use the object key like a name of the address.
 	 * Example keys: Home, Work, Park, etc.
 	 **/
-	addresses: Map<string, string | nothing>| nothing;
+	addresses: Map<string, string | nothing> | nothing;
 	/**
 	 * Websites and other online resources
 	 * Use the object key like a name of the address.
 	 * Example keys: Downloads, Support, FTP, etc.
 	 **/
-	urls: Map<string, URL | nothing>| nothing;
+	urls: Map<string, URL | nothing> | nothing;
 	/**
 	 * Date information
 	 * Use the object key like a name of the date.
 	 * Example keys: Birthday, Started Date, Retired On, etc.
 	 **/
-	dates: Map<string, Date | nothing>| nothing;
+	dates: Map<string, Date | nothing> | nothing;
 	/**
 	 * Uncategorized information
 	 * Use the object keys and values however you'd like.
 	 **/
-	options: Map<string, string | nothing>| nothing;
+	options: Map<string, string | nothing> | nothing;
 	/**
 	 * A list of roles they play in the {@link Company}.
 	 **/
