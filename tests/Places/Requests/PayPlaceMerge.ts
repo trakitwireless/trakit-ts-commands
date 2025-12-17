@@ -72,4 +72,13 @@ describe('PayPlaceMerge', () => {
 		expect(output.place.icon).toBe(5);
 		expect(output.reqId).toBe(6);
 	});
+
+	it('should return correct action metadata', () => {
+		const payload = new PayPlaceMerge();
+		const action = payload.getAction();
+		expect(action.kind).toBe("Merge");
+		expect(action.object).toBe("Place");
+		expect(action.filter).toBe("");
+		expect(action.batch).toBe(false);
+	});
 });

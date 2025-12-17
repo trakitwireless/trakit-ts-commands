@@ -58,4 +58,13 @@ describe('PayPlaceBatchMerge', () => {
 		expect(output.places[1].icon).toBe(11);
 		expect(output.reqId).toBe(7);
 	});
+
+	it('should return correct action metadata', () => {
+		const payload = new PayPlaceBatchMerge();
+		const action = payload.getAction();
+		expect(action.kind).toBe("Merge");
+		expect(action.object).toBe("Place");
+		expect(action.filter).toBe("");
+		expect(action.batch).toBe(true);
+	});
 });

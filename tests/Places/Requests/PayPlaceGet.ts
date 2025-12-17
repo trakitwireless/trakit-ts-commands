@@ -57,4 +57,13 @@ describe('PayPlaceGet', () => {
 		expect(output.includeDeleted).toBe(true);
 		expect(output.reqId).toBe(3);
 	});
+
+	it('should return correct action metadata', () => {
+		const payload = new PayPlaceGet();
+		const action = payload.getAction();
+		expect(action.kind).toBe("Get");
+		expect(action.object).toBe("Place");
+		expect(action.filter).toBe("");
+		expect(action.batch).toBe(false);
+	});
 });

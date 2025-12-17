@@ -43,4 +43,13 @@ describe('PayPlaceRestore', () => {
 		expect(output.place.id).toBe(666);
 		expect(output.reqId).toBe(8);
 	});
+
+	it('should return correct action metadata', () => {
+		const payload = new PayPlaceRestore();
+		const action = payload.getAction();
+		expect(action.kind).toBe("Restore");
+		expect(action.object).toBe("Place");
+		expect(action.filter).toBe("");
+		expect(action.batch).toBe(false);
+	});
 });

@@ -45,4 +45,13 @@ describe('PayPlaceDelete', () => {
 		expect(output.place.id).toBe(555);
 		expect(output.reqId).toBe(2);
 	});
+
+	it('should return correct action metadata', () => {
+		const payload = new PayPlaceDelete();
+		const action = payload.getAction();
+		expect(action.kind).toBe("Delete");
+		expect(action.object).toBe("Place");
+		expect(action.filter).toBe("");
+		expect(action.batch).toBe(false);
+	});
 });

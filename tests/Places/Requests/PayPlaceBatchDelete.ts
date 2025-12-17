@@ -56,4 +56,13 @@ describe('PayPlaceBatchDelete', () => {
 		expect(output.places[2].id).toBe(333);
 		expect(output.reqId).toBe(5);
 	});
+
+	it('should return correct action metadata', () => {
+		const payload = new PayPlaceBatchDelete();
+		const action = payload.getAction();
+		expect(action.kind).toBe("Delete");
+		expect(action.object).toBe("Place");
+		expect(action.filter).toBe("");
+		expect(action.batch).toBe(true);
+	});
 });

@@ -60,4 +60,13 @@ describe('PayPlaceListByCompany', () => {
 		expect(output.includeDeleted).toBe(true);
 		expect(output.reqId).toBe(4);
 	});
+
+	it('should return correct action metadata', () => {
+		const payload = new PayPlaceListByCompany();
+		const action = payload.getAction();
+		expect(action.kind).toBe("List");
+		expect(action.object).toBe("Place");
+		expect(action.filter).toBe("Company");
+		expect(action.batch).toBe(false);
+	});
 });
