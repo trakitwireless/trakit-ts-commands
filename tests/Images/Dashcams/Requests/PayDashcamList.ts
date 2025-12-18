@@ -1,11 +1,27 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, test } from "vitest";
+import { DashcamMediaType } from "@trakit/objects";
+import { PayDashcamList } from "../../../../commands/Images/Dashcams/Requests/PayDashcamList";
 
-describe('Hello World Tests', () => {
-    it('should return true for true', () => {
-        expect(true).toBe(true);
-    });
-    
-    it('should add numbers correctly', () => {
-        expect(1 + 1).toBe(2);
-    });
+describe("PayDashcamList", () => {
+	test("constructor creates instance with includeDeleted", () => {
+		const payload = new PayDashcamList({ includeDeleted: true });
+		expect(payload.includeDeleted).toBe(true);
+	});
+
+	test("constructor creates instance with kind", () => {
+		const payload = new PayDashcamList({ kind: "video" });
+		expect(payload.kind).toBe(DashcamMediaType.video);
+	});
+
+	test("constructor creates instance with both properties", () => {
+		const payload = new PayDashcamList({ includeDeleted: true, kind: "photo" });
+		expect(payload.includeDeleted).toBe(true);
+		expect(payload.kind).toBe(DashcamMediaType.photo);
+	});
+
+	test("constructor creates instance without parameters", () => {
+		const payload = new PayDashcamList();
+		expect(payload.includeDeleted).toBe(false);
+		expect(payload.kind).toBeUndefined();
+	});
 });

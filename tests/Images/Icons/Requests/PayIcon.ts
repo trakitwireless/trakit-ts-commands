@@ -1,11 +1,14 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, test } from "vitest";
+import { PayIcon } from "../../../../commands/Images/Icons/Requests/PayIcon";
 
-describe('Hello World Tests', () => {
-    it('should return true for true', () => {
-        expect(true).toBe(true);
-    });
-    
-    it('should add numbers correctly', () => {
-        expect(1 + 1).toBe(2);
-    });
+describe("PayIcon", () => {
+	test("constructor creates instance with id", () => {
+		const payload = new PayIcon({ id: 123n });
+		expect(payload.id).toBe(123n);
+	});
+
+	test("constructor creates instance without parameters", () => {
+		const payload = new PayIcon();
+		expect(payload.id).toBeUndefined();
+	});
 });

@@ -1,11 +1,22 @@
-import { describe, it, expect } from 'vitest';
+import { describe, expect, test } from "vitest";
+import { RepIconDelete } from "../../../../commands/Images/Icons/Responses/RepIconDelete";
 
-describe('Hello World Tests', () => {
-    it('should return true for true', () => {
-        expect(true).toBe(true);
-    });
-    
-    it('should add numbers correctly', () => {
-        expect(1 + 1).toBe(2);
-    });
+describe("RepIconDelete", () => {
+	test("constructor creates instance with id", () => {
+		const reply = new RepIconDelete({ id: 123n });
+		expect(reply.id).toBe(123n);
+	});
+
+	test("constructor creates instance without parameters", () => {
+		const reply = new RepIconDelete();
+		expect(reply.id).toBeUndefined();
+	});
+
+	test("toJSON returns correct structure", () => {
+		const reply = new RepIconDelete({ id: 456n });
+		const json = reply.toJSON();
+		expect(json).toEqual({
+			id: 456n
+		});
+	});
 });
