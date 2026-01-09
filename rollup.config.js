@@ -23,7 +23,7 @@ const obfuscate = {
 
 export default [
 	{
-		input: 'index.ts',
+		input: './commands/index.ts',
 		output: [
 			// {
 			//   file: '../_publish/trakit-commands.js',
@@ -37,11 +37,13 @@ export default [
 		],
 		plugins: [typescript({
 			tsconfig: './tsconfig.json',
-			tsconfigOverride: {
-				compilerOptions: {
-					declaration: false,
-				}
-			}
+			//tsconfigOverride: {
+			//	compilerOptions: {
+			//		//declaration: false,
+			//		declarationDir: '_publish',
+			//		emitDeclarationOnly: false,
+			//	}
+			//}
 		})],
 		external: ['@trakit/objects']
 	}

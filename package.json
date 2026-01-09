@@ -11,6 +11,11 @@
     "type": "git",
     "url": "git+https://github.com/trakitwireless/trakit-ts-commands.git"
   },
+  "files": [
+	"_publish/",
+	"LICENSE.md",
+	"README.md"
+  ],
   "keywords": [
     "trakit"
   ],
