@@ -1,7 +1,7 @@
 {
   "name": "@trakit/commands",
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.0.6",
   "main": "_publish/trakit-commands.min.js",
   "types": "_publish/index.d.ts",
   "scripts": {
