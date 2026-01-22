@@ -20,7 +20,7 @@
 		"skipLibCheck": true,
 		"paths": {
 			"@trakit/objects": [
-				"../trakit-ts-objects/index.ts"
+				"../trakit-ts-objects/objects/index.ts"
 			]
 		},
 	},
