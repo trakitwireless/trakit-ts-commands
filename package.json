@@ -1,9 +1,9 @@
 {
   "name": "@trakit/commands",
   "type": "module",
-  "version": "0.0.2",
-  "main": "_publish/trakit-commands.min.js",
-  "types": "_publish/index.d.ts",
+  "version": "0.0.7",
+  "main": "./trakit-commands.min.js",
+  "types": "./index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,9 +12,10 @@
     "url": "git+https://github.com/trakitwireless/trakit-ts-commands.git"
   },
   "files": [
-	"_publish/",
-	"LICENSE.md",
-	"README.md"
+	"LICENSE",
+	"README.md",
+	"**/*.js",
+	"**/*.d.ts"
   ],
   "keywords": [
     "trakit"

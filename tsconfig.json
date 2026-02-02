@@ -3,10 +3,11 @@
 		"target": "ESNext",
 		"module": "ESNext",
 		"moduleResolution": "bundler",
-		"declaration": true, // Optionally generate types
+		"declaration": true,
+		"declarationMap": true,
 		"declarationDir": "./_publish",
 		"emitDeclarationOnly": false,
-		//"rootDir": ".", // or "./commands" if you want to only emit from there
+		"rootDir": "./commands",
 		"esModuleInterop": true,
 		"allowSyntheticDefaultImports": true,
 		"isolatedModules": true,
@@ -20,7 +21,8 @@
 		"skipLibCheck": true,
 		"paths": {
 			"@trakit/objects": [
-				"../trakit-ts-objects/index.ts"
+				"../trakit-ts-objects/_publish/index.d.ts",
+				//"../trakit-ts-objects/objects/index.ts",
 			]
 		},
 	},
