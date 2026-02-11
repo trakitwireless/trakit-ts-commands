@@ -1,7 +1,7 @@
 {
   "name": "@trakit/commands",
   "type": "module",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "main": "./trakit-commands.min.js",
   "types": "./index.d.ts",
   "scripts": {
@@ -12,10 +12,10 @@
     "url": "git+https://github.com/trakitwireless/trakit-ts-commands.git"
   },
   "files": [
-	"LICENSE",
-	"README.md",
-	"**/*.js",
-	"**/*.d.ts"
+    "LICENSE",
+    "README.md",
+    "**/*.js",
+    "**/*.d.ts"
   ],
   "keywords": [
     "trakit"
@@ -34,6 +34,6 @@
     "vitest": "^4.0.7"
   },
   "dependencies": {
-    "@trakit/objects": "file://../trakit-ts-objects"
+    "@trakit/objects": "file:../trakit-ts-objects"
   }
 }
