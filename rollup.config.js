@@ -32,6 +32,7 @@ export default [
 			{
 				file: '_publish/trakit-commands.min.js',
 				format: 'es',
+				exports: 'named',
 				plugins: [terser(obfuscate)]
 			}
 		],
