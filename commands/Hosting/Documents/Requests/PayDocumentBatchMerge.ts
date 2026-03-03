@@ -21,4 +21,10 @@ export class PayDocumentBatchMerge extends Payload {
 	override createReply(json: JsonObject): Reply {
 		return new RepDocumentBatchMerge(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			documents: this.documents.map(d => d.toJSON()),
+		};
+	}
 }

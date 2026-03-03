@@ -29,4 +29,10 @@ export class PayDocumentMerge extends Payload implements IPaySingle {
 	override createReply(json: JsonObject): Reply {
 		return new RepDocumentMerge(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			document: this.document.toJSON(),
+		};
+	}
 }

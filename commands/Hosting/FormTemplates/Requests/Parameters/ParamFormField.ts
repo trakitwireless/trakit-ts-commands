@@ -91,7 +91,7 @@ export class ParamFormField extends ParamMerge {
 		this.precision = json?.precision as long;
 		this.step = json?.step as double;
 		this.units = json?.units as string;
-		if(Array.isArray(json?.choices)) {
+		if (Array.isArray(json?.choices)) {
 			this.choices = json?.choices as string[];
 		} else if (json?.choices) {
 			this.choices = serialization.toMap(json?.choices as object);
@@ -111,8 +111,8 @@ export class ParamFormField extends ParamMerge {
 		}
 	}
 
-	override toJSON(): any {
-		const json: any = {};
+	override toJSON(): JsonObject {
+		const json: JsonObject = {};
 		if (this.id) json.id = this.id;
 		if (this.name) json.name = this.name;
 		if (this.kind) json.kind = this.kind;
@@ -131,12 +131,12 @@ export class ParamFormField extends ParamMerge {
 		}
 		if (utility.isntNaN(this.rows)) json.rows = this.rows;
 		if (utility.isntNaN(this.minimum?.valueOf())) {
-			json.minimum = this.minimum
+			json.minimum = this.minimum as number
 				?? (this.minimum as Date).toISOString?.()
 				?? (this.minimum as TimeSpan).toString();
 		}
 		if (utility.isntNaN(this.maximum?.valueOf())) {
-			json.maximum = this.maximum
+			json.maximum = this.maximum as number
 				?? (this.maximum as Date).toISOString?.()
 				?? (this.maximum as TimeSpan).toString();
 		}

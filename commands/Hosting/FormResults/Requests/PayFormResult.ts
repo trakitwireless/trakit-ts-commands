@@ -22,4 +22,10 @@ export abstract class PayFormResult extends Payload implements IPaySingle {
 	getKey(): string {
 		return this.formResult?.id?.toString() ?? "";
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			formResult: this.formResult.toJSON(),
+		};
+	}
 }

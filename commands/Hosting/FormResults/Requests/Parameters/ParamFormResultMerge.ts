@@ -60,13 +60,13 @@ export class ParamFormResultMerge extends ParamMergeSubscribable {
 			: null;
 	}
 
-	override toJSON(): any {
-		const json: any = {};
+	override toJSON(): JsonObject {
+		const json: JsonObject = {};
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];
 		} else {
-			json.template = this.template;
+			json.template = this.template as ulong;
 		}
 		if (this.asset) json.asset = this.asset;
 		if (this.name) json.name = this.name;
@@ -74,7 +74,7 @@ export class ParamFormResultMerge extends ParamMergeSubscribable {
 		if (this.labels?.length) json.labels = [...this.labels];
 		if (this.fields?.size) json.fields = serialization.fromMap(this.fields);
 		if (this.completed?.valueOf()) json.completed = this.completed?.toISOString();
-		if (this.latlng?.isValid()) json.latlng = this.latlng?.toJSON();
+		if (this.latlng?.isValid()) json.latlng = this.latlng.toJSON() as any as JsonObject;
 		return json;
 	}
 }

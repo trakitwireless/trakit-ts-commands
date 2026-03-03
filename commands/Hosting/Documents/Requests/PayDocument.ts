@@ -23,4 +23,10 @@ export abstract class PayDocument extends Payload implements IPaySingle {
 	getKey(): string {
 		return this.document?.id?.toString() ?? "";
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			document: this.document.toJSON(),
+		}
+	}
 }

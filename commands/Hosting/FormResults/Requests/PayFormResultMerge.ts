@@ -29,4 +29,10 @@ export class PayFormResultMerge extends Payload implements IPaySingle {
 	override createReply(json: JsonObject): Reply {
 		return new RepFormResultMerge(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			formResult: this.formResult.toJSON(),
+		};
+	}
 }

@@ -57,13 +57,13 @@ export class ParamFormTemplateMerge extends ParamMergeSubscribable {
 		this.stroke = json?.stroke as colour;
 		this.graphic = json?.graphic as codified;
 	}
-	override toJSON(): any {
-		const json: any = {};
+	override toJSON(): JsonObject {
+		const json: JsonObject = {};
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];
 		} else {
-			json.company = this.company;
+			json.company = this.company as ulong;
 		}
 		if (this.name) json.name = this.name;
 		if (this.notes) json.notes = this.notes;
