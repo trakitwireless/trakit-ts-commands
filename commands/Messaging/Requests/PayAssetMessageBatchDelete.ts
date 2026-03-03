@@ -21,4 +21,10 @@ export class PayAssetMessageBatchDelete extends Payload {
 	override createReply(json: JsonObject): Reply {
 		return new RepAssetMessageBatchDelete(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			assetMessages: this.assetMessages.map((e) => e.toJSON()),
+		};
+	}
 }

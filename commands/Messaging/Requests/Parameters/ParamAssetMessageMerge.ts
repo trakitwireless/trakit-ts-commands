@@ -58,13 +58,13 @@ export class ParamAssetMessageMerge extends ParamMergeSubscribable {
 		this.read = json?.read as boolean;
 	}
 
-	override toJSON(): any {
-		const json: any = {};
+	override toJSON(): JsonObject {
+		const json: JsonObject = {};
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];
 		} else {
-			json.asset = this.asset;
+			json.asset = this.asset as ulong;
 		}
 		if (this.kind) json.kind = this.kind;
 		if (this.folder) json.folder = this.folder;

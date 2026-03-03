@@ -20,6 +20,12 @@ export abstract class PayAssetMessageList extends Payload implements IPayDeletab
 		super(json);
 		this.includeDeleted = !!json?.includeDeleted;
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeDeleted: !!this.includeDeleted,
+		};
+	}
 }
 
 /**
@@ -39,6 +45,12 @@ export class PayAssetMessageListByCompany extends PayAssetMessageList implements
 	override createReply(json: JsonObject): Reply {
 		return new RepAssetMessageListByCompany(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			company: this.company.toJSON(),
+		};
+	}
 }
 /**
  * Contains the {@link Company.id} of the collection.
@@ -56,5 +68,11 @@ export class PayAssetMessageListByAsset extends PayAssetMessageList implements I
 
 	override createReply(json: JsonObject): Reply {
 		return new RepAssetMessageListByAsset(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			asset: this.asset.toJSON(),
+		};
 	}
 }

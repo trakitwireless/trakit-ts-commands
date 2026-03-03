@@ -21,4 +21,10 @@ export class PayAssetMessageGet extends PayAssetMessage implements IPayDeletable
 	override createReply(json: JsonObject): Reply {
 		return new RepAssetMessageGet(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeDeleted: !!this.includeDeleted,
+		};
+	}
 }
