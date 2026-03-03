@@ -21,4 +21,10 @@ export class PayDispatchJobBatchMerge extends PayDispatchJobSpecial {
 	override createReply(json: JsonObject): Reply {
 		return new RepDispatchJobBatchMerge(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			dispatchJobs: this.dispatchJobs.map((dj) => dj.toJSON()),
+		};
+	}
 }

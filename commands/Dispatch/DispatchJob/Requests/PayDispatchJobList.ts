@@ -22,6 +22,12 @@ export abstract class PayDispatchJobList extends Payload implements IPayDeletabl
 		super(json);
 		this.includeDeleted = !!json?.includeDeleted;
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeDeleted: !!this.includeDeleted,
+		};
+	}
 }
 /**
  * Gets the list of {@link DispatchJob}s for the specified {@link Asset}.
@@ -40,6 +46,12 @@ export class PayDispatchJobListByCompany extends PayDispatchJobList implements I
 	override createReply(json: JsonObject): Reply {
 		return new RepDispatchJobListByCompany(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			company: this.company.toJSON(),
+		};
+	}
 }
 /**
  * Gets the list of {@link DispatchJob}s for the specified {@link Asset}.
@@ -57,6 +69,12 @@ export class PayDispatchJobListByCompanyAndLabels extends PayDispatchJobListByCo
 
 	override createReply(json: JsonObject): Reply {
 		return new RepDispatchJobListByCompanyAndLabels(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			labels: [...this.labels],
+		};
 	}
 }
 /**
@@ -79,6 +97,12 @@ export class PayDispatchJobListByCompanyAndRefPairs extends PayDispatchJobListBy
 	override createReply(json: JsonObject): Reply {
 		return new RepDispatchJobListByCompanyAndRefPairs(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			references: serialization.fromMap(this.references),
+		};
+	}
 }
 
 /**
@@ -98,6 +122,12 @@ export class PayDispatchJobListByAsset extends PayDispatchJobList implements IPa
 	override createReply(json: JsonObject): Reply {
 		return new RepDispatchJobListByAsset(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			asset: this.asset.toJSON(),
+		};
+	}
 }
 /**
  * Gets the list of {@link DispatchJob}s for the specified {@link Asset}.
@@ -115,6 +145,12 @@ export class PayDispatchJobListByAssetAndLabels extends PayDispatchJobListByAsse
 
 	override createReply(json: JsonObject): Reply {
 		return new RepDispatchJobListByAssetAndLabels(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			labels: [...this.labels],
+		};
 	}
 }
 /**
@@ -136,6 +172,12 @@ export class PayDispatchJobListByAssetAndRefPairs extends PayDispatchJobListByAs
 
 	override createReply(json: JsonObject): Reply {
 		return new RepDispatchJobListByAssetAndRefPairs(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			references: serialization.fromMap(this.references),
+		};
 	}
 }
 

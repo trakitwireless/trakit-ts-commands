@@ -22,4 +22,10 @@ export abstract class PayDispatchTask extends Payload implements IPaySingle {
 	getKey(): string {
 		return this.dispatchTask?.id?.toString() ?? "";
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			dispatchTask: this.dispatchTask.toJSON()
+		};
+	}
 }

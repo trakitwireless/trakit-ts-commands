@@ -21,4 +21,10 @@ export class PayDispatchJobBatchDelete extends PayDispatchJobSpecial {
 	override createReply(json: JsonObject): Reply {
 		return new RepDispatchJobBatchDelete(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			dispatchJobs: this.dispatchJobs.map((dj) => dj.toJSON()),
+		};
+	}
 }

@@ -29,4 +29,10 @@ export class PayDispatchTaskMerge extends Payload implements IPaySingle {
 	override createReply(json: JsonObject): Reply {
 		return new RepDispatchTaskMerge(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			dispatchTask: this.dispatchTask.toJSON()
+		};
+	}
 }

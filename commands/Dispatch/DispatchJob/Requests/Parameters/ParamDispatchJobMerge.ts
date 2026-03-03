@@ -70,15 +70,15 @@ export class ParamDispatchJobMerge extends ParamMergeSubscribable {
 		this.steps = (json?.steps as JsonObject[])?.map((item: any) => new ParamDispatchStepMerge(item));
 	}
 
-	override toJSON(): any {
-		const json: any = {};
+	override toJSON(): JsonObject {
+		const json: JsonObject = {};
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];
 		} else {
-			json.company = this.company;
+			json.company = this.company as ulong;
 		}
-		if (!isNaN(this.asset as number)) json.asset = this.asset;	// works for numbers and null
+		if (!isNaN(this.asset as ulong)) json.asset = this.asset as ulong;	// works for numbers and null
 		if (this.name) json.name = this.name;
 		if (this.instructions) json.instructions = this.instructions;
 		if (this.references?.size) json.references = serialization.fromMap(this.references);

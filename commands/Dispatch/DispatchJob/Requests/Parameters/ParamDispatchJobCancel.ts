@@ -27,8 +27,8 @@ export class ParamDispatchJobCancel extends ParamMergeSubscribable {
 		this.tags = json?.tags as codified[];
 	}
 
-	override toJSON(): any {
-		const json: any = {
+	override toJSON(): JsonObject {
+		const json: JsonObject = {
 			id: this.id,
 		};
 		if (this.reason) json.reason = this.reason;

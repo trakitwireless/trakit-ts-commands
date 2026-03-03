@@ -31,8 +31,8 @@ export class ParamDispatchJobChange extends ParamMergeSubscribable {
 		this.steps = (json?.steps as JsonObject[])?.map((s: any) => new ParamDispatchStepChange(s)) ?? [];
 	}
 
-	override toJSON(): any {
-		const json: any = {
+	override toJSON(): JsonObject {
+		const json: JsonObject = {
 			id: this.id,
 			v: [...this.v],
 		};

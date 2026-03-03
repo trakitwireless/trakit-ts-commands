@@ -58,15 +58,15 @@ export class ParamDispatchStepMerge extends ParamMergeSubscribable {
 		this.signature = json?.signature as boolean;
 	}
 
-	override toJSON(): any {
-		const json: any = {};
+	override toJSON(): JsonObject {
+		const json: JsonObject = {};
 		if (this.id) json.id = this.id;
 		if (this.name) json.name = this.name;
 		if (this.eta) json.eta = this.eta.toISOString();
 		if (this.duration) json.duration = this.duration.toString();
 		if (this.place) json.place = this.place;
 		if (this.address) json.address = this.address;
-		if (this.latlng) json.latlng = this.latlng.toJSON();
+		if (this.latlng) json.latlng = this.latlng.toJSON() as any as JsonObject;
 		if (this.signature) json.signature = this.signature;
 		return json;
 	}

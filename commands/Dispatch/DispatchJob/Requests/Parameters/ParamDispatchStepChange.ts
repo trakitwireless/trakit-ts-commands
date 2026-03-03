@@ -31,8 +31,8 @@ export class ParamDispatchStepChange extends ParamMergeSubscribable {
 		this.signatory = json?.signatory as string;
 		this.status = json?.status as DispatchStepStatus;
 	}
-	override toJSON(): any {
-		const json: any = {
+	override toJSON(): JsonObject {
+		const json: JsonObject = {
 			id: this.id,
 		};
 		if (this.notes) json.notes = this.notes;

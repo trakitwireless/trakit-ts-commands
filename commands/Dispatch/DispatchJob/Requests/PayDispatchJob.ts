@@ -23,6 +23,12 @@ export abstract class PayDispatchJob extends Payload implements IPaySingle {
 	getKey(): string {
 		return this.dispatchJob?.id?.toString() ?? "";
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			dispatchJob: this.dispatchJob.toJSON(),
+		};
+	}
 }
 
 /**

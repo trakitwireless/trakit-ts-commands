@@ -21,6 +21,12 @@ export abstract class PayDispatchTaskList extends Payload implements IPayDeletab
 		super(json);
 		this.includeDeleted = !!json?.includeDeleted;
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeDeleted: !!this.includeDeleted,
+		};
+	}
 }
 
 /**
@@ -39,6 +45,12 @@ export class PayDispatchTaskListByAsset extends PayDispatchTaskList implements I
 
 	override createReply(json: JsonObject): Reply {
 		return new RepDispatchTaskListByAsset(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			asset: this.asset.toJSON(),
+		};
 	}
 }
 /**
@@ -63,6 +75,12 @@ export class PayDispatchTaskListByAssetAndRefPairs extends PayDispatchTaskListBy
 	override createReply(json: JsonObject): Reply {
 		return new RepDispatchTaskListByAssetAndRefPairs(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			references: serialization.fromMap(this.references),
+		};
+	}
 }
 /**
  * Gets the list of {@link DispatchTask}s for the specified {@link Company}.
@@ -80,6 +98,12 @@ export class PayDispatchTaskListByCompany extends PayDispatchTaskList implements
 
 	override createReply(json: JsonObject): Reply {
 		return new RepDispatchTaskListByCompany(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			company: this.company.toJSON(),
+		};
 	}
 }
 /**
@@ -103,5 +127,11 @@ export class PayDispatchTaskListByCompanyAndRefPairs extends PayDispatchTaskList
 
 	override createReply(json: JsonObject): Reply {
 		return new RepDispatchTaskListByCompanyAndRefPairs(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			references: serialization.fromMap(this.references),
+		};
 	}
 }

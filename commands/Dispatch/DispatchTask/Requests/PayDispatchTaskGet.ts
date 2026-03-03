@@ -21,4 +21,10 @@ export class PayDispatchTaskGet extends PayDispatchTask implements IPayDeletable
 	override createReply(json: JsonObject): Reply {
 		return new RepDispatchTaskGet(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeDeleted: !!this.includeDeleted,
+		};
+	}
 }

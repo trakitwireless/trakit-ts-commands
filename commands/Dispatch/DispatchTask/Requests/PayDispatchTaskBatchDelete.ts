@@ -21,4 +21,10 @@ export class PayDispatchTaskBatchDelete extends Payload {
 	override createReply(json: JsonObject): Reply {
 		return new RepDispatchTaskBatchDelete(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			dispatchTasks: this.dispatchTasks.map(dt => dt.toJSON()),
+		};
+	}
 }
