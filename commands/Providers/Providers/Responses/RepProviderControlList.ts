@@ -1,21 +1,22 @@
 import { codified, email, guid, JsonObject, nothing, Provider, ProviderControl, storage, ulong } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { ContentIdCompany } from "../../../API/Responses/Content/ContentIdCompany";
-import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
+import { ReplySyncListPiece } from "../../../API/Responses/ReplySyncList";
 /**
  * A container for the requested {@link providerControls}.
  */
-export abstract class RepProviderControlList extends ReplySyncList<ProviderControl> {
+export abstract class RepProviderControlList extends ReplySyncListPiece<ProviderControl> {
 	/**
 	 * The list of requested {@link ProviderControl}s.
 	 */
 	providerControls: ProviderControl[] | nothing;
 
 	constructor(json: JsonObject) {
-		super(json, "ProviderControl");
+		super(json, "ProviderControl", 2);
 		this.providerControls = (json?.providerControls as JsonObject[])?.map((v: any) => new ProviderControl(v));
 	}
 	override getList() { return this.providerControls as ProviderControl[]; }
+	protected override _createBlank() { return new Provider(); }
 }
 
 /**

@@ -1,22 +1,23 @@
-import { codified, email, guid, JsonObject, nothing, ulong, UserAdvanced } from "@trakit/objects";
+import { codified, email, guid, JsonObject, nothing, ulong, User, UserAdvanced } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { ContentIdCompany } from "../../../API/Responses/Content/ContentIdCompany";
-import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
+import { ReplySyncListPiece } from "../../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link UserAdvanced}s.
  */
-export abstract class RepUserAdvancedList extends ReplySyncList<UserAdvanced> {
+export abstract class RepUserAdvancedList extends ReplySyncListPiece<UserAdvanced> {
 	/**
 	 * The list of requested {@link UserAdvanced}s.
 	 */
 	userAdvanceds: UserAdvanced[];
 
 	constructor(json: JsonObject) {
-		super(json, "UserAdvanced");
+		super(json, "UserAdvanced", 1);
 		this.userAdvanceds = (json?.userAdvanceds as JsonObject[])?.map((u: any) => new UserAdvanced(u)) ?? [];
 	}
 	override getList() { return this.userAdvanceds as UserAdvanced[]; }
+	protected override _createBlank() { return new User(); }
 }
 
 /**

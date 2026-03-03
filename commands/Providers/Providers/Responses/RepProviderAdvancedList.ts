@@ -1,22 +1,23 @@
 import { codified, email, guid, JsonObject, nothing, Provider, ProviderAdvanced, storage, ulong } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
-import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 import { ContentIdCompany } from "../../../API/Responses/Content/ContentIdCompany";
+import { ReplySyncListPiece } from "../../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link providerAdvanceds}.
  */
-export abstract class RepProviderAdvancedList extends ReplySyncList<ProviderAdvanced> {
+export abstract class RepProviderAdvancedList extends ReplySyncListPiece<ProviderAdvanced> {
 	/**
 	 * The list of requested {@link ProviderAdvanced}s.
 	 */
 	providerAdvanceds: ProviderAdvanced[] | nothing;
 
 	constructor(json: JsonObject) {
-		super(json, "ProviderAdvanced");
+		super(json, "ProviderAdvanced", 1);
 		this.providerAdvanceds = (json?.providerAdvanceds as JsonObject[])?.map((v: any) => new ProviderAdvanced(v));
 	}
 	override getList() { return this.providerAdvanceds as ProviderAdvanced[]; }
+	protected override _createBlank() { return new Provider(); }
 }
 
 /**
@@ -26,7 +27,7 @@ export class RepProviderAdvancedListByCompany extends RepProviderAdvancedList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 */
-	company: ContentId| nothing;
+	company: ContentId | nothing;
 
 	constructor(json: JsonObject) {
 		super(json);

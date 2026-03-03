@@ -1,22 +1,23 @@
 import { codified, email, guid, JsonObject, nothing, storage, ulong, User, UserGeneral } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
-import { ReplySyncList } from "../../../API/Responses/ReplySyncList";
 import { ContentIdCompany } from "../../../API/Responses/Content/ContentIdCompany";
+import { ReplySyncListPiece } from "../../../API/Responses/ReplySyncList";
 
 /**
  * A container for the requested {@link UserGeneral}s.
  */
-export abstract class RepUserGeneralList extends ReplySyncList<UserGeneral> {
+export abstract class RepUserGeneralList extends ReplySyncListPiece<UserGeneral> {
 	/**
 	 * The list of requested {@link UserGeneral}s.
 	 */
 	userGenerals: UserGeneral[];
 
 	constructor(json: JsonObject) {
-		super(json, "UserGeneral");
+		super(json, "UserGeneral", 0);
 		this.userGenerals = (json?.userGenerals as JsonObject[])?.map((u: any) => new UserGeneral(u)) ?? [];
 	}
 	override getList() { return this.userGenerals as UserGeneral[]; }
+	protected override _createBlank() { return new User(); }
 }
 
 /**
