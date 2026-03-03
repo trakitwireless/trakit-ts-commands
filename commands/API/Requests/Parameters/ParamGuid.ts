@@ -1,9 +1,9 @@
-import { guid, JsonObject } from "@trakit/objects";
+import { guid, ISerializable, JsonObject } from "@trakit/objects";
 
 /**
  * A container class used to house the guid identifying a resource.
  */
-export class ParamGuid {
+export class ParamGuid implements ISerializable {
 	/**
 	 * The global unique identifier.
 	 */
@@ -11,5 +11,10 @@ export class ParamGuid {
 
 	constructor(json?: JsonObject) {
 		this.guid = json?.guid as guid ?? "";
+	}
+	toJSON(): JsonObject {
+		return this.guid?.trim()
+			? { guid: this.guid.trim() }
+			: {};
 	}
 }

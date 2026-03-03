@@ -14,4 +14,11 @@ export class ParamIdentifierVersion extends ParamIdentifier {
 		super(json);
 		this.v = json?.v as int[] ?? [];
 	}
+	
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			v: [...this.v],
+		};
+	}
 }

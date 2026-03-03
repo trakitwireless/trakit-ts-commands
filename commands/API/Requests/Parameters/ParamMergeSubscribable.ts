@@ -14,4 +14,10 @@ export abstract class ParamMergeSubscribable extends ParamMerge {
 		super();
 		this.v = json?.v as int[] || [];
 	}
+	
+	override toJSON(): JsonObject {
+		return {
+			v: [...this.v],
+		};
+	}
 }

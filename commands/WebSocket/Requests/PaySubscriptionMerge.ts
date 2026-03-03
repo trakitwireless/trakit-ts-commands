@@ -30,4 +30,12 @@ export class PaySubscriptionMerge extends Payload {
 	override createReply(json: JsonObject): Reply {
 		return new RepSubscription(json);
 	}
+
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			company: this.company.toJSON(),
+			subscriptionTypes: [...this.subscriptionTypes],
+		};
+	}
 }

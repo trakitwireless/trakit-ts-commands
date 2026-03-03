@@ -1,9 +1,9 @@
-import { JsonObject } from "@trakit/objects";
+import { ISerializable, JsonObject } from "@trakit/objects";
 
 /**
  * A container class used to house the key identifying a {@link Machine}.
  */
-export class ParamKey {
+export class ParamKey implements ISerializable {
 	/**
 	 * The {@link Machine}'s login.
 	 */
@@ -11,5 +11,11 @@ export class ParamKey {
 
 	constructor(json?: JsonObject) {
 		this.key = json?.key as string ?? "";
+	}
+
+	toJSON(): JsonObject {
+		return this.key?.trim()
+			? { key: this.key.trim() }
+			: {};
 	}
 }

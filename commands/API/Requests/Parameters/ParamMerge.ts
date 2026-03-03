@@ -1,14 +1,15 @@
+import { ISerializable, JsonObject } from "@trakit/objects";
 import { Payload } from "../Payload";
 
 /**
  * An abstract meant to help with validating "merge" operations.
  * This class is the beginning of the chain for all {@link Payload} contents.
  */
-export abstract class ParamMerge {
+export abstract class ParamMerge implements ISerializable {
 	/**
 	 * Converts the object to JSON.
 	 */
-	abstract toJSON(): any;
+	abstract toJSON(): JsonObject;
 }
 /*
 /// <summary>
