@@ -1,4 +1,4 @@
-import { JsonObject } from "@trakit/objects";
+import { Company, JsonObject, UserGeneral, UserGroup } from "@trakit/objects";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { ParamId } from "../../../API/Requests/Parameters/ParamId";
@@ -19,6 +19,12 @@ export abstract class PayUserGeneralList extends Payload implements IPayDeletabl
 		super(json);
 		this.includeDeleted = !!(json?.includeDeleted);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeDeleted: !!this.includeDeleted,
+		};
+	}
 }
 
 /**
@@ -38,22 +44,34 @@ export class PayUserGeneralListByCompany extends PayUserGeneralList implements I
 	override createReply(json: JsonObject): Reply {
 		return new RepUserGeneralListByCompany(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			company: this.company.toJSON(),
+		};
+	}
 }
 /**
- * Gets the list of {@link UserGeneral}s for the specified {@link Company}.
+ * Gets the list of {@link UserGeneral}s for the specified {@link UserGroup}.
  */
 export class PayUserGeneralListByUserGroup extends PayUserGeneralList {
 	/**
 	 * Identifier of the {@link UserGroup} to which this collection belongs.
 	 */
-	group: ParamId;
+	userGroup: ParamId;
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.group = new ParamId(json?.group as JsonObject);
+		this.userGroup = new ParamId(json?.userGroup as JsonObject);
 	}
 
 	override createReply(json: JsonObject): Reply {
 		return new RepUserGeneralListByUserGroup(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			userGroup: this.userGroup.toJSON(),
+		};
 	}
 }

@@ -13,7 +13,7 @@ export abstract class PayUser extends Payload implements IPaySingle {
 	user: ParamLogin;
 
 	constructor(json?: JsonObject) {
-		super();
+		super(json);
 		this.user = new ParamLogin(json?.user as JsonObject);
 	}
 	
@@ -22,5 +22,11 @@ export abstract class PayUser extends Payload implements IPaySingle {
 	 */
 	getKey(): string {
 		return this.user?.login ?? "";
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			user: this.user.toJSON(),
+		};
 	}
 }

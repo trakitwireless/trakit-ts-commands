@@ -21,4 +21,10 @@ export class PayUserGroupBatchDelete extends Payload {
 	override createReply(json: JsonObject): Reply {
 		return new RepUserGroupBatchDelete(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			userGroups: this.userGroups.map(ug => ug.toJSON()),
+		};
+	}
 }

@@ -21,4 +21,10 @@ export class PayUserGroupBatchMerge extends Payload {
 	override createReply(json: JsonObject): Reply {
 		return new RepUserGroupBatchMerge(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			userGroups: this.userGroups.map(ug => ug.toJSON()),
+		};
+	}
 }

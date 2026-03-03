@@ -40,7 +40,7 @@ export class PaySelfPassword extends Payload {
 		return new RepSelfPassword(json);
 	}
 
-	override toJSON(): any {
+	override toJSON(): JsonObject {
 		return {
 			...super.toJSON(),
 			current: this.current ?? "",

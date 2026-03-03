@@ -22,8 +22,8 @@ export class ParamContactMerge extends ParamSelfContactMerge {
 		this.company = json?.company as ulong;
 	}
 
-	override toJSON(): any {
-		const json: any = {
+	override toJSON(): JsonObject {
+		const json: JsonObject = {
 			...super.toJSON(),
 		};
 		if (utility.isntNaN(this.id)) {

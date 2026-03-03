@@ -21,4 +21,10 @@ export class PaySessionGet extends Payload {
 	override createReply(json: JsonObject): Reply {
 		return new RepSessionGet(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			session: this.session.toJSON(),
+		};
+	}
 }

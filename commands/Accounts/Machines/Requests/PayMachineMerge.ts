@@ -29,4 +29,10 @@ export class PayMachineMerge extends Payload implements IPaySingle {
 	override createReply(json: JsonObject): Reply {
 		return new RepMachineMerge(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			machine: this.machine.toJSON(),
+		};
+	}
 }

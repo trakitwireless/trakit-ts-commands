@@ -10,11 +10,11 @@ export abstract class PayUserGroup extends Payload implements IPaySingle {
 	/**
 	 * An object to contain the "id" of the {@link UserGroup}.
 	 */
-	userGroup: ParamId | nothing;
+	userGroup: ParamId;
 
 	constructor(json?: JsonObject) {
 		super(json);
-		if (json) this.userGroup = new ParamId(json["userGroup"] as JsonObject);
+		this.userGroup = new ParamId(json?.userGroup as JsonObject);
 	}
 
 	/**
@@ -22,5 +22,11 @@ export abstract class PayUserGroup extends Payload implements IPaySingle {
 	 */
 	getKey(): string {
 		return this.userGroup?.id?.toString() ?? "";
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			userGroup: this.userGroup.toJSON(),
+		};
 	}
 }

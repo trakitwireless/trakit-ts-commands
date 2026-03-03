@@ -24,6 +24,12 @@ export class PaySessionListByCompany extends Payload implements IPayListByCompan
 	override createReply(json: JsonObject): Reply {
 		return new RepSessionListByCompany(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			company: this.company.toJSON(),
+		};
+	}
 }
 
 /**
@@ -42,5 +48,11 @@ export class PaySessionListByUser extends Payload implements IPayListByUser {
 
 	override createReply(json: JsonObject): Reply {
 		return new RepSessionListByUser(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			user: this.user.toJSON(),
+		};
 	}
 }

@@ -37,8 +37,8 @@ export class ParamUserGroupMerge extends ParamMergeSubscribable {
 		this.permissions = (json?.permissions as JsonObject[])?.map((p: any) => new ParamPermission(p));
 	}
 
-	override toJSON(): any {
-		const json: any = {};
+	override toJSON(): JsonObject {
+		const json: JsonObject = {};
 		if (utility.isntNaN(this.id)) {
 			json["id"] = this.id;
 			json["v"] = [...this.v];

@@ -90,14 +90,14 @@ export class ParamUserMerge extends ParamMergeSubscribable {
 		this.permissions = (json?.permissions as JsonObject[])?.map((p: any) => new ParamPermission(p));
 	}
 
-	override toJSON() {
-		const json: any = {
+	override toJSON(): JsonObject {
+		const json: JsonObject = {
 			"login": this.login,
 		};
 		if (this.v?.length) {
 			json.v = [...this.v];
 		} else {
-			json["company"] = this.company;
+			json["company"] = this.company as ulong;
 		}
 
 		if (this.nickname?.length) {
@@ -112,8 +112,8 @@ export class ParamUserMerge extends ParamMergeSubscribable {
 		if (!utility.isNothing(this.enabled)) {
 			json["enabled"] = this.enabled;
 		}
-		if (utility.isntNaN(this.contact as number)) {
-			json["contact"] = this.contact;
+		if (utility.isntNaN(this.contact as ulong)) {
+			json["contact"] = this.contact as ulong;
 		}
 		if (this.timezone) {
 			json["timezone"] = this.timezone.code

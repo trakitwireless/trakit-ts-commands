@@ -29,4 +29,10 @@ export class PayContactMerge extends Payload implements IPaySingle {
 	override createReply(json: JsonObject): Reply {
 		return new RepContactMerge(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			contact: this.contact.toJSON(),
+		};
+	}
 }

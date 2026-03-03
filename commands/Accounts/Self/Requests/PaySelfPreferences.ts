@@ -65,8 +65,8 @@ export class PaySelfPreferences extends Payload {
 		return new RepSelfPreferences(json);
 	}
 
-	override toJSON(): any {
-		const json: any = super.toJSON();
+	override toJSON(): JsonObject {
+		const json: JsonObject = super.toJSON();
 		if (this.language) json.language = this.language;
 		if (this.timezone) json.timezone = this.timezone.code;
 		if (this.notify) json.notify = this.notify.map((n) => n.toJSON());

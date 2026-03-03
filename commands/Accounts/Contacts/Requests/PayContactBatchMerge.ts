@@ -21,4 +21,10 @@ export class PayContactBatchMerge extends Payload {
 	override createReply(json: JsonObject): Reply {
 		return new RepContactBatchMerge(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			contacts: this.contacts.map(c => c.toJSON()),
+		};
+	}
 }

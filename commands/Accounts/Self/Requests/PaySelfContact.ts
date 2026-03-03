@@ -36,10 +36,10 @@ export class PaySelfContact extends Payload {
 		return new RepSelfContact(json);
 	}
 
-	override toJSON(): any {
+	override toJSON(): JsonObject {
 		return {
 			...super.toJSON(),
-			contact: this.contact?.toJSON() ?? null,
+			contact: this.contact.toJSON(),
 		};
 	}
 }

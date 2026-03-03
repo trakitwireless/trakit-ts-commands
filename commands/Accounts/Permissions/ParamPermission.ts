@@ -1,10 +1,11 @@
+import { ISerializable } from "@trakit/objects";
 import { codified, JsonObject, nothing, PermissionLevel, PermissionMethod, PermissionType, ulong, utility } from "@trakit/objects";
 
 /**
  * Similar to the {@link Permission} object, but the {@link company}, {@link level}, {@link method}, and {@link labels} are all optional.
  * <category>Users and Map</category>
  */
-export class ParamPermission {
+export class ParamPermission implements ISerializable {
 	/**
 	 * The {@link Company} that this permission targets.
 	 * If not given, will default to the {@link UserAdvanced.company}, {@link UserGroup.company} or {@link Machine.company} to which it belongs.
@@ -44,7 +45,7 @@ export class ParamPermission {
 		this.labels = json?.labels as codified[];
 	}
 
-	toJSON() {
+	toJSON(): JsonObject {
 		const json: any = {};
 		if (utility.isntNaN(this.company as number)) {
 			json["company"] = this.company;

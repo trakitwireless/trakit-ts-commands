@@ -92,8 +92,8 @@ export class ParamSelfContactMerge extends ParamMergeSubscribable {
 		this.pictures = (json?.pictures as JsonObject[])?.map((v: any) => utility.id(v));
 	}
 
-	override toJSON() {
-		const json: any = {};
+	override toJSON(): JsonObject {
+		const json: JsonObject = {};
 		if (this.name) json["name"] = this.name;
 		if (this.notes) json["notes"] = this.notes;
 		if (this.otherNames?.size) json["otherNames"] = serialization.fromMap(this.otherNames);

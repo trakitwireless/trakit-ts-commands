@@ -46,8 +46,8 @@ export class PaySelfLogin extends Payload {
 		return new RepSelfGet(json);
 	}
 
-	override toJSON(): any {
-		const json: any = {
+	override toJSON(): JsonObject {
+		const json: JsonObject = {
 			...super.toJSON(),
 			username: this.username,
 			password: this.password,

@@ -23,4 +23,14 @@ export abstract class PayContact extends Payload implements IPaySingle {
 	getKey(): string {
 		return this.contact?.id?.toString() ?? "";
 	}
+	/**
+	 * 
+	 * @returns 
+	 */
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			contact: this.contact.toJSON(),
+		};
+	}
 }

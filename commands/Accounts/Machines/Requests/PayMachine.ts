@@ -22,4 +22,10 @@ export abstract class PayMachine extends Payload implements IPaySingle {
 	getKey(): string {
 		return this.machine?.key ?? "";
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			machine: this.machine.toJSON(),
+		};
+	}
 }

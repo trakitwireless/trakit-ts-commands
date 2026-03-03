@@ -21,4 +21,10 @@ export class PayUserAdvancedGet extends PayUser implements IPayDeletable {
 	override createReply(json: JsonObject): Reply {
 		return new RepUserAdvancedGet(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeDeleted: !!this.includeDeleted,
+		};
+	}
 }

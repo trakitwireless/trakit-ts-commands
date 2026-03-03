@@ -21,4 +21,10 @@ export class PayMachineBatchMerge extends Payload {
 	override createReply(json: JsonObject): Reply {
 		return new RepMachineBatchMerge(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			machines: this.machines.map(m => m.toJSON()),
+		};
+	}
 }
