@@ -21,4 +21,10 @@ export class PayReportScheduleBatchMerge extends Payload {
 	override createReply(json: JsonObject): Reply {
 		return new RepReportScheduleBatchMerge(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			reportSchedules: this.reportSchedules.map(e => e.toJSON()),
+		};
+	}
 }

@@ -28,4 +28,10 @@ export class PayReportScheduleMerge extends Payload implements IPaySingle {
 	override createReply(json: JsonObject): Reply {
 		return new RepReportScheduleMerge(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			reportSchedule: this.reportSchedule.toJSON(),
+		};
+	}
 }

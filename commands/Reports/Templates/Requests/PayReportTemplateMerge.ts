@@ -28,4 +28,10 @@ export class PayReportTemplateMerge extends Payload implements IPaySingle {
 	override createReply(json: JsonObject): Reply {
 		return new RepReportTemplateMerge(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			reportTemplate: this.reportTemplate.toJSON(),
+		};
+	}
 }

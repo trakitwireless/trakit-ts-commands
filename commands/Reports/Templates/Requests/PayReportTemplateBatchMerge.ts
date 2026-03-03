@@ -21,4 +21,10 @@ export class PayReportTemplateBatchMerge extends Payload {
 	override createReply(json: JsonObject): Reply {
 		return new RepReportTemplateBatchMerge(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			reportTemplates: this.reportTemplates.map(e => e.toJSON()),
+		};
+	}
 }

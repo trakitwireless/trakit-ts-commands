@@ -19,6 +19,12 @@ export abstract class PayReportTemplateList extends Payload implements IPayDelet
 		super();
 		this.includeDeleted = !!json?.includeDeleted;
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeDeleted: !!this.includeDeleted,
+		};
+	}
 }
 
 /**
@@ -37,5 +43,11 @@ export class PayReportTemplateListByCompany extends PayReportTemplateList implem
 
 	override createReply(json: JsonObject): Reply {
 		return new RepReportTemplateListByCompany(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			company: this.company.toJSON(),
+		};
 	}
 }

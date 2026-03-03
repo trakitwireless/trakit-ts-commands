@@ -13,15 +13,15 @@ export class ParamReportScorecardRules extends ParamMerge {
 	/// Infraction parameters used to generate the final <see cref="ReportDataScorecard.score"/>.
 	/// </summary>
 	parameters: ReportScorecardParameter[] | nothing;
-	
+
 	constructor(json?: JsonObject) {
 		super();
 		this.baseScore = json?.baseScore as double;
 		this.parameters = (json?.parameters as JsonObject[])?.map((e: any) => new ReportScorecardParameter(e));
 	}
 
-	override toJSON(): any {
-		const json: any = {};
+	override toJSON(): JsonObject {
+		const json: JsonObject = {};
 		if (this.baseScore) json.baseScore = this.baseScore;
 		if (this.parameters?.length) json.parameters = this.parameters?.map((e) => e.toJSON());
 		return json;

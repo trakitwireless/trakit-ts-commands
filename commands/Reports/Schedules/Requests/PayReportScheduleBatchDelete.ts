@@ -21,4 +21,10 @@ export class PayReportScheduleBatchDelete extends Payload {
 	override createReply(json: JsonObject): Reply {
 		return new RepReportScheduleBatchDelete(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			reportSchedules: this.reportSchedules.map(e => e.toJSON()),
+		};
+	}
 }

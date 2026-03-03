@@ -44,7 +44,7 @@ export class ParamReportTemplateMerge extends ParamMergeSubscribable {
 	/// The name of the symbol shown in the UI.
 	/// </summary>
 	graphic: string | nothing;
-	
+
 	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id as ulong;
@@ -60,13 +60,13 @@ export class ParamReportTemplateMerge extends ParamMergeSubscribable {
 		this.graphic = json?.graphic as codified;
 	}
 
-	override toJSON(): any {
-		const json: any = {}
+	override toJSON(): JsonObject {
+		const json: JsonObject = {}
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];
 		} else {
-			json.company = this.company;
+			json.company = this.company as ulong;
 		}
 		if (this.name) json.name = this.name;
 		if (this.notes) json.notes = this.notes;

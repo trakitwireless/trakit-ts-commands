@@ -36,7 +36,7 @@ export class ParamReportRecurrence extends ParamMerge {
 	/// The optional time when the <see cref="ReportSchedule"/> stops recurring in local-time (not UTC).
 	/// </summary>
 	end: Date | nothing;
-	
+
 	constructor(json?: JsonObject) {
 		super();
 		this.kind = json?.kind as ReportRecurrenceType;
@@ -50,8 +50,8 @@ export class ParamReportRecurrence extends ParamMerge {
 			: null;
 	}
 
-	override toJSON(): any {
-		const json: any = {};
+	override toJSON(): JsonObject {
+		const json: JsonObject = {};
 		if (this.kind) json.kind = this.kind;
 		if (this.weekdays?.length) json.weekdays = [...this.weekdays];
 		if (this.weekday) json.weekday = this.weekday;

@@ -22,4 +22,10 @@ export abstract class PayReportSchedule extends Payload implements IPaySingle {
 	getKey(): string {
 		return this.reportSchedule?.id?.toString() ?? "";
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			reportSchedule: this.reportSchedule.toJSON(),
+		};
+	}
 }

@@ -40,7 +40,7 @@ export class ParamReportOptions extends ParamMerge {
 	/// Rules used to generate <see cref="ReportDataScorecard"/> for the <see cref="ReportResult"/>.
 	/// </summary>
 	scorecardRules: ParamReportScorecardRules | nothing;
-	
+
 	constructor(json?: JsonObject) {
 		super();
 		this.parameters = (json?.parameters as JsonObject[])?.map((e: any) => new ReportParameter(e));
@@ -51,8 +51,8 @@ export class ParamReportOptions extends ParamMerge {
 		if (json?.scorecardRules) this.scorecardRules = new ParamReportScorecardRules(json.scorecardRules as JsonObject);
 	}
 
-	override toJSON(): any {
-		const json: any = {};
+	override toJSON(): JsonObject {
+		const json: JsonObject = {};
 		if (this.parameters?.length) json.parameters = this.parameters.map((e) => e.toJSON());
 		if (this.targets) json.targets = this.targets;
 		if (this.filtering) json.filtering = this.filtering;

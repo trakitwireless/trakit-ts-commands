@@ -25,15 +25,15 @@ export class ParamReportNotify extends ParamMerge {
 	/// A targeting expression to identify which <see cref="Asset"/>s receive the <see cref="ReportResult"/>.
 	/// </summary>
 	assets: string | nothing;
-	
+
 	constructor(json?: JsonObject) {
 		super();
 		this.users = json?.users ? [...json.users as email[]] : null;
 		this.assets = json?.assets as expression
 	}
 
-	override toJSON(): any {
-		const json: any = {};
+	override toJSON(): JsonObject {
+		const json: JsonObject = {};
 		if (this.users?.length) json.users = [...this.users];
 		if (!utility.isNothing(this.assets)) json.assets = this.assets;
 		return json;

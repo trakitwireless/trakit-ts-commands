@@ -22,4 +22,10 @@ export abstract class PayReportTemplate extends Payload implements IPaySingle {
 	getKey(): string {
 		return this.reportTemplate?.id?.toString() ?? "";
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			reportTemplate: this.reportTemplate.toJSON(),
+		};
+	}
 }

@@ -46,7 +46,7 @@ export class ParamReportScheduleMerge extends ParamMergeSubscribable {
 	/// A list of users and a targeting expression for <see cref="Asset"/>s which receive report results notifications.
 	/// </summary>
 	notify: ParamReportNotify | nothing;
-	
+
 	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id as ulong;
@@ -66,21 +66,21 @@ export class ParamReportScheduleMerge extends ParamMergeSubscribable {
 			: null;
 	}
 
-	override toJSON(): any {
-		const json: any = {};
+	override toJSON(): JsonObject {
+		const json: JsonObject = {};
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];
 		} else {
-			json.template = this.template;
+			json.template = this.template as ulong;
 		}
 		if (this.name) json.name = this.name;
 		if (this.notes) json.notes = this.notes;
 		if (this.owner) json.owner = this.owner;
 		if (!utility.isNothing(this.enabled)) json.enabled = !!this.enabled;
-		if (!utility.isNothing(this.repetition)) json.repetition = this.repetition;
-		if (!utility.isNothing(this.options)) json.options = this.options;
-		if (!utility.isNothing(this.notify)) json.notify = this.notify;
+		if (!utility.isNothing(this.repetition)) json.repetition = this.repetition.toJSON();
+		if (!utility.isNothing(this.options)) json.options = this.options.toJSON();
+		if (!utility.isNothing(this.notify)) json.notify = this.notify.toJSON();
 		return json;
 	}
 }
