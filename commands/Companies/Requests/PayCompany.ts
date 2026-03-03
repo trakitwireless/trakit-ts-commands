@@ -23,4 +23,10 @@ export abstract class PayCompany extends Payload implements IPaySingle {
 	getKey(): string {
 		return this.company?.id?.toString() ?? "";
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			company: this.company?.toJSON(),
+		};
+	}
 }

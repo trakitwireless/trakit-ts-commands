@@ -19,6 +19,12 @@ export abstract class PayCompanyStyleList extends Payload implements IPayDeletab
 		super();
 		this.includeDeleted = !!json?.includeDeleted;
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeDeleted: !!this.includeDeleted,
+		};
+	}
 }
 
 /**
@@ -37,5 +43,11 @@ export class PayCompanyStyleListByCompany extends PayCompanyStyleList implements
 
 	override createReply(json: JsonObject): Reply {
 		return new RepCompanyStyleListByCompany(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			company: this.company.toJSON(),
+		};
 	}
 }

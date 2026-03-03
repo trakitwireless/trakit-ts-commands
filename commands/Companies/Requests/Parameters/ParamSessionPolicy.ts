@@ -43,8 +43,8 @@ export class ParamSessionPolicy extends ParamMerge {
 	/**
 	 * Converts the parameter values to a JSON-compatible format.
 	 */
-	override toJSON(): any {
-		const json: any = {};
+	override toJSON(): JsonObject {
+		const json: JsonObject = {};
 		if (this.applications) json.applications = this.applications;
 		if (this.ipv4Ranges) json.ipv4Ranges = this.ipv4Ranges;
 		if (this.multiUser) json.multiUser = this.multiUser;

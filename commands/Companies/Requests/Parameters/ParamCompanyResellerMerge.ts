@@ -118,8 +118,8 @@ export class ParamCompanyResellerMerge extends ParamMergeSubscribable {
 		this.recoverIsHtml = json?.recoverIsHtml as boolean;
 	}
 
-	override toJSON(): any {
-		const json: any = {
+	override toJSON(): JsonObject {
+		const json: JsonObject = {
 			id: this.id,
 			v: [...this.v],
 		};

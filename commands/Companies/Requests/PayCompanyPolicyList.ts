@@ -19,6 +19,12 @@ export abstract class PayCompanyPolicyList extends Payload implements IPayDeleta
 		super();
 		this.includeDeleted = !!json?.includeDeleted;
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeDeleted: !!this.includeDeleted,
+		};
+	}
 }
 
 /**
@@ -37,5 +43,11 @@ export class PayCompanyPolicyListByCompany extends PayCompanyPolicyList implemen
 
 	override createReply(json: JsonObject): Reply {
 		return new RepCompanyPolicyListByCompany(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			company: this.company.toJSON(),
+		};
 	}
 }

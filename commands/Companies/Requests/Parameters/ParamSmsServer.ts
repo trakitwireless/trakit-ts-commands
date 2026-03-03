@@ -25,8 +25,8 @@ export class ParamSmsServer extends ParamMerge {
 	/**
 	 * Converts the parameter values to a JSON-compatible format.
 	 */
-	override toJSON(): any {
-		const json: any = {};
+	override toJSON(): JsonObject {
+		const json: JsonObject = {};
 		if (utility.isntNaN(this.notifyLimit)) json.notifyLimit = this.notifyLimit;
 		if (this.phoneNumbers?.size) json.phoneNumbers = serialization.fromMap(this.phoneNumbers);
 		return json;

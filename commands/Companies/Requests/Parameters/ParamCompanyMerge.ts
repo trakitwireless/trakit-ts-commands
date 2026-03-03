@@ -67,13 +67,13 @@ export class ParamCompanyMerge extends ParamMergeSubscribable {
 			: null;
 	}
 
-	override toJSON(): any {
-		const json: any = {}
-		if (json.id) {
+	override toJSON(): JsonObject {
+		const json: JsonObject = {};
+		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];
 		} else {
-			json.parent = this.parent;
+			json.parent = this.parent as ulong;
 		}
 		if (this.name) json.name = this.name;
 		if (this.notes) json.notes = this.notes;

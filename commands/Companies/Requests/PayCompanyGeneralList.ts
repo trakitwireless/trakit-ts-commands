@@ -30,6 +30,14 @@ export abstract class PayCompanyGeneralList extends Payload implements IPayDelet
 		this.includeParent = json?.includeParent as boolean ?? true;
 		this.includeDeleted = !!json?.includeDeleted;
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			tree: !!this.tree,
+			includeParent: !!this.includeParent,
+			includeDeleted: !!this.includeDeleted,
+		};
+	}
 }
 
 /**
@@ -48,5 +56,11 @@ export class PayCompanyGeneralListByCompany extends PayCompanyGeneralList implem
 
 	override createReply(json: JsonObject): Reply {
 		return new RepCompanyGeneralListByCompany(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			company: this.company.toJSON(),
+		};
 	}
 }

@@ -81,8 +81,8 @@ export class ParamEmailServer extends ParamMerge {
 	/**
 	 * Converts the parameter values to a JSON-compatible format.
 	 */
-	override toJSON(): any {
-		const json: any = {};
+	override toJSON(): JsonObject {
+		const json: JsonObject = {};
 		if (this.incomingType) json.incomingType = this.incomingType;
 		if (this.incomingAddress) json.incomingAddress = this.incomingAddress;
 		if (utility.isntNaN(this.incomingPort)) json.incomingPort = this.incomingPort;

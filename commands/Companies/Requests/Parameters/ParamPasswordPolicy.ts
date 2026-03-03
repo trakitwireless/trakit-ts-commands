@@ -48,8 +48,8 @@ export class ParamPasswordPolicy extends ParamMerge {
 	/**
 	 * Converts the parameter values to a JSON-compatible format.
 	 */
-	override toJSON(): any {
-		const json: any = {};
+	override toJSON(): JsonObject {
+		const json: JsonObject = {};
 		if (this.minimumLength) json.minimumLength = this.minimumLength;
 		if (!utility.isNothing(this.includeLetters)) json.includeLetters = this.includeLetters;
 		if (!utility.isNothing(this.includeNumbers)) json.includeNumbers = this.includeNumbers;

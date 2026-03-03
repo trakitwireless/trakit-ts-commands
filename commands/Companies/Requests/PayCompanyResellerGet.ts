@@ -21,4 +21,10 @@ export class PayCompanyResellerGet extends PayCompany implements IPayDeletable {
 	override createReply(json: JsonObject): Reply {
 		return new RepCompanyResellerGet(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeDeleted: !!this.includeDeleted,
+		};
+	}
 }
