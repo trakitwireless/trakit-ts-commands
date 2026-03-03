@@ -25,6 +25,13 @@ export abstract class PayProviderControlList extends Payload implements IPayDele
 		this.includeSuspended = json?.includeSuspended as boolean ?? true;
 		this.includeDeleted = !!json?.includeDeleted;
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeSuspended: !!this.includeSuspended,
+			includeDeleted: !!this.includeDeleted,
+		};
+	}
 }
 
 /**
@@ -44,6 +51,12 @@ export class PayProviderControlListByCompany extends PayProviderControlList impl
 	override createReply(json: JsonObject): Reply {
 		return new RepProviderControlListByCompany(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			company: this.company.toJSON(),
+		};
+	}
 }
 /**
  * Gets the list of {@link ProviderControl}s for the specified {@link Company}.
@@ -61,5 +74,11 @@ export class PayProviderControlListByConfig extends PayProviderControlList {
 
 	override createReply(json: JsonObject): Reply {
 		return new RepProviderControlListByConfig(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			config: this.config.toJSON(),
+		};
 	}
 }

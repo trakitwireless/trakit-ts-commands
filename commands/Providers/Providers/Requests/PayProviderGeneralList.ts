@@ -25,6 +25,13 @@ export abstract class PayProviderGeneralList extends Payload implements IPayDele
 		this.includeSuspended = json?.includeSuspended as boolean ?? true;
 		this.includeDeleted = !!json?.includeDeleted;
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeDeleted: !!this.includeDeleted,
+			includeSuspended: !!this.includeSuspended,
+		};
+	}
 }
 
 /**
@@ -44,6 +51,12 @@ export class PayProviderGeneralListByCompany extends PayProviderGeneralList impl
 	override createReply(json: JsonObject): Reply {
 		return new RepProviderGeneralListByCompany(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			company: this.company.toJSON(),
+		};
+	}
 }
 /**
  * Gets the list of {@link ProviderGeneral}s for the specified {@link Company}.
@@ -61,5 +74,11 @@ export class PayProviderGeneralListByConfig extends PayProviderGeneralList {
 
 	override createReply(json: JsonObject): Reply {
 		return new RepProviderGeneralListByConfig(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			config: this.config.toJSON(),
+		};
 	}
 }

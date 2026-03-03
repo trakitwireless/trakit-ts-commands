@@ -21,4 +21,10 @@ export class PayProviderRegistrationGet extends PayProviderRegistration implemen
 	override createReply(json: JsonObject): Reply {
 		return new RepProviderRegistrationGet(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeDeleted: !!this.includeDeleted,
+		};
+	}
 }

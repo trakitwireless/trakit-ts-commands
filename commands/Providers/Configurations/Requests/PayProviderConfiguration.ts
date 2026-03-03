@@ -23,4 +23,10 @@ export abstract class PayProviderConfiguration extends Payload implements IPaySi
 	getKey(): string {
 		return this.providerConfiguration?.id?.toString() ?? "";
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			providerConfiguration: this.providerConfiguration.toJSON(),
+		};
+	}
 }

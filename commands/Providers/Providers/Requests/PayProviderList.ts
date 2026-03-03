@@ -24,6 +24,13 @@ export abstract class PayProviderList extends Payload implements IPayDeletable {
 		this.includeSuspended = json?.includeSuspended as boolean ?? true;
 		this.includeDeleted = !!json?.includeDeleted;
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeSuspended: !!this.includeSuspended,
+			includeDeleted: !!this.includeDeleted,
+		};
+	}
 }
 
 /**
@@ -43,6 +50,12 @@ export class PayProviderListByCompany extends PayProviderList implements IPayLis
 	override createReply(json: JsonObject): Reply {
 		return new RepProviderListByCompany(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			company: this.company.toJSON(),
+		};
+	}
 }
 /**
  * Contains the {@link Company.id} of the collection.
@@ -60,5 +73,11 @@ export class PayProviderListByConfig extends PayProviderList {
 
 	override createReply(json: JsonObject): Reply {
 		return new RepProviderListByConfig(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			config: this.config.toJSON(),
+		};
 	}
 }

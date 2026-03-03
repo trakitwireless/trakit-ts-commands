@@ -21,4 +21,10 @@ export class PayProviderConfigurationBatchMerge extends Payload {
 	override createReply(json: JsonObject): Reply {
 		return new RepProviderConfigurationBatchMerge(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			providerConfigurations: this.providerConfigurations.map((e) => e.toJSON()),
+		};
+	}
 }

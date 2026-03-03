@@ -28,4 +28,10 @@ export class PayProviderScriptMerge extends Payload implements IPaySingle {
 	override createReply(json: JsonObject): Reply {
 		return new RepProviderScriptMerge(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			providerScript: this.providerScript.toJSON(),
+		};
+	}
 }

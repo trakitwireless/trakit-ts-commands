@@ -23,4 +23,10 @@ export abstract class PayProviderConfigurationType extends Payload implements IP
 	getKey(): string {
 		return this.providerConfigurationType?.id?.toString() ?? "";
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			providerConfigurationType: this.providerConfigurationType.toJSON(),
+		};
+	}
 }

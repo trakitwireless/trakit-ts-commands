@@ -23,4 +23,10 @@ export abstract class PayProviderRegistration extends Payload implements IPaySin
 	getKey(): string {
 		return this.providerRegistration?.code.toString() ?? "";
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			providerRegistration: this.providerRegistration.toJSON(),
+		};
+	}
 }

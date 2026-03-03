@@ -19,6 +19,12 @@ export abstract class PayProviderRegistrationList extends Payload implements IPa
 		super(json);
 		this.includeDeleted = !!json?.includeDeleted;
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeDeleted: !!this.includeDeleted,
+		};
+	}
 }
 
 /**
@@ -37,5 +43,11 @@ export class PayProviderRegistrationListByCompany extends PayProviderRegistratio
 
 	override createReply(json: JsonObject): Reply {
 		return new RepProviderRegistrationListByCompany(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			company: this.company.toJSON(),
+		};
 	}
 }

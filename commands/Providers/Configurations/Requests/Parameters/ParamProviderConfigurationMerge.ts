@@ -38,7 +38,7 @@ export class ParamProviderConfigurationMerge extends ParamMergeSubscribable {
 	/// A list of <see cref="Place"/>s whose shape is programmed directly onto <see cref="Provider"/>s to raise instant boundary events.
 	/// </summary>
 	geofences: ulong[] | nothing;
-	
+
 	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id as ulong;
@@ -50,14 +50,14 @@ export class ParamProviderConfigurationMerge extends ParamMergeSubscribable {
 			: null;
 		this.geofences = json?.geofences as ulong[];
 	}
-	override toJSON(): any {
-		const json: any = {};
+	override toJSON(): JsonObject {
+		const json: JsonObject = {};
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];
 		} else {
-			json.company = this.company;
-			json.type = this.type;
+			json.company = this.company as ulong;
+			json.type = this.type as ulong;
 		}
 		if (this.name) json.name = this.name;
 		if (this.notes) json.notes = this.notes;

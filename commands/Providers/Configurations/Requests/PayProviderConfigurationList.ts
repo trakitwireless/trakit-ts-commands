@@ -19,6 +19,12 @@ export abstract class PayProviderConfigurationList extends Payload implements IP
 		super(json);
 		this.includeDeleted = !!json?.includeDeleted;
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeDeleted: !!this.includeDeleted,
+		};
+	}
 }
 /**
  * Contains the {@link Company.id} of the collection.
@@ -36,5 +42,11 @@ export class PayProviderConfigurationListByCompany extends PayProviderConfigurat
 
 	override createReply(json: JsonObject): Reply {
 		return new RepProviderConfigurationListByCompany(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			company: this.company.toJSON(),
+		};
 	}
 }

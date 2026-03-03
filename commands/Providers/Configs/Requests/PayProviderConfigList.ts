@@ -19,6 +19,12 @@ export abstract class PayProviderConfigList extends Payload implements IPayDelet
 		super(json);
 		this.includeDeleted = !!json?.includeDeleted;
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeDeleted: !!this.includeDeleted,
+		};
+	}
 }
 
 /**
@@ -38,6 +44,12 @@ export class PayProviderConfigListByCompany extends PayProviderConfigList implem
 	override createReply(json: JsonObject): Reply {
 		return new RepProviderConfigListByCompany(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			company: this.company.toJSON(),
+		};
+	}
 }
 /**
  * Contains the {@link ProviderScript.id} of the collection.
@@ -55,5 +67,11 @@ export class PayProviderConfigListByProviderScript extends PayProviderConfigList
 
 	override createReply(json: JsonObject): Reply {
 		return new RepProviderConfigListByProviderScript(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			providerScript: this.providerScript.toJSON(),
+		};
 	}
 }

@@ -21,4 +21,10 @@ export class PayProviderConfigBatchDelete extends Payload {
 	override createReply(json: JsonObject): Reply {
 		return new RepProviderConfigBatchDelete(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			providerConfigs: this.providerConfigs.map((e) => e.toJSON()),
+		};
+	}
 }

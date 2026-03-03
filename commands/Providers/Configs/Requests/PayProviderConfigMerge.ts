@@ -28,4 +28,10 @@ export class PayProviderConfigMerge extends Payload implements IPaySingle {
 	override createReply(json: JsonObject): Reply {
 		return new RepProviderConfigMerge(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			providerConfig: this.providerConfig.toJSON(),
+		};
+	}
 }

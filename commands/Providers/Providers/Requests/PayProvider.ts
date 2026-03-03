@@ -22,4 +22,10 @@ export abstract class PayProvider extends Payload implements IPaySingle {
 	getKey(): string {
 		return this.provider?.id ?? "";
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			provider: this.provider.toJSON(),
+		};
+	}
 }

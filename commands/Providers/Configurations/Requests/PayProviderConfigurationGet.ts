@@ -21,4 +21,10 @@ export class PayProviderConfigurationGet extends PayProviderConfiguration implem
 	override createReply(json: JsonObject): Reply {
 		return new RepProviderConfigurationGet(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeDeleted: !!this.includeDeleted,
+		};
+	}
 }

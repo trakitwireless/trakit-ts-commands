@@ -57,8 +57,8 @@ export class ParamProviderRegistrationMerge extends ParamMerge {
 		this.password = json?.password as string;
 	}
 
-	override toJSON(): any {
-		const json: any = {};
+	override toJSON(): JsonObject {
+		const json: JsonObject = {};
 		if (this.config) json.config = this.config;
 		if (!utility.isNothing(this.asset)) json.asset = this.asset;
 		if (!utility.isNothing(this.identifier)) json.identifier = this.identifier;

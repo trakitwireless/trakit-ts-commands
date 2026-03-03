@@ -22,4 +22,10 @@ export class PayProviderRegistrationMerge extends Payload {
 	override createReply(json: JsonObject): Reply {
 		return new RepProviderRegistrationMerge(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			providerRegistration: this.providerRegistration.toJSON(),
+		};
+	}
 }

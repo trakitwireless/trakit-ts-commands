@@ -9,7 +9,7 @@ export class ParamProviderMerge extends ParamMergeSubscribable {
 	 * The unique identifier of the {@link Provider} you want to update.
 	 * Leave this as `null` when creating a new {@link Provider}.
 	 */
-	id: string | nothing;
+	id: string;
 	/**
 	 * The {@link Company} to which this {@link Provider} belongs.
 	 * After creation, this value is read-only.
@@ -43,7 +43,7 @@ export class ParamProviderMerge extends ParamMergeSubscribable {
 	/// The password required to communicate and program this <see cref="Provider"/>.
 	/// </summary>
 	password: string | nothing;
-	
+
 	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id as string;
@@ -57,15 +57,15 @@ export class ParamProviderMerge extends ParamMergeSubscribable {
 		this.password = json?.password as string;
 	}
 
-	override toJSON(): any {
-		const json: any = {
+	override toJSON(): JsonObject {
+		const json: JsonObject = {
 			id: this.id,
 		};
 		if (this.v?.length) {
 			json.v = [...this.v];
 		} else {
-			json.company = this.company;
-			json.kind = this.kind;
+			json.company = this.company as ulong;
+			json.kind = this.kind as ProviderType;
 		}
 		if (this.asset) json.asset = this.asset;
 		if (this.config) json.config = this.config;

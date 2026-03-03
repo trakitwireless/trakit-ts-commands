@@ -25,6 +25,13 @@ export abstract class PayProviderAdvancedList extends Payload implements IPayDel
 		this.includeSuspended = json?.includeSuspended as boolean ?? true;
 		this.includeDeleted = !!json?.includeDeleted;
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeSuspended: !!this.includeSuspended,
+			includeDeleted: !!this.includeDeleted,
+		};
+	}
 }
 
 /**
@@ -40,9 +47,15 @@ export class PayProviderAdvancedListByCompany extends PayProviderAdvancedList im
 		super(json);
 		this.company = new ParamId(json?.company as JsonObject);
 	}
-	
+
 	override createReply(json: JsonObject): Reply {
 		return new RepProviderAdvancedListByCompany(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			company: this.company.toJSON(),
+		};
 	}
 }
 /**
@@ -58,8 +71,14 @@ export class PayProviderAdvancedListByConfig extends PayProviderAdvancedList {
 		super(json);
 		this.config = new ParamId(json?.config as JsonObject);
 	}
-	
+
 	override createReply(json: JsonObject): Reply {
 		return new RepProviderAdvancedListByConfig(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			config: this.config.toJSON(),
+		};
 	}
 }

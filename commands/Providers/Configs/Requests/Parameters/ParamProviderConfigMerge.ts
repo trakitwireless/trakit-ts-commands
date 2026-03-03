@@ -40,7 +40,7 @@ export class ParamProviderConfigMerge extends ParamMergeSubscribable {
 	/// Or use "#123456" or "label:term" like other Place search patterns.
 	/// </summary>
 	geofences: string | nothing;
-	
+
 	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id as ulong;
@@ -53,13 +53,13 @@ export class ParamProviderConfigMerge extends ParamMergeSubscribable {
 		this.geofences = json?.geofences as expression;
 	}
 
-	override toJSON(): any {
-		const json: any = {};
+	override toJSON(): JsonObject {
+		const json: JsonObject = {};
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];
 		} else {
-			json.script = this.script;
+			json.script = this.script as ulong;
 		}
 		if (this.name) json.name = this.name;
 		if (this.notes) json.notes = this.notes;
