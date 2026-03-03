@@ -23,4 +23,10 @@ export abstract class PayPlace extends Payload implements IPaySingle {
 	getKey(): string {
 		return this.place?.id?.toString() ?? "";
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			place: this.place.toJSON(),
+		};
+	}
 }

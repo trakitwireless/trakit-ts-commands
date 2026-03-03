@@ -84,7 +84,7 @@ export class ParamPlaceMerge extends ParamMergeSubscribable {
 	/// </summary>
 	/// <override max-length="100" />
 	reference: string | nothing;
-	
+
 	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id as ulong;
@@ -105,13 +105,13 @@ export class ParamPlaceMerge extends ParamMergeSubscribable {
 		this.reference = json?.reference as string;
 	}
 
-	override toJSON(): any {
-		const json: any = {};
+	override toJSON(): JsonObject {
+		const json: JsonObject = {};
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];
 		} else {
-			json.company = this.company;
+			json.company = this.company as ulong;
 		}
 		if (this.name) json.name = this.name;
 		if (this.notes) json.notes = this.notes;

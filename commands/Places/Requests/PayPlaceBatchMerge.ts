@@ -21,4 +21,10 @@ export class PayPlaceBatchMerge extends Payload {
 	override createReply(json: JsonObject): Reply {
 		return new RepPlaceBatchMerge(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			places: this.places.map(p => p.toJSON()),
+		};
+	}
 }
