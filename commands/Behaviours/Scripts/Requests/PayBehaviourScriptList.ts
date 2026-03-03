@@ -19,6 +19,12 @@ export abstract class PayBehaviourScriptList extends Payload implements IPayDele
 		super(json);
 		this.includeDeleted = !!json?.includeDeleted;
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeDeleted: !!this.includeDeleted,
+		};
+	}
 }
 
 /**
@@ -37,5 +43,11 @@ export class PayBehaviourScriptListByCompany extends PayBehaviourScriptList impl
 
 	override createReply(json: JsonObject): Reply {
 		return new RepBehaviourScriptListByCompany(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			company: this.company.toJSON(),
+		};
 	}
 }

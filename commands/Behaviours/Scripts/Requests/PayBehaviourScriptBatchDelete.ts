@@ -21,4 +21,10 @@ export class PayBehaviourScriptBatchDelete extends Payload {
 	override createReply(json: JsonObject): Reply {
 		return new RepBehaviourScriptBatchDelete(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			behaviourScripts: this.behaviourScripts.map(b => b.toJSON()),
+		};
+	}
 }

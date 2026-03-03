@@ -60,14 +60,14 @@ export class ParamBehaviourMerge extends ParamMergeSubscribable {
 			: null;
 	}
 
-	override toJSON(): any {
-		const json: any = {};
+	override toJSON(): JsonObject {
+		const json: JsonObject = {};
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];
 		} else {
-			json.script = this.script;
-			json.company = this.company;
+			json.script = this.script as ulong;
+			json.company = this.company as ulong;
 		}
 		if (this.name) json.name = this.name;
 		if (this.notes) json.notes = this.notes;

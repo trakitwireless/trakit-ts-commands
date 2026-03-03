@@ -21,6 +21,12 @@ export class PayBehaviourLogBatchDeleteByAsset extends Payload {
 	override createReply(json: JsonObject): Reply {
 		return new RepBehaviourLogBatchDeleteByAsset(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			asset: this.asset.toJSON(),
+		};
+	}
 }
 /**
  * 
@@ -39,6 +45,12 @@ export class PayBehaviourLogBatchDeleteByBehaviour extends Payload {
 	override createReply(json: JsonObject): Reply {
 		return new RepBehaviourLogBatchDeleteByBehaviour(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			behaviour: this.behaviour.toJSON(),
+		};
+	}
 }
 /**
  * 
@@ -56,5 +68,11 @@ export class PayBehaviourLogBatchDeleteByScript extends Payload {
 
 	override createReply(json: JsonObject): Reply {
 		return new RepBehaviourLogBatchDeleteByScript(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			behaviourScript: this.behaviourScript.toJSON(),
+		};
 	}
 }

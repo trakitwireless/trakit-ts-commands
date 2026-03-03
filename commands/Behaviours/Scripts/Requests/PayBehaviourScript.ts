@@ -22,4 +22,10 @@ export abstract class PayBehaviourScript extends Payload implements IPaySingle {
 	getKey(): string {
 		return this.behaviourScript?.id?.toString() ?? "";
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			behaviourScript: this.behaviourScript.toJSON(),
+		};
+	}
 }

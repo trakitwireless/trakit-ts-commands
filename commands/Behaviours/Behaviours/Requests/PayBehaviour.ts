@@ -23,4 +23,10 @@ export abstract class PayBehaviour extends Payload implements IPaySingle {
 	getKey(): string {
 		return this.behaviour?.id?.toString() ?? "";
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			behaviour: this.behaviour.toJSON(),
+		};
+	}
 }

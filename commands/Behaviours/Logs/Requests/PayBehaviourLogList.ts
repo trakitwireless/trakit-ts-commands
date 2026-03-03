@@ -19,6 +19,12 @@ export abstract class PayBehaviourLogList extends Payload implements IPayDeletab
 		super(json);
 		this.includeDeleted = !!json?.includeDeleted;
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeDeleted: !!this.includeDeleted,
+		};
+	}
 }
 
 /**
@@ -38,6 +44,12 @@ export class PayBehaviourLogListByAsset extends PayBehaviourLogList implements I
 	override createReply(json: JsonObject): Reply {
 		return new RepBehaviourLogListByAsset(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			asset: this.asset.toJSON(),
+		};
+	}
 }
 /**
  * Contains the {@link Company.id} of the collection.
@@ -56,6 +68,12 @@ export class PayBehaviourLogListByBehaviour extends PayBehaviourLogList {
 	override createReply(json: JsonObject): Reply {
 		return new RepBehaviourLogListByBehaviour(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			behaviour: this.behaviour.toJSON(),
+		};
+	}
 }
 /**
  * Contains the {@link Company.id} of the collection.
@@ -73,5 +91,11 @@ export class PayBehaviourLogListByScript extends PayBehaviourLogList {
 
 	override createReply(json: JsonObject): Reply {
 		return new RepBehaviourLogListByScript(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			behaviourScript: this.behaviourScript.toJSON(),
+		};
 	}
 }
