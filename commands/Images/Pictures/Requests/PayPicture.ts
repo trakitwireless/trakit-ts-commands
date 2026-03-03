@@ -23,4 +23,10 @@ export abstract class PayPicture extends Payload implements IPaySingle {
 	getKey(): string {
 		return this.picture?.id?.toString() ?? "";
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			picture: this.picture.toJSON(),
+		};
+	}
 }

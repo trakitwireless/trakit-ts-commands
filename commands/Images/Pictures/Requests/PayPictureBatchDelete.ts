@@ -21,4 +21,10 @@ export class PayPictureBatchDelete extends Payload {
 	override createReply(json: JsonObject): Reply {
 		return new RepPictureBatchDelete(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			pictures: this.pictures.map(i => i.toJSON()),
+		};
+	}
 }

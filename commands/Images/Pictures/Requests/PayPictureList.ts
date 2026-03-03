@@ -19,6 +19,12 @@ export abstract class PayPictureList extends Payload implements IPayDeletable {
 		super(json);
 		this.includeDeleted = !!json?.includeDeleted;
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeDeleted: !!this.includeDeleted,
+		};
+	}
 }
 
 /**
@@ -37,5 +43,11 @@ export class PayPictureListByCompany extends PayPictureList implements IPayListB
 
 	override createReply(json: JsonObject): Reply {
 		return new RepPictureListByCompany(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			company: this.company.toJSON(),
+		};
 	}
 }

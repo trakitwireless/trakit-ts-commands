@@ -23,4 +23,10 @@ export abstract class PayDashcam extends Payload implements IPaySingle {
 	getKey(): string {
 		return this.dashcam?.guid ?? "";
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			dashcam: this.dashcam.toJSON(),
+		};
+	}
 }

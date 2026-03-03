@@ -29,4 +29,10 @@ export class PayIconMerge extends Payload implements IPaySingle {
 	override createReply(json: JsonObject): Reply {
 		return new RepIconMerge(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			icon: this.icon.toJSON(),
+		};
+	}
 }

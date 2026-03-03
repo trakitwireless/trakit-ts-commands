@@ -38,17 +38,17 @@ export class ParamPictureMerge extends ParamMergeSubscribable {
 		this.focals = (json?.focals as JsonObject[])?.map((focal: any) => Rectangle.fromJSON(focal));
 	}
 
-	override toJSON(): any {
-		const json: any = {}
+	override toJSON(): JsonObject {
+		const json: JsonObject = {}
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];
 		} else {
-			json.company = this.company;
+			json.company = this.company as ulong;
 		}
 		if (this.name) json.name = this.name;
 		if (this.notes) json.notes = this.notes;
-		if (this.focals) json.focals = this.focals.map(focal => focal.toJSON());
+		if (this.focals) json.focals = this.focals.map(focal => focal.toJSON() as any as JsonObject);
 		return json;
 	}
 }

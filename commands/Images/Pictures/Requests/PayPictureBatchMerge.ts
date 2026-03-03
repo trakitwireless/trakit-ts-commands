@@ -21,4 +21,10 @@ export class PayPictureBatchMerge extends Payload {
 	override createReply(json: JsonObject): Reply {
 		return new RepPictureBatchMerge(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			pictures: this.pictures.map(i => i.toJSON()),
+		};
+	}
 }

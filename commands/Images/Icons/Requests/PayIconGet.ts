@@ -21,4 +21,10 @@ export class PayIconGet extends PayIcon implements IPayDeletable {
 	override createReply(json: JsonObject): Reply {
 		return new RepIconGet(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeDeleted: !!this.includeDeleted,
+		};
+	}
 }

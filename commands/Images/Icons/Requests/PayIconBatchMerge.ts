@@ -21,4 +21,10 @@ export class PayIconBatchMerge extends Payload {
 	override createReply(json: JsonObject): Reply {
 		return new RepIconBatchMerge(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			icons: this.icons.map(i => i.toJSON()),
+		};
+	}
 }

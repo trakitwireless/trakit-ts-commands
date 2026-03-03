@@ -26,6 +26,14 @@ export abstract class PayDashcamList extends PayListByDate implements IPayDeleta
 		this.includeDeleted = !!json?.includeDeleted;
 		this.kind = DashcamMediaType[json?.kind as DashcamMediaType];
 	}
+	override toJSON(): JsonObject {
+		const json: JsonObject = {
+			...super.toJSON(),
+			includeDeleted: !!this.includeDeleted,
+		};
+		if (this.kind) json.kind = this.kind;
+		return json;
+	}
 }
 
 /**
@@ -45,6 +53,12 @@ export class PayDashcamListByCompany extends PayDashcamList implements IPayListB
 	override createReply(json: JsonObject): Reply {
 		return new RepDashcamListByCompany(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			company: this.company.toJSON(),
+		};
+	}
 }
 /**
  * Contains the {@link Company.id} of the collection.
@@ -63,6 +77,12 @@ export class PayDashcamListByAsset extends PayDashcamList implements IPayListByA
 	override createReply(json: JsonObject): Reply {
 		return new RepDashcamListByAsset(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			asset: this.asset.toJSON(),
+		};
+	}
 }
 /**
  * Contains the {@link Company.id} of the collection.
@@ -80,6 +100,12 @@ export class PayDashcamListByProvider extends PayDashcamList {
 
 	override createReply(json: JsonObject): Reply {
 		return new RepDashcamListByProvider(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			provider: this.provider.toJSON(),
+		};
 	}
 }
 
@@ -126,6 +152,12 @@ export class PayDashcamLiveListByCompany extends PayDashcamLiveList implements I
 	override createReply(json: JsonObject): Reply {
 		return new RepDashcamLiveListByCompany(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			company: this.company.toJSON(),
+		};
+	}
 }
 /**
  * Contains the {@link Company.id} of the collection.
@@ -144,6 +176,12 @@ export class PayDashcamLiveListByAsset extends PayDashcamLiveList implements IPa
 	override createReply(json: JsonObject): Reply {
 		return new RepDashcamLiveListByAsset(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			asset: this.asset.toJSON(),
+		};
+	}
 }
 /**
  * Contains the {@link Company.id} of the collection.
@@ -161,5 +199,11 @@ export class PayDashcamLiveListByProvider extends PayDashcamLiveList {
 
 	override createReply(json: JsonObject): Reply {
 		return new RepDashcamLiveListByProvider(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			provider: this.provider.toJSON(),
+		};
 	}
 }

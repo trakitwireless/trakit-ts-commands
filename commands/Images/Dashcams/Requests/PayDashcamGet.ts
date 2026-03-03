@@ -21,4 +21,10 @@ export class PayDashcamGet extends PayDashcam implements IPayDeletable {
 	override createReply(json: JsonObject): Reply {
 		return new RepDashcamGet(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeDeleted: !!this.includeDeleted,
+		};
+	}
 }

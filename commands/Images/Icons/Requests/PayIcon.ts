@@ -23,4 +23,10 @@ export abstract class PayIcon extends Payload implements IPaySingle {
 	getKey(): string {
 		return this.icon?.id?.toString() ?? "";
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			icon: this.icon.toJSON(),
+		};
+	}
 }
