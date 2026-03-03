@@ -1,4 +1,4 @@
-import { codified, JsonObject } from "@trakit/objects";
+import { codified, JsonObject, serialization } from "@trakit/objects";
 import { IPayDeletable } from "../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../API/Requests/IPayListByCompany";
 import { IPayListByLabels } from "../../API/Requests/IPayListByLabels";
@@ -103,7 +103,7 @@ export class PayAssetDispatchListByCompanyAndRefPairs extends PayAssetDispatchLi
 	override toJSON(): JsonObject {
 		return {
 			...super.toJSON(),
-			references: Object.fromEntries(this.references),
+			references: serialization.fromMap(this.references),
 		};
 	}
 }
