@@ -37,6 +37,15 @@ export abstract class PayAssetList extends Payload implements IPayDeletable, IPa
 		this.includeSuspended = json?.includeSuspended as boolean ?? true;
 		this.includeDeleted = !!json?.includeDeleted;
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeMessages: !!this.includeMessages,
+			includeTasks: !!this.includeTasks,
+			includeSuspended: !!this.includeSuspended,
+			includeDeleted: !!this.includeDeleted
+		};
+	}
 }
 
 /**
@@ -55,6 +64,12 @@ export class PayAssetListByCompany extends PayAssetList implements IPayListByCom
 
 	override createReply(json: JsonObject): Reply {
 		return new RepAssetListByCompany(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			company: this.company.toJSON()
+		};
 	}
 }
 
@@ -75,6 +90,12 @@ export class PayAssetListByCompanyAndLabels extends PayAssetListByCompany implem
 
 	override createReply(json: JsonObject): Reply {
 		return new RepAssetListByCompanyAndLabels(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			labels: [...this.labels],
+		};
 	}
 }
 
@@ -97,5 +118,11 @@ export class PayAssetListByCompanyAndRefPairs extends PayAssetListByCompany impl
 
 	override createReply(json: JsonObject): Reply {
 		return new RepAssetListByCompanyAndRefPairs(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			references: Object.fromEntries(this.references),
+		};
 	}
 }

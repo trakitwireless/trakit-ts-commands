@@ -21,4 +21,10 @@ export class PayAssetBatchMerge extends Payload {
 	override createReply(json: JsonObject): Reply {
 		return new RepAssetBatchMerge(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			assets: this.assets.map(a => a.toJSON()),
+		};
+	}
 }

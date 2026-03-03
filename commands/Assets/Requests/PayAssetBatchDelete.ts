@@ -22,4 +22,10 @@ export class PayAssetBatchDelete extends Payload {
 	override createReply(json: JsonObject): Reply {
 		return new RepAssetBatchDelete(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			assets: this.assets.map(a => a.toJSON()),
+		};
+	}
 }

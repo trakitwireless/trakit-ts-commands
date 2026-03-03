@@ -37,6 +37,15 @@ export abstract class PayAssetGeneralList extends Payload implements IPayDeletab
 		this.includeSuspended = json?.includeSuspended as boolean ?? true;
 		this.includeDeleted = !!json?.includeDeleted;
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeMessages: !!this.includeMessages,
+			includeTasks: !!this.includeTasks,
+			includeSuspended: !!this.includeSuspended,
+			includeDeleted: !!this.includeDeleted
+		};
+	}
 }
 
 /**
@@ -56,6 +65,12 @@ export class PayAssetGeneralListByCompany extends PayAssetGeneralList implements
 	override createReply(json: JsonObject): Reply {
 		return new RepAssetGeneralListByCompany(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			company: this.company.toJSON()
+		};
+	}
 }
 /**
  * Gets the list of {@link AssetGeneral}s for the specified {@link Company} only if the {@link AssetGeneralGeneral.labels} matches all of the given {@link Parameters.labels}.
@@ -74,6 +89,12 @@ export class PayAssetGeneralListByCompanyAndLabels extends PayAssetGeneralListBy
 
 	override createReply(json: JsonObject): Reply {
 		return new RepAssetGeneralListByCompanyAndLabels(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			labels: [...this.labels],
+		};
 	}
 }
 /**
@@ -95,5 +116,11 @@ export class PayAssetGeneralListByCompanyAndRefPairs extends PayAssetGeneralList
 
 	override createReply(json: JsonObject): Reply {
 		return new RepAssetGeneralListByCompanyAndRefPairs(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			references: Object.fromEntries(this.references),
+		};
 	}
 }

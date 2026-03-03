@@ -3,7 +3,6 @@ import { IPayDeletable } from "../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../API/Requests/IPayListByCompany";
 import { IPayListByLabels } from "../../API/Requests/IPayListByLabels";
 import { IPayListByReferences } from "../../API/Requests/IPayListByReferences";
-import { IPaySuspendable } from "../../API/Requests/IPaySuspendable";
 import { ParamId } from "../../API/Requests/Parameters/ParamId";
 import { Payload } from "../../API/Requests/Payload";
 import { Reply } from "../../API/Responses/Reply";
@@ -12,19 +11,7 @@ import { RepAssetDispatchListByCompany, RepAssetDispatchListByCompanyAndLabels, 
 /**
  * Gets a list of {@link AssetDispatch}s.
  */
-export abstract class PayAssetDispatchList extends Payload implements IPayDeletable, IPaySuspendable {
-	/**
-	 * When true, the command will also return {@link AssetDispatchMessage}s for the asset.
-	 */
-	includeMessages: boolean;
-	/**
-	 * When true, the command will also return {@link DispatchTask}s for the asset.
-	 */
-	includeTasks: boolean;
-	/**
-	 * When true, the command will also return suspended {@link AssetDispatch}s.
-	 */
-	includeSuspended: boolean;
+export abstract class PayAssetDispatchList extends Payload implements IPayDeletable {
 	/**
 	 * When true, the command will also return a deleted {@link AssetDispatch} (if it exists).
 	 */
@@ -32,10 +19,13 @@ export abstract class PayAssetDispatchList extends Payload implements IPayDeleta
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.includeMessages = !!json?.includeMessages;
-		this.includeTasks = !!json?.includeTasks;
-		this.includeSuspended = json?.includeSuspended as boolean ?? true;
 		this.includeDeleted = !!json?.includeDeleted;
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeDeleted: !!this.includeDeleted,
+		};
 	}
 }
 
@@ -56,6 +46,12 @@ export class PayAssetDispatchListByCompany extends PayAssetDispatchList implemen
 	override createReply(json: JsonObject): Reply {
 		return new RepAssetDispatchListByCompany(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			company: this.company.toJSON(),
+		};
+	}
 }
 
 /**
@@ -75,6 +71,12 @@ export class PayAssetDispatchListByCompanyAndLabels extends PayAssetDispatchList
 
 	override createReply(json: JsonObject): Reply {
 		return new RepAssetDispatchListByCompanyAndLabels(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			labels: [...this.labels],
+		};
 	}
 }
 
@@ -97,5 +99,11 @@ export class PayAssetDispatchListByCompanyAndRefPairs extends PayAssetDispatchLi
 
 	override createReply(json: JsonObject): Reply {
 		return new RepAssetDispatchListByCompanyAndRefPairs(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			references: Object.fromEntries(this.references),
+		};
 	}
 }

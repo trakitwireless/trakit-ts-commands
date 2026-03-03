@@ -171,14 +171,14 @@ export class ParamAssetMerge extends ParamMergeSubscribable {
 		this.relationships = json?.relationships as ulong[];
 	}
 
-	override toJSON(): any {
-		const json: any = {};
+	override toJSON(): JsonObject {
+		const json: JsonObject = {};
 		if (this.id) {
 			json.id = this.id;
 			json["v"] = [...this.v];
 		} else {
-			json["company"] = this.company;
-			json.kind = this.kind;
+			json["company"] = this.company as ulong;
+			json.kind = this.kind as AssetType;
 		}
 		if (this.name) json.name = this.name;
 		if (this.notes) json.notes = this.notes;

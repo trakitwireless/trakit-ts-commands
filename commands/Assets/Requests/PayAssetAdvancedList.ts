@@ -37,6 +37,15 @@ export abstract class PayAssetAdvancedList extends Payload implements IPayDeleta
 		this.includeSuspended = json?.includeSuspended as boolean ?? true;
 		this.includeDeleted = !!json?.includeDeleted;
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeMessages: !!this.includeMessages,
+			includeTasks: !!this.includeTasks,
+			includeSuspended: !!this.includeSuspended,
+			includeDeleted: !!this.includeDeleted,
+		};
+	}
 }
 
 /**
@@ -56,6 +65,12 @@ export class PayAssetAdvancedListByCompany extends PayAssetAdvancedList implemen
 	override createReply(json: JsonObject): Reply {
 		return new RepAssetAdvancedListByCompany(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			company: this.company.toJSON(),
+		};
+	}
 }
 /**
  * Gets the list of {@link AssetAdvanced}s for the specified {@link Company} only if the {@link AssetAdvancedGeneral.labels} matches all of the given {@link Parameters.labels}.
@@ -74,6 +89,12 @@ export class PayAssetAdvancedListByCompanyAndLabels extends PayAssetAdvancedList
 
 	override createReply(json: JsonObject): Reply {
 		return new RepAssetAdvancedListByCompanyAndLabels(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			labels: [...this.labels],
+		};
 	}
 }
 /**
@@ -95,5 +116,11 @@ export class PayAssetAdvancedListByCompanyAndRefPairs extends PayAssetAdvancedLi
 
 	override createReply(json: JsonObject): Reply {
 		return new RepAssetAdvancedListByCompanyAndRefPairs(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			references: Object.fromEntries(this.references),
+		};
 	}
 }

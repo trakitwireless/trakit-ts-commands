@@ -23,4 +23,10 @@ export abstract class PayAsset extends Payload implements IPaySingle {
 	getKey(): string {
 		return this.asset?.id?.toString() ?? "";
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			asset: this.asset.toJSON(),
+		};
+	}
 }

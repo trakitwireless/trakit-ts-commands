@@ -21,4 +21,10 @@ export class PayAssetMerge extends Payload {
 	override createReply(json: JsonObject): Reply {
 		return new RepAssetMerge(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			asset: this.asset.toJSON()
+		};
+	}
 }
