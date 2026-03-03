@@ -1,21 +1,22 @@
-import { codified, CompanyDirectory, email, guid, JsonObject, nothing, ulong } from "@trakit/objects";
+import { codified, Company, CompanyDirectory, email, guid, JsonObject, nothing, ulong } from "@trakit/objects";
 import { ContentIdParent } from "../../API/Responses/Content/ContentIdParent";
-import { ReplySyncList } from "../../API/Responses/ReplySyncList";
+import { ReplySyncListPiece } from "../../API/Responses/ReplySyncList";
 
 /**
- * A container for the requested {@link companyDirectorys}.
+ * A container for the requested {@link companyDirectories}.
  */
-export abstract class RepCompanyDirectoryList extends ReplySyncList<CompanyDirectory> {
+export abstract class RepCompanyDirectoryList extends ReplySyncListPiece<CompanyDirectory> {
 	/**
 	 * The list of requested {@link CompanyDirectory}s.
 	 */
 	companyDirectories: CompanyDirectory[] | nothing;
 
 	constructor(json: JsonObject) {
-		super(json, "CompanyDirectory");
+		super(json, "CompanyDirectory", 2);
 		this.companyDirectories = (json?.companyDirectories as JsonObject[])?.map((c: any) => new CompanyDirectory(c));
 	}
 	override getList() { return this.companyDirectories as CompanyDirectory[]; }
+	protected override _createBlank() { return new Company(); }
 }
 
 /**
