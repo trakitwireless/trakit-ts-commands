@@ -104,7 +104,7 @@ export class ParamDispatchTaskMerge extends ParamMergeSubscribable {
 		if (this.place) json.place = this.place;
 		if (this.instructions) json.instructions = this.instructions;
 		if (this.attachments) json.attachments = this.attachments;
-		if (this.latlng?.isValid()) json.latlng = this.latlng.toJSON() as any as JsonObject;
+		if (this.latlng?.isValid()) json.latlng = this.latlng.toJSON();
 		if (utility.isntNaN(this.eta?.valueOf())) json.eta = this.eta.toISOString();
 		if (utility.isntNaN(this.duration?.valueOf())) json.duration = this.duration.toString();
 		if (this.status) json.status = this.status;

@@ -66,7 +66,7 @@ export class ParamDispatchStepMerge extends ParamMergeSubscribable {
 		if (this.duration) json.duration = this.duration.toString();
 		if (this.place) json.place = this.place;
 		if (this.address) json.address = this.address;
-		if (this.latlng) json.latlng = this.latlng.toJSON() as any as JsonObject;
+		if (this.latlng) json.latlng = this.latlng.toJSON();
 		if (this.signature) json.signature = this.signature;
 		return json;
 	}

@@ -28,7 +28,7 @@ export class ParamPictureMerge extends ParamMergeSubscribable {
 	/// A list of focal points in the <see cref="Picture"/> like faces.
 	/// </summary>
 	focals: Rectangle[] | nothing;
-	
+
 	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id as ulong;
@@ -48,7 +48,7 @@ export class ParamPictureMerge extends ParamMergeSubscribable {
 		}
 		if (this.name) json.name = this.name;
 		if (this.notes) json.notes = this.notes;
-		if (this.focals) json.focals = this.focals.map(focal => focal.toJSON() as any as JsonObject);
+		if (this.focals) json.focals = this.focals.map(focal => focal.toJSON());
 		return json;
 	}
 }

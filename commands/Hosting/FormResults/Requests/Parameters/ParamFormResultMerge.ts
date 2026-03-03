@@ -42,7 +42,7 @@ export class ParamFormResultMerge extends ParamMergeSubscribable {
 	 * Coordinates from when the {@link FormResult} was completed.
 	 */
 	latlng: LatLng | nothing;
-	
+
 	constructor(json?: JsonObject) {
 		super(json);
 		this.id = json?.id as ulong;
@@ -74,7 +74,7 @@ export class ParamFormResultMerge extends ParamMergeSubscribable {
 		if (this.labels?.length) json.labels = [...this.labels];
 		if (this.fields?.size) json.fields = serialization.fromMap(this.fields);
 		if (this.completed?.valueOf()) json.completed = this.completed?.toISOString();
-		if (this.latlng?.isValid()) json.latlng = this.latlng.toJSON() as any as JsonObject;
+		if (this.latlng?.isValid()) json.latlng = this.latlng.toJSON();
 		return json;
 	}
 }
