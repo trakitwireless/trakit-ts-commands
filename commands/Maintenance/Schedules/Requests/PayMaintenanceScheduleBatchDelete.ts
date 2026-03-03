@@ -21,4 +21,10 @@ export class PayMaintenanceScheduleBatchDelete extends Payload {
 	override createReply(json: JsonObject): Reply {
 		return new RepMaintenanceScheduleBatchDelete(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			maintenanceSchedules: this.maintenanceSchedules.map((item) => item.toJSON()),
+		};
+	}
 }

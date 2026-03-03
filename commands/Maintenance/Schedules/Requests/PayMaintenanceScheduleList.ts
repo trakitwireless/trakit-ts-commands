@@ -19,6 +19,12 @@ export abstract class PayMaintenanceScheduleList extends Payload implements IPay
 		super(json);
 		this.includeDeleted = !!json?.includeDeleted;
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			includeDeleted: !!this.includeDeleted,
+		};
+	}
 }
 /**
  * Contains the {@link Company.id} of the collection.
@@ -36,5 +42,11 @@ export class PayMaintenanceScheduleListByCompany extends PayMaintenanceScheduleL
 
 	override createReply(json: JsonObject): Reply {
 		return new RepMaintenanceScheduleListByCompany(json);
+	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			company: this.company.toJSON(),
+		};
 	}
 }

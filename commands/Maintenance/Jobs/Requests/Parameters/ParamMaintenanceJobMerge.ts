@@ -114,13 +114,13 @@ export class ParamMaintenanceJobMerge extends ParamMergeSubscribable {
 		this.pictures = (json?.pictures as JsonObject[])?.map((v: any) => utility.id(v));
 	}
 
-	override toJSON(): any {
-		const json: any = {}
+	override toJSON(): JsonObject {
+		const json: JsonObject = {}
 		if (this.id) {
 			json.id = this.id;
 			json.v = [...this.v];
 		} else {
-			json.asset = this.asset;
+			json.asset = this.asset as ulong;
 		}
 		if (this.schedule) json.schedule = this.schedule;
 		if (this.name) json.name = this.name;

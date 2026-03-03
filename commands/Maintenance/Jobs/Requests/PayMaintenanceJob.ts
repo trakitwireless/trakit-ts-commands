@@ -23,4 +23,10 @@ export abstract class PayMaintenanceJob extends Payload implements IPaySingle {
 	getKey(): string {
 		return this.maintenanceJob?.id?.toString() ?? "";
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			maintenanceJob: this.maintenanceJob.toJSON(),
+		};
+	}
 }

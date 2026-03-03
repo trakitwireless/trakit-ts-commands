@@ -28,4 +28,10 @@ export class PayMaintenanceScheduleMerge extends Payload implements IPaySingle {
 	override createReply(json: JsonObject): Reply {
 		return new RepMaintenanceScheduleMerge(json);
 	}
+	override toJSON(): JsonObject {
+		return {
+			...super.toJSON(),
+			maintenanceSchedule: this.maintenanceSchedule.toJSON(),
+		};
+	}
 }
