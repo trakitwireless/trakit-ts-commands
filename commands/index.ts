@@ -72,6 +72,8 @@ import { RepSessionListByCompany, RepSessionListByUser } from "./Accounts/Sessio
 import { ParamUserMerge } from "./Accounts/Users/Requests/Parameters/ParamUserMerge";
 import { PayUserAdvancedGet } from "./Accounts/Users/Requests/PayUserAdvancedGet";
 import { PayUserAdvancedListByCompany, PayUserAdvancedListByUserGroup } from "./Accounts/Users/Requests/PayUserAdvancedList";
+import { PayUserAuthenticationGet } from "./Accounts/Users/Requests/PayUserAuthenticationGet";
+import { PayUserAuthenticationListByCompany, PayUserAuthenticationListByUserGroup } from "./Accounts/Users/Requests/PayUserAuthenticationList";
 import { PayUserBatchDelete } from "./Accounts/Users/Requests/PayUserBatchDelete";
 import { PayUserBatchMerge } from "./Accounts/Users/Requests/PayUserBatchMerge";
 import { PayUserDelete } from "./Accounts/Users/Requests/PayUserDelete";
@@ -81,8 +83,12 @@ import { PayUserGet } from "./Accounts/Users/Requests/PayUserGet";
 import { PayUserListByCompany } from "./Accounts/Users/Requests/PayUserList";
 import { PayUserMerge } from "./Accounts/Users/Requests/PayUserMerge";
 import { PayUserRestore } from "./Accounts/Users/Requests/PayUserRestore";
+import { PayUserSettingGet } from "./Accounts/Users/Requests/PayUserSettingGet";
+import { PayUserSettingListByCompany, PayUserSettingListByUserGroup } from "./Accounts/Users/Requests/PayUserSettingList";
 import { RepUserAdvancedGet } from "./Accounts/Users/Responses/RepUserAdvancedGet";
 import { RepUserAdvancedListByCompany, RepUserAdvancedListByUserGroup } from "./Accounts/Users/Responses/RepUserAdvancedList";
+import { RepUserAuthenticationGet } from "./Accounts/Users/Responses/RepUserAuthenticationGet";
+import { RepUserAuthenticationListByCompany, RepUserAuthenticationListByUserGroup } from "./Accounts/Users/Responses/RepUserAuthenticationList";
 import { RepUserBatchDelete } from "./Accounts/Users/Responses/RepUserBatchDelete";
 import { RepUserBatchMerge } from "./Accounts/Users/Responses/RepUserBatchMerge";
 import { RepUserDelete } from "./Accounts/Users/Responses/RepUserDelete";
@@ -91,6 +97,8 @@ import { RepUserGeneralListByCompany, RepUserGeneralListByUserGroup } from "./Ac
 import { RepUserGet } from "./Accounts/Users/Responses/RepUserGet";
 import { RepUserListByCompany } from "./Accounts/Users/Responses/RepUserList";
 import { RepUserMerge } from "./Accounts/Users/Responses/RepUserMerge";
+import { RepUserSettingGet } from "./Accounts/Users/Responses/RepUserSettingGet";
+import { RepUserSettingListByCompany, RepUserSettingListByUserGroup } from "./Accounts/Users/Responses/RepUserSettingList";
 import { IPayDeletable } from "./API/Requests/IPayDeletable";
 import { IPayListByAsset } from "./API/Requests/IPayListByAsset";
 import { IPayListByBillingProfile } from "./API/Requests/IPayListByBillingProfile";
@@ -574,7 +582,7 @@ import { RepSubscriptionList } from "./WebSocket/Responses/RepSubscriptionList";
 /**
  * Version number for this release.
  */
-export const version = '0.0.19';
+export const version = '0.0.21';
 
 //#region API
 /**
@@ -674,8 +682,9 @@ export {
 	PaySelfPreferences,
 	PaySessionDelete, PaySessionGet, PaySessionListByCompany,
 	PaySessionListByUser, PayUserAdvancedGet, PayUserAdvancedListByCompany,
-	PayUserAdvancedListByUserGroup,
-	PayUserBatchDelete,
+	PayUserAdvancedListByUserGroup, PayUserAuthenticationGet,
+	PayUserAuthenticationListByCompany,
+	PayUserAuthenticationListByUserGroup, PayUserBatchDelete,
 	PayUserBatchMerge,
 	PayUserDelete,
 	PayUserGeneralGet,
@@ -690,7 +699,9 @@ export {
 	PayUserListByCompany,
 	PayUserMerge,
 	PayUserRestore,
-	RepContactBatchDelete,
+	PayUserSettingGet,
+	PayUserSettingListByCompany,
+	PayUserSettingListByUserGroup, RepContactBatchDelete,
 	RepContactBatchMerge,
 	RepContactDelete,
 	RepContactGet,
@@ -711,8 +722,9 @@ export {
 	RepSessionListByCompany,
 	RepSessionListByUser, RepUserAdvancedGet,
 	RepUserAdvancedListByCompany,
-	RepUserAdvancedListByUserGroup,
-	RepUserBatchDelete,
+	RepUserAdvancedListByUserGroup, RepUserAuthenticationGet,
+	RepUserAuthenticationListByCompany,
+	RepUserAuthenticationListByUserGroup, RepUserBatchDelete,
 	RepUserBatchMerge,
 	RepUserDelete,
 	RepUserGeneralGet,
@@ -726,8 +738,9 @@ export {
 	RepUserGroupListByCompany,
 	RepUserGroupMerge,
 	RepUserListByCompany,
-	RepUserMerge,
-	SessionHandle
+	RepUserMerge, RepUserSettingGet,
+	RepUserSettingListByCompany,
+	RepUserSettingListByUserGroup, SessionHandle
 };
 //#endregion Accounts
 
