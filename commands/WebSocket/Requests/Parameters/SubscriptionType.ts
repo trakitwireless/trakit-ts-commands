@@ -216,6 +216,16 @@ export enum SubscriptionType {
 	 * @see {@link UserAdvanced}
 	 */
 	userAdvanced = "userAdvanced",
+    /**
+     * User information such as permissions and group membership.
+     * @see {@link UserAuthentication}
+     */
+    userAuthentication = "userAuthentication",
+    /**
+     * User information such as permissions and group membership.
+     * @see {@link UserSetting}
+     */
+    userSetting = "userSetting",
 	/**
 	 * Group information for easy access control.
 	 * @see {@link UserGroup}
