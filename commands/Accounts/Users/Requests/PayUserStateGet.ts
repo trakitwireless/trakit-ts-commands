@@ -1,15 +1,15 @@
 import { JsonObject } from "@trakit/objects";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { Reply } from "../../../API/Responses/Reply";
-import { RepUserSettingGet } from "../Responses/RepUserSettingGet";
+import { RepUserStateGet } from "../Responses/RepUserStateGet";
 import { PayUser } from "./PayUser";
 
 /**
- * Gets details of the specified {@link UserSetting}.
+ * Gets details of the specified {@link UserState}.
  */
-export class PayUserSettingGet extends PayUser implements IPayDeletable {
+export class PayUserStateGet extends PayUser implements IPayDeletable {
 	/**
-	 * When true, the command will also return a deleted {@link UserSetting} (if it exists).
+	 * When true, the command will also return a deleted {@link UserState} (if it exists).
 	 */
 	includeDeleted: boolean;
 
@@ -19,7 +19,7 @@ export class PayUserSettingGet extends PayUser implements IPayDeletable {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepUserSettingGet(json);
+		return new RepUserStateGet(json);
 	}
 	override toJSON(): JsonObject {
 		return {

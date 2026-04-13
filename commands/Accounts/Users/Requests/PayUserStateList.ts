@@ -1,17 +1,17 @@
-import { Company, JsonObject, UserSetting, UserGroup } from "@trakit/objects";
+import { Company, JsonObject, UserState, UserGroup } from "@trakit/objects";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { ParamId } from "../../../API/Requests/Parameters/ParamId";
 import { Payload } from "../../../API/Requests/Payload";
 import { Reply } from "../../../API/Responses/Reply";
-import { RepUserSettingListByCompany, RepUserSettingListByUserGroup } from "../Responses/RepUserSettingList";
+import { RepUserStateListByCompany, RepUserStateListByUserGroup } from "../Responses/RepUserStateList";
 
 /**
- * Gets a list of {@link UserSetting}s.
+ * Gets a list of {@link UserState}s.
  */
-export abstract class PayUserSettingList extends Payload implements IPayDeletable {
+export abstract class PayUserStateList extends Payload implements IPayDeletable {
 	/**
-	 * When true, the command will also return a deleted {@link UserSetting} (if it exists).
+	 * When true, the command will also return a deleted {@link UserState} (if it exists).
 	 */
 	includeDeleted: boolean;
 
@@ -28,9 +28,9 @@ export abstract class PayUserSettingList extends Payload implements IPayDeletabl
 }
 
 /**
- * Gets the list of {@link UserSetting}s for the specified {@link Company}.
+ * Gets the list of {@link UserState}s for the specified {@link Company}.
  */
-export class PayUserSettingListByCompany extends PayUserSettingList implements IPayListByCompany {
+export class PayUserStateListByCompany extends PayUserStateList implements IPayListByCompany {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 */
@@ -42,7 +42,7 @@ export class PayUserSettingListByCompany extends PayUserSettingList implements I
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepUserSettingListByCompany(json);
+		return new RepUserStateListByCompany(json);
 	}
 	override toJSON(): JsonObject {
 		return {
@@ -52,9 +52,9 @@ export class PayUserSettingListByCompany extends PayUserSettingList implements I
 	}
 }
 /**
- * Gets the list of {@link UserSetting}s for the specified {@link UserGroup}.
+ * Gets the list of {@link UserState}s for the specified {@link UserGroup}.
  */
-export class PayUserSettingListByUserGroup extends PayUserSettingList {
+export class PayUserStateListByUserGroup extends PayUserStateList {
 	/**
 	 * Identifier of the {@link UserGroup} to which this collection belongs.
 	 */
@@ -66,7 +66,7 @@ export class PayUserSettingListByUserGroup extends PayUserSettingList {
 	}
 
 	override createReply(json: JsonObject): Reply {
-		return new RepUserSettingListByUserGroup(json);
+		return new RepUserStateListByUserGroup(json);
 	}
 	override toJSON(): JsonObject {
 		return {

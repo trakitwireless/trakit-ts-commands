@@ -1,29 +1,29 @@
-import { codified, email, guid, JsonObject, nothing, storage, ulong, User, UserSetting } from "@trakit/objects";
+import { codified, email, guid, JsonObject, nothing, storage, ulong, User, UserState } from "@trakit/objects";
 import { ContentId } from "../../../API/Responses/Content/ContentId";
 import { ContentIdCompany } from "../../../API/Responses/Content/ContentIdCompany";
 import { ReplySyncListPiece } from "../../../API/Responses/ReplySyncList";
 
 /**
- * A container for the requested {@link UserSetting}s.
+ * A container for the requested {@link UserState}s.
  */
-export abstract class RepUserSettingList extends ReplySyncListPiece<UserSetting> {
+export abstract class RepUserStateList extends ReplySyncListPiece<UserState> {
 	/**
-	 * The list of requested {@link UserSetting}s.
+	 * The list of requested {@link UserState}s.
 	 */
-	userSetting: UserSetting[];
+	userSetting: UserState[];
 
 	constructor(json: JsonObject) {
-		super(json, "UserSetting", 0);
-		this.userSetting = (json?.userSetting as JsonObject[])?.map((u: any) => new UserSetting(u)) ?? [];
+		super(json, "UserState", 0);
+		this.userSetting = (json?.userSetting as JsonObject[])?.map((u: any) => new UserState(u)) ?? [];
 	}
-	override getList() { return this.userSetting as UserSetting[]; }
+	override getList() { return this.userSetting as UserState[]; }
 	protected override _createBlank() { return new User(); }
 }
 
 /**
  * A container owner {@link Company} of the collection.
  */
-export class RepUserSettingListByCompany extends RepUserSettingList {
+export class RepUserStateListByCompany extends RepUserStateList {
 	/**
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 */
@@ -33,7 +33,7 @@ export class RepUserSettingListByCompany extends RepUserSettingList {
 		super(json);
 		this.company = ContentId.fromJSON(json?.company as JsonObject);
 	}
-	override _filterCollection(pair: [ulong | guid | email | codified | string, UserSetting], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, UserState], index: number): boolean {
 		return pair[1].companyId === (this.company as ContentId).id;
 	}
 	override getCompanyId() { return this.company?.id as ulong; }
@@ -41,7 +41,7 @@ export class RepUserSettingListByCompany extends RepUserSettingList {
 /**
  * A container owner {@link UserGroup} of the collection.
  */
-export class RepUserSettingListByUserGroup extends RepUserSettingList {
+export class RepUserStateListByUserGroup extends RepUserStateList {
 	/**
 	 * Identifier of the {@link UserGroup} to which this collection belongs.
 	 */
@@ -51,7 +51,7 @@ export class RepUserSettingListByUserGroup extends RepUserSettingList {
 		super(json);
 		this.userGroup = ContentIdCompany.fromJSON(json?.userGroup as JsonObject);
 	}
-	override _filterCollection(pair: [ulong | guid | email | codified | string, UserSetting], index: number): boolean {
+	override _filterCollection(pair: [ulong | guid | email | codified | string, UserState], index: number): boolean {
 		const user = storage.User.get(pair[0]) as User;
 		return user?.groupIds.includes((this.userGroup as ContentIdCompany).id as ulong);
 	}
