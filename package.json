@@ -1,7 +1,7 @@
 {
   "name": "@trakit/commands",
   "type": "module",
-  "version": "0.0.22",
+  "version": "0.0.24",
   "main": "./trakit-commands.min.js",
   "types": "./index.d.ts",
   "scripts": {
@@ -30,10 +30,10 @@
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.4",
     "rollup": "^4.36.0",
-    "rollup-plugin-typescript2": "^0.36.0",
+    "rollup-plugin-typescript2": "^0.37.0",
     "vitest": "^4.0.7"
   },
   "dependencies": {
-    "@trakit/objects": "^0.0.24"
+    "@trakit/objects": "^0.0.28"
   }
 }

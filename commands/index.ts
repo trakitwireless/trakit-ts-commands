@@ -582,7 +582,7 @@ import { RepSubscriptionList } from "./WebSocket/Responses/RepSubscriptionList";
 /**
  * Version number for this release.
  */
-export const version = '0.0.22';
+export const version = '0.0.24';
 
 //#region API
 /**
