@@ -14,7 +14,7 @@ export abstract class ReplySyncDelete extends ReplySync {
 	 * Adds or updates the constructed object to storage (and maybe IndexedDB).
 	 */
 	override store(): boolean {
-		const map = storage[this._typeName],
+		const map = storage[this.syncName],
 			key = this.getKey();
 		return map.delete(key);
 	}

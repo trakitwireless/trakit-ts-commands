@@ -10,7 +10,7 @@ export abstract class ReplySyncBatchDelete extends ReplySyncBatch {
 	 * Adds or updates the constructed object to storage (and maybe IndexedDB).
 	 */
 	override store(): boolean {
-		const map = storage[this._typeName];
+		const map = storage[this.syncName];
 		return this._getKeys().map(key => map.delete(key)).some(d => d);
 	}
 }

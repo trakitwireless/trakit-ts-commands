@@ -10,7 +10,7 @@ export abstract class ReplySyncBatchSuspend extends ReplySyncBatch {
 	 * Adds or updates the constructed object to storage (and maybe IndexedDB).
 	 */
 	override store(): boolean {
-		const map = storage[this._typeName] as Map<ulong | guid | email | codified | string, IRequestable>;
+		const map = storage[this.syncName] as Map<ulong | guid | email | codified | string, IRequestable>;
 		return this.getResults().map(item => {
 			const stored = map.get(item.getKey()) as unknown as IDeserializable;
 			return stored?.fromJSON((item as unknown as ISerializable).toJSON()) ?? false;

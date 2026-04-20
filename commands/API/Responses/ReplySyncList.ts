@@ -51,13 +51,13 @@ export abstract class ReplySyncList<TRequestable extends IRequestable & ISeriali
 		else modified = stored.fromJSON(obj.toJSON());
 		return [modified, key];
 	}
-	
+
 	/**
 	 * Adds or updates the constructed objects to storage (and maybe IndexedDB).
 	 */
 	override store(): boolean {
 		let modified = false;
-		const map = storage[this._typeName] as Map<ulong | guid | email | codified | string, TRequestable>,
+		const map = storage[this.syncName] as Map<ulong | guid | email | codified | string, TRequestable>,
 			existing: Set<ulong | guid | email | codified | string> = new Set(
 				map.entries()
 					.filter(this._filterCollection)

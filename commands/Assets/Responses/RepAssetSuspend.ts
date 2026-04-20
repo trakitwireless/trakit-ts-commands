@@ -17,7 +17,7 @@ export class RepAssetSuspend extends ReplySync {
 	}
 	override getCompanyId() { return this.asset?.company as ulong; }
 	override store(): boolean {
-		const map = storage[this._typeName] as Map<ulong | guid | email | codified | string, IRequestable>,
+		const map = storage[this.syncName] as Map<ulong | guid | email | codified | string, IRequestable>,
 			obj = (this.asset as ContentIdSuspended).toJSON(),
 			stored = map.get((this.asset as ContentIdSuspended).id as ulong) as unknown as IDeserializable;
 		return stored?.fromJSON(obj) ?? false;

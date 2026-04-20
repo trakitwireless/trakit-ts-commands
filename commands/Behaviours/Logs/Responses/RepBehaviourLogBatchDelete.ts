@@ -18,7 +18,7 @@ abstract class RepBehaviourLogBatchDelete extends ReplySyncBatchDelete {
 	}
 	protected override _getKeys() {
 		return [
-			...(storage[this._typeName] as Map<ulong, BehaviourLog>)
+			...(storage[this.syncName] as Map<ulong, BehaviourLog>)
 				.entries()
 				.filter(([key, log]) => this._filter(log))
 				.map(([key, log]) => key)

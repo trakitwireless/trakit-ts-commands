@@ -10,11 +10,11 @@ export abstract class ReplySync extends Reply implements IContentCompany {
 	/**
 	 * Returns the type name of the object so we know how to construct it.
 	 */
-	readonly _typeName: SyncName;
+	readonly syncName: SyncName;
 
 	constructor(json: JsonObject, type: SyncName) {
 		super(json);
-		this._typeName = type;
+		this.syncName = type;
 	}
 
 	/**
