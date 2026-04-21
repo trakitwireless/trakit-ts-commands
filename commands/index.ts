@@ -56,11 +56,10 @@ import { PaySelfLogin } from "./Accounts/Self/Requests/PaySelfLogin";
 import { PaySelfLogout } from "./Accounts/Self/Requests/PaySelfLogout";
 import { PaySelfPassword } from "./Accounts/Self/Requests/PaySelfPassword";
 import { PaySelfPreferences } from "./Accounts/Self/Requests/PaySelfPreferences";
-import { RepSelfContact } from "./Accounts/Self/Responses/RepSelfContact";
+import { PaySelfState } from "./Accounts/Self/Requests/PaySelfState";
 import { RepSelfGet } from "./Accounts/Self/Responses/RepSelfGet";
 import { RepSelfLogout } from "./Accounts/Self/Responses/RepSelfLogout";
 import { RepSelfPassword } from "./Accounts/Self/Responses/RepSelfPassword";
-import { RepSelfPreferences } from "./Accounts/Self/Responses/RepSelfPreferences";
 import { ParamHandle } from "./Accounts/Sessions/Requests/Parameters/ParamHandle";
 import { PaySessionDelete } from "./Accounts/Sessions/Requests/PaySessionDelete";
 import { PaySessionGet } from "./Accounts/Sessions/Requests/PaySessionGet";
@@ -680,6 +679,7 @@ export {
 	PaySelfLogout,
 	PaySelfPassword,
 	PaySelfPreferences,
+	PaySelfState,
 	PaySessionDelete, PaySessionGet, PaySessionListByCompany,
 	PaySessionListByUser, PayUserAdvancedGet, PayUserAdvancedListByCompany,
 	PayUserAdvancedListByUserGroup, PayUserAuthenticationGet,
@@ -713,11 +713,10 @@ export {
 	RepMachineListByCompany,
 	RepMachineListByUserGroup,
 	RepMachineMerge,
-	RepSelfContact,
 	RepSelfGet,
 	RepSelfLogout,
 	RepSelfPassword,
-	RepSelfPreferences, RepSessionDelete,
+	RepSessionDelete,
 	RepSessionGet,
 	RepSessionListByCompany,
 	RepSessionListByUser, RepUserAdvancedGet,
