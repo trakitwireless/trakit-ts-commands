@@ -1,7 +1,7 @@
 import { byte, DashcamMediaType, JsonObject, nothing, utility } from "@trakit/objects";
 import { IPayListByAsset } from "../../../API/Requests/IPayListByAsset";
 import { ParamIdentifier } from "../../../API/Requests/Parameters/ParamIdentifier";
-import { PayListByDate } from "../../../API/Requests/PayListByDate";
+import { PayloadListByDate } from "../../../API/Requests/PayloadListByDate";
 import { IPayDeletable } from "../../../API/Requests/IPayDeletable";
 import { IPayListByCompany } from "../../../API/Requests/IPayListByCompany";
 import { ParamId } from "../../../API/Requests/Parameters/ParamId";
@@ -11,7 +11,7 @@ import { RepDashcamListByAsset, RepDashcamListByCompany, RepDashcamListByProvide
 /**
  * Gets details of the specified {@link dashcam}.
  */
-export abstract class PayDashcamList extends PayListByDate implements IPayDeletable {
+export abstract class PayDashcamList extends PayloadListByDate implements IPayDeletable {
 	/**
 	 * When true, the command will also return  deleted {@link Dashcam}s.
 	 */
@@ -112,7 +112,7 @@ export class PayDashcamListByProvider extends PayDashcamList {
 /**
  * Gets details of the specified {@link dashcam}.
  */
-export abstract class PayDashcamLiveList extends PayListByDate implements IPayDeletable {
+export abstract class PayDashcamLiveList extends PayloadListByDate implements IPayDeletable {
 	/**
 	 * When true, the command will also return  deleted {@link DashcamLive}s.
 	 */

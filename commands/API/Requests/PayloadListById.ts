@@ -1,10 +1,10 @@
 import { JsonObject, nothing, ulong, utility } from "@trakit/objects";
-import { PayListBy } from "./PayListBy";
+import { PayloadListBy } from "./PayloadListBy";
 
 /**
  * For commands that list objects by an ulong value.
  */
-export abstract class PayListById extends PayListBy {
+export abstract class PayloadListById extends PayloadListBy {
 	/**
 	 * The lowest ID in the range.
 	 */

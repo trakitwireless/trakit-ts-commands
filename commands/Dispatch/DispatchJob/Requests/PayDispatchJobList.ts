@@ -61,7 +61,7 @@ export class PayDispatchJobListByCompanyAndLabels extends PayDispatchJobListByCo
 	 * Labels used to filter the {@link DispatchJob}s.
 	 */
 	labels: codified[];
-	
+
 	constructor(json?: JsonObject) {
 		super(json);
 		this.labels = json?.labels as codified[] ?? [];
@@ -80,13 +80,13 @@ export class PayDispatchJobListByCompanyAndLabels extends PayDispatchJobListByCo
 /**
  * Gets the list of {@link DispatchJob}s for the specified {@link Asset}.
  */
-export class PayDispatchJobListByCompanyAndRefPairs extends PayDispatchJobListByCompany implements IPayListByReferences{
+export class PayDispatchJobListByCompanyAndRefPairs extends PayDispatchJobListByCompany implements IPayListByReferences {
 	/**
 	 * Case-insensitive reference pairs used to match {@link Company}s.
 	 * @see {@link CompanyGeneral.references}
 	 */
 	references: Map<string, string>;
-	
+
 	constructor(json?: JsonObject) {
 		super(json);
 		this.references = json?.references
@@ -137,7 +137,7 @@ export class PayDispatchJobListByAssetAndLabels extends PayDispatchJobListByAsse
 	 * Labels used to filter the {@link DispatchJob}s.
 	 */
 	labels: codified[];
-	
+
 	constructor(json?: JsonObject) {
 		super(json);
 		this.labels = json?.labels as codified[] ?? [];
@@ -156,13 +156,13 @@ export class PayDispatchJobListByAssetAndLabels extends PayDispatchJobListByAsse
 /**
  * Gets the list of {@link DispatchJob}s for the specified {@link Asset}.
  */
-export class PayDispatchJobListByAssetAndRefPairs extends PayDispatchJobListByAsset implements IPayListByReferences{
+export class PayDispatchJobListByAssetAndRefPairs extends PayDispatchJobListByAsset implements IPayListByReferences {
 	/**
 	 * Case-insensitive reference pairs used to match {@link Asset}s.
 	 * @see {@link AssetGeneral.references}
 	 */
 	references: Map<string, string>;
-	
+
 	constructor(json?: JsonObject) {
 		super(json);
 		this.references = json?.references

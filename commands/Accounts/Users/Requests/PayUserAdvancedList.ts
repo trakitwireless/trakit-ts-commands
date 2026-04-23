@@ -40,7 +40,7 @@ export class PayUserAdvancedListByCompany extends PayUserAdvancedList implements
 		super(json);
 		this.company = new ParamId(json?.company as JsonObject);
 	}
-	
+
 	override createReply(json: JsonObject): Reply {
 		return new RepUserAdvancedListByCompany(json);
 	}

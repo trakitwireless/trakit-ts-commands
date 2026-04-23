@@ -1,10 +1,10 @@
 import { JsonObject, nothing, ulong, utility } from "@trakit/objects";
-import { PayListByDate } from "./PayListByDate";
+import { PayloadListByDate } from "./PayloadListByDate";
 
 /**
  * Interface for requests that filter by date.
  */
-export abstract class PayAudit extends PayListByDate {
+export abstract class PayloadAudit extends PayloadListByDate {
 	/**
 	 * The lowest ID in the range.
 	 */

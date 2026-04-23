@@ -119,9 +119,9 @@ import { ParamLogin } from "./API/Requests/Parameters/ParamLogin";
 import { ParamMerge } from "./API/Requests/Parameters/ParamMerge";
 import { ParamMergeSubscribable } from "./API/Requests/Parameters/ParamMergeSubscribable";
 import { PayAudit } from "./API/Requests/PayAudit";
-import { PayListByDate } from "./API/Requests/PayListByDate";
-import { PayListById } from "./API/Requests/PayListById";
-import { PayListByKey } from "./API/Requests/PayListByKey";
+import { PayloadListByDate } from "./API/Requests/PayloadListByDate";
+import { PayloadListById } from "./API/Requests/PayloadListById";
+import { PayloadListByKey } from "./API/Requests/PayloadListByKey";
 import { ActionType, Payload } from "./API/Requests/Payload";
 import { ContentCode } from "./API/Responses/Content/ContentCode";
 import { ContentCodeCompany } from "./API/Responses/Content/ContentCodeCompany";
@@ -599,9 +599,9 @@ export {
 	ParamKey,
 	ParamLogin,
 	ParamMerge,
-	ParamMergeSubscribable, PayAudit, PayListByDate,
-	PayListById,
-	PayListByKey, Payload, type ActionType,
+	ParamMergeSubscribable, PayAudit, PayloadListByDate,
+	PayloadListById,
+	PayloadListByKey, Payload, type ActionType,
 	type IParamAsset,
 	type IParamBillingProfile,
 	type IParamCompany, type IPayDeletable,

@@ -1,10 +1,10 @@
 import { JsonObject, nothing } from "@trakit/objects";
-import { PayListBy } from "./PayListBy";
+import { PayloadListBy } from "./PayloadListBy";
 
 /**
  * Interface for requests on a list of objects by key.
  */
-export abstract class PayListByKey extends PayListBy {
+export abstract class PayloadListByKey extends PayloadListBy {
 	/**
 	 * The first key to filter the list by.
 	 */

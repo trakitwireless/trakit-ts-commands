@@ -1,10 +1,10 @@
 import { JsonObject, nothing, utility } from "@trakit/objects";
-import { PayListBy } from "./PayListBy";
+import { PayloadListBy } from "./PayloadListBy";
 
 /**
  * Interface for requests that filter by date.
  */
-export abstract class PayListByDate extends PayListBy {
+export abstract class PayloadListByDate extends PayloadListBy {
 	/**
 	 * The start date for the filter.
 	 */

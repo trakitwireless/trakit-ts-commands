@@ -35,7 +35,7 @@ export class PayDocumentListByCompany extends PayDocumentList implements IPayLis
 	 * Identifier of the {@link Company} to which this collection belongs.
 	 */
 	company: ParamId;
-	
+
 	constructor(json?: JsonObject) {
 		super(json);
 		this.company = new ParamId(json?.company as JsonObject);

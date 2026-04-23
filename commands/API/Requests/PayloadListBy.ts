@@ -4,7 +4,7 @@ import { Payload } from './Payload';
 /**
  * 
  */
-export abstract class PayListBy extends Payload {
+export abstract class PayloadListBy extends Payload {
 	/**
 	 * The maximum number of items to return.
 	 * If not specified, the server will return all.
