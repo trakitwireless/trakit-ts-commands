@@ -118,6 +118,7 @@ import { ParamKey } from "./API/Requests/Parameters/ParamKey";
 import { ParamLogin } from "./API/Requests/Parameters/ParamLogin";
 import { ParamMerge } from "./API/Requests/Parameters/ParamMerge";
 import { ParamMergeSubscribable } from "./API/Requests/Parameters/ParamMergeSubscribable";
+import { PayAudit } from "./API/Requests/PayAudit";
 import { PayListByDate } from "./API/Requests/PayListByDate";
 import { PayListById } from "./API/Requests/PayListById";
 import { PayListByKey } from "./API/Requests/PayListByKey";
@@ -178,6 +179,7 @@ import { IRepListByLabels } from "./API/Responses/IRepListByLabels";
 import { IRepListByReferences } from "./API/Responses/IRepListByReferences";
 import { IRepListByUser } from "./API/Responses/IRepListByUser";
 import { Reply } from "./API/Responses/Reply";
+import { ReplyAudit } from "./API/Responses/ReplyAudit";
 import { ReplySync } from "./API/Responses/ReplySync";
 import { ReplySyncBatchDelete } from "./API/Responses/ReplySyncBatchDelete";
 import { ReplySyncBatchSuspend } from "./API/Responses/ReplySyncBatchSuspend";
@@ -186,6 +188,7 @@ import { ReplySyncGet } from "./API/Responses/ReplySyncGet";
 import { ReplySyncList } from "./API/Responses/ReplySyncList";
 import { ParamAssetMerge } from "./Assets/Requests/Parameters/ParamAssetMerge";
 import { PayAsset } from "./Assets/Requests/PayAsset";
+import { PayAssetAdvancedAudit } from "./Assets/Requests/PayAssetAdvancedAudit";
 import { PayAssetAdvancedGet } from "./Assets/Requests/PayAssetAdvancedGet";
 import { PayAssetAdvancedListByCompany, PayAssetAdvancedListByCompanyAndLabels, PayAssetAdvancedListByCompanyAndRefPairs } from "./Assets/Requests/PayAssetAdvancedList";
 import { PayAssetBatchDelete } from "./Assets/Requests/PayAssetBatchDelete";
@@ -202,6 +205,7 @@ import { PayAssetMerge } from "./Assets/Requests/PayAssetMerge";
 import { PayAssetReactivate } from "./Assets/Requests/PayAssetReactivate";
 import { PayAssetRestore } from "./Assets/Requests/PayAssetRestore";
 import { PayAssetSuspend } from "./Assets/Requests/PayAssetSuspend";
+import { RepAssetAdvancedAudit } from "./Assets/Responses/RepAssetAdvancedAudit";
 import { RepAssetAdvancedGet } from "./Assets/Responses/RepAssetAdvancedGet";
 import { RepAssetAdvancedListByCompany, RepAssetAdvancedListByCompanyAndLabels, RepAssetAdvancedListByCompanyAndRefPairs } from "./Assets/Responses/RepAssetAdvancedList";
 import { RepAssetBatchMerge } from "./Assets/Responses/RepAssetBatchMerge";
@@ -595,10 +599,9 @@ export {
 	ParamKey,
 	ParamLogin,
 	ParamMerge,
-	ParamMergeSubscribable, PayListByDate,
+	ParamMergeSubscribable, PayAudit, PayListByDate,
 	PayListById,
-	PayListByKey, Payload,
-	type ActionType,
+	PayListByKey, Payload, type ActionType,
 	type IParamAsset,
 	type IParamBillingProfile,
 	type IParamCompany, type IPayDeletable,
@@ -615,7 +618,7 @@ export {
 	ContentCodeCompany,
 	ContentCodeDeleted, ContentId, ContentIdAsset, ContentIdBillingProfile, ContentIdCompany, ContentIdCompanyTemplate, ContentIdendifier, ContentIdendifierAsset, ContentIdendifierCompany, ContentIdendifierDeleted, ContentIdendifierSuspended,
 	ContentIdParent, ContentIdParentDeleted, ContentIdScript, ContentIdSuspended, ContentKey, ContentKeyCompany, ContentKeyDeleted, ContentLogin, ContentLoginCompany, ContentLoginDeleted,
-	Reply, ReplySync, ReplySyncBatchDelete, ReplySyncBatchSuspend, ReplySyncDelete, ReplySyncGet, ReplySyncList, type IRepListByAsset, type IRepListByCompany, type IRepListByDate,
+	Reply, ReplyAudit, ReplySync, ReplySyncBatchDelete, ReplySyncBatchSuspend, ReplySyncDelete, ReplySyncGet, ReplySyncList, type IRepListByAsset, type IRepListByCompany, type IRepListByDate,
 	type IRepListById, type IRepListByKey, type IRepListByLabels, type IRepListByReferences,
 	type IRepListByUser
 };
@@ -746,14 +749,12 @@ export {
 //#region Assets
 export {
 	ParamAssetMerge,
-	PayAsset,
-	PayAssetAdvancedGet,
+	PayAsset, PayAssetAdvancedAudit, PayAssetAdvancedGet,
 	PayAssetAdvancedListByCompany,
 	PayAssetAdvancedListByCompanyAndLabels,
 	PayAssetAdvancedListByCompanyAndRefPairs,
 	PayAssetBatchDelete,
-	PayAssetBatchMerge,
-	PayAssetDelete,
+	PayAssetBatchMerge, PayAssetDelete,
 	PayAssetDispatchGet,
 	PayAssetDispatchListByCompany,
 	PayAssetDispatchListByCompanyAndLabels,
@@ -768,9 +769,7 @@ export {
 	PayAssetMerge,
 	PayAssetReactivate,
 	PayAssetRestore,
-	PayAssetSuspend,
-	RepAssetAdvancedGet,
-	RepAssetAdvancedListByCompany,
+	PayAssetSuspend, RepAssetAdvancedAudit, RepAssetAdvancedGet, RepAssetAdvancedListByCompany,
 	RepAssetAdvancedListByCompanyAndLabels,
 	RepAssetAdvancedListByCompanyAndRefPairs, RepAssetBatchMerge, RepAssetDelete,
 	RepAssetDispatchGet,
