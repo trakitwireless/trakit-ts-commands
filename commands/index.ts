@@ -118,7 +118,7 @@ import { ParamKey } from "./API/Requests/Parameters/ParamKey";
 import { ParamLogin } from "./API/Requests/Parameters/ParamLogin";
 import { ParamMerge } from "./API/Requests/Parameters/ParamMerge";
 import { ParamMergeSubscribable } from "./API/Requests/Parameters/ParamMergeSubscribable";
-import { PayAudit } from "./API/Requests/PayAudit";
+import { PayloadAudit } from "./API/Requests/PayloadAudit";
 import { PayloadListByDate } from "./API/Requests/PayloadListByDate";
 import { PayloadListById } from "./API/Requests/PayloadListById";
 import { PayloadListByKey } from "./API/Requests/PayloadListByKey";
@@ -585,7 +585,7 @@ import { RepSubscriptionList } from "./WebSocket/Responses/RepSubscriptionList";
 /**
  * Version number for this release.
  */
-export const version = '0.0.26';
+export const version = '0.0.27';
 
 //#region API
 /**
@@ -599,7 +599,7 @@ export {
 	ParamKey,
 	ParamLogin,
 	ParamMerge,
-	ParamMergeSubscribable, PayAudit, PayloadListByDate,
+	ParamMergeSubscribable, PayloadAudit, PayloadListByDate,
 	PayloadListById,
 	PayloadListByKey, Payload, type ActionType,
 	type IParamAsset,
