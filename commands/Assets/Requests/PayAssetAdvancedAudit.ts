@@ -1,7 +1,7 @@
 import { AssetAdvanced, JsonObject, SyncName } from "@trakit/objects";
 import { IPayListByAsset } from "../../API/Requests/IPayListByAsset";
 import { ParamId } from "../../API/Requests/Parameters/ParamId";
-import { PayAudit } from "../../API/Requests/PayAudit";
+import { PayloadAudit } from "../../API/Requests/PayloadAudit";
 import { ActionType } from "../../API/Requests/Payload";
 import { Reply } from "../../API/Responses/Reply";
 import { RepAssetAdvancedAudit } from "../Responses/RepAssetAdvancedAudit";
@@ -10,7 +10,7 @@ import { RepAssetAdvancedAudit } from "../Responses/RepAssetAdvancedAudit";
  * Gets import { codified } from "@trakit/objects";
 details of the specified {@link AssetAdvanced}.
  */
-export class PayAssetAdvancedAudit extends PayAudit implements IPayListByAsset {
+export class PayAssetAdvancedAudit extends PayloadAudit implements IPayListByAsset {
 	/**
 	 * 
 	 */
