@@ -1,10 +1,18 @@
 import { JsonObject, nothing, ulong, utility } from "@trakit/objects";
-import { PayloadListByDate } from "./PayloadListByDate";
+import { IPaySingle, Payload } from "../../index";
 
 /**
  * Interface for requests that filter by date.
  */
-export abstract class PayloadAudit extends PayloadListByDate {
+export abstract class PayloadAudit extends Payload implements IPaySingle {
+	/**
+	 * The start date for the filter.
+	 */
+	after: Date | nothing;
+	/**
+	 * The end date for the filter.
+	 */
+	before: Date | nothing;
 	/**
 	 * The lowest ID in the range.
 	 */
@@ -16,13 +24,21 @@ export abstract class PayloadAudit extends PayloadListByDate {
 
 	constructor(json?: JsonObject) {
 		super(json);
+		this.after = utility.date(json?.after as string);
+		this.before = utility.date(json?.before as string);
 		this.lowest = json?.lowest as ulong | nothing;
 		this.highest = json?.highest as ulong | nothing;
 	}
 	override toJSON(): JsonObject {
 		const json = super.toJSON();
+		if (utility.isntNaN(this.after?.valueOf())) json.after = this.after.toISOString();
+		if (utility.isntNaN(this.before?.valueOf())) json.before = this.before.toISOString();
 		if (utility.isntNaN(this.lowest)) json.lowest = this.lowest;
 		if (utility.isntNaN(this.highest)) json.highest = this.highest;
 		return json;
 	}
+	/**
+	 * Gets the key of the object whose change history is being requested.
+	 */
+	abstract getKey(): string;
 }

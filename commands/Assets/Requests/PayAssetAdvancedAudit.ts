@@ -44,4 +44,5 @@ export class PayAssetAdvancedAudit extends PayloadAudit implements IPayListByAss
 			asset: this.asset.toJSON(),
 		};
 	}
+	override getKey(): string { return this.asset.id.toString(); }
 }
