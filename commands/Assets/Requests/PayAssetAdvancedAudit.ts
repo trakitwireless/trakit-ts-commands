@@ -22,18 +22,16 @@ export class PayAssetAdvancedAudit extends PayloadAudit implements IPayListByAss
 	}
 
 	/**
-	 * Overridden because we use this command with the audit service, not the RESTful service.
+	 * Overridden to add the object type.
 	 * @returns 
 	 */
 	override getAction() {
 		return {
-			//...super.getAction();
-			kind: "Get" as ActionType,
+			...super.getAction(),
 			object: "AssetAdvanced" as SyncName,
-			filter: "",
-			batch: false,
 		};
 	}
+	override getKey(): string { return this.asset.id?.toString(); }
 
 	override createReply(json: JsonObject): Reply {
 		return new RepAssetAdvancedAudit(json);
@@ -44,5 +42,4 @@ export class PayAssetAdvancedAudit extends PayloadAudit implements IPayListByAss
 			asset: this.asset.toJSON(),
 		};
 	}
-	override getKey(): string { return this.asset.id.toString(); }
 }

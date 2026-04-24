@@ -1,10 +1,12 @@
-import { JsonObject, nothing, ulong, utility } from "@trakit/objects";
-import { IPaySingle, Payload } from "../../index";
+import { JsonObject, nothing, SyncName, ulong, utility } from "@trakit/objects";
+import { IPaySingle } from "../../API/Requests/IPaySingle";
+import { ActionType, } from "../../API/Requests/Payload";
+import { PayloadListBy } from "./PayloadListBy";
 
 /**
  * Interface for requests that filter by date.
  */
-export abstract class PayloadAudit extends Payload implements IPaySingle {
+export abstract class PayloadAudit extends PayloadListBy implements IPaySingle {
 	/**
 	 * The start date for the filter.
 	 */
@@ -41,4 +43,17 @@ export abstract class PayloadAudit extends Payload implements IPaySingle {
 	 * Gets the key of the object whose change history is being requested.
 	 */
 	abstract getKey(): string;
+	/**
+	 * Overridden with common values for all audit requests.
+	 * @returns 
+	 */
+	override getAction() {
+		return {
+			//...super.getAction(), => don't bother
+			kind: "List" as ActionType,
+			object: "" as SyncName,	// this needs to be overridden in the child class
+			filter: "",
+			batch: false,
+		};
+	}
 }
