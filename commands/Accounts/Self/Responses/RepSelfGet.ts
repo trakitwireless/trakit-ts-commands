@@ -47,6 +47,10 @@ export class RepSelfGet extends ReplySync {
 	 */
 	get userLogin() { return this.user?.login; }
 	/**
+	 * The {@link Contact} details of the current {@link User} (if the service is being used by a {@link User} and the {@link User} has a {@link Contact}).
+	 */
+	contact: Contact | nothing;
+	/**
 	 * This {@link Machine}'s details (if the service is being used by a {@link Machine}).
 	 * If this value is not present, then the session is not a machine account.
 	 */
@@ -56,6 +60,10 @@ export class RepSelfGet extends ReplySync {
 	 */
 	get machineKey() { return this.machine?.key; }
 	/**
+	 * The {@link UserGroup}s that the current session's {@link User} or {@link Machine} belongs to.
+	 */
+	groups: UserGroup[] = [];
+	/**
 	 * This {@link User}'s {@link CompanyPolicies.sessionPolicy}.
 	 */
 	sessionPolicy: SessionPolicy | nothing;
@@ -63,12 +71,6 @@ export class RepSelfGet extends ReplySync {
 	 * This {@link User}'s {@link CompanyPolicies.passwordPolicy}.
 	 */
 	passwordPolicy: PasswordPolicy | nothing;
-
-
-
-	contact: Contact | nothing;
-
-	groups: UserGroup[] = [];
 
 	constructor(json?: JsonObject) {
 		super(json as JsonObject, "Self" as SyncName);
