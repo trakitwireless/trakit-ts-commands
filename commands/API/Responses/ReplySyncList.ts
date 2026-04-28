@@ -60,8 +60,8 @@ export abstract class ReplySyncList<TRequestable extends IRequestable & ISeriali
 		const map = storage[this.syncName] as Map<ulong | guid | email | codified | string, TRequestable>,
 			existing: Set<ulong | guid | email | codified | string> = new Set(
 				map.entries()
-					.filter(this._filterCollection)
-					.map(this._keyCollection)
+					.filter((o, i) => this._filterCollection(o, i))
+					.map((o, i) => this._keyCollection(o, i))
 			);
 		for (const obj of this.getList()) {
 			const [mod, key] = this._store(map, obj);
