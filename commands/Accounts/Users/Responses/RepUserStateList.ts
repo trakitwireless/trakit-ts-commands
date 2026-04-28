@@ -10,13 +10,13 @@ export abstract class RepUserStateList extends ReplySyncListPiece<UserState> {
 	/**
 	 * The list of requested {@link UserState}s.
 	 */
-	userSetting: UserState[];
+	userStates: UserState[];
 
 	constructor(json: JsonObject) {
 		super(json, "UserState", 0);
-		this.userSetting = (json?.userSetting as JsonObject[])?.map((u: any) => new UserState(u)) ?? [];
+		this.userStates = (json?.userStates as JsonObject[])?.map((u: any) => new UserState(u)) ?? [];
 	}
-	override getList() { return this.userSetting as UserState[]; }
+	override getList() { return this.userStates as UserState[]; }
 	protected override _createBlank() { return new User(); }
 }
 
