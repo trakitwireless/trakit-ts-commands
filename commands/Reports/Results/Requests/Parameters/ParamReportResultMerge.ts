@@ -60,9 +60,7 @@ export class ParamReportResultMerge extends ParamMergeSubscribable {
 		this.options = json?.options
 			? ParamReportOptions.fromJSON(json.options as JsonObject)
 			: null;
-		this.timezone = json?.timezone
-			? utility.findTimeZoneById(json.timezone as codified)
-			: null;
+		this.timezone = utility.findTimeZoneById(json?.timezone as codified);
 	}
 
 	override toJSON(): JsonObject {
