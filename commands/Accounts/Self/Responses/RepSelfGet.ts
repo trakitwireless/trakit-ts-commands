@@ -1,5 +1,6 @@
 import {
 	codified,
+	CompanyPolicy,
 	Contact,
 	datetime,
 	email,
@@ -9,9 +10,11 @@ import {
 	ISerializable,
 	JsonObject,
 	Machine,
+	MultiFactorPolicy,
 	nothing,
 	PasswordPolicy,
 	SessionPolicy,
+	SsoPolicy,
 	storage,
 	SyncName,
 	ulong,
@@ -64,13 +67,21 @@ export class RepSelfGet extends ReplySync {
 	 */
 	groups: UserGroup[] = [];
 	/**
-	 * This {@link User}'s {@link CompanyPolicies.sessionPolicy}.
+	 * This {@link User}'s {@link CompanyPolicy.sessionPolicy}.
 	 */
 	sessionPolicy: SessionPolicy | nothing;
 	/**
-	 * This {@link User}'s {@link CompanyPolicies.passwordPolicy}.
+	 * This {@link User}'s {@link CompanyPolicy.passwordPolicy}.
 	 */
 	passwordPolicy: PasswordPolicy | nothing;
+	/**
+	 * This {@link User}'s {@link CompanyPolicy.multiFactorPolicy}.
+	 */
+	multiFactorPolicy: MultiFactorPolicy | nothing;
+	/**
+	 * This {@link User}'s {@link CompanyPolicy.ssoPolicy}.
+	 */
+	ssoPolicy: SsoPolicy | nothing;
 
 	constructor(json?: JsonObject) {
 		super(json as JsonObject, "Self" as SyncName);
@@ -83,6 +94,12 @@ export class RepSelfGet extends ReplySync {
 			: null;
 		this.passwordPolicy = json?.passwordPolicy
 			? PasswordPolicy.fromJSON(json.passwordPolicy as JsonObject)
+			: null;
+		this.multiFactorPolicy = json?.multiFactorPolicy
+			? MultiFactorPolicy.fromJSON(json.multiFactorPolicy as JsonObject)
+			: null;
+		this.ssoPolicy = json?.ssoPolicy
+			? SsoPolicy.fromJSON(json.ssoPolicy as JsonObject)
 			: null;
 	}
 	/**
@@ -177,6 +194,12 @@ export class RepSelfGet extends ReplySync {
 		if (this.passwordPolicy) {
 			json["passwordPolicy"] = this.passwordPolicy.toJSON();
 		}
+		if (this.multiFactorPolicy) {
+			json["multiFactorPolicy"] = this.multiFactorPolicy.toJSON();
+		}
+		if (this.ssoPolicy) {
+			json["ssoPolicy"] = this.ssoPolicy.toJSON();
+		}
 		return json;
 	}
 
@@ -200,5 +223,4 @@ export class RepSelfGet extends ReplySync {
 		else modified = stored.fromJSON(obj.toJSON());
 		return modified;
 	}
-
 }
