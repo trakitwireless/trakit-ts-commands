@@ -1,4 +1,4 @@
-import { codified, Company, CompanyGeneral, email, guid, JsonObject, nothing, ulong } from "@trakit/objects";
+import { codified, Company, CompanyGeneral, email, guid, JsonObject, nothing, SyncName, ulong } from "@trakit/objects";
 import { ContentIdParent } from "../../API/Responses/Content/ContentIdParent";
 import { ReplySyncListPiece } from "../../API/Responses/ReplySyncList";
 
@@ -33,7 +33,8 @@ export class RepCompanyGeneralListByCompany extends RepCompanyGeneralList {
 		this.company = ContentIdParent.fromJSON(json?.company as JsonObject);
 	}
 	override _filterCollection(pair: [ulong | guid | email | codified | string, CompanyGeneral], index: number): boolean {
-		return pair[1].parentId === (this.company as ContentIdParent).id;
+		return !this.company	// for a global request, this is not returned
+			|| pair[1].parentId === this.company.id;
 	}
 	override getCompanyId() { return this.company?.parent as ulong; }
 }
