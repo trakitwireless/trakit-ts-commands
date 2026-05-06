@@ -1,5 +1,6 @@
 import {
 	codified,
+	Company,
 	CompanyPolicy,
 	Contact,
 	datetime,
@@ -10,11 +11,7 @@ import {
 	ISerializable,
 	JsonObject,
 	Machine,
-	MultiFactorPolicy,
 	nothing,
-	PasswordPolicy,
-	SessionPolicy,
-	SsoPolicy,
 	storage,
 	SyncName,
 	ulong,
@@ -67,21 +64,9 @@ export class RepSelfGet extends ReplySync {
 	 */
 	groups: UserGroup[] = [];
 	/**
-	 * This {@link User}'s {@link CompanyPolicy.sessionPolicy}.
+	 * The {@link CompanyPolicy} which apply to this {@link User}.
 	 */
-	sessionPolicy: SessionPolicy | nothing;
-	/**
-	 * This {@link User}'s {@link CompanyPolicy.passwordPolicy}.
-	 */
-	passwordPolicy: PasswordPolicy | nothing;
-	/**
-	 * This {@link User}'s {@link CompanyPolicy.multiFactorPolicy}.
-	 */
-	multiFactorPolicy: MultiFactorPolicy | nothing;
-	/**
-	 * This {@link User}'s {@link CompanyPolicy.ssoPolicy}.
-	 */
-	ssoPolicy: SsoPolicy | nothing;
+	policies: CompanyPolicy | nothing;
 
 	constructor(json?: JsonObject) {
 		super(json as JsonObject, "Self" as SyncName);
@@ -89,17 +74,8 @@ export class RepSelfGet extends ReplySync {
 		this.ghostId = json?.ghostId as guid ?? "";
 		this.expiry = utility.date(json?.expiry as datetime);
 		this.#ctorSelf(json as JsonObject);
-		this.sessionPolicy = json?.sessionPolicy
-			? SessionPolicy.fromJSON(json.sessionPolicy as JsonObject)
-			: null;
-		this.passwordPolicy = json?.passwordPolicy
-			? PasswordPolicy.fromJSON(json.passwordPolicy as JsonObject)
-			: null;
-		this.multiFactorPolicy = json?.multiFactorPolicy
-			? MultiFactorPolicy.fromJSON(json.multiFactorPolicy as JsonObject)
-			: null;
-		this.ssoPolicy = json?.ssoPolicy
-			? SsoPolicy.fromJSON(json.ssoPolicy as JsonObject)
+		this.policies = json?.policies
+			? new CompanyPolicy(json.policies as JsonObject)
 			: null;
 	}
 	/**
@@ -177,8 +153,8 @@ export class RepSelfGet extends ReplySync {
 		if (this.user) {
 			json["user"] = {
 				...this.user.toJSON(),
-				"login": this.user.login,
 				"contact": this.contact?.toJSON() ?? null,
+				"policies": this.policies?.toJSON() ?? null,
 				"groups": this.groups.map(g => g.toJSON()),
 			};
 		}
@@ -188,31 +164,20 @@ export class RepSelfGet extends ReplySync {
 				"groups": this.groups.map(g => g.toJSON()),
 			};
 		}
-		if (this.sessionPolicy) {
-			json["sessionPolicy"] = this.sessionPolicy.toJSON();
-		}
-		if (this.passwordPolicy) {
-			json["passwordPolicy"] = this.passwordPolicy.toJSON();
-		}
-		if (this.multiFactorPolicy) {
-			json["multiFactorPolicy"] = this.multiFactorPolicy.toJSON();
-		}
-		if (this.ssoPolicy) {
-			json["ssoPolicy"] = this.ssoPolicy.toJSON();
-		}
 		return json;
 	}
 
 	override getCompanyId(): ulong { return (this.user?.companyId ?? this.machine?.companyId) as ulong; }
 
 	override store(): boolean {
-		const modContact = !!this.contact && this.#storeEach(storage["Contact"], this.contact),
-			modUser = !!this.user && this.#storeEach(storage["User"], this.user),
-			modMachine = !!this.machine && this.#storeEach(storage["Machine"], this.machine),
-			modGroups = this.groups.reduce((modified, group) => this.#storeEach(storage["UserGroup"], group) || modified, false);
-		return modContact || modUser || modMachine || modGroups;
+		const modContact = !!this.contact && this.#storePart(storage["Contact"], this.contact),
+			modPolicy = !!this.policies && this.#storePolicy(),
+			modUser = !!this.user && this.#storePart(storage["User"], this.user),
+			modMachine = !!this.machine && this.#storePart(storage["Machine"], this.machine),
+			modGroups = this.groups.reduce((modified, group) => this.#storePart(storage["UserGroup"], group) || modified, false);
+		return modContact || modPolicy || modUser || modMachine || modGroups;
 	}
-	#storeEach(
+	#storePart(
 		map: Map<ulong | guid | email | codified | string, IRequestable>,
 		obj: IRequestable & ISerializable
 	): boolean {
@@ -221,6 +186,15 @@ export class RepSelfGet extends ReplySync {
 		let modified = !stored;
 		if (modified) map.set(key, obj);
 		else modified = stored.fromJSON(obj.toJSON());
+		return modified;
+	}
+	#storePolicy(): boolean {
+		const map = storage["Company"] as Map<ulong, Company>,
+			obj = this.policies as CompanyPolicy;
+		let stored = map.get(obj.id),
+			modified = !stored;
+		if (!stored) map.set(obj.id, stored = new Company());
+		modified = stored.pieces[4].fromJSON(obj.toJSON()) || modified;
 		return modified;
 	}
 }
