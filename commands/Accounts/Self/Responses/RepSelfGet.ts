@@ -73,10 +73,10 @@ export class RepSelfGet extends ReplySync {
 		this.serverTime = utility.date(json?.serverTime as datetime);
 		this.ghostId = json?.ghostId as guid ?? "";
 		this.expiry = utility.date(json?.expiry as datetime);
-		this.#ctorSelf(json as JsonObject);
-		this.policies = json?.policies
-			? new CompanyPolicy(json.policies as JsonObject)
+		this.policies = (json?.user as JsonObject)?.policies
+			? new CompanyPolicy((json?.user as JsonObject)?.policies as JsonObject)
 			: null;
+		this.#ctorSelf(json as JsonObject);
 	}
 	/**
 	 * Updates the account information based on the received message content.
