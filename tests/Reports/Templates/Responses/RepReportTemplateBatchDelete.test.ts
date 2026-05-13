@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import RepReportTemplateBatchDelete from "../../../../commands/Reports/Templates/Responses/RepReportTemplateBatchDelete";
+import RepReportTemplateBatchDelete from "../../../../src/Reports/Templates/Responses/RepReportTemplateBatchDelete";
 
 describe("RepReportTemplateBatchDelete", () => {
   it("should create an empty instance", () => {

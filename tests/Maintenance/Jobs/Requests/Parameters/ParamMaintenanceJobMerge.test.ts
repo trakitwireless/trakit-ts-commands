@@ -1,7 +1,7 @@
 import { JsonObject, MaintenanceJobStatus, TimeSpan } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { ParamMergeSubscribable } from "../../../../../commands/API/Requests/Parameters/ParamMergeSubscribable";
-import { ParamMaintenanceJobMerge } from "../../../../../commands/Maintenance/Jobs/Requests/Parameters/ParamMaintenanceJobMerge";
+import { ParamMergeSubscribable } from "../../../../../src/API/Requests/Parameters/ParamMergeSubscribable";
+import { ParamMaintenanceJobMerge } from "../../../../../src/Maintenance/Jobs/Requests/Parameters/ParamMaintenanceJobMerge";
 
 describe('ParamMaintenanceJobMerge', () => {
 	describe('Constructor', () => {

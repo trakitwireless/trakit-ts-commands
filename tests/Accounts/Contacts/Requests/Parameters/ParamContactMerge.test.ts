@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { ParamContactMerge } from "../../../../../commands/Accounts/Contacts/Requests/Parameters/ParamContactMerge";
+import { ParamContactMerge } from "../../../../../src/Accounts/Contacts/Requests/Parameters/ParamContactMerge";
 
 describe("ParamContactMerge", () => {
 	test("constructor creates instance with all properties", () => {

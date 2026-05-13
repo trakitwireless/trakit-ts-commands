@@ -1,6 +1,6 @@
 import { DispatchJob, JsonObject } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { RepDispatchJobListAll } from "../../../../commands/Dispatch/DispatchJob/Responses/RepDispatchJobList";
+import { RepDispatchJobListAll } from "../../../../src/Dispatch/DispatchJob/Responses/RepDispatchJobList";
 
 describe('RepDispatchJobListAll', () => {
 	it('should create instance with empty constructor', () => {

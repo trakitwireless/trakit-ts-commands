@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { RepSelfGet } from "../../../../commands/Accounts/Self/Responses/RepSelfGet";
+import { RepSelfGet } from "../../../../src/Accounts/Self/Responses/RepSelfGet";
 
 describe("RepSelfLogin (uses RepSelfGet)", () => {
 	test("constructor creates instance with user and session for login", () => {

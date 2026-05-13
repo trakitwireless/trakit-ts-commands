@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import PaySubscriptionMerge from "../../../commands/WebSocket/Requests/PaySubscriptionMerge";
+import PaySubscriptionMerge from "../../../src/WebSocket/Requests/PaySubscriptionMerge";
 import { Subscription } from "@trakit/objects";
 
 describe("PaySubscriptionMerge", () => {

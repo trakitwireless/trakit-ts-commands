@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
-import { PayMachineBatchDelete } from "../../../../commands/Accounts/Machines/Requests/PayMachineBatchDelete";
-import { RepMachineBatchDelete } from "../../../../commands/Accounts/Machines/Responses/RepMachineBatchDelete";
+import { PayMachineBatchDelete } from "../../../../src/Accounts/Machines/Requests/PayMachineBatchDelete";
+import { RepMachineBatchDelete } from "../../../../src/Accounts/Machines/Responses/RepMachineBatchDelete";
 
 describe("PayMachineBatchDelete", () => {
 	test("constructor creates instance with ids", () => {

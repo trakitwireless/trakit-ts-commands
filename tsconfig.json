@@ -7,7 +7,7 @@
 		"declarationMap": true,
 		"declarationDir": "./dist",
 		"emitDeclarationOnly": false,
-		"rootDir": "./commands",
+		"rootDir": "./src",
 		"esModuleInterop": true,
 		"allowSyntheticDefaultImports": true,
 		"isolatedModules": true,
@@ -27,6 +27,6 @@
 		},
 	},
 	"include": [
-		"./commands/index.ts"
+		"./src/index.ts"
 	]
 }

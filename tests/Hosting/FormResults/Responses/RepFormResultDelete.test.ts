@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import RepFormResultDelete from "../../../../commands/Hosting/FormResults/Responses/RepFormResultDelete";
+import RepFormResultDelete from "../../../../src/Hosting/FormResults/Responses/RepFormResultDelete";
 
 describe("RepFormResultDelete", () => {
   it("should create an empty instance", () => {

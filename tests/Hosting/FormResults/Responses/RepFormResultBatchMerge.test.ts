@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import RepFormResultBatchMerge from "../../../../commands/Hosting/FormResults/Responses/RepFormResultBatchMerge";
+import RepFormResultBatchMerge from "../../../../src/Hosting/FormResults/Responses/RepFormResultBatchMerge";
 import { FormResult } from "@trakit/objects";
 
 describe("RepFormResultBatchMerge", () => {

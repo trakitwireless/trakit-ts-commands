@@ -1,1 +1,1 @@
-{"version":3,"file":"IPayListByBillingProfile.d.ts","sourceRoot":"","sources":["../../../commands/API/Requests/IPayListByBillingProfile.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,OAAO,EAAE,MAAM,sBAAsB,CAAC;AAE/C;;GAEG;AACH,MAAM,WAAW,wBAAwB;IACxC;;OAEG;IACH,cAAc,EAAE,OAAO,CAAC;CACxB"}
+{"version":3,"file":"IPayListByBillingProfile.d.ts","sourceRoot":"","sources":["../../../src/API/Requests/IPayListByBillingProfile.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,OAAO,EAAE,MAAM,sBAAsB,CAAC;AAE/C;;GAEG;AACH,MAAM,WAAW,wBAAwB;IACxC;;OAEG;IACH,cAAc,EAAE,OAAO,CAAC;CACxB"}

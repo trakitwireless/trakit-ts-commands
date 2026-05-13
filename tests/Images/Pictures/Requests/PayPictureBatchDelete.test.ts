@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
-import { PayPictureBatchDelete } from "../../../../commands/Images/Pictures/Requests/PayPictureBatchDelete";
-import { RepPictureBatchDelete } from "../../../../commands/Images/Pictures/Responses/RepPictureBatchDelete";
+import { PayPictureBatchDelete } from "../../../../src/Images/Pictures/Requests/PayPictureBatchDelete";
+import { RepPictureBatchDelete } from "../../../../src/Images/Pictures/Responses/RepPictureBatchDelete";
 
 describe("PayPictureBatchDelete", () => {
 	test("constructor creates instance with ids", () => {

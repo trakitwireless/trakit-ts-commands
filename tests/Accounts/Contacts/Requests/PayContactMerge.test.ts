@@ -1,7 +1,7 @@
 import { describe, expect, test } from "vitest";
-import { PayContactMerge } from "../../../../commands/Accounts/Contacts/Requests/PayContactMerge";
-import { ParamContactMerge } from "../../../../commands/Accounts/Contacts/Requests/Parameters/ParamContactMerge";
-import { RepContactMerge } from "../../../../commands/Accounts/Contacts/Responses/RepContactMerge";
+import { PayContactMerge } from "../../../../src/Accounts/Contacts/Requests/PayContactMerge";
+import { ParamContactMerge } from "../../../../src/Accounts/Contacts/Requests/Parameters/ParamContactMerge";
+import { RepContactMerge } from "../../../../src/Accounts/Contacts/Responses/RepContactMerge";
 
 describe("PayContactMerge", () => {
 	test("constructor creates instance with contact", () => {

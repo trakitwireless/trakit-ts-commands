@@ -1,8 +1,8 @@
 import { JsonObject } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { ParamId } from "../../../../commands/API/Requests/Parameters/ParamId";
-import { Payload } from "../../../../commands/API/Requests/Payload";
-import { PayMaintenanceJob } from "../../../../commands/Maintenance/Jobs/Requests/PayMaintenanceJob";
+import { ParamId } from "../../../../src/API/Requests/Parameters/ParamId";
+import { Payload } from "../../../../src/API/Requests/Payload";
+import { PayMaintenanceJob } from "../../../../src/Maintenance/Jobs/Requests/PayMaintenanceJob";
 
 // Note: PayMaintenanceJob is an abstract class, so we test its concrete implementations
 describe('PayMaintenanceJob', () => {

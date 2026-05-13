@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import RepReportScheduleDelete from "../../../../commands/Reports/Schedules/Responses/RepReportScheduleDelete";
+import RepReportScheduleDelete from "../../../../src/Reports/Schedules/Responses/RepReportScheduleDelete";
 
 describe("RepReportScheduleDelete", () => {
   it("should create an empty instance", () => {

@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 import { Rectangle } from "@trakit/objects";
-import { ParamPictureMerge } from "../../../../../commands/Images/Pictures/Requests/Parameters/ParamPictureMerge";
+import { ParamPictureMerge } from "../../../../../src/Images/Pictures/Requests/Parameters/ParamPictureMerge";
 
 describe("ParamPictureMerge", () => {
 	test("constructor creates instance with all properties", () => {

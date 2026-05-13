@@ -1,7 +1,7 @@
 import { describe, expect, test } from "vitest";
-import { PaySessionGet } from "../../../../commands/Accounts/Sessions/Requests/PaySessionGet";
-import { RepSessionGet } from "../../../../commands/Accounts/Sessions/Responses/RepSessionGet";
-import { ParamHandle } from "../../../../commands/Accounts/Sessions/Requests/Parameters/ParamHandle";
+import { PaySessionGet } from "../../../../src/Accounts/Sessions/Requests/PaySessionGet";
+import { RepSessionGet } from "../../../../src/Accounts/Sessions/Responses/RepSessionGet";
+import { ParamHandle } from "../../../../src/Accounts/Sessions/Requests/Parameters/ParamHandle";
 
 describe("PaySessionGet", () => {
 	test("constructor creates instance with session handle", () => {

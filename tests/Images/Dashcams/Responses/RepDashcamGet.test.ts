@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { RepDashcamGet } from "../../../../commands/Images/Dashcams/Responses/RepDashcamGet";
+import { RepDashcamGet } from "../../../../src/Images/Dashcams/Responses/RepDashcamGet";
 import { Dashcam } from "@trakit/objects";
 
 describe("RepDashcamGet", () => {

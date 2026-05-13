@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import PayProviderScriptList from "../../../../commands/Providers/Scripts/Requests/PayProviderScriptList";
+import PayProviderScriptList from "../../../../src/Providers/Scripts/Requests/PayProviderScriptList";
 
 describe("PayProviderScriptList", () => {
   it("should create an empty instance", () => {

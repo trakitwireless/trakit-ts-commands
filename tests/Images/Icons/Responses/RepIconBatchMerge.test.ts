@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { RepIconBatchMerge } from "../../../../commands/Images/Icons/Responses/RepIconBatchMerge";
+import { RepIconBatchMerge } from "../../../../src/Images/Icons/Responses/RepIconBatchMerge";
 import { Icon } from "@trakit/objects";
 
 describe("RepIconBatchMerge", () => {

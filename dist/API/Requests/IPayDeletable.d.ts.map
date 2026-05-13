@@ -1,1 +1,1 @@
-{"version":3,"file":"IPayDeletable.d.ts","sourceRoot":"","sources":["../../../commands/API/Requests/IPayDeletable.ts"],"names":[],"mappings":"AACA;;GAEG;AACH,MAAM,WAAW,aAAa;IAC7B;;OAEG;IACH,cAAc,EAAE,OAAO,CAAC;CACxB"}
+{"version":3,"file":"IPayDeletable.d.ts","sourceRoot":"","sources":["../../../src/API/Requests/IPayDeletable.ts"],"names":[],"mappings":"AACA;;GAEG;AACH,MAAM,WAAW,aAAa;IAC7B;;OAEG;IACH,cAAc,EAAE,OAAO,CAAC;CACxB"}

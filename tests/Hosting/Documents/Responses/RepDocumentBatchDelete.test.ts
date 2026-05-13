@@ -1,6 +1,6 @@
 import { Document, JsonObject } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { RepDocumentBatchDelete } from "../../../../commands/Hosting/Documents/Responses/RepDocumentBatchDelete";
+import { RepDocumentBatchDelete } from "../../../../src/Hosting/Documents/Responses/RepDocumentBatchDelete";
 
 describe('RepDocumentBatchDelete', () => {
 	it('should create instance with empty constructor', () => {

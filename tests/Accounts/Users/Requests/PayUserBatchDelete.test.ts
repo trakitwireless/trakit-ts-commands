@@ -1,7 +1,7 @@
 import { describe, expect, test } from "vitest";
-import { PayUserBatchDelete } from "../../../../commands/Accounts/Users/Requests/PayUserBatchDelete";
-import { ParamLogin } from "../../../../commands/API/Requests/Parameters/ParamLogin";
-import { RepUserBatchDelete } from "../../../../commands/Accounts/Users/Responses/RepUserBatchDelete";
+import { PayUserBatchDelete } from "../../../../src/Accounts/Users/Requests/PayUserBatchDelete";
+import { ParamLogin } from "../../../../src/API/Requests/Parameters/ParamLogin";
+import { RepUserBatchDelete } from "../../../../src/Accounts/Users/Responses/RepUserBatchDelete";
 
 describe("PayUserBatchDelete", () => {
 	test("constructor creates instance with users", () => {

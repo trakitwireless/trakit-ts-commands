@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import PayReportTemplateDelete from "../../../../commands/Reports/Templates/Requests/PayReportTemplateDelete";
+import PayReportTemplateDelete from "../../../../src/Reports/Templates/Requests/PayReportTemplateDelete";
 
 describe("PayReportTemplateDelete", () => {
   it("should create an empty instance", () => {

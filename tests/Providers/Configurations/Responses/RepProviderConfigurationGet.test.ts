@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import RepProviderConfigurationGet from "../../../../commands/Providers/Configurations/Responses/RepProviderConfigurationGet";
+import RepProviderConfigurationGet from "../../../../src/Providers/Configurations/Responses/RepProviderConfigurationGet";
 import { ProviderConfiguration } from "@trakit/objects";
 
 describe("RepProviderConfigurationGet", () => {

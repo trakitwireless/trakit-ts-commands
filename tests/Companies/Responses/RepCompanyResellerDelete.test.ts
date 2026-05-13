@@ -1,6 +1,6 @@
 import { Company, JsonObject } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { RepCompanyResellerDelete } from "../../../commands/Companies/Responses/RepCompanyResellerDelete";
+import { RepCompanyResellerDelete } from "../../../src/Companies/Responses/RepCompanyResellerDelete";
 
 describe('RepCompanyResellerDelete', () => {
 	it('should create instance with empty constructor', () => {

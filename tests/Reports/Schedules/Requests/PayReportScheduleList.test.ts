@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import PayReportScheduleList from "../../../../commands/Reports/Schedules/Requests/PayReportScheduleList";
+import PayReportScheduleList from "../../../../src/Reports/Schedules/Requests/PayReportScheduleList";
 
 describe("PayReportScheduleList", () => {
   it("should create an empty instance", () => {

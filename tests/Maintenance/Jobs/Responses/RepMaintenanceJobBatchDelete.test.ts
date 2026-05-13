@@ -1,9 +1,9 @@
 import { JsonObject } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { RepMaintenanceJobBatchDelete } from "../../../../commands/Maintenance/Jobs/Responses/RepMaintenanceJobBatchDelete";
-import { ContentIdDeleted } from "../../../../commands/API/Responses/Content/ContentIdDeleted";
-import { Reply } from "../../../../commands/API/Responses/Reply";
-import { ReplySyncBatchDelete } from "../../../../commands/API/Responses/ReplySyncBatchDelete";
+import { RepMaintenanceJobBatchDelete } from "../../../../src/Maintenance/Jobs/Responses/RepMaintenanceJobBatchDelete";
+import { ContentIdDeleted } from "../../../../src/API/Responses/Content/ContentIdDeleted";
+import { Reply } from "../../../../src/API/Responses/Reply";
+import { ReplySyncBatchDelete } from "../../../../src/API/Responses/ReplySyncBatchDelete";
 
 describe('RepMaintenanceJobBatchDelete', () => {
 	it('should create instance with empty maintenanceJobs array', () => {

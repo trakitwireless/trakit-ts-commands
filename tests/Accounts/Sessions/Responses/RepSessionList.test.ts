@@ -1,8 +1,8 @@
 import { describe, expect, test } from "vitest";
-import { RepSessionListByCompany, RepSessionListByUser } from "../../../../commands/Accounts/Sessions/Responses/RepSessionList";
+import { RepSessionListByCompany, RepSessionListByUser } from "../../../../src/Accounts/Sessions/Responses/RepSessionList";
 import { Session } from "@trakit/objects";
-import { ContentId } from "../../../../commands/API/Responses/Content/ContentId";
-import { ContentLoginCompany } from "../../../../commands/API/Responses/Content/ContentLoginCompany";
+import { ContentId } from "../../../../src/API/Responses/Content/ContentId";
+import { ContentLoginCompany } from "../../../../src/API/Responses/Content/ContentLoginCompany";
 
 describe("RepSessionListByCompany", () => {
 	test("constructor creates instance with sessions and company", () => {

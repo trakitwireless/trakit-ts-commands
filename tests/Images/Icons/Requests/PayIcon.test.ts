@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { PayIcon } from "../../../../commands/Images/Icons/Requests/PayIcon";
+import { PayIcon } from "../../../../src/Images/Icons/Requests/PayIcon";
 
 describe("PayIcon", () => {
 	test("constructor creates instance with id", () => {

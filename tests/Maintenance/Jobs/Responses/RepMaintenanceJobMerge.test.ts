@@ -1,8 +1,8 @@
 import { JsonObject } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { ContentIdCompany } from "../../../../commands/API/Responses/Content/ContentIdCompany";
-import { Reply } from "../../../../commands/API/Responses/Reply";
-import { RepMaintenanceJobMerge } from "../../../../commands/Maintenance/Jobs/Responses/RepMaintenanceJobMerge";
+import { ContentIdCompany } from "../../../../src/API/Responses/Content/ContentIdCompany";
+import { Reply } from "../../../../src/API/Responses/Reply";
+import { RepMaintenanceJobMerge } from "../../../../src/Maintenance/Jobs/Responses/RepMaintenanceJobMerge";
 
 describe('RepMaintenanceJobMerge', () => {
 	it('should create instance with maintenanceJob data', () => {

@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { RepSelfContact } from "../../../../commands/Accounts/Self/Responses/RepSelfContact";
+import { RepSelfContact } from "../../../../src/Accounts/Self/Responses/RepSelfContact";
 
 describe("RepSelfContact", () => {
 	test("constructor creates instance", () => {

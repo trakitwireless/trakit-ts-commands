@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
-import { PayUserRestore } from "../../../../commands/Accounts/Users/Requests/PayUserRestore";
-import { RepUserGet } from "../../../../commands/Accounts/Users/Responses/RepUserGet";
+import { PayUserRestore } from "../../../../src/Accounts/Users/Requests/PayUserRestore";
+import { RepUserGet } from "../../../../src/Accounts/Users/Responses/RepUserGet";
 
 describe("PayUserRestore", () => {
 	test("constructor creates instance with user", () => {

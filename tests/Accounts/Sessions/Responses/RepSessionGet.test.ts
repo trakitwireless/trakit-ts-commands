@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { RepSessionGet } from "../../../../commands/Accounts/Sessions/Responses/RepSessionGet";
+import { RepSessionGet } from "../../../../src/Accounts/Sessions/Responses/RepSessionGet";
 import { Session } from "@trakit/objects";
 
 describe("RepSessionGet", () => {

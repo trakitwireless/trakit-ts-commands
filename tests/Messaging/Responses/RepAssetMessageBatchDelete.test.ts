@@ -1,9 +1,9 @@
 import { JsonObject } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { RepAssetMessageBatchDelete } from "../../../commands/Messaging/Responses/RepAssetMessageBatchDelete";
-import { ContentIdDeleted } from "../../../commands/API/Responses/Content/ContentIdDeleted";
-import { Reply } from "../../../commands/API/Responses/Reply";
-import { ReplySyncBatchDelete } from "../../../commands/API/Responses/ReplySyncBatchDelete";
+import { RepAssetMessageBatchDelete } from "../../../src/Messaging/Responses/RepAssetMessageBatchDelete";
+import { ContentIdDeleted } from "../../../src/API/Responses/Content/ContentIdDeleted";
+import { Reply } from "../../../src/API/Responses/Reply";
+import { ReplySyncBatchDelete } from "../../../src/API/Responses/ReplySyncBatchDelete";
 
 describe('RepAssetMessageBatchDelete', () => {
 	it('should create instance with empty assetMessages array', () => {

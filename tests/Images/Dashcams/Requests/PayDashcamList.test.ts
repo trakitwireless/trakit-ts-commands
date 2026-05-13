@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 import { DashcamMediaType } from "@trakit/objects";
-import { PayDashcamList } from "../../../../commands/Images/Dashcams/Requests/PayDashcamList";
+import { PayDashcamList } from "../../../../src/Images/Dashcams/Requests/PayDashcamList";
 
 describe("PayDashcamList", () => {
 	test("constructor creates instance with includeDeleted", () => {

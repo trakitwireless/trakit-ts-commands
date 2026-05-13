@@ -1,9 +1,9 @@
 import { JsonObject } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { ContentIdDeleted } from "../../../../commands/API/Responses/Content/ContentIdDeleted";
-import { Reply } from "../../../../commands/API/Responses/Reply";
-import { ReplySyncDelete } from "../../../../commands/API/Responses/ReplySyncDelete";
-import { RepMaintenanceScheduleDelete } from "../../../../commands/Maintenance/Schedules/Responses/RepMaintenanceScheduleDelete";
+import { ContentIdDeleted } from "../../../../src/API/Responses/Content/ContentIdDeleted";
+import { Reply } from "../../../../src/API/Responses/Reply";
+import { ReplySyncDelete } from "../../../../src/API/Responses/ReplySyncDelete";
+import { RepMaintenanceScheduleDelete } from "../../../../src/Maintenance/Schedules/Responses/RepMaintenanceScheduleDelete";
 
 describe('RepMaintenanceScheduleDelete', () => {
 	it('should create instance with maintenanceSchedule data', () => {

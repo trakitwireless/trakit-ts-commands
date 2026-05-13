@@ -1,8 +1,8 @@
 import { JsonObject, Place } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { ContentId } from "../../../commands/API/Responses/Content/ContentId";
-import { Reply } from "../../../commands/API/Responses/Reply";
-import { RepPlaceListByCompany } from "../../../commands/Places/Responses/RepPlaceList";
+import { ContentId } from "../../../src/API/Responses/Content/ContentId";
+import { Reply } from "../../../src/API/Responses/Reply";
+import { RepPlaceListByCompany } from "../../../src/Places/Responses/RepPlaceList";
 
 describe('RepPlaceListByCompany', () => {
 	it('should create instance with empty places array', () => {

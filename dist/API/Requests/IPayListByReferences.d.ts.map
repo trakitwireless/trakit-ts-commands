@@ -1,1 +1,1 @@
-{"version":3,"file":"IPayListByReferences.d.ts","sourceRoot":"","sources":["../../../commands/API/Requests/IPayListByReferences.ts"],"names":[],"mappings":"AAEA;;GAEG;AACH,MAAM,WAAW,oBAAoB;IACpC;;OAEG;IACH,UAAU,EAAE,GAAG,CAAC,MAAM,EAAE,MAAM,CAAC,CAAC;CAChC"}
+{"version":3,"file":"IPayListByReferences.d.ts","sourceRoot":"","sources":["../../../src/API/Requests/IPayListByReferences.ts"],"names":[],"mappings":"AAEA;;GAEG;AACH,MAAM,WAAW,oBAAoB;IACpC;;OAEG;IACH,UAAU,EAAE,GAAG,CAAC,MAAM,EAAE,MAAM,CAAC,CAAC;CAChC"}

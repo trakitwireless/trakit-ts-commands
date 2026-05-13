@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { RepIconBatchDelete } from "../../../../commands/Images/Icons/Responses/RepIconBatchDelete";
+import { RepIconBatchDelete } from "../../../../src/Images/Icons/Responses/RepIconBatchDelete";
 
 describe("RepIconBatchDelete", () => {
 	test("constructor creates instance with ids", () => {

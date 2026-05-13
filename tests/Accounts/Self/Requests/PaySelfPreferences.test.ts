@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
-import { PaySelfPreferences } from "../../../../commands/Accounts/Self/Requests/PaySelfPreferences";
-import { RepSelfPreferences } from "../../../../commands/Accounts/Self/Responses/RepSelfPreferences";
+import { PaySelfPreferences } from "../../../../src/Accounts/Self/Requests/PaySelfPreferences";
+import { RepSelfPreferences } from "../../../../src/Accounts/Self/Responses/RepSelfPreferences";
 import { UserNotifications } from "@trakit/objects";
 
 describe("PaySelfPreferences", () => {

@@ -1,8 +1,8 @@
 import { JsonObject } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { RepMaintenanceJobBatchMerge } from "../../../../commands/Maintenance/Jobs/Responses/RepMaintenanceJobBatchMerge";
-import { ContentIdCompany } from "../../../../commands/API/Responses/Content/ContentIdCompany";
-import { Reply } from "../../../../commands/API/Responses/Reply";
+import { RepMaintenanceJobBatchMerge } from "../../../../src/Maintenance/Jobs/Responses/RepMaintenanceJobBatchMerge";
+import { ContentIdCompany } from "../../../../src/API/Responses/Content/ContentIdCompany";
+import { Reply } from "../../../../src/API/Responses/Reply";
 
 describe('RepMaintenanceJobBatchMerge', () => {
 	it('should create instance with empty maintenanceJobs array', () => {

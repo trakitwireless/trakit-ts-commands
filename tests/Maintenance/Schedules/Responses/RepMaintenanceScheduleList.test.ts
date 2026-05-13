@@ -1,8 +1,8 @@
 import { JsonObject, MaintenanceSchedule } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { ContentId } from "../../../../commands/API/Responses/Content/ContentId";
-import { Reply } from "../../../../commands/API/Responses/Reply";
-import { RepMaintenanceScheduleListByCompany } from "../../../../commands/Maintenance/Schedules/Responses/RepMaintenanceScheduleList";
+import { ContentId } from "../../../../src/API/Responses/Content/ContentId";
+import { Reply } from "../../../../src/API/Responses/Reply";
+import { RepMaintenanceScheduleListByCompany } from "../../../../src/Maintenance/Schedules/Responses/RepMaintenanceScheduleList";
 
 describe('RepMaintenanceScheduleListByCompany', () => {
 	it('should create instance with empty maintenanceSchedules array', () => {

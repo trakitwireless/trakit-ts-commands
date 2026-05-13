@@ -1,8 +1,8 @@
 import { describe, expect, test } from "vitest";
 import { Rectangle } from "@trakit/objects";
-import { PayPictureBatchMerge } from "../../../../commands/Images/Pictures/Requests/PayPictureBatchMerge";
-import { ParamPictureMerge } from "../../../../commands/Images/Pictures/Requests/Parameters/ParamPictureMerge";
-import { RepPictureBatchMerge } from "../../../../commands/Images/Pictures/Responses/RepPictureBatchMerge";
+import { PayPictureBatchMerge } from "../../../../src/Images/Pictures/Requests/PayPictureBatchMerge";
+import { ParamPictureMerge } from "../../../../src/Images/Pictures/Requests/Parameters/ParamPictureMerge";
+import { RepPictureBatchMerge } from "../../../../src/Images/Pictures/Responses/RepPictureBatchMerge";
 
 describe("PayPictureBatchMerge", () => {
 	test("constructor creates instance with pictures", () => {

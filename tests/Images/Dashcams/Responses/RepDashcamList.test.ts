@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { RepDashcamList, RepDashcamListByCompany } from "../../../../commands/Images/Dashcams/Responses/RepDashcamList";
+import { RepDashcamList, RepDashcamListByCompany } from "../../../../src/Images/Dashcams/Responses/RepDashcamList";
 import { Dashcam } from "@trakit/objects";
 
 describe("RepDashcamList", () => {

@@ -1,8 +1,8 @@
 import { JsonObject } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { ContentIdCompany } from "../../../../commands/API/Responses/Content/ContentIdCompany";
-import { Reply } from "../../../../commands/API/Responses/Reply";
-import { RepBehaviourBatchMerge } from "../../../../commands/Behaviours/Behaviours/Responses/RepBehaviourBatchMerge";
+import { ContentIdCompany } from "../../../../src/API/Responses/Content/ContentIdCompany";
+import { Reply } from "../../../../src/API/Responses/Reply";
+import { RepBehaviourBatchMerge } from "../../../../src/Behaviours/Behaviours/Responses/RepBehaviourBatchMerge";
 
 describe('RepBehaviourBatchMerge', () => {
 	it('should create instance with behaviours data', () => {

@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import RepFormTemplateList from "../../../../commands/Hosting/FormTemplates/Responses/RepFormTemplateList";
+import RepFormTemplateList from "../../../../src/Hosting/FormTemplates/Responses/RepFormTemplateList";
 import { FormTemplate } from "@trakit/objects";
 
 describe("RepFormTemplateList", () => {

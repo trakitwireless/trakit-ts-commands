@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { RepMachineGet } from "../../../../commands/Accounts/Machines/Responses/RepMachineGet";
+import { RepMachineGet } from "../../../../src/Accounts/Machines/Responses/RepMachineGet";
 import { Machine } from "@trakit/objects";
 
 describe("RepMachineGet", () => {

@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { PayUserList } from "../../../../commands/Accounts/Users/Requests/PayUserList";
+import { PayUserList } from "../../../../src/Accounts/Users/Requests/PayUserList";
 
 // Create a concrete implementation for testing the abstract class
 class TestPayUserList extends PayUserList {

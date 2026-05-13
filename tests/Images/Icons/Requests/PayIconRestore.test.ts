@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
-import { PayIconRestore } from "../../../../commands/Images/Icons/Requests/PayIconRestore";
-import { RepIconGet } from "../../../../commands/Images/Icons/Responses/RepIconGet";
+import { PayIconRestore } from "../../../../src/Images/Icons/Requests/PayIconRestore";
+import { RepIconGet } from "../../../../src/Images/Icons/Responses/RepIconGet";
 
 describe("PayIconRestore", () => {
 	test("constructor creates instance with id", () => {

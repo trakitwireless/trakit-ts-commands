@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { RepContactBatchDelete } from "../../../../commands/Accounts/Contacts/Responses/RepContactBatchDelete";
+import { RepContactBatchDelete } from "../../../../src/Accounts/Contacts/Responses/RepContactBatchDelete";
 
 describe("RepContactBatchDelete", () => {
 	test("constructor creates instance with ids", () => {

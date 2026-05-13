@@ -1,9 +1,9 @@
 import { JsonObject } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { PayMaintenanceScheduleBatchMerge } from "../../../../commands/Maintenance/Schedules/Requests/PayMaintenanceScheduleBatchMerge";
-import { Payload } from "../../../../commands/API/Requests/Payload";
-import { ParamMaintenanceScheduleMerge } from "../../../../commands/Maintenance/Schedules/Requests/Parameters/ParamMaintenanceScheduleMerge";
-import { RepMaintenanceScheduleBatchMerge } from "../../../../commands/Maintenance/Schedules/Responses/RepMaintenanceScheduleBatchMerge";
+import { PayMaintenanceScheduleBatchMerge } from "../../../../src/Maintenance/Schedules/Requests/PayMaintenanceScheduleBatchMerge";
+import { Payload } from "../../../../src/API/Requests/Payload";
+import { ParamMaintenanceScheduleMerge } from "../../../../src/Maintenance/Schedules/Requests/Parameters/ParamMaintenanceScheduleMerge";
+import { RepMaintenanceScheduleBatchMerge } from "../../../../src/Maintenance/Schedules/Responses/RepMaintenanceScheduleBatchMerge";
 
 describe('PayMaintenanceScheduleBatchMerge', () => {
 	it('should create instance with empty constructor', () => {

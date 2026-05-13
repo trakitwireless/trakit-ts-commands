@@ -1,7 +1,7 @@
 import { JsonObject, TimeSpan } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { ParamMergeSubscribable } from "../../../../../commands/API/Requests/Parameters/ParamMergeSubscribable";
-import { ParamMaintenanceScheduleMerge } from "../../../../../commands/Maintenance/Schedules/Requests/Parameters/ParamMaintenanceScheduleMerge";
+import { ParamMergeSubscribable } from "../../../../../src/API/Requests/Parameters/ParamMergeSubscribable";
+import { ParamMaintenanceScheduleMerge } from "../../../../../src/Maintenance/Schedules/Requests/Parameters/ParamMaintenanceScheduleMerge";
 
 describe('ParamMaintenanceScheduleMerge', () => {
 	describe('Constructor', () => {

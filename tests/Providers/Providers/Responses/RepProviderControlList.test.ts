@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import RepProviderControlList from "../../../../commands/Providers/Providers/Responses/RepProviderControlList";
+import RepProviderControlList from "../../../../src/Providers/Providers/Responses/RepProviderControlList";
 import { ProviderControl } from "@trakit/objects";
 
 describe("RepProviderControlList", () => {

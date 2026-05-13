@@ -1,8 +1,8 @@
 import { JsonObject } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { ContentId } from "../../../../commands/API/Responses/Content/ContentId";
-import { Reply } from "../../../../commands/API/Responses/Reply";
-import { RepBehaviourDelete } from "../../../../commands/Behaviours/Behaviours/Responses/RepBehaviourDelete";
+import { ContentId } from "../../../../src/API/Responses/Content/ContentId";
+import { Reply } from "../../../../src/API/Responses/Reply";
+import { RepBehaviourDelete } from "../../../../src/Behaviours/Behaviours/Responses/RepBehaviourDelete";
 
 describe('RepBehaviourDelete', () => {
 	it('should create instance with behaviour data', () => {

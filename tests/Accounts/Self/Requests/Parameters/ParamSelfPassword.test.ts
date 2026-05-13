@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { ParamSelfPassword } from "../../../../../commands/Accounts/Self/Requests/Parameters/ParamSelfPassword";
+import { ParamSelfPassword } from "../../../../../src/Accounts/Self/Requests/Parameters/ParamSelfPassword";
 
 describe("ParamSelfPassword", () => {
 	test("constructor creates instance with old and new password", () => {

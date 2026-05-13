@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import RepSubscriptionList from "../../../commands/WebSocket/Responses/RepSubscriptionList";
+import RepSubscriptionList from "../../../src/WebSocket/Responses/RepSubscriptionList";
 import { Subscription } from "@trakit/objects";
 
 describe("RepSubscriptionList", () => {

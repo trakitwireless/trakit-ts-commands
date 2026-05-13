@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import PayReportTemplateMerge from "../../../../commands/Reports/Templates/Requests/PayReportTemplateMerge";
+import PayReportTemplateMerge from "../../../../src/Reports/Templates/Requests/PayReportTemplateMerge";
 import { ReportTemplate } from "@trakit/objects";
 
 describe("PayReportTemplateMerge", () => {

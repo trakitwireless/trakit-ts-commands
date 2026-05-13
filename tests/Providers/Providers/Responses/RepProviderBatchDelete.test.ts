@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import RepProviderBatchDelete from "../../../../commands/Providers/Providers/Responses/RepProviderBatchDelete";
+import RepProviderBatchDelete from "../../../../src/Providers/Providers/Responses/RepProviderBatchDelete";
 
 describe("RepProviderBatchDelete", () => {
   it("should create an empty instance", () => {

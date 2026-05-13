@@ -1,7 +1,7 @@
 import { describe, expect, test } from "vitest";
-import { PaySelfContact } from "../../../../commands/Accounts/Self/Requests/PaySelfContact";
-import { RepSelfContact } from "../../../../commands/Accounts/Self/Responses/RepSelfContact";
-import { ParamSelfContactMerge } from "../../../../commands/Accounts/Self/Requests/Parameters/ParamSelfContactMerge";
+import { PaySelfContact } from "../../../../src/Accounts/Self/Requests/PaySelfContact";
+import { RepSelfContact } from "../../../../src/Accounts/Self/Responses/RepSelfContact";
+import { ParamSelfContactMerge } from "../../../../src/Accounts/Self/Requests/Parameters/ParamSelfContactMerge";
 
 describe("PaySelfContact", () => {
 	test("constructor creates instance with contact", () => {

@@ -1,7 +1,7 @@
 import { Behaviour, JsonObject } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { Reply } from "../../../../commands/API/Responses/Reply";
-import { RepBehaviourListByCompany } from "../../../../commands/Behaviours/Behaviours/Responses/RepBehaviourList";
+import { Reply } from "../../../../src/API/Responses/Reply";
+import { RepBehaviourListByCompany } from "../../../../src/Behaviours/Behaviours/Responses/RepBehaviourList";
 
 describe('RepBehaviourListByCompany', () => {
 	it('should create instance with behaviours data', () => {

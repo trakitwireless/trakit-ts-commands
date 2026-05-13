@@ -1,1 +1,1 @@
-{"version":3,"file":"ErrorDetail_fromJSON.d.ts","sourceRoot":"","sources":["../../../commands/API/Responses/Errors/ErrorDetail_fromJSON.ts"],"names":[],"mappings":""}
+{"version":3,"file":"ErrorDetail_fromJSON.d.ts","sourceRoot":"","sources":["../../../src/API/Responses/Errors/ErrorDetail_fromJSON.ts"],"names":[],"mappings":""}

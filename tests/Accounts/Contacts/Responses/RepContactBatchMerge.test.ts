@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { RepContactBatchMerge } from "../../../../commands/Accounts/Contacts/Responses/RepContactBatchMerge";
+import { RepContactBatchMerge } from "../../../../src/Accounts/Contacts/Responses/RepContactBatchMerge";
 import { Contact } from "@trakit/objects";
 
 describe("RepContactBatchMerge", () => {

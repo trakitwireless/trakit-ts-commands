@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { PayMachine } from "../../../../commands/Accounts/Machines/Requests/PayMachine";
+import { PayMachine } from "../../../../src/Accounts/Machines/Requests/PayMachine";
 
 describe("PayMachine", () => {
 	test("constructor creates instance with id", () => {

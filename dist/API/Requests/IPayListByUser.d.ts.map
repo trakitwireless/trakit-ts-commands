@@ -1,1 +1,1 @@
-{"version":3,"file":"IPayListByUser.d.ts","sourceRoot":"","sources":["../../../commands/API/Requests/IPayListByUser.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,UAAU,EAAE,MAAM,yBAAyB,CAAC;AAErD;;GAEG;AACH,MAAM,WAAW,cAAc;IAC9B;;OAEG;IACH,IAAI,EAAE,UAAU,CAAC;CACjB"}
+{"version":3,"file":"IPayListByUser.d.ts","sourceRoot":"","sources":["../../../src/API/Requests/IPayListByUser.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,UAAU,EAAE,MAAM,yBAAyB,CAAC;AAErD;;GAEG;AACH,MAAM,WAAW,cAAc;IAC9B;;OAEG;IACH,IAAI,EAAE,UAAU,CAAC;CACjB"}

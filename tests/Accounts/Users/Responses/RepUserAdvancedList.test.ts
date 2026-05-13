@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { RepUserAdvancedList } from "../../../../commands/Accounts/Users/Responses/RepUserAdvancedList";
+import { RepUserAdvancedList } from "../../../../src/Accounts/Users/Responses/RepUserAdvancedList";
 import { UserAdvanced } from "@trakit/objects";
 
 describe("RepUserAdvancedList", () => {

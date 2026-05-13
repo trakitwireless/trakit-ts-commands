@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import RepFormTemplateBatchDelete from "../../../../commands/Hosting/FormTemplates/Responses/RepFormTemplateBatchDelete";
+import RepFormTemplateBatchDelete from "../../../../src/Hosting/FormTemplates/Responses/RepFormTemplateBatchDelete";
 
 describe("RepFormTemplateBatchDelete", () => {
   it("should create an empty instance", () => {

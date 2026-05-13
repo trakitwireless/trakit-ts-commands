@@ -1,9 +1,9 @@
 import { JsonObject } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { ParamId } from "../../../commands/API/Requests/Parameters/ParamId";
-import { Payload } from "../../../commands/API/Requests/Payload";
-import { PayPlaceBatchDelete } from "../../../commands/Places/Requests/PayPlaceBatchDelete";
-import { RepPlaceBatchDelete } from "../../../commands/Places/Responses/RepPlaceBatchDelete";
+import { ParamId } from "../../../src/API/Requests/Parameters/ParamId";
+import { Payload } from "../../../src/API/Requests/Payload";
+import { PayPlaceBatchDelete } from "../../../src/Places/Requests/PayPlaceBatchDelete";
+import { RepPlaceBatchDelete } from "../../../src/Places/Responses/RepPlaceBatchDelete";
 
 describe('PayPlaceBatchDelete', () => {
 	it('should create instance with empty constructor', () => {

@@ -23,14 +23,14 @@ const obfuscate = {
 
 export default [
 	{
-		input: './commands/index.ts',
+		input: './src/index.ts',
 		output: [
 			// {
-			//   file: '../dist/trakit-commands.js',
+			//   file: '../dist/trakit-src.js',
 			//   format: 'es',
 			// },
 			{
-				file: 'dist/trakit-commands.min.js',
+				file: 'dist/trakit-src.min.js',
 				format: 'es',
 				exports: 'named',
 				plugins: [terser(obfuscate)]

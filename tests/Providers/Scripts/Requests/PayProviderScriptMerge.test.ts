@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import PayProviderScriptMerge from "../../../../commands/Providers/Scripts/Requests/PayProviderScriptMerge";
+import PayProviderScriptMerge from "../../../../src/Providers/Scripts/Requests/PayProviderScriptMerge";
 import { ProviderScript } from "@trakit/objects";
 
 describe("PayProviderScriptMerge", () => {

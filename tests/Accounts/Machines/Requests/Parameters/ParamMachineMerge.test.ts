@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { ParamMachineMerge } from "../../../../../commands/Accounts/Machines/Requests/Parameters/ParamMachineMerge";
+import { ParamMachineMerge } from "../../../../../src/Accounts/Machines/Requests/Parameters/ParamMachineMerge";
 
 describe("ParamMachineMerge", () => {
 	test("constructor creates instance with all properties", () => {

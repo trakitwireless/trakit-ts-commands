@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
 import { IconGlyph, IconLabel } from "@trakit/objects";
-import { ParamIconMerge } from "../../../../../commands/Images/Icons/Requests/Parameters/ParamIconMerge";
+import { ParamIconMerge } from "../../../../../src/Images/Icons/Requests/Parameters/ParamIconMerge";
 
 describe("ParamIconMerge", () => {
 	test("constructor creates instance with all properties", () => {

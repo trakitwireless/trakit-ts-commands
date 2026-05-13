@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
-import { RepSessionDelete } from "../../../../commands/Accounts/Sessions/Responses/RepSessionDelete";
-import { SessionHandle } from "../../../../commands/Accounts/Sessions/Responses/Content/SessionHandle";
+import { RepSessionDelete } from "../../../../src/Accounts/Sessions/Responses/RepSessionDelete";
+import { SessionHandle } from "../../../../src/Accounts/Sessions/Responses/Content/SessionHandle";
 
 describe("RepSessionDelete", () => {
 	test("constructor creates instance with session handle", () => {

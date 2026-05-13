@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { PayUserGroup } from "../../../../commands/Accounts/Groups/Requests/PayUserGroup";
+import { PayUserGroup } from "../../../../src/Accounts/Groups/Requests/PayUserGroup";
 
 describe("PayUserGroup", () => {
 	test("constructor creates instance with id", () => {

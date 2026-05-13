@@ -1,7 +1,7 @@
 import { JsonObject, Place } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { Reply } from "../../../commands/API/Responses/Reply";
-import { RepPlaceGet } from "../../../commands/Places/Responses/RepPlaceGet";
+import { Reply } from "../../../src/API/Responses/Reply";
+import { RepPlaceGet } from "../../../src/Places/Responses/RepPlaceGet";
 
 describe('RepPlaceGet', () => {
 	it('should create instance with place data', () => {

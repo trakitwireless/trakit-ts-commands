@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import PayFormTemplate from "../../../../commands/Hosting/FormTemplates/Requests/PayFormTemplate";
+import PayFormTemplate from "../../../../src/Hosting/FormTemplates/Requests/PayFormTemplate";
 
 describe("PayFormTemplate", () => {
   it("should create an empty instance", () => {

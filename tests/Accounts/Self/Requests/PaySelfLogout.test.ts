@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
-import { PaySelfLogout } from "../../../../commands/Accounts/Self/Requests/PaySelfLogout";
-import { RepSelfLogout } from "../../../../commands/Accounts/Self/Responses/RepSelfLogout";
+import { PaySelfLogout } from "../../../../src/Accounts/Self/Requests/PaySelfLogout";
+import { RepSelfLogout } from "../../../../src/Accounts/Self/Responses/RepSelfLogout";
 
 describe("PaySelfLogout", () => {
 	test("constructor creates instance without parameters", () => {

@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import PayProviderGeneralGet from "../../../../commands/Providers/Providers/Requests/PayProviderGeneralGet";
+import PayProviderGeneralGet from "../../../../src/Providers/Providers/Requests/PayProviderGeneralGet";
 
 describe("PayProviderGeneralGet", () => {
   it("should create an empty instance", () => {

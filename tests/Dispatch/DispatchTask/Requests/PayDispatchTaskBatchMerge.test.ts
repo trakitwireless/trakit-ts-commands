@@ -1,8 +1,8 @@
 import { DispatchTask, JsonObject } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { Payload } from "../../../../commands/API/Requests/Payload";
-import { PayDispatchTaskBatchMerge } from "../../../../commands/Dispatch/DispatchTask/Requests/PayDispatchTaskBatchMerge";
-import { RepDispatchTaskBatchMerge } from "../../../../commands/Dispatch/DispatchTask/Responses/RepDispatchTaskBatchMerge";
+import { Payload } from "../../../../src/API/Requests/Payload";
+import { PayDispatchTaskBatchMerge } from "../../../../src/Dispatch/DispatchTask/Requests/PayDispatchTaskBatchMerge";
+import { RepDispatchTaskBatchMerge } from "../../../../src/Dispatch/DispatchTask/Responses/RepDispatchTaskBatchMerge";
 
 describe('PayDispatchTaskBatchMerge', () => {
 	it('should create instance with empty constructor', () => {

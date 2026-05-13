@@ -1,8 +1,8 @@
 import { describe, expect, test } from "vitest";
 import { IconGlyph, IconLabel } from "@trakit/objects";
-import { PayIconBatchMerge } from "../../../../commands/Images/Icons/Requests/PayIconBatchMerge";
-import { ParamIconMerge } from "../../../../commands/Images/Icons/Requests/Parameters/ParamIconMerge";
-import { RepIconBatchMerge } from "../../../../commands/Images/Icons/Responses/RepIconBatchMerge";
+import { PayIconBatchMerge } from "../../../../src/Images/Icons/Requests/PayIconBatchMerge";
+import { ParamIconMerge } from "../../../../src/Images/Icons/Requests/Parameters/ParamIconMerge";
+import { RepIconBatchMerge } from "../../../../src/Images/Icons/Responses/RepIconBatchMerge";
 
 describe("PayIconBatchMerge", () => {
 	test("constructor creates instance with icons", () => {

@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import PayProviderConfiguration from "../../../../commands/Providers/Configurations/Requests/PayProviderConfiguration";
+import PayProviderConfiguration from "../../../../src/Providers/Configurations/Requests/PayProviderConfiguration";
 
 describe("PayProviderConfiguration", () => {
   it("should create an empty instance", () => {

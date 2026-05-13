@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { RepIconGet } from "../../../../commands/Images/Icons/Responses/RepIconGet";
+import { RepIconGet } from "../../../../src/Images/Icons/Responses/RepIconGet";
 import { Icon } from "@trakit/objects";
 
 describe("RepIconGet", () => {

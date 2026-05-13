@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { ParamUserGroupMerge } from "../../../../../commands/Accounts/Groups/Requests/Parameters/ParamUserGroupMerge";
+import { ParamUserGroupMerge } from "../../../../../src/Accounts/Groups/Requests/Parameters/ParamUserGroupMerge";
 
 describe("ParamUserGroupMerge", () => {
 	test("constructor creates instance with all properties", () => {

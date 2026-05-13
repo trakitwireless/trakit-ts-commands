@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import PayFormTemplateBatchDelete from "../../../../commands/Hosting/FormTemplates/Requests/PayFormTemplateBatchDelete";
+import PayFormTemplateBatchDelete from "../../../../src/Hosting/FormTemplates/Requests/PayFormTemplateBatchDelete";
 
 describe("PayFormTemplateBatchDelete", () => {
   it("should create an empty instance", () => {

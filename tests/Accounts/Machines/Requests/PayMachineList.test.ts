@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
-import { PayMachineList } from "../../../../commands/Accounts/Machines/Requests/PayMachineList";
-import { RepMachineList } from "../../../../commands/Accounts/Machines/Responses/RepMachineList";
+import { PayMachineList } from "../../../../src/Accounts/Machines/Requests/PayMachineList";
+import { RepMachineList } from "../../../../src/Accounts/Machines/Responses/RepMachineList";
 
 describe("PayMachineList", () => {
 	test("constructor creates instance with includeDeleted", () => {

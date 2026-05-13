@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { RepSelfGet } from "../../../../commands/Accounts/Self/Responses/RepSelfGet";
+import { RepSelfGet } from "../../../../src/Accounts/Self/Responses/RepSelfGet";
 import { User } from "@trakit/objects";
 
 describe("RepSelfGet", () => {

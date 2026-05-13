@@ -1,9 +1,9 @@
 import { JsonObject } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { RepPlaceBatchDelete } from "../../../commands/Places/../../commands/Places/Responses/RepPlaceBatchDelete";
-import { ContentIdDeleted } from "../../../commands/Places/../API/Responses/Content/ContentIdDeleted";
-import { Reply } from "../../../commands/Places/../API/Responses/Reply";
-import { ReplySyncBatchDelete } from "../../../commands/Places/../API/Responses/ReplySyncBatchDelete";
+import { RepPlaceBatchDelete } from "../../../src/Places/../../src/Places/Responses/RepPlaceBatchDelete";
+import { ContentIdDeleted } from "../../../src/Places/../API/Responses/Content/ContentIdDeleted";
+import { Reply } from "../../../src/Places/../API/Responses/Reply";
+import { ReplySyncBatchDelete } from "../../../src/Places/../API/Responses/ReplySyncBatchDelete";
 
 describe('RepPlaceBatchDelete', () => {
 	it('should create instance with empty places array', () => {

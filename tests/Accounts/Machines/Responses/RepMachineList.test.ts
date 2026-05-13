@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { RepMachineList } from "../../../../commands/Accounts/Machines/Responses/RepMachineList";
+import { RepMachineList } from "../../../../src/Accounts/Machines/Responses/RepMachineList";
 import { Machine } from "@trakit/objects";
 
 describe("RepMachineList", () => {

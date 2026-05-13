@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { RepUserGeneralList } from "../../../../commands/Accounts/Users/Responses/RepUserGeneralList";
+import { RepUserGeneralList } from "../../../../src/Accounts/Users/Responses/RepUserGeneralList";
 import { UserGeneral } from "@trakit/objects";
 
 describe("RepUserGeneralList", () => {

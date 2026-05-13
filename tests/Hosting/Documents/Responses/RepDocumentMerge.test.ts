@@ -1,6 +1,6 @@
 import { Document, JsonObject } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { RepDocumentMerge } from "../../../../commands/Hosting/Documents/Responses/RepDocumentMerge";
+import { RepDocumentMerge } from "../../../../src/Hosting/Documents/Responses/RepDocumentMerge";
 
 describe('RepDocumentMerge', () => {
 	it('should create instance with empty constructor', () => {

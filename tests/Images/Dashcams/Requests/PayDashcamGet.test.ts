@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
-import { PayDashcamGet } from "../../../../commands/Images/Dashcams/Requests/PayDashcamGet";
-import { RepDashcamGet } from "../../../../commands/Images/Dashcams/Responses/RepDashcamGet";
+import { PayDashcamGet } from "../../../../src/Images/Dashcams/Requests/PayDashcamGet";
+import { RepDashcamGet } from "../../../../src/Images/Dashcams/Responses/RepDashcamGet";
 
 describe("PayDashcamGet", () => {
 	test("constructor creates instance with dashcam guid", () => {

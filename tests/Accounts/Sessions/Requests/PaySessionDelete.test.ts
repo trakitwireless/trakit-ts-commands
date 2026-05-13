@@ -1,7 +1,7 @@
 import { describe, expect, test } from "vitest";
-import { PaySessionDelete } from "../../../../commands/Accounts/Sessions/Requests/PaySessionDelete";
-import { RepSessionDelete } from "../../../../commands/Accounts/Sessions/Responses/RepSessionDelete";
-import { ParamHandle } from "../../../../commands/Accounts/Sessions/Requests/Parameters/ParamHandle";
+import { PaySessionDelete } from "../../../../src/Accounts/Sessions/Requests/PaySessionDelete";
+import { RepSessionDelete } from "../../../../src/Accounts/Sessions/Responses/RepSessionDelete";
+import { ParamHandle } from "../../../../src/Accounts/Sessions/Requests/Parameters/ParamHandle";
 
 describe("PaySessionDelete", () => {
 	test("constructor creates instance with session handle", () => {

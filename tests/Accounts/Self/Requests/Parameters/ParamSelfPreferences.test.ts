@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { ParamSelfPreferences } from "../../../../../commands/Accounts/Self/Requests/Parameters/ParamSelfPreferences";
+import { ParamSelfPreferences } from "../../../../../src/Accounts/Self/Requests/Parameters/ParamSelfPreferences";
 import { UserNotifications } from "@trakit/objects";
 
 describe("ParamSelfPreferences", () => {

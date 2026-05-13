@@ -1,7 +1,7 @@
 import { describe, expect, test } from "vitest";
-import { PayMachineMerge } from "../../../../commands/Accounts/Machines/Requests/PayMachineMerge";
-import { ParamMachineMerge } from "../../../../commands/Accounts/Machines/Requests/Parameters/ParamMachineMerge";
-import { RepMachineMerge } from "../../../../commands/Accounts/Machines/Responses/RepMachineMerge";
+import { PayMachineMerge } from "../../../../src/Accounts/Machines/Requests/PayMachineMerge";
+import { ParamMachineMerge } from "../../../../src/Accounts/Machines/Requests/Parameters/ParamMachineMerge";
+import { RepMachineMerge } from "../../../../src/Accounts/Machines/Responses/RepMachineMerge";
 
 describe("PayMachineMerge", () => {
 	test("constructor creates instance with machine", () => {

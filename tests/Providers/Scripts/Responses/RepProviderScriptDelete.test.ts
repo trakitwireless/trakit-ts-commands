@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import RepProviderScriptDelete from "../../../../commands/Providers/Scripts/Responses/RepProviderScriptDelete";
+import RepProviderScriptDelete from "../../../../src/Providers/Scripts/Responses/RepProviderScriptDelete";
 
 describe("RepProviderScriptDelete", () => {
   it("should create an empty instance", () => {

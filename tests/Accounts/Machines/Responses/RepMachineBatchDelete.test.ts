@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { RepMachineBatchDelete } from "../../../../commands/Accounts/Machines/Responses/RepMachineBatchDelete";
+import { RepMachineBatchDelete } from "../../../../src/Accounts/Machines/Responses/RepMachineBatchDelete";
 
 describe("RepMachineBatchDelete", () => {
 	test("constructor creates instance with ids", () => {

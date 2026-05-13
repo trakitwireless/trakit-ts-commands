@@ -1,7 +1,7 @@
 import { codified, JsonObject, LatLng, PlaceType } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { ParamMergeSubscribable } from "../../../../commands/API/Requests/Parameters/ParamMergeSubscribable";
-import { ParamPlaceMerge } from "../../../../commands/Places/Requests/Parameters/ParamPlaceMerge";
+import { ParamMergeSubscribable } from "../../../../src/API/Requests/Parameters/ParamMergeSubscribable";
+import { ParamPlaceMerge } from "../../../../src/Places/Requests/Parameters/ParamPlaceMerge";
 
 describe('ParamPlaceMerge', () => {
 	describe('Constructor', () => {

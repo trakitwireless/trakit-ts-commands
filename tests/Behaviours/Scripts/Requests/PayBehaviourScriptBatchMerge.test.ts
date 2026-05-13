@@ -1,9 +1,9 @@
 import { JsonObject } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { Payload } from "../../../../commands/API/Requests/Payload";
-import { ParamBehaviourScriptMerge } from "../../../../commands/Behaviours/Scripts/Requests/Parameters/ParamBehaviourScriptMerge";
-import { PayBehaviourScriptBatchMerge } from "../../../../commands/Behaviours/Scripts/Requests/PayBehaviourScriptBatchMerge";
-import { RepBehaviourScriptBatchMerge } from "../../../../commands/Behaviours/Scripts/Responses/RepBehaviourScriptBatchMerge";
+import { Payload } from "../../../../src/API/Requests/Payload";
+import { ParamBehaviourScriptMerge } from "../../../../src/Behaviours/Scripts/Requests/Parameters/ParamBehaviourScriptMerge";
+import { PayBehaviourScriptBatchMerge } from "../../../../src/Behaviours/Scripts/Requests/PayBehaviourScriptBatchMerge";
+import { RepBehaviourScriptBatchMerge } from "../../../../src/Behaviours/Scripts/Responses/RepBehaviourScriptBatchMerge";
 
 describe('PayBehaviourScriptBatchMerge', () => {
 	it('should create instance with empty constructor', () => {

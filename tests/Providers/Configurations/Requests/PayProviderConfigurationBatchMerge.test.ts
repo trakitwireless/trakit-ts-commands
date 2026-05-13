@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import PayProviderConfigurationBatchMerge from "../../../../commands/Providers/Configurations/Requests/PayProviderConfigurationBatchMerge";
+import PayProviderConfigurationBatchMerge from "../../../../src/Providers/Configurations/Requests/PayProviderConfigurationBatchMerge";
 import { ProviderConfiguration } from "@trakit/objects";
 
 describe("PayProviderConfigurationBatchMerge", () => {

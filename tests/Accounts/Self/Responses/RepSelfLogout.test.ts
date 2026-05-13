@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { RepSelfLogout } from "../../../../commands/Accounts/Self/Responses/RepSelfLogout";
+import { RepSelfLogout } from "../../../../src/Accounts/Self/Responses/RepSelfLogout";
 
 describe("RepSelfLogout", () => {
 	test("constructor creates instance with ghostId and expiry", () => {

@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { PayIconList } from "../../../../commands/Images/Icons/Requests/PayIconList";
+import { PayIconList } from "../../../../src/Images/Icons/Requests/PayIconList";
 
 describe("PayIconList", () => {
 	test("constructor creates instance with includeDeleted", () => {

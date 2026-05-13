@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { ParamPermission } from "../../../commands/Accounts/Permissions/ParamPermission";
+import { ParamPermission } from "../../../src/Accounts/Permissions/ParamPermission";
 import { PermissionType, PermissionLevel, PermissionMethod } from "@trakit/objects";
 
 describe("ParamPermission", () => {

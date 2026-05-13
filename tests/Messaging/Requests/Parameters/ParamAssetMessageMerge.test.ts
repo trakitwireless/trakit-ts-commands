@@ -1,7 +1,7 @@
 import { JsonObject, MessageFolder, MessageType } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { ParamMergeSubscribable } from "../../../../commands/API/Requests/Parameters/ParamMergeSubscribable";
-import { ParamAssetMessageMerge } from "../../../../commands/Messaging/Requests/Parameters/ParamAssetMessageMerge";
+import { ParamMergeSubscribable } from "../../../../src/API/Requests/Parameters/ParamMergeSubscribable";
+import { ParamAssetMessageMerge } from "../../../../src/Messaging/Requests/Parameters/ParamAssetMessageMerge";
 
 describe('ParamAssetMessageMerge', () => {
 	describe('Constructor', () => {

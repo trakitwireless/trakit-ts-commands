@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
-import { PayUser } from "../../../../commands/Accounts/Users/Requests/PayUser";
-import { ParamLogin } from "../../../../commands/API/Requests/Parameters/ParamLogin";
+import { PayUser } from "../../../../src/Accounts/Users/Requests/PayUser";
+import { ParamLogin } from "../../../../src/API/Requests/Parameters/ParamLogin";
 
 // Create a concrete implementation for testing the abstract class
 class TestPayUser extends PayUser {

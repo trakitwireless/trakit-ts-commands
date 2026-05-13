@@ -1,8 +1,8 @@
 import { JsonObject } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { ContentIdCompany } from "../../../commands/API/Responses/Content/ContentIdCompany";
-import { Reply } from "../../../commands/API/Responses/Reply";
-import { RepAssetDispatchMerge } from "../../../commands/Assets/Responses/RepAssetDispatchMerge";
+import { ContentIdCompany } from "../../../src/API/Responses/Content/ContentIdCompany";
+import { Reply } from "../../../src/API/Responses/Reply";
+import { RepAssetDispatchMerge } from "../../../src/Assets/Responses/RepAssetDispatchMerge";
 
 describe('RepAssetDispatchMerge', () => {
 	it('should create instance with asset data', () => {

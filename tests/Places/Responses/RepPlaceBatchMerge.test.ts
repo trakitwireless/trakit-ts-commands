@@ -1,8 +1,8 @@
 import { JsonObject } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { RepPlaceBatchMerge } from "../../../commands/Places/Responses/RepPlaceBatchMerge";
-import { ContentIdCompany } from "../../../commands/API/Responses/Content/ContentIdCompany";
-import { Reply } from "../../../commands/API/Responses/Reply";
+import { RepPlaceBatchMerge } from "../../../src/Places/Responses/RepPlaceBatchMerge";
+import { ContentIdCompany } from "../../../src/API/Responses/Content/ContentIdCompany";
+import { Reply } from "../../../src/API/Responses/Reply";
 
 describe('RepPlaceBatchMerge', () => {
 	it('should create instance with empty places array', () => {

@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
-import { PayContactDelete } from "../../../../commands/Accounts/Contacts/Requests/PayContactDelete";
-import { RepContactDelete } from "../../../../commands/Accounts/Contacts/Responses/RepContactDelete";
+import { PayContactDelete } from "../../../../src/Accounts/Contacts/Requests/PayContactDelete";
+import { RepContactDelete } from "../../../../src/Accounts/Contacts/Responses/RepContactDelete";
 
 describe("PayContactDelete", () => {
 	test("constructor creates instance with id", () => {

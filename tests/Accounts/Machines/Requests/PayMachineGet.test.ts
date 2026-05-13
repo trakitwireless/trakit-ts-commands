@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
-import { PayMachineGet } from "../../../../commands/Accounts/Machines/Requests/PayMachineGet";
-import { RepMachineGet } from "../../../../commands/Accounts/Machines/Responses/RepMachineGet";
+import { PayMachineGet } from "../../../../src/Accounts/Machines/Requests/PayMachineGet";
+import { RepMachineGet } from "../../../../src/Accounts/Machines/Responses/RepMachineGet";
 
 describe("PayMachineGet", () => {
 	test("constructor creates instance with id", () => {

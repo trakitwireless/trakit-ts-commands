@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { RepUserDelete } from "../../../../commands/Accounts/Users/Responses/RepUserDelete";
+import { RepUserDelete } from "../../../../src/Accounts/Users/Responses/RepUserDelete";
 
 describe("RepUserDelete", () => {
 	test("constructor creates instance with user", () => {

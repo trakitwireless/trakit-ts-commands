@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { RepPictureBatchMerge } from "../../../../commands/Images/Pictures/Responses/RepPictureBatchMerge";
+import { RepPictureBatchMerge } from "../../../../src/Images/Pictures/Responses/RepPictureBatchMerge";
 import { Picture } from "@trakit/objects";
 
 describe("RepPictureBatchMerge", () => {

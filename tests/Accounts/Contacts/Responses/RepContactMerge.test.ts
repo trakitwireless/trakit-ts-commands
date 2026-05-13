@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { RepContactMerge } from "../../../../commands/Accounts/Contacts/Responses/RepContactMerge";
+import { RepContactMerge } from "../../../../src/Accounts/Contacts/Responses/RepContactMerge";
 import { Contact } from "@trakit/objects";
 
 describe("RepContactMerge", () => {

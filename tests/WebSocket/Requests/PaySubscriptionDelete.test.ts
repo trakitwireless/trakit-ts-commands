@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import PaySubscriptionDelete from "../../../commands/WebSocket/Requests/PaySubscriptionDelete";
+import PaySubscriptionDelete from "../../../src/WebSocket/Requests/PaySubscriptionDelete";
 
 describe("PaySubscriptionDelete", () => {
   it("should create an empty instance", () => {

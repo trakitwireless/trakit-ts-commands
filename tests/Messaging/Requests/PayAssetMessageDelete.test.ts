@@ -1,9 +1,9 @@
 import { JsonObject } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { Payload } from "../../../commands/API/Requests/Payload";
-import { PayAssetMessage } from "../../../commands/Messaging/Requests/PayAssetMessage";
-import { PayAssetMessageDelete } from "../../../commands/Messaging/Requests/PayAssetMessageDelete";
-import { RepAssetMessageDelete } from "../../../commands/Messaging/Responses/RepAssetMessageDelete";
+import { Payload } from "../../../src/API/Requests/Payload";
+import { PayAssetMessage } from "../../../src/Messaging/Requests/PayAssetMessage";
+import { PayAssetMessageDelete } from "../../../src/Messaging/Requests/PayAssetMessageDelete";
+import { RepAssetMessageDelete } from "../../../src/Messaging/Responses/RepAssetMessageDelete";
 
 describe('PayAssetMessageDelete', () => {
 	it('should create instance with empty constructor', () => {

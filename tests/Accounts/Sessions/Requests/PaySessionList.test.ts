@@ -1,8 +1,8 @@
 import { describe, expect, test } from "vitest";
-import { PaySessionListByCompany, PaySessionListByUser } from "../../../../commands/Accounts/Sessions/Requests/PaySessionList";
-import { RepSessionListByCompany, RepSessionListByUser } from "../../../../commands/Accounts/Sessions/Responses/RepSessionList";
-import { ParamId } from "../../../../commands/API/Requests/Parameters/ParamId";
-import { ParamLogin } from "../../../../commands/API/Requests/Parameters/ParamLogin";
+import { PaySessionListByCompany, PaySessionListByUser } from "../../../../src/Accounts/Sessions/Requests/PaySessionList";
+import { RepSessionListByCompany, RepSessionListByUser } from "../../../../src/Accounts/Sessions/Responses/RepSessionList";
+import { ParamId } from "../../../../src/API/Requests/Parameters/ParamId";
+import { ParamLogin } from "../../../../src/API/Requests/Parameters/ParamLogin";
 
 describe("PaySessionListByCompany", () => {
 	test("constructor creates instance with company id", () => {

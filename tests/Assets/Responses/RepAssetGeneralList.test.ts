@@ -1,7 +1,7 @@
 import { AssetGeneral, JsonObject } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { Reply } from "../../../commands/API/Responses/Reply";
-import { RepAssetGeneralListByCompany } from "../../../commands/Assets/Responses/RepAssetGeneralList";
+import { Reply } from "../../../src/API/Responses/Reply";
+import { RepAssetGeneralListByCompany } from "../../../src/Assets/Responses/RepAssetGeneralList";
 
 describe('RepAssetGeneralListByCompany', () => {
 	it('should create instance with assets data', () => {

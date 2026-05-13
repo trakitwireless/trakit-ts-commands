@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import RepProviderConfigMerge from "../../../../commands/Providers/Configs/Responses/RepProviderConfigMerge";
+import RepProviderConfigMerge from "../../../../src/Providers/Configs/Responses/RepProviderConfigMerge";
 import { ProviderConfig } from "@trakit/objects";
 
 describe("RepProviderConfigMerge", () => {

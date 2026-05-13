@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import RepReportTemplateGet from "../../../../commands/Reports/Templates/Responses/RepReportTemplateGet";
+import RepReportTemplateGet from "../../../../src/Reports/Templates/Responses/RepReportTemplateGet";
 import { ReportTemplate } from "@trakit/objects";
 
 describe("RepReportTemplateGet", () => {

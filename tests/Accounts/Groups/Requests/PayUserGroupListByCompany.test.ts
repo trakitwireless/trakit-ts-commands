@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
-import { PayUserGroupListByCompany } from "../../../../commands/Accounts/Groups/Requests/PayUserGroupListByCompany";
-import { RepUserGroupList } from "../../../../commands/Accounts/Groups/Responses/RepUserGroupList";
+import { PayUserGroupListByCompany } from "../../../../src/Accounts/Groups/Requests/PayUserGroupListByCompany";
+import { RepUserGroupList } from "../../../../src/Accounts/Groups/Responses/RepUserGroupList";
 
 describe("PayUserGroupListByCompany", () => {
 	test("constructor creates instance with company", () => {

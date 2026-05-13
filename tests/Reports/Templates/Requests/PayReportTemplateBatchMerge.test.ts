@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import PayReportTemplateBatchMerge from "../../../../commands/Reports/Templates/Requests/PayReportTemplateBatchMerge";
+import PayReportTemplateBatchMerge from "../../../../src/Reports/Templates/Requests/PayReportTemplateBatchMerge";
 import { ReportTemplate } from "@trakit/objects";
 
 describe("PayReportTemplateBatchMerge", () => {

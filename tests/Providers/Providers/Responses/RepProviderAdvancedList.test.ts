@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import RepProviderAdvancedList from "../../../../commands/Providers/Providers/Responses/RepProviderAdvancedList";
+import RepProviderAdvancedList from "../../../../src/Providers/Providers/Responses/RepProviderAdvancedList";
 import { ProviderAdvanced } from "@trakit/objects";
 
 describe("RepProviderAdvancedList", () => {

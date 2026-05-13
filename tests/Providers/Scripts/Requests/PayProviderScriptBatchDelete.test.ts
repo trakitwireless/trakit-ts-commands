@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import PayProviderScriptBatchDelete from "../../../../commands/Providers/Scripts/Requests/PayProviderScriptBatchDelete";
+import PayProviderScriptBatchDelete from "../../../../src/Providers/Scripts/Requests/PayProviderScriptBatchDelete";
 
 describe("PayProviderScriptBatchDelete", () => {
   it("should create an empty instance", () => {

@@ -1,7 +1,7 @@
 import { AssetDispatch, JsonObject } from "@trakit/objects";
 import { describe, expect, it } from 'vitest';
-import { Reply } from "../../../commands/API/Responses/Reply";
-import { RepAssetDispatchGet } from "../../../commands/Assets/Responses/RepAssetDispatchGet";
+import { Reply } from "../../../src/API/Responses/Reply";
+import { RepAssetDispatchGet } from "../../../src/Assets/Responses/RepAssetDispatchGet";
 
 describe('RepAssetDispatchGet', () => {
 	it('should create instance with asset data', () => {

@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { PayDashcam } from "../../../../commands/Images/Dashcams/Requests/PayDashcam";
+import { PayDashcam } from "../../../../src/Images/Dashcams/Requests/PayDashcam";
 
 // PayDashcam is abstract, so we need to use a concrete implementation for testing
 class PayDashcamConcrete extends PayDashcam {

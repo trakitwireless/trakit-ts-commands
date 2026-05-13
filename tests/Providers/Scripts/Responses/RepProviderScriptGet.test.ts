@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import RepProviderScriptGet from "../../../../commands/Providers/Scripts/Responses/RepProviderScriptGet";
+import RepProviderScriptGet from "../../../../src/Providers/Scripts/Responses/RepProviderScriptGet";
 import { ProviderScript } from "@trakit/objects";
 
 describe("RepProviderScriptGet", () => {

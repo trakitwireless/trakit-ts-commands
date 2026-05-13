@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
-import { ParamUserMerge } from "../../../../../commands/Accounts/Users/Requests/Parameters/ParamUserMerge";
-import { ParamPermission } from "../../../../../commands/Accounts/Permissions/ParamPermission";
+import { ParamUserMerge } from "../../../../../src/Accounts/Users/Requests/Parameters/ParamUserMerge";
+import { ParamPermission } from "../../../../../src/Accounts/Permissions/ParamPermission";
 import { UserNotifications } from "@trakit/objects";
 
 describe("ParamUserMerge", () => {

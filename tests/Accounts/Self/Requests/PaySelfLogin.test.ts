@@ -1,6 +1,6 @@
 import { describe, expect, test } from "vitest";
-import { PaySelfLogin } from "../../../../commands/Accounts/Self/Requests/PaySelfLogin";
-import { RepSelfGet } from "../../../../commands/Accounts/Self/Responses/RepSelfGet";
+import { PaySelfLogin } from "../../../../src/Accounts/Self/Requests/PaySelfLogin";
+import { RepSelfGet } from "../../../../src/Accounts/Self/Responses/RepSelfGet";
 
 describe("PaySelfLogin", () => {
 	test("constructor creates instance with username and password", () => {

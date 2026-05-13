@@ -1,7 +1,7 @@
 import { describe, expect, test } from "vitest";
-import { PayUserBatchMerge } from "../../../../commands/Accounts/Users/Requests/PayUserBatchMerge";
-import { ParamUserMerge } from "../../../../commands/Accounts/Users/Requests/Parameters/ParamUserMerge";
-import { RepUserBatchMerge } from "../../../../commands/Accounts/Users/Responses/RepUserBatchMerge";
+import { PayUserBatchMerge } from "../../../../src/Accounts/Users/Requests/PayUserBatchMerge";
+import { ParamUserMerge } from "../../../../src/Accounts/Users/Requests/Parameters/ParamUserMerge";
+import { RepUserBatchMerge } from "../../../../src/Accounts/Users/Responses/RepUserBatchMerge";
 
 describe("PayUserBatchMerge", () => {
 	test("constructor creates instance with users", () => {

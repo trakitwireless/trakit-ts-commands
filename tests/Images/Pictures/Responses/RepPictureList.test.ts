@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { RepPictureList } from "../../../../commands/Images/Pictures/Responses/RepPictureList";
+import { RepPictureList } from "../../../../src/Images/Pictures/Responses/RepPictureList";
 import { Picture } from "@trakit/objects";
 
 describe("RepPictureList", () => {

@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import PayFormResultMerge from "../../../../commands/Hosting/FormResults/Requests/PayFormResultMerge";
+import PayFormResultMerge from "../../../../src/Hosting/FormResults/Requests/PayFormResultMerge";
 import { FormResult } from "@trakit/objects";
 
 describe("PayFormResultMerge", () => {

@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import RepReportScheduleList from "../../../../commands/Reports/Schedules/Responses/RepReportScheduleList";
+import RepReportScheduleList from "../../../../src/Reports/Schedules/Responses/RepReportScheduleList";
 import { ReportSchedule } from "@trakit/objects";
 
 describe("RepReportScheduleList", () => {

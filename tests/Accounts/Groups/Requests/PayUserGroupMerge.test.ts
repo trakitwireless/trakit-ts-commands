@@ -1,7 +1,7 @@
 import { describe, expect, test } from "vitest";
-import { PayUserGroupMerge } from "../../../../commands/Accounts/Groups/Requests/PayUserGroupMerge";
-import { ParamUserGroupMerge } from "../../../../commands/Accounts/Groups/Requests/Parameters/ParamUserGroupMerge";
-import { RepUserGroupMerge } from "../../../../commands/Accounts/Groups/Responses/RepUserGroupMerge";
+import { PayUserGroupMerge } from "../../../../src/Accounts/Groups/Requests/PayUserGroupMerge";
+import { ParamUserGroupMerge } from "../../../../src/Accounts/Groups/Requests/Parameters/ParamUserGroupMerge";
+import { RepUserGroupMerge } from "../../../../src/Accounts/Groups/Responses/RepUserGroupMerge";
 
 describe("PayUserGroupMerge", () => {
 	test("constructor creates instance with userGroup", () => {

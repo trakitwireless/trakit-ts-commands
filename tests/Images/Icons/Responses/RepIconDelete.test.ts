@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { RepIconDelete } from "../../../../commands/Images/Icons/Responses/RepIconDelete";
+import { RepIconDelete } from "../../../../src/Images/Icons/Responses/RepIconDelete";
 
 describe("RepIconDelete", () => {
 	test("constructor creates instance with id", () => {

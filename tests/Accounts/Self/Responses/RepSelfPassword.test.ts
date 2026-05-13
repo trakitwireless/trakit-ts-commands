@@ -1,5 +1,5 @@
 import { describe, expect, test } from "vitest";
-import { RepSelfPassword } from "../../../../commands/Accounts/Self/Responses/RepSelfPassword";
+import { RepSelfPassword } from "../../../../src/Accounts/Self/Responses/RepSelfPassword";
 
 describe("RepSelfPassword", () => {
 	test("constructor creates instance with expires and passwordPolicy", () => {
