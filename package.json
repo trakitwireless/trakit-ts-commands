@@ -34,6 +34,6 @@
     "vitest": "^4.0.7"
   },
   "dependencies": {
-    "@trakit/objects": "^0.0.37"
+    "@trakit/objects": "^0.1.0"
   }
 }
