@@ -26,11 +26,11 @@ export default [
 		input: './commands/index.ts',
 		output: [
 			// {
-			//   file: '../_publish/trakit-commands.js',
+			//   file: '../dist/trakit-commands.js',
 			//   format: 'es',
 			// },
 			{
-				file: '_publish/trakit-commands.min.js',
+				file: 'dist/trakit-commands.min.js',
 				format: 'es',
 				exports: 'named',
 				plugins: [terser(obfuscate)]
@@ -41,7 +41,7 @@ export default [
 			//tsconfigOverride: {
 			//	compilerOptions: {
 			//		//declaration: false,
-			//		declarationDir: '_publish',
+			//		declarationDir: 'dist',
 			//		emitDeclarationOnly: false,
 			//	}
 			//}

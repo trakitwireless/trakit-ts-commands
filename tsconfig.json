@@ -5,13 +5,13 @@
 		"moduleResolution": "bundler",
 		"declaration": true,
 		"declarationMap": true,
-		"declarationDir": "./_publish",
+		"declarationDir": "./dist",
 		"emitDeclarationOnly": false,
 		"rootDir": "./commands",
 		"esModuleInterop": true,
 		"allowSyntheticDefaultImports": true,
 		"isolatedModules": true,
-		"outDir": "./_publish", // Output directory
+		"outDir": "./dist", // Output directory
 		"sourceMap": true,
 		"strict": true,
 		"noImplicitAny": true,
@@ -21,7 +21,7 @@
 		"skipLibCheck": true,
 		"paths": {
 			"@trakit/objects": [
-				"../trakit-ts-objects/_publish/index.d.ts",
+				"../trakit-ts-objects/dist/index.d.ts",
 				//"../trakit-ts-objects/objects/index.ts",
 			]
 		},
