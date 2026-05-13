@@ -1,0 +1,1 @@
+{"version":3,"file":"IParamBillingProfile.d.ts","sourceRoot":"","sources":["../../../commands/API/Requests/Parameters/IParamBillingProfile.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,OAAO,EAAE,MAAM,WAAW,CAAC;AAEpC;;;GAGG;AACH,MAAM,WAAW,oBAAoB;IACpC,cAAc,EAAE,OAAO,CAAC;CACxB"}

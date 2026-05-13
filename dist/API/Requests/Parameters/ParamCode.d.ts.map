@@ -1,0 +1,1 @@
+{"version":3,"file":"ParamCode.d.ts","sourceRoot":"","sources":["../../../commands/API/Requests/Parameters/ParamCode.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,aAAa,EAAE,UAAU,EAAE,MAAM,iBAAiB,CAAC;AAE5D;;GAEG;AACH,qBAAa,SAAU,YAAW,aAAa;IAC9C;;;OAGG;IACH,IAAI,EAAE,MAAM,CAAC;gBAED,IAAI,CAAC,EAAE,UAAU;IAI7B,MAAM,IAAI,UAAU;CAKpB"}

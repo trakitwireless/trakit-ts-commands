@@ -1,0 +1,1 @@
+{"version":3,"file":"IRepListByCompany.d.ts","sourceRoot":"","sources":["../../../commands/API/Responses/IRepListByCompany.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,OAAO,EAAE,MAAM,iBAAiB,CAAC;AAC1C,OAAO,EAAE,SAAS,EAAE,MAAM,qBAAqB,CAAC;AAEhD;;GAEG;AACH,MAAM,WAAW,iBAAiB;IACjC;;OAEG;IACH,OAAO,EAAE,SAAS,GAAG,OAAO,CAAC;CAC7B"}

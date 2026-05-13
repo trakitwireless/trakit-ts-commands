@@ -1,0 +1,1 @@
+{"version":3,"file":"ParamIdentifier.d.ts","sourceRoot":"","sources":["../../../commands/API/Requests/Parameters/ParamIdentifier.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,aAAa,EAAE,MAAM,iBAAiB,CAAC;AAChD,OAAO,EAAE,UAAU,EAAE,MAAM,iBAAiB,CAAC;AAE7C;;GAEG;AACH,qBAAa,eAAgB,YAAW,aAAa;IACpD;;OAEG;IACH,EAAE,EAAE,MAAM,CAAC;gBAEC,IAAI,CAAC,EAAE,UAAU;IAG7B,MAAM,IAAI,UAAU;CAKpB"}

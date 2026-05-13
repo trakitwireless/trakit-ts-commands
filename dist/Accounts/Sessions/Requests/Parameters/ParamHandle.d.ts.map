@@ -1,0 +1,1 @@
+{"version":3,"file":"ParamHandle.d.ts","sourceRoot":"","sources":["../../../commands/Accounts/Sessions/Requests/Parameters/ParamHandle.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,aAAa,EAAE,UAAU,EAAE,MAAM,iBAAiB,CAAC;AAE5D;;GAEG;AACH,qBAAa,WAAY,YAAW,aAAa;IAChD;;OAEG;IACH,MAAM,EAAE,MAAM,CAAC;gBAEH,IAAI,CAAC,EAAE,UAAU;IAG7B,MAAM,IAAI,UAAU;CAKpB"}

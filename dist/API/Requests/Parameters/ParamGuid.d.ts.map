@@ -1,0 +1,1 @@
+{"version":3,"file":"ParamGuid.d.ts","sourceRoot":"","sources":["../../../commands/API/Requests/Parameters/ParamGuid.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,IAAI,EAAE,aAAa,EAAE,UAAU,EAAE,MAAM,iBAAiB,CAAC;AAElE;;GAEG;AACH,qBAAa,SAAU,YAAW,aAAa;IAC9C;;OAEG;IACH,IAAI,EAAE,IAAI,CAAC;gBAEC,IAAI,CAAC,EAAE,UAAU;IAG7B,MAAM,IAAI,UAAU;CAKpB"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"PayDocumentDelete.d.ts","sourceRoot":"","sources":["../../../commands/Hosting/Documents/Requests/PayDocumentDelete.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,UAAU,EAAE,MAAM,iBAAiB,CAAC;AAC7C,OAAO,EAAE,KAAK,EAAE,MAAM,8BAA8B,CAAC;AAErD,OAAO,EAAE,WAAW,EAAE,MAAM,eAAe,CAAC;AAE5C;;GAEG;AACH,qBAAa,iBAAkB,SAAQ,WAAW;IACxC,WAAW,CAAC,IAAI,EAAE,UAAU,GAAG,KAAK;CAG7C"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"IPayListByLabels.d.ts","sourceRoot":"","sources":["../../../commands/API/Requests/IPayListByLabels.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,QAAQ,EAAE,MAAM,iBAAiB,CAAC;AAE3C;;GAEG;AACH,MAAM,WAAW,gBAAgB;IAChC;;OAEG;IACH,MAAM,EAAE,QAAQ,EAAE,CAAC;CACnB"}
