@@ -1,4 +1,4 @@
-import { int, JsonObject, nothing, SyncName, utility } from '@trakit/objects';
+import { int, ISerializable, JsonObject, nothing, SyncName, utility } from '@trakit/objects';
 import { Reply } from '../Responses/Reply';
 
 // Used to split the Payload class name into pieces to help create commands
@@ -15,7 +15,7 @@ export type ActionType = "Get" | "List" | "Merge" | "Delete" | "Restore" | "Susp
  * Child classes should contain members required to execute a command.
  * </remarks>
  */
-export abstract class Payload {
+export abstract class Payload implements ISerializable {
 	/**
 	 * Identifier used by external system to correlate requests to responses.
 	 */
