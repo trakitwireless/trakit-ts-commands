@@ -66,14 +66,14 @@ export class RepSelfGet extends ReplySync {
 	/**
 	 * The {@link CompanyPolicy} which apply to this {@link User}.
 	 */
-	policies: CompanyPolicy | nothing;
+	policy: CompanyPolicy | nothing;
 
 	constructor(json?: JsonObject) {
 		super(json as JsonObject, "Self" as SyncName);
 		this.serverTime = utility.date(json?.serverTime as datetime);
 		this.ghostId = json?.ghostId as guid ?? "";
 		this.expiry = utility.date(json?.expiry as datetime);
-		this.policies = (json?.user as JsonObject)?.policies
+		this.policy = (json?.user as JsonObject)?.policies
 			? new CompanyPolicy((json?.user as JsonObject)?.policies as JsonObject)
 			: null;
 		this.#ctorSelf(json as JsonObject);
@@ -154,7 +154,7 @@ export class RepSelfGet extends ReplySync {
 			json["user"] = {
 				...this.user.toJSON(),
 				"contact": this.contact?.toJSON() ?? null,
-				"policies": this.policies?.toJSON() ?? null,
+				"policies": this.policy?.toJSON() ?? null,
 				"groups": this.groups.map(g => g.toJSON()),
 			};
 		}
@@ -171,7 +171,7 @@ export class RepSelfGet extends ReplySync {
 
 	override store(): boolean {
 		const modContact = !!this.contact && this.#storePart(storage["Contact"], this.contact),
-			modPolicy = !!this.policies && this.#storePolicy(),
+			modPolicy = !!this.policy && this.#storePolicy(),
 			modUser = !!this.user && this.#storePart(storage["User"], this.user),
 			modMachine = !!this.machine && this.#storePart(storage["Machine"], this.machine),
 			modGroups = this.groups.reduce((modified, group) => this.#storePart(storage["UserGroup"], group) || modified, false);
@@ -190,7 +190,7 @@ export class RepSelfGet extends ReplySync {
 	}
 	#storePolicy(): boolean {
 		const map = storage["Company"] as Map<ulong, Company>,
-			obj = this.policies as CompanyPolicy;
+			obj = this.policy as CompanyPolicy;
 		let stored = map.get(obj.id),
 			modified = !stored;
 		if (!stored) map.set(obj.id, stored = new Company());
