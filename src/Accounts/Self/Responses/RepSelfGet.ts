@@ -170,14 +170,14 @@ export class RepSelfGet extends ReplySync {
 	override getCompanyId(): ulong { return (this.user?.companyId ?? this.machine?.companyId) as ulong; }
 
 	override store(): boolean {
-		const modContact = !!this.contact && this.#storePart(storage["Contact"], this.contact),
-			modPolicy = !!this.policy && this.#storePolicy(),
-			modUser = !!this.user && this.#storePart(storage["User"], this.user),
-			modMachine = !!this.machine && this.#storePart(storage["Machine"], this.machine),
-			modGroups = this.groups.reduce((modified, group) => this.#storePart(storage["UserGroup"], group) || modified, false);
+		const modContact = !!this.contact && this._storePart(storage["Contact"], this.contact),
+			modPolicy = !!this.policy && this._storePolicy(),
+			modUser = !!this.user && this._storePart(storage["User"], this.user),
+			modMachine = !!this.machine && this._storePart(storage["Machine"], this.machine),
+			modGroups = this.groups.reduce((modified, group) => this._storePart(storage["UserGroup"], group) || modified, false);
 		return modContact || modPolicy || modUser || modMachine || modGroups;
 	}
-	#storePart(
+	_storePart(
 		map: Map<ulong | guid | email | codified | string, IRequestable>,
 		obj: IRequestable & ISerializable
 	): boolean {
@@ -188,7 +188,7 @@ export class RepSelfGet extends ReplySync {
 		else modified = stored.fromJSON(obj.toJSON());
 		return modified;
 	}
-	#storePolicy(): boolean {
+	_storePolicy(): boolean {
 		const map = storage["Company"] as Map<ulong, Company>,
 			obj = this.policy as CompanyPolicy;
 		let stored = map.get(obj.id),
