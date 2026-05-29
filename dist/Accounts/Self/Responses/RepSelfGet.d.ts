@@ -1,4 +1,4 @@
-import { CompanyPolicy, Contact, guid, JsonObject, Machine, nothing, ulong, User, UserGroup } from "@trakit/objects";
+import { codified, CompanyPolicy, Contact, email, guid, IRequestable, ISerializable, JsonObject, Machine, nothing, ulong, User, UserGroup } from "@trakit/objects";
 import { ReplySync } from "../../../API/Responses/ReplySync";
 /**
  * A container for the {@link User} or {@link Machine} of the current session.
@@ -46,10 +46,12 @@ export declare class RepSelfGet extends ReplySync {
     /**
      * The {@link CompanyPolicy} which apply to this {@link User}.
      */
-    policies: CompanyPolicy | nothing;
+    policy: CompanyPolicy | nothing;
     constructor(json?: JsonObject);
     toJSON(): JsonObject;
     getCompanyId(): ulong;
     store(): boolean;
+    _storePart(map: Map<ulong | guid | email | codified | string, IRequestable>, obj: IRequestable & ISerializable): boolean;
+    _storePolicy(): boolean;
 }
 //# sourceMappingURL=RepSelfGet.d.ts.map
