@@ -1,15 +1,16 @@
-import { JsonObject, nothing, ulong } from "@trakit/objects";
+import { Asset, JsonObject, nothing, ulong } from "@trakit/objects";
 import { ContentIdSuspended } from "../../API/Responses/Content/ContentIdSuspended";
-import { ReplySync } from "../../API/Responses/ReplySync";
+import { ReplySyncGet } from "../../API/Responses/ReplySyncGet";
 /**
  *
  */
-export declare class RepAssetSuspend extends ReplySync {
+export declare class RepAssetSuspend extends ReplySyncGet<Asset> {
     /**
      *
      */
     asset: ContentIdSuspended | nothing;
     constructor(json: JsonObject);
+    getObject(): Asset;
     getCompanyId(): ulong;
     store(): boolean;
 }
