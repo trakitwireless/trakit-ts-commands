@@ -26,11 +26,11 @@ export default [
 		input: './src/index.ts',
 		output: [
 			// {
-			//   file: '../dist/trakit-src.js',
+			//   file: '../dist/trakit-commands.js',
 			//   format: 'es',
 			// },
 			{
-				file: 'dist/trakit-src.min.js',
+				file: 'dist/trakit-commands.min.js',
 				format: 'es',
 				exports: 'named',
 				plugins: [terser(obfuscate)]
