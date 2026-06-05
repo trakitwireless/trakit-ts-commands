@@ -1,11 +1,11 @@
-import { codified, email, guid, IDeserializable, IRequestable, JsonObject, nothing, storage, ulong } from "@trakit/objects";
+import { Asset, codified, email, guid, IDeserializable, IRequestable, JsonObject, nothing, storage, ulong } from "@trakit/objects";
 import { ContentIdSuspended } from "../../API/Responses/Content/ContentIdSuspended";
-import { ReplySync } from "../../API/Responses/ReplySync";
+import { ReplySyncGet } from "../../API/Responses/ReplySyncGet";
 
 /**
  * 
  */
-export class RepAssetSuspend extends ReplySync {
+export class RepAssetSuspend extends ReplySyncGet<Asset> {
 	/**
 	 * 
 	 */
@@ -15,6 +15,7 @@ export class RepAssetSuspend extends ReplySync {
 		super(json, "Asset");
 		this.asset = ContentIdSuspended.fromJSON(json?.asset as JsonObject);
 	}
+	override getObject() { return storage[this.syncName].get(this.asset?.id as ulong) as Asset; }
 	override getCompanyId() { return this.asset?.company as ulong; }
 	override store(): boolean {
 		const map = storage[this.syncName] as Map<ulong | guid | email | codified | string, IRequestable>,
