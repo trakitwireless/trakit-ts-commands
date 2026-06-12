@@ -26,7 +26,7 @@
     "url": "https://github.com/trakitwireless/trakit-ts-commands/issues"
   },
   "homepage": "https://github.com/trakitwireless/trakit-ts-commands#readme",
-  "description": "",
+  "description": "Request and Response definitions for Trak-iT APIs.",
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.4",
     "rollup": "^4.36.0",
