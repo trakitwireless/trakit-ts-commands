@@ -139,9 +139,7 @@ export class RepSelfGet extends ReplySync {
 
 	override toJSON(): JsonObject {
 		const json: JsonObject = {
-			"errorCode": this.errorCode,
-			"message": this.message,
-			"errorDetails": this.errorDetails?.toJSON() ?? null,
+			...super.toJSON(),
 			"ghostId": this.ghostId,
 			"expiry": utility.isntNaN(this.expiry.valueOf())
 				? this.expiry.toISOString()
