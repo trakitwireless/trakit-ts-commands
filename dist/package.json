@@ -1,7 +1,7 @@
 {
   "name": "@trakit/commands",
   "type": "module",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "main": "./trakit-commands.min.js",
   "types": "./index.d.ts",
   "scripts": {
@@ -26,7 +26,7 @@
     "url": "https://github.com/trakitwireless/trakit-ts-commands/issues"
   },
   "homepage": "https://github.com/trakitwireless/trakit-ts-commands#readme",
-  "description": "",
+  "description": "Request and Response definitions for Trak-iT APIs.",
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.4",
     "rollup": "^4.36.0",
