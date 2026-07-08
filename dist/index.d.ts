@@ -587,7 +587,7 @@ import { RepSubscriptionList } from "./WebSocket/Responses/RepSubscriptionList";
 /**
  * Version number for this release.
  */
-export declare const version = "0.1.4";
+export declare const version = "0.1.5";
 /**
  * Command request payloads and parameter classes.
  */
