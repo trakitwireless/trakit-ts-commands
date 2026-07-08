@@ -16,7 +16,7 @@ export class PayPlaceMerge extends Payload implements IPaySingle {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.place = new ParamPlaceMerge(json?.place as JsonObject);
+		this.place = new ParamPlaceMerge((json?.place || json?.placeGeneral) as JsonObject);
 	}
 
 	/**

@@ -14,7 +14,7 @@ export abstract class PayPlace extends Payload implements IPaySingle {
 
 	constructor(json?: JsonObject) {
 		super(json);
-		this.place = new ParamId(json?.place as JsonObject);
+		this.place = new ParamId((json?.place || json?.placeGeneral) as JsonObject);
 	}
 
 	/**
