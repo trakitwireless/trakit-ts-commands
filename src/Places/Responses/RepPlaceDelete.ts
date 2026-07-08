@@ -14,7 +14,7 @@ export class RepPlaceDelete extends ReplySyncDelete {
 	
 	constructor(json: JsonObject) {
 		super(json, "Place");
-		this.place = ContentIdDeleted.fromJSON(json?.place as JsonObject);
+		this.place = ContentIdDeleted.fromJSON((json?.place || json?.placeGeneral) as JsonObject);
 	}
 	override getKey() { return this.place?.id as ulong; }
 	override getCompanyId() { return this.place?.company as ulong; }

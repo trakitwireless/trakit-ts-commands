@@ -9,11 +9,12 @@ export class RepPlaceGet extends ReplySyncGet<Place> {
 	 * The requested {@link Place}.
 	 */
 	place: Place | nothing;
-	
+
 	constructor(json: JsonObject) {
 		super(json, "Place");
-		if (json?.place) {
-			this.place = new Place(json.place as JsonObject);
+		const place = (json?.place || json?.placeGeneral) as JsonObject | nothing;
+		if (place) {
+			this.place = new Place(place);
 		}
 	}
 	override getObject() { return this.place as Place; }

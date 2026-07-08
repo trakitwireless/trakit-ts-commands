@@ -13,7 +13,7 @@ export abstract class RepPlaceList extends ReplySyncList<Place> {
 
 	constructor(json: JsonObject) {
 		super(json, "Place");
-		this.places = (json?.places as JsonObject[])?.map((item: any) => new Place(item));
+		this.places = ((json?.places || json?.placeGenerals) as JsonObject[])?.map(item => new Place(item));
 	}
 	override getList() { return this.places as Place[]; }
 }

@@ -13,6 +13,6 @@ export class RepPlaceMerge extends Reply {
 
 	constructor(json: JsonObject) {
 		super(json);
-		this.place = ContentIdCompany.fromJSON(json?.place as JsonObject);
+		this.place = ContentIdCompany.fromJSON((json?.place || json?.placeGeneral) as JsonObject);
 	}
 }
