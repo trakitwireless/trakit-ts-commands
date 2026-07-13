@@ -1,11 +1,13 @@
 import {
-	IDeserializable,
-	IRequestable,
-	ISerializable,
-	JsonObject,
-	nothing,
-	utility
+    IDeserializable,
+    IRequestable,
+    ISerializable,
+    JsonObject,
+    nothing,
+    ulong,
+    utility,
 } from '@trakit/objects';
+import { ContentAudit } from './Content/ContentAudit';
 import { Reply } from './Reply';
 
 /**
@@ -21,15 +23,25 @@ export abstract class ReplyAudit<TRequestable extends IRequestable & ISerializab
 	 * The date to end the list at.
 	 */
 	before: Date | nothing;
+	/**
+	 * The lowest version key for the requested object.
+	 */
+	lowest: ulong | nothing;
+	/**
+	 * The highest version key for the requested object.
+	 */
+	highest: ulong | nothing;
 
 	constructor(json: JsonObject) {
 		super(json);
 		if (json?.after) this.after = utility.date(json.after as string);
 		if (json?.before) this.before = utility.date(json.before as string);
+		if (json?.lowest) this.lowest = utility.id(json.lowest) as ulong;
+		if (json?.highest) this.highest = utility.id(json.highest) as ulong;
 	}
 
 	/**
 	 * Returns the constructed collection of objects.
 	 */
-	abstract getList(): TRequestable[];
+	abstract getList(): ContentAudit<TRequestable>[];
 }
