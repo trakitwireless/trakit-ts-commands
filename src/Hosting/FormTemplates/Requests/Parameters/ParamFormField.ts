@@ -131,14 +131,20 @@ export class ParamFormField extends ParamMerge {
 		}
 		if (utility.isntNaN(this.rows)) json.rows = this.rows;
 		if (utility.isntNaN(this.minimum?.valueOf())) {
-			json.minimum = this.minimum as number
-				?? (this.minimum as Date).toISOString?.()
-				?? (this.minimum as TimeSpan).toString();
+			json.minimum = typeof this.minimum === "number"
+				? this.minimum as number
+				: (
+					(this.minimum as Date).toISOString?.()
+					?? (this.minimum as TimeSpan).toString()
+				);
 		}
 		if (utility.isntNaN(this.maximum?.valueOf())) {
-			json.maximum = this.maximum as number
-				?? (this.maximum as Date).toISOString?.()
-				?? (this.maximum as TimeSpan).toString();
+			json.maximum = typeof this.maximum === "number"
+				? this.maximum as number
+				: (
+					(this.maximum as Date).toISOString?.()
+					?? (this.maximum as TimeSpan).toString()
+				);
 		}
 		return json;
 	}

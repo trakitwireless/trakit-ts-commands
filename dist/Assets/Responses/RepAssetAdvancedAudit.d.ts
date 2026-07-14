@@ -1,14 +1,15 @@
-import { AssetAdvanced, JsonObject, nothing } from "@trakit/objects";
+import { AssetAdvanced, JsonObject } from "@trakit/objects";
+import { ContentAudit } from "../../API/Responses/Content/ContentAudit";
 import { ReplyAudit } from "../../API/Responses/ReplyAudit";
 /**
- * A container for the {@link assetAdvanced}.
+ * A container for {@link AssetAdvanced} audit history.
  */
 export declare class RepAssetAdvancedAudit extends ReplyAudit<AssetAdvanced> {
     /**
-     * The requested {@link AssetAdvanced}.
+     * The collection of audit details for the requested {@link AssetAdvanced}.
      */
-    assetAdvanceds: AssetAdvanced[] | nothing;
+    assetAdvanceds: ContentAudit<AssetAdvanced>[];
     constructor(json: JsonObject);
-    getList(): AssetAdvanced[];
+    getHistory(): ContentAudit<AssetAdvanced>[];
 }
 //# sourceMappingURL=RepAssetAdvancedAudit.d.ts.map
