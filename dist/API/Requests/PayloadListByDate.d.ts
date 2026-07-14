@@ -1,4 +1,4 @@
-import { JsonObject, nothing } from "@trakit/objects";
+import { JsonObject } from "@trakit/objects";
 import { PayloadListBy } from "./PayloadListBy";
 /**
  * Interface for requests that filter by date.
@@ -7,11 +7,11 @@ export declare abstract class PayloadListByDate extends PayloadListBy {
     /**
      * The start date for the filter.
      */
-    after: Date | nothing;
+    after: Date;
     /**
      * The end date for the filter.
      */
-    before: Date | nothing;
+    before: Date;
     constructor(json?: JsonObject);
     toJSON(): JsonObject;
 }

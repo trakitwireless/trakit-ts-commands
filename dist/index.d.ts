@@ -123,6 +123,7 @@ import { ParamMerge } from "./API/Requests/Parameters/ParamMerge";
 import { ParamMergeSubscribable } from "./API/Requests/Parameters/ParamMergeSubscribable";
 import { ActionType, Payload } from "./API/Requests/Payload";
 import { PayloadAudit } from "./API/Requests/PayloadAudit";
+import { PayloadListBy } from "./API/Requests/PayloadListBy";
 import { PayloadListByDate } from "./API/Requests/PayloadListByDate";
 import { PayloadListById } from "./API/Requests/PayloadListById";
 import { PayloadListByKey } from "./API/Requests/PayloadListByKey";
@@ -587,11 +588,11 @@ import { RepSubscriptionList } from "./WebSocket/Responses/RepSubscriptionList";
 /**
  * Version number for this release.
  */
-export declare const version = "0.1.5";
+export declare const version = "0.1.7";
 /**
  * Command request payloads and parameter classes.
  */
-export { ParamCode, ParamGuid, ParamId, ParamIdentifier, ParamKey, ParamLogin, ParamMerge, ParamMergeSubscribable, Payload, PayloadAudit, PayloadListByDate, PayloadListById, PayloadListByKey, type ActionType, type IParamAsset, type IParamBillingProfile, type IParamCompany, type IPayDeletable, type IPayListByAsset, type IPayListByBillingProfile, type IPayListByCompany, type IPayListByLabels, type IPayListByReferences, type IPayListByUser, type IPaySingle, type IPaySuspendable, };
+export { ParamCode, ParamGuid, ParamId, ParamIdentifier, ParamKey, ParamLogin, ParamMerge, ParamMergeSubscribable, Payload, PayloadAudit, PayloadListBy, PayloadListByDate, PayloadListById, PayloadListByKey, type ActionType, type IParamAsset, type IParamBillingProfile, type IParamCompany, type IPayDeletable, type IPayListByAsset, type IPayListByBillingProfile, type IPayListByCompany, type IPayListByLabels, type IPayListByReferences, type IPayListByUser, type IPaySingle, type IPaySuspendable, };
 /**
  * Command responses and content classes.
  */

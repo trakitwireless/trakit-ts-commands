@@ -2,7 +2,6 @@ import { JsonObject, SyncName } from "@trakit/objects";
 import { IPayListByAsset } from "../../API/Requests/IPayListByAsset";
 import { ParamId } from "../../API/Requests/Parameters/ParamId";
 import { PayloadAudit } from "../../API/Requests/PayloadAudit";
-import { ActionType } from "../../API/Requests/Payload";
 import { Reply } from "../../API/Responses/Reply";
 /**
  * Gets import { codified } from "@trakit/objects";
@@ -20,7 +19,7 @@ export declare class PayAssetAdvancedAudit extends PayloadAudit implements IPayL
      */
     getAction(): {
         object: SyncName;
-        kind: ActionType;
+        kind: import("../..").ActionType;
         filter: string;
         batch: boolean;
     };

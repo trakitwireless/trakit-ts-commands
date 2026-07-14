@@ -9,11 +9,11 @@ export declare abstract class PayloadAudit extends PayloadListBy implements IPay
     /**
      * The start date for the filter.
      */
-    after: Date | nothing;
+    after: Date;
     /**
      * The end date for the filter.
      */
-    before: Date | nothing;
+    before: Date;
     /**
      * The lowest ID in the range.
      */
