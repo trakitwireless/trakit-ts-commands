@@ -141,12 +141,8 @@ export class RepSelfGet extends ReplySync {
 		const json: JsonObject = {
 			...super.toJSON(),
 			"ghostId": this.ghostId,
-			"expiry": utility.isntNaN(this.expiry.valueOf())
-				? this.expiry.toISOString()
-				: null,
-			"serverTime": utility.isntNaN(this.serverTime.valueOf())
-				? this.serverTime.toISOString()
-				: null,
+			"expiry": this.expiry.toJSON(),
+			"serverTime": this.serverTime.toJSON(),
 		};
 		if (this.user) {
 			json["user"] = {

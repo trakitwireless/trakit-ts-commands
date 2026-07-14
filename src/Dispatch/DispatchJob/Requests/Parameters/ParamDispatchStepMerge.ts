@@ -62,7 +62,7 @@ export class ParamDispatchStepMerge extends ParamMergeSubscribable {
 		const json: JsonObject = {};
 		if (this.id) json.id = this.id;
 		if (this.name) json.name = this.name;
-		if (this.eta) json.eta = this.eta.toISOString();
+		if (this.eta?.valueOf()) json.eta = this.eta.toISOString();
 		if (this.duration) json.duration = this.duration.toString();
 		if (this.place) json.place = this.place;
 		if (this.address) json.address = this.address;

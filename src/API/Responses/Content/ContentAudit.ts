@@ -54,11 +54,11 @@ export class ContentAudit<TRequestable extends IRequestable & ISerializable & ID
 		return {
 			...this.object?.toJSON() ?? null,
 			updated: {
-				dts: this.updated?.toISOString() ?? null,
+				dts: this.updated.toJSON(),
 				by: this.by ?? null,
 				from: this.from ?? null,
 			},
-			processedUtc: this.processed?.toISOString() ?? null,
+			processedUtc: this.processed.toJSON(),
 		};
 	}
 }

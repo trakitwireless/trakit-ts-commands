@@ -55,8 +55,8 @@ export class ParamReportRecurrence extends ParamMerge {
 		if (this.kind) json.kind = this.kind;
 		if (this.weekdays?.length) json.weekdays = [...this.weekdays];
 		if (this.weekday) json.weekday = this.weekday;
-		if (this.start) json.start = this.start.toISOString();
-		if (!isNaN(this.end?.valueOf() as number)) json.end = this.end?.toISOString() ?? null;
+		if (this.start) json.start = this.start.toJSON();
+		if (this.end) json.end = this.end.toJSON();
 		return json;
 	}
 }

@@ -126,8 +126,8 @@ export class ParamMaintenanceJobMerge extends ParamMergeSubscribable {
 		if (this.name) json.name = this.name;
 		if (this.notes) json.notes = this.notes;
 		if (this.status) json.status = this.status;
-		if (this.created) json.created = this.created.toISOString();
-		if (this.completed) json.completed = this.completed.toISOString();
+		if (this.created) json.created = this.created.toJSON();
+		if (this.completed) json.completed = this.completed.toJSON();
 		if (this.odometer) json.odometer = this.odometer;
 		if (this.engineHours) json.engineHours = this.engineHours;
 		if (this.garage) json.garage = this.garage;

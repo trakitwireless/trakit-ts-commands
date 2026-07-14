@@ -71,7 +71,7 @@ export class ErrorDetailSecret extends ErrorDetail {
 		return {
 			...super.toJSON(),
 			"headers": serialization.fromMap(this.headers),
-			"accepted": this.accepted.toISOString(),
+			"accepted": this.accepted.toJSON(),
 			"key": this.key,
 			"signature": this.signature,
 			"date": this.date,

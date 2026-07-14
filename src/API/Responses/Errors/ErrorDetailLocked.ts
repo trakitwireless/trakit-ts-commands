@@ -27,7 +27,7 @@ export class ErrorDetailLocked extends ErrorDetail {
 		if (!isNaN(this.timeout.valueOf())) {
 			json["timeout"] = this.timeout.toString();
 		}
-		if (!isNaN(this.until.valueOf())) {
+		if (this.until.valueOf()) {
 			json["until"] = this.until.toISOString();
 		}
 		return json;

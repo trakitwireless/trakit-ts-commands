@@ -8,11 +8,11 @@ export abstract class PayloadListByDate extends PayloadListBy {
 	/**
 	 * The start date for the filter.
 	 */
-	after: Date | nothing;
+	after: Date;
 	/**
 	 * The end date for the filter.
 	 */
-	before: Date | nothing;
+	before: Date;
 
 	constructor(json?: JsonObject) {
 		super(json);
@@ -20,9 +20,10 @@ export abstract class PayloadListByDate extends PayloadListBy {
 		this.before = utility.date(json?.before as string);
 	}
 	override toJSON(): JsonObject {
-		const json = super.toJSON();
-		if (utility.isntNaN(this.after?.valueOf())) json.after = this.after.toISOString();
-		if (utility.isntNaN(this.before?.valueOf())) json.before = this.before.toISOString();
-		return json;
+		return {
+			...super.toJSON(),
+			"after": this.after.toJSON(),
+			"before": this.before.toJSON(),
+		};
 	}
 }

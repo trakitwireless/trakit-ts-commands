@@ -10,11 +10,11 @@ export abstract class PayloadAudit extends PayloadListBy implements IPaySingle {
 	/**
 	 * The start date for the filter.
 	 */
-	after: Date | nothing;
+	after: Date;
 	/**
 	 * The end date for the filter.
 	 */
-	before: Date | nothing;
+	before: Date;
 	/**
 	 * The lowest ID in the range.
 	 */
@@ -32,9 +32,11 @@ export abstract class PayloadAudit extends PayloadListBy implements IPaySingle {
 		this.highest = json?.highest as ulong | nothing;
 	}
 	override toJSON(): JsonObject {
-		const json = super.toJSON();
-		if (utility.isntNaN(this.after?.valueOf())) json.after = this.after.toISOString();
-		if (utility.isntNaN(this.before?.valueOf())) json.before = this.before.toISOString();
+		const json: JsonObject = {
+			...super.toJSON(),
+			after: this.after.toJSON(),
+			before: this.before.toJSON(),
+		};
 		if (utility.isntNaN(this.lowest)) json.lowest = this.lowest;
 		if (utility.isntNaN(this.highest)) json.highest = this.highest;
 		return json;
