@@ -34,14 +34,18 @@ export abstract class ReplyAudit<TRequestable extends IRequestable & ISerializab
 
 	constructor(json: JsonObject) {
 		super(json);
-		if (json?.after) this.after = utility.date(json.after as string);
-		if (json?.before) this.before = utility.date(json.before as string);
-		if (json?.lowest) this.lowest = utility.id(json.lowest) as ulong;
-		if (json?.highest) this.highest = utility.id(json.highest) as ulong;
+		this.after = utility.date(json?.after as string);
+		this.before = utility.date(json?.before as string);
+		this.lowest = utility.id(json?.lowest) as ulong;
+		this.highest = utility.id(json?.highest) as ulong;
 	}
 
 	/**
+	 * Returns the collection of audit details for the requested object.
+	 */
+	abstract getHistory(): ContentAudit<TRequestable>[];
+	/**
 	 * Returns the constructed collection of objects.
 	 */
-	abstract getList(): ContentAudit<TRequestable>[];
+	getObjects(): TRequestable[] { return this.getHistory().map(c => c.object); }
 }
