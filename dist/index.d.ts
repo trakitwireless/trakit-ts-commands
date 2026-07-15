@@ -127,6 +127,7 @@ import { PayloadListBy } from "./API/Requests/PayloadListBy";
 import { PayloadListByDate } from "./API/Requests/PayloadListByDate";
 import { PayloadListById } from "./API/Requests/PayloadListById";
 import { PayloadListByKey } from "./API/Requests/PayloadListByKey";
+import { ContentAudit } from "./API/Responses/Content/ContentAudit";
 import { ContentCode } from "./API/Responses/Content/ContentCode";
 import { ContentCodeCompany } from "./API/Responses/Content/ContentCodeCompany";
 import { ContentCodeDeleted } from "./API/Responses/Content/ContentCodeDeleted";
@@ -588,7 +589,7 @@ import { RepSubscriptionList } from "./WebSocket/Responses/RepSubscriptionList";
 /**
  * Version number for this release.
  */
-export declare const version = "0.1.7";
+export declare const version = "0.1.8";
 /**
  * Command request payloads and parameter classes.
  */
@@ -596,7 +597,7 @@ export { ParamCode, ParamGuid, ParamId, ParamIdentifier, ParamKey, ParamLogin, P
 /**
  * Command responses and content classes.
  */
-export { ContentCode, ContentCodeCompany, ContentCodeDeleted, ContentId, ContentIdAsset, ContentIdBillingProfile, ContentIdCompany, ContentIdCompanyTemplate, ContentIdendifier, ContentIdendifierAsset, ContentIdendifierCompany, ContentIdendifierDeleted, ContentIdendifierSuspended, ContentIdParent, ContentIdParentDeleted, ContentIdScript, ContentIdSuspended, ContentKey, ContentKeyCompany, ContentKeyDeleted, ContentLogin, ContentLoginCompany, ContentLoginDeleted, Reply, ReplyAudit, ReplySync, ReplySyncBatchDelete, ReplySyncBatchSuspend, ReplySyncDelete, ReplySyncGet, ReplySyncList, type IRepListByAsset, type IRepListByCompany, type IRepListByDate, type IRepListById, type IRepListByKey, type IRepListByLabels, type IRepListByReferences, type IRepListByUser, };
+export { ContentAudit, ContentCode, ContentCodeCompany, ContentCodeDeleted, ContentId, ContentIdAsset, ContentIdBillingProfile, ContentIdCompany, ContentIdCompanyTemplate, ContentIdendifier, ContentIdendifierAsset, ContentIdendifierCompany, ContentIdendifierDeleted, ContentIdendifierSuspended, ContentIdParent, ContentIdParentDeleted, ContentIdScript, ContentIdSuspended, ContentKey, ContentKeyCompany, ContentKeyDeleted, ContentLogin, ContentLoginCompany, ContentLoginDeleted, Reply, ReplyAudit, ReplySync, ReplySyncBatchDelete, ReplySyncBatchSuspend, ReplySyncDelete, ReplySyncGet, ReplySyncList, type IRepListByAsset, type IRepListByCompany, type IRepListByDate, type IRepListById, type IRepListByKey, type IRepListByLabels, type IRepListByReferences, type IRepListByUser, };
 /**
  * Error messages and details for responses.
  */

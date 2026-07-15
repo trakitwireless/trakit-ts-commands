@@ -164,6 +164,7 @@ import { PayloadListBy } from "./API/Requests/PayloadListBy";
 import { PayloadListByDate } from "./API/Requests/PayloadListByDate";
 import { PayloadListById } from "./API/Requests/PayloadListById";
 import { PayloadListByKey } from "./API/Requests/PayloadListByKey";
+import { ContentAudit } from "./API/Responses/Content/ContentAudit";
 import { ContentCode } from "./API/Responses/Content/ContentCode";
 import { ContentCodeCompany } from "./API/Responses/Content/ContentCodeCompany";
 import { ContentCodeDeleted } from "./API/Responses/Content/ContentCodeDeleted";
@@ -775,7 +776,7 @@ import { RepSubscriptionList } from "./WebSocket/Responses/RepSubscriptionList";
 /**
  * Version number for this release.
  */
-export const version = '0.1.7';
+export const version = '0.1.8';
 
 //#region API
 /**
@@ -814,6 +815,7 @@ export {
  * Command responses and content classes.
  */
 export {
+	ContentAudit,
 	ContentCode,
 	ContentCodeCompany,
 	ContentCodeDeleted,
