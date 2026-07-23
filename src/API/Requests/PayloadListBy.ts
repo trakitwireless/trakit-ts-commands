@@ -1,4 +1,4 @@
-import { JsonObject, ulong, utility } from '@trakit/objects';
+import { JsonObject, nothing, ulong, utility } from '@trakit/objects';
 import { Payload } from './Payload';
 
 /**
@@ -9,7 +9,7 @@ export abstract class PayloadListBy extends Payload {
 	 * The maximum number of items to return.
 	 * If not specified, the server will return all.
 	 */
-	limit?: ulong;
+	limit: ulong | nothing;
 
 	constructor(json?: JsonObject) {
 		super(json);

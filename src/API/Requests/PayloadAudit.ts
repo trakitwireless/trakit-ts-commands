@@ -1,6 +1,6 @@
-import { JsonObject, nothing, SyncName, ulong, utility } from "@trakit/objects";
-import { IPaySingle } from "../../API/Requests/IPaySingle";
-import { ActionType, } from "../../API/Requests/Payload";
+import { JsonObject, nothing, SyncName, uint, utility } from "@trakit/objects";
+import { IPaySingle } from "./IPaySingle";
+import { ActionType, } from "./Payload";
 import { PayloadListBy } from "./PayloadListBy";
 
 /**
@@ -16,20 +16,20 @@ export abstract class PayloadAudit extends PayloadListBy implements IPaySingle {
 	 */
 	before: Date;
 	/**
-	 * The lowest ID in the range.
+	 * The lowest version key in the range.
 	 */
-	lowest: ulong | nothing;
+	min: uint | nothing;
 	/**
-	 * The highest ID in the range.
+	 * The highest version key in the range.
 	 */
-	highest: ulong | nothing;
+	max: uint | nothing;
 
 	constructor(json?: JsonObject) {
 		super(json);
 		this.after = utility.date(json?.after as string);
 		this.before = utility.date(json?.before as string);
-		this.lowest = json?.lowest as ulong | nothing;
-		this.highest = json?.highest as ulong | nothing;
+		this.min = json?.min as uint | nothing;
+		this.max = json?.max as uint | nothing;
 	}
 	override toJSON(): JsonObject {
 		const json: JsonObject = {
@@ -37,8 +37,8 @@ export abstract class PayloadAudit extends PayloadListBy implements IPaySingle {
 			after: this.after.toJSON(),
 			before: this.before.toJSON(),
 		};
-		if (utility.isntNaN(this.lowest)) json.lowest = this.lowest;
-		if (utility.isntNaN(this.highest)) json.highest = this.highest;
+		if (utility.isntNaN(this.min)) json.min = this.min;
+		if (utility.isntNaN(this.max)) json.max = this.max;
 		return json;
 	}
 	/**
