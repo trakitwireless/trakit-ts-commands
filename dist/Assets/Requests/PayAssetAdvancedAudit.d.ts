@@ -1,5 +1,4 @@
 import { JsonObject, SyncName } from "@trakit/objects";
-import { IPayListByAsset } from "../../API/Requests/IPayListByAsset";
 import { ParamId } from "../../API/Requests/Parameters/ParamId";
 import { PayloadAudit } from "../../API/Requests/PayloadAudit";
 import { Reply } from "../../API/Responses/Reply";
@@ -7,11 +6,11 @@ import { Reply } from "../../API/Responses/Reply";
  * Gets import { codified } from "@trakit/objects";
 details of the specified {@link AssetAdvanced}.
  */
-export declare class PayAssetAdvancedAudit extends PayloadAudit implements IPayListByAsset {
+export declare class PayAssetAdvancedAudit extends PayloadAudit {
     /**
      *
      */
-    asset: ParamId;
+    assetAdvanced: ParamId;
     constructor(json?: JsonObject);
     /**
      * Overridden to add the object type.

@@ -1,6 +1,6 @@
-import { JsonObject, nothing, SyncName, ulong } from "@trakit/objects";
-import { IPaySingle } from "../../API/Requests/IPaySingle";
-import { ActionType } from "../../API/Requests/Payload";
+import { JsonObject, nothing, SyncName, uint } from "@trakit/objects";
+import { IPaySingle } from "./IPaySingle";
+import { ActionType } from "./Payload";
 import { PayloadListBy } from "./PayloadListBy";
 /**
  * Interface for requests that filter by date.
@@ -9,19 +9,19 @@ export declare abstract class PayloadAudit extends PayloadListBy implements IPay
     /**
      * The start date for the filter.
      */
-    after: Date;
+    after: Date | nothing;
     /**
      * The end date for the filter.
      */
-    before: Date;
+    before: Date | nothing;
     /**
-     * The lowest ID in the range.
+     * The lowest version key in the range.
      */
-    lowest: ulong | nothing;
+    min: uint | nothing;
     /**
-     * The highest ID in the range.
+     * The highest version key in the range.
      */
-    highest: ulong | nothing;
+    max: uint | nothing;
     constructor(json?: JsonObject);
     toJSON(): JsonObject;
     /**
